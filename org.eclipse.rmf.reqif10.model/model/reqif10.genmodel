@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.reqif10.model/src"
+    editDirectory="/org.eclipse.rmf.reqif10.model.edit/src" editorDirectory="/org.eclipse.rmf.reqif10.model.editor/src"
+    modelPluginID="org.eclipse.rmf.reqif10.model" modelName="ReqIf" editPluginClass="org.eclipse.rmf.reqif10.provider.ReqIfEditPlugin"
+    editorPluginClass="org.eclipse.rmf.reqif10.presentation.ReqIfEditorPlugin" testSuiteClass="org.eclipse.rmf.reqif10.tests.ReqIfAllTests"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    editPluginID="org.eclipse.rmf.reqif10.model.edit" editorPluginID="org.eclipse.rmf.reqif10.model.editor">
+  <foreignModel>reqif10.ecore</foreignModel>
+  <genPackages prefix="Reqif10" basePackage="org.eclipse.rmf" resource="XML" disposableProviderFactory="true"
+      ecorePackage="reqif10.ecore#/">
+    <genClasses image="false" ecoreClass="reqif10.ecore#//AccessControlledElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//AccessControlledElement/isEditable"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="reqif10.ecore#//Identifiable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//Identifiable/desc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//Identifiable/identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//Identifiable/lastChange"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//Identifiable/longName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//Identifiable/alternativeId"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeValueXhtml">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//AttributeValueXhtml/isSimplified"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueXhtml/owningDefinition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueXhtml/definition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueXhtml/theOriginalValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueXhtml/theValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="reqif10.ecore#//AttributeValue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValue/specElAt"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="reqif10.ecore#//SpecElementWithAttributes">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//SpecElementWithAttributes/values"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeDefinitionXhtml">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionXhtml/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionXhtml/defaultValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="reqif10.ecore#//AttributeDefinition">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinition/specType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="reqif10.ecore#//SpecType">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//SpecType/coreContent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//SpecType/specAttributes"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//ReqIfContent">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIfContent/documentRoot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIfContent/specObjects"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIfContent/specifications"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIfContent/datatypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIfContent/specRelations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIfContent/specRelationGroups"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIfContent/specTypes"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//ReqIf">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//ReqIf/lang"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIf/theHeader"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIf/toolExtensions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIf/coreContent"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//ReqIfHeader">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//ReqIfHeader/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//ReqIfHeader/creationTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//ReqIfHeader/identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//ReqIfHeader/repositoryId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//ReqIfHeader/reqIfToolId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//ReqIfHeader/reqIfVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//ReqIfHeader/sourceToolId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//ReqIfHeader/title"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIfHeader/documentRoot"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//ReqIfToolExtension">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIfToolExtension/documentRoot"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//SpecObject">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//SpecObject/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//SpecObject/coreContent"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//SpecObjectType"/>
+    <genClasses ecoreClass="reqif10.ecore#//Specification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//Specification/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//Specification/children"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//Specification/coreContent"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//SpecificationType"/>
+    <genClasses ecoreClass="reqif10.ecore#//SpecHierarchy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//SpecHierarchy/isTableInternal"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//SpecHierarchy/object"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//SpecHierarchy/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//SpecHierarchy/children"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//SpecHierarchy/editableAtts"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//SpecHierarchy/root"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="reqif10.ecore#//DatatypeDefinition">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//DatatypeDefinition/coreContent"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//SpecRelation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//SpecRelation/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//SpecRelation/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//SpecRelation/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//SpecRelation/coreContent"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//SpecRelationType"/>
+    <genClasses ecoreClass="reqif10.ecore#//RelationGroup">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//RelationGroup/specRelations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//RelationGroup/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//RelationGroup/sourceSpecification"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//RelationGroup/targetSpecification"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//RelationGroup/coreContent"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//RelationGroupType"/>
+    <genClasses ecoreClass="reqif10.ecore#//DatatypeDefinitionXhtml"/>
+    <genClasses ecoreClass="reqif10.ecore#//AlternativeId">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//AlternativeId/identifier"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//AlternativeId/ident"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeDefinitionBoolean">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionBoolean/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionBoolean/defaultValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="reqif10.ecore#//AttributeDefinitionSimple"/>
+    <genClasses ecoreClass="reqif10.ecore#//DatatypeDefinitionBoolean"/>
+    <genClasses image="false" ecoreClass="reqif10.ecore#//DatatypeDefinitionSimple"/>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeValueBoolean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//AttributeValueBoolean/theValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueBoolean/definition"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueBoolean/owningDefinition"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="reqif10.ecore#//AttributeValueSimple"/>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeDefinitionDate">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionDate/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionDate/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//DatatypeDefinitionDate"/>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeValueDate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//AttributeValueDate/theValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueDate/definition"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueDate/owningDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeDefinitionEnumeration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//AttributeDefinitionEnumeration/multiValued"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionEnumeration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionEnumeration/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//DatatypeDefinitionEnumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//DatatypeDefinitionEnumeration/specifiedValues"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//EnumValue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//EnumValue/properties"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//EnumValue/_"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//EmbeddedValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//EmbeddedValue/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//EmbeddedValue/otherContent"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//EmbeddedValue/enumValue"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeValueEnumeration">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueEnumeration/values"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueEnumeration/definition"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueEnumeration/owningDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeDefinitionInteger">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionInteger/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionInteger/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//DatatypeDefinitionInteger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//DatatypeDefinitionInteger/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//DatatypeDefinitionInteger/min"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeValueInteger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//AttributeValueInteger/theValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueInteger/definition"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueInteger/owningDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeDefinitionReal">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionReal/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionReal/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//DatatypeDefinitionReal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//DatatypeDefinitionReal/accuracy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//DatatypeDefinitionReal/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//DatatypeDefinitionReal/min"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeValueReal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//AttributeValueReal/theValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueReal/definition"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueReal/owningDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeDefinitionString">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionString/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeDefinitionString/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//DatatypeDefinitionString">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//DatatypeDefinitionString/maxLength"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif10.ecore#//AttributeValueString">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//AttributeValueString/theValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueString/definition"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//AttributeValueString/owningDefinition"/>
+    </genClasses>
+    <nestedGenPackages prefix="Datatypes" disposableProviderFactory="true" ecorePackage="reqif10.ecore#//datatypes">
+      <genDataTypes ecoreDataType="reqif10.ecore#//datatypes/DateTime"/>
+      <genDataTypes ecoreDataType="reqif10.ecore#//datatypes/Float"/>
+      <genDataTypes ecoreDataType="reqif10.ecore#//datatypes/Id"/>
+      <genClasses ecoreClass="reqif10.ecore#//datatypes/XhtmlContent">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif10.ecore#//datatypes/XhtmlContent/attributeValue"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
