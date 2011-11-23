@@ -35,11 +35,11 @@ import org.eclipse.emf.edit.provider.ItemProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.util.ConfigAdapterFactory;
+import org.eclipse.rmf.pror.reqif10.datatypes.provider.DatatypesItemProviderAdapterFactory;
+import org.eclipse.rmf.pror.reqif10.provider.Reqif10ItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.testdata.TestData;
 import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.configuration.util.ConfigAdapterFactory;
-import org.eclipse.rmf.reqif10.datatypes.provider.DatatypesItemProviderAdapterFactory;
-import org.eclipse.rmf.reqif10.provider.Reqif10ItemProviderAdapterFactory;
 import org.junit.After;
 import org.junit.Before;
 

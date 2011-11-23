@@ -11,10 +11,10 @@
 package org.eclipse.rmf.pror.reqif10.presentation.service;
 
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.reqif10.util.ConfigurationUtil;
 
 /**
  * This class manages Presentations for open ReqIF Files.

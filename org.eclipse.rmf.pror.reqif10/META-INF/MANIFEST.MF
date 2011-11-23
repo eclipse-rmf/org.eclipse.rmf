@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0
 Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.rmf.reqif10.model;bundle-version="1.0.1";visibility:=reexport,
  org.eclipse.ui.intro;bundle-version="3.4.100"
-Export-Package: org.eclipse.rmf.reqif10.configuration,
- org.eclipse.rmf.reqif10.configuration.impl,
- org.eclipse.rmf.reqif10.configuration.util
+Export-Package: org.eclipse.rmf.pror.reqif10.configuration,
+ org.eclipse.rmf.pror.reqif10.configuration.impl,
+ org.eclipse.rmf.pror.reqif10.configuration.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

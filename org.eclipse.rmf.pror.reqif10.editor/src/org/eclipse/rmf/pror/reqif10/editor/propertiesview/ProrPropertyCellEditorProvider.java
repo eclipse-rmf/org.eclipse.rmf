@@ -22,12 +22,12 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.editor.agilegrid.AbstractProrCellEditorProvider;
 import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationPluginManager;
 import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.agilegrid.AbstractProrCellEditorProvider;
-import org.eclipse.rmf.reqif10.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.reqif10.util.ConfigurationUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
 

@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.rmf.pror.presentation.headline.HeadlineConfiguration;
 import org.eclipse.rmf.pror.presentation.headline.HeadlinePackage;
-import org.eclipse.rmf.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 
 /**
  * <!-- begin-user-doc -->

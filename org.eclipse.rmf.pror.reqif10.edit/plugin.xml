@@ -21,7 +21,7 @@ Contributors:
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.omg.org/spec/ReqIF/20101201"
-            class="org.eclipse.rmf.reqif10.provider.Reqif10ItemProviderAdapterFactory"
+            class="org.eclipse.rmf.pror.reqif10.provider.Reqif10ItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -33,7 +33,7 @@ Contributors:
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http:///reqIf/datatypes.ecore"
-            class="org.eclipse.rmf.reqif10.datatypes.provider.DatatypesItemProviderAdapterFactory"
+            class="org.eclipse.rmf.pror.reqif10.datatypes.provider.DatatypesItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -44,7 +44,7 @@ Contributors:
    <extension
          point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            class="org.eclipse.rmf.reqif10.configuration.provider.ConfigItemProviderAdapterFactory"
+            class="org.eclipse.rmf.pror.reqif10.configuration.provider.ConfigItemProviderAdapterFactory"
             uri="http://pror.org/presentation/configuration"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -56,7 +56,7 @@ Contributors:
    <extension
          point="org.eclipse.rmf.reqif10.resource.reqiftoolextension">
       <reqiftoolextension
-            class="org.eclipse.rmf.reqif10.configuration.impl.ProrToolExtensionImpl">
+            class="org.eclipse.rmf.pror.reqif10.configuration.impl.ProrToolExtensionImpl">
       </reqiftoolextension>
    </extension>
 

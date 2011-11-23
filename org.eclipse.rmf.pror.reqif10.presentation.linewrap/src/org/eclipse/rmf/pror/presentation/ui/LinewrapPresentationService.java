@@ -14,12 +14,12 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.CellEditor;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.service.AbstractPresentationService;
 import org.eclipse.rmf.pror.reqif10.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
-import org.eclipse.rmf.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.util.Reqif10Util;
 
 /**

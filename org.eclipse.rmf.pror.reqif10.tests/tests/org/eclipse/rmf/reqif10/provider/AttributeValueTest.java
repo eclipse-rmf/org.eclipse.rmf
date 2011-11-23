@@ -15,10 +15,10 @@ import static org.junit.Assert.*;
 import java.net.URISyntaxException;
 
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIf;
 import org.eclipse.rmf.reqif10.SpecObject;
-import org.eclipse.rmf.reqif10.util.ProrUtil;
 import org.junit.Test;
 
 /**

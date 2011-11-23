@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapConfiguration;
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapPackage;
-import org.eclipse.rmf.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 
 /**
  * <!-- begin-user-doc -->

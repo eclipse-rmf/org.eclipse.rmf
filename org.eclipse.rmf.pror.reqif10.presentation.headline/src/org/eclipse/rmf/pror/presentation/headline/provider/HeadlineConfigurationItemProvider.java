@@ -29,7 +29,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.presentation.headline.HeadlineConfiguration;
 import org.eclipse.rmf.pror.presentation.headline.HeadlinePackage;
-import org.eclipse.rmf.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
+import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.pror.presentation.headline.HeadlineConfiguration} object.

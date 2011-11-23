@@ -20,6 +20,8 @@ import java.util.Set;
 
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecObjectItemProvider;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.ReqIf;
 import org.eclipse.rmf.reqif10.Reqif10Factory;
@@ -29,7 +31,6 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecType;
-import org.eclipse.rmf.reqif10.util.ProrUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -4,11 +4,11 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.rmf.pror.reqif10.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.eclipse.rmf.reqif10.presentation.Reqif10EditorPlugin$Implementation
+Bundle-Activator: org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10EditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.eclipse.rmf.reqif10.presentation
+Export-Package: org.eclipse.rmf.pror.reqif10.editor.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.ide;visibility:=reexport,
  org.eclipse.ui.forms;bundle-version="3.5.100",

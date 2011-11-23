@@ -13,7 +13,7 @@ package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.Cell;
 import org.agilemore.agilegrid.DefaultLayoutAdvisor;
-import org.eclipse.rmf.reqif10.presentation.Reqif10EditorPlugin;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10EditorPlugin;
 
 public class ProrPropertyLayoutAdvisor extends DefaultLayoutAdvisor {
 

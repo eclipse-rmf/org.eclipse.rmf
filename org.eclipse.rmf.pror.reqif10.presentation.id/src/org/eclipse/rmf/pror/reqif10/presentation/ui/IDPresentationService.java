@@ -19,19 +19,19 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdFactory;
 import org.eclipse.rmf.pror.reqif10.presentation.service.AbstractPresentationService;
 import org.eclipse.rmf.pror.reqif10.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.configuration.ConfigPackage;
-import org.eclipse.rmf.reqif10.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.reqif10.configuration.ProrPresentationConfigurations;
-import org.eclipse.rmf.reqif10.configuration.ProrToolExtension;
-import org.eclipse.rmf.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.util.Reqif10Util;
 
 public class IDPresentationService extends AbstractPresentationService implements PresentationService {

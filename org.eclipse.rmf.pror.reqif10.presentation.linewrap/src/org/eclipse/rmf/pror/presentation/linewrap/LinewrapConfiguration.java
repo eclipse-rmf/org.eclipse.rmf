@@ -11,7 +11,7 @@
 
 package org.eclipse.rmf.pror.presentation.linewrap;
 
-import org.eclipse.rmf.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 
 /**
  * <!-- begin-user-doc -->
