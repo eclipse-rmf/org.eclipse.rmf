@@ -1,0 +1,68 @@
+/*******************************************************************************
+ * Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Michael Jastram - initial API and implementation
+ ******************************************************************************/
+
+package org.eclipse.rmf.reqif10.provider;
+
+import static org.junit.Assert.*;
+
+import java.net.URISyntaxException;
+
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.rmf.reqif10.RelationGroup;
+import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.util.ProrUtil;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * A test case for the model object '<em><b>Relation Group</b></em>'.
+ */
+public class RelationGroupTest extends IdentifiableTest {
+
+	/**
+	 * Returns the fixture for this Relation Group test case.
+	 */
+	@Override
+	protected RelationGroup getFixture() {
+		return (RelationGroup)fixture;
+	}
+
+	/**
+	 * @see junit.framework.TestCase#setUp()
+	 */
+	@Before
+	public void setUpRelationGroupTest() throws Exception {
+		setFixture(Reqif10Factory.eINSTANCE.createRelationGroup());
+	}
+
+	/**
+	 * @see junit.framework.TestCase#tearDown()
+	 */
+	@After
+	public void tearDownRelationGroupTest() throws Exception {
+		setFixture(null);
+	}
+	
+	@Test
+	public void testParentIsVirtual() throws URISyntaxException {
+		ReqIf reqif = getTestReqif("simple.reqif");
+		// Required for generating the Virtual Element lazily.
+		getItemProvider(reqif.getCoreContent()).getChildren(reqif.getCoreContent());
+
+		setViaCommand(reqif.getCoreContent(), Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATION_GROUPS, getFixture());
+		ItemProviderAdapter ip = ProrUtil.getItemProvider(adapterFactory, getFixture());
+		assertTrue(ip.getParent(getFixture()) instanceof VirtualSpecRelationGroupItemProvider);
+	}
+
+} //RelationGroupTest

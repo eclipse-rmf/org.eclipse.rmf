@@ -1,0 +1,80 @@
+/*******************************************************************************
+ * Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Michael Jastram - initial API and implementation
+ ******************************************************************************/
+package org.eclipse.rmf.reqif10.actions;
+
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerFilter;
+import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.presentation.Reqif10Editor;
+import org.eclipse.rmf.reqif10.presentation.SpecificationEditor;
+import org.eclipse.rmf.reqif10.provider.VirtualSpecObjectItemProvider;
+import org.eclipse.rmf.reqif10.provider.VirtualSpecRelationGroupItemProvider;
+import org.eclipse.rmf.reqif10.provider.VirtualSpecRelationsItemProvider;
+import org.eclipse.rmf.reqif10.provider.VirtualSpecificationsItemProvider;
+import org.eclipse.ui.IEditorActionDelegate;
+import org.eclipse.ui.IEditorPart;
+
+public class DatatypeConfigurationActionDelegate implements
+		IEditorActionDelegate {
+
+	private Reqif10Editor editor;
+
+	/**
+	 * Retrieves the {@link EditingDomain} from the Editor if present.
+	 */
+	@Override
+	public void setActiveEditor(IAction action, IEditorPart editor) {
+		if (editor instanceof Reqif10Editor) {
+			this.editor = (Reqif10Editor) editor;
+		} else if (editor instanceof SpecificationEditor) {
+			this.editor = ((SpecificationEditor) editor).getReqifEditor();
+		} else {
+			this.editor = null;
+		}
+	}
+
+	/**
+	 * Opens the {@link ReqIFToolExtension} for the current
+	 * {@link EditingDomain}.
+	 */
+	@Override
+	public void run(IAction action) {
+		if (editor == null)
+			return;
+		ReqIf rif = (ReqIf) editor.getEditingDomain().getResourceSet()
+				.getResources().get(0).getContents().get(0);
+
+		SubtreeDialog dialog = new SubtreeDialog(editor, rif.getCoreContent(),
+				"Datatype Configuration",
+				"org.eclipse.rmf.pror.reqif10.editor.datatypeConfiguration");
+		dialog.addFilter(new ViewerFilter() {
+
+			@Override
+			public boolean select(Viewer viewer, Object parentElement,
+					Object element) {
+				return !(element instanceof VirtualSpecificationsItemProvider
+						|| element instanceof VirtualSpecObjectItemProvider
+						|| element instanceof VirtualSpecRelationsItemProvider
+						|| element instanceof VirtualSpecRelationGroupItemProvider);
+			}
+		});
+		dialog.open();
+	}
+
+	@Override
+	public void selectionChanged(IAction action, ISelection selection) {
+		// No action required.
+	}
+
+}
