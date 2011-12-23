@@ -63,13 +63,16 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 
 	@Override
 	public void createControl(Composite parent) {
-		// Create new ProR Properties Viewer
-		viewer = new ProrPropertyViewer(parent, editingDomain, adapterFactory);
-		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-			public void selectionChanged(SelectionChangedEvent event) {
-				handleEntrySelection(event.getSelection());
-			}
-		});
+		// Create new ProR Properties Viewer if we don't have one yet
+		if (viewer == null) {
+			viewer = new ProrPropertyViewer(parent, editingDomain,
+					adapterFactory);
+			viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+				public void selectionChanged(SelectionChangedEvent event) {
+					handleEntrySelection(event.getSelection());
+				}
+			});
+		}
 	}
 
 	/**
