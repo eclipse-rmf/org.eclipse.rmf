@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: ReqIF Model Test
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.rmf.reqif10.model.test
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
@@ -14,3 +14,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.rmf.reqif10.model;bundle-version="1.0.1",
  org.eclipse.rmf.reqif10.resource;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: %providerName
