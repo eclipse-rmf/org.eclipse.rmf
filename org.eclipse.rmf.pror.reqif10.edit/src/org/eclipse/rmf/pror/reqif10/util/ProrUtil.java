@@ -251,19 +251,29 @@ public final class ProrUtil {
 	 * Creates a command for adding a typed SpecElement. This should work no
 	 * matter what the type is. A correct icon is provided. We return a
 	 * {@link CompoundCommand}, so additional commands can be appended (e.g. for
-	 * SpecHierarchies).  The result index can be adjusted.<p>
-	 */
-	/**
-	 * @param parent The parent of newSpecLement
-	 * @param childFeature The Feature for adding newSpecElement to parent
-	 * @param newSpecElement an instance of the new specElement
-	 * @param typeFeature the feature for adding specType to newSpecElement
-	 * @param specType an instance of the specType to be used for newSpecElement
-	 * @param index The index for the position of newSpecElement under parent
-	 * @param resultIndex The index of the command to be used for affected Elements
-	 * 		  (the resulting CompoundCommand already contains 3 commands)
-	 * @param domain the EditingDomain
-	 * @param adapterFactory the AdapterFactory
+	 * SpecHierarchies). The result index can be adjusted.
+	 * <p>
+	 * 
+	 * @param parent
+	 *            The parent of newSpecLement
+	 * @param childFeature
+	 *            The Feature for adding newSpecElement to parent
+	 * @param newSpecElement
+	 *            an instance of {@link SpecElementWithAttributes} that will be
+	 *            typed.
+	 * @param typeFeature
+	 *            the feature for adding specType to newSpecElement
+	 * @param specType
+	 *            an instance of the specType to be used for newSpecElement
+	 * @param index
+	 *            The index for the position of newSpecElement under parent
+	 * @param resultIndex
+	 *            The index of the command to be used for affected Elements (the
+	 *            resulting CompoundCommand already contains 3 commands)
+	 * @param domain
+	 *            the EditingDomain
+	 * @param adapterFactory
+	 *            the AdapterFactory
 	 * @return
 	 */
 	public static CompoundCommand createAddTypedElementCommand(Object parent,

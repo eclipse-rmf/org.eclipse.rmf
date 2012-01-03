@@ -30,6 +30,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -50,6 +51,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrAgileGridContentProvider.ProrRow;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.Reqif10Factory;
 import org.eclipse.rmf.reqif10.Reqif10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
@@ -157,36 +159,47 @@ public class ProrAgileGridViewer extends Viewer {
 	 * it.
 	 */
 	private void insertNewRowAndEdit(SpecHierarchy specHierarchy) {
-		EReference feature;
-		int pos;
-		if (specHierarchy.eContainer() instanceof SpecHierarchy) {
-			feature = Reqif10Package.Literals.SPEC_HIERARCHY__CHILDREN;
-			pos = ((SpecHierarchy) specHierarchy.eContainer()).getChildren()
-					.indexOf(specHierarchy) + 1;
-		} else {
-			feature = Reqif10Package.Literals.SPECIFICATION__CHILDREN;
-			pos = ((Specification) specHierarchy.eContainer())
-					.getChildren().indexOf(specHierarchy) + 1;
+		// Won't do anything if there is no object
+		if (specHierarchy.getObject() == null
+				|| specHierarchy.getObject().getType() == null) {
+			return;
 		}
 
-		CompoundCommand cmd = new CompoundCommand("Inserting new Row of same type");
+		// Create the new elements
 		SpecHierarchy newSpecHierarchy = Reqif10Factory.eINSTANCE.createSpecHierarchy();
 		SpecObject newSpecObject = Reqif10Factory.eINSTANCE.createSpecObject();
-		cmd.append(AddCommand.create(editingDomain, Reqif10Util.getReqIf(specHierarchy).getCoreContent(),
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS, newSpecObject));
-		cmd.append(SetCommand.create(editingDomain, newSpecHierarchy,
-				Reqif10Package.Literals.SPEC_HIERARCHY__OBJECT, newSpecObject));
-		cmd.append(SetCommand.create(editingDomain, newSpecObject,
-				Reqif10Package.Literals.SPEC_OBJECT__TYPE, specHierarchy
-						.getObject().getType()));
+		newSpecHierarchy.setObject(newSpecObject);
+		
+		EReference childFeature;
+		int pos;
+		EObject parent = specHierarchy.eContainer();
+		if (parent instanceof SpecHierarchy) {
+			childFeature = Reqif10Package.Literals.SPEC_HIERARCHY__CHILDREN;
+			pos = ((SpecHierarchy) specHierarchy.eContainer()).getChildren()
+					.indexOf(specHierarchy) + 1;
+		} else if (parent instanceof Specification) {
+			childFeature = Reqif10Package.Literals.SPECIFICATION__CHILDREN;
+			pos = ((Specification) specHierarchy.eContainer())
+					.getChildren().indexOf(specHierarchy) + 1;
+		} else {
+			throw new IllegalStateException("Wrong parent: " + parent);
+		}
+
+		CompoundCommand cmd = ProrUtil.createAddTypedElementCommand(Reqif10Util
+				.getReqIf(specHierarchy).getCoreContent(),
+				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
+				newSpecObject, Reqif10Package.Literals.SPEC_OBJECT__TYPE,
+				specHierarchy.getObject().getType(), -1, -1, editingDomain,
+				adapterFactory);
+		
 		cmd.append(AddCommand.create(editingDomain, specHierarchy.eContainer(),
-				feature, newSpecHierarchy, pos));
+				childFeature, newSpecHierarchy, pos));
 		
 		editingDomain.getCommandStack().execute(cmd);
 
-		// TODO this doesn't work yet!
-//		Cell activeCell = agileGrid.getCellSelection()[0];
-//		agileGrid.editCell(activeCell.row + 1, activeCell.column);
+		Cell activeCell = agileGrid.getCellSelection()[0];
+		// TODO does not work when element is followed by children.
+		agileGrid.editCell(activeCell.row + 1, activeCell.column);
 	}
 
 	@Override

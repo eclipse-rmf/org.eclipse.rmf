@@ -302,9 +302,23 @@ public class SpecHierarchyItemProvider
 	}
 
 	/**
+	 * <p>
+	 * In addition to the regular functionality (creating a SpecHierarchy child
+	 * object), this method allows a SpecObject or a SpecType as an argument:
+	 * </p>
+	 * 
 	 * Note that this is almost the same as
 	 * {@link SpecificationItemProvider#createCreateChildCommand(EditingDomain, EObject, EStructuralFeature, Object, int, Collection)}
 	 * .
+	 * 
+	 * @param value
+	 *            instanceof {@link SpecType}: A new SpecObject with the given
+	 *            SpecType is created, and a SpecHierarchy is added that is
+	 *            associated with the newly created SpecObject.
+	 * 
+	 * @param value
+	 *            instanceof {@link SpecObject}: The SpecObject is added to a
+	 *            new SpecHierarchy, which is then added.
 	 */
 	@Override
 	protected Command createCreateChildCommand(EditingDomain domain,
