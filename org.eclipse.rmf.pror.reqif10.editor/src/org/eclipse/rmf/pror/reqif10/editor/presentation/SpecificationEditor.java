@@ -356,6 +356,8 @@ public class SpecificationEditor extends EditorPart implements
 	 */
 	@Override
 	public void dispose() {
+		prorAgileGridViewer.dispose();
+
 		if (selectionChangedListener != null) {
 			prorAgileGridViewer.removeSelectionChangedListener(selectionChangedListener);
 			selectionChangedListener = null;
@@ -376,7 +378,7 @@ public class SpecificationEditor extends EditorPart implements
 		if (reqifEditor.getActionBarContributor().getActiveEditor() == this) {
 			reqifEditor.getActionBarContributor().setActiveEditor(null);
 		}
-
+	
 		super.dispose();
 	}
 

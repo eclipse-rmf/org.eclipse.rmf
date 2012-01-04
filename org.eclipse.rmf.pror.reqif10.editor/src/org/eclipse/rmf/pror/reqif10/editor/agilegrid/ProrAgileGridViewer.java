@@ -74,7 +74,6 @@ import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Widget;
 
@@ -256,6 +255,20 @@ public class ProrAgileGridViewer extends Viewer {
 		registerSpecRelationListener();
 	}
 
+	/**
+	 * Explicit cleanup to prevent strange errors.
+	 */
+	public void dispose() {
+		unregisterColumnListener();
+		unregisterSelectionChangedListener();
+		unregisterSpecHierarchyListener();
+		unregisterSpecRelationListener();
+		if (!agileGrid.isDisposed()) {
+			agileGrid.dispose();
+		}
+
+	}
+
 	private void unregisterColumnListener() {
 		if (emfColumnListener != null)
 			specViewConfig.eAdapters().remove(emfColumnListener);
@@ -369,7 +382,7 @@ public class ProrAgileGridViewer extends Viewer {
 	}
 
 	private void unregisterSelectionChangedListener() {
-		if (selectionChangedistener != null)
+		if (selectionChangedistener != null && ! agileGrid.isDisposed())
 			agileGrid.removeSelectionChangedListener(selectionChangedistener);
 	}
 
