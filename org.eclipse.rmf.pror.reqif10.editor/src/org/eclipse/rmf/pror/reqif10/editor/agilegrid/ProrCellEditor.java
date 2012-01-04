@@ -15,6 +15,7 @@ import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.util.Reqif10Util;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
@@ -94,12 +95,24 @@ public abstract class ProrCellEditor extends TextCellEditor {
 	}
 
 	/**
+	 * Returns the current {@link SpecHierarchy} to which the edited cell belongs.
+	 */
+	protected SpecHierarchy getSpecHierarchy() {
+		ProrAgileGridContentProvider provider = (ProrAgileGridContentProvider) getAgileGrid().getContentProvider();
+		SpecHierarchy specHierarchy = provider.getProrRow(cell.row).getSpecHierarchy();
+		return specHierarchy;
+	}
+
+	/**
 	 * This method "translates" from the editor value (which is a String) to the
 	 * Model (which is an AttributeValue). As a side effect (and not very
 	 * intuitive, but the best option), the method also sets the new value via a
-	 * command.
+	 * command. Note that the command should also set the corresponding
+	 * {@link SpecHierarchy} as the affected element (use
+	 * {@link #getSpecHierarchy()}).
 	 * <p>
-	 * The actual String in the cell can be accessed via {@link TextCellEditor#text}.
+	 * The actual String in the cell can be accessed via
+	 * {@link TextCellEditor#text}.
 	 * 
 	 * @return the correct value of type {@link AttributeValue}.
 	 */

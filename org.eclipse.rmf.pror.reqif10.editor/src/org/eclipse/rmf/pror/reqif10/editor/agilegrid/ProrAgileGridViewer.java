@@ -74,6 +74,7 @@ import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Widget;
 
@@ -197,14 +198,14 @@ public class ProrAgileGridViewer extends Viewer {
 		
 		editingDomain.getCommandStack().execute(cmd);
 
-		Cell activeCell = agileGrid.getCellSelection()[0];
-		
 		// The row to be edited may be further down due to indenting.
+		Cell activeCell = agileGrid.getCellSelection()[0];
 		int row = activeCell.row + 1;
 		while (contentProvider.getProrRow(row).getSpecHierarchy() != newSpecHierarchy) {
 			row++;
 		}
 		agileGrid.editCell(row, activeCell.column);
+				
 	}
 
 	@Override
@@ -495,7 +496,10 @@ public class ProrAgileGridViewer extends Viewer {
 		// selection event. This is a reason why we introduced #settingSelection
 		// to ignore further selection events when we are updating.
 		if (cellArray.length > 0) {
-			agileGrid.focusCell(cellArray[0]);
+			// We do not want to interrupt editing
+			if (! agileGrid.isCellEditorActive()) {
+				agileGrid.focusCell(cellArray[0]);				
+			}
 			agileGrid.selectCells(cellArray);
 		}
 

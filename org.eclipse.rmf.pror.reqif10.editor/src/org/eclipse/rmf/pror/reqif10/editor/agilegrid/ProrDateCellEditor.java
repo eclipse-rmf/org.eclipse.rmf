@@ -54,7 +54,7 @@ public class ProrDateCellEditor extends ProrCellEditor {
 	protected Object doGetValue() {
 		try {
 			XMLGregorianCalendar value = stingToCalendar(text.getText());
-			ProrUtil.setTheValue(attributeValue, value, editingDomain);
+			ProrUtil.setTheValue(attributeValue, value, getSpecHierarchy(), editingDomain);
 		} catch (ParseException e) {
 			e.toString();
 			// No action necessary, we simply restore the old value.

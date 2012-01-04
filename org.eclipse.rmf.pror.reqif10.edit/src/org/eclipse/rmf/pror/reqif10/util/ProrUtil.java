@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
@@ -168,6 +169,31 @@ public final class ProrUtil {
 		EStructuralFeature feature = Reqif10Util.getTheValueFeature(av);
 		Command cmd = SetCommand.create(ed, av, feature, value);
 		ed.getCommandStack().execute(cmd);
+	}
+
+	/**
+	 * Sets the value of the given {@link AttributeValue}. This helper method
+	 * exists to work around the lack of inheritance in the
+	 * {@link AttributeValue} setValue() infrastructure. In addition, it takes a
+	 * {@link SpecHierarchy} as an argument that is being used as the affected
+	 * object.
+	 */
+	public static void setTheValue(final AttributeValue av, Object value, final SpecHierarchy affectedObject,
+			EditingDomain ed) {
+		EStructuralFeature feature = Reqif10Util.getTheValueFeature(av);
+		Command cmd = SetCommand.create(ed, av, feature, value);
+
+		Command cmd2 = new CommandWrapper(cmd) {
+			@SuppressWarnings({ "unchecked", "rawtypes" })
+			@Override
+			public Collection<?> getAffectedObjects() {
+				List list = new ArrayList();
+				list.add(affectedObject);
+				return list;
+			}
+		};
+
+		ed.getCommandStack().execute(cmd2);
 	}
 
 	/**

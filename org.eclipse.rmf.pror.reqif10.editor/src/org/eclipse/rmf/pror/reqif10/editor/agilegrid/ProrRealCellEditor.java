@@ -46,7 +46,7 @@ public class ProrRealCellEditor extends ProrCellEditor {
 	protected Object doGetValue() {
 		try {
 			Double value = new Double(text.getText());
-			ProrUtil.setTheValue(attributeValue, value, editingDomain);
+			ProrUtil.setTheValue(attributeValue, value, getSpecHierarchy(), editingDomain);
 		} catch (NumberFormatException e) {
 			// No action necessary, we simply restore the old value.
 		}		

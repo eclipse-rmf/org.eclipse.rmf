@@ -50,7 +50,7 @@ public class ProrIntegerCellEditor extends ProrCellEditor {
 	protected Object doGetValue() {
 		try {
 			BigInteger value = new BigInteger(text.getText());
-			ProrUtil.setTheValue(attributeValue, value, editingDomain);
+			ProrUtil.setTheValue(attributeValue, value, getSpecHierarchy(), editingDomain);
 		} catch (NumberFormatException e) {
 			// No action necessary, we simply restore the old value.
 		}		
