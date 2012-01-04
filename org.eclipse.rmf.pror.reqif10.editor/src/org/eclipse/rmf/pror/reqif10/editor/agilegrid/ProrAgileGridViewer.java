@@ -198,8 +198,13 @@ public class ProrAgileGridViewer extends Viewer {
 		editingDomain.getCommandStack().execute(cmd);
 
 		Cell activeCell = agileGrid.getCellSelection()[0];
-		// TODO does not work when element is followed by children.
-		agileGrid.editCell(activeCell.row + 1, activeCell.column);
+		
+		// The row to be edited may be further down due to indenting.
+		int row = activeCell.row + 1;
+		while (contentProvider.getProrRow(row).getSpecHierarchy() != newSpecHierarchy) {
+			row++;
+		}
+		agileGrid.editCell(row, activeCell.column);
 	}
 
 	@Override
