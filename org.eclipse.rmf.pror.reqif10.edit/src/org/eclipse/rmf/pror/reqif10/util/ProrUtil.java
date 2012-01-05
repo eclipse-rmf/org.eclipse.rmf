@@ -179,7 +179,7 @@ public final class ProrUtil {
 	 * {@link SpecHierarchy} as an argument that is being used as the affected
 	 * object.
 	 */
-	public static void setTheValue(final AttributeValue av, Object value, final SpecHierarchy affectedObject,
+	public static void setTheValue(final AttributeValue av, Object value, final Object affectedObject,
 			EditingDomain ed) {
 		EStructuralFeature feature = Reqif10Util.getTheValueFeature(av);
 		Command cmd = SetCommand.create(ed, av, feature, value);
