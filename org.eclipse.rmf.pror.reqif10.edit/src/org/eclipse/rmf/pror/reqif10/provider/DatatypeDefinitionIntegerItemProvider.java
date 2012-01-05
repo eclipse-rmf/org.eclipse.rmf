@@ -130,14 +130,11 @@ public class DatatypeDefinitionIntegerItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DatatypeDefinitionInteger)object).getLongName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DatatypeDefinitionInteger_type") :
-			getString("_UI_DatatypeDefinitionInteger_type") + " " + label;
+		return super.getText(object);
 	}
 
 	/**

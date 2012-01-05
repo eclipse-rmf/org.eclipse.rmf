@@ -222,18 +222,6 @@ public final class ProrUtil {
 	}
 	
 	/**
-	 * Returns the parent of obj according to the data model.
-	 * 
-	 * @return the parent, or null if it cannot be found or doesn't exist.
-	 */
-	private static Object getParent(Object obj) {
-		if (!(obj instanceof EObject))
-			return null;
-		EObject eobj = (EObject) obj;
-		return eobj.eContainer();
-	}
-
-	/**
 	 * Collects NewChildDescriptors for the creation of new Elements for
 	 * SpecElements that are already typed. These should be hooked into the
 	 * various methods of the ItemProviders for SpecObject, SpecHierarchy,
@@ -566,6 +554,36 @@ public final class ProrUtil {
 				relations);
 	}
 		
-
+	/**
+	 * This class reflectively looks for the given postfix and removes it from the classname of the given object.
+	 * Should the result contain camel case, then spaces will be inserted.<p>
+	 * 
+	 * If the postfix does not match, the simple class name is returned.<p>
+	 * 
+	 * If obj is null, the empty string is returned.<p>
+	 * 
+	 * The idea is that in some places, it is convenient to extract information directly from
+	 * the CamelCased classname, e.g. SpecRelationTypeItemProvider => "Spec Relation Type".
+	 */
+	public static String substractPrefixPostfix(Object obj, String prefix, String suffix) {
+		if (obj == null) {
+			return "";
+		}
+		String className = obj.getClass().getSimpleName();
+		if (!className.startsWith(suffix) && !className.endsWith(suffix)) {
+			return className;
+		}
+		String name = className.substring(prefix.length(), className.length()
+				- suffix.length());
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < name.length(); i++) {
+			char c = name.charAt(i);
+			if (i !=0 && Character.isUpperCase(c)) {
+				sb.append(' ');
+			}
+			sb.append(c);
+		}
+		return sb.toString();
+	}
 
 }

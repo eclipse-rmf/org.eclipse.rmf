@@ -128,14 +128,16 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
+		String typeName = ProrUtil.substractPrefixPostfix(object, "", "TypeImpl");
 		String label = ((SpecType)object).getLongName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SpecType_type") :
-			getString("_UI_SpecType_type") + " " + label;
+		label = label == null || label.length() == 0 ?
+			getString("_UI_Unnamed_Element") :
+			label;
+		return label + " (" + typeName + ")";
 	}
 
 	/**

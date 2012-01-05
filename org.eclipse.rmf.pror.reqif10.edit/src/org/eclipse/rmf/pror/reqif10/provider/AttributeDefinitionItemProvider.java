@@ -26,6 +26,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.Reqif10Package;
 
@@ -34,7 +35,7 @@ import org.eclipse.rmf.reqif10.Reqif10Package;
  * {@link org.eclipse.rmf.reqif10.AttributeDefinition} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
  * 
- * @generated
+ * @generated NOT
  */
 public class AttributeDefinitionItemProvider extends
 		AccessControlledElementItemProvider implements
@@ -88,12 +89,14 @@ public class AttributeDefinitionItemProvider extends
 	 */
 	@Override
 	public String getText(Object object) {
+		String typeName = ProrUtil.substractPrefixPostfix(object, "AttributeDefinition", "Impl");
 		String label = ((AttributeDefinition)object).getLongName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AttributeDefinition_type") :
-			getString("_UI_AttributeDefinition_type") + " " + label;
+		label = label == null || label.length() == 0 ?
+			getString("_UI_Unnamed_Element") :
+			label;
+		return label + " (" + typeName + ")";
 	}
-
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to
 	 * update any cached children and by creating a viewer notification, which

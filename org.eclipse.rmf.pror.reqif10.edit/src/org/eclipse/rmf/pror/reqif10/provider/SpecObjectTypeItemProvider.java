@@ -17,15 +17,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
-import org.eclipse.rmf.reqif10.SpecObjectType;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.SpecObjectType} object.
@@ -80,14 +77,11 @@ public class SpecObjectTypeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SpecObjectType)object).getLongName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SpecObjectType_type") :
-			getString("_UI_SpecObjectType_type") + " " + label;
+		return super.getText(object);
 	}
 
 	/**

@@ -163,14 +163,11 @@ public class AttributeDefinitionEnumerationItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AttributeDefinitionEnumeration)object).getLongName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AttributeDefinitionEnumeration_type") :
-			getString("_UI_AttributeDefinitionEnumeration_type") + " " + label;
+		return super.getText(object);
 	}
 
 	/**
