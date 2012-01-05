@@ -16,7 +16,6 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.ICellEditorValidator;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.SpecHierarchy;
 
 public class ProrStringCellEditor extends ProrCellEditor {
 
