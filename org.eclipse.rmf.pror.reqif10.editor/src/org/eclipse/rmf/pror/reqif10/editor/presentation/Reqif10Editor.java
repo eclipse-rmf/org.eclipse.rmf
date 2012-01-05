@@ -1040,7 +1040,7 @@ public class Reqif10Editor
 		reqif = (ReqIf) resource.getContents().get(0);
 
 		// TODO there must be a better place?
-		PresentationManager.notifiyOpenReqif(reqif);
+		PresentationManager.notifiyOpenReqif(reqif, editingDomain);
 		return reqif;
 	}
 	

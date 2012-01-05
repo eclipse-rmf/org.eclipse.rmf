@@ -58,7 +58,7 @@ public class PresentationConfigurationActionDelegate implements
 		if (editor == null)
 			return;
 		SubtreeDialog dialog = new SubtreeDialog(editor, ConfigurationUtil
-				.getProrToolExtension(editor.getReqif())
+				.getProrToolExtension(editor.getReqif(), editor.getEditingDomain())
 				.getPresentationConfigurations(), "Presentation Configuration",
 				"org.eclipse.rmf.pror.reqif10.editor.presentationConfiguration");
 		dialog.setActions(buildAddPresentationActions(editor.getReqif()), true);
@@ -67,7 +67,7 @@ public class PresentationConfigurationActionDelegate implements
 
 	private IAction[] buildAddPresentationActions(ReqIf reqif) {
 		final ProrToolExtension ext = ConfigurationUtil
-				.getProrToolExtension(reqif);
+				.getProrToolExtension(reqif, editor.getEditingDomain());
 
 		Set<Class<? extends ProrPresentationConfiguration>> configs = PresentationPluginManager
 				.getPresentationServiceMap().keySet();

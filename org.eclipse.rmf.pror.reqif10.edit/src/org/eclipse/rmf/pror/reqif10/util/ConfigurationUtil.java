@@ -41,11 +41,11 @@ public class ConfigurationUtil {
 	 *         {@link DatatypeDefinition} or null if none is configured.
 	 */
 	public static ProrPresentationConfiguration getConfiguration(
-			DatatypeDefinition datatypeDefinition) {
+			DatatypeDefinition datatypeDefinition, EditingDomain domain) {
 		ReqIf reqif = Reqif10Util.getReqIf(datatypeDefinition);
 		if (reqif == null)
 			return null;
-		ProrPresentationConfigurations extensions = getProrToolExtension(reqif)
+		ProrPresentationConfigurations extensions = getProrToolExtension(reqif, domain)
 				.getPresentationConfigurations();
 		if (extensions == null)
 			return null;
@@ -62,7 +62,7 @@ public class ConfigurationUtil {
 	 * {@link ReqIF}.  If it doesn't exist yet, null is returned.
 	 * <p>
 	 */
-	public static ProrToolExtension getProrToolExtension(ReqIf reqif) {
+	private static ProrToolExtension getProrToolExtension(ReqIf reqif) {
 		EList<ReqIfToolExtension> extensions = reqif.getToolExtensions();
 		for (ReqIfToolExtension extension : extensions) {
 			if (extension instanceof ProrToolExtension) {
@@ -77,7 +77,7 @@ public class ConfigurationUtil {
 	 * {@link ReqIF}.  If it doesn't exist yet, it is created.
 	 * <p>
 	 */
-	static ProrToolExtension getProrToolExtension(ReqIf reqif, EditingDomain domain) {
+	public static ProrToolExtension getProrToolExtension(ReqIf reqif, EditingDomain domain) {
 		ProrToolExtension extension = getProrToolExtension(reqif);
 		if (extension != null) return extension;
 		
@@ -226,7 +226,7 @@ public class ConfigurationUtil {
 
 	public static ProrPresentationConfiguration getPresentationConfig(AttributeValue value, EditingDomain domain) {
 		DatatypeDefinition dd = Reqif10Util.getDatatypeDefinition(value);
-		ProrPresentationConfiguration config = getConfiguration(dd);
+		ProrPresentationConfiguration config = getConfiguration(dd, domain);
 		return config;
 	}
 

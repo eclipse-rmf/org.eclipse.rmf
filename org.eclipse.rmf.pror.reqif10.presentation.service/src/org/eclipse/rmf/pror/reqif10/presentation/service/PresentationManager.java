@@ -30,11 +30,11 @@ public class PresentationManager {
 	 * TODO We call this when the Editor is opened, but there must be a better
 	 * way to do it (register a notifier somewhere...)
 	 */
-	public static void notifiyOpenReqif(ReqIf reqif) {
+	public static void notifiyOpenReqif(ReqIf reqif, EditingDomain domain) {
 
 		for (PresentationService service : PresentationPluginManager
 				.getPresentationServiceMap().values()) {
-			service.openReqif(reqif);
+			service.openReqif(reqif, domain);
 		}
 
 	}

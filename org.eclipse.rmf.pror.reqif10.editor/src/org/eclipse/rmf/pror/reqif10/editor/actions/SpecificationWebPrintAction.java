@@ -135,7 +135,7 @@ public class SpecificationWebPrintAction extends Action {
 							specObject, col.getLabel());
 					DatatypeDefinition dd = Reqif10Util.getDatatypeDefinition(av);
 					ProrPresentationConfiguration configuration = ConfigurationUtil
-							.getConfiguration(dd);
+							.getConfiguration(dd, editingDomain);
 					if (configuration != null) {
 						PresentationService service = PresentationPluginManager.getPresentationService(configuration);
 						if (service != null)

@@ -93,14 +93,8 @@ public interface PresentationService {
 	 * Presentation is associated with multiple {@link DatatypeDefinition}s.
 	 * 
 	 * TODO still true?
-	 * <p>
-	 * 
-	 * It is highly recommended - for now - to make sure that the rif has at
-	 * least one {@link ProRPresentationConfiguration} element, and if it
-	 * doesn't, to create one. Currently there is no other way of creating one
-	 * (short of editing the XML).
 	 */
-	public void openReqif(ReqIf rif);
+	public void openReqif(ReqIf reqif, EditingDomain domain);
 
 	/**
 	 * Will be called when the system can't handle a drag and drop operation by

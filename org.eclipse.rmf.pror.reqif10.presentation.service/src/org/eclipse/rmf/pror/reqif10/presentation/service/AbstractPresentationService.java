@@ -32,7 +32,7 @@ public abstract class AbstractPresentationService extends AdapterImpl implements
 	public abstract ProrPresentationConfiguration getConfigurationInstance();
 
 	@Override
-	public void openReqif(ReqIf rif) {
+	public void openReqif(ReqIf reqif, EditingDomain domain) {
 	}
 
 	@Override
