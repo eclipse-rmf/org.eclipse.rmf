@@ -340,7 +340,7 @@ public class SpecificationEditor extends EditorPart implements
 	 */
 	@Override
 	public boolean isSaveAsAllowed() {
-		return true;
+		return false;
 	}
 
 	/**
@@ -394,4 +394,11 @@ public class SpecificationEditor extends EditorPart implements
 		prorAgileGridViewer.setShowSpecRelations(checked);
 	}
 
+	/**
+	 * Only the "Main" Editor ({@link Reqif10Editor}) requires saving.
+	 */
+	@Override
+	public boolean isSaveOnCloseNeeded() {
+		return false;
+	}
 }
