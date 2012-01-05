@@ -25,6 +25,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.DragAndDropFeedback;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -359,6 +360,24 @@ public class SpecHierarchyItemProvider
 		
 		return super.createCreateChildCommand(domain, owner, feature, value, index,
 				collection);
+	}
+	
+	/**
+	 * Handles link-operations by creating SpecRelations.
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain,
+			Object owner, float location, int operations, int operation,
+			Collection<?> collection) {
+
+		// Create a SpecRelation on Linking
+		if (operation == DragAndDropFeedback.DROP_LINK) {
+			return ProrUtil.createCreateSpecRelationsCommand(domain, collection, owner);
+		}
+
+		// Otherwise default behavior
+		return super.createDragAndDropCommand(domain, owner, location, operations,
+				operation, collection);
 	}
 
 }

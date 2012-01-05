@@ -20,6 +20,7 @@ import java.util.Set;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -525,6 +526,44 @@ public final class ProrUtil {
 			throw new IllegalArgumentException("Type not supported: "
 					+ attributeDefinition);
 		}
+	}
+
+	/**
+	 * Builds a command that creates new {@link SpecRelation}s between the given sources and target.
+	 * Both, source and target can be {@link SpecObject}s and {@link SpecHierarchy}s.  
+	 */
+	public static Command createCreateSpecRelationsCommand(
+			EditingDomain domain, Collection<?> sources, Object target) {
+
+		// Find the target SpecObject
+		SpecObject targetObject = null;
+		if (target instanceof SpecObject) {
+			targetObject = (SpecObject) target;
+		} else if (target instanceof SpecHierarchy) {
+			targetObject = ((SpecHierarchy)target).getObject();
+		}
+		if (targetObject == null) {
+			return UnexecutableCommand.INSTANCE;
+		}
+		
+		ReqIfContent content = Reqif10Util.getReqIf(targetObject).getCoreContent();
+		ArrayList<SpecRelation> relations = new ArrayList<SpecRelation>();
+
+		for (Object source : sources) {
+			if (source instanceof SpecHierarchy) {
+				source = ((SpecHierarchy)source).getObject();
+			}
+			if (source instanceof SpecObject) {
+				SpecObject sourceObject = (SpecObject)source;
+				SpecRelation relation = Reqif10Factory.eINSTANCE.createSpecRelation();
+				relation.setSource(sourceObject);
+				relation.setTarget(targetObject);
+				relations.add(relation);
+			}
+		}
+		return AddCommand.create(domain, content,
+				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS,
+				relations);
 	}
 		
 

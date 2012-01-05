@@ -15,6 +15,7 @@ package org.eclipse.rmf.pror.reqif10.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -23,6 +24,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.command.DragAndDropFeedback;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -209,6 +212,24 @@ public class SpecObjectItemProvider
 				.getItemProvider(adapterFactory, content);
 		return reqifContentProvider != null ? reqifContentProvider
 				.getVirtualSpecObjects(content) : null;
+	}
+	
+	/**
+	 * Handles link-operations by creating SpecRelations.
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain,
+			Object owner, float location, int operations, int operation,
+			Collection<?> collection) {
+
+		// Create a SpecRelation on Linking
+		if (operation == DragAndDropFeedback.DROP_LINK) {
+			return ProrUtil.createCreateSpecRelationsCommand(domain, collection, owner);
+		}
+
+		// Otherwise default behavior
+		return super.createDragAndDropCommand(domain, owner, location, operations,
+				operation, collection);
 	}
 
 }
