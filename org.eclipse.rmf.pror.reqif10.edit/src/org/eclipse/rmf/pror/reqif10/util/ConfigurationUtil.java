@@ -228,7 +228,6 @@ public class ConfigurationUtil {
 		}
 		
 		// Build all Columns from the names
-		final Set<Column> columns = new HashSet<Column>();
 		for (String colname : colnames) {
 			Column column = ConfigFactory.eINSTANCE.createColumn();
 			column.setWidth(100);
@@ -240,8 +239,8 @@ public class ConfigurationUtil {
 						AddCommand
 								.create(domain,
 										extension,
-										ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
-										columns));
+										ConfigPackage.Literals.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS,
+										specViewConfig));
 
 		return specViewConfig;
 	}
