@@ -28,6 +28,7 @@ import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationPluginManag
 import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
 
@@ -74,10 +75,14 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 	@Override
 	public CellEditor getCellEditor(int row, int col, Object hint) {
 
+		// Get the correct celleditor
+
 		AttributeValue attrValue = getAttributeValue(row, col);
 
 		CellEditor cellEditor = null;
 
+		// If the attribute is a reqif attribute (an attribute value exists),
+		// when try to get the presentation service
 		if (attrValue != null) {
 
 			ProrPresentationConfiguration config = ConfigurationUtil
@@ -92,24 +97,28 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 			if (cellEditor == null)
 				cellEditor = getDefaultCellEditor(attrValue);
 
-		} else {
-			
+		} else { // If the attribute is an EMF attribute (no attribute value
+					// exists) return a default celleditor
+
 			final IItemPropertyDescriptor descriptor = this.contentProvider
 					.getItemPropertyDescriptor(row);
 			
+			Identifiable selectedSpecElement = this.contentProvider.getSpecElement();
+			
 			Collection<?> collection = descriptor
-					.getChoiceOfValues(this.contentProvider.getSpecElement());
-
-
+					.getChoiceOfValues(selectedSpecElement);
 
 			if (collection != null) { // Multivalue --> combobox celleditor
-
 				final ArrayList<String> strList = new ArrayList<String>();
 				final ArrayList<Object> objList = new ArrayList<Object>();
+				// Add a null entry. This is particularly fatal when no entries
+				// exist, i.e. the user opens a dropdown that has no entries.
+				strList.add("");
+				objList.add(null);
 				for (Object o : collection) {
 					if (o != null) {
 						String str = descriptor.getLabelProvider(
-								this.contentProvider.getSpecElement())
+								selectedSpecElement)
 								.getText(o);
 						objList.add(o);
 						strList.add(str);
@@ -121,7 +130,6 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 
 					@Override
 					protected Object doGetValue() {
-						// Object value = super.doGetValue();
 						CCombo combo = (CCombo) getControl();
 						int selectionIndex = combo.getSelectionIndex();
 						sendCommand(objList.get(selectionIndex),
