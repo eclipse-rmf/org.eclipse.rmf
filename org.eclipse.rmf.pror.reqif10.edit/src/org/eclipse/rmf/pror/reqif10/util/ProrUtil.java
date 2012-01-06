@@ -558,6 +558,8 @@ public final class ProrUtil {
 	 * This class reflectively looks for the given postfix and removes it from the classname of the given object.
 	 * Should the result contain camel case, then spaces will be inserted.<p>
 	 * 
+	 * If obj is itself a {@link Class}, its simple name is used directly. 
+	 * 
 	 * If the postfix does not match, the simple class name is returned.<p>
 	 * 
 	 * If obj is null, the empty string is returned.<p>
@@ -569,7 +571,9 @@ public final class ProrUtil {
 		if (obj == null) {
 			return "";
 		}
-		String className = obj.getClass().getSimpleName();
+		
+		String className = obj instanceof Class ? ((Class<?>) obj).getSimpleName()
+				: obj.getClass().getSimpleName();
 		if (!className.startsWith(suffix) && !className.endsWith(suffix)) {
 			return className;
 		}
