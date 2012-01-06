@@ -14,19 +14,22 @@ import java.util.Set;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10Editor;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationPluginManager;
 import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 
@@ -57,17 +60,13 @@ public class PresentationConfigurationActionDelegate implements
 	public void run(IAction action) {
 		if (editor == null)
 			return;
-		SubtreeDialog dialog = new SubtreeDialog(editor, ConfigurationUtil
-				.getProrToolExtension(editor.getReqif(), editor.getEditingDomain())
-				.getPresentationConfigurations(), "Presentation Configuration",
+		SubtreeDialog dialog = new SubtreeDialog(editor, getProrPresentationConfigurations(), "Presentation Configuration",
 				"org.eclipse.rmf.pror.reqif10.editor.presentationConfiguration");
-		dialog.setActions(buildAddPresentationActions(editor.getReqif()), true);
+		dialog.setActions(buildAddPresentationActions(), true);
 		dialog.open();
 	}
 
-	private IAction[] buildAddPresentationActions(ReqIf reqif) {
-		final ProrToolExtension ext = ConfigurationUtil
-				.getProrToolExtension(reqif, editor.getEditingDomain());
+	private IAction[] buildAddPresentationActions() {
 
 		Set<Class<? extends ProrPresentationConfiguration>> configs = PresentationPluginManager
 				.getPresentationServiceMap().keySet();
@@ -76,24 +75,45 @@ public class PresentationConfigurationActionDelegate implements
 		int i = 0;
 		for (final Class<? extends ProrPresentationConfiguration> config : configs) {
 
-			actions[i++] = new Action(config.getSimpleName()) {
+			actions[i++] = new Action(ProrUtil.substractPrefixPostfix(config, "","ConfigurationImpl")) {
 				@Override
 				public void run() {
 					PresentationService service = PresentationPluginManager
 							.getPresentationServiceMap().get(config);
-					ProrPresentationConfiguration c = service
+					ProrPresentationConfiguration config = service
 							.getConfigurationInstance();
 					Command command = AddCommand
 							.create(editor.getEditingDomain(),
-									ext.getPresentationConfigurations(),
+									getProrPresentationConfigurations(),
 									ConfigPackage.Literals.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS,
-									c);
+									config);
 					editor.getEditingDomain().getCommandStack()
 							.execute(command);
 				}
 			};
 		}
 		return actions;
+	}
+
+	/**
+	 * Retrieves the {@link ProrToolExtension} and ensures that
+	 * {@link ProrPresentationConfigurations} are not null.
+	 */
+	private ProrPresentationConfigurations getProrPresentationConfigurations() {
+		final ProrToolExtension ext = ConfigurationUtil
+				.getProrToolExtension(editor.getReqif(), editor.getEditingDomain());
+		
+		if (ext.getPresentationConfigurations() == null) {
+
+			Command cmd = SetCommand
+					.create(editor.getEditingDomain(),
+							ext,
+							ConfigPackage.Literals.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS,
+							ConfigFactory.eINSTANCE
+									.createProrPresentationConfigurations());
+			editor.getEditingDomain().getCommandStack().execute(cmd);
+		}
+		return ext.getPresentationConfigurations();
 	}
 
 	@Override

@@ -4,12 +4,12 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.pror.reqif10/src"
     creationIcons="false" editDirectory="/org.eclipse.rmf.pror.reqif10.edit/src" editorDirectory="/org.eclipse.rmf.pror.reqif10.editor/src"
     modelPluginID="org.eclipse.rmf.pror.reqif10" modelName="Reqif10" modelPluginClass=""
-    testsDirectory="org.eclipse.rmf.pror.reqif10.edit.tests/tests" testSuiteClass="org.eclipse.rmf.pror.reqif10.edit.tests.Reqif10AllTests"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    editPluginID="org.eclipse.rmf.pror.reqif10.edit" editorPluginID="org.eclipse.rmf.pror.reqif10.editor"
-    testsPluginID="org.eclipse.rmf.pror.reqif10.edit.tests">
+    editPluginClass="org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin" testsDirectory="org.eclipse.rmf.pror.reqif10.tests/tests"
+    testSuiteClass="org.eclipse.rmf.reqif10.configuration.tests.Reqif10AllTests" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.eclipse.rmf.pror.reqif10.edit"
+    editorPluginID="org.eclipse.rmf.pror.reqif10.editor" testsPluginID="org.eclipse.rmf.pror.reqif10.tests">
   <foreignModel>../../org.eclipse.rmf.reqif10.model/model/reqif10.ecore</foreignModel>
-  <genPackages prefix="Reqif10" basePackage="org.eclipse.rmf" disposableProviderFactory="true"
+  <genPackages prefix="Reqif10" basePackage="org.eclipse.rmf.pror.reqif10" disposableProviderFactory="true"
       generateExampleClass="false" fileExtensions="reqif" ecorePackage="../../org.eclipse.rmf.reqif10.model/model/reqif10.ecore#/">
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10.model/model/reqif10.ecore#//AccessControlledElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10.model/model/reqif10.ecore#//AccessControlledElement/isEditable"/>
@@ -216,7 +216,7 @@
       </genClasses>
     </nestedGenPackages>
   </genPackages>
-  <genPackages prefix="Config" basePackage="org.eclipse.rmf.reqif10" disposableProviderFactory="true"
+  <genPackages prefix="Config" basePackage="org.eclipse.rmf.pror.reqif10" disposableProviderFactory="true"
       generateExampleClass="false" generateModelWizard="false" fileExtensions="reqif-config"
       ecorePackage="configuration.ecore#/">
     <genClasses image="false" ecoreClass="configuration.ecore#//ProrToolExtension">
@@ -236,7 +236,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrPresentationConfigurations/presentationConfigurations"/>
     </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//ProrPresentationConfiguration">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrPresentationConfiguration/datatype"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrPresentationConfiguration/datatype"/>
     </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//ProrGeneralConfiguration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrGeneralConfiguration/labelConfiguration"/>
