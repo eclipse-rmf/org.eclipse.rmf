@@ -11,13 +11,19 @@
 package org.eclipse.rmf.pror.reqif10.util;
 
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
@@ -31,7 +37,10 @@ import org.eclipse.rmf.reqif10.ReqIf;
 import org.eclipse.rmf.reqif10.ReqIfToolExtension;
 import org.eclipse.rmf.reqif10.Reqif10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
+import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.util.Reqif10Switch;
 import org.eclipse.rmf.reqif10.util.Reqif10Util;
 
 public class ConfigurationUtil {
@@ -172,13 +181,9 @@ public class ConfigurationUtil {
 
 	/**
 	 * Retrieves the {@link ProrSpecViewConfiguration} for the given
-	 * {@link SpecHierarchyRoot}.
+	 * {@link Specification}. If none exists, it is built. The builder collects
+	 * all attribute names of all SpecObjects and creates corresponding columns.
 	 * <p>
-	 * 
-	 * TODO should create a new config if it doesn't exist yet.
-	 * 
-	 * @param specification
-	 * @return
 	 */
 	public static ProrSpecViewConfiguration getSpecViewConfiguration(
 			Specification specification, EditingDomain domain) {
@@ -192,36 +197,53 @@ public class ConfigurationUtil {
 			}
 		}
 	
-		// None found, let's build a new one.
+		// None found, let's build a new one that includes all attribute names.
 		ProrSpecViewConfiguration specViewConfig = ConfigFactory.eINSTANCE
 				.createProrSpecViewConfiguration();
 		specViewConfig.setSpecification(specification);
-		Column column = ConfigFactory.eINSTANCE.createColumn();
-		column.setWidth(100);
-		column.setLabel("Description");
-		specViewConfig.getColumns().add(column);
-		extension.getSpecViewConfigurations().add(specViewConfig);
-		return specViewConfig;
-	}
-
-	/**
-	 * Gets the {@link ProrSpecViewConfiguration} for the given spec. If it
-	 * doesn't exist, one is created.
-	 */
-	private static ProrSpecViewConfiguration getConfiguration(Specification spec, EditingDomain domain) {
-		ReqIf reqif = Reqif10Util.getReqIf(spec);
-		ProrToolExtension extension = getProrToolExtension(reqif, domain);
-		for (ProrSpecViewConfiguration config : extension
-				.getSpecViewConfigurations()) {
-			if (spec.equals(config.getSpecification()))
-				return config;
+		
+		// Collect all Types
+		final Set<SpecType> types = new HashSet<SpecType>();
+		Reqif10Switch<SpecHierarchy> visitor = new Reqif10Switch<SpecHierarchy>() {
+			@Override
+			public SpecHierarchy caseSpecHierarchy(SpecHierarchy specHierarchy) {
+				if (specHierarchy.getObject() != null && specHierarchy.getObject().getType() != null) {
+					// Duplicates will disappear due to HashSet
+					types.add(specHierarchy.getObject().getType());
+				}
+				return specHierarchy;
+			}
+		};
+		for (Iterator<EObject> i = EcoreUtil.getAllContents(specification, true); i.hasNext();) {
+			visitor.doSwitch(i.next());
 		}
-		// None found: Create a new one
-		ProrSpecViewConfiguration specConfig = ConfigFactory.eINSTANCE
-				.createProrSpecViewConfiguration();
-		specConfig.setSpecification(spec);
-		extension.getSpecViewConfigurations().add(specConfig);
-		return specConfig;
+		
+		// Collect all names from the types
+		final Set<String> colnames = new HashSet<String>();
+		for (SpecType type : types) {
+			for (AttributeDefinition ad : type.getSpecAttributes()) {
+				// Duplicates will disappear due to HashSet
+				colnames.add(ad.getLongName());
+			}
+		}
+		
+		// Build all Columns from the names
+		final Set<Column> columns = new HashSet<Column>();
+		for (String colname : colnames) {
+			Column column = ConfigFactory.eINSTANCE.createColumn();
+			column.setWidth(100);
+			column.setLabel(colname);
+			specViewConfig.getColumns().add(column);
+		}
+		domain.getCommandStack()
+				.execute(
+						AddCommand
+								.create(domain,
+										extension,
+										ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
+										columns));
+
+		return specViewConfig;
 	}
 
 	public static ProrPresentationConfiguration getPresentationConfig(AttributeValue value, EditingDomain domain) {
