@@ -34,6 +34,10 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 
 	// The current selected specification element
 	private Identifiable specElement;
+	
+	// In an element was selected in the specification editor this is the
+	// corresponding sepc hierarchy element
+	private SpecHierarchy specHierarchy;
 
 	// This is only a help HashMap for storing temporarily the item categories
 	private HashMap<String, ItemCategory> categories;
@@ -108,7 +112,8 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	public void setSpecElement(Identifiable specElement) {
 
 		this.specElement = specElement;
-
+		this.specHierarchy = null;
+		
 		this.categories.clear();
 		this.rows.clear();
 
@@ -121,11 +126,11 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 			// current
 			// selected specification element
 			if (specElement instanceof SpecHierarchy) {
+				this.specHierarchy = (SpecHierarchy) specElement;
 				SpecObject specObj = ((SpecHierarchy) specElement).getObject();
 				if (specObj != null)
 					this.specElement = specObj;
 			}
-
 			// Get the item property source
 			IItemPropertySource itemPropertySource = (IItemPropertySource) this.editingDomain
 					.getAdapterFactory().adapt(this.specElement,
@@ -248,6 +253,10 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	
 	public int getRowCount() {
 		return this.rows.size();
+	}
+
+	public SpecHierarchy getSpecHierarchy() {
+		return specHierarchy;
 	}
 
 	/**

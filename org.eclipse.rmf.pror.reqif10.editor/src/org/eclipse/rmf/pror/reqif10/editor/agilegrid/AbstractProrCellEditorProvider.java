@@ -18,8 +18,6 @@ import org.agilemore.agilegrid.DefaultCellEditorProvider;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationManager;
-import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
@@ -29,12 +27,13 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionReal;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.util.Reqif10Util;
 
 public abstract class AbstractProrCellEditorProvider extends
 		DefaultCellEditorProvider {
 
-	private final EditingDomain editingDomain;
+	protected final EditingDomain editingDomain;
 	private AdapterFactory adapterFactory;
 
 	public AbstractProrCellEditorProvider(AgileGrid agileGrid,
@@ -45,7 +44,15 @@ public abstract class AbstractProrCellEditorProvider extends
 	}
 
 	// TODO Not pretty, not readable
-	protected CellEditor getDefaultCellEditor(AttributeValue value) {
+	/**
+	 * This methods returns the default cell editor for an attribute value
+	 * 
+	 * @param value
+	 * @param affectedObject
+	 * @return the default cell editor for the attribute value
+	 */
+	protected CellEditor getDefaultCellEditor(AttributeValue value,
+			Identifiable affectedObject) {
 		DatatypeDefinition dd = Reqif10Util.getDatatypeDefinition(value);
 		if (dd == null) {
 			MessageDialog
@@ -57,17 +64,18 @@ public abstract class AbstractProrCellEditorProvider extends
 		if (dd instanceof DatatypeDefinitionBoolean) {
 			return new ProrCheckboxCellEditor(agileGrid, editingDomain);
 		} else if (dd instanceof DatatypeDefinitionDate) {
-			return new ProrDateCellEditor(agileGrid, editingDomain);
+			return new ProrDateCellEditor(agileGrid, editingDomain,
+					affectedObject);
 		} else if (dd instanceof DatatypeDefinitionInteger) {
 			DatatypeDefinitionInteger ddi = (DatatypeDefinitionInteger) dd;
 			ProrIntegerCellEditor integerCellEditor = new ProrIntegerCellEditor(
-					agileGrid, editingDomain);
+					agileGrid, editingDomain, affectedObject);
 			integerCellEditor.setRange(ddi.getMin(), ddi.getMax());
 			return integerCellEditor;
 		} else if (dd instanceof DatatypeDefinitionReal) {
 			DatatypeDefinitionReal ddr = (DatatypeDefinitionReal) dd;
 			ProrRealCellEditor realCellEditor = new ProrRealCellEditor(
-					agileGrid, editingDomain);
+					agileGrid, editingDomain, affectedObject);
 			realCellEditor.setRange(ddr.getMin() != null ? ddr.getMin()
 					: -Double.MAX_VALUE, ddr.getMax() != null ? ddr.getMax()
 					: Double.MAX_VALUE);
@@ -75,7 +83,7 @@ public abstract class AbstractProrCellEditorProvider extends
 		} else if (dd instanceof DatatypeDefinitionString) {
 			DatatypeDefinitionString dds = (DatatypeDefinitionString) dd;
 			ProrStringCellEditor stringCellEditor = new ProrStringCellEditor(
-					agileGrid, editingDomain);
+					agileGrid, editingDomain, affectedObject);
 			stringCellEditor.setMaxLength(dds.getMaxLength() != null ? dds
 					.getMaxLength() : new BigInteger(Integer.MAX_VALUE + ""));
 			return stringCellEditor;
@@ -99,37 +107,28 @@ public abstract class AbstractProrCellEditorProvider extends
 		throw new IllegalArgumentException("No editor for: " + value);
 	}
 
+	/**
+	 * 
+	 * This method returns the attribute value of the cell. The method is
+	 * abstract since we have two different cell editor provider. The one of the
+	 * specification editor and the one of the properties view.
+	 * 
+	 * @param row
+	 * @param col
+	 * @return the attribute value of the cell
+	 */
 	protected abstract AttributeValue getAttributeValue(int row, int col);
 
-	@Override
-	public boolean canEdit(int row, int col) {
-		AttributeValue attrValue = getAttributeValue(row, col);
-		if (attrValue == null) {
-			return false;
-		}
-		PresentationService service = PresentationManager
-				.getPresentationService(attrValue, editingDomain);
-		return service == null ? true : service.canEdit();
-	}
-
-	@Override
-	public CellEditor getCellEditor(int row, int col) {
-		return getCellEditor(row, col, null);
-	}
-
-	@Override
-	public CellEditor getCellEditor(int row, int col, Object hint) {
-		AttributeValue attrValue = getAttributeValue(row, col);
-		PresentationService service = PresentationManager
-				.getPresentationService(attrValue, editingDomain);
-		if (service != null) {
-			CellEditor cellEditor = service.getCellEditor(agileGrid,
-					editingDomain, attrValue);
-			if (cellEditor != null) {
-				return cellEditor;
-			}
-		}
-		return getDefaultCellEditor(attrValue);
-	}
+	/**
+	 * 
+	 * This method returns the specification element of the cell. The method is
+	 * abstract since we have two different cell editor provider. The one of the
+	 * specification editor and the one of the properties view.
+	 * 
+	 * @param row
+	 * @param col
+	 * @return the attribute value of the cell
+	 */
+	protected abstract Identifiable getAffectedElement(int row, int col);
 
 }

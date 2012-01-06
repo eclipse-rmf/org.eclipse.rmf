@@ -14,14 +14,16 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.ICellEditorValidator;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
+import org.eclipse.rmf.reqif10.Identifiable;
 
 public class ProrRealCellEditor extends ProrCellEditor {
 
 	private double min = Double.MIN_VALUE;
 	private double max = Double.MAX_VALUE;
 
-	public ProrRealCellEditor(AgileGrid agileGrid, EditingDomain editingDomain) {
-		super(agileGrid, editingDomain);
+	public ProrRealCellEditor(AgileGrid agileGrid, EditingDomain editingDomain,
+			Identifiable affectedObject) {
+		super(agileGrid, editingDomain, affectedObject);
 		this.setValidator(new ICellEditorValidator() {
 
 			@Override
@@ -46,7 +48,8 @@ public class ProrRealCellEditor extends ProrCellEditor {
 	protected Object doGetValue() {
 		try {
 			Double value = new Double(text.getText());
-			ProrUtil.setTheValue(attributeValue, value, getSpecHierarchy(), editingDomain);
+			ProrUtil.setTheValue(attributeValue, value, affectedObject,
+					editingDomain);
 		} catch (NumberFormatException e) {
 			// No action necessary, we simply restore the old value.
 		}		

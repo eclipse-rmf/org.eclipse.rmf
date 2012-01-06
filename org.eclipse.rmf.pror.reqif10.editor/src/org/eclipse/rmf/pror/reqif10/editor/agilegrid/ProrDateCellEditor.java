@@ -24,12 +24,14 @@ import org.agilemore.agilegrid.ICellEditorValidator;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.util.Reqif10Util;
 
 public class ProrDateCellEditor extends ProrCellEditor {
 
-	public ProrDateCellEditor(AgileGrid agileGrid, EditingDomain editingDomain) {
-		super(agileGrid, editingDomain);
+	public ProrDateCellEditor(AgileGrid agileGrid, EditingDomain editingDomain,
+			Identifiable affectedObject) {
+		super(agileGrid, editingDomain, affectedObject);
 		this.setValidator(new ICellEditorValidator() {
 
 			@Override
@@ -54,7 +56,8 @@ public class ProrDateCellEditor extends ProrCellEditor {
 	protected Object doGetValue() {
 		try {
 			XMLGregorianCalendar value = stingToCalendar(text.getText());
-			ProrUtil.setTheValue(attributeValue, value, getSpecHierarchy(), editingDomain);
+			ProrUtil.setTheValue(attributeValue, value, affectedObject,
+					editingDomain);
 		} catch (ParseException e) {
 			e.toString();
 			// No action necessary, we simply restore the old value.

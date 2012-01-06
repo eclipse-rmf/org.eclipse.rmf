@@ -29,18 +29,20 @@ import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
 
+/**
+ * The cell editor provider for the properties view.
+ * @author Lukas Ladenberger
+ */
 public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvider {
 
 	private final ProrPropertyContentProvider contentProvider;
 	
-	private EditingDomain editingDomain;
-
 	public ProrPropertyCellEditorProvider(AgileGrid agileGrid, AdapterFactory adapterFactory, EditingDomain editingDomain) {
 		super(agileGrid, adapterFactory, editingDomain);
-		this.editingDomain = editingDomain;
 		contentProvider = (ProrPropertyContentProvider) agileGrid.getContentProvider();
 	}
 
@@ -95,7 +97,8 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 			}
 
 			if (cellEditor == null)
-				cellEditor = getDefaultCellEditor(attrValue);
+				cellEditor = getDefaultCellEditor(attrValue,
+						getAffectedElement(row, col));
 
 		} else { // If the attribute is an EMF attribute (no attribute value
 					// exists) return a default celleditor
@@ -176,6 +179,21 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 						.getSpecElement(), descriptor
 						.getFeature(contentProvider.getSpecElement()), newValue);
 		editingDomain.getCommandStack().execute(cmd);
+	}
+
+	@Override
+	public Identifiable getAffectedElement(int row, int col) {
+		if (this.contentProvider != null) {
+			// If a spec hierarchy exists, return it
+			SpecHierarchy specHierarchy = this.contentProvider
+					.getSpecHierarchy();
+			if (specHierarchy != null)
+				return specHierarchy;
+			else
+				// else return the selected spec element
+				return this.contentProvider.getSpecElement();
+		}
+		return null;
 	}
 
 }
