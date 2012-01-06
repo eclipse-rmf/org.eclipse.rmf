@@ -5,6 +5,7 @@
     editDirectory="/org.eclipse.rmf.pror.reqif10.presentation.id/src" editorDirectory="/org.eclipse.rmf.pror.reqif10.presentation.id.editor/src"
     modelPluginID="org.eclipse.rmf.pror.reqif10.presentation.id" modelName="ID" modelPluginClass=""
     editPluginClass="org.eclipse.rmf.pror.reqif10.presentation.id.provider.IDEditPlugin"
+    testsDirectory="/org.eclipse.rmf.pror.reqif10.presentation.id.tests/tests" testSuiteClass=""
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
     editPluginID="org.eclipse.rmf.pror.reqif10.presentation.id" editorPluginID="org.eclipse.rmf.pror.reqif10.presentation.id.editor"
     usedGenPackages="../../org.eclipse.rmf.pror.reqif10/model/reqif10.genmodel#//configuration ../../org.eclipse.rmf.pror.reqif10/model/reqif10.genmodel#//reqif10 ../../org.eclipse.rmf.pror.reqif10/model/reqif10.genmodel#//reqif10/datatypes">
