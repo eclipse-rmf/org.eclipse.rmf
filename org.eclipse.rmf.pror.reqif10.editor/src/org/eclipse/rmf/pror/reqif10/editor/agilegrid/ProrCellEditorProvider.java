@@ -18,7 +18,6 @@ import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationManager;
 import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
-import org.eclipse.rmf.reqif10.SpecHierarchy;
 
 public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 
@@ -40,9 +39,7 @@ public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 	public Identifiable getAffectedElement(int row, int col) {
 		ProrAgileGridContentProvider provider = (ProrAgileGridContentProvider) getAgileGrid()
 				.getContentProvider();
-		SpecHierarchy specHierarchy = provider.getProrRow(row)
-				.getSpecHierarchy();
-		return specHierarchy;
+		return (Identifiable) provider.getProrRow(row).element;
 	}
 
 	@Override
