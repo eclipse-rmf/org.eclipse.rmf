@@ -34,10 +34,6 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 
 	// The current selected specification element
 	private Identifiable specElement;
-	
-	// In an element was selected in the specification editor this is the
-	// corresponding sepc hierarchy element
-	private SpecHierarchy specHierarchy;
 
 	// This is only a help HashMap for storing temporarily the item categories
 	private HashMap<String, ItemCategory> categories;
@@ -74,22 +70,17 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 							.getDisplayName(this.specElement);
 				}
 			case 1:
-
-				if (element instanceof String)
-					break;
-
-				AttributeValue atrValue = getAttributeValue(row);
+				AttributeValue atrValue = getAttributeValue((IItemPropertyDescriptor) element);
 				if (atrValue != null) {
 					return atrValue;
 				} else {
 					return getItemLabelProvider(row).getText(
 							getItemPropertyValue(row));
 				}
-
 			default:
 				break;
 			}
-					
+
 		}
 		
 		return null;
@@ -112,25 +103,12 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	public void setSpecElement(Identifiable specElement) {
 
 		this.specElement = specElement;
-		this.specHierarchy = null;
 		
 		this.categories.clear();
 		this.rows.clear();
 
 		if (specElement != null) {
 			
-			// This is a special case: If the selected specification element is
-			// an
-			// instance of SpecHierarchy, set the
-			// corresponding SpecObject to the
-			// current
-			// selected specification element
-			if (specElement instanceof SpecHierarchy) {
-				this.specHierarchy = (SpecHierarchy) specElement;
-				SpecObject specObj = ((SpecHierarchy) specElement).getObject();
-				if (specObj != null)
-					this.specElement = specObj;
-			}
 			// Get the item property source
 			IItemPropertySource itemPropertySource = (IItemPropertySource) this.editingDomain
 					.getAdapterFactory().adapt(this.specElement,
@@ -212,7 +190,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 */
 	public IItemLabelProvider getItemLabelProvider(int row) {
 		return getItemPropertyDescriptor(row)
-				.getLabelProvider(getSpecElement());
+				.getLabelProvider(this.specElement);
 	}
 
 	/**
@@ -240,23 +218,26 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	public AttributeValue getAttributeValue(int row) {
 		Object obj = this.rows.get(row);
 		if (obj instanceof IItemPropertyDescriptor) {
-			if (this.specElement instanceof SpecElementWithAttributes) {
-				return Reqif10Util
-						.getAttributeValueForLabel(
-								(SpecElementWithAttributes) this.specElement,
-								getItemPropertyDescriptor(row).getDisplayName(
-										this.specElement));
-			}
+			return getAttributeValue((IItemPropertyDescriptor) obj);
 		}
 		return null;
 	}
 	
-	public int getRowCount() {
-		return this.rows.size();
+	public AttributeValue getAttributeValue(IItemPropertyDescriptor descriptor) {
+		SpecElementWithAttributes sepcAtr = null;
+		if (this.specElement instanceof SpecElementWithAttributes) {
+			sepcAtr = (SpecElementWithAttributes) this.specElement;
+		} else if (this.specElement instanceof SpecHierarchy) {
+			sepcAtr = ((SpecHierarchy) this.specElement).getObject();
+		}
+		if (sepcAtr != null)
+			return Reqif10Util.getAttributeValueForLabel(sepcAtr,
+					descriptor.getDisplayName(sepcAtr));
+		return null;
 	}
 
-	public SpecHierarchy getSpecHierarchy() {
-		return specHierarchy;
+	public int getRowCount() {
+		return this.rows.size();
 	}
 
 	/**
