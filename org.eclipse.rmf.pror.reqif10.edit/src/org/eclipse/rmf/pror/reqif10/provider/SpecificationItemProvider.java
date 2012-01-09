@@ -11,7 +11,11 @@
 
 package org.eclipse.rmf.pror.reqif10.provider;
 
-import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.*;
+import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS;
+import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPECIFICATION__CHILDREN;
+import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPECIFICATION__TYPE;
+import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPEC_HIERARCHY__OBJECT;
+import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPEC_OBJECT__TYPE;
 
 import java.util.Collection;
 import java.util.List;
@@ -45,7 +49,7 @@ import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.util.Reqif10Util;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.Specification} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.Specification} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -77,7 +81,7 @@ public class SpecificationItemProvider
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		super.getPropertyDescriptors(object);
+		super.getPropertyDescriptors(object, "Specification");
 		addTypePropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
@@ -100,7 +104,7 @@ public class SpecificationItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI_SpecificationPropertyCategory"),
 				 null));
 	}
 

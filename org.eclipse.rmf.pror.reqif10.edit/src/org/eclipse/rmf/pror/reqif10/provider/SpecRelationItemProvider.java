@@ -32,7 +32,7 @@ import org.eclipse.rmf.reqif10.Reqif10Package;
 import org.eclipse.rmf.reqif10.SpecRelation;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.SpecRelation} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.SpecRelation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -64,7 +64,7 @@ public class SpecRelationItemProvider
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		super.getPropertyDescriptors(object);
+		super.getPropertyDescriptors(object, "Spec Relation");
 		addTargetPropertyDescriptor(object);
 		addSourcePropertyDescriptor(object);
 		addTypePropertyDescriptor(object);
@@ -89,7 +89,7 @@ public class SpecRelationItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI_SpecRelationPropertyCategory"),
 				 null));
 	}
 
@@ -111,7 +111,7 @@ public class SpecRelationItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI_SpecRelationPropertyCategory"),
 				 null));
 	}
 
@@ -133,7 +133,7 @@ public class SpecRelationItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI_SpecRelationPropertyCategory"),
 				 null));
 	}
 

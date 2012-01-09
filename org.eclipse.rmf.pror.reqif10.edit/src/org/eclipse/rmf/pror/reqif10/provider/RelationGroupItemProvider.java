@@ -17,7 +17,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -26,14 +25,13 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.RelationGroup;
 import org.eclipse.rmf.reqif10.ReqIfContent;
 import org.eclipse.rmf.reqif10.Reqif10Package;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.RelationGroup} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.RelationGroup} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -59,13 +57,14 @@ public class RelationGroupItemProvider
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
+	 * Adjusting Category.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
+			super.getPropertyDescriptors(object, "Relation Group");
 
 			addSpecRelationsPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
@@ -93,7 +92,7 @@ public class RelationGroupItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI_RelationGroupPropertyCategory"),
 				 null));
 	}
 
@@ -115,7 +114,7 @@ public class RelationGroupItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI_RelationGroupPropertyCategory"),
 				 null));
 	}
 
@@ -137,7 +136,7 @@ public class RelationGroupItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI_RelationGroupPropertyCategory"),
 				 null));
 	}
 
@@ -159,7 +158,7 @@ public class RelationGroupItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI_RelationGroupPropertyCategory"),
 				 null));
 	}
 

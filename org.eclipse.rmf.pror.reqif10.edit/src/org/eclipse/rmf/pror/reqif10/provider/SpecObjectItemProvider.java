@@ -44,7 +44,7 @@ import org.eclipse.rmf.reqif10.util.Reqif10Switch;
 import org.eclipse.rmf.reqif10.util.Reqif10Util;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.SpecObject} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.SpecObject} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -76,7 +76,7 @@ public class SpecObjectItemProvider
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		super.getPropertyDescriptors(object);
+		super.getPropertyDescriptors(object, "Spec Object");
 		addTypePropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
@@ -99,7 +99,7 @@ public class SpecObjectItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI_SpecObjectPropertyCategory"),
 				 null));
 	}
 

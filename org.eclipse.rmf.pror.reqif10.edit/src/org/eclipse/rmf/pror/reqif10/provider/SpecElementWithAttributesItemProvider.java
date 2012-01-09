@@ -11,6 +11,7 @@
 
 package org.eclipse.rmf.pror.reqif10.provider;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -21,6 +22,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -29,12 +31,14 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.Reqif10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecType;
 
 /**
@@ -79,6 +83,34 @@ public abstract class SpecElementWithAttributesItemProvider extends
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		itemPropertyDescriptors = null;
 		super.getPropertyDescriptors(object);
+		ProrUtil.addAttributePropertyDescriptor(
+				(SpecElementWithAttributes) object, this,
+				itemPropertyDescriptors);
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This method does the same as {@link #getPropertyDescriptors(Object)}, but
+	 * it rewrites the categories for the standard properties (not the one from
+	 * the {@link SpecType}s) with the given String. This allows elements like
+	 * {@link SpecObject} to present properties like "Identifiable" in the
+	 * Category "Spec Object", instead of "Identifiable".
+	 */
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object, final String categoryForStandardProps) {
+		itemPropertyDescriptors = null;
+		super.getPropertyDescriptors(object);
+
+		// Rewrite the category for the properties we collected so far
+		ArrayList<IItemPropertyDescriptor> newDescriptors = new ArrayList<IItemPropertyDescriptor>();
+		for (IItemPropertyDescriptor descriptor : itemPropertyDescriptors) {
+			newDescriptors.add(new ItemPropertyDescriptorDecorator(object, descriptor) {
+				public String getCategory(Object thisObject) {
+					return categoryForStandardProps;
+				}
+			});
+		}
+		itemPropertyDescriptors = newDescriptors;
+
 		ProrUtil.addAttributePropertyDescriptor(
 				(SpecElementWithAttributes) object, this,
 				itemPropertyDescriptors);

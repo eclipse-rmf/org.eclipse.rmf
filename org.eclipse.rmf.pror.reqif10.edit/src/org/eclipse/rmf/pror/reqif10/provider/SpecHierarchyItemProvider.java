@@ -12,7 +12,10 @@
 package org.eclipse.rmf.pror.reqif10.provider;
 
 
-import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.*;
+import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS;
+import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPEC_HIERARCHY__CHILDREN;
+import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPEC_HIERARCHY__OBJECT;
+import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPEC_OBJECT__TYPE;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -37,13 +40,13 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.ReqIfContent;
 import org.eclipse.rmf.reqif10.Reqif10Factory;
 import org.eclipse.rmf.reqif10.Reqif10Package;
-import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
@@ -84,7 +87,6 @@ public class SpecHierarchyItemProvider
 	 * in {@link #getPropertyDescriptors(Object)}
 	 * <p>
 	 * 
-	 * TODO: Currently, the standard attributes of the SpecObjects are not yet shown, but they shod.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -109,9 +111,9 @@ public class SpecHierarchyItemProvider
 		
 		SpecObject specObject = ((SpecHierarchy) specHierarchy).getObject();
 		if (specObject != null) {
-			ProrUtil.addAttributePropertyDescriptor(
-					(SpecElementWithAttributes) specObject, this,
-					itemPropertyDescriptors);
+			ItemProviderAdapter specObjectItemProvider = ProrUtil.getItemProvider(adapterFactory, specObject);
+			itemPropertyDescriptors.addAll(
+			specObjectItemProvider.getPropertyDescriptors(specObject));
 		}
 		addIsTableInternalPropertyDescriptor(specHierarchy);
 		addObjectPropertyDescriptor(specHierarchy);
