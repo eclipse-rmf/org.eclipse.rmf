@@ -29,7 +29,6 @@ import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
-import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
 
@@ -183,16 +182,8 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 
 	@Override
 	public Identifiable getAffectedElement(int row, int col) {
-		if (this.contentProvider != null) {
-			// If a spec hierarchy exists, return it
-			SpecHierarchy specHierarchy = this.contentProvider
-					.getSpecHierarchy();
-			if (specHierarchy != null)
-				return specHierarchy;
-			else
-				// else return the selected spec element
+		if (this.contentProvider != null)
 				return this.contentProvider.getSpecElement();
-		}
 		return null;
 	}
 
