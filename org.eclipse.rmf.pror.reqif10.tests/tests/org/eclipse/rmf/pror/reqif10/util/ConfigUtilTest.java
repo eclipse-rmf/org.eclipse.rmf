@@ -33,7 +33,7 @@ public class ConfigUtilTest extends AbstractItemProviderTest {
 	public void testGetProrToolExtensionNothingThere() throws URISyntaxException {
 		ReqIf reqif = getTestReqif("simple.reqif");
 		assertEquals(0, reqif.getToolExtensions().size());
-		assertNull(ConfigurationUtil.getProrToolExtension(reqif, editingDomain));
+		assertNotNull(ConfigurationUtil.getProrToolExtension(reqif, editingDomain));
 	}
 
 	@Test
@@ -56,7 +56,7 @@ public class ConfigUtilTest extends AbstractItemProviderTest {
 				extension);
 		assertEquals(1, reqif.getToolExtensions().size());
 		
-		assertNull(ConfigurationUtil.getProrToolExtension(reqif, editingDomain));
+		assertNotNull(ConfigurationUtil.getProrToolExtension(reqif, editingDomain));
 	}
 	
 	@Test

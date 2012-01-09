@@ -140,7 +140,7 @@ public class ConfigurationUtil {
 	 * 
 	 * @return always a list, sometimes empty.
 	 */
-	static List<String> getDefaultLabels(
+	public static List<String> getDefaultLabels(
 			ReqIf reqif) {
 		ProrToolExtension extension = getProrToolExtension(reqif);
 		if (extension == null) {
