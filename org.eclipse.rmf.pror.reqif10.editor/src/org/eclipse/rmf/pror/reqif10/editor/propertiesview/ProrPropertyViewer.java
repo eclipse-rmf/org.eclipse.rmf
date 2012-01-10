@@ -75,7 +75,7 @@ public class ProrPropertyViewer extends Viewer {
 		} else {
 			this.specElement = null;
 		}
-		this.contentProvider.setSpecElement(this.specElement);
+		this.contentProvider.setIdentifiable(this.specElement);
 		refresh();
 	}
 	

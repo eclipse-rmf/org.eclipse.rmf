@@ -33,6 +33,8 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.ReqIf;
@@ -84,23 +86,25 @@ public class SpecObjectItemProvider
 	/**
 	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc -->
+	 * We decorate the property to associate it with its object.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
+		ItemPropertyDescriptor descriptor = createItemPropertyDescriptor
+			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			 getResourceLocator(),
+			 getString("_UI_SpecObject_type_feature"),
+			 getString("_UI_PropertyDescriptor_description", "_UI_SpecObject_type_feature", "_UI_SpecObject_type"),
+			 Reqif10Package.Literals.SPEC_OBJECT__TYPE,
+			 true,
+			 false,
+			 true,
+			 null,
+			 getString("_UI_SpecObjectPropertyCategory"),
+			 null);
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SpecObject_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpecObject_type_feature", "_UI_SpecObject_type"),
-				 Reqif10Package.Literals.SPEC_OBJECT__TYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI_SpecObjectPropertyCategory"),
-				 null));
+			(new ItemPropertyDescriptorDecorator(object, descriptor));
 	}
 
 	/**
