@@ -216,7 +216,7 @@ public class ReqIf1ResourceImpl extends Reqif10ResourceImpl {
 				.createResource(uri);
 
 		rifXMLResource.getDefaultSaveOptions().put(XMLResource.OPTION_ENCODING,
-				getEncoding());
+				"UTF-8");
 		
 		rifXMLResource.getContents().add(getDocumentRoot());
 
