@@ -55,10 +55,6 @@ import org.eclipse.rmf.reqif10.xsd.util.ReqifResourceFactoryImpl;
 public class ReqIf1ResourceImpl extends Reqif10ResourceImpl {
 
 	public static final String RIF_URI = "http://www.omg.org/spec/ReqIF/20110401/reqif.xsd";
-	public static final String RIF_SCHEMA_URI = "http://www.omg.org/spec/ReqIF/20110401/reqif.xsd";
-	public static final String RIF_SCHEMA_LOCATION = "reqif.xsd";
-	public static final String RIF_XHTML_SCHEMA_URI = "http://www.w3.org/1999/xhtml";
-	public static final String RIF_XHTML_SCHEMA_LOCATION = "driver.xsd";
 	
 	private DocumentRoot documentRoot = null;
 
@@ -235,10 +231,6 @@ public class ReqIf1ResourceImpl extends Reqif10ResourceImpl {
 			documentRoot = ReqifFactory.eINSTANCE.createDocumentRoot();
 			documentRoot.getXMLNSPrefixMap().put("", RIF_URI);
 			documentRoot.getXMLNSPrefixMap().put(XSI_NS, XSI_URI);
-			documentRoot.getXSISchemaLocation().put(RIF_SCHEMA_URI,
-					RIF_SCHEMA_LOCATION);
-			documentRoot.getXSISchemaLocation().put(RIF_XHTML_SCHEMA_URI,
-					RIF_XHTML_SCHEMA_LOCATION);
 		}
 		
 		return documentRoot;
