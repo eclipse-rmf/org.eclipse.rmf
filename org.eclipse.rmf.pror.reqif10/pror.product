@@ -35,6 +35,7 @@ Visit http://eclipse.org/rmf
       startupForegroundColor="0C3C68" />
    <launcher>
       <linux icon="/org.eclipse.rmf.pror.reqif10.editor/icons/full/prorIcon/prorIcon128.xpm"/>
+      <macosx icon="/org.eclipse.rmf.pror.reqif10.editor/icons/full/prorIcon/prorIcon128.icns"/>
       <solaris/>
       <win useIco="false">
          <bmp
