@@ -207,13 +207,15 @@ public class AttributeValueXhtmlImpl extends AttributeValueImpl implements Attri
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * TODO: Some patch-up that allows us to inspect ReqIF
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public XhtmlContent getTheOriginalValue() {
 		// TODO: implement this method to return the 'The Original Value' containment reference
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return theValue;
+
 	}
 
 	/**
