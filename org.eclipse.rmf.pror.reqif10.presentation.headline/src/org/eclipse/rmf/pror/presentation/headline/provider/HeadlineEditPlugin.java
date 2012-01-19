@@ -13,7 +13,7 @@ package org.eclipse.rmf.pror.presentation.headline.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.rmf.reqif10.provider.Reqif10EditPlugin;
+import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 
 /**
  * This is the central singleton for the Headline edit plugin.

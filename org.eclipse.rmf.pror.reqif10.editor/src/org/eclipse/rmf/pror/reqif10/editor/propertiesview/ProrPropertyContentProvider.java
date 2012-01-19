@@ -33,7 +33,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	private AdapterFactoryEditingDomain editingDomain;
 
 	// The current selected specification element
-	private Identifiable specElement;
+	private Identifiable identifiable;
 
 	// This is only a help HashMap for storing temporarily the item categories
 	private HashMap<String, ItemCategory> categories;
@@ -51,8 +51,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	
 	@Override
 	public Object doGetContentAt(int row, int col) {
-
-		if (specElement != null) {
+		if (identifiable != null) {
 			
 			int size = this.rows.size();
 
@@ -67,25 +66,20 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 					return element;
 				} else { // Attribute
 					return ((IItemPropertyDescriptor) element)
-							.getDisplayName(this.specElement);
+							.getDisplayName(this.identifiable);
 				}
 			case 1:
-
-				if (element instanceof String)
-					break;
-
-				AttributeValue atrValue = getAttributeValue(row);
+				AttributeValue atrValue = getAttributeValue((IItemPropertyDescriptor) element);
 				if (atrValue != null) {
 					return atrValue;
 				} else {
 					return getItemLabelProvider(row).getText(
 							getItemPropertyValue(row));
 				}
-
 			default:
 				break;
 			}
-					
+
 		}
 		
 		return null;
@@ -102,44 +96,32 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * Sets the current selected specification element and fetches the
 	 * corresponding {@link IItemPropertyDescriptor}.
 	 * 
-	 * @param specElement
+	 * @param identifiable
 	 *            the selected specification element
 	 */
-	public void setSpecElement(Identifiable specElement) {
+	protected void setIdentifiable(Identifiable identifiable) {
 
-		this.specElement = specElement;
-
+		this.identifiable = identifiable;
+		
 		this.categories.clear();
 		this.rows.clear();
 
-		if (specElement != null) {
+		if (identifiable != null) {
 			
-			// This is a special case: If the selected specification element is
-			// an
-			// instance of SpecHierarchy, set the
-			// corresponding SpecObject to the
-			// current
-			// selected specification element
-			if (specElement instanceof SpecHierarchy) {
-				SpecObject specObj = ((SpecHierarchy) specElement).getObject();
-				if (specObj != null)
-					this.specElement = specObj;
-			}
-
 			// Get the item property source
 			IItemPropertySource itemPropertySource = (IItemPropertySource) this.editingDomain
-					.getAdapterFactory().adapt(this.specElement,
+					.getAdapterFactory().adapt(this.identifiable,
 							IItemPropertySource.class);
 
 			// Get the list of item property descriptors
 			List<IItemPropertyDescriptor> descriptorList = itemPropertySource
-					.getPropertyDescriptors(this.specElement);
+					.getPropertyDescriptors(this.identifiable);
 
 			// Iterate over the item property descriptors and collect the needed
 			// data
 			for (IItemPropertyDescriptor descriptor : descriptorList) {
 
-				String categoryName = descriptor.getCategory(this.specElement);
+				String categoryName = descriptor.getCategory(this.identifiable);
 
 				if (categoryName == null)
 					categoryName = DEFAULT_CATEGORY_NAME;
@@ -147,7 +129,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 				ItemCategory category;
 
 				if (!this.categories.containsKey(categoryName)) {
-					category = new ItemCategory(categoryName, this.specElement);
+					category = new ItemCategory(categoryName, this.identifiable);
 					category.addDescriptor(descriptor);
 					this.categories.put(categoryName, category);
 				} else {
@@ -179,8 +161,8 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * 
 	 * @return an instance of the current selected specification element.
 	 */
-	public Identifiable getSpecElement() {
-		return this.specElement;
+	public Identifiable getIdentifiable() {
+		return this.identifiable;
 	}
 
 	/**
@@ -190,7 +172,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * @return an instance of {@link IItemPropertyDescriptor}
 	 */
 	public IItemPropertyDescriptor getItemPropertyDescriptor(int row) {
-		if (this.specElement != null) {
+		if (this.identifiable != null) {
 			Object obj = this.rows.get(row);
 			if (obj instanceof IItemPropertyDescriptor) {
 				return (IItemPropertyDescriptor) obj;
@@ -207,7 +189,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 */
 	public IItemLabelProvider getItemLabelProvider(int row) {
 		return getItemPropertyDescriptor(row)
-				.getLabelProvider(getSpecElement());
+				.getLabelProvider(this.identifiable);
 	}
 
 	/**
@@ -218,7 +200,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 */
 	public Object getItemPropertyValue(int row) {
 		return getItemPropertyDescriptor(row)
-				.getPropertyValue(this.specElement);
+				.getPropertyValue(this.identifiable);
 	}
 
 	public Object getRowContent(int row) {
@@ -235,17 +217,24 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	public AttributeValue getAttributeValue(int row) {
 		Object obj = this.rows.get(row);
 		if (obj instanceof IItemPropertyDescriptor) {
-			if (this.specElement instanceof SpecElementWithAttributes) {
-				return Reqif10Util
-						.getAttributeValueForLabel(
-								(SpecElementWithAttributes) this.specElement,
-								getItemPropertyDescriptor(row).getDisplayName(
-										this.specElement));
-			}
+			return getAttributeValue((IItemPropertyDescriptor) obj);
 		}
 		return null;
 	}
 	
+	public AttributeValue getAttributeValue(IItemPropertyDescriptor descriptor) {
+		SpecElementWithAttributes sepcAtr = null;
+		if (this.identifiable instanceof SpecElementWithAttributes) {
+			sepcAtr = (SpecElementWithAttributes) this.identifiable;
+		} else if (this.identifiable instanceof SpecHierarchy) {
+			sepcAtr = ((SpecHierarchy) this.identifiable).getObject();
+		}
+		if (sepcAtr != null)
+			return Reqif10Util.getAttributeValueForLabel(sepcAtr,
+					descriptor.getDisplayName(sepcAtr));
+		return null;
+	}
+
 	public int getRowCount() {
 		return this.rows.size();
 	}

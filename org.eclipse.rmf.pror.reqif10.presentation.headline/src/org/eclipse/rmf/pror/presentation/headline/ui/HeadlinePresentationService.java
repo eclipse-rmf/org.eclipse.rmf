@@ -22,15 +22,15 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.presentation.headline.HeadlineConfiguration;
 import org.eclipse.rmf.pror.presentation.headline.HeadlineFactory;
 import org.eclipse.rmf.pror.presentation.headline.HeadlinePackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.service.AbstractPresentationService;
 import org.eclipse.rmf.pror.reqif10.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.util.Reqif10Switch;
 import org.eclipse.rmf.reqif10.util.Reqif10Util;
 

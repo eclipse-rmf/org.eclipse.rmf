@@ -11,10 +11,10 @@
 package org.eclipse.rmf.pror.reqif10.presentation.service;
 
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.reqif10.util.ConfigurationUtil;
 
 /**
  * This class manages Presentations for open ReqIF Files.
@@ -30,11 +30,11 @@ public class PresentationManager {
 	 * TODO We call this when the Editor is opened, but there must be a better
 	 * way to do it (register a notifier somewhere...)
 	 */
-	public static void notifiyOpenReqif(ReqIf reqif) {
+	public static void notifiyOpenReqif(ReqIf reqif, EditingDomain domain) {
 
 		for (PresentationService service : PresentationPluginManager
 				.getPresentationServiceMap().values()) {
-			service.openReqif(reqif);
+			service.openReqif(reqif, domain);
 		}
 
 	}

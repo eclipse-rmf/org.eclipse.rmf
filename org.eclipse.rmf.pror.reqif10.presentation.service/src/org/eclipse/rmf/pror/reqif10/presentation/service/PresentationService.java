@@ -16,12 +16,12 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.CellEditor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIf;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
-import org.eclipse.rmf.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.swt.dnd.DND;
 
 /**
@@ -93,14 +93,8 @@ public interface PresentationService {
 	 * Presentation is associated with multiple {@link DatatypeDefinition}s.
 	 * 
 	 * TODO still true?
-	 * <p>
-	 * 
-	 * It is highly recommended - for now - to make sure that the rif has at
-	 * least one {@link ProRPresentationConfiguration} element, and if it
-	 * doesn't, to create one. Currently there is no other way of creating one
-	 * (short of editing the XML).
 	 */
-	public void openReqif(ReqIf rif);
+	public void openReqif(ReqIf reqif, EditingDomain domain);
 
 	/**
 	 * Will be called when the system can't handle a drag and drop operation by

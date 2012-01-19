@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdFactory;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdPackage;
 import org.eclipse.rmf.reqif10.Reqif10Package;
-import org.eclipse.rmf.reqif10.configuration.ConfigPackage;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 
 /**

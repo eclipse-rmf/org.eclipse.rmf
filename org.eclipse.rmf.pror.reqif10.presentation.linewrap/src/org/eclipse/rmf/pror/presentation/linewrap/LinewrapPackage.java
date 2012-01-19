@@ -13,7 +13,7 @@ package org.eclipse.rmf.pror.presentation.linewrap;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.rmf.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
 
 /**
  * <!-- begin-user-doc -->

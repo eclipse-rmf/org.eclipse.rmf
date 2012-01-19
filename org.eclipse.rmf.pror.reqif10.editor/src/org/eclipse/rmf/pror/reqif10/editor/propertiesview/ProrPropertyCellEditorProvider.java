@@ -12,35 +12,44 @@ package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.CellEditor;
 import org.agilemore.agilegrid.editors.ComboBoxCellEditor;
 import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.editor.agilegrid.AbstractProrCellEditorProvider;
 import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationPluginManager;
 import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.agilegrid.AbstractProrCellEditorProvider;
-import org.eclipse.rmf.reqif10.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.reqif10.util.ConfigurationUtil;
+import org.eclipse.rmf.reqif10.Identifiable;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
 
+/**
+ * The cell editor provider for the properties view.
+ * 
+ * @author Lukas Ladenberger
+ * @author Michael Jastram
+ */
 public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvider {
 
 	private final ProrPropertyContentProvider contentProvider;
 	
-	private EditingDomain editingDomain;
-
-	public ProrPropertyCellEditorProvider(AgileGrid agileGrid, AdapterFactory adapterFactory, EditingDomain editingDomain) {
+	public ProrPropertyCellEditorProvider(AgileGrid agileGrid,
+			AdapterFactory adapterFactory, EditingDomain editingDomain) {
 		super(agileGrid, adapterFactory, editingDomain);
-		this.editingDomain = editingDomain;
-		contentProvider = (ProrPropertyContentProvider) agileGrid.getContentProvider();
+		contentProvider = (ProrPropertyContentProvider) agileGrid
+				.getContentProvider();
 	}
 
 	@Override
@@ -64,7 +73,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 					.getItemPropertyDescriptor(row);
 			if (descriptor != null)
 				return descriptor.canSetProperty(this.contentProvider
-						.getSpecElement());
+						.getIdentifiable());
 		}
 
 		return false;
@@ -74,10 +83,13 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 	@Override
 	public CellEditor getCellEditor(int row, int col, Object hint) {
 
+		// Get the correct celleditor
 		AttributeValue attrValue = getAttributeValue(row, col);
 
 		CellEditor cellEditor = null;
 
+		// If the attribute is a reqif attribute (an attribute value exists),
+		// when try to get the presentation service
 		if (attrValue != null) {
 
 			ProrPresentationConfiguration config = ConfigurationUtil
@@ -90,26 +102,31 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 			}
 
 			if (cellEditor == null)
-				cellEditor = getDefaultCellEditor(attrValue);
+				cellEditor = getDefaultCellEditor(attrValue,
+						getAffectedElement(row, col));
 
-		} else {
-			
+		} else { // If the attribute is an EMF attribute (no attribute value
+					// exists) return a default celleditor
+
 			final IItemPropertyDescriptor descriptor = this.contentProvider
 					.getItemPropertyDescriptor(row);
 			
+			final Identifiable selectedElement = this.contentProvider.getIdentifiable();
+			
 			Collection<?> collection = descriptor
-					.getChoiceOfValues(this.contentProvider.getSpecElement());
-
-
+					.getChoiceOfValues(selectedElement);
 
 			if (collection != null) { // Multivalue --> combobox celleditor
-
 				final ArrayList<String> strList = new ArrayList<String>();
 				final ArrayList<Object> objList = new ArrayList<Object>();
+				// Add a null entry. This is particularly fatal when no entries
+				// exist, i.e. the user opens a dropdown that has no entries.
+				strList.add("");
+				objList.add(null);
 				for (Object o : collection) {
 					if (o != null) {
 						String str = descriptor.getLabelProvider(
-								this.contentProvider.getSpecElement())
+								selectedElement)
 								.getText(o);
 						objList.add(o);
 						strList.add(str);
@@ -121,53 +138,61 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 
 					@Override
 					protected Object doGetValue() {
-						// Object value = super.doGetValue();
 						CCombo combo = (CCombo) getControl();
 						int selectionIndex = combo.getSelectionIndex();
-						sendCommand(objList.get(selectionIndex),
-								descriptor);
+						descriptor.setPropertyValue(selectedElement, objList.get(selectionIndex));
+						fixAffectedObjectsOfLastcommand();
 						return strList.get(selectionIndex);
 					}
-
 				};
 	
-			} else { // Singlevalue --> text celleditor
-				
+			} else { // Singlevalue --> text celleditor				
 				cellEditor = new TextCellEditor(agileGrid) {
 
 					@Override
 					protected Object doGetValue() {
 						Object value = super.doGetValue();
-						sendCommand(value, descriptor);
+						descriptor.setPropertyValue(selectedElement, value);
+						fixAffectedObjectsOfLastcommand();
 						return value;
 					}
-
 				};
-
 			}
-
 		}
-
 		return cellEditor;
-
+	}
+	
+	/**
+	 * This method undos the last command, wrapps it to change the affected
+	 * objects, and executes it again.
+	 * <p>
+	 * This is a workaround, as we modify properties via
+	 * {@link IItemPropertyDescriptor#setPropertyValue(Object, Object)}. That
+	 * method builds the appropriate command and executes it. However, the
+	 * affected objects are incorrect, as this is typically the
+	 * {@link SpecElementWithAttributes} (or {@link SpecHierarchy}), but the
+	 * property belongs to {@link AttributeValue}, which is therefore reported
+	 * as the affected element.
+	 */
+	private void fixAffectedObjectsOfLastcommand() {
+		Command lastCmd = editingDomain.getCommandStack().getMostRecentCommand();
+		if (lastCmd == null) return;
+		editingDomain.getCommandStack().undo();
+		CommandWrapper wrappedCmd = new CommandWrapper(lastCmd) {
+			public java.util.Collection<?> getAffectedObjects() {
+				List<Object> list = new ArrayList<Object>();
+				list.add(contentProvider.getIdentifiable());
+				return list;
+			}
+		};
+		editingDomain.getCommandStack().execute(wrappedCmd);
 	}
 
-	/**
-	 * 
-	 * Sends a command to the command stack in order to change the new attribute
-	 * value of the {@link IItemPropertyDescriptor}.
-	 * 
-	 * @param newValue
-	 *            the new attribute value
-	 * @param descriptor
-	 *            the corresponding {@link IItemPropertyDescriptor}
-	 */
-	public void sendCommand(Object newValue, IItemPropertyDescriptor descriptor) {
-		Command cmd = SetCommand.create(editingDomain,
-				((ProrPropertyContentProvider) agileGrid.getContentProvider())
-						.getSpecElement(), descriptor
-						.getFeature(contentProvider.getSpecElement()), newValue);
-		editingDomain.getCommandStack().execute(cmd);
+	@Override
+	public Identifiable getAffectedElement(int row, int col) {
+		if (this.contentProvider != null)
+				return this.contentProvider.getIdentifiable();
+		return null;
 	}
 
 }

@@ -14,9 +14,9 @@ package org.eclipse.rmf.pror.reqif10.presentation.id.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.rmf.pror.reqif10.configuration.impl.ProrPresentationConfigurationImpl;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdPackage;
-import org.eclipse.rmf.reqif10.configuration.impl.ProrPresentationConfigurationImpl;
 
 /**
  * <!-- begin-user-doc -->

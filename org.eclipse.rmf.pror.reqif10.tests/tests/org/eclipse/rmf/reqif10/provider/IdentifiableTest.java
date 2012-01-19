@@ -16,8 +16,8 @@ import javax.xml.datatype.DatatypeFactory;
 
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.Identifiable;
-import org.eclipse.rmf.reqif10.util.ProrUtil;
 import org.junit.Assert;
 import org.junit.Test;
 

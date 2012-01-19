@@ -17,9 +17,9 @@ import org.agilemore.agilegrid.CellEditor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.configuration.ProrPresentationConfiguration;
 
 public abstract class AbstractPresentationService extends AdapterImpl implements PresentationService {
 
@@ -32,7 +32,7 @@ public abstract class AbstractPresentationService extends AdapterImpl implements
 	public abstract ProrPresentationConfiguration getConfigurationInstance();
 
 	@Override
-	public void openReqif(ReqIf rif) {
+	public void openReqif(ReqIf reqif, EditingDomain domain) {
 	}
 
 	@Override

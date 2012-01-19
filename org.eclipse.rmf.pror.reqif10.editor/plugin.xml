@@ -24,7 +24,7 @@ Contributors:
             name="%_UI_Wizard_category"/>
       <wizard
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            class="org.eclipse.rmf.reqif10.presentation.Reqif10ModelWizard"
+            class="org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10ModelWizard"
             finalPerspective="org.eclipse.rmf.pror.ProrPerspective"
             icon="icons/full/obj16/ReqIf.png"
             id="org.eclipse.rmf.reqif10.presentation.Reqif10ModelWizardID"
@@ -40,12 +40,12 @@ Contributors:
             name="%_UI_Reqif10Editor_label"
             icon="icons/full/obj16/ReqIf.png"
             extensions="reqif"
-            class="org.eclipse.rmf.reqif10.presentation.Reqif10Editor"
-            contributorClass="org.eclipse.rmf.reqif10.presentation.Reqif10ActionBarContributor">
+            class="org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10Editor"
+            contributorClass="org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10ActionBarContributor">
       </editor>
       <editor
-            class="org.eclipse.rmf.reqif10.presentation.SpecificationEditor"
-            contributorClass="org.eclipse.rmf.reqif10.presentation.Reqif10ActionBarContributor"
+            class="org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor"
+            contributorClass="org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10ActionBarContributor"
             default="true"
             icon="icons/full/obj16/Specification.png"
             id="org.eclipse.rmf.pror.reqif10.SpecificationEditor"
@@ -58,7 +58,7 @@ Contributors:
             id="org.eclipse.rmf.reqif10.presentation.Reqif10EditorIDContribution"
             targetID="org.eclipse.rmf.reqif10.presentation.Reqif10EditorID">
          <action
-               class="org.eclipse.rmf.reqif10.actions.PresentationConfigurationActionDelegate"
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.PresentationConfigurationActionDelegate"
                icon="icons/full/obj16/ReqIFToolExtension.png"
                id="org.eclipse.rmf.pror.reqif10.editor.ProRConfiguration"
                label="%_Action_Presentation_Config"
@@ -67,7 +67,7 @@ Contributors:
                toolbarPath="additions">
          </action>
          <action
-               class="org.eclipse.rmf.reqif10.actions.DatatypeConfigurationActionDelegate"
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.DatatypeConfigurationActionDelegate"
                icon="icons/full/obj16/SpecType.png"
                id="org.eclipse.rmf.pror.reqif10.editor.DatatypeConfiguration"
                label="%_Action_Datatype_Config"
@@ -76,7 +76,7 @@ Contributors:
                toolbarPath="additions">
          </action>
          <action
-               class="org.eclipse.rmf.reqif10.actions.GeneralConfigurationActionDelegate"
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.GeneralConfigurationActionDelegate"
                icon="icons/full/obj16/ProRGeneralConfiguration.png"
                id="org.eclipse.rmf.pror.reqif10.editor.GeneralConfiguration"
                label="%_Action_General_Config"
@@ -85,7 +85,7 @@ Contributors:
                toolbarPath="additions">
          </action>
          <action
-               class="org.eclipse.rmf.reqif10.actions.WebsiteActionDelegate"
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.WebsiteActionDelegate"
                icon="icons/full/prorIcon/prorIcon16.png"
                id="org.eclipse.rmf.pror.reqif10.editor.WebsiteConfiguration"
                label="%_Action_Website"
@@ -98,7 +98,7 @@ Contributors:
             id="org.eclipse.rmf.pror.reqif10.SpecificationEditorContribution"
             targetID="org.eclipse.rmf.pror.reqif10.SpecificationEditor">
          <action
-               class="org.eclipse.rmf.reqif10.actions.AddTestObjectsActionDelegate"
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.AddTestObjectsActionDelegate"
                icon="icons/full/obj16/Debug.png"
                id="org.eclipse.rmf.pror.reqif10.editor.AddTestElements"
                label="Add Test Elements"
@@ -107,7 +107,7 @@ Contributors:
                toolbarPath="additions">
          </action>
          <action
-               class="org.eclipse.rmf.reqif10.actions.ToggleSpecRelationsActionDelegate"
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.ToggleSpecRelationsActionDelegate"
                icon="icons/full/obj16/SpecRelation.png"
                id="org.eclipse.rmf.pror.reqif10.editor.toggleSpecRelations"
                label="%_Action_Toggle_Links"
@@ -117,7 +117,7 @@ Contributors:
                toolbarPath="additions">
          </action>
          <action
-               class="org.eclipse.rmf.reqif10.actions.ColumnConfigurationActionDelegate"
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.ColumnConfigurationActionDelegate"
                icon="icons/full/obj16/Column.png"
                id="org.eclipse.rmf.pror.reqif10.editor.ColumnConfiguration"
                label="%_Action_Column_Config"
@@ -126,7 +126,7 @@ Contributors:
                toolbarPath="additions">
          </action>
          <action
-               class="org.eclipse.rmf.reqif10.actions.PresentationConfigurationActionDelegate"
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.PresentationConfigurationActionDelegate"
                icon="icons/full/obj16/ReqIFToolExtension.png"
                id="org.eclipse.rmf.pror.reqif10.editor.ProRConfiguration"
                label="%_Action_Presentation_Config"
@@ -135,7 +135,7 @@ Contributors:
                toolbarPath="additions">
          </action>
          <action
-               class="org.eclipse.rmf.reqif10.actions.DatatypeConfigurationActionDelegate"
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.DatatypeConfigurationActionDelegate"
                icon="icons/full/obj16/SpecType.png"
                id="org.eclipse.rmf.pror.reqif10.editor.DatatypeConfiguration"
                label="%_Action_Datatype_Config"
@@ -144,7 +144,7 @@ Contributors:
                toolbarPath="additions">
          </action>
          <action
-               class="org.eclipse.rmf.reqif10.actions.GeneralConfigurationActionDelegate"
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.GeneralConfigurationActionDelegate"
                icon="icons/full/obj16/ProRGeneralConfiguration.png"
                id="org.eclipse.rmf.pror.reqif10.editor.GeneralConfiguration"
                label="%_Action_General_Config"
@@ -153,7 +153,7 @@ Contributors:
                toolbarPath="additions">
          </action>
          <action
-               class="org.eclipse.rmf.reqif10.actions.WebsiteActionDelegate"
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.WebsiteActionDelegate"
                icon="icons/full/prorIcon/prorIcon16.png"
                id="org.eclipse.rmf.pror.reqif10.editor.WebsiteConfiguration"
                label="%_Action_Website"
@@ -165,7 +165,7 @@ Contributors:
    </extension>
    <extension point="org.eclipse.ui.perspectives">
       <perspective
-            class="org.eclipse.rmf.reqif10.presentation.ProrPerspective"
+            class="org.eclipse.rmf.pror.reqif10.editor.presentation.ProrPerspective"
             icon="icons/full/prorIcon/prorIcon16.png"
             id="org.eclipse.rmf.pror.ProrPerspective"
             name="%_UI_Perspective_label">
