@@ -989,7 +989,7 @@ public class Reqif10Editor
 	@Override
 	public void createPages() {
 		createModel();
-		reqif = openRif();
+		reqif = openReqif();
 
 		// Only creates the other pages if there is something that can be
 		// edited
@@ -1026,7 +1026,7 @@ public class Reqif10Editor
 	 * @return {@link RIF}
 	 */
 	
-	private ReqIf openRif() {
+	private ReqIf openReqif() {
 		if (editingDomain.getResourceSet().getResources().isEmpty()) {
 			throw new IllegalArgumentException("ResourceSet is empty.");
 		}
@@ -1034,7 +1034,7 @@ public class Reqif10Editor
 				.get(0);
 		
 		if (resource.getContents().isEmpty()) {
-			throw new IllegalArgumentException("No ReqIf Content found.  Invalid ReqIF File?");			
+			throw new IllegalArgumentException("No ReqIf Content found.  Please check errors on the console.");			
 		}
 
 		reqif = (ReqIf) resource.getContents().get(0);
