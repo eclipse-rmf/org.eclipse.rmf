@@ -79,6 +79,8 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -102,6 +104,7 @@ import org.eclipse.rmf.reqif10.ReqIf;
 import org.eclipse.rmf.reqif10.ReqIfContent;
 import org.eclipse.rmf.reqif10.Reqif10Factory;
 import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;
@@ -121,6 +124,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.SaveAsDialog;
+import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
@@ -1187,6 +1191,35 @@ public class Reqif10Editor
 					  //
 					  contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 					}
+					
+					// React to double clicking
+					contentOutlineViewer
+							.addDoubleClickListener(new IDoubleClickListener() {
+
+								@Override
+								public void doubleClick(DoubleClickEvent event) {
+									if (event.getSelection() instanceof IStructuredSelection
+											&& !event.getSelection().isEmpty()) {
+										Object obj = ((IStructuredSelection) event
+												.getSelection())
+												.getFirstElement();
+										if (obj instanceof Specification) {
+											ReqifSpecificationEditorInput editorInput = new ReqifSpecificationEditorInput(
+													Reqif10Editor.this,
+													(Specification) obj);
+											try {
+												IDE.openEditor(
+														getSite().getPage(),
+														editorInput,
+														SpecificationEditor.EDITOR_ID);
+											} catch (PartInitException e) {
+												e.printStackTrace();
+											}
+										}
+
+									}
+								}
+							});
 				}
 
 				@Override
