@@ -153,7 +153,8 @@ public class SpecificationEditor extends EditorPart implements
 								  setSelectionToViewer(mostRecentCommand.getAffectedObjects());
 							  }
 							  ProrPropertySheetPage propSheet = reqifEditor.getPropertySheetPage();
-							  if (propSheet != null && !propSheet.getControl().isDisposed()) {
+						if (propSheet != null && propSheet.getControl() != null
+								&& !propSheet.getControl().isDisposed()) {
 								  propSheet.refresh();
 							  }
 						  }
