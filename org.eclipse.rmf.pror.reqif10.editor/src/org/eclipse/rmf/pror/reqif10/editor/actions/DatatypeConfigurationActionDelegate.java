@@ -52,10 +52,10 @@ public class DatatypeConfigurationActionDelegate implements
 	public void run(IAction action) {
 		if (editor == null)
 			return;
-		ReqIf rif = (ReqIf) editor.getEditingDomain().getResourceSet()
+		ReqIf reqif = (ReqIf) editor.getEditingDomain().getResourceSet()
 				.getResources().get(0).getContents().get(0);
 
-		SubtreeDialog dialog = new SubtreeDialog(editor, rif.getCoreContent(),
+		SubtreeDialog dialog = new SubtreeDialog(editor, reqif.getCoreContent(),
 				"Datatype Configuration",
 				"org.eclipse.rmf.pror.reqif10.editor.datatypeConfiguration");
 		dialog.addFilter(new ViewerFilter() {
