@@ -88,12 +88,12 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	private final EditingDomain editingDomain;
 	private final Reqif10Editor rifEditor;
 
-	protected SubtreeDialog(Reqif10Editor rifEditor, EObject input, String title,
+	protected SubtreeDialog(Reqif10Editor reqifEditor, EObject input, String title,
 			String helpContext) {
 		super(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
-		this.rifEditor = rifEditor;
-		this.editingDomain = rifEditor.getEditingDomain();
-		this.adapterFactory = rifEditor.getAdapterFactory();
+		this.rifEditor = reqifEditor;
+		this.editingDomain = reqifEditor.getEditingDomain();
+		this.adapterFactory = reqifEditor.getAdapterFactory();
 		this.input = input;
 		this.title = title;
 		this.helpContext = helpContext;
