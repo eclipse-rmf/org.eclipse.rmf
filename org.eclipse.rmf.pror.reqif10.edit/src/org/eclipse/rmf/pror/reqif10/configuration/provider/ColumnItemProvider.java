@@ -17,9 +17,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -30,9 +31,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 
 
@@ -163,6 +164,15 @@ public class ColumnItemProvider
 
 		switch (notification.getFeatureID(Column.class)) {
 			case ConfigPackage.COLUMN__LABEL:
+				// inform the parent
+				InternalEObject parent = (InternalEObject) ((EObject) notification
+						.getNotifier()).eContainer();
+				if (parent instanceof ProrSpecViewConfiguration) {
+					parent.eNotify(new ENotificationImpl(
+							parent, ENotificationImpl.SET,
+							ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
+							notification.getNotifier(), notification.getNotifier()));					
+				}
 			case ConfigPackage.COLUMN__WIDTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
