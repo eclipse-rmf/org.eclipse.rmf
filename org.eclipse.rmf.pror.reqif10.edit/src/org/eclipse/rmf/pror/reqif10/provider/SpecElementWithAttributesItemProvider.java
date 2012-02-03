@@ -130,12 +130,6 @@ public abstract class SpecElementWithAttributesItemProvider extends
 		SpecElementWithAttributes specElement = (SpecElementWithAttributes) object;
 		
 		return ConfigurationUtil.getSpecElementLabel(specElement);
-		
-//		String label = specElement.getLongName();
-//		String type = specElement.getClass().getSimpleName();
-//		if (type.length() > 4)
-//			type = type.substring(0, type.length() - 4);
-//		return label == null || label.length() == 0 ? type : type + " " + label;
 	}
 
 	/**
