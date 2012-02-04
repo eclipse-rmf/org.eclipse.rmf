@@ -1,0 +1,176 @@
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+
+transformation ReqIfModelCleaner(in reqIfModel : ECORE, out ECORE);
+
+
+main() {
+    var copiedElements : Bag(Element);
+    copiedElements := reqIfModel.rootObjects()->deepclone();
+	copiedElements.allSubobjects()[ECORE::EAttribute]->map makeUnsettable();
+	copiedElements.allSubobjects()[ECORE::EAttribute]->map setMetadata();
+	copiedElements.allSubobjects()[ECORE::EAttribute]->map makeId();
+	copiedElements.allSubobjects()[ECORE::EAttribute]->map removeIsPrefix();
+	copiedElements.allSubobjects()[ECORE::EAttribute]->map makeBigInteger();
+	
+	
+	copiedElements.allSubobjects()[ECORE::EReference]->map setMetadata();
+	copiedElements.allSubobjects()[ECORE::EClass]->map removeBackLinkages();
+	copiedElements.allSubobjects()[ECORE::EClass]->map setMetadata();
+	
+	copiedElements.allSubobjects()[ECORE::EPackage]->map setNamespaceData();
+	copiedElements[ECORE::EPackage]->map setNamespaceData();
+		
+}
+
+
+// set namespace prefix to "" in order to serialized with default namespace
+mapping inout ECORE::EPackage :: setNamespaceData() 
+when {self.name="reqif10"}
+{
+	self.nsURI := "http://www.omg.org/spec/ReqIF/20110401/reqif.xsd";
+	self.nsPrefix := "";
+	
+}
+
+mapping inout ECORE::EAttribute :: makeUnsettable() {
+	self.unsettable := true;
+}
+
+
+mapping inout ECORE::EAttribute :: makeId() 
+when {self.name = "identifier"}{
+	self.iD := true;
+}
+
+// avoid getters for boolean value attributes that start with a double 'is'
+// e.g. the attribute isEditable:Boolean would be generated as isIsEditable() 
+mapping inout ECORE::EAttribute :: removeIsPrefix() 
+when {self.name.startsWith("is") and self.eType = ECORE::EBoolean}{
+	self.name := self.name.trimLeadingIs();
+}
+
+// xsd:integer refers to unlimited integers. Therefore EInt is not sufficient
+// TODO: it is questionable to have a Real.accuracy or Sting.maxLength of unlimited
+mapping inout ECORE::EAttribute :: makeBigInteger() 
+when {self.eType = ECORE::EInt}{
+	self.eType := ECORE::EBigInteger.oclAsType(ECORE::EClassifier);
+}
+
+// sets the XML name and attribute/element serialization information
+// all Eattributes except the most Eattributes of ReqIfHeader are serialized as attributes
+mapping inout ECORE::EAttribute :: setMetadata() {
+    if (self.eContainingClass.name = "ReqIfHeader" and self.name != "identifier") then {
+		self.eAnnotations := self.getExtendedMetadata("element");
+	} else { 
+		self.eAnnotations := self.getExtendedMetadata("attribute");
+	} endif;
+}
+
+// sets the XML name and attribute/element serialization information
+mapping inout ECORE::EReference :: setMetadata() {
+	self.eAnnotations := self.getExtendedMetadata("element");
+}
+
+// sets the XML name and attribute/element serialization information
+mapping inout ECORE::EClass :: setMetadata() {
+	self.eAnnotations := self.getExtendedMetadata("elementOnly");
+}
+
+
+mapping inout ECORE::EClass :: removeBackLinkages() {
+	eStructuralFeatures := self.eStructuralFeatures[isValid()]
+}
+
+
+query ECORE :: EStructuralFeature :: isValid() : Boolean {
+    return true;	
+}
+
+query ECORE :: EReference :: isValid() : Boolean {
+    return not self.container
+}
+
+query ECORE::ENamedElement :: getExtendedMetadata(kind : String) : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "name";
+			value := self.getXMLName();
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "kind";
+			value := kind;
+		};
+	}
+}
+
+query ECORE::ENamedElement :: getXMLName() : String {
+		var retTag : String = "";
+		
+		var index : Integer := 1;
+		var lastChar := " ";
+		var currentChar : String;
+		var nextChar := " ";
+		
+		while (index<=self.name.length()) {
+			currentChar := self.name.substring(index,index);
+			if (index+1 <= self.name.length()) then {
+				nextChar := self.name.substring(index+1,index+1);  
+			} endif;
+			if (hasStateChanged(lastChar, currentChar, nextChar)) then {
+				retTag := retTag + "-";
+			} endif;
+			lastChar := currentChar;
+			retTag := retTag + currentChar.toUpper(); 
+			index := index+1;
+		};
+		
+		return retTag;
+
+}
+
+query hasStateChanged(lastChar : String, currentChar : String , nextChar : String ) : Boolean {
+	if (lastChar.isLower() and currentChar.isUpper()) then {
+		return true;
+	} else {
+		if (lastChar.isUpper() and currentChar.isUpper() and nextChar.isLower()) then {
+			return true;
+		} else {
+			return false;
+		} endif;
+	} endif;
+	
+	return false;
+}
+
+	
+query String :: isLower() : Boolean {
+	return (self.toLower() = self and " " != self);
+}
+
+query String :: isUpper() : Boolean {
+	return (self.toUpper() = self and " " != self);
+}
+
+query String :: trimLeadingIs() : String {
+	var returnValue : String;
+	
+	if (self.startsWith("is")) then {
+		var tail : String;
+		if (3<self.size()) then {
+			tail := self.substring(4,self.size());
+		} else {
+			tail := "";
+		} endif;
+		
+		var firstLower : String;
+		firstLower := self.substring(3,3).toLower();
+		
+		returnValue := firstLower+tail;
+	} else {
+		returnValue := self;
+	} endif;
+	
+	return returnValue;
+	
+}	
