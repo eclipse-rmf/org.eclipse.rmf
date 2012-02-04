@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.rmf.pror.reqif10.tests
+Bundle-Version: 0.1.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit;bundle-version="4.8.2",
+ org.eclipse.rmf.pror.reqif10.edit;bundle-version="0.1.0"
+Bundle-Vendor: %providerName
+Export-Package: org.eclipse.rmf.pror.reqif10.testdata,
+ org.eclipse.rmf.pror.reqif10.testframework,
+ org.eclipse.rmf.reqif10.configuration.tests

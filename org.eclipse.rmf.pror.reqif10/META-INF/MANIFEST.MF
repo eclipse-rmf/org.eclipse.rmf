@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.rmf.pror.reqif10;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.rmf.reqif10.model;bundle-version="0.1.0";visibility:=reexport,
+ org.eclipse.ui.intro;bundle-version="3.4.100"
+Export-Package: org.eclipse.rmf.pror.reqif10.configuration,
+ org.eclipse.rmf.pror.reqif10.configuration.impl,
+ org.eclipse.rmf.pror.reqif10.configuration.util
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: %providerName
