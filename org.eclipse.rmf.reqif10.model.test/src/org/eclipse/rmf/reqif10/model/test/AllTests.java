@@ -16,7 +16,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 
 @RunWith(Suite.class)
-@SuiteClasses({ SpecObjectTest.class, SpecRelationTest.class })
+@SuiteClasses({ SpecObjectTest.class, SpecRelationTest.class, TC1000SimpleContentTests.class, TC9000SimpleContentPerformanceTest.class })
 public class AllTests {
 	
 
