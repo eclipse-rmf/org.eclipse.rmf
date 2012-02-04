@@ -1,0 +1,4 @@
+The following changes were applied to rif12.ecore
+
+1. Added Enumeration AccessPolicyAccessModeEnum
+2. Added Enumeration DatatypeDefinitionDateFormatEnum

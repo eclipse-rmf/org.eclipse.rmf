@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RIF xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://automotive-his.de/200807/rif" xmlns:configuration="http://pror.org/presentation/configuration" xsi:schemaLocation="http://automotive-his.de/200706/rif-xhtml rif-xhtml.xsd http://automotive-his.de/200807/rif rif.xsd">
+  <TOOL-EXTENSIONS>
+    <RIF-TOOL-EXTENSION>
+      <configuration:specViewConfigurations xsi:type="configuration:ProRSpecViewConfiguration">
+        <columns label="Description"/>
+      </configuration:specViewConfigurations>
+      <configuration:generalConfiguration xsi:type="configuration:ProRGeneralConfiguration">
+        <labelConfiguration>
+          <defaultLabel>Description</defaultLabel>
+        </labelConfiguration>
+      </configuration:generalConfiguration>
+    </RIF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</RIF>

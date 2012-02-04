@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RIF Model Test
+Bundle-SymbolicName: org.eclipse.rmf.rif12.model.test
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ org.junit,
+ org.eclipse.emf.ecore;bundle-version="2.6.1",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.5.0",
+ org.eclipse.emf.compare;bundle-version="1.1.2",
+ org.eclipse.emf.compare.diff;bundle-version="1.1.2",
+ org.eclipse.emf.compare.match;bundle-version="1.1.2",
+ org.eclipse.rmf.rif12.model;bundle-version="1.0.0",
+ org.eclipse.rmf.rif12.resource;bundle-version="1.2.0",
+ org.eclipse.rmf.rif12.xsd.model;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

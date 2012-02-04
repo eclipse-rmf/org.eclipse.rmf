@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.rif12.xsd.xsd.model/src"
+    modelPluginID="org.eclipse.rmf.rif12.xsd.xsd.model" modelName="Rif" editPluginClass="org.eclipse.rmf.rif12.xsd.xsd.provider.RifEditPlugin"
+    editorPluginClass="org.eclipse.rmf.rif12.xsd.xsd.presentation.RifEditorPlugin"
+    testSuiteClass="org.eclipse.rmf.rif12.xsd.xsd.tests.RifAllTests" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="its.genmodel#//its xlink.genmodel#//xlink platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
+  <foreignModel>rif.xsd</foreignModel>
+  <genPackages prefix="Rif" basePackage="org.eclipse.rmf" resource="XML" disposableProviderFactory="true"
+      ecorePackage="rif.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rif.ecore#//ACCESSPOLICYACCESSMODEENUM">
+      <genEnumLiterals ecoreEnumLiteral="rif.ecore#//ACCESSPOLICYACCESSMODEENUM/EDIT"/>
+      <genEnumLiterals ecoreEnumLiteral="rif.ecore#//ACCESSPOLICYACCESSMODEENUM/DELETE"/>
+      <genEnumLiterals ecoreEnumLiteral="rif.ecore#//ACCESSPOLICYACCESSMODEENUM/CREATE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rif.ecore#//DATATYPEDEFINITIONDATEFORMATENUM">
+      <genEnumLiterals ecoreEnumLiteral="rif.ecore#//DATATYPEDEFINITIONDATEFORMATENUM/W3C"/>
+      <genEnumLiterals ecoreEnumLiteral="rif.ecore#//DATATYPEDEFINITIONDATEFORMATENUM/CUSTOM"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="rif.ecore#//ACCESSPOLICYACCESSMODEENUMObject"/>
+    <genDataTypes ecoreDataType="rif.ecore#//DATATYPEDEFINITIONDATEFORMATENUMObject"/>
+    <genDataTypes ecoreDataType="rif.ecore#//REF"/>
+    <genClasses ecoreClass="rif.ecore#//ACCESSPOLICIESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//ACCESSPOLICIESType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//ACCESSPOLICIESType/aCCESSPOLICY"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//ACCESSPOLICY">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ACCESSPOLICY/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ACCESSPOLICY/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ACCESSPOLICY/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ACCESSPOLICY/lONGNAME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ACCESSPOLICY/aCCESSMODE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ACCESSPOLICY/aTTRIBUTEDEFINITIONS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ACCESSPOLICY/aTTRIBUTEVALUES"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ACCESSPOLICY/dATATYPEDEFINITIONS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ACCESSPOLICY/rELATIONGROUPS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ACCESSPOLICY/sPECGROUPS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ACCESSPOLICY/sPECHIERARCHIES"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ACCESSPOLICY/sPECHIERARCHYROOTS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ACCESSPOLICY/sPECOBJECTS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ACCESSPOLICY/sPECRELATIONS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ACCESSPOLICY/sPECTYPES"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//ATTRIBUTEDEFINITIONCOMPLEX">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONCOMPLEX/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONCOMPLEX/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONCOMPLEX/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONCOMPLEX/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEDEFINITIONCOMPLEX/dEFAULTVALUE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEDEFINITIONCOMPLEX/tYPE"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//ATTRIBUTEDEFINITIONENUMERATION">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/dEFAULTVALUE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/mULTIVALUED"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/tYPE"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//ATTRIBUTEDEFINITIONSIMPLE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONSIMPLE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONSIMPLE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONSIMPLE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONSIMPLE/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEDEFINITIONSIMPLE/dEFAULTVALUE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEDEFINITIONSIMPLE/tYPE"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//ATTRIBUTEDEFINITIONSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEDEFINITIONSType/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEDEFINITIONSType/aTTRIBUTEDEFINITIONCOMPLEXREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEDEFINITIONSType/aTTRIBUTEDEFINITIONENUMERATIONREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEDEFINITIONSType/aTTRIBUTEDEFINITIONSIMPLEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//ATTRIBUTEVALUEEMBEDDEDDOCUMENT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEEMBEDDEDDOCUMENT/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEEMBEDDEDDOCUMENT/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEEMBEDDEDDOCUMENT/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEEMBEDDEDDOCUMENT/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUEEMBEDDEDDOCUMENT/dEFINITION"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUEEMBEDDEDDOCUMENT/xHTMLCONTENT"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//ATTRIBUTEVALUEEMBEDDEDFILE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEEMBEDDEDFILE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEEMBEDDEDFILE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEEMBEDDEDFILE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEEMBEDDEDFILE/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUEEMBEDDEDFILE/bINARYCONTENT"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUEEMBEDDEDFILE/dEFINITION"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//ATTRIBUTEVALUEENUMERATION">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEENUMERATION/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEENUMERATION/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEENUMERATION/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEENUMERATION/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUEENUMERATION/dEFINITION"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUEENUMERATION/vALUES"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//ATTRIBUTEVALUEFILEREFERENCE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEFILEREFERENCE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEFILEREFERENCE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEFILEREFERENCE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEFILEREFERENCE/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUEFILEREFERENCE/dEFINITION"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEFILEREFERENCE/pATHTOFILE"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//ATTRIBUTEVALUESIMPLE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUESIMPLE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUESIMPLE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUESIMPLE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUESIMPLE/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUESIMPLE/dEFINITION"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUESIMPLE/tHEVALUE"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//ATTRIBUTEVALUESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUESType/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUESType/aTTRIBUTEVALUEEMBEDDEDDOCUMENTREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUESType/aTTRIBUTEVALUEEMBEDDEDFILEREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUESType/aTTRIBUTEVALUEENUMERATIONREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUESType/aTTRIBUTEVALUEFILEREFERENCEREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUESType/aTTRIBUTEVALUESIMPLEREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUESType/aTTRIBUTEVALUEXMLDATAREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//ATTRIBUTEVALUEXMLDATA">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEXMLDATA/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEXMLDATA/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEXMLDATA/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ATTRIBUTEVALUEXMLDATA/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUEXMLDATA/dEFINITION"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ATTRIBUTEVALUEXMLDATA/xMLCONTENT"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//BINARYCONTENT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//BINARYCONTENT/value"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//CHILDRENType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//CHILDRENType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//CHILDRENType/sPECHIERARCHY"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//CHILDRENType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//CHILDRENType1/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//CHILDRENType1/sPECGROUPHIERARCHY"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//CHILDRENType2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//CHILDRENType2/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//CHILDRENType2/sPECGROUPHIERARCHY"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//CHILDRENType3">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//CHILDRENType3/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//CHILDRENType3/sPECHIERARCHY"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//CORECONTENTType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//CORECONTENTType/rIFCONTENT"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DATATYPEDEFINITIONBINARYFILE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONBINARYFILE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONBINARYFILE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONBINARYFILE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONBINARYFILE/lONGNAME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONBINARYFILE/eMBEDDED"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONBINARYFILE/aPPLICATION"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONBINARYFILE/fILENAMESUFFIX"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONBINARYFILE/fORMATNAME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONBINARYFILE/mIMETYPE"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DATATYPEDEFINITIONBOOLEAN">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONBOOLEAN/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONBOOLEAN/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONBOOLEAN/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONBOOLEAN/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DATATYPEDEFINITIONDATE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONDATE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONDATE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONDATE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONDATE/lONGNAME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONDATE/fORMAT"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DATATYPEDEFINITIONDOCUMENT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONDOCUMENT/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONDOCUMENT/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONDOCUMENT/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONDOCUMENT/lONGNAME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONDOCUMENT/eMBEDDED"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DATATYPEDEFINITIONENUMERATION">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONENUMERATION/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONENUMERATION/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONENUMERATION/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONENUMERATION/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//DATATYPEDEFINITIONENUMERATION/sPECIFIEDVALUES"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DATATYPEDEFINITIONINTEGER">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONINTEGER/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONINTEGER/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONINTEGER/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONINTEGER/lONGNAME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONINTEGER/mAX"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONINTEGER/mIN"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DATATYPEDEFINITIONREAL">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONREAL/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONREAL/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONREAL/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONREAL/lONGNAME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONREAL/aCCURACY"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONREAL/mAX"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONREAL/mIN"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DATATYPEDEFINITIONSTRING">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONSTRING/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONSTRING/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONSTRING/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONSTRING/lONGNAME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONSTRING/mAXLENGTH"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DATATYPEDEFINITIONSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONSType/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DATATYPEDEFINITIONSType/dATATYPEDEFINITIONBINARYFILEREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DATATYPEDEFINITIONSType/dATATYPEDEFINITIONBOOLEANREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DATATYPEDEFINITIONSType/dATATYPEDEFINITIONDATEREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DATATYPEDEFINITIONSType/dATATYPEDEFINITIONDOCUMENTREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DATATYPEDEFINITIONSType/dATATYPEDEFINITIONENUMERATIONREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DATATYPEDEFINITIONSType/dATATYPEDEFINITIONINTEGERREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DATATYPEDEFINITIONSType/dATATYPEDEFINITIONREALREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DATATYPEDEFINITIONSType/dATATYPEDEFINITIONSTRINGREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DATATYPEDEFINITIONSType/dATATYPEDEFINITIONXMLDATAREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DATATYPEDEFINITIONXMLDATA">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONXMLDATA/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONXMLDATA/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONXMLDATA/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONXMLDATA/lONGNAME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONXMLDATA/eMBEDDED"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONXMLDATA/nAMESPACEURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPEDEFINITIONXMLDATA/sCHEMALOCATION"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DATATYPESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//DATATYPESType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//DATATYPESType/dATATYPEDEFINITIONBINARYFILE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//DATATYPESType/dATATYPEDEFINITIONBOOLEAN"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//DATATYPESType/dATATYPEDEFINITIONDATE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//DATATYPESType/dATATYPEDEFINITIONDOCUMENT"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//DATATYPESType/dATATYPEDEFINITIONENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//DATATYPESType/dATATYPEDEFINITIONINTEGER"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//DATATYPESType/dATATYPEDEFINITIONREAL"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//DATATYPESType/dATATYPEDEFINITIONSTRING"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//DATATYPESType/dATATYPEDEFINITIONXMLDATA"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DEFAULTVALUEType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//DEFAULTVALUEType/aTTRIBUTEVALUEENUMERATION"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DEFAULTVALUEType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//DEFAULTVALUEType1/aTTRIBUTEVALUESIMPLE"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DEFAULTVALUEType2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//DEFAULTVALUEType2/aTTRIBUTEVALUEEMBEDDEDDOCUMENT"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//DEFAULTVALUEType2/aTTRIBUTEVALUEEMBEDDEDFILE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//DEFAULTVALUEType2/aTTRIBUTEVALUEFILEREFERENCE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//DEFAULTVALUEType2/aTTRIBUTEVALUEXMLDATA"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DEFINITIONType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DEFINITIONType/aTTRIBUTEDEFINITIONCOMPLEXREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DEFINITIONType1">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DEFINITIONType1/aTTRIBUTEDEFINITIONCOMPLEXREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DEFINITIONType2">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DEFINITIONType2/aTTRIBUTEDEFINITIONCOMPLEXREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DEFINITIONType3">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DEFINITIONType3/aTTRIBUTEDEFINITIONENUMERATIONREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DEFINITIONType4">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DEFINITIONType4/aTTRIBUTEDEFINITIONSIMPLEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DEFINITIONType5">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//DEFINITIONType5/aTTRIBUTEDEFINITIONCOMPLEXREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//DocumentRoot/rIF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//EMBEDDEDVALUE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//EMBEDDEDVALUE/kEY"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//EMBEDDEDVALUE/oTHERCONTENT"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//ENUMVALUE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ENUMVALUE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ENUMVALUE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ENUMVALUE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//ENUMVALUE/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//ENUMVALUE/pROPERTIES"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//GROUPType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//GROUPType/sPECGROUPREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//HEADERType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//HEADERType/rIFHEADER"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//OBJECTType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//OBJECTType/sPECOBJECTREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//PROPERTIESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//PROPERTIESType/eMBEDDEDVALUE"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//RELATIONGROUP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//RELATIONGROUP/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//RELATIONGROUP/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//RELATIONGROUP/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//RELATIONGROUP/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RELATIONGROUP/rELATIONTYPE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RELATIONGROUP/sPECRELATIONS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RELATIONGROUP/tARGETGROUP"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//RELATIONGROUPSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//RELATIONGROUPSType/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//RELATIONGROUPSType/rELATIONGROUPREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//RELATIONGROUPSType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//RELATIONGROUPSType1/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//RELATIONGROUPSType1/rELATIONGROUP"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//RELATIONTYPEType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//RELATIONTYPEType/sPECTYPEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//RIF">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RIF/hEADER"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RIF/cORECONTENT"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RIF/tOOLEXTENSIONS"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//RIF/dir"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//RIF/lang"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//RIFCONTENT">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RIFCONTENT/dATATYPES"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RIFCONTENT/sPECTYPES"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RIFCONTENT/sPECOBJECTS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RIFCONTENT/sPECRELATIONS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RIFCONTENT/sPECGROUPS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RIFCONTENT/sPECHIERARCHYROOTS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RIFCONTENT/sPECGROUPHIERARCHYROOTS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//RIFCONTENT/aCCESSPOLICIES"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//RIFHEADER">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//RIFHEADER/aUTHOR"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//RIFHEADER/cOMMENT"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//RIFHEADER/cREATIONTIME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//RIFHEADER/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//RIFHEADER/sOURCETOOLID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//RIFHEADER/tITLE"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//RIFTOOLEXTENSION">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//RIFTOOLEXTENSION/any"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SOURCEType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//SOURCEType/sPECOBJECTREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECATTRIBUTESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECATTRIBUTESType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//SPECATTRIBUTESType/aTTRIBUTEDEFINITIONCOMPLEX"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//SPECATTRIBUTESType/aTTRIBUTEDEFINITIONENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//SPECATTRIBUTESType/aTTRIBUTEDEFINITIONSIMPLE"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECGROUP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUP/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUP/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUP/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUP/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECGROUP/tYPE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECGROUP/vALUES"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECGROUP/rELATIONGROUPS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECGROUP/sPECOBJECTS"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECGROUPHIERARCHY">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUPHIERARCHY/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUPHIERARCHY/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUPHIERARCHY/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUPHIERARCHY/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECGROUPHIERARCHY/cHILDREN"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECGROUPHIERARCHY/gROUP"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECGROUPHIERARCHYROOT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUPHIERARCHYROOT/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUPHIERARCHYROOT/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUPHIERARCHYROOT/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUPHIERARCHYROOT/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECGROUPHIERARCHYROOT/tYPE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECGROUPHIERARCHYROOT/vALUES"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECGROUPHIERARCHYROOT/cHILDREN"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECGROUPHIERARCHYROOTSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUPHIERARCHYROOTSType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//SPECGROUPHIERARCHYROOTSType/sPECGROUPHIERARCHYROOT"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECGROUPSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUPSType/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//SPECGROUPSType/sPECGROUPREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECGROUPSType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECGROUPSType1/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//SPECGROUPSType1/sPECGROUP"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECHIERARCHIESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECHIERARCHIESType/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//SPECHIERARCHIESType/sPECHIERARCHYREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECHIERARCHY">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECHIERARCHY/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECHIERARCHY/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECHIERARCHY/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECHIERARCHY/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECHIERARCHY/cHILDREN"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECHIERARCHY/oBJECT"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECHIERARCHYROOT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECHIERARCHYROOT/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECHIERARCHYROOT/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECHIERARCHYROOT/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECHIERARCHYROOT/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECHIERARCHYROOT/tYPE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECHIERARCHYROOT/vALUES"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECHIERARCHYROOT/cHILDREN"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECHIERARCHYROOTSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECHIERARCHYROOTSType/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//SPECHIERARCHYROOTSType/sPECHIERARCHYROOTREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECHIERARCHYROOTSType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECHIERARCHYROOTSType1/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//SPECHIERARCHYROOTSType1/sPECHIERARCHYROOT"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECIFIEDVALUESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECIFIEDVALUESType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//SPECIFIEDVALUESType/eNUMVALUE"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECOBJECT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECOBJECT/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECOBJECT/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECOBJECT/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECOBJECT/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECOBJECT/tYPE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECOBJECT/vALUES"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECOBJECTSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECOBJECTSType/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//SPECOBJECTSType/sPECOBJECTREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECOBJECTSType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECOBJECTSType1/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//SPECOBJECTSType1/sPECOBJECTREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECOBJECTSType2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECOBJECTSType2/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//SPECOBJECTSType2/sPECOBJECT"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECRELATION">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECRELATION/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECRELATION/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECRELATION/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECRELATION/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECRELATION/tYPE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECRELATION/vALUES"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECRELATION/sOURCE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECRELATION/tARGET"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECRELATIONSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECRELATIONSType/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//SPECRELATIONSType/sPECRELATIONREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECRELATIONSType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECRELATIONSType1/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//SPECRELATIONSType1/sPECRELATIONREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECRELATIONSType2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECRELATIONSType2/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//SPECRELATIONSType2/sPECRELATION"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECTYPE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECTYPE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECTYPE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECTYPE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif.ecore#//SPECTYPE/lONGNAME"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif.ecore#//SPECTYPE/sPECATTRIBUTES"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECTYPESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECTYPESType/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//SPECTYPESType/sPECTYPEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//SPECTYPESType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//SPECTYPESType1/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//SPECTYPESType1/sPECTYPE"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//TARGETGROUPType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TARGETGROUPType/sPECGROUPREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//TARGETType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TARGETType/sPECOBJECTREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//TOOLEXTENSIONSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//TOOLEXTENSIONSType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//TOOLEXTENSIONSType/rIFTOOLEXTENSION"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//TYPEType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType/sPECTYPEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//TYPEType1">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType1/dATATYPEDEFINITIONENUMERATIONREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//TYPEType2">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType2/sPECTYPEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//TYPEType3">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType3/sPECTYPEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//TYPEType4">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType4/sPECTYPEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//TYPEType5">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType5/dATATYPEDEFINITIONBOOLEANREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType5/dATATYPEDEFINITIONDATEREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType5/dATATYPEDEFINITIONINTEGERREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType5/dATATYPEDEFINITIONREALREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType5/dATATYPEDEFINITIONSTRINGREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//TYPEType6">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType6/sPECTYPEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//TYPEType7">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType7/dATATYPEDEFINITIONBINARYFILEREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType7/dATATYPEDEFINITIONDOCUMENTREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//TYPEType7/dATATYPEDEFINITIONXMLDATAREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//VALUESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//VALUESType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType/aTTRIBUTEVALUEEMBEDDEDDOCUMENT"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType/aTTRIBUTEVALUEEMBEDDEDFILE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType/aTTRIBUTEVALUEENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType/aTTRIBUTEVALUEFILEREFERENCE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType/aTTRIBUTEVALUESIMPLE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType/aTTRIBUTEVALUEXMLDATA"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//VALUESType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//VALUESType1/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType1/aTTRIBUTEVALUEEMBEDDEDDOCUMENT"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType1/aTTRIBUTEVALUEEMBEDDEDFILE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType1/aTTRIBUTEVALUEENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType1/aTTRIBUTEVALUEFILEREFERENCE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType1/aTTRIBUTEVALUESIMPLE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType1/aTTRIBUTEVALUEXMLDATA"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//VALUESType2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//VALUESType2/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType2/aTTRIBUTEVALUEEMBEDDEDDOCUMENT"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType2/aTTRIBUTEVALUEEMBEDDEDFILE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType2/aTTRIBUTEVALUEENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType2/aTTRIBUTEVALUEFILEREFERENCE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType2/aTTRIBUTEVALUESIMPLE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType2/aTTRIBUTEVALUEXMLDATA"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//VALUESType3">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//VALUESType3/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType3/aTTRIBUTEVALUEEMBEDDEDDOCUMENT"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType3/aTTRIBUTEVALUEEMBEDDEDFILE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType3/aTTRIBUTEVALUEENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType3/aTTRIBUTEVALUEFILEREFERENCE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType3/aTTRIBUTEVALUESIMPLE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType3/aTTRIBUTEVALUEXMLDATA"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//VALUESType4">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//VALUESType4/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType4/aTTRIBUTEVALUEEMBEDDEDDOCUMENT"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType4/aTTRIBUTEVALUEEMBEDDEDFILE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType4/aTTRIBUTEVALUEENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType4/aTTRIBUTEVALUEFILEREFERENCE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType4/aTTRIBUTEVALUESIMPLE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rif.ecore#//VALUESType4/aTTRIBUTEVALUEXMLDATA"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//VALUESType5">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//VALUESType5/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rif.ecore#//VALUESType5/eNUMVALUEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//XHTMLCONTENT">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//XHTMLCONTENT/any"/>
+    </genClasses>
+    <genClasses ecoreClass="rif.ecore#//XMLCONTENT">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute rif.ecore#//XMLCONTENT/any"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
