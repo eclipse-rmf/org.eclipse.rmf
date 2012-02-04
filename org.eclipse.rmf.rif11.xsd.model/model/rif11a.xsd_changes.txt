@@ -1,0 +1,10 @@
+The following changes were applied to rif.xsd
+
+1. Added namespace "xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" added to RIF
+2. "ecore:reference" added to all elements with IDREF i.e.,RIF:REF
+For example,
+<xsd:element name="ATTRIBUTE-DEFINITION-BOOLEAN-REF" type="RIF:REF"/>
+changed to
+<xsd:element ecore:reference="REQIF:ATTRIBUTE-DEFINITION-BOOLEAN" name="ATTRIBUTE-DEFINITION-BOOLEAN-REF" type="RIF:REF"/>
+3. Changed IDENTIFIER from xsd:string to xsd:ID
+

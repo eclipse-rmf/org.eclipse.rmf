@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    Michael Jastram - initial API and implementation
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://automotive-his.de/200706/rif/rif/ef"
+            class="org.eclipse.rmf.rif11.ExchangeFile.ExchangeFilePackage"
+            genModel="model/rif11a.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="exchangefile"
+            class="org.eclipse.rmf.rif11.ExchangeFile.util.ExchangeFileResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://automotive-his.de/200706/rif/rif/dt"
+            class="org.eclipse.rmf.rif11.DataTypes.DataTypesPackage"
+            genModel="model/rif11a.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///EA_Model/EA_PrimitiveTypes_Package/EA_AUTOSARM2_Types_Package.ecore"
+            class="org.eclipse.rmf.rif11.EA_AUTOSARM2_Types_Package.EA_AUTOSARM2_Types_PackagePackage"
+            genModel="model/rif11a.genmodel"/>
+   </extension>
+
+</plugin>
