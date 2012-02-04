@@ -1,0 +1,9 @@
+The following changes were applied to rif.ecore after it was generated from RIF EAP file
+
+1. Namespace URI of all packages changed to start with "http://automotive-his.de/200706/rif"
+2. Set DateTime:instanceTypeName as javax.xml.datatype.XMLGreogorianCalender (2 instances)
+3. Set Integer:instanceTypeName as java.math.BigInteger (2 instances)
+4. Set Identifier:instanceTypeName as java.lang.String (2 instances)
+5. Added Enumeration AccessPolicyAccessModeEnum
+6. Added Enumeration DatatypeDefinitionDateFormatEnum
+
