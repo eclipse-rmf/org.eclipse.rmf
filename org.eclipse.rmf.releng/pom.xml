@@ -195,8 +195,8 @@
 		
 		
 		<module>../org.eclipse.rmf.reqif10.model.test</module>
-        <module>../org.eclipse.rmf.pror.reqif10.tests</module>
-        <module>../org.eclipse.rmf.pror.reqif10.presentation.id.tests</module>	
+       <!--  <module>../org.eclipse.rmf.pror.reqif10.tests</module>
+        <module>../org.eclipse.rmf.pror.reqif10.presentation.id.tests</module>	 -->
 
 		
 		
