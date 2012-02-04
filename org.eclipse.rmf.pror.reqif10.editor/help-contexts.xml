@@ -1,0 +1,28 @@
+<contexts>
+ <context id="presentationConfiguration" title="Presentation Configuration">
+    <description>The appearance of Datatypes may be modified by Presentation Plugins.  Each entry has a Presentation type and has to be associated with a Datatype.  There may be additional configuration elements for modifying appearance or behavior.
+
+To configure multiple Datatypes with a Presentation, copy and paste the entry and configure it with another Datatype.</description>
+    <topic href="http://pror.org/book/export/html/20" label="ProR Online Documentation"/>
+
+ </context>
+ <context id="datatypeConfiguration" title="Datatype Configuration">
+    <description>This Dialog allows the creation and configuration of Datatypes, SpecTypes and Attributes.
+
+Each SpecObject must have a SpecType.  New SpecTypes can be created here (by selecting any element and creating a sibling).  Then Attributes can be added through the context menu.  Attributes have a name and a type.  Datatypes can be added here as well.</description>
+    <topic href="http://pror.org/book/export/html/21" label="ProR Online Documentation"/>
+ </context>
+ <context id="columnConfiguration" title="Column Configuration">
+    <description>This dialog configures the Columns of a Specification.  Columns are identified by name.  The width of the column can be adjusted directly by dragging the column separator in the table header.
+
+If the SpecObject has an attribute where the name of the attribute matches the name of the column, then that attribute is shown in that column.
+
+Also, Columns are reordered in this dialog by dragging and dropping.</description>
+    <topic href="http://pror.org/book/export/html/22" label="ProR Online Documentation"/>
+ </context>
+ <context id="generalConfiguration" title="General Configuration">
+    <description>The following Elements are configured here:
+
+Default label: Select the name of the attribute that should be used to identify an Element (e.g. in the Outline View).  As not all elements have the same attributes, you can provide multiple.  The first match will be used.</description>
+ </context>
+</contexts>

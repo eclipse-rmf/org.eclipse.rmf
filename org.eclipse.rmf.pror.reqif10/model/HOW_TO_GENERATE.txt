@@ -1,0 +1,17 @@
+The reqif10.genmodel is specific to ProR and should only be used to
+generate the following code.  No other code should be generated.
+
+1. Configuration Model
+
+  a. Select "config"
+  b. Right-Click "Generate Model Code"
+
+2. Configuration ItemProviders
+
+  a. Select "config"
+  b. Right-Click "Generate Edit Code"
+
+3. ReqIf ItemProviders
+
+  a. Select "config"
+  b. Right-Click "Generate Edit Code"
