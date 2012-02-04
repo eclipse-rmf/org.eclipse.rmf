@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="reqif10"
+    nsURI="http://www.omg.org/spec/ReqIF/20101201" nsPrefix="reqif10">
+  <eClassifiers xsi:type="ecore:EClass" name="AccessControlledElement" abstract="true"
+      eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isEditable" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Identifiable" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="desc" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" ordered="false"
+        lowerBound="1" eType="#//datatypes/Id" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastChange" ordered="false"
+        lowerBound="1" eType="#//datatypes/DateTime"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="longName" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alternativeId" ordered="false"
+        eType="#//AlternativeId" containment="true" eOpposite="#//AlternativeId/ident"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValueXhtml" eSuperTypes="#//AttributeValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSimplified" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owningDefinition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionXhtml" eOpposite="#//AttributeDefinitionXhtml/defaultValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionXhtml"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="theOriginalValue" ordered="false"
+        eType="#//datatypes/XhtmlContent" volatile="true" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="theValue" ordered="false"
+        lowerBound="1" eType="#//datatypes/XhtmlContent" containment="true" eOpposite="#//datatypes/XhtmlContent/attributeValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValue" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specElAt" ordered="false"
+        lowerBound="1" eType="#//SpecElementWithAttributes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecElementWithAttributes" abstract="true"
+      eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" ordered="false"
+        upperBound="-1" eType="#//AttributeValue" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinitionXhtml" eSuperTypes="#//AttributeDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false" lowerBound="1"
+        eType="#//DatatypeDefinitionXhtml"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" ordered="false"
+        eType="#//AttributeValueXhtml" containment="true" eOpposite="#//AttributeValueXhtml/owningDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinition" abstract="true"
+      eSuperTypes="#//AccessControlledElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specType" ordered="false"
+        lowerBound="1" eType="#//SpecType" eOpposite="#//SpecType/specAttributes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecType" abstract="true" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coreContent" ordered="false"
+        lowerBound="1" eType="#//ReqIfContent" eOpposite="#//ReqIfContent/specTypes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specAttributes" ordered="false"
+        upperBound="-1" eType="#//AttributeDefinition" containment="true" eOpposite="#//AttributeDefinition/specType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReqIfContent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="documentRoot" ordered="false"
+        lowerBound="1" eType="#//ReqIf" eOpposite="#//ReqIf/coreContent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specObjects" ordered="false"
+        upperBound="-1" eType="#//SpecObject" containment="true" eOpposite="#//SpecObject/coreContent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specifications" ordered="false"
+        upperBound="-1" eType="#//Specification" containment="true" eOpposite="#//Specification/coreContent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatypes" ordered="false"
+        upperBound="-1" eType="#//DatatypeDefinition" containment="true" eOpposite="#//DatatypeDefinition/coreContent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specRelations" ordered="false"
+        upperBound="-1" eType="#//SpecRelation" containment="true" eOpposite="#//SpecRelation/coreContent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specRelationGroups" ordered="false"
+        upperBound="-1" eType="#//RelationGroup" containment="true" eOpposite="#//RelationGroup/coreContent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specTypes" ordered="false"
+        upperBound="-1" eType="#//SpecType" containment="true" eOpposite="#//SpecType/coreContent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReqIf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lang" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="theHeader" ordered="false"
+        lowerBound="1" eType="#//ReqIfHeader" containment="true" eOpposite="#//ReqIfHeader/documentRoot"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toolExtensions" ordered="false"
+        upperBound="-1" eType="#//ReqIfToolExtension" containment="true" eOpposite="#//ReqIfToolExtension/documentRoot"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coreContent" ordered="false"
+        lowerBound="1" eType="#//ReqIfContent" containment="true" eOpposite="#//ReqIfContent/documentRoot"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReqIfHeader">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationTime" ordered="false"
+        lowerBound="1" eType="#//datatypes/DateTime"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" ordered="false"
+        lowerBound="1" eType="#//datatypes/Id"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryId" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reqIfToolId" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reqIfVersion" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceToolId" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="documentRoot" ordered="false"
+        lowerBound="1" eType="#//ReqIf" eOpposite="#//ReqIf/theHeader"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReqIfToolExtension">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="documentRoot" ordered="false"
+        lowerBound="1" eType="#//ReqIf" eOpposite="#//ReqIf/toolExtensions"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecObject" eSuperTypes="#//SpecElementWithAttributes">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false" lowerBound="1"
+        eType="#//SpecObjectType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coreContent" ordered="false"
+        lowerBound="1" eType="#//ReqIfContent" eOpposite="#//ReqIfContent/specObjects"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecObjectType" eSuperTypes="#//SpecType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Specification" eSuperTypes="#//SpecElementWithAttributes">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false" lowerBound="1"
+        eType="#//SpecificationType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//SpecHierarchy" containment="true" eOpposite="#//SpecHierarchy/root"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coreContent" ordered="false"
+        lowerBound="1" eType="#//ReqIfContent" eOpposite="#//ReqIfContent/specifications"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecificationType" eSuperTypes="#//SpecType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecHierarchy" eSuperTypes="#//AccessControlledElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTableInternal" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="object" ordered="false"
+        lowerBound="1" eType="#//SpecObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" ordered="false"
+        eType="#//SpecHierarchy" eOpposite="#//SpecHierarchy/children"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//SpecHierarchy" containment="true" eOpposite="#//SpecHierarchy/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="editableAtts" ordered="false"
+        upperBound="-1" eType="#//AttributeDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" ordered="false" eType="#//Specification"
+        eOpposite="#//Specification/children"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DatatypeDefinition" abstract="true"
+      eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coreContent" ordered="false"
+        lowerBound="1" eType="#//ReqIfContent" eOpposite="#//ReqIfContent/datatypes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecRelation" eSuperTypes="#//SpecElementWithAttributes">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" ordered="false"
+        lowerBound="1" eType="#//SpecObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
+        lowerBound="1" eType="#//SpecObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false" lowerBound="1"
+        eType="#//SpecRelationType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coreContent" ordered="false"
+        lowerBound="1" eType="#//ReqIfContent" eOpposite="#//ReqIfContent/specRelations"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecRelationType" eSuperTypes="#//SpecType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationGroup" eSuperTypes="#//SpecElementWithAttributes">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specRelations" ordered="false"
+        upperBound="-1" eType="#//SpecRelation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false" lowerBound="1"
+        eType="#//RelationGroupType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceSpecification" ordered="false"
+        lowerBound="1" eType="#//Specification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetSpecification" ordered="false"
+        lowerBound="1" eType="#//Specification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coreContent" ordered="false"
+        lowerBound="1" eType="#//ReqIfContent" eOpposite="#//ReqIfContent/specRelationGroups"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationGroupType" eSuperTypes="#//SpecType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DatatypeDefinitionXhtml" eSuperTypes="#//DatatypeDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AlternativeId">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ident" ordered="false"
+        lowerBound="1" eType="#//Identifiable" eOpposite="#//Identifiable/alternativeId"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinitionBoolean" eSuperTypes="#//AttributeDefinitionSimple">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false" lowerBound="1"
+        eType="#//DatatypeDefinitionBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" ordered="false"
+        eType="#//AttributeValueBoolean" containment="true" eOpposite="#//AttributeValueBoolean/owningDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinitionSimple" abstract="true"
+      eSuperTypes="#//AttributeDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DatatypeDefinitionBoolean" eSuperTypes="#//DatatypeDefinitionSimple"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DatatypeDefinitionSimple" abstract="true"
+      eSuperTypes="#//DatatypeDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValueBoolean" eSuperTypes="#//AttributeValueSimple">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="theValue" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owningDefinition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionBoolean" eOpposite="#//AttributeDefinitionBoolean/defaultValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValueSimple" abstract="true"
+      eSuperTypes="#//AttributeValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinitionDate" eSuperTypes="#//AttributeDefinitionSimple">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false" lowerBound="1"
+        eType="#//DatatypeDefinitionDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" ordered="false"
+        eType="#//AttributeValueDate" containment="true" eOpposite="#//AttributeValueDate/owningDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DatatypeDefinitionDate" eSuperTypes="#//DatatypeDefinitionSimple"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValueDate" eSuperTypes="#//AttributeValueSimple">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="theValue" ordered="false"
+        lowerBound="1" eType="#//datatypes/DateTime"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owningDefinition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionDate" eOpposite="#//AttributeDefinitionDate/defaultValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinitionEnumeration" eSuperTypes="#//AttributeDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiValued" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false" lowerBound="1"
+        eType="#//DatatypeDefinitionEnumeration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" ordered="false"
+        eType="#//AttributeValueEnumeration" containment="true" eOpposite="#//AttributeValueEnumeration/owningDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DatatypeDefinitionEnumeration" eSuperTypes="#//DatatypeDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specifiedValues" upperBound="-1"
+        eType="#//EnumValue" containment="true" eOpposite="#//EnumValue/_"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumValue" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" ordered="false"
+        lowerBound="1" eType="#//EmbeddedValue" containment="true" eOpposite="#//EmbeddedValue/enumValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="_" ordered="false" lowerBound="1"
+        eType="#//DatatypeDefinitionEnumeration" eOpposite="#//DatatypeDefinitionEnumeration/specifiedValues"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EmbeddedValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="otherContent" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumValue" ordered="false"
+        lowerBound="1" eType="#//EnumValue" eOpposite="#//EnumValue/properties"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValueEnumeration" eSuperTypes="#//AttributeValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" ordered="false"
+        upperBound="-1" eType="#//EnumValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionEnumeration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owningDefinition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionEnumeration" eOpposite="#//AttributeDefinitionEnumeration/defaultValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinitionInteger" eSuperTypes="#//AttributeDefinitionSimple">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false" lowerBound="1"
+        eType="#//DatatypeDefinitionInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" ordered="false"
+        eType="#//AttributeValueInteger" containment="true" eOpposite="#//AttributeValueInteger/owningDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DatatypeDefinitionInteger" eSuperTypes="#//DatatypeDefinitionSimple">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValueInteger" eSuperTypes="#//AttributeValueSimple">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="theValue" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owningDefinition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionInteger" eOpposite="#//AttributeDefinitionInteger/defaultValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinitionReal" eSuperTypes="#//AttributeDefinitionSimple">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false" lowerBound="1"
+        eType="#//DatatypeDefinitionReal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" ordered="false"
+        eType="#//AttributeValueReal" containment="true" eOpposite="#//AttributeValueReal/owningDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DatatypeDefinitionReal" eSuperTypes="#//DatatypeDefinitionSimple">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="accuracy" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValueReal" eSuperTypes="#//AttributeValueSimple">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="theValue" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionReal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owningDefinition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionReal" eOpposite="#//AttributeDefinitionReal/defaultValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinitionString" eSuperTypes="#//AttributeDefinitionSimple">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false" lowerBound="1"
+        eType="#//DatatypeDefinitionString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" ordered="false"
+        eType="#//AttributeValueString" containment="true" eOpposite="#//AttributeValueString/owningDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DatatypeDefinitionString" eSuperTypes="#//DatatypeDefinitionSimple">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValueString" eSuperTypes="#//AttributeValueSimple">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="theValue" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owningDefinition" ordered="false"
+        lowerBound="1" eType="#//AttributeDefinitionString" eOpposite="#//AttributeDefinitionString/defaultValue"/>
+  </eClassifiers>
+  <eSubpackages name="datatypes" nsURI="http:///reqIf/datatypes.ecore" nsPrefix="datatypes">
+    <eClassifiers xsi:type="ecore:EClass" name="XhtmlContent">
+      <eAnnotations source="duplicates">
+        <contents xsi:type="ecore:EReference" name="attributeValue" ordered="false"
+            eType="#//AttributeValueXhtml" eOpposite="#//AttributeValueXhtml/theOriginalValue">
+          <eAnnotations source="redefines" references="#//datatypes/XhtmlContent/attributeValue"/>
+        </contents>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attributeValue" ordered="false"
+          eType="#//AttributeValueXhtml" eOpposite="#//AttributeValueXhtml/theValue"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="DateTime" instanceClassName="javax.xml.datatype.XMLGregorianCalendar"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Float" instanceClassName="java.lang.Double"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Id" instanceClassName="java.lang.String"/>
+  </eSubpackages>
+</ecore:EPackage>

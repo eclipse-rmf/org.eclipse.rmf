@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.reqif10.xsd.xsd.model/src"
+    editDirectory="/org.eclipse.rmf.reqif10.xsd.xsd.model.edit/src" editorDirectory="/org.eclipse.rmf.reqif10.xsd.xsd.model.editor/src"
+    modelPluginID="org.eclipse.rmf.reqif10.xsd.xsd.model" templateDirectory="" modelName="Reqif"
+    editPluginClass="org.eclipse.rmf.reqif10.xsd.xsd.provider.ReqifEditPlugin" editorPluginClass="org.eclipse.rmf.reqif10.xsd.xsd.presentation.ReqifEditorPlugin"
+    testSuiteClass="org.eclipse.rmf.reqif10.xsd.xsd.tests.ReqifAllTests" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.eclipse.rmf.reqif10.xsd.xsd.model.edit"
+    editorPluginID="org.eclipse.rmf.reqif10.xsd.xsd.model.editor">
+  <foreignModel>reqif.xsd</foreignModel>
+  <genPackages prefix="Reqif" basePackage="org.eclipse.rmf" resource="XML" disposableProviderFactory="true"
+      ecorePackage="reqif.ecore#/">
+    <genDataTypes ecoreDataType="reqif.ecore#//GLOBALREF"/>
+    <genDataTypes ecoreDataType="reqif.ecore#//LOCALREF"/>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEID">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ALTERNATIVEID/iDENTIFIER"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType1/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType2/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType3">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType3/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType4">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType4/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType5">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType5/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType6">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType6/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType7">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType7/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType8">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType8/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType9">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType9/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType10">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType10/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType11">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType11/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType12">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType12/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType13">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType13/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType14">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType14/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType15">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType15/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType16">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType16/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType17">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType17/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType18">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType18/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType19">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType19/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType20">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType20/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType21">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType21/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType22">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType22/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ALTERNATIVEIDType23">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ALTERNATIVEIDType23/aLTERNATIVEID"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEDEFINITIONBOOLEAN">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONBOOLEAN/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONBOOLEAN/dEFAULTVALUE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONBOOLEAN/tYPE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONBOOLEAN/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONBOOLEAN/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONBOOLEAN/iSEDITABLE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONBOOLEAN/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONBOOLEAN/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEDEFINITIONDATE">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONDATE/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONDATE/dEFAULTVALUE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONDATE/tYPE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONDATE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONDATE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONDATE/iSEDITABLE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONDATE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONDATE/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEDEFINITIONENUMERATION">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/dEFAULTVALUE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/tYPE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/iSEDITABLE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/lONGNAME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONENUMERATION/mULTIVALUED"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEDEFINITIONINTEGER">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONINTEGER/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONINTEGER/dEFAULTVALUE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONINTEGER/tYPE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONINTEGER/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONINTEGER/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONINTEGER/iSEDITABLE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONINTEGER/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONINTEGER/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEDEFINITIONREAL">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONREAL/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONREAL/dEFAULTVALUE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONREAL/tYPE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONREAL/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONREAL/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONREAL/iSEDITABLE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONREAL/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONREAL/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEDEFINITIONSTRING">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONSTRING/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONSTRING/dEFAULTVALUE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONSTRING/tYPE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONSTRING/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONSTRING/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONSTRING/iSEDITABLE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONSTRING/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONSTRING/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEDEFINITIONXHTML">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONXHTML/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONXHTML/dEFAULTVALUE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEDEFINITIONXHTML/tYPE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONXHTML/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONXHTML/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONXHTML/iSEDITABLE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONXHTML/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEDEFINITIONXHTML/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEVALUEBOOLEAN">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEVALUEBOOLEAN/dEFINITION"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEVALUEBOOLEAN/tHEVALUE"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEVALUEDATE">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEVALUEDATE/dEFINITION"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEVALUEDATE/tHEVALUE"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEVALUEENUMERATION">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEVALUEENUMERATION/dEFINITION"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEVALUEENUMERATION/vALUES"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEVALUEINTEGER">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEVALUEINTEGER/dEFINITION"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEVALUEINTEGER/tHEVALUE"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEVALUEREAL">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEVALUEREAL/dEFINITION"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEVALUEREAL/tHEVALUE"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEVALUESTRING">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEVALUESTRING/dEFINITION"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEVALUESTRING/tHEVALUE"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ATTRIBUTEVALUEXHTML">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEVALUEXHTML/tHEVALUE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEVALUEXHTML/tHEORIGINALVALUE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ATTRIBUTEVALUEXHTML/dEFINITION"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ATTRIBUTEVALUEXHTML/iSSIMPLIFIED"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//CHILDRENType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//CHILDRENType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//CHILDRENType/sPECHIERARCHY"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//CHILDRENType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//CHILDRENType1/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//CHILDRENType1/sPECHIERARCHY"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//CORECONTENTType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//CORECONTENTType/rEQIFCONTENT"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DATATYPEDEFINITIONBOOLEAN">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPEDEFINITIONBOOLEAN/aLTERNATIVEID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONBOOLEAN/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONBOOLEAN/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONBOOLEAN/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONBOOLEAN/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DATATYPEDEFINITIONDATE">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPEDEFINITIONDATE/aLTERNATIVEID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONDATE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONDATE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONDATE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONDATE/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DATATYPEDEFINITIONENUMERATION">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPEDEFINITIONENUMERATION/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPEDEFINITIONENUMERATION/sPECIFIEDVALUES"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONENUMERATION/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONENUMERATION/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONENUMERATION/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONENUMERATION/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DATATYPEDEFINITIONINTEGER">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPEDEFINITIONINTEGER/aLTERNATIVEID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONINTEGER/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONINTEGER/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONINTEGER/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONINTEGER/lONGNAME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONINTEGER/mAX"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONINTEGER/mIN"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DATATYPEDEFINITIONREAL">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPEDEFINITIONREAL/aLTERNATIVEID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONREAL/aCCURACY"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONREAL/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONREAL/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONREAL/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONREAL/lONGNAME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONREAL/mAX"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONREAL/mIN"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DATATYPEDEFINITIONSTRING">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPEDEFINITIONSTRING/aLTERNATIVEID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONSTRING/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONSTRING/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONSTRING/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONSTRING/lONGNAME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONSTRING/mAXLENGTH"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DATATYPEDEFINITIONXHTML">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPEDEFINITIONXHTML/aLTERNATIVEID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONXHTML/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONXHTML/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONXHTML/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPEDEFINITIONXHTML/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DATATYPESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//DATATYPESType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPESType/dATATYPEDEFINITIONBOOLEAN"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPESType/dATATYPEDEFINITIONDATE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPESType/dATATYPEDEFINITIONENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPESType/dATATYPEDEFINITIONINTEGER"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPESType/dATATYPEDEFINITIONREAL"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPESType/dATATYPEDEFINITIONSTRING"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//DATATYPESType/dATATYPEDEFINITIONXHTML"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFAULTVALUEType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFAULTVALUEType/aTTRIBUTEVALUEDATE"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFAULTVALUEType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFAULTVALUEType1/aTTRIBUTEVALUEENUMERATION"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFAULTVALUEType2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFAULTVALUEType2/aTTRIBUTEVALUEINTEGER"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFAULTVALUEType3">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFAULTVALUEType3/aTTRIBUTEVALUEREAL"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFAULTVALUEType4">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFAULTVALUEType4/aTTRIBUTEVALUESTRING"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFAULTVALUEType5">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFAULTVALUEType5/aTTRIBUTEVALUEXHTML"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFAULTVALUEType6">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFAULTVALUEType6/aTTRIBUTEVALUEBOOLEAN"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFINITIONType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFINITIONType/aTTRIBUTEDEFINITIONENUMERATIONREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFINITIONType1">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFINITIONType1/aTTRIBUTEDEFINITIONDATEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFINITIONType2">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFINITIONType2/aTTRIBUTEDEFINITIONSTRINGREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFINITIONType3">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFINITIONType3/aTTRIBUTEDEFINITIONXHTMLREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFINITIONType4">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFINITIONType4/aTTRIBUTEDEFINITIONREALREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFINITIONType5">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFINITIONType5/aTTRIBUTEDEFINITIONINTEGERREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DEFINITIONType6">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//DEFINITIONType6/aTTRIBUTEDEFINITIONBOOLEANREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//DocumentRoot/rEQIF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//EDITABLEATTSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//EDITABLEATTSType/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//EDITABLEATTSType/aTTRIBUTEDEFINITIONBOOLEANREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//EDITABLEATTSType/aTTRIBUTEDEFINITIONDATEREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//EDITABLEATTSType/aTTRIBUTEDEFINITIONENUMERATIONREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//EDITABLEATTSType/aTTRIBUTEDEFINITIONINTEGERREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//EDITABLEATTSType/aTTRIBUTEDEFINITIONREALREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//EDITABLEATTSType/aTTRIBUTEDEFINITIONSTRINGREF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//EDITABLEATTSType/aTTRIBUTEDEFINITIONXHTMLREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//EMBEDDEDVALUE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//EMBEDDEDVALUE/kEY"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//EMBEDDEDVALUE/oTHERCONTENT"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//ENUMVALUE">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ENUMVALUE/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//ENUMVALUE/pROPERTIES"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ENUMVALUE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ENUMVALUE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ENUMVALUE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//ENUMVALUE/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//OBJECTType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//OBJECTType/sPECOBJECTREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//PROPERTIESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//PROPERTIESType/eMBEDDEDVALUE"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//RELATIONGROUP">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//RELATIONGROUP/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//RELATIONGROUP/sOURCESPECIFICATION"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//RELATIONGROUP/sPECRELATIONS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//RELATIONGROUP/tARGETSPECIFICATION"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//RELATIONGROUP/tYPE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//RELATIONGROUP/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//RELATIONGROUP/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//RELATIONGROUP/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//RELATIONGROUP/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//RELATIONGROUPTYPE">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//RELATIONGROUPTYPE/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//RELATIONGROUPTYPE/sPECATTRIBUTES"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//RELATIONGROUPTYPE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//RELATIONGROUPTYPE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//RELATIONGROUPTYPE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//RELATIONGROUPTYPE/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//REQIF">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//REQIF/tHEHEADER"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//REQIF/cORECONTENT"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//REQIF/tOOLEXTENSIONS"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//REQIF/lang"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//REQIFCONTENT">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//REQIFCONTENT/dATATYPES"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//REQIFCONTENT/sPECTYPES"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//REQIFCONTENT/sPECOBJECTS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//REQIFCONTENT/sPECRELATIONS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//REQIFCONTENT/sPECIFICATIONS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//REQIFCONTENT/sPECRELATIONGROUPS"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//REQIFHEADER">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//REQIFHEADER/cOMMENT"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//REQIFHEADER/cREATIONTIME"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//REQIFHEADER/rEPOSITORYID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//REQIFHEADER/rEQIFTOOLID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//REQIFHEADER/rEQIFVERSION"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//REQIFHEADER/sOURCETOOLID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//REQIFHEADER/tITLE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//REQIFHEADER/iDENTIFIER"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//REQIFTOOLEXTENSION">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//REQIFTOOLEXTENSION/any"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SOURCESPECIFICATIONType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//SOURCESPECIFICATIONType/sPECIFICATIONREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SOURCEType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SOURCEType/sPECOBJECTREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECATTRIBUTESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECATTRIBUTESType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType/aTTRIBUTEDEFINITIONBOOLEAN"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType/aTTRIBUTEDEFINITIONDATE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType/aTTRIBUTEDEFINITIONENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType/aTTRIBUTEDEFINITIONINTEGER"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType/aTTRIBUTEDEFINITIONREAL"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType/aTTRIBUTEDEFINITIONSTRING"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType/aTTRIBUTEDEFINITIONXHTML"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECATTRIBUTESType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECATTRIBUTESType1/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType1/aTTRIBUTEDEFINITIONBOOLEAN"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType1/aTTRIBUTEDEFINITIONDATE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType1/aTTRIBUTEDEFINITIONENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType1/aTTRIBUTEDEFINITIONINTEGER"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType1/aTTRIBUTEDEFINITIONREAL"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType1/aTTRIBUTEDEFINITIONSTRING"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType1/aTTRIBUTEDEFINITIONXHTML"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECATTRIBUTESType2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECATTRIBUTESType2/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType2/aTTRIBUTEDEFINITIONBOOLEAN"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType2/aTTRIBUTEDEFINITIONDATE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType2/aTTRIBUTEDEFINITIONENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType2/aTTRIBUTEDEFINITIONINTEGER"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType2/aTTRIBUTEDEFINITIONREAL"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType2/aTTRIBUTEDEFINITIONSTRING"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType2/aTTRIBUTEDEFINITIONXHTML"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECATTRIBUTESType3">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECATTRIBUTESType3/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType3/aTTRIBUTEDEFINITIONBOOLEAN"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType3/aTTRIBUTEDEFINITIONDATE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType3/aTTRIBUTEDEFINITIONENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType3/aTTRIBUTEDEFINITIONINTEGER"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType3/aTTRIBUTEDEFINITIONREAL"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType3/aTTRIBUTEDEFINITIONSTRING"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECATTRIBUTESType3/aTTRIBUTEDEFINITIONXHTML"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECHIERARCHY">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECHIERARCHY/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECHIERARCHY/cHILDREN"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECHIERARCHY/eDITABLEATTS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECHIERARCHY/oBJECT"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECHIERARCHY/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECHIERARCHY/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECHIERARCHY/iSEDITABLE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECHIERARCHY/iSTABLEINTERNAL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECHIERARCHY/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECHIERARCHY/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECIFICATION">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECIFICATION/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECIFICATION/vALUES"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECIFICATION/cHILDREN"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECIFICATION/tYPE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECIFICATION/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECIFICATION/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECIFICATION/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECIFICATION/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECIFICATIONSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECIFICATIONSType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECIFICATIONSType/sPECIFICATION"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECIFICATIONTYPE">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECIFICATIONTYPE/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECIFICATIONTYPE/sPECATTRIBUTES"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECIFICATIONTYPE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECIFICATIONTYPE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECIFICATIONTYPE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECIFICATIONTYPE/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECIFIEDVALUESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECIFIEDVALUESType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECIFIEDVALUESType/eNUMVALUE"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECOBJECT">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECOBJECT/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECOBJECT/vALUES"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECOBJECT/tYPE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECOBJECT/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECOBJECT/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECOBJECT/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECOBJECT/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECOBJECTSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECOBJECTSType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECOBJECTSType/sPECOBJECT"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECOBJECTTYPE">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECOBJECTTYPE/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECOBJECTTYPE/sPECATTRIBUTES"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECOBJECTTYPE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECOBJECTTYPE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECOBJECTTYPE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECOBJECTTYPE/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECRELATION">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECRELATION/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECRELATION/vALUES"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECRELATION/sOURCE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECRELATION/tARGET"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECRELATION/tYPE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECRELATION/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECRELATION/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECRELATION/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECRELATION/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECRELATIONGROUPSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECRELATIONGROUPSType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECRELATIONGROUPSType/rELATIONGROUP"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECRELATIONSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECRELATIONSType/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECRELATIONSType/sPECRELATIONREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECRELATIONSType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECRELATIONSType1/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECRELATIONSType1/sPECRELATION"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECRELATIONTYPE">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECRELATIONTYPE/aLTERNATIVEID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//SPECRELATIONTYPE/sPECATTRIBUTES"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECRELATIONTYPE/dESC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECRELATIONTYPE/iDENTIFIER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECRELATIONTYPE/lASTCHANGE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECRELATIONTYPE/lONGNAME"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//SPECTYPESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//SPECTYPESType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECTYPESType/rELATIONGROUPTYPE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECTYPESType/sPECOBJECTTYPE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECTYPESType/sPECRELATIONTYPE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//SPECTYPESType/sPECIFICATIONTYPE"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TARGETSPECIFICATIONType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//TARGETSPECIFICATIONType/sPECIFICATIONREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TARGETType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//TARGETType/sPECOBJECTREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//THEHEADERType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif.ecore#//THEHEADERType/rEQIFHEADER"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TOOLEXTENSIONSType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//TOOLEXTENSIONSType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//TOOLEXTENSIONSType/rEQIFTOOLEXTENSION"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TYPEType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//TYPEType/rELATIONGROUPTYPEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TYPEType1">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//TYPEType1/sPECIFICATIONTYPEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TYPEType2">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//TYPEType2/dATATYPEDEFINITIONINTEGERREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TYPEType3">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//TYPEType3/dATATYPEDEFINITIONSTRINGREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TYPEType4">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//TYPEType4/dATATYPEDEFINITIONREALREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TYPEType5">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//TYPEType5/dATATYPEDEFINITIONXHTMLREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TYPEType6">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//TYPEType6/sPECOBJECTTYPEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TYPEType7">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//TYPEType7/sPECRELATIONTYPEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TYPEType8">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//TYPEType8/dATATYPEDEFINITIONDATEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TYPEType9">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//TYPEType9/dATATYPEDEFINITIONENUMERATIONREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//TYPEType10">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//TYPEType10/dATATYPEDEFINITIONBOOLEANREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//VALUESType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//VALUESType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType/aTTRIBUTEVALUEBOOLEAN"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType/aTTRIBUTEVALUEDATE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType/aTTRIBUTEVALUEENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType/aTTRIBUTEVALUEINTEGER"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType/aTTRIBUTEVALUEREAL"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType/aTTRIBUTEVALUESTRING"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType/aTTRIBUTEVALUEXHTML"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//VALUESType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//VALUESType1/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType1/aTTRIBUTEVALUEBOOLEAN"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType1/aTTRIBUTEVALUEDATE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType1/aTTRIBUTEVALUEENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType1/aTTRIBUTEVALUEINTEGER"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType1/aTTRIBUTEVALUEREAL"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType1/aTTRIBUTEVALUESTRING"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType1/aTTRIBUTEVALUEXHTML"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//VALUESType2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//VALUESType2/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType2/aTTRIBUTEVALUEBOOLEAN"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType2/aTTRIBUTEVALUEDATE"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType2/aTTRIBUTEVALUEENUMERATION"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType2/aTTRIBUTEVALUEINTEGER"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType2/aTTRIBUTEVALUEREAL"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType2/aTTRIBUTEVALUESTRING"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType2/aTTRIBUTEVALUEXHTML"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//VALUESType3">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute reqif.ecore#//VALUESType3/group"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqif.ecore#//VALUESType3/eNUMVALUEREF"/>
+    </genClasses>
+    <genClasses ecoreClass="reqif.ecore#//XHTMLCONTENT"/>
+  </genPackages>
+</genmodel:GenModel>
