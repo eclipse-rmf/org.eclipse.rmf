@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    Michael Jastram - initial API and implementation
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://automotive-his.de/200807/rif/ef"
+            class="org.eclipse.rmf.rif12.ExchangeFile.ExchangeFilePackage"
+            genModel="model/rif12.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://automotive-his.de/200807/rif/dt"
+            class="org.eclipse.rmf.rif12.DataTypes.DataTypesPackage"
+            genModel="model/rif12.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://automotive-his.de/200706/rif/eatp"
+            class="org.eclipse.rmf.rif12.EA_AUTOSARM2_Types_Package.EA_AUTOSARM2_Types_PackagePackage"
+            genModel="model/rif12.genmodel"/>
+   </extension>
+
+</plugin>

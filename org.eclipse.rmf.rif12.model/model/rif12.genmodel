@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.rif12.model/src"
+    modelPluginID="org.eclipse.rmf.rif12.model" modelName="Rif12" testsDirectory="/org.eclipse.rmf.pror.rif12.model.edit.extension.test/tests"
+    testSuiteClass="/org.eclipse.rmf.pror.rif12.model.edit.extension.test.Rif12AllTests" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" testsPluginID="/org.eclipse.rmf.pror.rif12.model.edit.extension.test">
+  <foreignModel>rif12.ecore</foreignModel>
+  <genPackages prefix="Rif12" basePackage="org.eclipse.rmf.rif12" disposableProviderFactory="true"
+      generateExampleClass="false" ecorePackage="rif12.ecore#/">
+    <nestedGenPackages prefix="ExchangeFile" basePackage="org.eclipse.rmf.rif12" resource="XMI"
+        disposableProviderFactory="true" generateExampleClass="false" ecorePackage="rif12.ecore#//ExchangeFile">
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/SpecHierarchyRoot">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/SpecHierarchyRoot/children"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="rif12.ecore#//ExchangeFile/SpecElementWithUserDefinedAttributes">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/SpecElementWithUserDefinedAttributes/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/SpecElementWithUserDefinedAttributes/values"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="rif12.ecore#//ExchangeFile/Identifiable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/Identifiable/desc"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/Identifiable/identifier"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/Identifiable/lastChange"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/Identifiable/longName"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/SpecType">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/SpecType/specAttributes"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="rif12.ecore#//ExchangeFile/AttributeDefinition"/>
+      <genClasses image="false" ecoreClass="rif12.ecore#//ExchangeFile/AttributeValue"/>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/SpecHierarchy">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/SpecHierarchy/object"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/SpecHierarchy/values"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/SpecHierarchy/children"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/SpecObject"/>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/SpecGroup">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/SpecGroup/specObjects"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/SpecGroup/relationGroups"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/RelationGroup">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/RelationGroup/specRelations"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/RelationGroup/relationType"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/SpecRelation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/SpecRelation/target"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/SpecRelation/source"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="rif12.ecore#//ExchangeFile/DatatypeDefinition"/>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/AccessPolicy">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/AccessPolicy/accessMode"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AccessPolicy/specGroupHierarchyRoots"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AccessPolicy/specGroups"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AccessPolicy/attributeDefinitions"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AccessPolicy/relationGroups"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AccessPolicy/datatypeDefinitions"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AccessPolicy/specRelations"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AccessPolicy/attributeValues"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AccessPolicy/specTypes"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AccessPolicy/specHierarchies"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AccessPolicy/specObjects"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AccessPolicy/specHierarchyRoots"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/SpecGroupHierarchyRoot">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/SpecGroupHierarchyRoot/children"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/SpecGroupHierarchy">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/SpecGroupHierarchy/group"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/AttributeDefinitionComplex">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeDefinitionComplex/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeDefinitionComplex/defaultValue"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="rif12.ecore#//ExchangeFile/DatatypeDefinitionComplex">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionComplex/embedded"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="rif12.ecore#//ExchangeFile/AttributeValueComplex"/>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/AttributeDefinitionEnumeration">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/AttributeDefinitionEnumeration/multiValued"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeDefinitionEnumeration/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeDefinitionEnumeration/defaultValue"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/DatatypeDefinitionEnumeration">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/DatatypeDefinitionEnumeration/specifiedValues"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/EnumValue">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/EnumValue/properties"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/EmbeddedValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/EmbeddedValue/key"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/EmbeddedValue/otherContent"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/AttributeValueEnumeration">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeValueEnumeration/values"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeValueEnumeration/definition"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/AttributeDefinitionSimple">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeDefinitionSimple/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeDefinitionSimple/defaultValue"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="rif12.ecore#//ExchangeFile/DatatypeDefinitionSimple"/>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/AttributeValueSimple">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/AttributeValueSimple/theValue"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeValueSimple/definition"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/AttributeValueEmbeddedDocument">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeValueEmbeddedDocument/definition"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeValueEmbeddedDocument/xhtmlContent"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/AttributeValueEmbeddedFile">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeValueEmbeddedFile/definition"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeValueEmbeddedFile/binaryContent"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/AttributeValueFileReference">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/AttributeValueFileReference/pathToFile"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeValueFileReference/definition"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/AttributeValueXmlData">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeValueXmlData/definition"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/AttributeValueXmlData/xmlContent"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/DatatypeDefinitionBinaryFile">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionBinaryFile/application"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionBinaryFile/filenameSuffix"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionBinaryFile/formatName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionBinaryFile/mimeType"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/DatatypeDefinitionBoolean"/>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/DatatypeDefinitionDate">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionDate/format"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/DatatypeDefinitionDocument"/>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/DatatypeDefinitionInteger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionInteger/max"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionInteger/min"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/DatatypeDefinitionReal">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionReal/accuracy"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionReal/max"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionReal/min"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/DatatypeDefinitionString">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionString/maxLength"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/DatatypeDefinitionXmlData">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionXmlData/nameSpaceURI"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/DatatypeDefinitionXmlData/schemaLocation"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/RIF">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/RIF/header"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/RIF/coreContent"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/RIF/toolExtensions"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/RIFHeader">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/RIFHeader/author"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/RIFHeader/comment"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/RIFHeader/creationTime"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/RIFHeader/identifier"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/RIFHeader/sourceToolId"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rif12.ecore#//ExchangeFile/RIFHeader/title"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/RIFContent">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/RIFContent/accessPolicies"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/RIFContent/datatypes"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/RIFContent/SpecHierarchyRoots"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/RIFContent/specObjects"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/RIFContent/specGroups"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/RIFContent/SpecGroupHierarchyRoots"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/RIFContent/specTypes"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rif12.ecore#//ExchangeFile/RIFContent/specRelations"/>
+      </genClasses>
+      <genClasses ecoreClass="rif12.ecore#//ExchangeFile/RIFToolExtension"/>
+      <nestedGenPackages prefix="DataTypes" basePackage="org.eclipse.rmf.rif12" disposableProviderFactory="true"
+          ecorePackage="rif12.ecore#//ExchangeFile/DataTypes">
+        <genDataTypes ecoreDataType="rif12.ecore#//ExchangeFile/DataTypes/ID"/>
+        <genDataTypes ecoreDataType="rif12.ecore#//ExchangeFile/DataTypes/UnlimitedNatural"/>
+        <genDataTypes ecoreDataType="rif12.ecore#//ExchangeFile/DataTypes/boolean"/>
+        <genDataTypes ecoreDataType="rif12.ecore#//ExchangeFile/DataTypes/dateTime"/>
+        <genDataTypes ecoreDataType="rif12.ecore#//ExchangeFile/DataTypes/float"/>
+        <genDataTypes ecoreDataType="rif12.ecore#//ExchangeFile/DataTypes/integer"/>
+        <genDataTypes ecoreDataType="rif12.ecore#//ExchangeFile/DataTypes/string"/>
+        <genClasses ecoreClass="rif12.ecore#//ExchangeFile/DataTypes/BinaryContent"/>
+        <genClasses ecoreClass="rif12.ecore#//ExchangeFile/DataTypes/XhtmlContent"/>
+        <genClasses ecoreClass="rif12.ecore#//ExchangeFile/DataTypes/XmlContent"/>
+      </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="EA_PrimitiveTypes_Package" basePackage="org.eclipse.rmf.rif12"
+        disposableProviderFactory="true" generateExampleClass="false" ecorePackage="rif12.ecore#//EA_PrimitiveTypes_Package">
+      <nestedGenPackages prefix="EA_AUTOSARM2_Types_Package" basePackage="org.eclipse.rmf.rif12"
+          disposableProviderFactory="true" ecorePackage="rif12.ecore#//EA_PrimitiveTypes_Package/EA_AUTOSARM2_Types_Package">
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="rif12.ecore#//EA_PrimitiveTypes_Package/EA_AUTOSARM2_Types_Package/AccessPolicyAccessModeEnum">
+          <genEnumLiterals ecoreEnumLiteral="rif12.ecore#//EA_PrimitiveTypes_Package/EA_AUTOSARM2_Types_Package/AccessPolicyAccessModeEnum/EDIT"/>
+          <genEnumLiterals ecoreEnumLiteral="rif12.ecore#//EA_PrimitiveTypes_Package/EA_AUTOSARM2_Types_Package/AccessPolicyAccessModeEnum/DELETE"/>
+          <genEnumLiterals ecoreEnumLiteral="rif12.ecore#//EA_PrimitiveTypes_Package/EA_AUTOSARM2_Types_Package/AccessPolicyAccessModeEnum/CREATE"/>
+        </genEnums>
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="rif12.ecore#//EA_PrimitiveTypes_Package/EA_AUTOSARM2_Types_Package/DatatypeDefinitionDateFormatEnum">
+          <genEnumLiterals ecoreEnumLiteral="rif12.ecore#//EA_PrimitiveTypes_Package/EA_AUTOSARM2_Types_Package/DatatypeDefinitionDateFormatEnum/W3C"/>
+          <genEnumLiterals ecoreEnumLiteral="rif12.ecore#//EA_PrimitiveTypes_Package/EA_AUTOSARM2_Types_Package/DatatypeDefinitionDateFormatEnum/CUSTOM"/>
+        </genEnums>
+        <genDataTypes ecoreDataType="rif12.ecore#//EA_PrimitiveTypes_Package/EA_AUTOSARM2_Types_Package/string"/>
+        <genDataTypes ecoreDataType="rif12.ecore#//EA_PrimitiveTypes_Package/EA_AUTOSARM2_Types_Package/integer"/>
+        <genDataTypes ecoreDataType="rif12.ecore#//EA_PrimitiveTypes_Package/EA_AUTOSARM2_Types_Package/dateTime"/>
+        <genDataTypes ecoreDataType="rif12.ecore#//EA_PrimitiveTypes_Package/EA_AUTOSARM2_Types_Package/ID"/>
+      </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="UMLStandardProfile" disposableProviderFactory="true"
+        ecorePackage="rif12.ecore#//UMLStandardProfile"/>
+  </genPackages>
+</genmodel:GenModel>

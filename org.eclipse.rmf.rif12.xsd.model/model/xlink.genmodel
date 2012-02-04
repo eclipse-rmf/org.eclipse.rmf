@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.rif12.xsd.xsd.model/src"
+    modelPluginID="org.eclipse.rmf.rif12.xsd.xsd.model" modelName="Xlink" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>xlink.ecore</foreignModel>
+  <genPackages prefix="Xlink" basePackage="org.eclipse.rmf" resource="XML" disposableProviderFactory="true"
+      ecorePackage="xlink.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="xlink.ecore#//TypeType">
+      <genEnumLiterals ecoreEnumLiteral="xlink.ecore#//TypeType/simple"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="xlink.ecore#//TypeTypeObject"/>
+    <genClasses ecoreClass="xlink.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xlink.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xlink.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/href"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
