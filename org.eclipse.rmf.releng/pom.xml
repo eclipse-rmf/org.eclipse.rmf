@@ -168,6 +168,7 @@
 	<modules>
 		<module>../org.eclipse.rmf.releng.target</module>
 		<module>../org.eclipse.rmf.releng.repository</module>
+		<module>../org.eclipse.rmf.releng.product</module>
 		<module>../org.eclipse.rmf.reqif10.feature</module>
 		<module>../org.eclipse.rmf.reqif10.model</module>
 		<module>../org.eclipse.rmf.reqif10.xsd.model</module>
