@@ -33,7 +33,7 @@ Visit http://eclipse.org/rmf
       startupProgressRect="0,261,500,15"
       startupMessageRect="10,280,480,20"
       startupForegroundColor="0C3C68" />
-   <launcher>
+   <launcher name="rmf-pror">
       <linux icon="/org.eclipse.rmf.pror.reqif10.editor/icons/full/prorIcon/prorIcon128.xpm"/>
       <macosx icon="/org.eclipse.rmf.pror.reqif10.editor/icons/full/prorIcon/prorIcon128.icns"/>
       <solaris/>
@@ -72,23 +72,19 @@ All rights reserved.   This program and the accompanying materials are made avai
       <feature id="org.eclipse.emf.edit"/>
       <feature id="org.eclipse.emf.edit.ui"/>
       <feature id="org.eclipse.emf.common.ui"/>
-      <feature id="org.eclipse.equinox.p2.user.ui" version="0.0.0"/>
+      <feature id="org.eclipse.equinox.p2.user.ui"/>
       <feature id="org.eclipse.platform"/>
       <feature id="org.eclipse.rcp"/>
    </features>
 
-  <configurations>
+   <configurations>
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
-
-      <!-- Disable update manager. It seems as if this could be achieved by the first line, but in 
-           fact the second line sets reconcile to false (see org.eclipse.equinox.p2.publisher.eclipse.ConfigCUsAction#publishBundleCUs) -->
+      <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="4" />
       <property name="org.eclipse.update.reconcile" value="false" />
-      <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="4"/>
-                                              
    </configurations>
 
 </product>
