@@ -11,5 +11,5 @@ Require-Bundle: org.eclipse.emf.ecore,
 Export-Package: org.eclipse.rmf.pror.reqif10.configuration,
  org.eclipse.rmf.pror.reqif10.configuration.impl,
  org.eclipse.rmf.pror.reqif10.configuration.util
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: %providerName

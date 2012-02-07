@@ -41,7 +41,7 @@ public class EcoreConverter extends EObjectConverter {
 		EAnnotation eAnnotation = eClass.getEAnnotation(EXTENDED_METADATA);
 		if (eAnnotation != null) {
 			String name = eAnnotation.getDetails().get("name");
-			if (name != null && !name.isEmpty() && name.length() > 5) {
+			if (name != null && name.length() != 0 && name.length() > 5) {
 				if (name.substring(name.length() - 5, name.length()).equals(
 						"_type"))
 					return true;

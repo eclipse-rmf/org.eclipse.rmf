@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.rmf.pror.reqif10.configuration.provider,
  org.eclipse.rmf.pror.reqif10.datatypes.provider,
  org.eclipse.rmf.pror.reqif10.provider,

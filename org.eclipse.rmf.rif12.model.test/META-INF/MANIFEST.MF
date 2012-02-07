@@ -13,5 +13,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.rmf.rif12.model;bundle-version="0.1.0",
  org.eclipse.rmf.rif12.resource;bundle-version="0.1.0",
  org.eclipse.rmf.rif12.xsd.model;bundle-version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: %providerName

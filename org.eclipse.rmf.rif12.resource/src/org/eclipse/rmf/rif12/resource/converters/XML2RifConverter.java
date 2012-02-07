@@ -119,7 +119,7 @@ public class XML2RifConverter extends XML2EcoreConverter {
 	private String makeProperCase(String s) {
 		// RIF string needs special handling. This is a RIF model
 		// design bug
-		return !s.isEmpty() ? s.equals("RIF") ? s.toUpperCase() : s.substring(
+		return s.length() != 0 ? s.equals("RIF") ? s.toUpperCase() : s.substring(
 				0, 1).toUpperCase()
 				+ s.substring(1).toLowerCase() : s;
 	}

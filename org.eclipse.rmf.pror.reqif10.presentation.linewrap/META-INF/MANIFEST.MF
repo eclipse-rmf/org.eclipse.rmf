@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.rmf.pror.presentation.linewrap.provider.LinewrapEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.rmf.pror.presentation.linewrap,
  org.eclipse.rmf.pror.presentation.linewrap.impl,
  org.eclipse.rmf.pror.presentation.linewrap.provider,
