@@ -9,7 +9,7 @@
     complianceLevel="6.0" copyrightFields="false" editPluginID="org.eclipse.rmf.pror.reqif10.edit"
     editorPluginID="org.eclipse.rmf.pror.reqif10.editor" testsPluginID="org.eclipse.rmf.pror.reqif10.tests">
   <foreignModel>../../org.eclipse.rmf.reqif10.model/model/reqif10.ecore</foreignModel>
-  <genPackages prefix="Reqif10" basePackage="org.eclipse.rmf" disposableProviderFactory="true"
+  <genPackages prefix="Reqif10" basePackage="org.eclipse.rmf.pror" disposableProviderFactory="true"
       generateExampleClass="false" fileExtensions="reqif" ecorePackage="../../org.eclipse.rmf.reqif10.model/model/reqif10.ecore#/">
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10.model/model/reqif10.ecore#//AccessControlledElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10.model/model/reqif10.ecore#//AccessControlledElement/isEditable"/>
