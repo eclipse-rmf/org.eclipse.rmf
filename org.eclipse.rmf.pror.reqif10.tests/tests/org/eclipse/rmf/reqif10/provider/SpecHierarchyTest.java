@@ -72,7 +72,7 @@ public class SpecHierarchyTest extends IdentifiableTest {
 
 		Set<String> expected = new HashSet<String>();
 		for (IItemPropertyDescriptor prop: ip.getPropertyDescriptors(getFixture())) {
-			expected.add(prop.getDisplayName(getFixture()));			
+			expected.add(prop.getCategory(getFixture()) + "-" + prop.getDisplayName(getFixture()));			
 		}
 		
 		AttributeDefinitionString ad = Reqif10Factory.eINSTANCE.createAttributeDefinitionString();
@@ -89,11 +89,11 @@ public class SpecHierarchyTest extends IdentifiableTest {
 		// Set of actuals
 		Set<String> actual = new HashSet<String>();
 		for (IItemPropertyDescriptor prop: ip.getPropertyDescriptors(getFixture())) {
-			actual.add(prop.getDisplayName(getFixture()));			
+			actual.add(prop.getCategory(getFixture()) + "-" + prop.getDisplayName(getFixture()));			
 		}
 
 		// Set of expected
-		expected.add("New");
+		expected.add("Example SpecType-New");
 		assertEquals(expected, actual);
 	}
 
