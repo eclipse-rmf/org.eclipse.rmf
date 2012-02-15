@@ -49,10 +49,9 @@ public class HeadlinePresentationService extends AbstractPresentationService
 	 * {@link HeadlineCellRenderer}
 	 */
 	@Override
-	public IProrCellRenderer getCellRenderer(AttributeValue av) {
-		final AttributeValue attributeValue = av;
+	public IProrCellRenderer getCellRenderer(final AttributeValue av) {
 		if (headlineCellRenderer == null) {
-			if (Reqif10Util.getDatatypeDefinition(attributeValue) == null)
+			if (Reqif10Util.getDatatypeDefinition(av) == null)
 				return null;
 			headlineCellRenderer = new HeadlineCellRenderer(Reqif10Util
 					.getDatatypeDefinition(av).getIdentifier());
@@ -68,14 +67,14 @@ public class HeadlinePresentationService extends AbstractPresentationService
 					switch (msg.getFeatureID(HeadlineConfiguration.class)) {
 					case HeadlinePackage.HEADLINE_CONFIGURATION__SIZE:
 						headlineCellRenderer.setFontSize(msg.getNewIntValue());
-						refreshUi(attributeValue);
+						refreshUi(av);
 						break;
 					case HeadlinePackage.HEADLINE_CONFIGURATION__DATATYPE:
 						if (msg.getNewValue() != null)
 							headlineCellRenderer
 									.setDatatypeId(((DatatypeDefinition) msg
 											.getNewValue()).getIdentifier());
-						refreshUi(attributeValue);
+						refreshUi(av);
 					default:
 						break;
 					}
@@ -109,8 +108,8 @@ public class HeadlinePresentationService extends AbstractPresentationService
 			}
 		};
 		EList<Specification> roots = Reqif10Util
-				.getReqIf(Reqif10Util.getDatatypeDefinition(av)).getCoreContent()
-				.getSpecifications();
+				.getReqIf(Reqif10Util.getDatatypeDefinition(av))
+				.getCoreContent().getSpecifications();
 		for (Iterator i = EcoreUtil.getAllProperContents(roots, true); i
 				.hasNext();) {
 			visitor.doSwitch((EObject) i.next());
