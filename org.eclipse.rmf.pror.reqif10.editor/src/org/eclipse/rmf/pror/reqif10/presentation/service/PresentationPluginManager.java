@@ -27,8 +27,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
  */
 public class PresentationPluginManager {
 
-	public static final String PRESENTATION_EXTENSION_POINT_NAME = "org.eclipse.rmf.pror.reqif10.presentation.service.presentation";
-
+	public static final String PRESENTATION_EXTENSION_POINT_NAME = "org.eclipse.rmf.pror.reqif10.editor.presentation";
 	private static Map<Class<? extends ProrPresentationConfiguration>, PresentationService> presentationServiceRegistry;
 
 	// // There is one entry per Plugin

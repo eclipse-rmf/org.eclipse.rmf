@@ -172,4 +172,6 @@ Contributors:
       </perspective>
    </extension>
 
+ <extension-point id="presentation" name="Renderer and Editor for ReqIF Datatypes" schema="schema/presentation.exsd"/>
+
 </plugin>
