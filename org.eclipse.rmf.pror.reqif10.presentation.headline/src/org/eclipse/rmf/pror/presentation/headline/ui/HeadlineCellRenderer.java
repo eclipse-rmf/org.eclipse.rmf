@@ -44,7 +44,6 @@ public class HeadlineCellRenderer implements IProrCellRenderer {
 		this.fontSize = fontSize;
 		PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
 
-			@Override
 			public void run() {
 				FontRegistry fr = JFaceResources.getFontRegistry();
 				FontData[] fontData = { new FontData("Arial", fontSize,
@@ -55,7 +54,6 @@ public class HeadlineCellRenderer implements IProrCellRenderer {
 		});
 	}
 
-	@Override
 	public int doDrawCellContent(GC gc, Rectangle rect, Object value) {
 		AttributeValueSimple av = (AttributeValueSimple) value;
 		String text = " ";
@@ -67,7 +65,6 @@ public class HeadlineCellRenderer implements IProrCellRenderer {
 		return gc.textExtent(text).y;
 	}
 
-	@Override
 	public String doDrawHtmlContent(Object value, File folder) {
 		AttributeValueSimple av = (AttributeValueSimple) value;
 		return "<div style='font-size: " + fontSize
