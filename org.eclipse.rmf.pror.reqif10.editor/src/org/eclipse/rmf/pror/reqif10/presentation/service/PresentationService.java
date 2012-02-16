@@ -30,11 +30,11 @@ import org.eclipse.swt.dnd.DND;
  * PresentationService per Presentation Plugin.
  * <p>
  * 
- * Upon opening a RIF document, {@link #openRIF(RIF)} is called which allows
+ * Upon opening a ReqIF document, {@link #openReqif(ReqIF)} is called which allows
  * the Presentation to do stuff (e.g. check the model, hook in listeners, etc.).
  * <p>
  * 
- * Each {@link RIF} may contain any number of configuration elements that are
+ * Each {@link ReqIf} may contain any number of configuration elements that are
  * typically associated with {@link DatatypeDefinition}s. This class acts as a
  * factory for those through {@link #getConfigurationInstance()}.
  * <p>
@@ -85,7 +85,7 @@ public interface PresentationService {
 	public ProrPresentationConfiguration getConfigurationInstance();
 
 	/**
-	 * This method is triggered when a new RIF is opened, giving the
+	 * This method is triggered when a new ReqIF is opened, giving the
 	 * Presentation a chance to interact, e.g. by registering adapters, etc.
 	 * <p>
 	 * 

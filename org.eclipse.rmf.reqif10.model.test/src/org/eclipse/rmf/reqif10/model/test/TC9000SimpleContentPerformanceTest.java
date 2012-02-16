@@ -3,13 +3,11 @@ package org.eclipse.rmf.reqif10.model.test;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.model.test.modelbuilder.TC1000ModelBuilder;
 import org.eclipse.rmf.reqif10.model.test.modelbuilder.TC9000ModelBuilder;
 import org.eclipse.rmf.reqif10.resource.ReqIf1ResourceImpl;
 import org.junit.Test;

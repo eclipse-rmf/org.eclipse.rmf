@@ -13,10 +13,5 @@ Export-Package: org.eclipse.rmf.pror.presentation.linewrap,
  org.eclipse.rmf.pror.presentation.linewrap.provider,
  org.eclipse.rmf.pror.presentation.linewrap.util,
  org.eclipse.rmf.pror.presentation.ui
-Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.7.0,4.0.0)",
- org.eclipse.emf.ecore;bundle-version="[2.7.0,3.0.0)";visibility:=reexport,
- org.eclipse.emf.edit;bundle-version="[2.7.0,3.0.0)";visibility:=reexport,
- org.eclipse.rmf.pror.reqif10.presentation.service;bundle-version="0.1.0",
- org.agilemore.agilegrid;bundle-version="1.2.0",
- org.eclipse.swt;bundle-version="3.7.0"
+Require-Bundle: org.eclipse.rmf.pror.reqif10.editor;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
