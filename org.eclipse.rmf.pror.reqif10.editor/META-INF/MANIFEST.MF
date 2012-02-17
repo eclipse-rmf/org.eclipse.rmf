@@ -7,14 +7,15 @@ Bundle-Activator: org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10Editor
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.eclipse.rmf.pror.reqif10.editor.presentation,
+Export-Package: org.eclipse.rmf.pror.reqif10.editor.agilegrid,
+ org.eclipse.rmf.pror.reqif10.editor.presentation,
  org.eclipse.rmf.pror.reqif10.presentation.service
 Require-Bundle: org.eclipse.core.runtime;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
  org.eclipse.ui.forms;bundle-version="3.5.100",
+ org.eclipse.rmf.pror.reqif10.edit;visibility:=reexport,
  org.eclipse.core.resources;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
- org.agilemore.agilegrid;bundle-version="1.2.0";visibility:=reexport,
- org.eclipse.rmf.pror.reqif10.edit;visibility:=reexport
+ org.agilemore.agilegrid;bundle-version="1.2.1";visibility:=reexport
 Bundle-ActivationPolicy: lazy
