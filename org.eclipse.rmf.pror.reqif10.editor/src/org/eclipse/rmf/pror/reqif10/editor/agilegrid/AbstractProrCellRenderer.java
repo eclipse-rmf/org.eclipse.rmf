@@ -92,7 +92,6 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 
 	// Workaround: Upon closing a UIEditor and reopening a new one, the color got
 	// disposed. No idea why. This is a workaround.
-	@Override
 	protected void initialColor(int row, int col) {
 		if (agileGrid.isCellSelected(row, col)) {
 			background = SWTResourceManager.getColor(223, 227, 237);
