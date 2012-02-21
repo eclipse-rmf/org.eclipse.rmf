@@ -30,6 +30,8 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditService;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
@@ -54,7 +56,8 @@ public class ConfigurationUtil {
 		ReqIf reqif = Reqif10Util.getReqIf(datatypeDefinition);
 		if (reqif == null)
 			return null;
-		ProrPresentationConfigurations extensions = getProrToolExtension(reqif, domain)
+		ProrPresentationConfigurations extensions = ConfigurationUtil
+				.getProrToolExtension(reqif, domain)
 				.getPresentationConfigurations();
 		if (extensions == null)
 			return null;
@@ -67,8 +70,36 @@ public class ConfigurationUtil {
 	}
 	
 	/**
-	 * Returns the {@link ProrToolExtension} associated with this
-	 * {@link ReqIF}.  If it doesn't exist yet, null is returned.
+	 * @return The Configuration element for the given
+	 *         {@link DatatypeDefinition} or null if none is configured.
+	 * 
+	 *         FIXME: We have two version of this method (with and without an
+	 *         editing domain as parameter)
+	 */
+	public static ProrPresentationConfiguration getConfiguration(
+			DatatypeDefinition dd) {
+		ReqIf reqif = Reqif10Util.getReqIf(dd);
+		if (reqif == null)
+			return null;
+		ProrToolExtension prorToolExtension = ConfigurationUtil
+				.getProrToolExtension(reqif);
+		if (prorToolExtension == null)
+			return null;
+		ProrPresentationConfigurations extensions = prorToolExtension
+				.getPresentationConfigurations();
+		if (extensions == null)
+			return null;
+		for (ProrPresentationConfiguration config : extensions
+				.getPresentationConfigurations()) {
+			if (dd.equals(config.getDatatype()))
+				return config;
+		}
+		return null;
+	}
+
+	/**
+	 * Returns the {@link ProrToolExtension} associated with this {@link ReqIF}.
+	 * If it doesn't exist yet, null is returned.
 	 * <p>
 	 */
 	private static ProrToolExtension getProrToolExtension(ReqIf reqif) {
@@ -89,7 +120,6 @@ public class ConfigurationUtil {
 	public static ProrToolExtension getProrToolExtension(ReqIf reqif, EditingDomain domain) {
 		ProrToolExtension extension = getProrToolExtension(reqif);
 		if (extension != null) return extension;
-		
 		extension = ConfigFactory.eINSTANCE.createProrToolExtension();
 		domain.getCommandStack().execute(
 				AddCommand.create(domain, reqif,
@@ -159,24 +189,22 @@ public class ConfigurationUtil {
 		return labelConfig.getDefaultLabel();
 	}
 
-	private static String getCustomLabel(AttributeValue value) {
-		// TODO request custom label from PresentationPluginManager
-		return null;
+	public static String getCustomLabel(AttributeValue value) {
 		// See whether we have a custom label renderer
-//		DatatypeDefinition dd = Reqif10Util.getDatatypeDefinition(value);
-//		ProrPresentationConfiguration manager = PresentationManager
-//				.getConfiguration(dd);
-//		if (manager != null) {
-//			PresentationService service = PresentationPluginManager
-//					.getPresentationService(manager);
-//			if (service != null) {
-//				String customLabel = service.getLabel(value);
-//				if (customLabel != null) {
-//					return customLabel;
-//				}
-//			}
-//		}
-//		return null;
+		DatatypeDefinition dd = Reqif10Util.getDatatypeDefinition(value);
+		ProrPresentationConfiguration presentationConfiguration = ConfigurationUtil
+				.getConfiguration(dd);
+		if (presentationConfiguration != null) {
+			PresentationEditService service = PresentationEditManager
+					.getPresentationEditService(presentationConfiguration);
+			if (service != null) {
+				String customLabel = service.getLabel(value);
+				if (customLabel != null) {
+					return customLabel;
+				}
+			}
+		}
+		return null;
 	}
 
 	/**

@@ -37,4 +37,15 @@ public class PresentationEditManager {
 		getPresentationEditServiceMap().put(configurationInterface, service);
 	}
 
+	public static PresentationEditService getPresentationEditService(
+			ProrPresentationConfiguration configuration) {
+		for (Class<? extends ProrPresentationConfiguration> clazz : getPresentationEditServiceMap()
+				.keySet()) {
+			if (clazz.isInstance(configuration)) {
+				return getPresentationEditServiceMap().get(clazz);
+			}
+		}
+		return null;
+	}
+
 }
