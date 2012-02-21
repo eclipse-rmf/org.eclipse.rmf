@@ -12,7 +12,7 @@ package org.eclipse.rmf.pror.reqif10.presentation.ui;
 
 import java.io.File;
 
-import org.eclipse.rmf.pror.reqif10.presentation.service.IProrCellRenderer;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueSimple;
 import org.eclipse.rmf.reqif10.AttributeValueString;

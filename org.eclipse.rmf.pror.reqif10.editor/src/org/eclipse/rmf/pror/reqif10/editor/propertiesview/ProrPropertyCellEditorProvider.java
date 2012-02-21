@@ -25,8 +25,8 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.AbstractProrCellEditorProvider;
-import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationPluginManager;
-import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorManager;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
@@ -65,7 +65,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 				.getAttributeValue(row), editingDomain);
 
 		if (config != null) {
-			PresentationService service = PresentationPluginManager.getPresentationService(config);
+			PresentationService service = PresentationEditorManager.getPresentationService(config);
 			if (service != null)
 				return service.canEdit();
 		} else {
@@ -95,7 +95,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 			ProrPresentationConfiguration config = ConfigurationUtil
 					.getPresentationConfig(attrValue, editingDomain);
 			if (config != null) {
-				PresentationService service = PresentationPluginManager.getPresentationService(config);
+				PresentationService service = PresentationEditorManager.getPresentationService(config);
 				if (service != null)
 					cellEditor = service.getCellEditor(agileGrid,
 						editingDomain, attrValue);

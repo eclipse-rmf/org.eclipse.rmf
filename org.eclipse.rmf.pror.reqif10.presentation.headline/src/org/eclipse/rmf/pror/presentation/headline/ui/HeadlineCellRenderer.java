@@ -14,7 +14,7 @@ import java.io.File;
 
 import org.eclipse.jface.resource.FontRegistry;
 import org.eclipse.jface.resource.JFaceResources;
-import org.eclipse.rmf.pror.reqif10.presentation.service.IProrCellRenderer;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.AttributeValueSimple;
 import org.eclipse.rmf.reqif10.util.Reqif10Util;
 import org.eclipse.swt.SWT;

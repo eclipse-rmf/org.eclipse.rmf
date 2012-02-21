@@ -94,8 +94,8 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ConfigItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.datatypes.provider.DatatypesItemProviderAdapterFactory;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorManager;
 import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertySheetPage;
-import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationManager;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10ItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualDatatypeDefinitionItemProvider;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecTypeItemProvider;
@@ -1075,7 +1075,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		reqif = (ReqIf) resource.getContents().get(0);
 
 		// TODO there must be a better place?
-		PresentationManager.notifiyOpenReqif(reqif, editingDomain);
+		PresentationEditorManager.notifiyOpenReqif(reqif, editingDomain);
 		return reqif;
 	}
 
