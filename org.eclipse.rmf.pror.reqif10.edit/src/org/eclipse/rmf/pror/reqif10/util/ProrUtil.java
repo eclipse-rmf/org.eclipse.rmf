@@ -218,7 +218,7 @@ public final class ProrUtil {
 		EList<AttributeValue> list = specObject.getValues();
 		for (AttributeValue av : list) {
 			if (definition.equals(Reqif10Util.getDatatypeDefinition(av))) {
-				ProrUtil.setTheValue(av, specObject, value, ed);
+				ProrUtil.setTheValue(av, value, specObject, ed);
 				return true;
 			}
 		}
