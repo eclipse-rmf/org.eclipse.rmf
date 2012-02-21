@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
+import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.DatatypeDefinition;
+import org.eclipse.rmf.reqif10.util.Reqif10Util;
 
 public class PresentationEditManager {
 
@@ -43,6 +47,24 @@ public class PresentationEditManager {
 				.keySet()) {
 			if (clazz.isInstance(configuration)) {
 				return getPresentationEditServiceMap().get(clazz);
+			}
+		}
+		return null;
+	}
+
+	public static String getCustomLabel(AttributeValue value) {
+		// See whether we have a custom label renderer
+		DatatypeDefinition dd = Reqif10Util.getDatatypeDefinition(value);
+		ProrPresentationConfiguration presentationConfiguration = ConfigurationUtil
+				.getConfiguration(dd);
+		if (presentationConfiguration != null) {
+			PresentationEditService service = PresentationEditManager
+					.getPresentationEditService(presentationConfiguration);
+			if (service != null) {
+				String customLabel = service.getLabel(value);
+				if (customLabel != null) {
+					return customLabel;
+				}
 			}
 		}
 		return null;

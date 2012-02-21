@@ -31,7 +31,6 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
-import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditService;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
@@ -150,7 +149,8 @@ public class ConfigurationUtil {
 
 				if (label.equals(ad.getLongName())) {
 
-					String customLabel = getCustomLabel(value);
+					String customLabel = PresentationEditManager
+							.getCustomLabel(value);
 					if (customLabel != null) {
 						return customLabel;
 					}
@@ -187,24 +187,6 @@ public class ConfigurationUtil {
 		}
 		
 		return labelConfig.getDefaultLabel();
-	}
-
-	public static String getCustomLabel(AttributeValue value) {
-		// See whether we have a custom label renderer
-		DatatypeDefinition dd = Reqif10Util.getDatatypeDefinition(value);
-		ProrPresentationConfiguration presentationConfiguration = ConfigurationUtil
-				.getConfiguration(dd);
-		if (presentationConfiguration != null) {
-			PresentationEditService service = PresentationEditManager
-					.getPresentationEditService(presentationConfiguration);
-			if (service != null) {
-				String customLabel = service.getLabel(value);
-				if (customLabel != null) {
-					return customLabel;
-				}
-			}
-		}
-		return null;
 	}
 
 	/**
