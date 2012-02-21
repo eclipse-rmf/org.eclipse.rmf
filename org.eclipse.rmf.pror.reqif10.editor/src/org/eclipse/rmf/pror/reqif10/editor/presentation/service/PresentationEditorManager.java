@@ -42,6 +42,9 @@ public class PresentationEditorManager {
 	 * Returns the cached {@link PresentationService} representing all installed
 	 * Presentation Extensions.
 	 * 
+	 * We use this method to initialize the presentation service map in the item
+	 * provider plugin.
+	 * 
 	 * @return A set of {@link PresentationService}s.
 	 */
 	public static Map<Class<? extends ProrPresentationConfiguration>, PresentationService> getPresentationServiceMap() {
@@ -91,6 +94,7 @@ public class PresentationEditorManager {
 	 * 
 	 * TODO We call this when the Editor is opened, but there must be a better
 	 * way to do it (register a notifier somewhere...)
+	 * 
 	 */
 	public static void notifiyOpenReqif(ReqIf reqif, EditingDomain domain) {
 
