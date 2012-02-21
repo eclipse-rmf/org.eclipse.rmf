@@ -19,8 +19,12 @@ import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
+import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
+import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.ReqIf;
 
 /**
  * This class manages installed Presentations (and is therefore independent of
@@ -80,4 +84,33 @@ public class PresentationEditorManager {
 		}
 		return null;
 	}
+
+	/**
+	 * Upon opening a ReqIF File, this method notifies each
+	 * {@link PresentationService}.
+	 * 
+	 * TODO We call this when the Editor is opened, but there must be a better
+	 * way to do it (register a notifier somewhere...)
+	 */
+	public static void notifiyOpenReqif(ReqIf reqif, EditingDomain domain) {
+
+		for (PresentationService service : PresentationEditorManager
+				.getPresentationServiceMap().values()) {
+			service.openReqif(reqif, domain);
+		}
+
+	}
+
+	public static PresentationService getPresentationService(
+			AttributeValue value, EditingDomain editingDomain) {
+		PresentationService service = null;
+		ProrPresentationConfiguration config = ConfigurationUtil
+				.getPresentationConfig(value, editingDomain);
+		if (config != null) {
+			service = PresentationEditorManager.getPresentationService(config);
+		}
+		return service;
+
+	}
+
 }
