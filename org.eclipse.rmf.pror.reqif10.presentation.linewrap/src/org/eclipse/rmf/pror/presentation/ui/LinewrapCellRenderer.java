@@ -12,7 +12,7 @@ package org.eclipse.rmf.pror.presentation.ui;
 
 import java.io.File;
 
-import org.eclipse.rmf.pror.reqif10.presentation.service.IProrCellRenderer;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Rectangle;

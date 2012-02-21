@@ -39,6 +39,8 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditService;
 import org.eclipse.rmf.pror.reqif10.provider.SpecElementWithAttributesItemProvider;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
@@ -82,7 +84,8 @@ public final class ProrUtil {
 	 * This class is not designed to be instantiated.
 	 */
 	private ProrUtil() {
-		throw new InstantiationError("This class is not designed to be instantiated.");
+		throw new InstantiationError(
+				"This class is not designed to be instantiated.");
 	}
 
 	/**
@@ -120,7 +123,8 @@ public final class ProrUtil {
 				continue;
 
 			final String label = definition.getLongName() != null ? definition
-					.getLongName() : "UNNAMED (" + definition.getIdentifier() + ")";
+					.getLongName() : "UNNAMED (" + definition.getIdentifier()
+					+ ")";
 			itemPropertyDescriptors
 					.add(buildAttributeValueItemPropertyDescriptor(specElement,
 							value, descriptor, label));
@@ -133,8 +137,7 @@ public final class ProrUtil {
 		if (label == null) {
 			throw new NullPointerException("Label must not be null");
 		}
-		return new ItemPropertyDescriptorDecorator(
-				value, descriptor) {
+		return new ItemPropertyDescriptorDecorator(value, descriptor) {
 			@Override
 			public String getCategory(Object thisObject) {
 				SpecType specType = Reqif10Util.getSpecType(specElement);
@@ -179,8 +182,8 @@ public final class ProrUtil {
 	 * {@link SpecHierarchy} as an argument that is being used as the affected
 	 * object.
 	 */
-	public static void setTheValue(final AttributeValue av, Object value, final Object affectedObject,
-			EditingDomain ed) {
+	public static void setTheValue(final AttributeValue av, Object value,
+			final Object affectedObject, EditingDomain ed) {
 		EStructuralFeature feature = Reqif10Util.getTheValueFeature(av);
 		Command cmd = SetCommand.create(ed, av, feature, value);
 
@@ -220,7 +223,7 @@ public final class ProrUtil {
 			}
 		}
 	}
-	
+
 	/**
 	 * Collects NewChildDescriptors for the creation of new Elements for
 	 * SpecElements that are already typed. These should be hooked into the
@@ -251,8 +254,8 @@ public final class ProrUtil {
 			EStructuralFeature feature, Class<?> specTypeClass) {
 
 		// Add a Descriptor for each SpecType
-		EList<SpecType> specTypes = Reqif10Util.getReqIf(object).getCoreContent()
-				.getSpecTypes();
+		EList<SpecType> specTypes = Reqif10Util.getReqIf(object)
+				.getCoreContent().getSpecTypes();
 
 		for (final SpecType specType : specTypes) {
 			if (specTypeClass.isAssignableFrom(specType.getClass())) {
@@ -293,17 +296,18 @@ public final class ProrUtil {
 	 */
 	public static CompoundCommand createAddTypedElementCommand(Object parent,
 			EReference childFeature, SpecElementWithAttributes newSpecElement,
-			EReference typeFeature, SpecType specType,
-			int index, int resultIndex, EditingDomain domain, AdapterFactory adapterFactory) {
+			EReference typeFeature, SpecType specType, int index,
+			int resultIndex, EditingDomain domain, AdapterFactory adapterFactory) {
 
 		ItemProviderAdapter newElementItemProvider = ProrUtil.getItemProvider(
 				adapterFactory, newSpecElement);
 		Object icon = newElementItemProvider.getImage(newSpecElement);
 
-		final CompoundCommand cmd = createCompoundCommandWithAddIcon(icon, resultIndex);
+		final CompoundCommand cmd = createCompoundCommandWithAddIcon(icon,
+				resultIndex);
 
-		cmd.append(AddCommand.create(domain, parent, childFeature, newSpecElement,
-				index));
+		cmd.append(AddCommand.create(domain, parent, childFeature,
+				newSpecElement, index));
 
 		HashSet<SpecType> typeCollection = new HashSet<SpecType>();
 		typeCollection.add((SpecType) specType);
@@ -348,23 +352,26 @@ public final class ProrUtil {
 		};
 	}
 
-	// FIXME Support Presentation drag and drop
-	private static Command getPresentationCommand(EditingDomain domain,
-			Object owner, float location, int operations, int operation,
-			java.util.Collection<?> collection) {
-//		// See whether a Presentation feels responsible.
-//		Collection<PresentationService> services = PresentationPluginManager
-//				.getPresentationServiceMap().values();
-//		for (PresentationService service : services) {
-//			Command cmd = service.handleDragAndDrop(collection, owner, domain,
-//					operation);
-//			if (cmd != null) {
-//				return cmd;
-//			}
-//		}
+	/**
+	 * @return the handle drag and drop command from presentation plugin or null
+	 *         if no plugin can handle the operation.
+	 */
+	public static Command getPresentationHandleDragAndDropCommand(
+			EditingDomain domain, Object owner, float location, int operations,
+			int operation, java.util.Collection<?> collection) {
+		// See whether a Presentation feels responsible.
+		Collection<PresentationEditService> services = PresentationEditManager
+				.getPresentationEditServiceMap().values();
+		for (PresentationEditService service : services) {
+			Command cmd = service.handleDragAndDrop(collection, owner, domain,
+					operation);
+			if (cmd != null) {
+				return cmd;
+			}
+		}
 		return null;
 	}
-	
+
 	/**
 	 * This method creates the command for updating the {@link SpecType} of an
 	 * {@link SpecElementWithUserDefinedAttributes}. It does <b>not</b> update
@@ -381,19 +388,21 @@ public final class ProrUtil {
 	 * 
 	 * @return The Command that updates the Values
 	 */
-	public static CompoundCommand createValueAdjustCommand(EditingDomain domain,
-			SpecElementWithAttributes specElement, Collection<AttributeDefinition> definitions) {
+	public static CompoundCommand createValueAdjustCommand(
+			EditingDomain domain, SpecElementWithAttributes specElement,
+			Collection<AttributeDefinition> definitions) {
 		// First make sure all required values exist
 		HashSet<AttributeValue> existingObsoleteValues = new HashSet<AttributeValue>(
 				specElement.getValues());
-	
+
 		// The list of types for the new values.
-		Set<AttributeDefinition> newDefs = new HashSet<AttributeDefinition>(definitions);
-	
+		Set<AttributeDefinition> newDefs = new HashSet<AttributeDefinition>(
+				definitions);
+
 		// A CompoundCommand for adding and removing values
 		CompoundCommand cmd = new CompoundCommand(
 				"Updating Type (and associated Values)");
-	
+
 		// Iterate over the required attributes...
 		outer: for (AttributeDefinition newDef : newDefs) {
 			// ... and check for each whether it already exists:
@@ -406,7 +415,7 @@ public final class ProrUtil {
 					continue outer;
 				}
 			}
-	
+
 			// The attribute is missing: Let's add it
 			AttributeValue value = createAttributeValue(newDef);
 			if (value != null) {
@@ -483,7 +492,7 @@ public final class ProrUtil {
 			AttributeValueString value = Reqif10Factory.eINSTANCE
 					.createAttributeValueString();
 			value.setDefinition((AttributeDefinitionString) attributeDefinition);
-			
+
 			AttributeValueString defaultValue = ((AttributeDefinitionString) attributeDefinition)
 					.getDefaultValue();
 			if (defaultValue != null) {
@@ -493,7 +502,7 @@ public final class ProrUtil {
 		} else if (attributeDefinition instanceof AttributeDefinitionXhtml) {
 			AttributeValueXhtml value = Reqif10Factory.eINSTANCE
 					.createAttributeValueXhtml();
-			value.setDefinition((AttributeDefinitionXhtml) attributeDefinition);			
+			value.setDefinition((AttributeDefinitionXhtml) attributeDefinition);
 			AttributeValueXhtml defaultValue = ((AttributeDefinitionXhtml) attributeDefinition)
 					.getDefaultValue();
 			if (defaultValue != null) {
@@ -517,8 +526,9 @@ public final class ProrUtil {
 	}
 
 	/**
-	 * Builds a command that creates new {@link SpecRelation}s between the given sources and target.
-	 * Both, source and target can be {@link SpecObject}s and {@link SpecHierarchy}s.  
+	 * Builds a command that creates new {@link SpecRelation}s between the given
+	 * sources and target. Both, source and target can be {@link SpecObject}s
+	 * and {@link SpecHierarchy}s.
 	 */
 	public static Command createCreateSpecRelationsCommand(
 			EditingDomain domain, Collection<?> sources, Object target) {
@@ -528,22 +538,24 @@ public final class ProrUtil {
 		if (target instanceof SpecObject) {
 			targetObject = (SpecObject) target;
 		} else if (target instanceof SpecHierarchy) {
-			targetObject = ((SpecHierarchy)target).getObject();
+			targetObject = ((SpecHierarchy) target).getObject();
 		}
 		if (targetObject == null) {
 			return UnexecutableCommand.INSTANCE;
 		}
-		
-		ReqIfContent content = Reqif10Util.getReqIf(targetObject).getCoreContent();
+
+		ReqIfContent content = Reqif10Util.getReqIf(targetObject)
+				.getCoreContent();
 		ArrayList<SpecRelation> relations = new ArrayList<SpecRelation>();
 
 		for (Object source : sources) {
 			if (source instanceof SpecHierarchy) {
-				source = ((SpecHierarchy)source).getObject();
+				source = ((SpecHierarchy) source).getObject();
 			}
 			if (source instanceof SpecObject) {
-				SpecObject sourceObject = (SpecObject)source;
-				SpecRelation relation = Reqif10Factory.eINSTANCE.createSpecRelation();
+				SpecObject sourceObject = (SpecObject) source;
+				SpecRelation relation = Reqif10Factory.eINSTANCE
+						.createSpecRelation();
 				relation.setSource(sourceObject);
 				relation.setTarget(targetObject);
 				relations.add(relation);
@@ -553,27 +565,33 @@ public final class ProrUtil {
 				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS,
 				relations);
 	}
-		
+
 	/**
-	 * This class reflectively looks for the given postfix and removes it from the classname of the given object.
-	 * Should the result contain camel case, then spaces will be inserted.<p>
+	 * This class reflectively looks for the given postfix and removes it from
+	 * the classname of the given object. Should the result contain camel case,
+	 * then spaces will be inserted.
+	 * <p>
 	 * 
-	 * If obj is itself a {@link Class}, its simple name is used directly. 
+	 * If obj is itself a {@link Class}, its simple name is used directly.
 	 * 
-	 * If the postfix does not match, the simple class name is returned.<p>
+	 * If the postfix does not match, the simple class name is returned.
+	 * <p>
 	 * 
-	 * If obj is null, the empty string is returned.<p>
+	 * If obj is null, the empty string is returned.
+	 * <p>
 	 * 
-	 * The idea is that in some places, it is convenient to extract information directly from
-	 * the CamelCased classname, e.g. SpecRelationTypeItemProvider => "Spec Relation Type".
+	 * The idea is that in some places, it is convenient to extract information
+	 * directly from the CamelCased classname, e.g. SpecRelationTypeItemProvider
+	 * => "Spec Relation Type".
 	 */
-	public static String substractPrefixPostfix(Object obj, String prefix, String suffix) {
+	public static String substractPrefixPostfix(Object obj, String prefix,
+			String suffix) {
 		if (obj == null) {
 			return "";
 		}
-		
-		String className = obj instanceof Class ? ((Class<?>) obj).getSimpleName()
-				: obj.getClass().getSimpleName();
+
+		String className = obj instanceof Class ? ((Class<?>) obj)
+				.getSimpleName() : obj.getClass().getSimpleName();
 		if (!className.startsWith(suffix) && !className.endsWith(suffix)) {
 			return className;
 		}
@@ -582,7 +600,7 @@ public final class ProrUtil {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < name.length(); i++) {
 			char c = name.charAt(i);
-			if (i !=0 && Character.isUpperCase(c)) {
+			if (i != 0 && Character.isUpperCase(c)) {
 				sb.append(' ');
 			}
 			sb.append(c);
