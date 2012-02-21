@@ -1,5 +1,6 @@
 package org.eclipse.rmf.pror.reqif10.edit.presentation.service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
@@ -17,6 +18,8 @@ public class PresentationEditManager {
 	 *         FIXME: the map may not yet be populated
 	 */
 	public static Map<Class<? extends ProrPresentationConfiguration>, PresentationEditService> getPresentationEditServiceMap() {
+		if (presentationEditServiceRegistry == null)
+			presentationEditServiceRegistry = new HashMap<Class<? extends ProrPresentationConfiguration>, PresentationEditService>();
 		return presentationEditServiceRegistry;
 	}
 
@@ -31,7 +34,7 @@ public class PresentationEditManager {
 	public static void addService(
 			Class<? extends ProrPresentationConfiguration> configurationInterface,
 			PresentationEditService service) {
-		presentationEditServiceRegistry.put(configurationInterface, service);
+		getPresentationEditServiceMap().put(configurationInterface, service);
 	}
 
 }
