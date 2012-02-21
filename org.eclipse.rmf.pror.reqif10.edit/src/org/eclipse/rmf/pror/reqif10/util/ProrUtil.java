@@ -22,11 +22,14 @@ import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.EMFEditPlugin;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -58,6 +61,7 @@ import org.eclipse.rmf.reqif10.AttributeValueInteger;
 import org.eclipse.rmf.reqif10.AttributeValueReal;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.AttributeValueXhtml;
+import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIf;
 import org.eclipse.rmf.reqif10.ReqIfContent;
 import org.eclipse.rmf.reqif10.Reqif10Factory;
@@ -198,6 +202,27 @@ public final class ProrUtil {
 		};
 
 		ed.getCommandStack().execute(cmd2);
+	}
+
+	/**
+	 * Sets the value on the given element, provided the value exists.
+	 * 
+	 * @param specObject
+	 * @param definition
+	 * @param value
+	 * 
+	 * @return true if the value was set, otherwise false.
+	 */
+	public static boolean setTheValue(SpecObject specObject,
+			DatatypeDefinition definition, Object value, EditingDomain ed) {
+		EList<AttributeValue> list = specObject.getValues();
+		for (AttributeValue av : list) {
+			if (definition.equals(Reqif10Util.getDatatypeDefinition(av))) {
+				ProrUtil.setTheValue(av, specObject, value, ed);
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -606,6 +631,59 @@ public final class ProrUtil {
 			sb.append(c);
 		}
 		return sb.toString();
+	}
+
+	/**
+	 * This method must be called by all setType() calls of the subclasses, to
+	 * set the values that correspond to the attributes of the type.
+	 * <p>
+	 * 
+	 * @param valueFeature
+	 *            the correct value from {@link ReqIFPackage}, e.g.
+	 *            {@link ReqIFPackage#SPEC_OBJECT__VALUES}.
+	 */
+	public static void updateValuesForCurrentType(SpecObject specObject) {
+
+		// First make sure all required values exist
+		HashSet<AttributeValue> existingRequiredValues = new HashSet<AttributeValue>(
+				specObject.getValues());
+
+		if (specObject.getType() != null) {
+			// Iterate over the required attributes...
+			outer: for (AttributeDefinition attrDefFromNewType : specObject
+					.getType().getSpecAttributes()) {
+				// ... and check for each whether it already exists:
+				for (AttributeValue value : specObject.getValues()) {
+					AttributeDefinition definition = Reqif10Util
+							.getAttributeDefinition(value);
+					if (definition != null
+							&& definition.equals(attrDefFromNewType)) {
+						// It does: Continue the outer loop
+						existingRequiredValues.remove(value);
+						continue outer;
+					}
+				}
+
+				// The attribute is missing: Let's add it; but we can only add
+				// it, if a type is set.
+				AttributeValue value = createAttributeValue(attrDefFromNewType);
+
+				if (value != null) {
+					specObject.getValues().add(value);
+					if (((EObjectImpl) specObject).eNotificationRequired())
+						specObject.eNotify(new ENotificationImpl(
+								(EObjectImpl) specObject, Notification.ADD,
+								null, null, value));
+				}
+				// If there are any values left, we need to remove them
+				for (AttributeValue attributeValue : existingRequiredValues) {
+					specObject.getValues().remove(attributeValue);
+				}
+			}
+		} else {
+			// We don't do a thing: We leave the (now stale) Attributes. They
+			// will be removed if a new type is set.
+		}
 	}
 
 }
