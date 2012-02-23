@@ -105,6 +105,23 @@ public class PresentationEditorManager {
 
 	}
 
+	/**
+	 * Upon closing a ReqIF File, this method notifies each
+	 * {@link PresentationService}.
+	 * 
+	 * TODO We call this when the Editor is closed, but there must be a better
+	 * way to do it (register a notifier somewhere...)
+	 * 
+	 */
+	public static void notifiyCloseReqif(ReqIf reqif, EditingDomain domain) {
+
+		for (PresentationService service : PresentationEditorManager
+				.getPresentationServiceMap().values()) {
+			service.closeReqif(reqif, domain);
+		}
+
+	}
+
 	public static PresentationService getPresentationService(
 			AttributeValue value, EditingDomain editingDomain) {
 		PresentationService service = null;

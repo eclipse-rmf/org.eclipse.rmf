@@ -1722,6 +1722,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 	 */
 	@Override
 	public void dispose() {
+
 		updateProblemIndication = false;
 
 		ResourcesPlugin.getWorkspace().removeResourceChangeListener(
@@ -1743,7 +1744,11 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 			contentOutlinePage.dispose();
 		}
 
+		// TODO there must be a better place?
+		PresentationEditorManager.notifiyCloseReqif(reqif, editingDomain);
+
 		super.dispose();
+
 	}
 
 	/**

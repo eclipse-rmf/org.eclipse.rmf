@@ -50,6 +50,18 @@ public interface PresentationEditorService {
 	public void openReqif(ReqIf reqif, EditingDomain domain);
 
 	/**
+	 * This method is triggered when a new ReqIF is closed, giving the
+	 * Presentation a chance to interact, e.g. by unregistering adapters, etc.
+	 * <p>
+	 * 
+	 * Please note that this method may be called multiple times, if the
+	 * Presentation is associated with multiple {@link DatatypeDefinition}s.
+	 * 
+	 * TODO still true?
+	 */
+	public void closeReqif(ReqIf reqif, EditingDomain domain);
+
+	/**
 	 * Returns an {@link IProrCellRenderer} appropriate for the
 	 * {@link DatatypeDefinition} associated with this configuration. May return
 	 * null (then the default renderer is used).

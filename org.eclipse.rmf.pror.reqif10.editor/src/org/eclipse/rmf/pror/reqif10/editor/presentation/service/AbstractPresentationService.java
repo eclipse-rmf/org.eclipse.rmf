@@ -36,6 +36,10 @@ public abstract class AbstractPresentationService extends AdapterImpl implements
 	}
 
 	@Override
+	public void closeReqif(ReqIf reqif, EditingDomain domain) {
+	}
+
+	@Override
 	public Command handleDragAndDrop(Collection<?> source, Object target,
 			EditingDomain editingDomain, int operation) {
 		return null;
