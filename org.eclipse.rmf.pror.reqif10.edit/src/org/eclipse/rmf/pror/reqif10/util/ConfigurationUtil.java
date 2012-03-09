@@ -10,6 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.util;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -94,6 +95,27 @@ public class ConfigurationUtil {
 				return config;
 		}
 		return null;
+	}
+
+	/**
+	 * This method returns a list of {@link HighlightConfiguration}s for the
+	 * given {@link ReqIf} and {@link ProrPresentationConfiguration} instance.
+	 */
+	public static List<DatatypeDefinition> getDatatypeDefinitions(ReqIf reqif,
+			EditingDomain domain, ProrPresentationConfiguration configuration) {
+		List<DatatypeDefinition> datatypes = new ArrayList<DatatypeDefinition>();
+		ProrPresentationConfigurations configsElement = ConfigurationUtil
+				.getPresentationConfigurations(reqif, domain);
+		if (configsElement == null)
+			return datatypes;
+		EList<ProrPresentationConfiguration> configs = configsElement
+				.getPresentationConfigurations();
+		for (ProrPresentationConfiguration config : configs) {
+			if (configuration.getClass().equals(config.getClass()))
+				datatypes.add(((ProrPresentationConfiguration) config)
+						.getDatatype());
+		}
+		return datatypes;
 	}
 
 	/**
@@ -259,6 +281,19 @@ public class ConfigurationUtil {
 		DatatypeDefinition dd = Reqif10Util.getDatatypeDefinition(value);
 		ProrPresentationConfiguration config = getConfiguration(dd, domain);
 		return config;
+	}
+
+	/**
+	 * @return the {@link ProrPresentationConfigurations} for the given
+	 *         {@link ReqIf} and {@link EditingDomain}.
+	 */
+	public static ProrPresentationConfigurations getPresentationConfigurations(
+			ReqIf reqif, EditingDomain domain) {
+		ProrToolExtension uiExtension = ConfigurationUtil.getProrToolExtension(
+				reqif, domain);
+		ProrPresentationConfigurations configs = uiExtension
+				.getPresentationConfigurations();
+		return configs;
 	}
 
 }
