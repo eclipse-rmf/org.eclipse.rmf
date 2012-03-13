@@ -11,6 +11,8 @@
 package org.eclipse.rmf.pror.reqif10.editor.presentation.service;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.CellEditor;
@@ -23,6 +25,10 @@ import org.eclipse.rmf.reqif10.ReqIf;
 
 public abstract class AbstractPresentationService extends AdapterImpl implements PresentationService {
 
+	// This map contains all open ReqIF models and the corresponding editing
+	// domain. This map is needed for updating changed keywords.
+	protected final Map<ReqIf, EditingDomain> openReqIfModels = new HashMap<ReqIf, EditingDomain>();
+
 	@Override
 	public Class<? extends ProrPresentationConfiguration> getConfigurationInterface() {
 		return getConfigurationInstance().getClass();
@@ -33,10 +39,12 @@ public abstract class AbstractPresentationService extends AdapterImpl implements
 
 	@Override
 	public void openReqif(ReqIf reqif, EditingDomain domain) {
+		openReqIfModels.put(reqif, domain);
 	}
 
 	@Override
 	public void closeReqif(ReqIf reqif, EditingDomain domain) {
+		openReqIfModels.remove(reqif);
 	}
 
 	@Override
