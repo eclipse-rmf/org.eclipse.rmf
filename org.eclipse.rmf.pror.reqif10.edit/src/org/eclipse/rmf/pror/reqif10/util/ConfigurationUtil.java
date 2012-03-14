@@ -124,10 +124,12 @@ public class ConfigurationUtil {
 	 * <p>
 	 */
 	private static ProrToolExtension getProrToolExtension(ReqIf reqif) {
-		EList<ReqIfToolExtension> extensions = reqif.getToolExtensions();
-		for (ReqIfToolExtension extension : extensions) {
-			if (extension instanceof ProrToolExtension) {
-				return (ProrToolExtension) extension;
+		if (reqif != null) {
+			EList<ReqIfToolExtension> extensions = reqif.getToolExtensions();
+			for (ReqIfToolExtension extension : extensions) {
+				if (extension instanceof ProrToolExtension) {
+					return (ProrToolExtension) extension;
+				}
 			}
 		}
 		return null;
