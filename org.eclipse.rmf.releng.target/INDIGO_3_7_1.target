@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.6"?>
 
-<target includeMode="feature" name="INDIGO_3_7_1" sequenceNumber="35">
+<target includeMode="feature" name="INDIGO_3_7_1" sequenceNumber="36">
 <locations>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.platform.ide" version="3.7.1.M20110909-1335"/>
-<repository location="http://download.eclipse.org/eclipse/updates/3.7/"/>
-</location>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.agilemore.agilegrid.feature.feature.group" version="1.2.2"/>
-<repository location="http://agilegrid.sourceforge.net/agilegrid/updatesite-rmf/"/>
-</location>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.7.0.v20110606-0949"/>
 <unit id="org.eclipse.emf.compare.feature.group" version="1.2.1.v20110913-0926"/>
 <unit id="org.eclipse.jdt.feature.group" version="3.7.1.r371_v20110810-0800-7z8gFcoFMLfTabvKsR5Qm9rBGEBK"/>
+<unit id="org.eclipse.rcp.feature.group" version="3.7.1.r37x_v20110729-9DB5FmNFnFLSFCtLxnRfMqt15A4A"/>
+<unit id="org.eclipse.equinox.executable.feature.group" version="3.5.1.v20111216-1653-7P7NFUIFIbaUcU77s0KQWHw5HZTZ"/>
 <unit id="org.eclipse.equinox.p2.sdk.feature.group" version="3.7.1.R37x_v20110907-9N7sHDOGKQr_bhQlOXRnwJn5DsVZ"/>
 <unit id="org.eclipse.equinox.p2.user.ui.feature.group" version="2.1.2.R37x_v20110815-1155-6-Bj9JXOeQxOURYC-l9BL7rDEQO7"/>
 <repository location="http://download.eclipse.org/releases/indigo"/>
+</location>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.agilemore.agilegrid.feature.feature.group" version="1.2.2"/>
+<repository location="http://agilegrid.sourceforge.net/agilegrid/updatesite-rmf/"/>
 </location>
 </locations>
 </target>
