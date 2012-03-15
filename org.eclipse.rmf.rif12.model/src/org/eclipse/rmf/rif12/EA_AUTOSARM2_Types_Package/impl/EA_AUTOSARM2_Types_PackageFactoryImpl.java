@@ -256,7 +256,6 @@ public class EA_AUTOSARM2_Types_PackageFactoryImpl extends EFactoryImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EA_AUTOSARM2_Types_PackagePackage getEA_AUTOSARM2_Types_PackagePackage() {
 		return (EA_AUTOSARM2_Types_PackagePackage)getEPackage();
 	}

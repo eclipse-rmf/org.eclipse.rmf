@@ -107,7 +107,6 @@ abstract public class AbstractItemProviderTest {
 				commandStack);
 
 		listener = new INotifyChangedListener() {
-			@Override
 			public void notifyChanged(Notification notification) {
 				if (filter != null) {
 					if (!filter.accept(notification)) {

@@ -21,7 +21,6 @@ public class LinewrapCellRenderer implements IProrCellRenderer {
 
 	public static final String NEWLINE = System.getProperty("line.separator");
 
-	@Override
 	public int doDrawCellContent(GC gc, Rectangle rect, Object value) {
 		String text = getText(value, gc, rect.width);
 		gc.drawText(text, rect.x + 1, rect.y + 1);
@@ -95,7 +94,6 @@ public class LinewrapCellRenderer implements IProrCellRenderer {
 		return sb.toString();
 	}
 
-	@Override
 	public String doDrawHtmlContent(Object value, File folder) {
 		AttributeValueString av = (AttributeValueString) value;
 		String text = av.getTheValue();

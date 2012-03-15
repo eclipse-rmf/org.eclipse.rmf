@@ -23,7 +23,6 @@ import org.eclipse.swt.graphics.Rectangle;
 
 public class IdLabelCellRenderer implements IProrCellRenderer {
 
-	@Override
 	public int doDrawCellContent(GC gc, Rectangle rect, Object value) {
 		if (value instanceof AttributeValueSimple) {
 			Object text = Reqif10Util.getTheValue((AttributeValue) value);
@@ -38,7 +37,6 @@ public class IdLabelCellRenderer implements IProrCellRenderer {
 		return 16;
 	}
 
-	@Override
 	public String doDrawHtmlContent(Object value, File folder) {
 		AttributeValueString av = (AttributeValueString) value;
 		return av.getTheValue();
