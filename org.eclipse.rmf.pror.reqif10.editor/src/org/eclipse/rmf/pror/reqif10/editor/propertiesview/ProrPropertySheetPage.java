@@ -116,7 +116,6 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 		getControl().setFocus();
 	}
 
-	@Override
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 
 		if (viewer == null)

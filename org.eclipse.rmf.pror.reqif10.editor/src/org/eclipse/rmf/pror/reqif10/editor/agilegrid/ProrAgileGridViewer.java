@@ -405,7 +405,6 @@ public class ProrAgileGridViewer extends Viewer {
 		// Create a Listener that translates the new selection from Cells to
 		// SpecHierarchies
 		selectionChangedistener = new ISelectionChangedListener() {
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				Set<Cell> cells = event.getNewSelections();
 				List<Object> items = new ArrayList<Object>();

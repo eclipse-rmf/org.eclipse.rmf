@@ -47,7 +47,6 @@ public class AddTestObjectsActionDelegate implements IEditorActionDelegate,
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
 	 */
-	@Override
 	public void run(IAction action) {
 		if (selection.size() != 1)
 			return;
@@ -105,7 +104,6 @@ public class AddTestObjectsActionDelegate implements IEditorActionDelegate,
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction, org.eclipse.jface.viewers.ISelection)
 	 */
-	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		if (selection instanceof IStructuredSelection) {
 			this.selection = (IStructuredSelection) selection;
@@ -115,14 +113,12 @@ public class AddTestObjectsActionDelegate implements IEditorActionDelegate,
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#dispose()
 	 */
-	@Override
 	public void dispose() {
 	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#init(org.eclipse.ui.IWorkbenchWindow)
 	 */
-	@Override
 	public void init(IWorkbenchWindow window) {
 		this.window = window;
 	}
@@ -130,7 +126,6 @@ public class AddTestObjectsActionDelegate implements IEditorActionDelegate,
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IEditorActionDelegate#setActiveEditor(org.eclipse.jface.action.IAction, org.eclipse.ui.IEditorPart)
 	 */
-	@Override
 	public void setActiveEditor(IAction action, IEditorPart targetEditor) {
 		this.editor = targetEditor;
 	}

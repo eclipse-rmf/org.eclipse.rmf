@@ -106,7 +106,6 @@ public class ReqifMainForm {
 		Composite client = toolkit.createComposite(specSection);
 		final ListViewer list = new ListViewer(client, SWT.SINGLE | SWT.BORDER);
 		list.addSelectionChangedListener(new ISelectionChangedListener() {
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				if (!event.getSelection().isEmpty()) {
 					reqifEditor.setSelection(event.getSelection());
@@ -148,7 +147,6 @@ public class ReqifMainForm {
 		list.setInput(root);
 
 		root.addListener(new INotifyChangedListener() {
-			@Override
 			public void notifyChanged(Notification notification) {
 				if (list != null && !(list.getControl().isDisposed())) {
 					list.refresh();
@@ -158,7 +156,6 @@ public class ReqifMainForm {
 		});
 
 		list.addOpenListener(new IOpenListener() {
-			@Override
 			public void open(OpenEvent event) {
 				Object element = ((IStructuredSelection) event.getSelection())
 						.getFirstElement();
@@ -201,7 +198,6 @@ public class ReqifMainForm {
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 		// Necessary to always have the proper vertical size.
 		text.addModifyListener(new ModifyListener() {
-			@Override
 			public void modifyText(ModifyEvent e) {
 				form.reflow(false);
 			}
@@ -256,7 +252,6 @@ public class ReqifMainForm {
 
 		// When the Text is modified, update the model...
 		text.addModifyListener(new ModifyListener() {
-			@Override
 			public void modifyText(ModifyEvent e) {
 				Command cmd = SetCommand.create(reqifEditor.getEditingDomain(), reqif.getTheHeader(),
 						feature, text.getText());

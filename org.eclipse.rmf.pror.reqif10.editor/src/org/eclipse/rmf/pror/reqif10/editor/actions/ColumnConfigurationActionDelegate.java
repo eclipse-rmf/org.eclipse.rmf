@@ -41,7 +41,6 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 	/**
 	 * Retrieves the {@link EditingDomain} from the Editor if present.
 	 */
-	@Override
 	public void setActiveEditor(IAction action, IEditorPart editor) {
 		if (editor instanceof SpecificationEditor) {
 			this.editor = (SpecificationEditor) editor;
@@ -54,7 +53,6 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 	 * Opens the {@link ReqIFToolExtension} for the current
 	 * {@link EditingDomain}.
 	 */
-	@Override
 	public void run(IAction action) {
 		if (editor == null)
 			return;
@@ -144,7 +142,6 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 		return addColumnAction;
 	}
 
-	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// No action required.
 	}

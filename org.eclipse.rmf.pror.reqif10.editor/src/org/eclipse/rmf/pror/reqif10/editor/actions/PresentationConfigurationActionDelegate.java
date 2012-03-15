@@ -41,7 +41,6 @@ public class PresentationConfigurationActionDelegate implements
 	/**
 	 * Retrieves the {@link EditingDomain} from the Editor if present.
 	 */
-	@Override
 	public void setActiveEditor(IAction action, IEditorPart editor) {
 		if (editor instanceof Reqif10Editor) {
 			this.editor = (Reqif10Editor) editor;
@@ -56,7 +55,6 @@ public class PresentationConfigurationActionDelegate implements
 	 * Opens the {@link ReqIFToolExtension} for the current
 	 * {@link EditingDomain}.
 	 */
-	@Override
 	public void run(IAction action) {
 		if (editor == null)
 			return;
@@ -116,7 +114,6 @@ public class PresentationConfigurationActionDelegate implements
 		return ext.getPresentationConfigurations();
 	}
 
-	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// No action required.
 	}

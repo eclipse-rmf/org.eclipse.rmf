@@ -225,7 +225,6 @@ public class SpecificationEditor extends EditorPart implements
 
 	private void registerSelectionChangedListener() {
 		selectionChangedListener = new ISelectionChangedListener() {
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				SpecificationEditor.this.setSelection(event.getSelection());
 			}
@@ -262,7 +261,6 @@ public class SpecificationEditor extends EditorPart implements
 	/**
 	 * Delegate selection management to {@link #prorAgileGridViewer}.
 	 */
-	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		prorAgileGridViewer.addSelectionChangedListener(listener);
 	}
@@ -270,7 +268,6 @@ public class SpecificationEditor extends EditorPart implements
 	/**
 	 * Delegate selection management to {@link #prorAgileGridViewer}.
 	 */
-	@Override
 	public void removeSelectionChangedListener(
 			ISelectionChangedListener listener) {
 		prorAgileGridViewer.removeSelectionChangedListener(listener);
@@ -279,7 +276,6 @@ public class SpecificationEditor extends EditorPart implements
 	/**
 	 * Delegate selection management to {@link #prorAgileGridViewer}.
 	 */
-	@Override
 	public ISelection getSelection() {
 		return prorAgileGridViewer.getSelection();
 	}
@@ -287,7 +283,6 @@ public class SpecificationEditor extends EditorPart implements
 	/**
 	 * Delegate selection management to {@link #prorAgileGridViewer}.
 	 */
-	@Override
 	public void setSelection(ISelection selection) {
 		prorAgileGridViewer.setSelection(selection);
 		reqifEditor.setStatusLineManager(selection);
@@ -297,7 +292,6 @@ public class SpecificationEditor extends EditorPart implements
 	 * This implements {@link org.eclipse.jface.action.IMenuListener} to help
 	 * fill the context menus with contributions from the Edit menu.
 	 */
-	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
 		((IMenuListener)getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
 	}
@@ -305,7 +299,6 @@ public class SpecificationEditor extends EditorPart implements
 	/**
 	 * The {@link EditingDomain} from the {@link Reqif10Editor}.
 	 */
-	@Override
 	public EditingDomain getEditingDomain() {
 		return reqifEditor.getEditingDomain();
 	}

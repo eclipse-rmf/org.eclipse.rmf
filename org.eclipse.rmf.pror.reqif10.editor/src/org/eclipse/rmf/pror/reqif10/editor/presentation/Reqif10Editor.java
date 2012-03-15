@@ -1047,7 +1047,6 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		});
 
 		getSite().getShell().getDisplay().asyncExec(new Runnable() {
-			@Override
 			public void run() {
 				updateProblemIndication();
 			}
@@ -1238,8 +1237,6 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 					// React to double clicking
 					contentOutlineViewer
 							.addDoubleClickListener(new IDoubleClickListener() {
-
-								@Override
 								public void doubleClick(DoubleClickEvent event) {
 									if (event.getSelection() instanceof IStructuredSelection
 											&& !event.getSelection().isEmpty()) {

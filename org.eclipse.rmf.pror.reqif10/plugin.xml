@@ -58,7 +58,7 @@ Contributors:
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.ui.ide.workbench"
-            name="ProR Standalone">
+            name="RMF ProR Standalone">
          <property
                name="windowImages"
                value="platform:/plugin/org.eclipse.rmf.pror.reqif10.editor/icons/full/prorIcon/prorIcon16.png,platform:/plugin/org.eclipse.rmf.pror.reqif10.editor/icons/full/prorIcon/prorIcon32.png,platform:/plugin/org.eclipse.rmf.pror.reqif10.editor/icons/full/prorIcon/prorIcon48.png,platform:/plugin/org.eclipse.rmf.pror.reqif10.editor/icons/full/prorIcon/prorIcon64.png,platform:/plugin/org.eclipse.rmf.pror.reqif10.editor/icons/full/prorIcon/prorIcon128.png">
@@ -81,7 +81,7 @@ Contributors:
          </property>
          <property
                name="appName"
-               value="ProR Standalone">
+               value="RMF ProR Standalone">
          </property>
          <property
                name="preferenceCustomization"

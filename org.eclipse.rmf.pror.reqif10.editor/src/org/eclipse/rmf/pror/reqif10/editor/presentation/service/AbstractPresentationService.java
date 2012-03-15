@@ -29,47 +29,38 @@ public abstract class AbstractPresentationService extends AdapterImpl implements
 	// domain. This map is needed for updating changed keywords.
 	protected final Map<ReqIf, EditingDomain> openReqIfModels = new HashMap<ReqIf, EditingDomain>();
 
-	@Override
 	public Class<? extends ProrPresentationConfiguration> getConfigurationInterface() {
 		return getConfigurationInstance().getClass();
 	}
 
-	@Override
 	public abstract ProrPresentationConfiguration getConfigurationInstance();
 
-	@Override
 	public void openReqif(ReqIf reqif, EditingDomain domain) {
 		openReqIfModels.put(reqif, domain);
 	}
 
-	@Override
 	public void closeReqif(ReqIf reqif, EditingDomain domain) {
 		openReqIfModels.remove(reqif);
 	}
 
-	@Override
 	public Command handleDragAndDrop(Collection<?> source, Object target,
 			EditingDomain editingDomain, int operation) {
 		return null;
 	}
 
-	@Override
 	public IProrCellRenderer getCellRenderer(AttributeValue av) {
 		return null;
 	}
 
-	@Override
 	public String getLabel(AttributeValue av) {
 		return null;
 	}
 
-	@Override
 	public CellEditor getCellEditor(AgileGrid agileGrid,
 			EditingDomain editingDomain, AttributeValue attrValue) {
 		return null;
 	}
 
-	@Override
 	public boolean canEdit() {
 		return false;
 	}

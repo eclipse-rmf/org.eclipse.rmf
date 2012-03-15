@@ -33,7 +33,6 @@ public class ToggleSpecRelationsActionDelegate implements
 	 * 
 	 * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
 	 */
-	@Override
 	public void run(IAction action) {
 		if (editor != null && editor instanceof SpecificationEditor) {
 			((SpecificationEditor) editor).setShowSpecRelations(action
@@ -48,7 +47,6 @@ public class ToggleSpecRelationsActionDelegate implements
 	 * org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action
 	 * .IAction, org.eclipse.jface.viewers.ISelection)
 	 */
-	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 	}
 
@@ -57,7 +55,6 @@ public class ToggleSpecRelationsActionDelegate implements
 	 * 
 	 * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#dispose()
 	 */
-	@Override
 	public void dispose() {
 	}
 
@@ -67,7 +64,6 @@ public class ToggleSpecRelationsActionDelegate implements
 	 * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#init(org.eclipse.ui.
 	 * IWorkbenchWindow)
 	 */
-	@Override
 	public void init(IWorkbenchWindow window) {
 	}
 
@@ -77,7 +73,6 @@ public class ToggleSpecRelationsActionDelegate implements
 	 * @see org.eclipse.ui.IEditorActionDelegate#setActiveEditor(org.eclipse.jface.action.IAction,
 	 *      org.eclipse.ui.IEditorPart)
 	 */
-	@Override
 	public void setActiveEditor(IAction action, IEditorPart targetEditor) {
 		this.editor = targetEditor;
 	}

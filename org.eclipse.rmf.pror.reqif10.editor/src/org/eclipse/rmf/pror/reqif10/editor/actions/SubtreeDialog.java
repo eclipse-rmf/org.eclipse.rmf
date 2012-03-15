@@ -166,7 +166,6 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 
 		// Without this, the sash wouldn't hold its new position
 		sash.addListener(SWT.Selection, new Listener() {
-			@Override
 			public void handleEvent(Event e) {
 				sash.setBounds(e.x, e.y, e.width, e.height);
 				((FormData) sash.getLayoutData()).bottom = new FormAttachment(
@@ -214,7 +213,6 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 
 		// We just wire these two controls, to show the tree's properties.
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				propertySheet.selectionChanged(null, event.getSelection());
 			}
@@ -227,8 +225,6 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		getActionBarContributor().getActiveEditor().getSite()
 				.setSelectionProvider(viewer);
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				((ISelectionProvider) getActionBarContributor()
 						.getActiveEditor()).setSelection(event.getSelection());
@@ -264,7 +260,6 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		final ToolItem item = new ToolItem(toolbar, SWT.DROP_DOWN);
 		item.setText("Select Action...");
 		item.addListener(SWT.Selection, new Listener() {
-			@Override
 			public void handleEvent(Event event) {
 				// The following code would allow to distinguish arrow and
 				// button, something we don't need right now.
@@ -311,7 +306,6 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 				new EditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
 
-	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
 		getActionBarContributor().menuAboutToShow(menuManager);
 	}

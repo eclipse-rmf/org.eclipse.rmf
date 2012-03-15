@@ -33,8 +33,6 @@ public class ProrDateCellEditor extends ProrCellEditor {
 			Identifiable affectedObject) {
 		super(agileGrid, editingDomain, affectedObject);
 		this.setValidator(new ICellEditorValidator() {
-
-			@Override
 			public String isValid(Object value) {
 				if (value == null) {
 					return null;
