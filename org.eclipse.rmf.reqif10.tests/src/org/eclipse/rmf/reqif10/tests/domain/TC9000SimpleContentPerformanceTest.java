@@ -35,7 +35,7 @@ public class TC9000SimpleContentPerformanceTest {
 	@Test
 	public void testSpecObject() throws Exception {
 		
-		for (int i=1; i<1000000 ; i=i*2) {
+		for (int i=1; i<10000 ; i=i*2) {
 			String fileName = "TC9000_SimpleContent_PerformanceTests_SpecObjects_" + i + ".reqif";
 			ReqIF reqif = new TC9000ModelBuilder(new Date(), "ID_" + fileName, fileName, i).getReqIF(); 
 		

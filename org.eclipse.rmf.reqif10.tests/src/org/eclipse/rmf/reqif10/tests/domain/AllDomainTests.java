@@ -17,7 +17,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 
 @RunWith(Suite.class)
-@SuiteClasses({ TC1000SimpleContentTests.class })
+@SuiteClasses({ TC1000SimpleContentTests.class, TC3000FormatedContentTests.class, TC9000SimpleContentPerformanceTest.class })
 public class AllDomainTests {
 	
 
