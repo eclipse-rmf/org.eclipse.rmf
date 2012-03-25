@@ -1,0 +1,24 @@
+domain tests
+TC1000 - SimpleContent
+TC1100 - 
+
+
+element tests
+
+
+robustness tests
+
+
+
+performance tests
+
+
+
+* check for unset values
+* make sure that null is not serialized
+* make sure that only id is serialized
+* make sure that header is correct
+* make sure that various XML dialects are handled correctly
+* make sure that date is serialized correctly
+* make sure that ids follow the id syntax
+* make sure that 
