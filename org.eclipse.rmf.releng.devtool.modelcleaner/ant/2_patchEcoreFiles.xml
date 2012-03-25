@@ -1,0 +1,41 @@
+<project name="getReqIFSchema" default="patchEcoreFiles" basedir=".." xmlns:qvto="http://www.eclipse.org/qvt/1.0.0/Operational">
+    <description>
+        Get the ReqIF XML schema and the XHTML Schema fragments
+    </description>
+	
+	<property file="./ant/modelcleaner.properties"></property>
+	<!-- TODO: check if user starts script from within eclipse JVM -->
+	
+<target name="preparePatchEcoreFiles">
+	<mkdir dir="${GEN_PATCHED2_FOLDER}"/>
+	<copy file="${GEN_PATCHED1_FOLDER}/cmof/ReqIF.ecore" tofile="${GEN_PATCHED2_FOLDER}/reqif10.ecore"/>
+	<copy file="${GEN_PATCHED1_FOLDER}/schema/datatypes.ecore" tofile="${GEN_PATCHED2_FOLDER}/datatypes.ecore"/>
+	<copy file="${GEN_PATCHED1_FOLDER}/schema/xhtml.ecore" tofile="${GEN_PATCHED2_FOLDER}/xhtml.ecore"/>
+</target>
+
+<target name="patchEcoreFiles" depends="preparePatchEcoreFiles">
+	<!-- fix ReqIF ecore file -->
+	<qvto:transformation uri="transforms/ReqIFModelCleaner.qvto">
+	     <inout uri="${GEN_PATCHED2_FOLDER}/reqif10.ecore"/>
+	</qvto:transformation>
+	
+	<!-- link ReqIF to the xhtml ecore file (required for supporting xhtml content) -->
+		<qvto:transformation uri="transforms/ReqIFtoXHTMLLinker.qvto">
+		     <inout uri="${GEN_PATCHED2_FOLDER}/reqif10.ecore"/>
+			 <in uri="${GEN_PATCHED2_FOLDER}/xhtml.ecore"/>
+		</qvto:transformation>
+	
+    <!-- replace absolute references by relative references -->
+	<replace file="${GEN_PATCHED2_FOLDER}/reqif10.ecore" token="ecore:EClass /org.eclipse.rmf.releng.devtools.modelcleaner/gen/patched2/reqif10.ecore#" value="#"/>
+	<replace file="${GEN_PATCHED2_FOLDER}/reqif10.ecore" token="ecore:EDataType /org.eclipse.rmf.releng.devtools.modelcleaner/gen/patched2/reqif10.ecore#" value="#"/>
+	<replace file="${GEN_PATCHED2_FOLDER}/reqif10.ecore" token="eSuperTypes=&quot;/org.eclipse.rmf.releng.devtools.modelcleaner/gen/patched2/reqif10.ecore#" value="eSuperTypes=&quot;#"/>
+
+	<replace file="${GEN_PATCHED2_FOLDER}/reqif10.ecore" token="ecore:EClass /org.eclipse.rmf.releng.devtools.modelcleaner/gen/patched2/xhtml.ecore#" value="ecore:EClass xhtml.ecore#"/>
+	<replace file="${GEN_PATCHED2_FOLDER}/xhtml.ecore" token="ecore:EClass /org.eclipse.rmf.releng.devtools.modelcleaner/gen/patched2/datatypes.ecore#" value="ecore:EClass datatypes.ecore#"/>
+
+	
+</target>	
+	
+
+
+</project>

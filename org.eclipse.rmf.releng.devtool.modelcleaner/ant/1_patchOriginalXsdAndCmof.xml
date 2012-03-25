@@ -1,0 +1,52 @@
+<project name="getReqIFSchema" default="patchOriginalXsdAndCmof" basedir=".." xmlns:qvto="http://www.eclipse.org/qvt/1.0.0/Operational">
+    <description>
+        Get the ReqIF XML schema and the XHTML Schema fragments
+    </description>
+	
+	<property file="./ant/modelcleaner.properties"></property>
+	
+	
+	
+<target name="preparePatchOriginalXsdAndCmof">
+	<mkdir dir="${GEN_PATCHED1_FOLDER}"/>
+	<mkdir dir="${GEN_PATCHED1_FOLDER}/schema"/>
+	<mkdir dir="${GEN_PATCHED1_FOLDER}/cmof"/>
+	<copy todir="${GEN_PATCHED1_FOLDER}/schema">
+		<fileset dir="${GEN_ORIGINAL_FOLDER}/schema"/>
+	</copy>
+	<copy todir="${GEN_PATCHED1_FOLDER}/cmof">
+		<fileset dir="${GEN_ORIGINAL_FOLDER}/cmof"/>
+	</copy>
+</target>
+	
+<target name="patchXsds" depends="preparePatchOriginalXsdAndCmof">
+	<replace file="${GEN_PATCHED1_FOLDER}/schema/driver.xsd" token="schemaLocation=&quot;http://www.w3.org/TR/xhtml-modularization/SCHEMA/" value="schemaLocation=&quot;"/>
+	<replace file="${GEN_PATCHED1_FOLDER}/schema/driver.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/" value="schemaLocation=&quot;"/>
+	<replace file="${GEN_PATCHED1_FOLDER}/schema/reqif.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/" value="schemaLocation=&quot;"/>
+    <replace file="${GEN_PATCHED1_FOLDER}/schema/reqif.xsd" token="schemaLocation=&quot;http://www.omg.org/spec/ReqIF/20110402/" value="schemaLocation=&quot;"/>
+</target>
+	
+<target name="patchCmof" depends="preparePatchOriginalXsdAndCmof">
+	<replace file="${GEN_PATCHED1_FOLDER}/cmof/reqif.cmof" token="http://schema.omg.org/spec/MOF/2.0/cmof.xml#" value="http://schema.omg.org/spec/UML/2.0/uml.xml#"/>
+</target>
+
+<target name="patchOriginalXsdAndCmof" depends="patchXsds, patchCmof">
+	<echo>Open '${GEN_PATCHED1_FOLDER}/cmof/reqif.cmof' and convert package ReqIF to ecore. Make sure that 'camel case names' is set to 'Ignore'. This will create a new file '${GEN_PATCHED1_FOLDER}/cmof/ReqIF.ecore'</echo>
+    <echo>Create genmodel from '${GEN_PATCHED1_FOLDER}/schema/reqif.xsd' (New->other->Eclipse Modeling Framework/EMF Generator Model -> XML Schema; select XML Namespace from platform / other models from input)</echo>
+    <echo>Continue with ....</echo>
+</target>
+
+<target name="preparePatch2">
+	<mkdir dir="../gen/patched2"/>
+    <mkdir dir="../gen/patched2/cmof"/>
+    <mkdir dir="../gen/patched2/schema"/>
+	<copy file="../gen/patched1/cmof/ReqIF.ecore" tofile="../gen/patched2/cmof/reqif10.ecore"/>
+    <copy toDir="../gen/patched2/schema">
+		<fileset dir="../gen/patched1/schema" includes="*.ecore"/>
+	</copy>
+</target>
+	
+	
+
+
+</project>
