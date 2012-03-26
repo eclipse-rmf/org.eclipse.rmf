@@ -160,7 +160,6 @@ public abstract class ProrCellEditor extends TextCellEditor {
 	 * @return
 	 */
 	protected boolean isValidCellEditorCharacter(KeyEvent keyEvent) {
-		System.out.println(keyEvent.keyCode);
 		switch (keyEvent.character) {
 		case ' ':
 		case '\r':
