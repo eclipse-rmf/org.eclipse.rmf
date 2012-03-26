@@ -9,8 +9,15 @@
  *     Mark Bršrkens - initial API and implementation
  * 
  */
-package org.eclipse.rmf.reqif10.tests.domain;
+package org.eclipse.rmf.reqif10.tests.referencedata;
 
-public class AbstractTestCase {
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
 
+
+@RunWith(Suite.class)
+@SuiteClasses({ ReferenceDataTests.class })
+public class AllReferenceDataTests {
+	
 }

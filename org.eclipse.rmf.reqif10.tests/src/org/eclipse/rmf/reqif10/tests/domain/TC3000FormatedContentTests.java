@@ -43,7 +43,8 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.XhtmlContent;
-import org.eclipse.rmf.reqif10.tests.TC3000ModelBuilder;
+import org.eclipse.rmf.reqif10.tests.util.AbstractTestCase;
+import org.eclipse.rmf.reqif10.tests.util.TC3000ModelBuilder;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlH1Type;
 import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
@@ -51,16 +52,14 @@ import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class TC3000FormatedContentTests {
+public class TC3000FormatedContentTests extends AbstractTestCase {
 	static ReqIF originalReqIF = null;
 	static ReqIF loadedReqIF = null;
-	
-	static Resource loadedReqIFResource = null;
 	
 	
 	@BeforeClass
 	public static void setupOnce() throws Exception {
-
+		// TODO: check if we actually need the following code
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 				"ReqIF", new ReqIFResourceFactoryImpl());
 		ResourceSet rifResourceSet = new ReqIFResourceSetImpl();
@@ -68,9 +67,10 @@ public class TC3000FormatedContentTests {
 		rifResourceSet.getResourceFactoryRegistry()
 				.getProtocolToFactoryMap()
 				.put(ReqIF10Package.eNS_URI, ReqIF10Package.eINSTANCE);
+		// ___
 		originalReqIF = new TC3000ModelBuilder().getReqIF();
-		saveReqIFFile(originalReqIF, "TC3000.ReqIF");
-		loadedReqIF = loadReqIFFile("TC3000.ReqIF");
+		saveReqIFFile(originalReqIF, WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000.ReqIF");
+		loadedReqIF = loadReqIFFile(WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000.ReqIF");
 
 	}
 	
@@ -79,7 +79,7 @@ public class TC3000FormatedContentTests {
 	
 	@Test
 	public void testSchemaCompliance() throws Exception {
-		validateAgainstSchema("TC3000.ReqIF");
+		validateAgainstSchema(WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000.ReqIF");
 	}
 	
 	
@@ -88,7 +88,7 @@ public class TC3000FormatedContentTests {
 	@Test
 	public void testResave() throws IOException {
 		try {
-			saveReqIFFile(loadedReqIF, "TC3000_2.ReqIF");
+			saveReqIFFile(loadedReqIF, WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000_2.ReqIF");
 		} catch (IOException ioe) {
 			Assert.assertFalse("We shall be able to save without exception. However the following exception occurred: " + ioe.toString(), true);
 		}
@@ -119,68 +119,4 @@ public class TC3000FormatedContentTests {
 		assertNotNull(h1);
 		
 	}
-	
-	
-	
-
-	
-	
-/**
- * 
-	public void testSchema() throws Throwable {
-		validateSchema(WORKING_DIRECTORY + IPath.SEPARATOR + "TC1000.ReqIF");
-	}
-	*/
-	public static void saveReqIFFile(ReqIF ReqIF, String fileName) throws IOException {
-		URI emfURI = createEMFURI(fileName);
-		ReqIFResourceFactoryImpl resourceFactory = new ReqIFResourceFactoryImpl();
-		ReqIFResourceSetImpl resourceSet = new ReqIFResourceSetImpl(); 
-		Resource resource = resourceFactory.createResource(emfURI); 
-		resourceSet.getResources().add(resource);
-		resource.getContents().add(ReqIF);
-		resource.save(null);
-		resourceSet = null;
-	}
-	
-	public static ReqIF loadReqIFFile(String fileName) throws IOException {
-		
-		URI emfURI = createEMFURI(fileName);
-		ReqIFResourceFactoryImpl resourceFactory = new ReqIFResourceFactoryImpl();
-		XMLResource resource = (XMLResource) resourceFactory.createResource(emfURI);
-
-		resource.load(null);
-		loadedReqIFResource = resource;
-		
-		ReqIFResourceSetImpl resourceSet = new ReqIFResourceSetImpl(); 
-		resourceSet.getResources().add(resource);
-
-        EList<EObject> rootObjects = resource.getContents();
-        System.out.println(rootObjects);
-        if (rootObjects.isEmpty()) {
-        	return null;
-        } else {
-        	return (ReqIF)rootObjects.get(0);
-        }
-	}
-	
-	private static URI createEMFURI(String fileName) {
-		return URI.createURI(WORKING_DIRECTORY + IPath.SEPARATOR + fileName, true);
-	}
-	
-	
-	private void validateAgainstSchema(String filename) throws Exception {
-		
-		StreamSource[] schemaDocuments = new StreamSource[]{new StreamSource("schema/ReqIF.xsd")};
-		//StreamSource[] schemaDocuments = new StreamSource[]{new StreamSource("http://www.omg.org/spec/ReqIF/20110401/ReqIF.xsd")};
-		Source instanceDocument = new StreamSource(WORKING_DIRECTORY + IPath.SEPARATOR + filename);
-
-		SchemaFactory sf = SchemaFactory.newInstance(
-		    "http://www.w3.org/2001/XMLSchema");
-		Schema s = sf.newSchema(schemaDocuments);
-		Validator v = s.newValidator();
-		v.validate(instanceDocument);
-	}
-	
-
-
 }

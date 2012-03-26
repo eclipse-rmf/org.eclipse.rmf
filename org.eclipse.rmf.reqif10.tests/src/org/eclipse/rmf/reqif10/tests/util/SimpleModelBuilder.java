@@ -9,7 +9,7 @@
  *     Mark Bršrkens - initial API and implementation
  * 
  */
-package org.eclipse.rmf.reqif10.tests;
+package org.eclipse.rmf.reqif10.tests.util;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
