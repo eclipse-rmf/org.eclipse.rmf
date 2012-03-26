@@ -152,16 +152,17 @@ public class Reqif10ActionBarContributor
 	protected IMenuManager createSiblingMenuManager;
 
 	/**
-	 * This creates an instance of the contributor.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This creates an instance of the contributor. <!-- begin-user-doc -->
+	 * Assignments were out-commented to remove them from the menuManager
+	 * (IMenuManager) <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Reqif10ActionBarContributor() {
 		super(ADDITIONS_LAST_STYLE);
-		loadResourceAction = new LoadResourceAction();
-		validateAction = new ValidateAction();
-		controlAction = new ControlAction();
+//		loadResourceAction = new LoadResourceAction();
+//		validateAction = new ValidateAction();
+//		controlAction = new ControlAction();
 	}
 
 	/**
