@@ -26,10 +26,14 @@ import org.eclipse.emf.ecore.xmi.PackageNotFoundException;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLHandler;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 public class ReqIFXMLSAXHandler extends XMLHandler {
+	Integer xhtmlLevel = -1;
+	// TODO: -1 should be a constant
 
 	protected XMLHandler.MyStack<EStructuralFeature> deferredFeatures;
 
@@ -67,6 +71,9 @@ public class ReqIFXMLSAXHandler extends XMLHandler {
 
 	@Override
 	protected void processElement(String name, String prefix, String localName) {
+		if (xhtmlLevel != -1) {
+			super.processElement(name, prefix, localName);
+		} else {
 		if (isRoot) {
 			isRoot = false;
 			recordHeaderInformation();
@@ -90,6 +97,7 @@ public class ReqIFXMLSAXHandler extends XMLHandler {
 				}
 			}
 		}
+		}
 	}
 
 	@Override
@@ -109,6 +117,7 @@ public class ReqIFXMLSAXHandler extends XMLHandler {
 	}
 
 	protected void handleObject(String prefix, String localName) {
+
 		assert (null != deferredFeatures.peek());
 		EObject peekObject = objects.peekEObject();
 		assert (null != peekObject);
@@ -146,6 +155,9 @@ public class ReqIFXMLSAXHandler extends XMLHandler {
 	 * is a class.
 	 */
 	protected void handleFeature(String prefix, String name) {
+		if (-1 != xhtmlLevel) {
+			super.handleFeature(prefix, name);
+		} else {
 		EObject peekObject = objects.peekEObject();
 
 		// This happens when processing an element with simple content that has
@@ -157,9 +169,11 @@ public class ReqIFXMLSAXHandler extends XMLHandler {
 					getLineNumber(), getColumnNumber()));
 			return;
 		}
+		
 
 		EStructuralFeature feature = getFeature(peekObject, prefix, name, true);
 		if (feature != null) {
+
 			deferredFeatures.push(feature);
 
 			int kind = helper.getFeatureKind(feature);
@@ -183,8 +197,14 @@ public class ReqIFXMLSAXHandler extends XMLHandler {
 					types.push(feature);
 					text = new StringBuffer();
 				} else {
-					objects.push(peekObject);
-					types.push(OBJECT_TYPE);
+					if (feature == ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue() || feature == ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue()) {
+						createObject(peekObject, feature);
+						xhtmlLevel = level;
+						// we might need to switch to another handler here
+					} else {
+						objects.push(peekObject);
+						types.push(OBJECT_TYPE);
+					}
 					// text = null;
 					// wait for the object to come
 				}
@@ -192,11 +212,14 @@ public class ReqIFXMLSAXHandler extends XMLHandler {
 				assert (false);
 				// we assume that extended metadata is not null
 			}
+			
 		} else {
 			handleUnknownFeature(prefix, name, true, peekObject, null);
 
 		}
+		}
 	}
+	
 
 	/**
 	 * Pop the appropriate stacks and set features whose values are in the
@@ -210,6 +233,10 @@ public class ReqIFXMLSAXHandler extends XMLHandler {
 			deferredFeatures.pop();
 		} 
 		level--;
+		
+		if (level == xhtmlLevel) {
+			xhtmlLevel = -1;
+		}
 
 	}
 

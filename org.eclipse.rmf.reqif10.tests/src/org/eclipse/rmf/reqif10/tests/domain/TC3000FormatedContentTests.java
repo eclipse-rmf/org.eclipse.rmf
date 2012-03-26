@@ -14,6 +14,7 @@ package org.eclipse.rmf.reqif10.tests.domain;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
@@ -33,13 +34,18 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecType;
+import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.tests.TC3000ModelBuilder;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH1Type;
 import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
 import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.junit.BeforeClass;
@@ -70,131 +76,47 @@ public class TC3000FormatedContentTests {
 	
 	private static final String WORKING_DIRECTORY = "work";
 
-	/**
+	
 	@Test
 	public void testSchemaCompliance() throws Exception {
-		validateAgainstSchema("TC1000.ReqIF");
+		validateAgainstSchema("TC3000.ReqIF");
 	}
-	*/
 	
-	@Test
-	public void testResource() {
-		assertNotNull(loadedReqIFResource);
-		assertEquals(1,loadedReqIFResource.getContents().size());
-	} 	
 	
-	@Test
-	public void testReqIFNotNull() {
-		assertNotNull("The loaded ReqIF model shall not be Null", loadedReqIF);
-	} 
 	
 	
 	@Test
 	public void testResave() throws IOException {
 		try {
-			saveReqIFFile(loadedReqIF, "TC1000_2.ReqIF");
+			saveReqIFFile(loadedReqIF, "TC3000_2.ReqIF");
 		} catch (IOException ioe) {
 			Assert.assertFalse("We shall be able to save without exception. However the following exception occurred: " + ioe.toString(), true);
 		}
 	}
 	
-	@Test
-	public void testReqIF() {
-		assertTrue(loadedReqIF.eIsSet(ReqIF10Package.eINSTANCE.getReqIF_CoreContent()));
-		assertFalse(loadedReqIF.isSetLang());
-		assertTrue(loadedReqIF.eIsSet(ReqIF10Package.eINSTANCE.getReqIF_TheHeader()));
-		assertFalse(loadedReqIF.eIsSet(ReqIF10Package.eINSTANCE.getReqIF_ToolExtensions()));		
-	}
-	
-	@Test
-	public void testReqIFHeader() {
-		assertFalse(loadedReqIF.getTheHeader().isSetComment());
-		assertTrue(loadedReqIF.getTheHeader().isSetCreationTime());
-		assertTrue(loadedReqIF.getTheHeader().isSetIdentifier());
-		assertFalse(loadedReqIF.getTheHeader().isSetRepositoryId());
-		assertTrue(loadedReqIF.getTheHeader().isSetReqIFToolId());
-		assertTrue(loadedReqIF.getTheHeader().isSetReqIFVersion());
-		assertTrue(loadedReqIF.getTheHeader().isSetSourceToolId());
-		assertTrue(loadedReqIF.getTheHeader().isSetTitle());
-
 		
-		assertEquals(originalReqIF.getTheHeader().getCreationTime().toGregorianCalendar(), loadedReqIF.getTheHeader().getCreationTime().toGregorianCalendar());
-		assertEquals(originalReqIF.getTheHeader().getIdentifier(), loadedReqIF.getTheHeader().getIdentifier());
-		assertEquals(originalReqIF.getTheHeader().getReqIFToolId(), loadedReqIF.getTheHeader().getReqIFToolId());
-		assertEquals(originalReqIF.getTheHeader().getReqIFVersion(), loadedReqIF.getTheHeader().getReqIFVersion());
-		assertEquals(originalReqIF.getTheHeader().getSourceToolId(), loadedReqIF.getTheHeader().getSourceToolId());
-		assertEquals(originalReqIF.getTheHeader().getTitle(), loadedReqIF.getTheHeader().getTitle());
-	}
-	
-	@Test
-	public void testReqIFContent() {
-		assertTrue(loadedReqIF.getCoreContent().eIsSet(ReqIF10Package.eINSTANCE.getReqIFContent_Datatypes()));
-		assertTrue(loadedReqIF.getCoreContent().eIsSet(ReqIF10Package.eINSTANCE.getReqIFContent_Specifications()));
-		assertTrue(loadedReqIF.getCoreContent().eIsSet(ReqIF10Package.eINSTANCE.getReqIFContent_SpecObjects()));
-		assertFalse(loadedReqIF.getCoreContent().eIsSet(ReqIF10Package.eINSTANCE.getReqIFContent_SpecRelationGroups()));
-		assertFalse(loadedReqIF.getCoreContent().eIsSet(ReqIF10Package.eINSTANCE.getReqIFContent_SpecRelations()));
-		assertTrue(loadedReqIF.getCoreContent().eIsSet(ReqIF10Package.eINSTANCE.getReqIFContent_SpecTypes()));
-	}
-	
-	@Test
-	public void testSpecObjectType() {
-		
-		// get the specObject Type
-		ReqIFContent ReqIFContent = loadedReqIF.getCoreContent();
-		assertTrue(ReqIFContent.eIsSet(ReqIF10Package.eINSTANCE.getReqIFContent_SpecTypes()));
-		assertEquals(2 , ReqIFContent.getSpecTypes().size());
-		
-		SpecObjectType specObjectType = null;
-		for (SpecType specType : ReqIFContent.getSpecTypes()) {
-			if (specType instanceof SpecObjectType ) {
-				specObjectType = (SpecObjectType)specType;
-				break;
-			}
-		}
-		
-		assertNotNull("SpecObjectType must be available", specObjectType);
-		
-		// check the specObjectType
-		assertFalse(specObjectType.isSetDesc());
-		assertTrue(specObjectType.isSetIdentifier());
-		assertTrue(specObjectType.isSetLastChange());
-		assertTrue(specObjectType.isSetLongName());
-		assertTrue(specObjectType.eIsSet(ReqIF10Package.eINSTANCE.getSpecType_SpecAttributes()));
-		// TODO: test the values
-	}
-	
 	@Test
 	public void testSpecObject() {
 		
 		// get the specObject Type
 		ReqIFContent ReqIFContent = loadedReqIF.getCoreContent();
-		assertTrue(ReqIFContent.eIsSet(ReqIF10Package.eINSTANCE.getReqIFContent_SpecTypes()));
-		assertEquals(1 , ReqIFContent.getSpecObjects().size());
-		
+	
 		SpecObject specObject = ReqIFContent.getSpecObjects().get(0);
-
+		assertNotNull(specObject);
 		
-		// check the specObject
-		assertFalse(specObject.isSetDesc());
-		assertTrue(specObject.isSetIdentifier());
-		assertTrue(specObject.isSetLastChange());
-		assertFalse(specObject.isSetLongName());
-		assertTrue(specObject.eIsSet(ReqIF10Package.eINSTANCE.getSpecElementWithAttributes_Values()));
-		assertTrue(specObject.eIsSet(ReqIF10Package.eINSTANCE.getSpecObject_Type()));
+		AttributeValue attributeValue = specObject.getValues().get(0);
+		assertTrue(attributeValue instanceof AttributeValueXHTML);
 		
-		// check the reference to SpecObjectType
-		SpecObjectType expectedSpecObjectType = null;
-		for (SpecType specType : ReqIFContent.getSpecTypes()) {
-			if (specType instanceof SpecObjectType ) {
-				expectedSpecObjectType = (SpecObjectType)specType;
-				break;
-			}
-		}
+		AttributeValueXHTML attributeValueXHTML = (AttributeValueXHTML)attributeValue;
+		XhtmlContent xhtmlContent = attributeValueXHTML.getTheValue();
+		assertNotNull(xhtmlContent);
 		
-		SpecObjectType specObjectType = specObject.getType();
-		assertNotNull(specObjectType);
-		assertFalse(specObjectType.eIsProxy());
-		assertEquals(expectedSpecObjectType, specObjectType);
+		XhtmlDivType div = xhtmlContent.getDiv();
+		assertNotNull(div);
+		
+		assertEquals(1, div.getH1().size());
+		XhtmlH1Type h1 = div.getH1().get(0);
+		assertNotNull(h1);
 		
 	}
 	

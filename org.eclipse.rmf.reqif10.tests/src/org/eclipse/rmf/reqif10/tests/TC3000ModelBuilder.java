@@ -20,6 +20,11 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.impl.EcoreFactoryImpl;
+import org.eclipse.emf.ecore.util.FeatureMap.Entry;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
@@ -54,6 +59,7 @@ import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlH1Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
 public class TC3000ModelBuilder extends SimpleModelBuilder {
 
@@ -87,6 +93,9 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 	public void createDatatypes() throws DatatypeConfigurationException {
 		datatypeDefinitionXHTML = ReqIF10Factory.eINSTANCE
 				.createDatatypeDefinitionXHTML();
+		datatypeDefinitionXHTML.setIdentifier("ID_TC3000_DatatypeDefinitionXHTML");
+		datatypeDefinitionXHTML.setLongName("TC3000 DatatypeDefinitionXHTML");
+		datatypeDefinitionXHTML.setLastChange(getLastChangeDate());
 		EList<DatatypeDefinition> datatypes = getReqIF().getCoreContent()
 				.getDatatypes();
 		datatypes.add(datatypeDefinitionXHTML);
@@ -97,11 +106,14 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		specObjectType = ReqIF10Factory.eINSTANCE.createSpecObjectType();
 		specObjectType.setIdentifier("ID_TC3000_SpecObjectType");
 		specObjectType.setLongName("TC3000 SpecObjectType");
-		System.out.println("last Change Date: " + getLastChangeDate());
 		specObjectType.setLastChange(getLastChangeDate());
 
 		attributeDefinitionXHTML = ReqIF10Factory.eINSTANCE
 				.createAttributeDefinitionXHTML();
+		attributeDefinitionXHTML.setIdentifier("ID_TC3000_AttributeDefinitionXHTML");
+		attributeDefinitionXHTML.setLongName("TC3000 AttributeDefinitionXHTML");
+		attributeDefinitionXHTML.setLastChange(getLastChangeDate());
+		attributeDefinitionXHTML.setType(datatypeDefinitionXHTML);
 
 		specObjectType.getSpecAttributes().add(
 				attributeDefinitionXHTML);
@@ -154,14 +166,18 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 
 		AttributeValueXHTML attributeValueXHTML = ReqIF10Factory.eINSTANCE
 				.createAttributeValueXHTML();
+		attributeValueXHTML.setDefinition(attributeDefinitionXHTML);
 		XhtmlContent xhtmlContent = ReqIF10Factory.eINSTANCE.createXhtmlContent();
 		attributeValueXHTML.setTheValue(xhtmlContent);
 		
 		XhtmlDivType div = XhtmlFactory.eINSTANCE.createXhtmlDivType();
 		xhtmlContent.setDiv(div);
+		div.getMixed().add(FeatureMapUtil.createTextEntry("first text content"));
 		
 		XhtmlH1Type h1 = XhtmlFactory.eINSTANCE.createXhtmlH1Type();
 		div.getH1().add(h1);
+		h1.getXhtmlInlineMix().add(FeatureMapUtil.createTextEntry("Hello"));
+		div.getMixed().add(FeatureMapUtil.createTextEntry("last text content"));
 		
 		specObject.getValues().add(attributeValueXHTML);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
