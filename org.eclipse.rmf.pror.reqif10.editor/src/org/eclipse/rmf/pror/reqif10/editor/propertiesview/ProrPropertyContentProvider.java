@@ -28,6 +28,13 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.util.Reqif10Util;
 
+/**
+ * 
+ * The agile grid content provider for the properties view.
+ * 
+ * @author Lukas Ladenberger
+ * 
+ */
 public class ProrPropertyContentProvider extends AbstractContentProvider {
 
 	private AdapterFactoryEditingDomain editingDomain;
@@ -51,6 +58,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	
 	@Override
 	public Object doGetContentAt(int row, int col) {
+
 		if (identifiable != null) {
 			
 			int size = this.rows.size();
@@ -94,12 +102,13 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 
 	/**
 	 * Sets the current selected specification element and fetches the
-	 * corresponding {@link IItemPropertyDescriptor}.
+	 * corresponding {@link IItemPropertyDescriptor} and builds up the structure
+	 * to be displayed.
 	 * 
 	 * @param identifiable
 	 *            the selected specification element
 	 */
-	protected void setIdentifiable(Identifiable identifiable) {
+	protected void setContent(Identifiable identifiable) {
 
 		this.identifiable = identifiable;
 		
@@ -110,18 +119,18 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 			
 			// Get the item property source
 			IItemPropertySource itemPropertySource = (IItemPropertySource) this.editingDomain
-					.getAdapterFactory().adapt(this.identifiable,
+					.getAdapterFactory().adapt(identifiable,
 							IItemPropertySource.class);
 
 			// Get the list of item property descriptors
 			List<IItemPropertyDescriptor> descriptorList = itemPropertySource
-					.getPropertyDescriptors(this.identifiable);
+					.getPropertyDescriptors(identifiable);
 
 			// Iterate over the item property descriptors and collect the needed
 			// data
 			for (IItemPropertyDescriptor descriptor : descriptorList) {
 
-				String categoryName = descriptor.getCategory(this.identifiable);
+				String categoryName = descriptor.getCategory(identifiable);
 
 				if (categoryName == null)
 					categoryName = DEFAULT_CATEGORY_NAME;
@@ -129,7 +138,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 				ItemCategory category;
 
 				if (!this.categories.containsKey(categoryName)) {
-					category = new ItemCategory(categoryName, this.identifiable);
+					category = new ItemCategory(categoryName, identifiable);
 					category.addDescriptor(descriptor);
 					this.categories.put(categoryName, category);
 				} else {
