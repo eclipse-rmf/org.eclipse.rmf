@@ -226,8 +226,9 @@ public class SpecificationEditor extends EditorPart implements
 	private void registerSelectionChangedListener() {
 		selectionChangedListener = new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
+				if(event.getSource() != prorAgileGridViewer){
 				SpecificationEditor.this.setSelection(event.getSelection());
-			}
+			}}
 		};
 		prorAgileGridViewer.addSelectionChangedListener(selectionChangedListener);
 	}
