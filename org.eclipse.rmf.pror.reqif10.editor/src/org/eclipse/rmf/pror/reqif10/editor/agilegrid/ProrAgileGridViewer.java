@@ -19,6 +19,7 @@ import java.util.Set;
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.Cell;
 import org.agilemore.agilegrid.CellResizeAdapter;
+import org.agilemore.agilegrid.EditorActivationStrategy;
 import org.agilemore.agilegrid.ICellResizeListener;
 import org.agilemore.agilegrid.ISelectionChangedListener;
 import org.agilemore.agilegrid.SWTX;
@@ -122,6 +123,7 @@ public class ProrAgileGridViewer extends Viewer {
 				| SWTX.FILL_WITH_LASTCOL | SWT.MULTI | SWT.DOUBLE_BUFFERED);
 		agileGrid.setLayoutAdvisor(new ProrLayoutAdvisor(agileGrid));
 		// agileGrid.setAgileGridEditor(new ProrAgileGridEditor(agileGrid));
+		agileGrid.setEditorActivationStrategy(new EditorActivationStrategy(agileGrid, true));
 		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
 		enableDragNDrop();
