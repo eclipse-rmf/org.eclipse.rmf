@@ -420,7 +420,9 @@ public class ProrAgileGridViewer extends Viewer {
 									.size()) {
 						item = ((SpecRelation) item).getTarget();
 					}
-					items.add(item);
+					if (item != null) {
+						items.add(item);
+					}
 				}
 				selection = new StructuredSelection(items);
 				ProrAgileGridViewer.this
