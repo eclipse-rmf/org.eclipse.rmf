@@ -79,7 +79,7 @@ public class ReqifMainForm {
 
 		toolkit = new FormToolkit(parent.getDisplay());
 		form = toolkit.createScrolledForm(parent);
-		form.setText("ReqIf-File: " + URI.decode(reqif.eResource().getURI().lastSegment()));
+		form.setText(getString("_UI_ReqifForm_ReqIfFile") + ": " + URI.decode(reqif.eResource().getURI().lastSegment()));
 		TableWrapLayout layout = new TableWrapLayout();
 		form.getBody().setLayout(layout);
 
@@ -101,8 +101,8 @@ public class ReqifMainForm {
 
 		Section specSection = createSection(Section.EXPANDED
 				| Section.DESCRIPTION);
-		specSection.setText("Specifications");
-		specSection.setDescription("Doubleclick to open Specification");
+		specSection.setText(getString("_UI_ReqifForm_Specifications"));
+		specSection.setDescription(getString("_UI_ReqifForm_DblClickSpecifications"));
 
 		Composite client = toolkit.createComposite(specSection);
 		final ListViewer list = new ListViewer(client, SWT.SINGLE | SWT.BORDER);
@@ -179,7 +179,7 @@ public class ReqifMainForm {
 		}
 
 		final Section docSection = createSection(0);
-		docSection.setText("Document Properties");
+		docSection.setText(getString("_UI_ReqifForm_DocumentProperties"));
 		docSection.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 
 		Composite client = toolkit.createComposite(docSection);
@@ -187,13 +187,13 @@ public class ReqifMainForm {
 		TableWrapLayout layout = new TableWrapLayout();
 		client.setLayout(layout);
 
-		toolkit.createLabel(client, "Title: ");
+		toolkit.createLabel(client, getString("_UI_ReqifForm_Title")+": ");
 		Text text = toolkit.createText(client, header.getTitle(), SWT.BORDER);
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 		addModifyListener(text, header,
 				Reqif10Package.Literals.REQ_IF_HEADER__TITLE);
 
-		toolkit.createLabel(client, "Comment: ");
+		toolkit.createLabel(client, getString("_UI_ReqifForm_Comment") + ": ");
 		text = toolkit.createText(client, header.getComment(), SWT.BORDER
 				| SWT.MULTI | SWT.WRAP);
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
@@ -206,33 +206,33 @@ public class ReqifMainForm {
 		addModifyListener(text, header,
 				Reqif10Package.Literals.REQ_IF_HEADER__COMMENT);
 
-		toolkit.createLabel(client, "Creation Time: ");
+		toolkit.createLabel(client, getString("_UI_ReqifForm_CreateTime")+": ");
 		text = toolkit.createText(client, header.getCreationTime() + "",
 				SWT.BORDER);
 		text.setEnabled(false);
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 
-		toolkit.createLabel(client, "Source Tool Id: ");
+		toolkit.createLabel(client, getString("_UI_ReqifForm_SourceToolId") + ": ");
 		text = toolkit.createText(client, header.getSourceToolId(), SWT.BORDER);
 		text.setEnabled(false);
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 
-		toolkit.createLabel(client, "ReqIf Tool Id: ");
+		toolkit.createLabel(client, getString("_UI_ReqifForm_ReqIfToolId") + ": ");
 		text = toolkit.createText(client, header.getReqIfToolId(), SWT.BORDER);
 		text.setEnabled(false);
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 
-		toolkit.createLabel(client, "ReqIf Version: ");
+		toolkit.createLabel(client, getString("_UI_ReqifForm_ReqIfVersion") + ": ");
 		text = toolkit.createText(client, header.getReqIfVersion(), SWT.BORDER);
 		text.setEnabled(false);
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 
-		toolkit.createLabel(client, "Identifier: ");
+		toolkit.createLabel(client, getString("_UI_ReqifForm_Identifier") + ": ");
 		text = toolkit.createText(client, header.getIdentifier(), SWT.BORDER);
 		text.setEnabled(false);
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 
-		toolkit.createLabel(client, "Replository Id: ");
+		toolkit.createLabel(client, getString("_UI_ReqifForm_RepositoryId") + ": ");
 		text = toolkit.createText(client, header.getRepositoryId(), SWT.BORDER);
 		text.setEnabled(false);
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
