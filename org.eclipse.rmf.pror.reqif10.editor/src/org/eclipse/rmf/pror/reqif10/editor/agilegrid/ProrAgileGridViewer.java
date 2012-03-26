@@ -134,7 +134,7 @@ public class ProrAgileGridViewer extends Viewer {
 			@Override
 			public void keyPressed(KeyEvent e) {
 
-				if (e.keyCode == 13 && e.stateMask == SWT.CTRL) {
+				if (e.stateMask == SWT.CTRL && (e.keyCode == SWT.CR || e.keyCode == SWT.KEYPAD_CR) ) {
 					e.doit = false;
 					if (selection.isEmpty()) {
 						return;
