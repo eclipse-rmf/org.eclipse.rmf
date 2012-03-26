@@ -16,6 +16,9 @@ import java.io.InputStream;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -23,6 +26,8 @@ import org.eclipse.rmf.reqif10.ReqIf;
 
 public class ReqIfResourceUtils {
 
+	private static IWorkspace workspace = ResourcesPlugin.getWorkspace();
+	
 	public static ReqIf createReqIfPlatformResorce(IProject project, String fileName,
 			String contents, EditingDomain editingDomain)
 			throws Exception {
@@ -48,5 +53,13 @@ public class ReqIfResourceUtils {
 		return createReqIfPlatformResorce(project, fileName,
 				ResourceUtils.inputStreamToString(inputStream), editingDomain);
 	}
+	
+	public static IProject createProjectPlatformResource(String projectName)
+			throws CoreException {
+		IProject project = workspace.getRoot().getProject(projectName);
+		project.create(null);
+		project.open(null);
+		return project;
+	}	
 
 }
