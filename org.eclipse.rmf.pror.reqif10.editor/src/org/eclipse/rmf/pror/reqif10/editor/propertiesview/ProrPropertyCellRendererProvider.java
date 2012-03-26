@@ -17,7 +17,8 @@ import org.agilemore.agilegrid.SWTResourceManager;
 import org.agilemore.agilegrid.renderers.TextCellRenderer;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertyContentProvider.ItemCategory;
+import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertyContentProvider.SortedItemPropertyDescriptor;
 import org.eclipse.swt.SWT;
 
 public class ProrPropertyCellRendererProvider extends DefaultCellRendererProvider {
@@ -43,11 +44,11 @@ public class ProrPropertyCellRendererProvider extends DefaultCellRendererProvide
 				.getContentProvider()).getRowContent(row);
 
 		// If we have a category at this row, return the category cell renderer
-		if (col == 0 && obj instanceof String) {
+		if (col <= 1 && obj instanceof ItemCategory) {
 			return this.categoryCellRenderer;
 			// else if we have an item property descriptor at this row, return
 			// the corresponding default cell renderer for attribute/value rows
-		} else if (col == 1 && obj instanceof IItemPropertyDescriptor) {
+		} else if (col == 1 && obj instanceof SortedItemPropertyDescriptor) {
 			return this.attributeCellRenderer;
 			// else return the default agile grid cell renderer
 		} else {

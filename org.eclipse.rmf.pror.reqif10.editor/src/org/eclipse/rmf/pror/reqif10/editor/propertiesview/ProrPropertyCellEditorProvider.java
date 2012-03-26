@@ -70,7 +70,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 				return service.canEdit();
 		} else {
 			IItemPropertyDescriptor descriptor = this.contentProvider
-					.getItemPropertyDescriptor(row);
+					.getItemPropertyDescriptor(row).getItemPropertyDescriptor();
 			if (descriptor != null)
 				return descriptor.canSetProperty(this.contentProvider
 						.getIdentifiable());
@@ -109,7 +109,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 					// exists) return a default celleditor
 
 			final IItemPropertyDescriptor descriptor = this.contentProvider
-					.getItemPropertyDescriptor(row);
+					.getItemPropertyDescriptor(row).getItemPropertyDescriptor();
 			
 			final Identifiable selectedElement = this.contentProvider.getIdentifiable();
 			
