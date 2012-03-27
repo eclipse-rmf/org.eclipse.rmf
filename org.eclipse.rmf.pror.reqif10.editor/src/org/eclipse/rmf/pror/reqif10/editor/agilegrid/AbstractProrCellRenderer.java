@@ -106,7 +106,7 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		Color hBorderColor = COLOR_LINE_LIGHTGRAY;
 		
 		if (agileGrid instanceof ProrAgileGrid){
-			if (((ProrAgileGrid)agileGrid).dndHoverCell != null && row == ((ProrAgileGrid)agileGrid).dndHoverCell.row){
+			if (((ProrAgileGrid)agileGrid).dndHoverCell != null && row == ((ProrAgileGrid)agileGrid).dndHoverCell.row && ((ProrAgileGrid)agileGrid).dndHoverCellMode == 0){
 				hBorderColor = COLOR_LINE_DARKGRAY;
 			}
 		}
@@ -122,6 +122,28 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		}
 
 		drawDefaultCellLine(gc, rect, vBorderColor, hBorderColor);
+	}
+	
+	protected void drawCellContent(GC gc, Rectangle rect, int row, int col) {
+		this.foreground = this.getDefaultForeground();
+		this.background = this.getDefaultBackground();
+
+		if (agileGrid instanceof ProrAgileGrid) {
+			if (((ProrAgileGrid) agileGrid).dndHoverCell != null
+					&& row == ((ProrAgileGrid) agileGrid).dndHoverCell.row
+					&& ((ProrAgileGrid) agileGrid).dndHoverCellMode == 1) {
+				this.background = COLOR_BGROWSELECTION;
+			}
+		}
+
+		// initial color for current cell.
+		initialColor(row, col);
+
+		// Clear background.
+		clearCellContentRect(gc, rect);
+
+		// draw text and image in the given area.
+		doDrawCellContent(gc, rect, row, col);
 	}
 
 }
