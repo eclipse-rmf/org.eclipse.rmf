@@ -53,6 +53,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrAgileGridContentProvider.ProrRow;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
+import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Reqif10Factory;
 import org.eclipse.rmf.reqif10.Reqif10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
@@ -570,8 +571,17 @@ public class ProrAgileGridViewer extends Viewer {
 						Object target = contentProvider.getProrRow(cell.row).element;
 						if (target instanceof SpecHierarchy) {
 							dragTarget = (SpecHierarchy) target;
+							agileGrid.dndHoverCell = cell; 
+							agileGrid.redraw();
 						}
 					}
+					
+					@Override
+					protected float getLocation(DropTargetEvent event) {
+						//return 1.0F;
+						return super.getLocation(event);
+					}
+					
 				});
 	}
 

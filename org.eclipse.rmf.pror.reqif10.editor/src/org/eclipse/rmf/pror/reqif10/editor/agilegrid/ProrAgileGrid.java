@@ -11,6 +11,7 @@
 package org.eclipse.rmf.pror.reqif10.editor.agilegrid;
 
 import org.agilemore.agilegrid.AgileGrid;
+import org.agilemore.agilegrid.Cell;
 import org.eclipse.swt.widgets.Composite;
 
 /**
@@ -21,6 +22,8 @@ import org.eclipse.swt.widgets.Composite;
  * 
  */
 public class ProrAgileGrid extends AgileGrid {
+
+	protected Cell dndHoverCell;
 
 	public ProrAgileGrid(Composite parent, int style) {
 		super(parent, style);

@@ -18,6 +18,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.SWTResourceManager;
+import org.agilemore.agilegrid.SWTX;
 import org.agilemore.agilegrid.renderers.TextCellRenderer;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
@@ -26,6 +27,7 @@ import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.datatypes.XhtmlContent;
 import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Rectangle;
 
@@ -96,6 +98,30 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		if (agileGrid.isCellSelected(row, col)) {
 			background = SWTResourceManager.getColor(223, 227, 237);
 		}
+	}
+	
+	@Override
+	protected void drawGridLines(GC gc, Rectangle rect, int row, int col) {
+		Color vBorderColor = COLOR_LINE_LIGHTGRAY;
+		Color hBorderColor = COLOR_LINE_LIGHTGRAY;
+		
+		if (agileGrid instanceof ProrAgileGrid){
+			if (((ProrAgileGrid)agileGrid).dndHoverCell != null && row == ((ProrAgileGrid)agileGrid).dndHoverCell.row){
+				hBorderColor = COLOR_LINE_DARKGRAY;
+			}
+		}
+		
+		if ((style & INDICATION_SELECTION_ROW) != 0) {
+			vBorderColor = COLOR_BGROWSELECTION;
+			hBorderColor = COLOR_BGROWSELECTION;
+		}
+
+		if ((agileGrid.getStyle() & SWTX.NOT_SHOW_GRID_LINE) == SWTX.NOT_SHOW_GRID_LINE) {
+			vBorderColor = COLOR_BACKGROUND;
+			hBorderColor = COLOR_BACKGROUND;
+		}
+
+		drawDefaultCellLine(gc, rect, vBorderColor, hBorderColor);
 	}
 
 }
