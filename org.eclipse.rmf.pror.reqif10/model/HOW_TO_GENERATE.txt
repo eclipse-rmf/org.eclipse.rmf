@@ -13,5 +13,5 @@ generate the following code.  No other code should be generated.
 
 3. ReqIf ItemProviders
 
-  a. Select "config"
+  a. Select "ReqIf10"
   b. Right-Click "Generate Edit Code"
