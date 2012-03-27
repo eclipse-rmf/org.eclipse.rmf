@@ -714,7 +714,6 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 				Display.getCurrent().asyncExec(new Runnable() {
 					public void run() {
 						firePropertyChange(IEditorPart.PROP_DIRTY);
-
 						// Try to select the affected objects.
 						//
 						Command mostRecentCommand = ((CommandStack) event
@@ -722,10 +721,6 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 						if (mostRecentCommand != null) {
 							setSelectionToViewer(mostRecentCommand
 									.getAffectedObjects());
-						}
-						if (propertySheetPage != null
-								&& !propertySheetPage.getControl().isDisposed()) {
-							propertySheetPage.refresh();
 						}
 					}
 				});

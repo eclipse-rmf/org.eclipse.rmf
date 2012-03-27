@@ -11,8 +11,13 @@
 package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.EventObject;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.EMFEditUIPlugin;
@@ -29,8 +34,10 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.Page;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
@@ -55,11 +62,45 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 
 	private List<AttributeValue> objectsToSelect = new ArrayList<AttributeValue>();
 
+	private CommandStackListener commandStackListener;
+
 	public ProrPropertySheetPage(EditingDomain editingDomain,
 			AdapterFactory adapterFactory) {
 		super();
 		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
+		registerCommandStackListener();
+	}
+
+	/**
+	 * We register a command stack listener in order to listen on changes on
+	 * attributes values in the specification editor.
+	 */
+	private void registerCommandStackListener() {
+		commandStackListener = new CommandStackListener() {
+			public void commandStackChanged(final EventObject event) {
+				Display.getDefault().asyncExec(new Runnable() {
+					public void run() {
+						// Try to select the affected objects.
+						Command mostRecentCommand = ((CommandStack) event
+								.getSource()).getMostRecentCommand();
+						if (mostRecentCommand != null) {
+							Collection<?> affectedObjects = mostRecentCommand
+									.getAffectedObjects();
+							if(!affectedObjects.isEmpty()) {
+								Object firstItem = affectedObjects.toArray()[0];
+								if (firstItem instanceof Identifiable
+										|| firstItem instanceof AttributeValue) {
+									update();
+								}
+							}
+						}
+					}
+				});
+			}
+		};
+		editingDomain.getCommandStack().addCommandStackListener(
+				commandStackListener);
 	}
 
 	/**
@@ -136,11 +177,11 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 
 	}
 
-	public void refresh() {
+	public void update() {
 		if (viewer == null) {
 			return;
 		}
-		viewer.refresh();
+		viewer.update();
 	}
 
 	/**
@@ -177,6 +218,16 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 			setSelectionToViewer(objectsToSelect);
 		}
 
+	}
+
+	@Override
+	public void dispose() {
+		if (commandStackListener != null) {
+			editingDomain.getCommandStack().removeCommandStackListener(
+					commandStackListener);
+			commandStackListener = null;
+		}
+		super.dispose();
 	}
 
 }

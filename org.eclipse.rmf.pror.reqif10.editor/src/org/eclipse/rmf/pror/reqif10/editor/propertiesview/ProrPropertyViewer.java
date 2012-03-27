@@ -71,6 +71,9 @@ public class ProrPropertyViewer extends Viewer {
 
 	@Override
 	public void refresh() {
+	}
+
+	public void update() {
 		this.contentProvider.setContent(this.currentSelectedSpecElement);
 		agileGrid.redraw();
 	}
@@ -86,7 +89,7 @@ public class ProrPropertyViewer extends Viewer {
 		} else {
 			this.currentSelectedSpecElement = null;
 		}
-		refresh();
+		update();
 	}
 	
     @Override

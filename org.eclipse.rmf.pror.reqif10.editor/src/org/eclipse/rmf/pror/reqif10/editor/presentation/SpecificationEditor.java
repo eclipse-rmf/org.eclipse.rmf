@@ -35,7 +35,6 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.pror.reqif10.editor.actions.SpecificationWebPrintAction;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrAgileGridViewer;
-import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertySheetPage;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.ReqIf;
 import org.eclipse.rmf.reqif10.Reqif10Package;
@@ -140,28 +139,24 @@ public class SpecificationEditor extends EditorPart implements
 	 */
 	private void registerCommandStackListener(final Composite parent) {
 		commandStackListener = new CommandStackListener() {
-			 public void commandStackChanged(final EventObject event) {
-				  parent.getDisplay().asyncExec
-					 (new Runnable() {
-						  public void run() {
-							  firePropertyChange(IEditorPart.PROP_DIRTY);
-
-							  // Try to select the affected objects.
-							  //
-							  Command mostRecentCommand = ((CommandStack)event.getSource()).getMostRecentCommand();
-							  if (mostRecentCommand != null) {
-								  setSelectionToViewer(mostRecentCommand.getAffectedObjects());
-							  }
-							  ProrPropertySheetPage propSheet = reqifEditor.getPropertySheetPage();
-						if (propSheet != null && propSheet.getControl() != null
-								&& !propSheet.getControl().isDisposed()) {
-								  propSheet.refresh();
-							  }
-						  }
-					  });
-			 }
-		 };
-		getEditingDomain().getCommandStack().addCommandStackListener(commandStackListener);
+			public void commandStackChanged(final EventObject event) {
+				parent.getDisplay().asyncExec(new Runnable() {
+					public void run() {
+						firePropertyChange(IEditorPart.PROP_DIRTY);
+						// Try to select the affected objects.
+						Command mostRecentCommand = ((CommandStack) event
+								.getSource()).getMostRecentCommand();
+						if (mostRecentCommand != null) {
+							Collection<?> affectedObjects = mostRecentCommand
+									.getAffectedObjects();
+							setSelectionToViewer(affectedObjects);
+						}
+					}
+				});
+			}
+		};
+		getEditingDomain().getCommandStack().addCommandStackListener(
+				commandStackListener);
 	}
 
 	/**
@@ -212,11 +207,13 @@ public class SpecificationEditor extends EditorPart implements
 			Runnable runnable =
 				new Runnable() {
 					public void run() {
+
 						// Try to select the items in the current content viewer of the editor.
 						//
 						if (prorAgileGridViewer != null) {
 							prorAgileGridViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
 						}
+
 					}
 				};
 			getSite().getShell().getDisplay().syncExec(runnable);
