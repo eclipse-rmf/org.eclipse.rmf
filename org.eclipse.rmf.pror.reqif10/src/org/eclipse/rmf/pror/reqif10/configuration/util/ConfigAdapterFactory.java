@@ -23,7 +23,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
-import org.eclipse.rmf.reqif10.ReqIfToolExtension;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 
 
 /**
@@ -111,7 +111,7 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 				return createLabelConfigurationAdapter();
 			}
 			@Override
-			public Adapter caseReqIfToolExtension(ReqIfToolExtension object) {
+			public Adapter caseReqIFToolExtension(ReqIFToolExtension object) {
 				return createReqIfToolExtensionAdapter();
 			}
 			@Override

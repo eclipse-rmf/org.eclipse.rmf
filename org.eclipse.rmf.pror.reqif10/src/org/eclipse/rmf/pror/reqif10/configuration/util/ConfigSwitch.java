@@ -22,7 +22,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
-import org.eclipse.rmf.reqif10.ReqIfToolExtension;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 
 
 /**
@@ -85,7 +85,7 @@ public class ConfigSwitch<T> extends Switch<T> {
 			case ConfigPackage.PROR_TOOL_EXTENSION: {
 				ProrToolExtension prorToolExtension = (ProrToolExtension)theEObject;
 				T result = caseProrToolExtension(prorToolExtension);
-				if (result == null) result = caseReqIfToolExtension(prorToolExtension);
+				if (result == null) result = caseReqIFToolExtension(prorToolExtension);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -245,7 +245,7 @@ public class ConfigSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReqIfToolExtension(ReqIfToolExtension object) {
+	public T caseReqIFToolExtension(ReqIFToolExtension object) {
 		return null;
 	}
 

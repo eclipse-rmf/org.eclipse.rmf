@@ -25,10 +25,10 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 import org.eclipse.rmf.reqif10.datatypes.impl.DatatypesPackageImpl;
-import org.eclipse.rmf.reqif10.impl.Reqif10PackageImpl;
+import org.eclipse.rmf.reqif10.impl.ReqIF10PackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -133,7 +133,7 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		Reqif10PackageImpl theReqif10Package = (Reqif10PackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Reqif10Package.eNS_URI) instanceof Reqif10PackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Reqif10Package.eNS_URI) : Reqif10Package.eINSTANCE);
+		ReqIF10PackageImpl theReqif10Package = (ReqIF10PackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI) instanceof ReqIF10PackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI) : ReqIF10Package.eINSTANCE);
 		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) : DatatypesPackage.eINSTANCE);
 
 		// Create package meta-data objects
@@ -405,14 +405,14 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		Reqif10Package theReqif10Package = (Reqif10Package)EPackage.Registry.INSTANCE.getEPackage(Reqif10Package.eNS_URI);
+		ReqIF10Package theReqif10Package = (ReqIF10Package)EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		prorToolExtensionEClass.getESuperTypes().add(theReqif10Package.getReqIfToolExtension());
+		prorToolExtensionEClass.getESuperTypes().add(theReqif10Package.getReqIFToolExtension());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(prorToolExtensionEClass, ProrToolExtension.class, "ProrToolExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -26,7 +26,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
-import org.eclipse.rmf.reqif10.impl.ReqIfToolExtensionImpl;
+import org.eclipse.rmf.reqif10.impl.ReqIFToolExtensionImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,7 +43,7 @@ import org.eclipse.rmf.reqif10.impl.ReqIfToolExtensionImpl;
  *
  * @generated
  */
-public class ProrToolExtensionImpl extends ReqIfToolExtensionImpl implements ProrToolExtension {
+public class ProrToolExtensionImpl extends ReqIFToolExtensionImpl implements ProrToolExtension {
 	/**
 	 * The cached value of the '{@link #getSpecViewConfigurations() <em>Spec View Configurations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

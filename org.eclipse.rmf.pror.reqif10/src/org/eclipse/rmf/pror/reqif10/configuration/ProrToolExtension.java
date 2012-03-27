@@ -12,7 +12,7 @@
 package org.eclipse.rmf.pror.reqif10.configuration;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.rmf.reqif10.ReqIfToolExtension;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +32,7 @@ import org.eclipse.rmf.reqif10.ReqIfToolExtension;
  * @model
  * @generated
  */
-public interface ProrToolExtension extends ReqIfToolExtension {
+public interface ProrToolExtension extends ReqIFToolExtension {
 	/**
 	 * Returns the value of the '<em><b>Spec View Configurations</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration}.
