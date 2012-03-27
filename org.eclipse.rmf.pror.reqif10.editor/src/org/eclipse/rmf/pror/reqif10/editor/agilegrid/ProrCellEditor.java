@@ -140,7 +140,7 @@ public abstract class ProrCellEditor extends TextCellEditor {
 	public void activate(EditorActivationEvent activationEvent) {
 		if (activationEvent.sourceEvent instanceof KeyEvent) {
 			KeyEvent keyEvent = (KeyEvent) activationEvent.sourceEvent;
-			if (isValidCellEditorCharacter(keyEvent)) {
+			if (isValidCellEditorCharacter(keyEvent) && keyEvent.character != SWT.DEL) {
 				text.setText("" + keyEvent.character);
 				// this.fireApplyEditorValue();
 				super.activate(activationEvent);
@@ -149,7 +149,6 @@ public abstract class ProrCellEditor extends TextCellEditor {
 			}
 		}
 		super.activate(activationEvent);
-		text.selectAll();
 	}
 
 	/**
