@@ -16,6 +16,8 @@
         eType="ecore:EClass ../../org.eclipse.rmf.reqif10.model/model/reqif10.ecore#//Specification"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//Column" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftHeaderColumn" lowerBound="1"
+        eType="#//Column" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

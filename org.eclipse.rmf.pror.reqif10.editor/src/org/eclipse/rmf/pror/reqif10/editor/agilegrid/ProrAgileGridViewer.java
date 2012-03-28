@@ -230,6 +230,10 @@ public class ProrAgileGridViewer extends Viewer {
 		agileGrid.redraw();
 	}
 
+	/**
+	 * This method sets a {@link Specification} as input and registers some
+	 * listeners.
+	 */
 	@Override
 	public void setInput(Object input) {
 		unregisterColumnListener();
@@ -297,18 +301,19 @@ public class ProrAgileGridViewer extends Viewer {
 			}
 		};
 		specViewConfig.eAdapters().add(emfColumnListener);
-
 		agColumnListener = new CellResizeAdapter() {
 			@Override
 			public void columnResized(int col, int newWidth) {
-				// Can happen when the label column is resized.
-				if (col < 0)
-					return;
-				Column column = specViewConfig.getColumns().get(col);
-				Command cmd = SetCommand.create(editingDomain, column,
-						ConfigPackage.Literals.COLUMN__WIDTH, newWidth);
-
-				editingDomain.getCommandStack().execute(cmd);
+				// If the column index is -1 we resized the very first column,
+				// otherwise we resized a normal column
+				Column column = (col == -1) ? specViewConfig
+						.getLeftHeaderColumn() : specViewConfig.getColumns()
+						.get(col);
+				if (column != null) {
+					Command cmd = SetCommand.create(editingDomain, column,
+							ConfigPackage.Literals.COLUMN__WIDTH, newWidth);
+					editingDomain.getCommandStack().execute(cmd);
+				}
 			}
 		};
 		agileGrid.addCellResizeListener(agColumnListener);
@@ -450,6 +455,11 @@ public class ProrAgileGridViewer extends Viewer {
 	 */
 	private void updateColumnInformation() {
 		EList<Column> cols = specViewConfig.getColumns();
+		Column leftHeaderColumn = specViewConfig.getLeftHeaderColumn();
+		// Handle first column
+		if (leftHeaderColumn != null)
+			agileGrid.getLayoutAdvisor().setLeftHeaderWidth(
+					leftHeaderColumn.getWidth());
 		// One more column for the links
 		if (!agileGrid.isDisposed()) {
 			agileGrid.getLayoutAdvisor().setColumnCount(cols.size() + 1);

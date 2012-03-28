@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.rmf.reqif10.Reqif10Package;
 
 /**
@@ -150,13 +149,22 @@ public interface ConfigPackage extends EPackage {
 	int PROR_SPEC_VIEW_CONFIGURATION__COLUMNS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Left Header Column</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN = 2;
+
+	/**
 	 * The number of structural features of the '<em>Pror Spec View Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROR_SPEC_VIEW_CONFIGURATION_FEATURE_COUNT = 2;
+	int PROR_SPEC_VIEW_CONFIGURATION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.pror.reqif10.configuration.impl.ColumnImpl <em>Column</em>}' class.
@@ -384,6 +392,17 @@ public interface ConfigPackage extends EPackage {
 	EReference getProrSpecViewConfiguration_Columns();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration#getLeftHeaderColumn <em>Left Header Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left Header Column</em>'.
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration#getLeftHeaderColumn()
+	 * @see #getProrSpecViewConfiguration()
+	 * @generated
+	 */
+	EReference getProrSpecViewConfiguration_LeftHeaderColumn();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.rmf.pror.reqif10.configuration.Column <em>Column</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -580,6 +599,14 @@ public interface ConfigPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROR_SPEC_VIEW_CONFIGURATION__COLUMNS = eINSTANCE.getProrSpecViewConfiguration_Columns();
+
+		/**
+		 * The meta object literal for the '<em><b>Left Header Column</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN = eINSTANCE.getProrSpecViewConfiguration_LeftHeaderColumn();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.rmf.pror.reqif10.configuration.impl.ColumnImpl <em>Column</em>}' class.

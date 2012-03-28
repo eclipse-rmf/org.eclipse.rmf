@@ -13,10 +13,15 @@ package org.eclipse.rmf.pror.reqif10.configuration.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.eclipse.rmf.pror.reqif10.configuration.*;
+import org.eclipse.rmf.pror.reqif10.configuration.Column;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.ReqIfToolExtension;
 
 

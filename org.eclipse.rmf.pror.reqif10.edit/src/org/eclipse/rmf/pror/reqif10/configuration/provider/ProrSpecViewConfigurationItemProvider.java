@@ -113,6 +113,7 @@ public class ProrSpecViewConfigurationItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS);
+			childrenFeatures.add(ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN);
 		}
 		return childrenFeatures;
 	}
@@ -169,6 +170,7 @@ public class ProrSpecViewConfigurationItemProvider
 
 		switch (notification.getFeatureID(ProrSpecViewConfiguration.class)) {
 			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
+			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -190,6 +192,34 @@ public class ProrSpecViewConfigurationItemProvider
 			(createChildParameter
 				(ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
 				 ConfigFactory.eINSTANCE.createColumn()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN,
+				 ConfigFactory.eINSTANCE.createColumn()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS ||
+			childFeature == ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

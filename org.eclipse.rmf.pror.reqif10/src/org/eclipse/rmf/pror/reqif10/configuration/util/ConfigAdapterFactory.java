@@ -13,12 +13,16 @@ package org.eclipse.rmf.pror.reqif10.configuration.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.rmf.pror.reqif10.configuration.*;
+import org.eclipse.rmf.pror.reqif10.configuration.Column;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.ReqIfToolExtension;
 
 
@@ -229,13 +233,13 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.rmf.reqif10.ReqIfToolExtension <em>Req If Tool Extension</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.rmf.pror.reqif10.ReqIfToolExtension <em>Req If Tool Extension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.rmf.reqif10.ReqIfToolExtension
+	 * @see org.eclipse.rmf.pror.reqif10.ReqIfToolExtension
 	 * @generated
 	 */
 	public Adapter createReqIfToolExtensionAdapter() {

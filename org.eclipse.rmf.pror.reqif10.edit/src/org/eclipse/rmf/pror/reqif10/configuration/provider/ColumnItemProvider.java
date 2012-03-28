@@ -164,15 +164,6 @@ public class ColumnItemProvider
 
 		switch (notification.getFeatureID(Column.class)) {
 			case ConfigPackage.COLUMN__LABEL:
-				// inform the parent
-				InternalEObject parent = (InternalEObject) ((EObject) notification
-						.getNotifier()).eContainer();
-				if (parent instanceof ProrSpecViewConfiguration) {
-					parent.eNotify(new ENotificationImpl(
-							parent, ENotificationImpl.SET,
-							ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
-							notification.getNotifier(), notification.getNotifier()));					
-				}
 			case ConfigPackage.COLUMN__WIDTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

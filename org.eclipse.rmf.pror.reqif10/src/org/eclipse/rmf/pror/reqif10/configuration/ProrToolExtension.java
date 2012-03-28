@@ -12,7 +12,6 @@
 package org.eclipse.rmf.pror.reqif10.configuration;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.rmf.reqif10.ReqIfToolExtension;
 
 /**

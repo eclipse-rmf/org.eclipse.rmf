@@ -15,9 +15,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
@@ -28,12 +26,8 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.Reqif10Package;
-
-
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
-
 import org.eclipse.rmf.reqif10.datatypes.impl.DatatypesPackageImpl;
-
 import org.eclipse.rmf.reqif10.impl.Reqif10PackageImpl;
 
 /**
@@ -229,6 +223,15 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getProrSpecViewConfiguration_LeftHeaderColumn() {
+		return (EReference)prorSpecViewConfigurationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getColumn() {
 		return columnEClass;
 	}
@@ -359,6 +362,7 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		prorSpecViewConfigurationEClass = createEClass(PROR_SPEC_VIEW_CONFIGURATION);
 		createEReference(prorSpecViewConfigurationEClass, PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION);
 		createEReference(prorSpecViewConfigurationEClass, PROR_SPEC_VIEW_CONFIGURATION__COLUMNS);
+		createEReference(prorSpecViewConfigurationEClass, PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN);
 
 		columnEClass = createEClass(COLUMN);
 		createEAttribute(columnEClass, COLUMN__LABEL);
@@ -419,6 +423,7 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		initEClass(prorSpecViewConfigurationEClass, ProrSpecViewConfiguration.class, "ProrSpecViewConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProrSpecViewConfiguration_Specification(), theReqif10Package.getSpecification(), null, "specification", null, 1, 1, ProrSpecViewConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProrSpecViewConfiguration_Columns(), this.getColumn(), null, "columns", null, 0, -1, ProrSpecViewConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProrSpecViewConfiguration_LeftHeaderColumn(), this.getColumn(), null, "leftHeaderColumn", null, 1, 1, ProrSpecViewConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumn_Label(), ecorePackage.getEString(), "label", "<PLEASE SET LABEL>", 1, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
