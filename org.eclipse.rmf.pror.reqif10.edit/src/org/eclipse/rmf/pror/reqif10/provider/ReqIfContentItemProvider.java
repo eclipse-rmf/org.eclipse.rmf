@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.ReqIfContent} object.
@@ -121,12 +121,12 @@ public class ReqIfContentItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ReqIfContent.class)) {
-			case Reqif10Package.REQ_IF_CONTENT__SPEC_OBJECTS:
-			case Reqif10Package.REQ_IF_CONTENT__SPECIFICATIONS:
-			case Reqif10Package.REQ_IF_CONTENT__DATATYPES:
-			case Reqif10Package.REQ_IF_CONTENT__SPEC_RELATIONS:
-			case Reqif10Package.REQ_IF_CONTENT__SPEC_RELATION_GROUPS:
-			case Reqif10Package.REQ_IF_CONTENT__SPEC_TYPES:
+			case ReqIF10Package.REQ_IF_CONTENT__SPEC_OBJECTS:
+			case ReqIF10Package.REQ_IF_CONTENT__SPECIFICATIONS:
+			case ReqIF10Package.REQ_IF_CONTENT__DATATYPES:
+			case ReqIF10Package.REQ_IF_CONTENT__SPEC_RELATIONS:
+			case ReqIF10Package.REQ_IF_CONTENT__SPEC_RELATION_GROUPS:
+			case ReqIF10Package.REQ_IF_CONTENT__SPEC_TYPES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -235,7 +235,7 @@ public class ReqIfContentItemProvider
 	
 	protected Command createWrappedCommand(Command command,
 			final EObject owner, final EStructuralFeature feature) {
-		if (feature == Reqif10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS) {
+		if (feature == ReqIF10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS) {
 			return new CommandWrapper(command) {
 				@Override
 				public Collection<?> getAffectedObjects() {
@@ -247,7 +247,7 @@ public class ReqIfContentItemProvider
 					return affected;
 				}
 			};
-		} else if (feature == Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES) {
+		} else if (feature == ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES) {
 			return new CommandWrapper(command) {
 				@Override
 				public Collection<?> getAffectedObjects() {
@@ -259,7 +259,7 @@ public class ReqIfContentItemProvider
 					return affected;
 				}
 			};
-		} else if (feature == Reqif10Package.Literals.REQ_IF_CONTENT__DATATYPES) {
+		} else if (feature == ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES) {
 			return new CommandWrapper(command) {
 				@Override
 				public Collection<?> getAffectedObjects() {
@@ -271,7 +271,7 @@ public class ReqIfContentItemProvider
 					return affected;
 				}
 			};
-		} else if (feature == Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS) {
+		} else if (feature == ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS) {
 			return new CommandWrapper(command) {
 				@Override
 				public Collection<?> getAffectedObjects() {
@@ -283,7 +283,7 @@ public class ReqIfContentItemProvider
 					return affected;
 				}
 			};
-		} else if (feature == Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS) {
+		} else if (feature == ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS) {
 			return new CommandWrapper(command) {
 				@Override
 				public Collection<?> getAffectedObjects() {
@@ -295,7 +295,7 @@ public class ReqIfContentItemProvider
 					return affected;
 				}
 			};
-		} else if (feature == Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATION_GROUPS) {
+		} else if (feature == ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATION_GROUPS) {
 			return new CommandWrapper(command) {
 				@Override
 				public Collection<?> getAffectedObjects() {

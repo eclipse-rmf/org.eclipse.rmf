@@ -29,7 +29,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.rmf.reqif10.AccessControlledElement;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AccessControlledElement} object.
@@ -84,7 +84,7 @@ public class AccessControlledElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AccessControlledElement_isEditable_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AccessControlledElement_isEditable_feature", "_UI_AccessControlledElement_type"),
-				 Reqif10Package.Literals.ACCESS_CONTROLLED_ELEMENT__IS_EDITABLE,
+				 ReqIF10Package.Literals.ACCESS_CONTROLLED_ELEMENT__EDITABLE,
 				 true,
 				 false,
 				 false,
@@ -129,7 +129,7 @@ public class AccessControlledElementItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AccessControlledElement.class)) {
-			case Reqif10Package.ACCESS_CONTROLLED_ELEMENT__IS_EDITABLE:
+			case ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

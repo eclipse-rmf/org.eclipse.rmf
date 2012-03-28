@@ -59,7 +59,7 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DragSource;
@@ -187,8 +187,8 @@ public class ProrAgileGridViewer extends Viewer {
 			throw new IllegalStateException("Wrong parent: " + parent);
 		}
 
-		CompoundCommand cmd = ProrUtil.createAddTypedElementCommand(Reqif10Util
-				.getReqIf(specHierarchy).getCoreContent(),
+		CompoundCommand cmd = ProrUtil.createAddTypedElementCommand(ReqIF10Util
+				.getReqIF(specHierarchy).getCoreContent(),
 				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
 				newSpecObject, Reqif10Package.Literals.SPEC_OBJECT__TYPE,
 				specHierarchy.getObject().getType(), -1, -1, editingDomain,
@@ -328,7 +328,7 @@ public class ProrAgileGridViewer extends Viewer {
 
 	private void unregisterSpecRelationListener() {
 		if (specRelationContentAdapter != null) {
-			Reqif10Util.getReqIf(specification).getCoreContent().eAdapters()
+			ReqIF10Util.getReqIF(specification).getCoreContent().eAdapters()
 					.remove(specHierarchyRootContentAdapter);
 		}
 	}
@@ -385,7 +385,7 @@ public class ProrAgileGridViewer extends Viewer {
 			}
 		};
 
-		Reqif10Util.getReqIf(specification).getCoreContent().eAdapters()
+		ReqIF10Util.getReqIF(specification).getCoreContent().eAdapters()
 				.add(specRelationContentAdapter);
 	}
 

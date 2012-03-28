@@ -35,8 +35,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
 import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.ReqIf} object.
@@ -91,7 +91,7 @@ public class ReqIfItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ReqIf_lang_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIf_lang_feature", "_UI_ReqIf_type"),
-				 Reqif10Package.Literals.REQ_IF__LANG,
+				 ReqIF10Package.Literals.REQ_IF__LANG,
 				 true,
 				 false,
 				 false,
@@ -112,9 +112,9 @@ public class ReqIfItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Reqif10Package.Literals.REQ_IF__THE_HEADER);
-			childrenFeatures.add(Reqif10Package.Literals.REQ_IF__TOOL_EXTENSIONS);
-			childrenFeatures.add(Reqif10Package.Literals.REQ_IF__CORE_CONTENT);
+			childrenFeatures.add(ReqIF10Package.Literals.REQ_IF__THE_HEADER);
+			childrenFeatures.add(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS);
+			childrenFeatures.add(ReqIF10Package.Literals.REQ_IF__CORE_CONTENT);
 		}
 		return childrenFeatures;
 	}
@@ -173,11 +173,11 @@ public class ReqIfItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ReqIf.class)) {
-			case Reqif10Package.REQ_IF__LANG:
+			case ReqIF10Package.REQ_IF__LANG:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case Reqif10Package.REQ_IF__TOOL_EXTENSIONS:
-			case Reqif10Package.REQ_IF__CORE_CONTENT:
+			case ReqIF10Package.REQ_IF__TOOL_EXTENSIONS:
+			case ReqIF10Package.REQ_IF__CORE_CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -197,18 +197,18 @@ public class ReqIfItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
-				 Reqif10Factory.eINSTANCE.createReqIfToolExtension()));
+				(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createReqIfToolExtension()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
+				(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
 				 ConfigFactory.eINSTANCE.createProrToolExtension()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.REQ_IF__CORE_CONTENT,
-				 Reqif10Factory.eINSTANCE.createReqIfContent()));
+				(ReqIF10Package.Literals.REQ_IF__CORE_CONTENT,
+				 ReqIF10Factory.eINSTANCE.createReqIfContent()));
 	}
 
 	/**

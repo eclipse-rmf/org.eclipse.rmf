@@ -21,8 +21,8 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.RelationGroupType;
 import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
 
@@ -45,7 +45,7 @@ public class VirtualSpecRelationGroupItemProvider extends
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATION_GROUPS);
+					.add(ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATION_GROUPS);
 		}
 		return childrenFeatures;
 	}
@@ -68,13 +68,13 @@ public class VirtualSpecRelationGroupItemProvider extends
 		
 		// Allow creation of new untyped SpecRelations
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATION_GROUPS,
-				Reqif10Factory.eINSTANCE.createRelationGroup()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATION_GROUPS,
+				ReqIF10Factory.eINSTANCE.createRelationGroup()));
 		
 		// Allow creation of typed SpecRelations
 		ProrUtil.collectNewChildDescriptorsForTypeCreators(newChildDescriptors,
 				target,
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATION_GROUPS, RelationGroupType.class);
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATION_GROUPS, RelationGroupType.class);
 	}
 
 	@Override
@@ -84,9 +84,9 @@ public class VirtualSpecRelationGroupItemProvider extends
 
 		if (value instanceof SpecType) {
 			return ProrUtil.createAddTypedElementCommand(owner,
-					Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATION_GROUPS,
-					Reqif10Factory.eINSTANCE.createRelationGroup(),
-					Reqif10Package.Literals.RELATION_GROUP__TYPE,
+					ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATION_GROUPS,
+					ReqIF10Factory.eINSTANCE.createRelationGroup(),
+					ReqIF10Package.Literals.RELATION_GROUP__TYPE,
 					(SpecType) value, index, 0, domain,
 					adapterFactory);
 		}

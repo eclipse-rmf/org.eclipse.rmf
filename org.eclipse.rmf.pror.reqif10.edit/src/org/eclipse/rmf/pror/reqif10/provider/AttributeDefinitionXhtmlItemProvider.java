@@ -17,9 +17,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,10 +26,9 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.eclipse.rmf.reqif10.AttributeDefinitionXhtml;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionXhtml} object.
@@ -86,7 +83,7 @@ public class AttributeDefinitionXhtmlItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeDefinitionXhtml_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeDefinitionXhtml_type_feature", "_UI_AttributeDefinitionXhtml_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_DEFINITION_XHTML__TYPE,
+				 ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_XHTML__TYPE,
 				 true,
 				 false,
 				 true,
@@ -107,7 +104,7 @@ public class AttributeDefinitionXhtmlItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Reqif10Package.Literals.ATTRIBUTE_DEFINITION_XHTML__DEFAULT_VALUE);
+			childrenFeatures.add(ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_XHTML__DEFAULT_VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -157,8 +154,8 @@ public class AttributeDefinitionXhtmlItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AttributeDefinitionXhtml.class)) {
-			case Reqif10Package.ATTRIBUTE_DEFINITION_XHTML__DEFAULT_VALUE:
+		switch (notification.getFeatureID(AttributeDefinitionXHTML.class)) {
+			case ReqIF10Package.ATTRIBUTE_DEFINITION_XHTML__DEFAULT_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -178,8 +175,8 @@ public class AttributeDefinitionXhtmlItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.ATTRIBUTE_DEFINITION_XHTML__DEFAULT_VALUE,
-				 Reqif10Factory.eINSTANCE.createAttributeValueXhtml()));
+				(ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_XHTML__DEFAULT_VALUE,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueXHTML()));
 	}
 
 }

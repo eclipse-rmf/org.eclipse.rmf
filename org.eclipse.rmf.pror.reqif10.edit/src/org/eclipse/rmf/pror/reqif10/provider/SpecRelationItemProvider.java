@@ -28,7 +28,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecRelation;
 
 /**
@@ -84,7 +84,7 @@ public class SpecRelationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SpecRelation_target_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SpecRelation_target_feature", "_UI_SpecRelation_type"),
-				 Reqif10Package.Literals.SPEC_RELATION__TARGET,
+				 ReqIF10Package.Literals.SPEC_RELATION__TARGET,
 				 true,
 				 false,
 				 true,
@@ -106,7 +106,7 @@ public class SpecRelationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SpecRelation_source_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SpecRelation_source_feature", "_UI_SpecRelation_type"),
-				 Reqif10Package.Literals.SPEC_RELATION__SOURCE,
+				 ReqIF10Package.Literals.SPEC_RELATION__SOURCE,
 				 true,
 				 false,
 				 true,
@@ -128,7 +128,7 @@ public class SpecRelationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SpecRelation_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SpecRelation_type_feature", "_UI_SpecRelation_type"),
-				 Reqif10Package.Literals.SPEC_RELATION__TYPE,
+				 ReqIF10Package.Literals.SPEC_RELATION__TYPE,
 				 true,
 				 false,
 				 true,
@@ -177,7 +177,7 @@ public class SpecRelationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SpecRelation.class)) {
-		case Reqif10Package.SPEC_RELATION__TYPE:
+		case ReqIF10Package.SPEC_RELATION__TYPE:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, true));
 			return;
@@ -199,7 +199,7 @@ public class SpecRelationItemProvider
 	
 	@Override
 	protected EStructuralFeature getSpecTypeFeature() {
-		return Reqif10Package.Literals.SPEC_RELATION__TYPE;
+		return ReqIF10Package.Literals.SPEC_RELATION__TYPE;
 	}
 
 	/**

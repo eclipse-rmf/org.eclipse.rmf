@@ -25,7 +25,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 public class ProrDateCellEditor extends ProrCellEditor {
 
@@ -71,7 +71,7 @@ public class ProrDateCellEditor extends ProrCellEditor {
 		if (value instanceof AttributeValue) {
 			attributeValue = (AttributeValue) value;
 
-			Object cal = Reqif10Util.getTheValue(attributeValue);
+			Object cal = ReqIF10Util.getTheValue(attributeValue);
 			if (cal instanceof XMLGregorianCalendar) {
 				text.setText(DateFormat.getDateInstance().format(
 						((XMLGregorianCalendar) cal).toGregorianCalendar()

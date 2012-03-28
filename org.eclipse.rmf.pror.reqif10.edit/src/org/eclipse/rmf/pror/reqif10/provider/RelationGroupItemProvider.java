@@ -28,7 +28,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.RelationGroup;
 import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.RelationGroup} object.
@@ -87,7 +87,7 @@ public class RelationGroupItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RelationGroup_specRelations_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RelationGroup_specRelations_feature", "_UI_RelationGroup_type"),
-				 Reqif10Package.Literals.RELATION_GROUP__SPEC_RELATIONS,
+				 ReqIF10Package.Literals.RELATION_GROUP__SPEC_RELATIONS,
 				 true,
 				 false,
 				 true,
@@ -109,7 +109,7 @@ public class RelationGroupItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RelationGroup_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RelationGroup_type_feature", "_UI_RelationGroup_type"),
-				 Reqif10Package.Literals.RELATION_GROUP__TYPE,
+				 ReqIF10Package.Literals.RELATION_GROUP__TYPE,
 				 true,
 				 false,
 				 true,
@@ -131,7 +131,7 @@ public class RelationGroupItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RelationGroup_sourceSpecification_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RelationGroup_sourceSpecification_feature", "_UI_RelationGroup_type"),
-				 Reqif10Package.Literals.RELATION_GROUP__SOURCE_SPECIFICATION,
+				 ReqIF10Package.Literals.RELATION_GROUP__SOURCE_SPECIFICATION,
 				 true,
 				 false,
 				 true,
@@ -153,7 +153,7 @@ public class RelationGroupItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RelationGroup_targetSpecification_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RelationGroup_targetSpecification_feature", "_UI_RelationGroup_type"),
-				 Reqif10Package.Literals.RELATION_GROUP__TARGET_SPECIFICATION,
+				 ReqIF10Package.Literals.RELATION_GROUP__TARGET_SPECIFICATION,
 				 true,
 				 false,
 				 true,
@@ -218,7 +218,7 @@ public class RelationGroupItemProvider
 
 	@Override
 	protected EStructuralFeature getSpecTypeFeature() {
-		return Reqif10Package.Literals.RELATION_GROUP__TYPE;
+		return ReqIF10Package.Literals.RELATION_GROUP__TYPE;
 	}
 	
 	/**

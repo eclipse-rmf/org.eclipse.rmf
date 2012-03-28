@@ -24,7 +24,7 @@ import org.eclipse.rmf.reqif10.ReqIf;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
@@ -81,7 +81,7 @@ public class ProrLinkCellRenderer extends AbstractProrCellRenderer {
 	 */
 	private void updateIncomingAndOutgoing(
 			SpecElementWithAttributes specElement) {
-		ReqIf rif = Reqif10Util.getReqIf(specElement);
+		ReqIf rif = ReqIF10Util.getReqIF(specElement);
 		incoming = new HashSet<SpecRelation>();
 		outgoing = new HashSet<SpecRelation>();
 		if (specElement == null)

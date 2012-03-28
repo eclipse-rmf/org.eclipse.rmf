@@ -29,7 +29,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 
 /**
@@ -85,7 +85,7 @@ public class AttributeValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeValue_specElAt_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValue_specElAt_feature", "_UI_AttributeValue_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_VALUE__SPEC_EL_AT,
+				 ReqIF10Package.Literals.ATTRIBUTE_VALUE__SPEC_EL_AT,
 				 true,
 				 false,
 				 true,
@@ -138,7 +138,7 @@ public class AttributeValueItemProvider
 		if (parent instanceof SpecElementWithAttributes) {
 			parent.eNotify(new ENotificationImpl(
 					parent, ENotificationImpl.SET,
-					Reqif10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+					ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
 					notification.getNotifier(), notification.getNotifier()));
 		}
 		

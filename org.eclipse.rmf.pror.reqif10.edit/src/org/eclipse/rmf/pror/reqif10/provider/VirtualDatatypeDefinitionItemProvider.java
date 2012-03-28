@@ -17,8 +17,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * Virtual node for grouping {@link DatatypeDefinition}s together.
@@ -38,7 +38,7 @@ public class VirtualDatatypeDefinitionItemProvider extends
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(Reqif10Package.Literals.REQ_IF_CONTENT__DATATYPES);
+					.add(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES);
 		}
 		return childrenFeatures;
 	}
@@ -63,26 +63,26 @@ public class VirtualDatatypeDefinitionItemProvider extends
 			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, target);
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				Reqif10Factory.eINSTANCE.createDatatypeDefinitionString()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
+				ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString()));
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				Reqif10Factory.eINSTANCE.createDatatypeDefinitionBoolean()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
+				ReqIF10Factory.eINSTANCE.createDatatypeDefinitionBoolean()));
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				Reqif10Factory.eINSTANCE.createDatatypeDefinitionInteger()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
+				ReqIF10Factory.eINSTANCE.createDatatypeDefinitionInteger()));
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				Reqif10Factory.eINSTANCE.createDatatypeDefinitionReal()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
+				ReqIF10Factory.eINSTANCE.createDatatypeDefinitionReal()));
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				Reqif10Factory.eINSTANCE.createDatatypeDefinitionDate()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
+				ReqIF10Factory.eINSTANCE.createDatatypeDefinitionDate()));
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				Reqif10Factory.eINSTANCE.createDatatypeDefinitionEnumeration()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
+				ReqIF10Factory.eINSTANCE.createDatatypeDefinitionEnumeration()));
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				Reqif10Factory.eINSTANCE.createDatatypeDefinitionXhtml()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
+				ReqIF10Factory.eINSTANCE.createDatatypeDefinitionXhtml()));
 	}
 
 }

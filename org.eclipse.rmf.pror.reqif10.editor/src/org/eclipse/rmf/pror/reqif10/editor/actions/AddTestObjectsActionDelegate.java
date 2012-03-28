@@ -26,7 +26,7 @@ import org.eclipse.rmf.reqif10.Reqif10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecType;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
@@ -84,8 +84,8 @@ public class AddTestObjectsActionDelegate implements IEditorActionDelegate,
 					.createSpecHierarchy();
 			SpecObject newSpecObject = Reqif10Factory.eINSTANCE
 					.createSpecObject();
-			cmd.append(AddCommand.create(ed, Reqif10Util
-					.getReqIf(specHierarchy).getCoreContent(),
+			cmd.append(AddCommand.create(ed, ReqIF10Util
+					.getReqIF(specHierarchy).getCoreContent(),
 					Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
 					newSpecObject));
 			cmd.append(SetCommand.create(ed, newSpecHierarchy,

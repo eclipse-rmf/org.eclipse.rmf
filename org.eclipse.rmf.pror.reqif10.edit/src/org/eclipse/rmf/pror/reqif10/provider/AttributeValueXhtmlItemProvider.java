@@ -31,7 +31,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.rmf.reqif10.AttributeValueXhtml;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 import org.eclipse.rmf.reqif10.datatypes.DatatypesFactory;
 
@@ -89,7 +89,7 @@ public class AttributeValueXhtmlItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeValueXhtml_isSimplified_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueXhtml_isSimplified_feature", "_UI_AttributeValueXhtml_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_VALUE_XHTML__IS_SIMPLIFIED,
+				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__IS_SIMPLIFIED,
 				 true,
 				 false,
 				 false,
@@ -111,7 +111,7 @@ public class AttributeValueXhtmlItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeValueXhtml_definition_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueXhtml_definition_feature", "_UI_AttributeValueXhtml_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_VALUE_XHTML__DEFINITION,
+				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__DEFINITION,
 				 true,
 				 false,
 				 true,
@@ -132,8 +132,8 @@ public class AttributeValueXhtmlItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Reqif10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE);
-			childrenFeatures.add(Reqif10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE);
+			childrenFeatures.add(ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE);
+			childrenFeatures.add(ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -189,11 +189,11 @@ public class AttributeValueXhtmlItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AttributeValueXhtml.class)) {
-			case Reqif10Package.ATTRIBUTE_VALUE_XHTML__IS_SIMPLIFIED:
+			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__IS_SIMPLIFIED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case Reqif10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE:
-			case Reqif10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE:
+			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE:
+			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 		}
 		super.notifyChanged(notification);
@@ -212,12 +212,12 @@ public class AttributeValueXhtmlItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE,
+				(ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE,
 				 DatatypesFactory.eINSTANCE.createXhtmlContent()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE,
+				(ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE,
 				 DatatypesFactory.eINSTANCE.createXhtmlContent()));
 	}
 
@@ -233,8 +233,8 @@ public class AttributeValueXhtmlItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Reqif10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE ||
-			childFeature == Reqif10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE;
+			childFeature == ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE ||
+			childFeature == ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE;
 
 		if (qualify) {
 			return getString

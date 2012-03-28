@@ -30,8 +30,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionString} object.
@@ -86,7 +86,7 @@ public class AttributeDefinitionStringItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeDefinitionString_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeDefinitionString_type_feature", "_UI_AttributeDefinitionString_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_DEFINITION_STRING__TYPE,
+				 ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_STRING__TYPE,
 				 true,
 				 false,
 				 true,
@@ -107,7 +107,7 @@ public class AttributeDefinitionStringItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Reqif10Package.Literals.ATTRIBUTE_DEFINITION_STRING__DEFAULT_VALUE);
+			childrenFeatures.add(ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_STRING__DEFAULT_VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -158,7 +158,7 @@ public class AttributeDefinitionStringItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AttributeDefinitionString.class)) {
-			case Reqif10Package.ATTRIBUTE_DEFINITION_STRING__DEFAULT_VALUE:
+			case ReqIF10Package.ATTRIBUTE_DEFINITION_STRING__DEFAULT_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -178,8 +178,8 @@ public class AttributeDefinitionStringItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.ATTRIBUTE_DEFINITION_STRING__DEFAULT_VALUE,
-				 Reqif10Factory.eINSTANCE.createAttributeValueString()));
+				(ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_STRING__DEFAULT_VALUE,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueString()));
 	}
 
 }

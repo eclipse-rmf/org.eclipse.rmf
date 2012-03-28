@@ -16,8 +16,8 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecType;
 
 /**
@@ -39,7 +39,7 @@ public class VirtualSpecTypeItemProvider extends
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES);
+					.add(ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES);
 		}
 		return childrenFeatures;
 	}
@@ -60,17 +60,17 @@ public class VirtualSpecTypeItemProvider extends
 			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, target);		
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES,
-				Reqif10Factory.eINSTANCE.createSpecObjectType()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES,
+				ReqIF10Factory.eINSTANCE.createSpecObjectType()));
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES,
-				Reqif10Factory.eINSTANCE.createSpecificationType()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES,
+				ReqIF10Factory.eINSTANCE.createSpecificationType()));
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES,
-				Reqif10Factory.eINSTANCE.createSpecRelationType()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES,
+				ReqIF10Factory.eINSTANCE.createSpecRelationType()));
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES,
-				Reqif10Factory.eINSTANCE.createRelationGroupType()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES,
+				ReqIF10Factory.eINSTANCE.createRelationGroupType()));
 	}
 
 }

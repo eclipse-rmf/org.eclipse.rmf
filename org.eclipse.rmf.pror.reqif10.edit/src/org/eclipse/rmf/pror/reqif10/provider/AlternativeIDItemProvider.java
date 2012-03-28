@@ -31,16 +31,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.eclipse.rmf.reqif10.AlternativeId;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.AlternativeID;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AlternativeId} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AlternativeID} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AlternativeIdItemProvider
+public class AlternativeIDItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -54,7 +54,7 @@ public class AlternativeIdItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AlternativeIdItemProvider(AdapterFactory adapterFactory) {
+	public AlternativeIDItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -85,9 +85,9 @@ public class AlternativeIdItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AlternativeId_identifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AlternativeId_identifier_feature", "_UI_AlternativeId_type"),
-				 Reqif10Package.Literals.ALTERNATIVE_ID__IDENTIFIER,
+				 getString("_UI_AlternativeID_identifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AlternativeID_identifier_feature", "_UI_AlternativeID_type"),
+				 ReqIF10Package.Literals.ALTERNATIVE_ID__IDENTIFIER,
 				 true,
 				 false,
 				 false,
@@ -122,11 +122,11 @@ public class AlternativeIdItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((AlternativeId)object).getIdentifier();
+		Object labelValue = ((AlternativeID)object).getIdentifier();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AlternativeId_type") :
-			getString("_UI_AlternativeId_type") + " " + label;
+			getString("_UI_AlternativeID_type") :
+			getString("_UI_AlternativeID_type") + " " + label;
 	}
 
 	/**
@@ -140,8 +140,8 @@ public class AlternativeIdItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AlternativeId.class)) {
-			case Reqif10Package.ALTERNATIVE_ID__IDENTIFIER:
+		switch (notification.getFeatureID(AlternativeID.class)) {
+			case ReqIF10Package.ALTERNATIVE_ID__IDENTIFIER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

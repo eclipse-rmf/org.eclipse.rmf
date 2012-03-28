@@ -27,7 +27,7 @@ import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 /**
  * 
@@ -290,7 +290,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 			sepcAtr = ((SpecHierarchy) this.identifiable).getObject();
 		}
 		if (sepcAtr != null && descriptor.getItemPropertyDescriptor() != null) {
-			return Reqif10Util.getAttributeValueForLabel(sepcAtr, descriptor
+			return ReqIF10Util.getAttributeValueForLabel(sepcAtr, descriptor
 					.getItemPropertyDescriptor().getDisplayName(sepcAtr));
 		}
 		return null;

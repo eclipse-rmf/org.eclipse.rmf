@@ -31,8 +31,8 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration} object.
@@ -88,7 +88,7 @@ public class AttributeDefinitionEnumerationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeDefinitionEnumeration_multiValued_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeDefinitionEnumeration_multiValued_feature", "_UI_AttributeDefinitionEnumeration_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_DEFINITION_ENUMERATION__MULTI_VALUED,
+				 ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_ENUMERATION__MULTI_VALUED,
 				 true,
 				 false,
 				 false,
@@ -110,7 +110,7 @@ public class AttributeDefinitionEnumerationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeDefinitionEnumeration_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeDefinitionEnumeration_type_feature", "_UI_AttributeDefinitionEnumeration_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_DEFINITION_ENUMERATION__TYPE,
+				 ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_ENUMERATION__TYPE,
 				 true,
 				 false,
 				 true,
@@ -131,7 +131,7 @@ public class AttributeDefinitionEnumerationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Reqif10Package.Literals.ATTRIBUTE_DEFINITION_ENUMERATION__DEFAULT_VALUE);
+			childrenFeatures.add(ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_ENUMERATION__DEFAULT_VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -182,10 +182,10 @@ public class AttributeDefinitionEnumerationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AttributeDefinitionEnumeration.class)) {
-			case Reqif10Package.ATTRIBUTE_DEFINITION_ENUMERATION__MULTI_VALUED:
+			case ReqIF10Package.ATTRIBUTE_DEFINITION_ENUMERATION__MULTI_VALUED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case Reqif10Package.ATTRIBUTE_DEFINITION_ENUMERATION__DEFAULT_VALUE:
+			case ReqIF10Package.ATTRIBUTE_DEFINITION_ENUMERATION__DEFAULT_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -205,8 +205,8 @@ public class AttributeDefinitionEnumerationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.ATTRIBUTE_DEFINITION_ENUMERATION__DEFAULT_VALUE,
-				 Reqif10Factory.eINSTANCE.createAttributeValueEnumeration()));
+				(ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_ENUMERATION__DEFAULT_VALUE,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueEnumeration()));
 	}
 
 }

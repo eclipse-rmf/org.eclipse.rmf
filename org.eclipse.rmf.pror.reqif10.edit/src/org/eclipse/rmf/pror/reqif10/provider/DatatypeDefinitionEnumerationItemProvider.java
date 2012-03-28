@@ -29,8 +29,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration} object.
@@ -83,7 +83,7 @@ public class DatatypeDefinitionEnumerationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Reqif10Package.Literals.DATATYPE_DEFINITION_ENUMERATION__SPECIFIED_VALUES);
+			childrenFeatures.add(ReqIF10Package.Literals.DATATYPE_DEFINITION_ENUMERATION__SPECIFIED_VALUES);
 		}
 		return childrenFeatures;
 	}
@@ -139,7 +139,7 @@ public class DatatypeDefinitionEnumerationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DatatypeDefinitionEnumeration.class)) {
-			case Reqif10Package.DATATYPE_DEFINITION_ENUMERATION__SPECIFIED_VALUES:
+			case ReqIF10Package.DATATYPE_DEFINITION_ENUMERATION__SPECIFIED_VALUES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -159,8 +159,8 @@ public class DatatypeDefinitionEnumerationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.DATATYPE_DEFINITION_ENUMERATION__SPECIFIED_VALUES,
-				 Reqif10Factory.eINSTANCE.createEnumValue()));
+				(ReqIF10Package.Literals.DATATYPE_DEFINITION_ENUMERATION__SPECIFIED_VALUES,
+				 ReqIF10Factory.eINSTANCE.createEnumValue()));
 	}
 
 }

@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
@@ -48,7 +48,7 @@ public class VirtualSpecificationsItemProvider extends
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(Reqif10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS);
+					.add(ReqIF10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -72,13 +72,13 @@ public class VirtualSpecificationsItemProvider extends
 		
 		// Allow creation of new untyped Specifications
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS,
-				Reqif10Factory.eINSTANCE.createSpecification()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS,
+				ReqIF10Factory.eINSTANCE.createSpecification()));
 		
 		// Allow creation of typed Specifications
 		ProrUtil.collectNewChildDescriptorsForTypeCreators(newChildDescriptors,
 				target,
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS, SpecificationType.class);
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS, SpecificationType.class);
 	}
 
 	@Override
@@ -88,9 +88,9 @@ public class VirtualSpecificationsItemProvider extends
 
 		if (value instanceof SpecType) {
 			return ProrUtil.createAddTypedElementCommand(owner,
-					Reqif10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS,
-					Reqif10Factory.eINSTANCE.createSpecification(),
-					Reqif10Package.Literals.SPECIFICATION__TYPE,
+					ReqIF10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS,
+					ReqIF10Factory.eINSTANCE.createSpecification(),
+					ReqIF10Package.Literals.SPECIFICATION__TYPE,
 					(SpecType) value, index, 0, domain,
 					adapterFactory);
 		}

@@ -28,7 +28,7 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionReal;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.Identifiable;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 public abstract class AbstractProrCellEditorProvider extends
 		DefaultCellEditorProvider {
@@ -53,7 +53,7 @@ public abstract class AbstractProrCellEditorProvider extends
 	 */
 	protected CellEditor getDefaultCellEditor(AttributeValue value,
 			Identifiable affectedObject) {
-		DatatypeDefinition dd = Reqif10Util.getDatatypeDefinition(value);
+		DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(value);
 		if (dd == null) {
 			MessageDialog
 					.openInformation(null, "No DatatypeDefinition set",
@@ -89,7 +89,7 @@ public abstract class AbstractProrCellEditorProvider extends
 			return stringCellEditor;
 		} else if (dd instanceof DatatypeDefinitionEnumeration) {
 			DatatypeDefinitionEnumeration dde = (DatatypeDefinitionEnumeration) dd;
-			Boolean multiValued = ((AttributeDefinitionEnumeration) Reqif10Util
+			Boolean multiValued = ((AttributeDefinitionEnumeration) ReqIF10Util
 					.getAttributeDefinition(value)).getMultiValued();
 			if (multiValued == null || multiValued.booleanValue() == false) {
 				return new ProrEnumerationSingleValueCellEditor(agileGrid, dde,

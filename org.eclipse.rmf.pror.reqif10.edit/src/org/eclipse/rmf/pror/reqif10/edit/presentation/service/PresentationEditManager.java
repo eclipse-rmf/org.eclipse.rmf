@@ -7,7 +7,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 public class PresentationEditManager {
 
@@ -54,7 +54,7 @@ public class PresentationEditManager {
 
 	public static String getCustomLabel(AttributeValue value) {
 		// See whether we have a custom label renderer
-		DatatypeDefinition dd = Reqif10Util.getDatatypeDefinition(value);
+		DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(value);
 		ProrPresentationConfiguration presentationConfiguration = ConfigurationUtil
 				.getConfiguration(dd);
 		if (presentationConfiguration != null) {

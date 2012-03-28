@@ -53,11 +53,13 @@ Contributors:
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
+<!--
+TODO reactivate!
    <extension
          point="org.eclipse.rmf.reqif10.resource.reqiftoolextension">
       <reqiftoolextension
             class="org.eclipse.rmf.pror.reqif10.configuration.impl.ProrToolExtensionImpl">
       </reqiftoolextension>
    </extension>
-
+-->
 </plugin>

@@ -31,7 +31,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.rmf.reqif10.AttributeValueDate;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueDate} object.
@@ -87,7 +87,7 @@ public class AttributeValueDateItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeValueDate_theValue_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueDate_theValue_feature", "_UI_AttributeValueDate_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_VALUE_DATE__THE_VALUE,
+				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_DATE__THE_VALUE,
 				 true,
 				 false,
 				 false,
@@ -109,7 +109,7 @@ public class AttributeValueDateItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeValueDate_definition_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueDate_definition_feature", "_UI_AttributeValueDate_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_VALUE_DATE__DEFINITION,
+				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_DATE__DEFINITION,
 				 true,
 				 false,
 				 true,
@@ -156,7 +156,7 @@ public class AttributeValueDateItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AttributeValueDate.class)) {
-			case Reqif10Package.ATTRIBUTE_VALUE_DATE__THE_VALUE:
+			case ReqIF10Package.ATTRIBUTE_VALUE_DATE__THE_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 		}
 		super.notifyChanged(notification);

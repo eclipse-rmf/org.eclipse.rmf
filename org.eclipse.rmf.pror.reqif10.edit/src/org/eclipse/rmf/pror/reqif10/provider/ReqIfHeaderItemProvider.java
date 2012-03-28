@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.rmf.reqif10.ReqIfHeader;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.ReqIfHeader} object.
@@ -94,7 +94,7 @@ public class ReqIfHeaderItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ReqIfHeader_comment_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_comment_feature", "_UI_ReqIfHeader_type"),
-				 Reqif10Package.Literals.REQ_IF_HEADER__COMMENT,
+				 ReqIF10Package.Literals.REQ_IF_HEADER__COMMENT,
 				 true,
 				 false,
 				 false,
@@ -116,7 +116,7 @@ public class ReqIfHeaderItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ReqIfHeader_creationTime_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_creationTime_feature", "_UI_ReqIfHeader_type"),
-				 Reqif10Package.Literals.REQ_IF_HEADER__CREATION_TIME,
+				 ReqIF10Package.Literals.REQ_IF_HEADER__CREATION_TIME,
 				 true,
 				 false,
 				 false,
@@ -138,7 +138,7 @@ public class ReqIfHeaderItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ReqIfHeader_identifier_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_identifier_feature", "_UI_ReqIfHeader_type"),
-				 Reqif10Package.Literals.REQ_IF_HEADER__IDENTIFIER,
+				 ReqIF10Package.Literals.REQ_IF_HEADER__IDENTIFIER,
 				 true,
 				 false,
 				 false,
@@ -160,7 +160,7 @@ public class ReqIfHeaderItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ReqIfHeader_repositoryId_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_repositoryId_feature", "_UI_ReqIfHeader_type"),
-				 Reqif10Package.Literals.REQ_IF_HEADER__REPOSITORY_ID,
+				 ReqIF10Package.Literals.REQ_IF_HEADER__REPOSITORY_ID,
 				 true,
 				 false,
 				 false,
@@ -182,7 +182,7 @@ public class ReqIfHeaderItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ReqIfHeader_reqIfToolId_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_reqIfToolId_feature", "_UI_ReqIfHeader_type"),
-				 Reqif10Package.Literals.REQ_IF_HEADER__REQ_IF_TOOL_ID,
+				 ReqIF10Package.Literals.REQ_IF_HEADER__REQ_IF_TOOL_ID,
 				 true,
 				 false,
 				 false,
@@ -204,7 +204,7 @@ public class ReqIfHeaderItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ReqIfHeader_reqIfVersion_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_reqIfVersion_feature", "_UI_ReqIfHeader_type"),
-				 Reqif10Package.Literals.REQ_IF_HEADER__REQ_IF_VERSION,
+				 ReqIF10Package.Literals.REQ_IF_HEADER__REQ_IF_VERSION,
 				 true,
 				 false,
 				 false,
@@ -226,7 +226,7 @@ public class ReqIfHeaderItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ReqIfHeader_sourceToolId_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_sourceToolId_feature", "_UI_ReqIfHeader_type"),
-				 Reqif10Package.Literals.REQ_IF_HEADER__SOURCE_TOOL_ID,
+				 ReqIF10Package.Literals.REQ_IF_HEADER__SOURCE_TOOL_ID,
 				 true,
 				 false,
 				 false,
@@ -248,7 +248,7 @@ public class ReqIfHeaderItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ReqIfHeader_title_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_title_feature", "_UI_ReqIfHeader_type"),
-				 Reqif10Package.Literals.REQ_IF_HEADER__TITLE,
+				 ReqIF10Package.Literals.REQ_IF_HEADER__TITLE,
 				 true,
 				 false,
 				 false,
@@ -301,14 +301,14 @@ public class ReqIfHeaderItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ReqIfHeader.class)) {
-			case Reqif10Package.REQ_IF_HEADER__COMMENT:
-			case Reqif10Package.REQ_IF_HEADER__CREATION_TIME:
-			case Reqif10Package.REQ_IF_HEADER__IDENTIFIER:
-			case Reqif10Package.REQ_IF_HEADER__REPOSITORY_ID:
-			case Reqif10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID:
-			case Reqif10Package.REQ_IF_HEADER__REQ_IF_VERSION:
-			case Reqif10Package.REQ_IF_HEADER__SOURCE_TOOL_ID:
-			case Reqif10Package.REQ_IF_HEADER__TITLE:
+			case ReqIF10Package.REQ_IF_HEADER__COMMENT:
+			case ReqIF10Package.REQ_IF_HEADER__CREATION_TIME:
+			case ReqIF10Package.REQ_IF_HEADER__IDENTIFIER:
+			case ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID:
+			case ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID:
+			case ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION:
+			case ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID:
+			case ReqIF10Package.REQ_IF_HEADER__TITLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

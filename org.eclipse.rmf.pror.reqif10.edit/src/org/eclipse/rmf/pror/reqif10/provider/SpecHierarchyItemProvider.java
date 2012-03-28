@@ -11,10 +11,10 @@
 
 package org.eclipse.rmf.pror.reqif10.provider;
 
-import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS;
-import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPEC_HIERARCHY__CHILDREN;
-import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPEC_HIERARCHY__OBJECT;
-import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPEC_OBJECT__TYPE;
+import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS;
+import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN;
+import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT;
+import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_OBJECT__TYPE;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -45,13 +45,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecType;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 /**
  * This is the item provider adapter for a
@@ -136,7 +136,7 @@ public class SpecHierarchyItemProvider extends
 				getString("_UI_PropertyDescriptor_description",
 						"_UI_SpecHierarchy_isTableInternal_feature",
 						"_UI_SpecHierarchy_type"),
-				Reqif10Package.Literals.SPEC_HIERARCHY__IS_TABLE_INTERNAL,
+				ReqIF10Package.Literals.SPEC_HIERARCHY__IS_TABLE_INTERNAL,
 				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				getString("_UI_SpecHierarchyPropertyCategory"), null));
 	}
@@ -156,7 +156,7 @@ public class SpecHierarchyItemProvider extends
 				getString("_UI_PropertyDescriptor_description",
 						"_UI_SpecHierarchy_object_feature",
 						"_UI_SpecHierarchy_type"),
-				Reqif10Package.Literals.SPEC_HIERARCHY__OBJECT, true, false,
+				ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT, true, false,
 				true, null, getString("_UI_SpecHierarchyPropertyCategory"),
 				null));
 	}
@@ -176,7 +176,7 @@ public class SpecHierarchyItemProvider extends
 				getString("_UI_PropertyDescriptor_description",
 						"_UI_SpecHierarchy_editableAtts_feature",
 						"_UI_SpecHierarchy_type"),
-				Reqif10Package.Literals.SPEC_HIERARCHY__EDITABLE_ATTS, true,
+				ReqIF10Package.Literals.SPEC_HIERARCHY__EDITABLE_ATTS, true,
 				false, true, null,
 				getString("_UI_SpecHierarchyPropertyCategory"), null));
 	}
@@ -197,7 +197,7 @@ public class SpecHierarchyItemProvider extends
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(Reqif10Package.Literals.SPEC_HIERARCHY__CHILDREN);
+					.add(ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN);
 		}
 		return childrenFeatures;
 	}
@@ -266,15 +266,15 @@ public class SpecHierarchyItemProvider extends
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SpecHierarchy.class)) {
-		case Reqif10Package.SPEC_HIERARCHY__IS_TABLE_INTERNAL:
+		case ReqIF10Package.SPEC_HIERARCHY__IS_TABLE_INTERNAL:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), false, true));
 			return;
-		case Reqif10Package.SPEC_HIERARCHY__CHILDREN:
+		case ReqIF10Package.SPEC_HIERARCHY__CHILDREN:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, false));
 			return;
-		case Reqif10Package.SPEC_HIERARCHY__OBJECT:
+		case ReqIF10Package.SPEC_HIERARCHY__OBJECT:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, true));
 			return;
@@ -296,11 +296,11 @@ public class SpecHierarchyItemProvider extends
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(SPEC_HIERARCHY__CHILDREN,
-				Reqif10Factory.eINSTANCE.createSpecHierarchy()));
+				ReqIF10Factory.eINSTANCE.createSpecHierarchy()));
 
 		// Allow creation of new untyped SpecObjects
 		newChildDescriptors.add(createChildParameter(SPEC_HIERARCHY__CHILDREN,
-				Reqif10Factory.eINSTANCE.createSpecObject()));
+				ReqIF10Factory.eINSTANCE.createSpecObject()));
 
 		// Allow creation of typed SpecObjects
 		ProrUtil.collectNewChildDescriptorsForTypeCreators(newChildDescriptors,
@@ -332,9 +332,9 @@ public class SpecHierarchyItemProvider extends
 			EObject owner, EStructuralFeature feature, Object value, int index,
 			Collection<?> collection) {
 		if (value instanceof SpecType) {
-			ReqIfContent content = Reqif10Util.getReqIf(owner).getCoreContent();
-			SpecObject specObject = Reqif10Factory.eINSTANCE.createSpecObject();
-			SpecHierarchy specHierarchy = Reqif10Factory.eINSTANCE
+			ReqIfContent content = ReqIF10Util.getReqIF(owner).getCoreContent();
+			SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
+			SpecHierarchy specHierarchy = ReqIF10Factory.eINSTANCE
 					.createSpecHierarchy();
 
 			CompoundCommand cmd = ProrUtil.createAddTypedElementCommand(
@@ -354,11 +354,11 @@ public class SpecHierarchyItemProvider extends
 					icon, 0);
 			cmd.setLabel("Adding SpecObject");
 			cmd.setDescription("Adding SpecObject");
-			SpecHierarchy specHierarchy = Reqif10Factory.eINSTANCE
+			SpecHierarchy specHierarchy = ReqIF10Factory.eINSTANCE
 					.createSpecHierarchy();
 			cmd.append(AddCommand.create(domain, owner,
 					SPEC_HIERARCHY__CHILDREN, specHierarchy, index));
-			cmd.append(AddCommand.create(domain, Reqif10Util.getReqIf(owner)
+			cmd.append(AddCommand.create(domain, ReqIF10Util.getReqIF(owner)
 					.getCoreContent(), REQ_IF_CONTENT__SPEC_OBJECTS, value));
 			cmd.append(SetCommand.create(domain, specHierarchy,
 					SPEC_HIERARCHY__OBJECT, value));

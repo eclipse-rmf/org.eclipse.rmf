@@ -32,6 +32,18 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
+import org.eclipse.rmf.reqif10.AttributeDefinition;
+import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.DatatypeDefinition;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
+import org.eclipse.rmf.reqif10.SpecType;
+import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 public class ConfigurationUtil {
 	
@@ -44,7 +56,7 @@ public class ConfigurationUtil {
 	 */
 	public static ProrPresentationConfiguration getConfiguration(
 			DatatypeDefinition datatypeDefinition, EditingDomain domain) {
-		ReqIf reqif = Reqif10Util.getReqIf(datatypeDefinition);
+		ReqIF reqif = ReqIF10Util.getReqIF(datatypeDefinition);
 		if (reqif == null)
 			return null;
 		ProrPresentationConfigurations extensions = ConfigurationUtil
@@ -69,7 +81,7 @@ public class ConfigurationUtil {
 	 */
 	public static ProrPresentationConfiguration getConfiguration(
 			DatatypeDefinition dd) {
-		ReqIf reqif = Reqif10Util.getReqIf(dd);
+		ReqIF reqif = ReqIF10Util.getReqIF(dd);
 		if (reqif == null)
 			return null;
 		ProrToolExtension prorToolExtension = ConfigurationUtil
@@ -92,7 +104,7 @@ public class ConfigurationUtil {
 	 * This method returns a list of {@link HighlightConfiguration}s for the
 	 * given {@link ReqIf} and {@link ProrPresentationConfiguration} instance.
 	 */
-	public static List<DatatypeDefinition> getDatatypeDefinitions(ReqIf reqif,
+	public static List<DatatypeDefinition> getDatatypeDefinitions(ReqIF reqif,
 			EditingDomain domain, ProrPresentationConfiguration configuration) {
 		List<DatatypeDefinition> datatypes = new ArrayList<DatatypeDefinition>();
 		ProrPresentationConfigurations configsElement = ConfigurationUtil
@@ -114,10 +126,10 @@ public class ConfigurationUtil {
 	 * If it doesn't exist yet, null is returned.
 	 * <p>
 	 */
-	private static ProrToolExtension getProrToolExtension(ReqIf reqif) {
+	private static ProrToolExtension getProrToolExtension(ReqIF reqif) {
 		if (reqif != null) {
-			EList<ReqIfToolExtension> extensions = reqif.getToolExtensions();
-			for (ReqIfToolExtension extension : extensions) {
+			EList<ReqIFToolExtension> extensions = reqif.getToolExtensions();
+			for (ReqIFToolExtension extension : extensions) {
 				if (extension instanceof ProrToolExtension) {
 					return (ProrToolExtension) extension;
 				}
@@ -131,13 +143,13 @@ public class ConfigurationUtil {
 	 * {@link ReqIF}.  If it doesn't exist yet, it is created.
 	 * <p>
 	 */
-	public static ProrToolExtension getProrToolExtension(ReqIf reqif, EditingDomain domain) {
+	public static ProrToolExtension getProrToolExtension(ReqIF reqif, EditingDomain domain) {
 		ProrToolExtension extension = getProrToolExtension(reqif);
 		if (extension != null) return extension;
 		extension = ConfigFactory.eINSTANCE.createProrToolExtension();
 		domain.getCommandStack().execute(
 				AddCommand.create(domain, reqif,
-						Reqif10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
+						ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
 						extension));		
 		return extension;
 	}
@@ -175,14 +187,14 @@ public class ConfigurationUtil {
 	public static String getSpecElementLabel(
 			SpecElementWithAttributes specElement) {
 		
-		List<String> labels = getDefaultLabels(Reqif10Util.getReqIf(specElement));
+		List<String> labels = getDefaultLabels(ReqIF10Util.getReqIF(specElement));
 
 		// Iterate over the list of labels requested
 		for (String label : labels) {
 			
 			for (AttributeValue value : specElement.getValues()) {
 				// TODO eventually should also work for non-simple attributes
-				AttributeDefinition ad = Reqif10Util.getAttributeDefinition(value);
+				AttributeDefinition ad = ReqIF10Util.getAttributeDefinition(value);
 				if (ad == null)
 					continue;
 
@@ -194,7 +206,7 @@ public class ConfigurationUtil {
 						return customLabel;
 					}
 
-					Object result = Reqif10Util.getTheValue(value);
+					Object result = ReqIF10Util.getTheValue(value);
 					if (result != null) {
 						return result.toString();
 					}
@@ -210,7 +222,7 @@ public class ConfigurationUtil {
 	 * @return always a list, sometimes empty.
 	 */
 	public static List<String> getDefaultLabels(
-			ReqIf reqif) {
+			ReqIF reqif) {
 		ProrToolExtension extension = getProrToolExtension(reqif);
 		if (extension == null) {
 			return Collections.emptyList();
@@ -235,8 +247,7 @@ public class ConfigurationUtil {
 	 */
 	public static ProrSpecViewConfiguration getSpecViewConfiguration(
 			Specification specification, EditingDomain domain) {
-
-		ProrToolExtension extension = getProrToolExtension(Reqif10Util.getReqIf(specification), domain);
+		ProrToolExtension extension = getProrToolExtension(ReqIF10Util.getReqIF(specification), domain);
 	
 		EList<ProrSpecViewConfiguration> configs = extension
 				.getSpecViewConfigurations();
@@ -253,7 +264,7 @@ public class ConfigurationUtil {
 		
 		// Collect all Types
 		final Set<SpecType> types = new HashSet<SpecType>();
-		Reqif10Switch<SpecHierarchy> visitor = new Reqif10Switch<SpecHierarchy>() {
+		ReqIF10Switch<SpecHierarchy> visitor = new ReqIF10Switch<SpecHierarchy>() {
 			@Override
 			public SpecHierarchy caseSpecHierarchy(SpecHierarchy specHierarchy) {
 				if (specHierarchy.getObject() != null && specHierarchy.getObject().getType() != null) {
@@ -296,7 +307,7 @@ public class ConfigurationUtil {
 	}
 
 	public static ProrPresentationConfiguration getPresentationConfig(AttributeValue value, EditingDomain domain) {
-		DatatypeDefinition dd = Reqif10Util.getDatatypeDefinition(value);
+		DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(value);
 		ProrPresentationConfiguration config = getConfiguration(dd, domain);
 		return config;
 	}
@@ -306,7 +317,7 @@ public class ConfigurationUtil {
 	 *         {@link ReqIf} and {@link EditingDomain}.
 	 */
 	public static ProrPresentationConfigurations getPresentationConfigurations(
-			ReqIf reqif, EditingDomain domain) {
+			ReqIF reqif, EditingDomain domain) {
 		ProrToolExtension uiExtension = ConfigurationUtil.getProrToolExtension(
 				reqif, domain);
 		ProrPresentationConfigurations configs = uiExtension

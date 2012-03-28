@@ -18,7 +18,7 @@ import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.graphics.Color;
@@ -95,7 +95,7 @@ public abstract class ProrCellEditor extends TextCellEditor {
 		this.attributeValue = null;
 		if (value instanceof AttributeValue) {
 			attributeValue = (AttributeValue) value;
-			value = Reqif10Util.getTheValue(attributeValue);
+			value = ReqIF10Util.getTheValue(attributeValue);
 		}
 		super.doSetValue(value);
 	}

@@ -32,7 +32,7 @@ import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.program.Program;
 import org.eclipse.swt.widgets.Display;
 
@@ -131,9 +131,9 @@ public class SpecificationWebPrintAction extends Action {
 						html.append("<div style='margin-left: " + (indent * 20)
 								+ ";'>");
 					}
-					AttributeValue av = Reqif10Util.getAttributeValueForLabel(
+					AttributeValue av = ReqIF10Util.getAttributeValueForLabel(
 							specObject, col.getLabel());
-					DatatypeDefinition dd = Reqif10Util.getDatatypeDefinition(av);
+					DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(av);
 					ProrPresentationConfiguration configuration = ConfigurationUtil
 							.getConfiguration(dd, editingDomain);
 					if (configuration != null) {
@@ -162,7 +162,7 @@ public class SpecificationWebPrintAction extends Action {
 	 * Returns the default HTML for the given {@link AttributeValue}.
 	 */
 	private String getDefaultValue(AttributeValue av) {
-		Object value = av == null ? null : Reqif10Util.getTheValue(av);
+		Object value = av == null ? null : ReqIF10Util.getTheValue(av);
 		String textValue;
 		if (value == null) {
 			textValue = "";

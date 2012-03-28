@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.EmbeddedValue;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.EmbeddedValue} object.
@@ -88,7 +88,7 @@ public class EmbeddedValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_EmbeddedValue_key_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EmbeddedValue_key_feature", "_UI_EmbeddedValue_type"),
-				 Reqif10Package.Literals.EMBEDDED_VALUE__KEY,
+				 ReqIF10Package.Literals.EMBEDDED_VALUE__KEY,
 				 true,
 				 false,
 				 false,
@@ -110,7 +110,7 @@ public class EmbeddedValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_EmbeddedValue_otherContent_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EmbeddedValue_otherContent_feature", "_UI_EmbeddedValue_type"),
-				 Reqif10Package.Literals.EMBEDDED_VALUE__OTHER_CONTENT,
+				 ReqIF10Package.Literals.EMBEDDED_VALUE__OTHER_CONTENT,
 				 true,
 				 false,
 				 false,
@@ -161,14 +161,14 @@ public class EmbeddedValueItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EmbeddedValue.class)) {
-			case Reqif10Package.EMBEDDED_VALUE__KEY:
-			case Reqif10Package.EMBEDDED_VALUE__OTHER_CONTENT:
+			case ReqIF10Package.EMBEDDED_VALUE__KEY:
+			case ReqIF10Package.EMBEDDED_VALUE__OTHER_CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			InternalEObject parent = (InternalEObject)((EObject)notification.getNotifier()).eContainer();
 			if (parent != null) {
 				parent.eNotify(new ENotificationImpl(
 						parent, ENotificationImpl.SET,
-						Reqif10Package.Literals.ENUM_VALUE__PROPERTIES,
+						ReqIF10Package.Literals.ENUM_VALUE__PROPERTIES,
 						notification.getNotifier(), notification.getNotifier()));
 			}
 			return;
