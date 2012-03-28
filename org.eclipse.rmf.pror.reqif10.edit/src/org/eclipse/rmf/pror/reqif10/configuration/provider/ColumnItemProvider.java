@@ -30,7 +30,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
@@ -162,8 +161,9 @@ public class ColumnItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		switch (notification.getFeatureID(Column.class)) {
-			case ConfigPackage.COLUMN__LABEL:
+		int featureID = notification.getFeatureID(Column.class);
+		if (featureID == ConfigPackage.COLUMN__LABEL
+				|| featureID == ConfigPackage.COLUMN__WIDTH) {
 			// inform the parent
 			InternalEObject parent = (InternalEObject) ((EObject) notification
 					.getNotifier()).eContainer();
@@ -174,9 +174,6 @@ public class ColumnItemProvider
 						ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
 						notification.getNotifier(), notification.getNotifier()));
 			}
-			case ConfigPackage.COLUMN__WIDTH:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 		}
 		super.notifyChanged(notification);
 	}

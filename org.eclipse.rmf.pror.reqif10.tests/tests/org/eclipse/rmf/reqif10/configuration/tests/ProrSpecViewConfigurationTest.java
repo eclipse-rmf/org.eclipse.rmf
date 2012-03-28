@@ -11,7 +11,7 @@
 
 package org.eclipse.rmf.reqif10.configuration.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
@@ -70,6 +70,19 @@ public class ProrSpecViewConfigurationTest extends AbstractItemProviderTest {
 		getItemProvider(getFixture()).addListener(listener);
 		setViaCommand(column, ConfigPackage.Literals.COLUMN__LABEL, "Bar");
 		assertEquals(1, notifications.size());
+		assertEquals("Bar", column.getLabel());
+	}
+
+	@Test
+	public void testResizeColumn() {
+		Column column = ConfigFactory.eINSTANCE.createColumn();
+		column.setLabel("Foo");
+		column.setWidth(50);
+		getFixture().getColumns().add(column);
+		getItemProvider(getFixture()).addListener(listener);
+		setViaCommand(column, ConfigPackage.Literals.COLUMN__WIDTH, 100);
+		assertEquals(1, notifications.size());
+		assertEquals(100, column.getWidth());
 	}
 
 } //ProrSpecViewConfigurationTest
