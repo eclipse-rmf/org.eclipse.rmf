@@ -142,13 +142,17 @@ public abstract class ProrCellEditor extends TextCellEditor {
 			KeyEvent keyEvent = (KeyEvent) activationEvent.sourceEvent;
 			if (isValidCellEditorCharacter(keyEvent) && keyEvent.character != SWT.DEL) {
 				text.setText("" + keyEvent.character);
-				// this.fireApplyEditorValue();
+				//this.fireApplyEditorValue();
 				super.activate(activationEvent);
 				text.setSelection(1, 1);
 				return;
 			}
+			if (keyEvent.character != SWT.DEL){
+				super.activate(activationEvent);
+			}
+		}else{
+			super.activate(activationEvent);
 		}
-		super.activate(activationEvent);
 	}
 
 	/**
