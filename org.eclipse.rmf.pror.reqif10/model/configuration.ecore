@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="configuration"
     nsURI="http://pror.org/presentation/configuration" nsPrefix="configuration">
-  <eClassifiers xsi:type="ecore:EClass" name="ProrToolExtension" eSuperTypes="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFToolExtension">
+  <eClassifiers xsi:type="ecore:EClass" name="ProrToolExtension" eSuperTypes="platform:/resource/org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFToolExtension">
     <eStructuralFeatures xsi:type="ecore:EReference" name="specViewConfigurations"
         upperBound="-1" eType="#//ProrSpecViewConfiguration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="generalConfiguration" lowerBound="1"
@@ -13,7 +13,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProrSpecViewConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="specification" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//Specification"/>
+        eType="ecore:EClass platform:/resource/org.eclipse.rmf.reqif10/model/reqif10.ecore#//Specification"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//Column" containment="true"/>
   </eClassifiers>
@@ -29,7 +29,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProrPresentationConfiguration" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinition"/>
+        eType="ecore:EClass platform:/resource/org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProrGeneralConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelConfiguration" lowerBound="1"
