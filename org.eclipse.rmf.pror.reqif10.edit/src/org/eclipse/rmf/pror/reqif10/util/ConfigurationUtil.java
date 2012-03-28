@@ -48,7 +48,7 @@ import org.eclipse.rmf.reqif10.util.Reqif10Util;
 public class ConfigurationUtil {
 	
 	public static final String DEFAULT_LEFT_HEADER_COLUMN_NAME = "Lead Header Column";
-	public static final int DEFAULT_LEFT_HEADER_COLUMN_WIDTH = 50;
+	public static final int DEFAULT_LEFT_HEADER_COLUMN_WIDTH = 30;
 
 	/**
 	 * @return The Configuration element for the given
