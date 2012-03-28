@@ -12,7 +12,9 @@ package org.eclipse.rmf.pror.reqif10.editor.agilegrid;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.Cell;
+import org.agilemore.agilegrid.EditorActivationEvent;
 import org.agilemore.agilegrid.ILayoutAdvisor;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 
 /**
@@ -94,6 +96,22 @@ public class ProrAgileGrid extends AgileGrid {
 		
 
 		return Integer.MIN_VALUE;
+	}
+	
+	@Override
+	public void triggerEditorActivationEvent(
+			EditorActivationEvent editorActivationEvent, Object hint) {
+		if (editorActivationEvent.eventType == EditorActivationEvent.KEY_PRESSED
+				&& editorActivationEvent.keyCode == SWT.DEL) {
+			/*
+			 * This is a workaround for Bug 374183 - Deleting multiple
+			 * SpecElements in Specification editor via DEL key does not work No
+			 * need to activate an Editor since the rows are deleted. Activating
+			 * the editor would reset the selection to one single cell
+			 */
+			return;
+		}
+		super.triggerEditorActivationEvent(editorActivationEvent, hint);
 	}
 	
 }
