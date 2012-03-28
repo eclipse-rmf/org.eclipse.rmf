@@ -74,7 +74,6 @@ import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Menu;
@@ -582,17 +581,16 @@ public class ProrAgileGridViewer extends Viewer {
 							float location = getLocation(e);
 							if (location == 0.5){
 								agileGrid.dndHoverCell = cell;
-								agileGrid.dndHoverCellMode = 1;
+								agileGrid.dndHoverDropMode = ProrAgileGrid.DND_DROP_AS_CHILD;
 							}
 							if (location == 0.0){
-								//Cell prevCell = agileGrid.getCell(pos.x, pos.y-1);
 								Cell prevCell = agileGrid.getNeighbor(cell, AgileGrid.ABOVE, true);
 								agileGrid.dndHoverCell = prevCell;
-								agileGrid.dndHoverCellMode = 0;
+								agileGrid.dndHoverDropMode = ProrAgileGrid.DND_DROP_AS_SIBLING;
 							}
 							if (location == 1.0){
 								agileGrid.dndHoverCell = cell;
-								agileGrid.dndHoverCellMode = 0;
+								agileGrid.dndHoverDropMode = ProrAgileGrid.DND_DROP_AS_SIBLING;
 							}
 							agileGrid.redraw();
 						}
@@ -602,20 +600,26 @@ public class ProrAgileGridViewer extends Viewer {
 					protected float getLocation(DropTargetEvent event) {
 						Point pos = agileGrid.toControl(event.x, event.y);
 						Cell cell = agileGrid.getCell(pos.x, pos.y);
-						int rowHeight = ((ProrLayoutAdvisor) agileGrid.getLayoutAdvisor()).getRowHeight(cell.row);
-						int y = agileGrid.getYForRow(cell.row);
-						int mouseY = pos.y - y;
 						
-						float location = (float)mouseY / (float)rowHeight;
+						if (agileGrid.getLayoutAdvisor() instanceof ProrLayoutAdvisor) {
+							ProrLayoutAdvisor layoutAdvisor = (ProrLayoutAdvisor) agileGrid.getLayoutAdvisor();
 						
-						if (location < 0.3){
-							return 0.0F;
-						}else if(location <= 0.7){
-							return 0.5F;
-						}else{
-							return 1.0F;
+							int rowHeight = layoutAdvisor.getRowHeight(cell.row);
+							int y = agileGrid.getYForRow(cell.row);
+							int mouseY = pos.y - y;
+							
+							float location = (float)mouseY / (float)rowHeight;
+							
+							if (location < 0.3){
+								return 0.0F;
+							}else if(location <= 0.7){
+								return 0.5F;
+							}else{
+								return 1.0F;
+							}
 						}
 						
+						return 1.0F;
 						
 					}
 					

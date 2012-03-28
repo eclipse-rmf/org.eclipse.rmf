@@ -29,7 +29,7 @@ import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
 
-public class ProrLinkCellRenderer extends TextCellRenderer {
+public class ProrLinkCellRenderer extends AbstractProrCellRenderer {
 
 	private Set<SpecRelation> incoming;
 	private Set<SpecRelation> outgoing;
@@ -100,12 +100,5 @@ public class ProrLinkCellRenderer extends TextCellRenderer {
 		}
 	}
 	
-	// Workaround: Upon closing a UIEditor and reopening a new one, the color got
-	// disposed. No idea why. This is a workaround.
-	protected void initialColor(int row, int col) {
-		if (agileGrid.isCellSelected(row, col)) {
-			background = SWTResourceManager.getColor(223, 227, 237);
-		}
-	}
 
 }

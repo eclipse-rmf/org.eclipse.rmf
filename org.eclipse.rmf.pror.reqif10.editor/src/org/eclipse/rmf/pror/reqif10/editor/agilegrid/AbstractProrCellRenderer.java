@@ -33,7 +33,7 @@ import org.eclipse.swt.graphics.Rectangle;
 
 /**
  * @author Lukas Ladenberger
- * 
+ * @author Ingo Weigelt
  */
 public class AbstractProrCellRenderer extends TextCellRenderer {
 
@@ -45,6 +45,10 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 	public AbstractProrCellRenderer(AgileGrid agileGrid, AdapterFactory adapterFactory) {
 		super(agileGrid);
 		this.adapterFactory = adapterFactory;
+	}
+	
+	public AbstractProrCellRenderer(AgileGrid agileGrid) {
+		this(agileGrid, null);
 	}
 
 	protected int doDrawCellContentDefault(GC gc, Rectangle rect, Object value) {
@@ -105,8 +109,11 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		Color vBorderColor = COLOR_LINE_LIGHTGRAY;
 		Color hBorderColor = COLOR_LINE_LIGHTGRAY;
 		
-		if (agileGrid instanceof ProrAgileGrid){
-			if (((ProrAgileGrid)agileGrid).dndHoverCell != null && row == ((ProrAgileGrid)agileGrid).dndHoverCell.row && ((ProrAgileGrid)agileGrid).dndHoverCellMode == 0){
+		if (agileGrid instanceof ProrAgileGrid) {
+			ProrAgileGrid grid = (ProrAgileGrid) agileGrid;
+			if (grid.dndHoverCell != null
+					&& row == grid.dndHoverCell.row
+					&& grid.dndHoverDropMode == ProrAgileGrid.DND_DROP_AS_SIBLING) {
 				hBorderColor = COLOR_LINE_DARKGRAY;
 			}
 		}
@@ -124,14 +131,15 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		drawDefaultCellLine(gc, rect, vBorderColor, hBorderColor);
 	}
 	
+	@Override
 	protected void drawCellContent(GC gc, Rectangle rect, int row, int col) {
 		this.foreground = this.getDefaultForeground();
 		this.background = this.getDefaultBackground();
 
 		if (agileGrid instanceof ProrAgileGrid) {
-			if (((ProrAgileGrid) agileGrid).dndHoverCell != null
-					&& row == ((ProrAgileGrid) agileGrid).dndHoverCell.row
-					&& ((ProrAgileGrid) agileGrid).dndHoverCellMode == 1) {
+			ProrAgileGrid grid = (ProrAgileGrid) agileGrid;
+			if (grid.dndHoverCell != null && row == grid.dndHoverCell.row
+					&& grid.dndHoverDropMode == ProrAgileGrid.DND_DROP_AS_CHILD) {
 				this.background = COLOR_BGROWSELECTION;
 			}
 		}

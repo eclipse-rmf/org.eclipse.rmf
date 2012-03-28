@@ -24,9 +24,12 @@ import org.eclipse.swt.widgets.Composite;
  */
 public class ProrAgileGrid extends AgileGrid {
 
+	public static final int DND_DROP_AS_SIBLING = 0;
+	public static final int DND_DROP_AS_CHILD = 1;
+
 	protected Cell dndHoverCell;
-	//TODO use constants for Hover Mode
-	protected int dndHoverCellMode;
+	protected int dndHoverDropMode;
+	
 
 	public ProrAgileGrid(Composite parent, int style) {
 		super(parent, style);
@@ -47,6 +50,12 @@ public class ProrAgileGrid extends AgileGrid {
 //		});
 	}
 
+	/**
+	 * Returns the upper y-coordinate of a row. 
+	 * Returns a negative value id the row does not exist or is invisible  
+	 * @param row
+	 * @return
+	 */
 	public int getYForRow(int row) {
 		if (row < 0 || row > topRow + getRowsVisible() - 1) {
 			return Integer.MIN_VALUE;
