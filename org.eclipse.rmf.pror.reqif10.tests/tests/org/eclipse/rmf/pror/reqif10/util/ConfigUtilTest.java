@@ -10,21 +10,25 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 
 import java.net.URISyntaxException;
 import java.util.List;
 
+import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
-import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.ReqIf;
 import org.eclipse.rmf.reqif10.ReqIfToolExtension;
 import org.eclipse.rmf.reqif10.Reqif10Factory;
 import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.Specification;
 import org.junit.Test;
 
 public class ConfigUtilTest extends AbstractItemProviderTest {
@@ -79,4 +83,14 @@ public class ConfigUtilTest extends AbstractItemProviderTest {
 		List<String> labels = ConfigurationUtil.getDefaultLabels(reqif);
 		assertEquals(0, labels.size());
 	}
+
+	@Test
+	public void testGetLeftHeaderColumn() throws URISyntaxException {
+		ReqIf reqif = getTestReqif("simple.reqif");
+		Specification specification = reqif.getCoreContent()
+				.getSpecifications().get(0);
+		Column leftHeaderColumn = ConfigurationUtil.getLeftHeaderColumn(specification, editingDomain);
+		assertNotNull(leftHeaderColumn);
+	}
+
 }
