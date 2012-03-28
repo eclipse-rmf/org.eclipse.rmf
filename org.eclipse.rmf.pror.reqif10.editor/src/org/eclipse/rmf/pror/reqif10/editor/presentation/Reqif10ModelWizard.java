@@ -59,6 +59,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
+import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
@@ -274,8 +275,10 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		prorSpecViewConfiguration.getColumns().add(col);
 
 		Column leftHeaderColumn = ConfigFactory.eINSTANCE.createColumn();
-		leftHeaderColumn.setWidth(50);
-		leftHeaderColumn.setLabel("Left Header Column");
+		leftHeaderColumn
+				.setWidth(ConfigurationUtil.DEFAULT_LEFT_HEADER_COLUMN_WIDTH);
+		leftHeaderColumn
+				.setLabel(ConfigurationUtil.DEFAULT_LEFT_HEADER_COLUMN_NAME);
 		prorSpecViewConfiguration.setLeftHeaderColumn(leftHeaderColumn);
 
 		// Configure the Label configuration

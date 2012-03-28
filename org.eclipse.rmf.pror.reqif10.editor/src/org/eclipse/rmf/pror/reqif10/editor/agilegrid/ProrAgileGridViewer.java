@@ -306,8 +306,9 @@ public class ProrAgileGridViewer extends Viewer {
 			public void columnResized(int col, int newWidth) {
 				// If the column index is -1 we resized the very first column,
 				// otherwise we resized a normal column
-				Column column = (col == -1) ? specViewConfig
-						.getLeftHeaderColumn() : specViewConfig.getColumns()
+				Column column = (col == -1) ? ConfigurationUtil
+						.getLeftHeaderColumn(specification, editingDomain)
+						: specViewConfig.getColumns()
 						.get(col);
 				if (column != null) {
 					Command cmd = SetCommand.create(editingDomain, column,
@@ -455,7 +456,8 @@ public class ProrAgileGridViewer extends Viewer {
 	 */
 	private void updateColumnInformation() {
 		EList<Column> cols = specViewConfig.getColumns();
-		Column leftHeaderColumn = specViewConfig.getLeftHeaderColumn();
+		Column leftHeaderColumn = ConfigurationUtil.getLeftHeaderColumn(
+				specification, editingDomain);
 		// Handle first column
 		if (leftHeaderColumn != null)
 			agileGrid.getLayoutAdvisor().setLeftHeaderWidth(

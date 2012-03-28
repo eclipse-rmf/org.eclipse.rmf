@@ -47,6 +47,9 @@ import org.eclipse.rmf.reqif10.util.Reqif10Util;
 
 public class ConfigurationUtil {
 	
+	public static final String DEFAULT_LEFT_HEADER_COLUMN_NAME = "Lead Header Column";
+	public static final int DEFAULT_LEFT_HEADER_COLUMN_WIDTH = 50;
+
 	/**
 	 * @return The Configuration element for the given
 	 *         {@link DatatypeDefinition} or null if none is configured.
@@ -150,7 +153,31 @@ public class ConfigurationUtil {
 						extension));		
 		return extension;
 	}
-	
+
+	/**
+	 * Returns the left header {@link Column} (which shows the hierarchy level)
+	 * associated with this {@link Specification}. If it doesn't exist yet, it
+	 * is created.
+	 */
+	public static Column getLeftHeaderColumn(Specification specification,
+			EditingDomain domain) {
+
+		ProrSpecViewConfiguration specViewConfiguration = getSpecViewConfiguration(
+				specification, domain);
+
+		Column leftHeaderColumn = specViewConfiguration.getLeftHeaderColumn();
+
+		if (leftHeaderColumn == null) {
+			leftHeaderColumn = ConfigFactory.eINSTANCE.createColumn();
+			leftHeaderColumn.setLabel(DEFAULT_LEFT_HEADER_COLUMN_NAME);
+			leftHeaderColumn.setWidth(DEFAULT_LEFT_HEADER_COLUMN_WIDTH);
+			specViewConfiguration.setLeftHeaderColumn(leftHeaderColumn);
+		}
+
+		return leftHeaderColumn;
+
+	}
+
 	/**
 	 * Finds the best labels, according to what is set in the preferences.
 	 * 
@@ -217,10 +244,10 @@ public class ConfigurationUtil {
 	 * Retrieves the {@link ProrSpecViewConfiguration} for the given
 	 * {@link Specification}. If none exists, it is built. The builder collects
 	 * all attribute names of all SpecObjects and creates corresponding columns.
-	 * <p>
 	 */
 	public static ProrSpecViewConfiguration getSpecViewConfiguration(
 			Specification specification, EditingDomain domain) {
+
 		ProrToolExtension extension = getProrToolExtension(Reqif10Util.getReqIf(specification), domain);
 	
 		EList<ProrSpecViewConfiguration> configs = extension
@@ -277,6 +304,7 @@ public class ConfigurationUtil {
 										specViewConfig));
 
 		return specViewConfig;
+
 	}
 
 	public static ProrPresentationConfiguration getPresentationConfig(AttributeValue value, EditingDomain domain) {
