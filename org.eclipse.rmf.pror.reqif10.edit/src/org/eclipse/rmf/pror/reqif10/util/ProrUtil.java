@@ -686,4 +686,33 @@ public final class ProrUtil {
 		}
 	}
 
+	
+	/**
+	 * Helper function for drag and drop operations:
+	 * Tests if the element source may be dropped onto the target object.
+	 * 
+	 * @param source
+	 * @param target
+	 * @return true if the drop should be accepted, false otherwise
+	 */
+	public static boolean isValidDrop(SpecHierarchy source, Object target) {
+			if (source == target){
+				return false;
+			}
+			
+			if (source.getChildren().contains(target)){
+				return false;
+			}
+			
+			for (EObject child : source.getChildren()) {
+				if (child instanceof SpecHierarchy){
+					if (!isValidDrop((SpecHierarchy) child, target)){
+						return false;
+					}
+				}
+			}
+			
+			return true;
+	}
+
 }

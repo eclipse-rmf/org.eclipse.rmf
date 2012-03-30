@@ -22,6 +22,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
@@ -376,6 +377,18 @@ public class SpecHierarchyItemProvider extends
 			Object owner, float location, int operations, int operation,
 			Collection<?> collection) {
 
+		for (Object obj : collection) {
+			if (obj instanceof SpecHierarchy) {
+				SpecHierarchy specHierarchy = (SpecHierarchy) obj;
+				
+				if (!ProrUtil.isValidDrop(specHierarchy, owner)){
+					return UnexecutableCommand.INSTANCE;
+				}
+								
+			}
+		}
+		
+		
 		Command cmd = ProrUtil.getPresentationHandleDragAndDropCommand(domain, owner, location,
 				operations, operation, collection);
 		if (cmd != null)
