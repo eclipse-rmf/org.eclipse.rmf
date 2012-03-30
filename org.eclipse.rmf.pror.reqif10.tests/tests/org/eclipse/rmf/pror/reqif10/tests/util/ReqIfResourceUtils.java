@@ -27,7 +27,7 @@ import org.eclipse.rmf.reqif10.ReqIf;
 public class ReqIfResourceUtils {
 
 	private static IWorkspace workspace = ResourcesPlugin.getWorkspace();
-	
+
 	public static ReqIf createReqIfPlatformResorce(IProject project, String fileName,
 			String contents, EditingDomain editingDomain)
 			throws Exception {
