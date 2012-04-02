@@ -17,11 +17,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -30,22 +26,19 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.ReqIf} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueXhtml} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ReqIfItemProvider
-	extends ItemProviderAdapter
+public class AttributeValueXHTMLItemProvider
+	extends AttributeValueItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -58,7 +51,7 @@ public class ReqIfItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ReqIfItemProvider(AdapterFactory adapterFactory) {
+	public AttributeValueXHTMLItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -73,29 +66,52 @@ public class ReqIfItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLangPropertyDescriptor(object);
+			addSimplifiedPropertyDescriptor(object);
+			addDefinitionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Lang feature.
+	 * This adds a property descriptor for the Simplified feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLangPropertyDescriptor(Object object) {
+	protected void addSimplifiedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReqIf_lang_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIf_lang_feature", "_UI_ReqIf_type"),
-				 ReqIF10Package.Literals.REQ_IF__LANG,
+				 getString("_UI_AttributeValueXHTML_simplified_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueXHTML_simplified_feature", "_UI_AttributeValueXHTML_type"),
+				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Definition feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDefinitionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AttributeValueXHTML_definition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueXHTML_definition_feature", "_UI_AttributeValueXHTML_type"),
+				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__DEFINITION,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -112,9 +128,8 @@ public class ReqIfItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ReqIF10Package.Literals.REQ_IF__THE_HEADER);
-			childrenFeatures.add(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS);
-			childrenFeatures.add(ReqIF10Package.Literals.REQ_IF__CORE_CONTENT);
+			childrenFeatures.add(ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE);
+			childrenFeatures.add(ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -133,21 +148,6 @@ public class ReqIfItemProvider
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReqIf.png"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,31 +155,28 @@ public class ReqIfItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ReqIf)object).getLang();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ReqIf_type") :
-			getString("_UI_ReqIf_type") + " " + label;
+		AttributeValueXHTML attributeValueXHTML = (AttributeValueXHTML)object;
+		return getString("_UI_AttributeValueXHTML_type") + " " + attributeValueXHTML.isSimplified();
 	}
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
+	 * We always notify super.notifyChanged as well
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ReqIf.class)) {
-			case ReqIF10Package.REQ_IF__LANG:
+		switch (notification.getFeatureID(AttributeValueXHTML.class)) {
+			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case ReqIF10Package.REQ_IF__TOOL_EXTENSIONS:
-			case ReqIF10Package.REQ_IF__CORE_CONTENT:
+			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE:
+			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -197,29 +194,36 @@ public class ReqIfItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
-				 ReqIF10Factory.eINSTANCE.createReqIfToolExtension()));
+				(ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE,
+				 ReqIF10Factory.eINSTANCE.createXhtmlContent()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
-				 ConfigFactory.eINSTANCE.createProrToolExtension()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF__CORE_CONTENT,
-				 ReqIF10Factory.eINSTANCE.createReqIfContent()));
+				(ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE,
+				 ReqIF10Factory.eINSTANCE.createXhtmlContent()));
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources.
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator() {
-		return Reqif10EditPlugin.INSTANCE;
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE ||
+			childFeature == ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

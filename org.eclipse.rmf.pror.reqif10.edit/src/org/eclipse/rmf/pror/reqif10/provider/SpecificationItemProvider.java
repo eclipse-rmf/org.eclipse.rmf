@@ -38,9 +38,9 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.ReqIfContent;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
@@ -138,16 +138,6 @@ public class SpecificationItemProvider
 		return super.getChildFeature(object, child);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Specification.png"));
@@ -231,7 +221,7 @@ public class SpecificationItemProvider
 			EObject owner, EStructuralFeature feature, Object value, int index,
 			Collection<?> collection) {
 		if (value instanceof SpecType) {
-			ReqIfContent content = ReqIF10Util.getReqIF(owner).getCoreContent();
+			ReqIFContent content = ReqIF10Util.getReqIF(owner).getCoreContent();
 			SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 			SpecHierarchy specHierarchy = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
 			
@@ -269,14 +259,14 @@ public class SpecificationItemProvider
 	
 	/**
 	 * Use the virtual intermediate provider as the parent, rather than
-	 * {@link ReqIfContentItemProvider}.
+	 * {@link ReqIFContentItemProvider}.
 	 */
 	@Override
 	public Object getParent(Object object) {
-		ReqIfContent content = ((ReqIfContent) super.getParent(object));
+		ReqIFContent content = ((ReqIFContent) super.getParent(object));
 		if (content == null)
 			return null;
-		ReqIfContentItemProvider reqifProvider = (ReqIfContentItemProvider) ProrUtil
+		ReqIFContentItemProvider reqifProvider = (ReqIFContentItemProvider) ProrUtil
 				.getItemProvider(adapterFactory, content);
 		return reqifProvider != null ? reqifProvider
 				.getVirtualSpecifications(content) : null;

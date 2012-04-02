@@ -31,7 +31,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
@@ -89,7 +89,7 @@ public class LabelConfigurationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LabelConfiguration_defaultLabel_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LabelConfiguration_defaultLabel_feature", "_UI_LabelConfiguration_type"),
-				 ConfigPackage.Literals.LABEL_CONFIGURATION__DEFAULT_LABEL,
+				 ConfigurationPackage.Literals.LABEL_CONFIGURATION__DEFAULT_LABEL,
 				 true,
 				 false,
 				 false,
@@ -138,7 +138,7 @@ public class LabelConfigurationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LabelConfiguration.class)) {
-			case ConfigPackage.LABEL_CONFIGURATION__DEFAULT_LABEL:
+			case ConfigurationPackage.LABEL_CONFIGURATION__DEFAULT_LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				
 				// Find the specElement
@@ -147,7 +147,7 @@ public class LabelConfigurationItemProvider
 				if (parent instanceof ProrGeneralConfiguration) {
 					parent.eNotify(new ENotificationImpl(
 							parent, ENotificationImpl.SET,
-							ConfigPackage.Literals.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION,
+							ConfigurationPackage.Literals.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION,
 							notification.getNotifier(), notification.getNotifier()));
 				}
 				return;

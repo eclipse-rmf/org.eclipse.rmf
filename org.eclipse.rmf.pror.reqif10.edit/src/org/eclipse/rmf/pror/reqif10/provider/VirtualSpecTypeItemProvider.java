@@ -15,9 +15,9 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.rmf.reqif10.ReqIfContent;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecType;
 
 /**
@@ -29,7 +29,7 @@ public class VirtualSpecTypeItemProvider extends
 		TransientReqIFItemProvider {
 
 	public VirtualSpecTypeItemProvider(AdapterFactory adapterFactory,
-			ReqIfContent content) {
+			ReqIFContent content) {
 		super(adapterFactory, content);
 	}
 

@@ -12,6 +12,7 @@
 package org.eclipse.rmf.pror.reqif10.provider;
 
 
+import java.math.BigInteger;
 import java.util.Collection;
 import java.util.List;
 
@@ -119,16 +120,6 @@ public class EmbeddedValueItemProvider
 				 null));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/EmbeddedValue.png"));
@@ -142,7 +133,7 @@ public class EmbeddedValueItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((EmbeddedValue)object).getKey();
+		BigInteger labelValue = ((EmbeddedValue)object).getKey();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_EmbeddedValue_type") :

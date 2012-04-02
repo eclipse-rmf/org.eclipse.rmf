@@ -23,8 +23,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
@@ -146,7 +146,7 @@ public class ConfigurationUtil {
 	public static ProrToolExtension getProrToolExtension(ReqIF reqif, EditingDomain domain) {
 		ProrToolExtension extension = getProrToolExtension(reqif);
 		if (extension != null) return extension;
-		extension = ConfigFactory.eINSTANCE.createProrToolExtension();
+		extension = ConfigurationFactory.eINSTANCE.createProrToolExtension();
 		domain.getCommandStack().execute(
 				AddCommand.create(domain, reqif,
 						ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
@@ -258,7 +258,7 @@ public class ConfigurationUtil {
 		}
 	
 		// None found, let's build a new one that includes all attribute names.
-		ProrSpecViewConfiguration specViewConfig = ConfigFactory.eINSTANCE
+		ProrSpecViewConfiguration specViewConfig = ConfigurationFactory.eINSTANCE
 				.createProrSpecViewConfiguration();
 		specViewConfig.setSpecification(specification);
 		
@@ -289,7 +289,7 @@ public class ConfigurationUtil {
 		
 		// Build all Columns from the names
 		for (String colname : colnames) {
-			Column column = ConfigFactory.eINSTANCE.createColumn();
+			Column column = ConfigurationFactory.eINSTANCE.createColumn();
 			column.setWidth(100);
 			column.setLabel(colname);
 			specViewConfig.getColumns().add(column);
@@ -299,7 +299,7 @@ public class ConfigurationUtil {
 						AddCommand
 								.create(domain,
 										extension,
-										ConfigPackage.Literals.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS,
+										ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS,
 										specViewConfig));
 
 		return specViewConfig;

@@ -20,7 +20,6 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.Disposable;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -29,7 +28,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.rmf.reqif10.util.Reqif10AdapterFactory;
+import org.eclipse.rmf.pror.reqif10.datatypes.provider.XhtmlContentItemProvider;
+import org.eclipse.rmf.reqif10.util.ReqIF10AdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -40,7 +40,7 @@ import org.eclipse.rmf.reqif10.util.Reqif10AdapterFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class Reqif10ItemProviderAdapterFactory extends Reqif10AdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -58,14 +58,6 @@ public class Reqif10ItemProviderAdapterFactory extends Reqif10AdapterFactory imp
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
 	/**
-	 * This keeps track of all the item providers created, so that they can be {@link #dispose disposed}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Disposable disposable = new Disposable();
-
-	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -79,7 +71,7 @@ public class Reqif10ItemProviderAdapterFactory extends Reqif10AdapterFactory imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reqif10ItemProviderAdapterFactory() {
+	public ReqIF10ItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
@@ -88,129 +80,141 @@ public class Reqif10ItemProviderAdapterFactory extends Reqif10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.AttributeValueXhtml} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.AttributeValueXHTML} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AttributeValueXhtmlItemProvider attributeValueXhtmlItemProvider;
+	protected AttributeValueXHTMLItemProvider attributeValueXHTMLItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.AttributeValueXhtml}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.AttributeValueXHTML}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAttributeValueXhtmlAdapter() {
-		if (attributeValueXhtmlItemProvider == null) {
-			attributeValueXhtmlItemProvider = new AttributeValueXhtmlItemProvider(this);
+	public Adapter createAttributeValueXHTMLAdapter() {
+		if (attributeValueXHTMLItemProvider == null) {
+			attributeValueXHTMLItemProvider = new AttributeValueXHTMLItemProvider(this);
 		}
 
-		return attributeValueXhtmlItemProvider;
+		return attributeValueXHTMLItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.AttributeDefinitionXhtml} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.AttributeDefinitionXHTML} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AttributeDefinitionXhtmlItemProvider attributeDefinitionXhtmlItemProvider;
+	protected AttributeDefinitionXHTMLItemProvider attributeDefinitionXHTMLItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.AttributeDefinitionXhtml}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.AttributeDefinitionXHTML}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAttributeDefinitionXhtmlAdapter() {
-		if (attributeDefinitionXhtmlItemProvider == null) {
-			attributeDefinitionXhtmlItemProvider = new AttributeDefinitionXhtmlItemProvider(this);
+	public Adapter createAttributeDefinitionXHTMLAdapter() {
+		if (attributeDefinitionXHTMLItemProvider == null) {
+			attributeDefinitionXHTMLItemProvider = new AttributeDefinitionXHTMLItemProvider(this);
 		}
 
-		return attributeDefinitionXhtmlItemProvider;
+		return attributeDefinitionXHTMLItemProvider;
 	}
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.ReqIfContent}.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.ReqIFContent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ReqIFContentItemProvider reqIFContentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.ReqIFContent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createReqIfContentAdapter() {
-		return new ReqIfContentItemProvider(this);
+	public Adapter createReqIFContentAdapter() {
+		if (reqIFContentItemProvider == null) {
+			reqIFContentItemProvider = new ReqIFContentItemProvider(this);
+		}
+
+		return reqIFContentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.ReqIf} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.ReqIF} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ReqIfItemProvider reqIfItemProvider;
+	protected ReqIFItemProvider reqIFItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.ReqIf}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.ReqIF}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createReqIfAdapter() {
-		if (reqIfItemProvider == null) {
-			reqIfItemProvider = new ReqIfItemProvider(this);
+	public Adapter createReqIFAdapter() {
+		if (reqIFItemProvider == null) {
+			reqIFItemProvider = new ReqIFItemProvider(this);
 		}
 
-		return reqIfItemProvider;
+		return reqIFItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.ReqIfHeader} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.ReqIFHeader} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ReqIfHeaderItemProvider reqIfHeaderItemProvider;
+	protected ReqIFHeaderItemProvider reqIFHeaderItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.ReqIfHeader}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.ReqIFHeader}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createReqIfHeaderAdapter() {
-		if (reqIfHeaderItemProvider == null) {
-			reqIfHeaderItemProvider = new ReqIfHeaderItemProvider(this);
+	public Adapter createReqIFHeaderAdapter() {
+		if (reqIFHeaderItemProvider == null) {
+			reqIFHeaderItemProvider = new ReqIFHeaderItemProvider(this);
 		}
 
-		return reqIfHeaderItemProvider;
+		return reqIFHeaderItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.ReqIfToolExtension} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.ReqIFToolExtension} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ReqIfToolExtensionItemProvider reqIfToolExtensionItemProvider;
+	protected ReqIFToolExtensionItemProvider reqIFToolExtensionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.ReqIfToolExtension}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.ReqIFToolExtension}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createReqIfToolExtensionAdapter() {
-		if (reqIfToolExtensionItemProvider == null) {
-			reqIfToolExtensionItemProvider = new ReqIfToolExtensionItemProvider(this);
+	public Adapter createReqIFToolExtensionAdapter() {
+		if (reqIFToolExtensionItemProvider == null) {
+			reqIFToolExtensionItemProvider = new ReqIFToolExtensionItemProvider(this);
 		}
 
-		return reqIfToolExtensionItemProvider;
+		return reqIFToolExtensionItemProvider;
 	}
 
 	/**
@@ -421,49 +425,49 @@ public class Reqif10ItemProviderAdapterFactory extends Reqif10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.DatatypeDefinitionXhtml} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.DatatypeDefinitionXHTML} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DatatypeDefinitionXhtmlItemProvider datatypeDefinitionXhtmlItemProvider;
+	protected DatatypeDefinitionXHTMLItemProvider datatypeDefinitionXHTMLItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.DatatypeDefinitionXhtml}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.DatatypeDefinitionXHTML}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDatatypeDefinitionXhtmlAdapter() {
-		if (datatypeDefinitionXhtmlItemProvider == null) {
-			datatypeDefinitionXhtmlItemProvider = new DatatypeDefinitionXhtmlItemProvider(this);
+	public Adapter createDatatypeDefinitionXHTMLAdapter() {
+		if (datatypeDefinitionXHTMLItemProvider == null) {
+			datatypeDefinitionXHTMLItemProvider = new DatatypeDefinitionXHTMLItemProvider(this);
 		}
 
-		return datatypeDefinitionXhtmlItemProvider;
+		return datatypeDefinitionXHTMLItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.AlternativeId} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.AlternativeID} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AlternativeIdItemProvider alternativeIdItemProvider;
+	protected AlternativeIDItemProvider alternativeIDItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.AlternativeId}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.AlternativeID}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAlternativeIdAdapter() {
-		if (alternativeIdItemProvider == null) {
-			alternativeIdItemProvider = new AlternativeIdItemProvider(this);
+	public Adapter createAlternativeIDAdapter() {
+		if (alternativeIDItemProvider == null) {
+			alternativeIDItemProvider = new AlternativeIDItemProvider(this);
 		}
 
-		return alternativeIdItemProvider;
+		return alternativeIDItemProvider;
 	}
 
 	/**
@@ -927,6 +931,29 @@ public class Reqif10ItemProviderAdapterFactory extends Reqif10AdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.XhtmlContent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XhtmlContentItemProvider xhtmlContentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.XhtmlContent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXhtmlContentAdapter() {
+		if (xhtmlContentItemProvider == null) {
+			xhtmlContentItemProvider = new XhtmlContentItemProvider(this);
+		}
+
+		return xhtmlContentItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -985,20 +1012,6 @@ public class Reqif10ItemProviderAdapterFactory extends Reqif10AdapterFactory imp
 	}
 
 	/**
-	 * Associates an adapter with a notifier via the base implementation, then records it to ensure it will be disposed.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected void associate(Adapter adapter, Notifier target) {
-		super.associate(adapter, target);
-		if (adapter != null) {
-			disposable.add(adapter);
-		}
-	}
-
-	/**
 	 * This adds a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1039,7 +1052,44 @@ public class Reqif10ItemProviderAdapterFactory extends Reqif10AdapterFactory imp
 	 * @generated
 	 */
 	public void dispose() {
-		disposable.dispose();
+		if (attributeValueXHTMLItemProvider != null) attributeValueXHTMLItemProvider.dispose();
+		if (attributeDefinitionXHTMLItemProvider != null) attributeDefinitionXHTMLItemProvider.dispose();
+		if (reqIFContentItemProvider != null) reqIFContentItemProvider.dispose();
+		if (reqIFItemProvider != null) reqIFItemProvider.dispose();
+		if (reqIFHeaderItemProvider != null) reqIFHeaderItemProvider.dispose();
+		if (reqIFToolExtensionItemProvider != null) reqIFToolExtensionItemProvider.dispose();
+		if (specObjectItemProvider != null) specObjectItemProvider.dispose();
+		if (specObjectTypeItemProvider != null) specObjectTypeItemProvider.dispose();
+		if (specificationItemProvider != null) specificationItemProvider.dispose();
+		if (specificationTypeItemProvider != null) specificationTypeItemProvider.dispose();
+		if (specHierarchyItemProvider != null) specHierarchyItemProvider.dispose();
+		if (specRelationItemProvider != null) specRelationItemProvider.dispose();
+		if (specRelationTypeItemProvider != null) specRelationTypeItemProvider.dispose();
+		if (relationGroupItemProvider != null) relationGroupItemProvider.dispose();
+		if (relationGroupTypeItemProvider != null) relationGroupTypeItemProvider.dispose();
+		if (datatypeDefinitionXHTMLItemProvider != null) datatypeDefinitionXHTMLItemProvider.dispose();
+		if (alternativeIDItemProvider != null) alternativeIDItemProvider.dispose();
+		if (attributeDefinitionBooleanItemProvider != null) attributeDefinitionBooleanItemProvider.dispose();
+		if (datatypeDefinitionBooleanItemProvider != null) datatypeDefinitionBooleanItemProvider.dispose();
+		if (attributeValueBooleanItemProvider != null) attributeValueBooleanItemProvider.dispose();
+		if (attributeDefinitionDateItemProvider != null) attributeDefinitionDateItemProvider.dispose();
+		if (datatypeDefinitionDateItemProvider != null) datatypeDefinitionDateItemProvider.dispose();
+		if (attributeValueDateItemProvider != null) attributeValueDateItemProvider.dispose();
+		if (attributeDefinitionEnumerationItemProvider != null) attributeDefinitionEnumerationItemProvider.dispose();
+		if (datatypeDefinitionEnumerationItemProvider != null) datatypeDefinitionEnumerationItemProvider.dispose();
+		if (enumValueItemProvider != null) enumValueItemProvider.dispose();
+		if (embeddedValueItemProvider != null) embeddedValueItemProvider.dispose();
+		if (attributeValueEnumerationItemProvider != null) attributeValueEnumerationItemProvider.dispose();
+		if (attributeDefinitionIntegerItemProvider != null) attributeDefinitionIntegerItemProvider.dispose();
+		if (datatypeDefinitionIntegerItemProvider != null) datatypeDefinitionIntegerItemProvider.dispose();
+		if (attributeValueIntegerItemProvider != null) attributeValueIntegerItemProvider.dispose();
+		if (attributeDefinitionRealItemProvider != null) attributeDefinitionRealItemProvider.dispose();
+		if (datatypeDefinitionRealItemProvider != null) datatypeDefinitionRealItemProvider.dispose();
+		if (attributeValueRealItemProvider != null) attributeValueRealItemProvider.dispose();
+		if (attributeDefinitionStringItemProvider != null) attributeDefinitionStringItemProvider.dispose();
+		if (datatypeDefinitionStringItemProvider != null) datatypeDefinitionStringItemProvider.dispose();
+		if (attributeValueStringItemProvider != null) attributeValueStringItemProvider.dispose();
+		if (xhtmlContentItemProvider != null) xhtmlContentItemProvider.dispose();
 	}
 
 }

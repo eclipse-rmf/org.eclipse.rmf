@@ -37,12 +37,12 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.ReqIfContent;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
-import org.eclipse.rmf.reqif10.util.Reqif10Switch;
+import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
 import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 /**
@@ -107,16 +107,6 @@ public class SpecObjectItemProvider
 			(new ItemPropertyDescriptorDecorator(object, descriptor));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/SpecObject.png"));
@@ -166,7 +156,7 @@ public class SpecObjectItemProvider
 		if (specObject == null)
 			return;
 
-		final Reqif10Switch<SpecHierarchy> visitor = new Reqif10Switch<SpecHierarchy>() {
+		final ReqIF10Switch<SpecHierarchy> visitor = new ReqIF10Switch<SpecHierarchy>() {
 			@Override
 			public SpecHierarchy caseSpecHierarchy(SpecHierarchy specHierarchy) {
 				if (specObject.equals(specHierarchy.getObject())) {
@@ -179,7 +169,7 @@ public class SpecObjectItemProvider
 			}
 		};
 
-		ReqIf reqif = ReqIF10Util.getReqIF(specObject);
+		ReqIF reqif = ReqIF10Util.getReqIF(specObject);
 		if (reqif != null) {
 			for (TreeIterator<Object> i = EcoreUtil.getAllContents(reqif
 					.getCoreContent().getSpecifications(), true); i.hasNext();) {
@@ -207,12 +197,12 @@ public class SpecObjectItemProvider
 	
 	/**
 	 * Use the virtual intermediate provider as the parent, rather than
-	 * {@link ReqIfContentItemProvider}.
+	 * {@link ReqIFContentItemProvider}.
 	 */
 	@Override
 	public Object getParent(Object object) {
-		ReqIfContent content = ((ReqIfContent) super.getParent(object));
-		ReqIfContentItemProvider reqifContentProvider = (ReqIfContentItemProvider) ProrUtil
+		ReqIFContent content = ((ReqIFContent) super.getParent(object));
+		ReqIFContentItemProvider reqifContentProvider = (ReqIFContentItemProvider) ProrUtil
 				.getItemProvider(adapterFactory, content);
 		return reqifContentProvider != null ? reqifContentProvider
 				.getVirtualSpecObjects(content) : null;

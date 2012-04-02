@@ -17,9 +17,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -30,9 +28,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.eclipse.rmf.reqif10.ReqIfHeader;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFHeader;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.ReqIfHeader} object.
@@ -40,7 +37,7 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ReqIfHeaderItemProvider
+public class ReqIFHeaderItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -54,7 +51,7 @@ public class ReqIfHeaderItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ReqIfHeaderItemProvider(AdapterFactory adapterFactory) {
+	public ReqIFHeaderItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -73,8 +70,8 @@ public class ReqIfHeaderItemProvider
 			addCreationTimePropertyDescriptor(object);
 			addIdentifierPropertyDescriptor(object);
 			addRepositoryIdPropertyDescriptor(object);
-			addReqIfToolIdPropertyDescriptor(object);
-			addReqIfVersionPropertyDescriptor(object);
+			addReqIFToolIdPropertyDescriptor(object);
+			addReqIFVersionPropertyDescriptor(object);
 			addSourceToolIdPropertyDescriptor(object);
 			addTitlePropertyDescriptor(object);
 		}
@@ -92,8 +89,8 @@ public class ReqIfHeaderItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReqIfHeader_comment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_comment_feature", "_UI_ReqIfHeader_type"),
+				 getString("_UI_ReqIFHeader_comment_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_comment_feature", "_UI_ReqIFHeader_type"),
 				 ReqIF10Package.Literals.REQ_IF_HEADER__COMMENT,
 				 true,
 				 false,
@@ -114,8 +111,8 @@ public class ReqIfHeaderItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReqIfHeader_creationTime_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_creationTime_feature", "_UI_ReqIfHeader_type"),
+				 getString("_UI_ReqIFHeader_creationTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_creationTime_feature", "_UI_ReqIFHeader_type"),
 				 ReqIF10Package.Literals.REQ_IF_HEADER__CREATION_TIME,
 				 true,
 				 false,
@@ -136,8 +133,8 @@ public class ReqIfHeaderItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReqIfHeader_identifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_identifier_feature", "_UI_ReqIfHeader_type"),
+				 getString("_UI_ReqIFHeader_identifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_identifier_feature", "_UI_ReqIFHeader_type"),
 				 ReqIF10Package.Literals.REQ_IF_HEADER__IDENTIFIER,
 				 true,
 				 false,
@@ -158,8 +155,8 @@ public class ReqIfHeaderItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReqIfHeader_repositoryId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_repositoryId_feature", "_UI_ReqIfHeader_type"),
+				 getString("_UI_ReqIFHeader_repositoryId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_repositoryId_feature", "_UI_ReqIFHeader_type"),
 				 ReqIF10Package.Literals.REQ_IF_HEADER__REPOSITORY_ID,
 				 true,
 				 false,
@@ -170,18 +167,18 @@ public class ReqIfHeaderItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Req If Tool Id feature.
+	 * This adds a property descriptor for the Req IF Tool Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReqIfToolIdPropertyDescriptor(Object object) {
+	protected void addReqIFToolIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReqIfHeader_reqIfToolId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_reqIfToolId_feature", "_UI_ReqIfHeader_type"),
+				 getString("_UI_ReqIFHeader_reqIFToolId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_reqIFToolId_feature", "_UI_ReqIFHeader_type"),
 				 ReqIF10Package.Literals.REQ_IF_HEADER__REQ_IF_TOOL_ID,
 				 true,
 				 false,
@@ -192,18 +189,18 @@ public class ReqIfHeaderItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Req If Version feature.
+	 * This adds a property descriptor for the Req IF Version feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReqIfVersionPropertyDescriptor(Object object) {
+	protected void addReqIFVersionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReqIfHeader_reqIfVersion_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_reqIfVersion_feature", "_UI_ReqIfHeader_type"),
+				 getString("_UI_ReqIFHeader_reqIFVersion_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_reqIFVersion_feature", "_UI_ReqIFHeader_type"),
 				 ReqIF10Package.Literals.REQ_IF_HEADER__REQ_IF_VERSION,
 				 true,
 				 false,
@@ -224,8 +221,8 @@ public class ReqIfHeaderItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReqIfHeader_sourceToolId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_sourceToolId_feature", "_UI_ReqIfHeader_type"),
+				 getString("_UI_ReqIFHeader_sourceToolId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_sourceToolId_feature", "_UI_ReqIFHeader_type"),
 				 ReqIF10Package.Literals.REQ_IF_HEADER__SOURCE_TOOL_ID,
 				 true,
 				 false,
@@ -246,8 +243,8 @@ public class ReqIfHeaderItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReqIfHeader_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIfHeader_title_feature", "_UI_ReqIfHeader_type"),
+				 getString("_UI_ReqIFHeader_title_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_title_feature", "_UI_ReqIFHeader_type"),
 				 ReqIF10Package.Literals.REQ_IF_HEADER__TITLE,
 				 true,
 				 false,
@@ -255,16 +252,6 @@ public class ReqIfHeaderItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	/**
@@ -283,10 +270,10 @@ public class ReqIfHeaderItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ReqIfHeader)object).getComment();
+		String label = ((ReqIFHeader)object).getComment();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ReqIfHeader_type") :
-			getString("_UI_ReqIfHeader_type") + " " + label;
+			getString("_UI_ReqIFHeader_type") :
+			getString("_UI_ReqIFHeader_type") + " " + label;
 	}
 
 	/**
@@ -300,7 +287,7 @@ public class ReqIfHeaderItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ReqIfHeader.class)) {
+		switch (notification.getFeatureID(ReqIFHeader.class)) {
 			case ReqIF10Package.REQ_IF_HEADER__COMMENT:
 			case ReqIF10Package.REQ_IF_HEADER__CREATION_TIME:
 			case ReqIF10Package.REQ_IF_HEADER__IDENTIFIER:

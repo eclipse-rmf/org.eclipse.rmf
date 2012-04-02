@@ -62,6 +62,7 @@ import org.eclipse.rmf.reqif10.AttributeValueReal;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
@@ -320,7 +321,7 @@ public final class ProrUtil {
 	 * @return
 	 */
 	public static CompoundCommand createAddTypedElementCommand(Object parent,
-			EReference childFeature, SpecElementWithAttributes newSpecElement,
+			EReference childFeature, Identifiable newSpecElement,
 			EReference typeFeature, SpecType specType, int index,
 			int resultIndex, EditingDomain domain, AdapterFactory adapterFactory) {
 

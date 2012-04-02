@@ -27,14 +27,15 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.RelationGroup;
-import org.eclipse.rmf.reqif10.ReqIfContent;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.RelationGroup} object.
  * <!-- begin-user-doc -->
+ * Extends different class
  * <!-- end-user-doc -->
- * @generated
+ * @generated NOT
  */
 public class RelationGroupItemProvider
 	extends SpecElementWithAttributesItemProvider
@@ -162,16 +163,6 @@ public class RelationGroupItemProvider
 				 null));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/RelationGroup.png"));
@@ -223,14 +214,14 @@ public class RelationGroupItemProvider
 	
 	/**
 	 * Use the virtual intermediate provider as the parent, rather than
-	 * {@link ReqIfContentItemProvider}.
+	 * {@link ReqIFContentItemProvider}.
 	 */
 	@Override
 	public Object getParent(Object object) {
-		ReqIfContent content = ((ReqIfContent) super.getParent(object));
+		ReqIFContent content = ((ReqIFContent) super.getParent(object));
 		if (content == null)
 			return null;
-		ReqIfContentItemProvider reqifProvider = (ReqIfContentItemProvider) ProrUtil
+		ReqIFContentItemProvider reqifProvider = (ReqIFContentItemProvider) ProrUtil
 				.getItemProvider(adapterFactory, content);
 		return reqifProvider != null ? reqifProvider
 				.getVirtualSpecRelationGroups(content) : null;

@@ -32,8 +32,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 
@@ -91,7 +91,7 @@ public class ProrSpecViewConfigurationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ProrSpecViewConfiguration_specification_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ProrSpecViewConfiguration_specification_feature", "_UI_ProrSpecViewConfiguration_type"),
-				 ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION,
+				 ConfigurationPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION,
 				 true,
 				 false,
 				 true,
@@ -112,7 +112,7 @@ public class ProrSpecViewConfigurationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS);
+			childrenFeatures.add(ConfigurationPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS);
 		}
 		return childrenFeatures;
 	}
@@ -191,8 +191,8 @@ public class ProrSpecViewConfigurationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
-				 ConfigFactory.eINSTANCE.createColumn()));
+				(ConfigurationPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
+				 ConfigurationFactory.eINSTANCE.createColumn()));
 	}
 
 	/**

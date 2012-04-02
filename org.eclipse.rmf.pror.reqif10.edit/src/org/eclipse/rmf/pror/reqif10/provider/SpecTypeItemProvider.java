@@ -34,16 +34,16 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.ReqIfContent;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.util.Reqif10Switch;
+import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
 import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 /**
@@ -109,16 +109,6 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 		return super.getChildFeature(object, child);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/SpecType.png"));
@@ -170,9 +160,9 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 	 */
 	private void notifyAllSpecElementWithAttributesTypeChange(
 			final SpecType specType, AdapterFactory adapterFactory) {
-		ReqIf reqif = ReqIF10Util.getReqIF(specType);
+		ReqIF reqif = ReqIF10Util.getReqIF(specType);
 		if (reqif != null) {
-			Reqif10Switch<SpecElementWithAttributes> visitor = new Reqif10Switch<SpecElementWithAttributes>() {
+			ReqIF10Switch<SpecElementWithAttributes> visitor = new ReqIF10Switch<SpecElementWithAttributes>() {
 
 				@Override
 				public SpecElementWithAttributes caseSpecObject(
@@ -224,7 +214,7 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 		newChildDescriptors.add
 			(createChildParameter
 				(ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
-				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionXhtml()));
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -310,12 +300,12 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 			final EditingDomain domain, final SpecType specType,
 			final Collection<?> newAttributeDefinitions) {
 		final CompoundCommand cmd = new CompoundCommand();
-		ReqIf reqif = ReqIF10Util.getReqIF(specType);
+		ReqIF reqif = ReqIF10Util.getReqIF(specType);
 		if (reqif == null) {
 			return cmd;
 		}
 
-		Reqif10Switch<?> visitor = new Reqif10Switch<SpecElementWithAttributes>() {
+		ReqIF10Switch<?> visitor = new ReqIF10Switch<SpecElementWithAttributes>() {
 			@SuppressWarnings("unchecked")
 			@Override
 			public SpecElementWithAttributes caseSpecElementWithAttributes(
@@ -340,14 +330,14 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 
 	/**
 	 * Use the virtual intermediate provider as the parent, rather than
-	 * {@link ReqIfContentItemProvider}.
+	 * {@link ReqIFContentItemProvider}.
 	 */
 	@Override
 	public Object getParent(Object object) {
-		ReqIfContent content = ((ReqIfContent) super.getParent(object));
+		ReqIFContent content = ((ReqIFContent) super.getParent(object));
 		if (content == null)
 			return null;
-		ReqIfContentItemProvider reqifProvider = (ReqIfContentItemProvider) ProrUtil
+		ReqIFContentItemProvider reqifProvider = (ReqIFContentItemProvider) ProrUtil
 				.getItemProvider(adapterFactory, content);
 		return reqifProvider != null ? reqifProvider
 				.getVirtualSpecTypes(content) : null;

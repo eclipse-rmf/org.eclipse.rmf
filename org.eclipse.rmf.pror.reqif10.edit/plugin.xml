@@ -21,7 +21,7 @@ Contributors:
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.omg.org/spec/ReqIF/20101201"
-            class="org.eclipse.rmf.pror.reqif10.provider.Reqif10ItemProviderAdapterFactory"
+            class="org.eclipse.rmf.pror.reqif10.provider.ReqIF10ItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

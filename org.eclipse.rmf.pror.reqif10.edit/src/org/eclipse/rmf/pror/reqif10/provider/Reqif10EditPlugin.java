@@ -12,7 +12,6 @@
 package org.eclipse.rmf.pror.reqif10.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**

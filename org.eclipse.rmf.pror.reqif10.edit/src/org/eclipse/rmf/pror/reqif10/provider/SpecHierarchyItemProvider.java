@@ -44,9 +44,9 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.ReqIfContent;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
@@ -115,30 +115,32 @@ public class SpecHierarchyItemProvider extends
 			itemPropertyDescriptors.addAll(specObjectItemProvider
 					.getPropertyDescriptors(specObject));
 		}
-		addIsTableInternalPropertyDescriptor(specHierarchy);
+		addTableInternalPropertyDescriptor(specHierarchy);
 		addObjectPropertyDescriptor(specHierarchy);
 		addEditableAttsPropertyDescriptor(specHierarchy);
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Table Internal feature. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds a property descriptor for the Table Internal feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsTableInternalPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_SpecHierarchy_isTableInternal_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_SpecHierarchy_isTableInternal_feature",
-						"_UI_SpecHierarchy_type"),
-				ReqIF10Package.Literals.SPEC_HIERARCHY__IS_TABLE_INTERNAL,
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				getString("_UI_SpecHierarchyPropertyCategory"), null));
+	protected void addTableInternalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SpecHierarchy_tableInternal_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SpecHierarchy_tableInternal_feature", "_UI_SpecHierarchy_type"),
+				 ReqIF10Package.Literals.SPEC_HIERARCHY__TABLE_INTERNAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -148,17 +150,19 @@ public class SpecHierarchyItemProvider extends
 	 * @generated
 	 */
 	protected void addObjectPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_SpecHierarchy_object_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_SpecHierarchy_object_feature",
-						"_UI_SpecHierarchy_type"),
-				ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT, true, false,
-				true, null, getString("_UI_SpecHierarchyPropertyCategory"),
-				null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SpecHierarchy_object_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SpecHierarchy_object_feature", "_UI_SpecHierarchy_type"),
+				 ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI_SpecHierarchyPropertyCategory"),
+				 null));
 	}
 
 	/**
@@ -168,27 +172,26 @@ public class SpecHierarchyItemProvider extends
 	 * @generated
 	 */
 	protected void addEditableAttsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_SpecHierarchy_editableAtts_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_SpecHierarchy_editableAtts_feature",
-						"_UI_SpecHierarchy_type"),
-				ReqIF10Package.Literals.SPEC_HIERARCHY__EDITABLE_ATTS, true,
-				false, true, null,
-				getString("_UI_SpecHierarchyPropertyCategory"), null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SpecHierarchy_editableAtts_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SpecHierarchy_editableAtts_feature", "_UI_SpecHierarchy_type"),
+				 ReqIF10Package.Literals.SPEC_HIERARCHY__EDITABLE_ATTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI_SpecHierarchyPropertyCategory"),
+				 null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to
-	 * deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand},
-	 * {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in
-	 * {@link #createCommand}. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -196,34 +199,21 @@ public class SpecHierarchyItemProvider extends
 			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN);
+			childrenFeatures.add(ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN);
 		}
 		return childrenFeatures;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper
-		// feature to use for
+		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	@Override
@@ -266,7 +256,7 @@ public class SpecHierarchyItemProvider extends
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SpecHierarchy.class)) {
-		case ReqIF10Package.SPEC_HIERARCHY__IS_TABLE_INTERNAL:
+		case ReqIF10Package.SPEC_HIERARCHY__TABLE_INTERNAL:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), false, true));
 			return;
@@ -332,7 +322,7 @@ public class SpecHierarchyItemProvider extends
 			EObject owner, EStructuralFeature feature, Object value, int index,
 			Collection<?> collection) {
 		if (value instanceof SpecType) {
-			ReqIfContent content = ReqIF10Util.getReqIF(owner).getCoreContent();
+			ReqIFContent content = ReqIF10Util.getReqIF(owner).getCoreContent();
 			SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 			SpecHierarchy specHierarchy = ReqIF10Factory.eINSTANCE
 					.createSpecHierarchy();

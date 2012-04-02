@@ -17,9 +17,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -30,7 +28,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipse.rmf.reqif10.AlternativeID;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
@@ -97,16 +94,6 @@ public class AlternativeIDItemProvider
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * Missing image to prevent {@link NullPointerException} when accidentally building a command.
 	 */
 	@Override
@@ -122,8 +109,7 @@ public class AlternativeIDItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((AlternativeID)object).getIdentifier();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((AlternativeID)object).getIdentifier();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AlternativeID_type") :
 			getString("_UI_AlternativeID_type") + " " + label;

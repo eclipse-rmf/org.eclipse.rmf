@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.ReqIfContent;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
@@ -34,7 +34,7 @@ public class VirtualSpecObjectItemProvider extends
 		TransientReqIFItemProvider {
 
 	public VirtualSpecObjectItemProvider(AdapterFactory adapterFactory,
-			ReqIfContent content) {
+			ReqIFContent content) {
 		super(adapterFactory, content);
 	}
 

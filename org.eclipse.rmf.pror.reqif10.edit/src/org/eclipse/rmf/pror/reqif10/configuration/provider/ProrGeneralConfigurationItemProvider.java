@@ -29,8 +29,8 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
@@ -91,7 +91,7 @@ public class ProrGeneralConfigurationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ConfigPackage.Literals.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION);
+			childrenFeatures.add(ConfigurationPackage.Literals.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION);
 		}
 		return childrenFeatures;
 	}
@@ -148,7 +148,7 @@ public class ProrGeneralConfigurationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ProrGeneralConfiguration.class)) {
-			case ConfigPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
+			case ConfigurationPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				ReqIF reqif = ReqIF10Util.getReqIF(notification.getNotifier());
 				if (reqif != null) {
@@ -185,8 +185,8 @@ public class ProrGeneralConfigurationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ConfigPackage.Literals.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION,
-				 ConfigFactory.eINSTANCE.createLabelConfiguration()));
+				(ConfigurationPackage.Literals.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION,
+				 ConfigurationFactory.eINSTANCE.createLabelConfiguration()));
 	}
 
 	/**

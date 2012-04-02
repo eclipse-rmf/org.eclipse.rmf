@@ -195,16 +195,6 @@ public class IdentifiableItemProvider
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * Missing image to prevent {@link NullPointerException} when accidentally building a command.
 	 */
 	@Override
@@ -265,7 +255,7 @@ public class IdentifiableItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ReqIF10Package.Literals.IDENTIFIABLE__ALTERNATIVE_ID,
-				 ReqIF10Factory.eINSTANCE.createAlternativeId()));
+				 ReqIF10Factory.eINSTANCE.createAlternativeID()));
 	}
 
 	/**

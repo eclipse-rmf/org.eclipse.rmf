@@ -31,7 +31,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 
@@ -90,7 +90,7 @@ public class ColumnItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Column_label_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Column_label_feature", "_UI_Column_type"),
-				 ConfigPackage.Literals.COLUMN__LABEL,
+				 ConfigurationPackage.Literals.COLUMN__LABEL,
 				 true,
 				 false,
 				 false,
@@ -112,7 +112,7 @@ public class ColumnItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Column_width_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Column_width_feature", "_UI_Column_type"),
-				 ConfigPackage.Literals.COLUMN__WIDTH,
+				 ConfigurationPackage.Literals.COLUMN__WIDTH,
 				 true,
 				 false,
 				 false,
@@ -161,19 +161,20 @@ public class ColumnItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		int featureID = notification.getFeatureID(Column.class);
-		if (featureID == ConfigPackage.COLUMN__LABEL
-				|| featureID == ConfigPackage.COLUMN__WIDTH) {
-			// inform the parent
-			InternalEObject parent = (InternalEObject) ((EObject) notification
-					.getNotifier()).eContainer();
-			if (parent instanceof ProrSpecViewConfiguration) {
-				parent.eNotify(new ENotificationImpl(
-						parent,
-						ENotificationImpl.SET,
-						ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
-						notification.getNotifier(), notification.getNotifier()));
-			}
+		switch (notification.getFeatureID(Column.class)) {
+			case ConfigurationPackage.COLUMN__LABEL:
+				// inform the parent
+				InternalEObject parent = (InternalEObject) ((EObject) notification
+						.getNotifier()).eContainer();
+				if (parent instanceof ProrSpecViewConfiguration) {
+					parent.eNotify(new ENotificationImpl(
+							parent, ENotificationImpl.SET,
+							ConfigurationPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
+							notification.getNotifier(), notification.getNotifier()));					
+				}
+			case ConfigurationPackage.COLUMN__WIDTH:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}

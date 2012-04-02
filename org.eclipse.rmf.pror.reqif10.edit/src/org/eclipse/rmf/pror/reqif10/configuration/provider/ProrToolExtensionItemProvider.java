@@ -30,10 +30,10 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
-import org.eclipse.rmf.pror.reqif10.provider.ReqIfToolExtensionItemProvider;
+import org.eclipse.rmf.pror.reqif10.provider.ReqIFToolExtensionItemProvider;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 
 
@@ -44,7 +44,7 @@ import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
  * @generated
  */
 public class ProrToolExtensionItemProvider
-	extends ReqIfToolExtensionItemProvider
+	extends ReqIFToolExtensionItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -88,9 +88,9 @@ public class ProrToolExtensionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ConfigPackage.Literals.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS);
-			childrenFeatures.add(ConfigPackage.Literals.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION);
-			childrenFeatures.add(ConfigPackage.Literals.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS);
+			childrenFeatures.add(ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS);
+			childrenFeatures.add(ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION);
+			childrenFeatures.add(ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -146,9 +146,9 @@ public class ProrToolExtensionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ProrToolExtension.class)) {
-			case ConfigPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS:
-			case ConfigPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION:
-			case ConfigPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -168,18 +168,18 @@ public class ProrToolExtensionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ConfigPackage.Literals.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS,
-				 ConfigFactory.eINSTANCE.createProrSpecViewConfiguration()));
+				(ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS,
+				 ConfigurationFactory.eINSTANCE.createProrSpecViewConfiguration()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ConfigPackage.Literals.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION,
-				 ConfigFactory.eINSTANCE.createProrGeneralConfiguration()));
+				(ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION,
+				 ConfigurationFactory.eINSTANCE.createProrGeneralConfiguration()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ConfigPackage.Literals.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS,
-				 ConfigFactory.eINSTANCE.createProrPresentationConfigurations()));
+				(ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS,
+				 ConfigurationFactory.eINSTANCE.createProrPresentationConfigurations()));
 	}
 
 	/**

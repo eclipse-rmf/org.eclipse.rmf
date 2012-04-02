@@ -16,9 +16,9 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
-import org.eclipse.rmf.reqif10.ReqIfContent;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 
 /**
  * Virtual node for grouping {@link DatatypeDefinition}s together.
@@ -28,7 +28,7 @@ public class VirtualDatatypeDefinitionItemProvider extends
 		TransientReqIFItemProvider {
 
 	public VirtualDatatypeDefinitionItemProvider(AdapterFactory adapterFactory,
-			ReqIfContent content) {
+			ReqIFContent content) {
 		super(adapterFactory, content);
 	}
 
@@ -82,7 +82,7 @@ public class VirtualDatatypeDefinitionItemProvider extends
 				ReqIF10Factory.eINSTANCE.createDatatypeDefinitionEnumeration()));
 		newChildDescriptors.add(createChildParameter(
 				ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				ReqIF10Factory.eINSTANCE.createDatatypeDefinitionXhtml()));
+				ReqIF10Factory.eINSTANCE.createDatatypeDefinitionXHTML()));
 	}
 
 }

@@ -30,7 +30,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 
@@ -88,7 +88,7 @@ public class ProrPresentationConfigurationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ProrPresentationConfiguration_datatype_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ProrPresentationConfiguration_datatype_feature", "_UI_ProrPresentationConfiguration_type"),
-				 ConfigPackage.Literals.PROR_PRESENTATION_CONFIGURATION__DATATYPE,
+				 ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATION__DATATYPE,
 				 true,
 				 false,
 				 true,
@@ -135,7 +135,7 @@ public class ProrPresentationConfigurationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ProrPresentationConfiguration.class)) {
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE:
+			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

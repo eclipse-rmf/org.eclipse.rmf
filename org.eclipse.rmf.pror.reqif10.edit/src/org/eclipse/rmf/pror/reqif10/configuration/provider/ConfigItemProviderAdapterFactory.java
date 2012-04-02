@@ -30,7 +30,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import org.eclipse.rmf.pror.reqif10.configuration.util.ConfigAdapterFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.util.ConfigurationAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -41,7 +41,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.util.ConfigAdapterFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConfigItemProviderAdapterFactory extends ConfigAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class ConfigItemProviderAdapterFactory extends ConfigurationAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->

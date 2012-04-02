@@ -87,7 +87,7 @@ public class AttributeValueRealItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -115,16 +115,6 @@ public class AttributeValueRealItemProvider
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,11 +122,8 @@ public class AttributeValueRealItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Double labelValue = ((AttributeValueReal)object).getTheValue();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AttributeValueReal_type") :
-			getString("_UI_AttributeValueReal_type") + " " + label;
+		AttributeValueReal attributeValueReal = (AttributeValueReal)object;
+		return getString("_UI_AttributeValueReal_type") + " " + attributeValueReal.getTheValue();
 	}
 
 	/**
