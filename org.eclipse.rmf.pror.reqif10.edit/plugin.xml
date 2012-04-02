@@ -30,17 +30,6 @@ Contributors:
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
-   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <factory
-            uri="http:///reqIf/datatypes.ecore"
-            class="org.eclipse.rmf.pror.reqif10.datatypes.provider.DatatypesItemProviderAdapterFactory"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
    <extension
          point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
