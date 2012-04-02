@@ -64,13 +64,14 @@ public class DatatypeDefinitionXHTMLItemProvider
 	}
 
 	/**
+	 * This returns DatatypeDefinitionXHTML.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DatatypeDefinitionXHTML"));
 	}
 
 	/**
