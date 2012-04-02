@@ -93,16 +93,15 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ConfigItemProviderAdapterFactory;
-import org.eclipse.rmf.pror.reqif10.datatypes.provider.DatatypesItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorManager;
 import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertySheetPage;
-import org.eclipse.rmf.pror.reqif10.provider.Reqif10ItemProviderAdapterFactory;
+import org.eclipse.rmf.pror.reqif10.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualDatatypeDefinitionItemProvider;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecTypeItemProvider;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
@@ -389,7 +388,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 	/**
 	 * The {@link ReqIf} that this editor shows.
 	 */
-	private ReqIf reqif;
+	private ReqIF reqif;
 
 	/**
 	 * Adapter used to update the problem indication when resources are demanded
@@ -688,9 +687,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		adapterFactory
 				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory
-				.addAdapterFactory(new Reqif10ItemProviderAdapterFactory());
-		adapterFactory
-				.addAdapterFactory(new DatatypesItemProviderAdapterFactory());
+				.addAdapterFactory(new ReqIF10ItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ConfigItemProviderAdapterFactory());
 		adapterFactory
@@ -1054,7 +1051,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 	 * @return {@link RIF}
 	 */
 
-	private ReqIf openReqif() {
+	private ReqIF openReqif() {
 		if (editingDomain.getResourceSet().getResources().isEmpty()) {
 			throw new IllegalArgumentException("ResourceSet is empty.");
 		}
@@ -1066,14 +1063,14 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 					"No ReqIf Content found.  Please check errors on the console.");
 		}
 
-		reqif = (ReqIf) resource.getContents().get(0);
+		reqif = (ReqIF) resource.getContents().get(0);
 
 		// TODO there must be a better place?
 		PresentationEditorManager.notifiyOpenReqif(reqif, editingDomain);
 		return reqif;
 	}
 
-	public ReqIf getReqif() {
+	public ReqIF getReqif() {
 		return reqif;
 	}
 
@@ -1181,19 +1178,19 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 						Resource newInput = editingDomain.getResourceSet()
 								.getResources().get(0);
 						if (newInput.getAllContents().hasNext()) {
-							ReqIf reqif = (ReqIf) newInput.getAllContents()
+							ReqIF reqif = (ReqIF) newInput.getAllContents()
 									.next();
-							ReqIfContent content = reqif.getCoreContent();
+							ReqIFContent content = reqif.getCoreContent();
 							if (content == null) {
-								content = Reqif10Factory.eINSTANCE
-										.createReqIfContent();
+								content = ReqIF10Factory.eINSTANCE
+										.createReqIFContent();
 								getEditingDomain()
 										.getCommandStack()
 										.execute(
 												SetCommand
 														.create(getEditingDomain(),
 																reqif,
-																Reqif10Package.Literals.REQ_IF__CORE_CONTENT,
+																ReqIF10Package.Literals.REQ_IF__CORE_CONTENT,
 																content));
 							}
 							contentOutlineViewer.setInput(content);

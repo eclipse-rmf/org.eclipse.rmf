@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
@@ -81,12 +81,12 @@ public class ProrLinkCellRenderer extends AbstractProrCellRenderer {
 	 */
 	private void updateIncomingAndOutgoing(
 			SpecElementWithAttributes specElement) {
-		ReqIf rif = ReqIF10Util.getReqIF(specElement);
+		ReqIF reqif = ReqIF10Util.getReqIF(specElement);
 		incoming = new HashSet<SpecRelation>();
 		outgoing = new HashSet<SpecRelation>();
 		if (specElement == null)
 			return;
-		EList<SpecRelation> relations = rif.getCoreContent()
+		EList<SpecRelation> relations = reqif.getCoreContent()
 				.getSpecRelations();
 		for (SpecRelation relation : relations) {
 			if (relation.getTarget() != null

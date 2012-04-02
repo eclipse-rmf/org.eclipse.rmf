@@ -19,8 +19,8 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
@@ -30,6 +30,7 @@ import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEdit
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 
@@ -83,7 +84,7 @@ public class PresentationConfigurationActionDelegate implements
 					Command command = AddCommand
 							.create(editor.getEditingDomain(),
 									getProrPresentationConfigurations(),
-									ConfigPackage.Literals.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS,
+									ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS,
 									config);
 					editor.getEditingDomain().getCommandStack()
 							.execute(command);
@@ -106,8 +107,8 @@ public class PresentationConfigurationActionDelegate implements
 			Command cmd = SetCommand
 					.create(editor.getEditingDomain(),
 							ext,
-							ConfigPackage.Literals.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS,
-							ConfigFactory.eINSTANCE
+							ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS,
+							ConfigurationFactory.eINSTANCE
 									.createProrPresentationConfigurations());
 			editor.getEditingDomain().getCommandStack().execute(cmd);
 		}

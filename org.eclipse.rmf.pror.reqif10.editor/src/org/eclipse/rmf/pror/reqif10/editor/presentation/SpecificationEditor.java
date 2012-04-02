@@ -36,8 +36,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.pror.reqif10.editor.actions.SpecificationWebPrintAction;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrAgileGridViewer;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
@@ -166,7 +165,7 @@ public class SpecificationEditor extends EditorPart implements
 		changeNameListener = new AdapterImpl() {
 			@Override
 			public void notifyChanged(Notification notification) {
-				if (notification.getFeature() == Reqif10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES) {
+				if (notification.getFeature() == ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES) {
 					ItemProviderAdapter ip = ProrUtil.getItemProvider(reqifEditor.getAdapterFactory(), specification);
 					setPartName(ip.getText(specification));
 				}
@@ -183,7 +182,7 @@ public class SpecificationEditor extends EditorPart implements
 		deleteSpecListener = new AdapterImpl() {
 			@Override
 			public void notifyChanged(Notification msg) {
-				if (msg.getFeature() == Reqif10Package.Literals.SPECIFICATION__CHILDREN
+				if (msg.getFeature() == ReqIF10Package.Literals.SPECIFICATION__CHILDREN
 						|| msg.getEventType() == Notification.REMOVE
 						&& msg.getOldValue() == specification) {
 

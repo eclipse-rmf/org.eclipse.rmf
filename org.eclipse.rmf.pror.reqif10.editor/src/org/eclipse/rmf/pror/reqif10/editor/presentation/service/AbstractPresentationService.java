@@ -21,13 +21,13 @@ import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.ReqIF;
 
 public abstract class AbstractPresentationService extends AdapterImpl implements PresentationService {
 
 	// This map contains all open ReqIF models and the corresponding editing
 	// domain. This map is needed for updating changed keywords.
-	protected final Map<ReqIf, EditingDomain> openReqIfModels = new HashMap<ReqIf, EditingDomain>();
+	protected final Map<ReqIF, EditingDomain> openReqIfModels = new HashMap<ReqIF, EditingDomain>();
 
 	public Class<? extends ProrPresentationConfiguration> getConfigurationInterface() {
 		return getConfigurationInstance().getClass();
@@ -35,11 +35,11 @@ public abstract class AbstractPresentationService extends AdapterImpl implements
 
 	public abstract ProrPresentationConfiguration getConfigurationInstance();
 
-	public void openReqif(ReqIf reqif, EditingDomain domain) {
+	public void openReqif(ReqIF reqif, EditingDomain domain) {
 		openReqIfModels.put(reqif, domain);
 	}
 
-	public void closeReqif(ReqIf reqif, EditingDomain domain) {
+	public void closeReqif(ReqIF reqif, EditingDomain domain) {
 		openReqIfModels.remove(reqif);
 	}
 

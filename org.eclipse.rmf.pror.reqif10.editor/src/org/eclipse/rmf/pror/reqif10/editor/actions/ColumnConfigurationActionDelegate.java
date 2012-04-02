@@ -21,14 +21,15 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.ReqifSpecificationEditorInput;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
@@ -56,7 +57,7 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 	public void run(IAction action) {
 		if (editor == null)
 			return;
-		ReqIf reqif = (ReqIf) editor.getEditingDomain().getResourceSet()
+		ReqIF reqif = (ReqIF) editor.getEditingDomain().getResourceSet()
 				.getResources().get(0).getContents().get(0);
 
 		Object input = editor.getEditorInput();
@@ -75,7 +76,7 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 				}
 			}
 			// We didn't find a configuration yet - create one.
-			ProrSpecViewConfiguration config = ConfigFactory.eINSTANCE
+			ProrSpecViewConfiguration config = ConfigurationFactory.eINSTANCE
 					.createProrSpecViewConfiguration();
 			config.setSpecification(spec);
 			toolConfig.getSpecViewConfigurations().add(config);
@@ -118,7 +119,7 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 						newWidth = 100;
 					Command command = SetCommand.create(editor
 							.getEditingDomain(), column,
-							ConfigPackage.Literals.COLUMN__WIDTH, newWidth);
+							ConfigurationPackage.Literals.COLUMN__WIDTH, newWidth);
 					compoundCmd.append(command);
 				}
 
@@ -126,8 +127,8 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 						.create(
 								editor.getEditingDomain(),
 								config,
-								ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
-								ConfigFactory.eINSTANCE.createColumn());
+								ConfigurationPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
+								ConfigurationFactory.eINSTANCE.createColumn());
 				compoundCmd.append(command);
 				editor.getEditingDomain().getCommandStack()
 						.execute(compoundCmd);

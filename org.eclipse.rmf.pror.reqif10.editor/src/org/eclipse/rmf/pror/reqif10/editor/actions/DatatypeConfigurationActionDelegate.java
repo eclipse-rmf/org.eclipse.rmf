@@ -21,7 +21,8 @@ import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecObjectItemProvider;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecRelationGroupItemProvider;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecRelationsItemProvider;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecificationsItemProvider;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 
@@ -50,7 +51,7 @@ public class DatatypeConfigurationActionDelegate implements
 	public void run(IAction action) {
 		if (editor == null)
 			return;
-		ReqIf reqif = (ReqIf) editor.getEditingDomain().getResourceSet()
+		ReqIF reqif = (ReqIF) editor.getEditingDomain().getResourceSet()
 				.getResources().get(0).getContents().get(0);
 
 		SubtreeDialog dialog = new SubtreeDialog(editor, reqif.getCoreContent(),

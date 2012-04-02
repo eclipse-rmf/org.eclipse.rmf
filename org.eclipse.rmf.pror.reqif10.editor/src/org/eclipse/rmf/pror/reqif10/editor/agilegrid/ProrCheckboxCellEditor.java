@@ -15,7 +15,7 @@ import org.agilemore.agilegrid.editors.CheckboxCellEditor;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.AttributeValueBoolean;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * Modified {@link CheckboxCellEditor} that takes a String (rather than a
@@ -48,8 +48,8 @@ public class ProrCheckboxCellEditor extends CheckboxCellEditor {
 						SetCommand
 								.create(domain,
 										av,
-										Reqif10Package.Literals.ATTRIBUTE_VALUE_BOOLEAN__THE_VALUE,
-										Boolean.TRUE.equals(av.getTheValue()) ? Boolean.FALSE
+										ReqIF10Package.Literals.ATTRIBUTE_VALUE_BOOLEAN__THE_VALUE,
+										Boolean.TRUE.equals(av.isTheValue()) ? Boolean.FALSE
 												: Boolean.TRUE));
 	}
 

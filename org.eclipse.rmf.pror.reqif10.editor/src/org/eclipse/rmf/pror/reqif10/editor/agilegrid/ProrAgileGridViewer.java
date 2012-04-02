@@ -48,13 +48,13 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrAgileGridContentProvider.ProrRow;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
@@ -168,19 +168,19 @@ public class ProrAgileGridViewer extends Viewer {
 		}
 
 		// Create the new elements
-		SpecHierarchy newSpecHierarchy = Reqif10Factory.eINSTANCE.createSpecHierarchy();
-		SpecObject newSpecObject = Reqif10Factory.eINSTANCE.createSpecObject();
+		SpecHierarchy newSpecHierarchy = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
+		SpecObject newSpecObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		newSpecHierarchy.setObject(newSpecObject);
 		
 		EReference childFeature;
 		int pos;
 		EObject parent = specHierarchy.eContainer();
 		if (parent instanceof SpecHierarchy) {
-			childFeature = Reqif10Package.Literals.SPEC_HIERARCHY__CHILDREN;
+			childFeature = ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN;
 			pos = ((SpecHierarchy) specHierarchy.eContainer()).getChildren()
 					.indexOf(specHierarchy) + 1;
 		} else if (parent instanceof Specification) {
-			childFeature = Reqif10Package.Literals.SPECIFICATION__CHILDREN;
+			childFeature = ReqIF10Package.Literals.SPECIFICATION__CHILDREN;
 			pos = ((Specification) specHierarchy.eContainer())
 					.getChildren().indexOf(specHierarchy) + 1;
 		} else {
@@ -189,8 +189,8 @@ public class ProrAgileGridViewer extends Viewer {
 
 		CompoundCommand cmd = ProrUtil.createAddTypedElementCommand(ReqIF10Util
 				.getReqIF(specHierarchy).getCoreContent(),
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
-				newSpecObject, Reqif10Package.Literals.SPEC_OBJECT__TYPE,
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
+				newSpecObject, ReqIF10Package.Literals.SPEC_OBJECT__TYPE,
 				specHierarchy.getObject().getType(), -1, -1, editingDomain,
 				adapterFactory);
 		
@@ -347,8 +347,8 @@ public class ProrAgileGridViewer extends Viewer {
 					SpecObject specObject = (SpecObject) notification
 							.getNewValue();
 					contentProvider.updateElement(specObject);
-				} else if (notification.getFeature() == Reqif10Package.Literals.SPECIFICATION__CHILDREN
-						|| notification.getFeature() == Reqif10Package.Literals.SPEC_HIERARCHY__CHILDREN) {
+				} else if (notification.getFeature() == ReqIF10Package.Literals.SPECIFICATION__CHILDREN
+						|| notification.getFeature() == ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN) {
 					updateRowCount();
 					refresh();
 				}

@@ -53,7 +53,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
@@ -63,11 +63,11 @@ import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.ReqIfHeader;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
+import org.eclipse.rmf.reqif10.ReqIFHeader;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
@@ -123,7 +123,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Reqif10Package reqif10Package = Reqif10Package.eINSTANCE;
+	protected ReqIF10Package reqif10Package = ReqIF10Package.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
@@ -131,7 +131,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Reqif10Factory reqif10Factory = reqif10Package.getReqif10Factory();
+	protected ReqIF10Factory reqif10Factory = reqif10Package.getReqIF10Factory();
 
 	/**
 	 * This is the file creation page.
@@ -216,9 +216,9 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		ReqIf root = reqif10Factory.createReqIf();
+		ReqIF root = reqif10Factory.createReqIF();
 
-		ReqIfHeader header = reqif10Factory.createReqIfHeader();
+		ReqIFHeader header = reqif10Factory.createReqIFHeader();
 		root.setTheHeader(header);
 
 		// Setting the time gets more and more complicated...
@@ -234,7 +234,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		header.setSourceToolId("ProR (http://pror.org)");
 //		header.setAuthor(System.getProperty("user.name"));
 
-		ReqIfContent content = reqif10Factory.createReqIfContent();
+		ReqIFContent content = reqif10Factory.createReqIFContent();
 		root.setCoreContent(content);
 
 		// Add a DatatypeDefinition
@@ -262,14 +262,14 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		specType.getSpecAttributes().add(ad);
 
 		// Configure the Specification View
-		ProrToolExtension extension = ConfigFactory.eINSTANCE
+		ProrToolExtension extension = ConfigurationFactory.eINSTANCE
 				.createProrToolExtension();
 		root.getToolExtensions().add(extension);
-		ProrSpecViewConfiguration prorSpecViewConfiguration = ConfigFactory.eINSTANCE
+		ProrSpecViewConfiguration prorSpecViewConfiguration = ConfigurationFactory.eINSTANCE
 				.createProrSpecViewConfiguration();
 		extension.getSpecViewConfigurations().add(prorSpecViewConfiguration);
 		prorSpecViewConfiguration.setSpecification(spec);
-		Column col = ConfigFactory.eINSTANCE.createColumn();
+		Column col = ConfigurationFactory.eINSTANCE.createColumn();
 		col.setLabel("Description");
 		col.setWidth(400);
 		prorSpecViewConfiguration.getColumns().add(col);
@@ -282,9 +282,9 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		prorSpecViewConfiguration.setLeftHeaderColumn(leftHeaderColumn);
 
 		// Configure the Label configuration
-		ProrGeneralConfiguration generalConfig = ConfigFactory.eINSTANCE
+		ProrGeneralConfiguration generalConfig = ConfigurationFactory.eINSTANCE
 				.createProrGeneralConfiguration();
-		LabelConfiguration labelConfig = ConfigFactory.eINSTANCE
+		LabelConfiguration labelConfig = ConfigurationFactory.eINSTANCE
 				.createLabelConfiguration();
 		labelConfig.getDefaultLabel().add("Description");
 		generalConfig.setLabelConfiguration(labelConfig);

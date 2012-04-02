@@ -7,7 +7,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.ReqIF;
 
 public interface PresentationEditorService {
 
@@ -47,7 +47,7 @@ public interface PresentationEditorService {
 	 * 
 	 * TODO still true?
 	 */
-	public void openReqif(ReqIf reqif, EditingDomain domain);
+	public void openReqif(ReqIF reqif, EditingDomain domain);
 
 	/**
 	 * This method is triggered when a new ReqIF is closed, giving the
@@ -59,7 +59,7 @@ public interface PresentationEditorService {
 	 * 
 	 * TODO still true?
 	 */
-	public void closeReqif(ReqIf reqif, EditingDomain domain);
+	public void closeReqif(ReqIF reqif, EditingDomain domain);
 
 	/**
 	 * Returns an {@link IProrCellRenderer} appropriate for the

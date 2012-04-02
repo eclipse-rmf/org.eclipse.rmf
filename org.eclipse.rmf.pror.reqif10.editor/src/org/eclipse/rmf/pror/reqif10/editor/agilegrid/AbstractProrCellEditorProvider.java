@@ -76,9 +76,7 @@ public abstract class AbstractProrCellEditorProvider extends
 			DatatypeDefinitionReal ddr = (DatatypeDefinitionReal) dd;
 			ProrRealCellEditor realCellEditor = new ProrRealCellEditor(
 					agileGrid, editingDomain, affectedObject);
-			realCellEditor.setRange(ddr.getMin() != null ? ddr.getMin()
-					: -Double.MAX_VALUE, ddr.getMax() != null ? ddr.getMax()
-					: Double.MAX_VALUE);
+			realCellEditor.setRange(ddr.getMin(), ddr.getMax());
 			return realCellEditor;
 		} else if (dd instanceof DatatypeDefinitionString) {
 			DatatypeDefinitionString dds = (DatatypeDefinitionString) dd;
@@ -90,7 +88,7 @@ public abstract class AbstractProrCellEditorProvider extends
 		} else if (dd instanceof DatatypeDefinitionEnumeration) {
 			DatatypeDefinitionEnumeration dde = (DatatypeDefinitionEnumeration) dd;
 			Boolean multiValued = ((AttributeDefinitionEnumeration) ReqIF10Util
-					.getAttributeDefinition(value)).getMultiValued();
+					.getAttributeDefinition(value)).isMultiValued();
 			if (multiValued == null || multiValued.booleanValue() == false) {
 				return new ProrEnumerationSingleValueCellEditor(agileGrid, dde,
 						editingDomain, adapterFactory);

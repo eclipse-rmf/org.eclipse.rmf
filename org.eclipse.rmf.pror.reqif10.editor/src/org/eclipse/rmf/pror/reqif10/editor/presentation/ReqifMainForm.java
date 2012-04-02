@@ -25,14 +25,14 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.OpenEvent;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.rmf.pror.reqif10.provider.ReqIfContentItemProvider;
+import org.eclipse.rmf.pror.reqif10.provider.ReqIFContentItemProvider;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecificationsItemProvider;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.ReqIfHeader;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
+import org.eclipse.rmf.reqif10.ReqIFHeader;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -64,7 +64,7 @@ public class ReqifMainForm {
 
 	private final ScrolledForm form;
 
-	private final ReqIf reqif;
+	private final ReqIF reqif;
 
 	private final Reqif10Editor reqifEditor;
 
@@ -121,9 +121,9 @@ public class ReqifMainForm {
 		// Because we established a virtual hierarchy, we have to use the
 		// ItemProvider-Facility to get the root element holding
 		// Specifications
-		ReqIfContent coreContent = reqif.getCoreContent();
+		ReqIFContent coreContent = reqif.getCoreContent();
 		if (coreContent == null) {
-			coreContent = Reqif10Factory.eINSTANCE.createReqIfContent();
+			coreContent = ReqIF10Factory.eINSTANCE.createReqIFContent();
 			reqifEditor
 					.getEditingDomain()
 					.getCommandStack()
@@ -131,10 +131,10 @@ public class ReqifMainForm {
 							SetCommand.create(
 									reqifEditor.getEditingDomain(),
 									reqif,
-									Reqif10Package.Literals.REQ_IF__CORE_CONTENT,
+									ReqIF10Package.Literals.REQ_IF__CORE_CONTENT,
 									coreContent));
 		}
-		ReqIfContentItemProvider ip = (ReqIfContentItemProvider) ProrUtil
+		ReqIFContentItemProvider ip = (ReqIFContentItemProvider) ProrUtil
 				.getItemProvider(getAdapterFactory(), coreContent);
 		ip.getChildren(coreContent);
 		VirtualSpecificationsItemProvider root = (VirtualSpecificationsItemProvider) ip
@@ -168,11 +168,11 @@ public class ReqifMainForm {
 	}
 
 	private void createDocSection() {
-		final ReqIfHeader header;
+		final ReqIFHeader header;
 		if (reqif.getTheHeader() == null) {
-			header = Reqif10Factory.eINSTANCE.createReqIfHeader();
+			header = ReqIF10Factory.eINSTANCE.createReqIFHeader();
 			Command cmd = SetCommand.create(reqifEditor.getEditingDomain(), reqif,
-					Reqif10Package.Literals.REQ_IF__THE_HEADER, header);
+					ReqIF10Package.Literals.REQ_IF__THE_HEADER, header);
 			reqifEditor.getEditingDomain().getCommandStack().execute(cmd);
 		} else {
 			header = reqif.getTheHeader();
@@ -191,7 +191,7 @@ public class ReqifMainForm {
 		Text text = toolkit.createText(client, header.getTitle(), SWT.BORDER);
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 		addModifyListener(text, header,
-				Reqif10Package.Literals.REQ_IF_HEADER__TITLE);
+				ReqIF10Package.Literals.REQ_IF_HEADER__TITLE);
 
 		toolkit.createLabel(client, getString("_UI_ReqifForm_Comment") + ": ");
 		text = toolkit.createText(client, header.getComment(), SWT.BORDER
@@ -204,7 +204,7 @@ public class ReqifMainForm {
 			}
 		});
 		addModifyListener(text, header,
-				Reqif10Package.Literals.REQ_IF_HEADER__COMMENT);
+				ReqIF10Package.Literals.REQ_IF_HEADER__COMMENT);
 
 		toolkit.createLabel(client, getString("_UI_ReqifForm_CreateTime")+": ");
 		text = toolkit.createText(client, header.getCreationTime() + "",
@@ -218,12 +218,12 @@ public class ReqifMainForm {
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 
 		toolkit.createLabel(client, getString("_UI_ReqifForm_ReqIfToolId") + ": ");
-		text = toolkit.createText(client, header.getReqIfToolId(), SWT.BORDER);
+		text = toolkit.createText(client, header.getReqIFToolId(), SWT.BORDER);
 		text.setEnabled(false);
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 
 		toolkit.createLabel(client, getString("_UI_ReqifForm_ReqIfVersion") + ": ");
-		text = toolkit.createText(client, header.getReqIfVersion(), SWT.BORDER);
+		text = toolkit.createText(client, header.getReqIFVersion(), SWT.BORDER);
 		text.setEnabled(false);
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 
@@ -248,7 +248,7 @@ public class ReqifMainForm {
 	 *            The Feature from {@link ExchangeFilePackage} to be modified
 	 *            (must belong to {@link RIFHeader}.
 	 */
-	private void addModifyListener(final Text text, final ReqIfHeader header,
+	private void addModifyListener(final Text text, final ReqIFHeader header,
 			final EAttribute feature) {
 
 		// When the Text is modified, update the model...

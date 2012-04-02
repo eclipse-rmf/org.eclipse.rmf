@@ -24,7 +24,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.ReqIF;
 
 /**
  * This class manages installed Presentations (and is therefore independent of
@@ -96,7 +96,7 @@ public class PresentationEditorManager {
 	 * way to do it (register a notifier somewhere...)
 	 * 
 	 */
-	public static void notifiyOpenReqif(ReqIf reqif, EditingDomain domain) {
+	public static void notifiyOpenReqif(ReqIF reqif, EditingDomain domain) {
 
 		for (PresentationService service : PresentationEditorManager
 				.getPresentationServiceMap().values()) {
@@ -113,7 +113,7 @@ public class PresentationEditorManager {
 	 * way to do it (register a notifier somewhere...)
 	 * 
 	 */
-	public static void notifiyCloseReqif(ReqIf reqif, EditingDomain domain) {
+	public static void notifiyCloseReqif(ReqIF reqif, EditingDomain domain) {
 
 		for (PresentationService service : PresentationEditorManager
 				.getPresentationServiceMap().values()) {

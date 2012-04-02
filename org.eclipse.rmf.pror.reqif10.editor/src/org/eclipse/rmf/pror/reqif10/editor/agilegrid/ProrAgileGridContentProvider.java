@@ -19,7 +19,7 @@ import org.agilemore.agilegrid.AbstractContentProvider;
 import org.agilemore.agilegrid.IContentProvider;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
@@ -186,7 +186,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 			return Collections.emptyList();
 		}
 		SpecObject source = specHierarchy.getObject();
-		ReqIf rif = ReqIF10Util.getReqIF(source);
+		ReqIF rif = ReqIF10Util.getReqIF(source);
 		List<SpecRelation> list = new ArrayList<SpecRelation>();
 		for (SpecRelation relation : rif.getCoreContent().getSpecRelations()) {
 			if (source.equals(relation.getSource())) {
