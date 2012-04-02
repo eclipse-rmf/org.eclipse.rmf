@@ -47,7 +47,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://pror.org/presentation/configuration";
+	String eNS_URI = "http://eclipse.org/rmf/pror/toolextensions/1.0";
 
 	/**
 	 * The package namespace name.

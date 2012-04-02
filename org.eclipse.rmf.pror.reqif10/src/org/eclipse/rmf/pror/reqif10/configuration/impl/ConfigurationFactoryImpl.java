@@ -40,7 +40,7 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 	 */
 	public static ConfigurationFactory init() {
 		try {
-			ConfigurationFactory theConfigurationFactory = (ConfigurationFactory)EPackage.Registry.INSTANCE.getEFactory("http://pror.org/presentation/configuration"); 
+			ConfigurationFactory theConfigurationFactory = (ConfigurationFactory)EPackage.Registry.INSTANCE.getEFactory("http://eclipse.org/rmf/pror/toolextensions/1.0"); 
 			if (theConfigurationFactory != null) {
 				return theConfigurationFactory;
 			}

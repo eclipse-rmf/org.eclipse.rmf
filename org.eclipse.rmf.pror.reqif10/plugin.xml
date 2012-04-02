@@ -22,7 +22,7 @@ Contributors:
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://pror.org/presentation/configuration"
+            uri="http://eclipse.org/rmf/pror/toolextensions/1.0"
             class="org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage"
             genModel="model/reqif10.genmodel"/>
    </extension>

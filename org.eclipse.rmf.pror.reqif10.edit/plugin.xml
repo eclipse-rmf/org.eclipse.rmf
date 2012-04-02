@@ -34,7 +34,7 @@ Contributors:
          point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             class="org.eclipse.rmf.pror.reqif10.configuration.provider.ConfigurationItemProviderAdapterFactory"
-            uri="http://pror.org/presentation/configuration"
+            uri="http://eclipse.org/rmf/pror/toolextensions/1.0"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
