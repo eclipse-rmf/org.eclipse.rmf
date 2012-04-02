@@ -12,7 +12,7 @@
 package org.eclipse.rmf.reqif10.provider;
 
 import org.eclipse.rmf.reqif10.RelationGroupType;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -34,7 +34,7 @@ public class RelationGroupTypeTest extends SpecTypeTest {
 	 */
 	@Before
 	public void setUpRelationGroupTypeTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createRelationGroupType());
+		setFixture(ReqIF10Factory.eINSTANCE.createRelationGroupType());
 	}
 
 	/**

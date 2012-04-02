@@ -11,7 +11,7 @@
 package org.eclipse.rmf.reqif10.provider;
 
 import org.eclipse.rmf.reqif10.DatatypeDefinitionBoolean;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -33,7 +33,7 @@ public class DatatypeDefinitionBooleanTest extends DatatypeDefinitionSimpleTest 
 	 */
 	@Before
 	public void setUpDatatypeDefinitionBooleanTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createDatatypeDefinitionBoolean());
+		setFixture(ReqIF10Factory.eINSTANCE.createDatatypeDefinitionBoolean());
 	}
 
 	/**

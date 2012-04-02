@@ -18,8 +18,8 @@ import junit.framework.Assert;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.EmbeddedValue;
 import org.eclipse.rmf.reqif10.EnumValue;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,7 +45,7 @@ public class EnumValueTest extends IdentifiableTest {
 	 */
 	@Before
 	public void setUpEnumValueTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createEnumValue());
+		setFixture(ReqIF10Factory.eINSTANCE.createEnumValue());
 	}
 
 	/**
@@ -58,12 +58,12 @@ public class EnumValueTest extends IdentifiableTest {
 	
 	@Test
 	public void testEmbeddedValueChangePropagation() {
-		EmbeddedValue value = Reqif10Factory.eINSTANCE.createEmbeddedValue();
-		setViaCommand(getFixture(), Reqif10Package.Literals.ENUM_VALUE__PROPERTIES, value);
+		EmbeddedValue value = ReqIF10Factory.eINSTANCE.createEmbeddedValue();
+		setViaCommand(getFixture(), ReqIF10Package.Literals.ENUM_VALUE__PROPERTIES, value);
 		ProrUtil.getItemProvider(adapterFactory, getFixture()).addListener(listener);
-		setViaCommand(value, Reqif10Package.Literals.EMBEDDED_VALUE__KEY, new BigInteger("1"));
+		setViaCommand(value, ReqIF10Package.Literals.EMBEDDED_VALUE__KEY, new BigInteger("1"));
 		Assert.assertEquals(1, notifications.size());
-		setViaCommand(value, Reqif10Package.Literals.EMBEDDED_VALUE__OTHER_CONTENT, "Other Content");
+		setViaCommand(value, ReqIF10Package.Literals.EMBEDDED_VALUE__OTHER_CONTENT, "Other Content");
 		Assert.assertEquals(2, notifications.size());
 	}
 

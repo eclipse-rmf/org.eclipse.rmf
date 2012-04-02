@@ -11,7 +11,9 @@
 
 package org.eclipse.rmf.reqif10.provider;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 
 import java.net.URISyntaxException;
 import java.util.Collection;
@@ -28,13 +30,13 @@ import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecType;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.junit.Test;
 
 /**
@@ -55,7 +57,7 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 	 * 
 	 * @return a RIF with a reference to the fixture.
 	 */
-	protected abstract void addFixtureToReqIf(ReqIf reqif);
+	protected abstract void addFixtureToReqIf(ReqIF reqif);
 
 	/**
 	 * Returns the fixture for this Spec Element With User Defined Attributes
@@ -73,13 +75,13 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 	public void testSpecElementNotificationValueAdded() {
 		ItemProviderAdapter itemProvider = getItemProvider(getFixture());
 		itemProvider.addListener(listener);
-		AttributeValue av = Reqif10Factory.eINSTANCE
+		AttributeValue av = ReqIF10Factory.eINSTANCE
 				.createAttributeValueString();
 		getFixture().getValues().add(av);
 		assertEquals(1, notifications.size());
 		assertSame(getFixture(), notifications.get(0).getNotifier());
 		assertEquals(
-				Reqif10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+				ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
 				notifications.get(0).getFeature());
 	}
 
@@ -90,7 +92,7 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 	public void testSpecElementNotificationValueChanged() {
 		ItemProviderAdapter itemProvider = getItemProvider(getFixture());
 		itemProvider.addListener(listener);
-		AttributeValue av = Reqif10Factory.eINSTANCE
+		AttributeValue av = ReqIF10Factory.eINSTANCE
 				.createAttributeValueString();
 		getFixture().getValues().add(av);
 		notifications.clear();
@@ -100,7 +102,7 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 		assertEquals(1, notifications.size());
 		assertSame(getFixture(), notifications.get(0).getNotifier());
 		assertEquals(
-				Reqif10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+				ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
 				notifications.get(0).getFeature());
 		assertEquals(Notification.SET, notifications.get(0).getEventType());
 	}
@@ -114,18 +116,18 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 	 */
 	@Test
 	public void testSpecElementTypeValuesSynced() throws URISyntaxException {
-		ReqIf reqif = getTestReqif("simple.reqif");
+		ReqIF reqif = getTestReqif("simple.reqif");
 		addFixtureToReqIf(reqif);
 		assertEquals(0, getFixture().getValues().size());
 
 		getItemProvider(getFixture()).addListener(listener);
 
-		AttributeDefinition ad = Reqif10Factory.eINSTANCE
+		AttributeDefinition ad = ReqIF10Factory.eINSTANCE
 				.createAttributeDefinitionString();
 		setSpecTypeWithAttributeOnFixture(reqif, ad);
-		SpecType type = ad.getSpecType();
+		SpecType type = ReqIF10Util.getSpecType(ad);
 
-		assertSame(type, Reqif10Util.getSpecType(getFixture()));
+		assertSame(type, ReqIF10Util.getSpecType(getFixture()));
 		assertEquals(1, getFixture().getValues().size());
 
 		// 1.: ADD Reference to new Value(s)
@@ -144,17 +146,17 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 	@Test
 	public void testSpecElementAttributeDefinitionChanged()
 			throws URISyntaxException {
-		ReqIf reqif = Reqif10Factory.eINSTANCE.createReqIf();
-		ReqIfContent content = Reqif10Factory.eINSTANCE.createReqIfContent();
+		ReqIF reqif = ReqIF10Factory.eINSTANCE.createReqIF();
+		ReqIFContent content = ReqIF10Factory.eINSTANCE.createReqIFContent();
 		reqif.setCoreContent(content);
 		addFixtureToReqIf(reqif);
-		AttributeDefinition ad = Reqif10Factory.eINSTANCE
+		AttributeDefinition ad = ReqIF10Factory.eINSTANCE
 				.createAttributeDefinitionString();
 		setSpecTypeWithAttributeOnFixture(reqif, ad);
 		getItemProvider(getFixture()).addListener(listener);
 
 		assertEquals(0, notifications.size());
-		setViaCommand(ad, Reqif10Package.Literals.IDENTIFIABLE__LONG_NAME,
+		setViaCommand(ad, ReqIF10Package.Literals.IDENTIFIABLE__LONG_NAME,
 				"New Name");
 		assertEquals("New Name", ad.getLongName());
 		assertEquals(1, notifications.size());
@@ -163,21 +165,21 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 
 	@Test
 	public void testSpecTypeChangeNotifications() {
-		ReqIf reqif = Reqif10Factory.eINSTANCE.createReqIf();
-		ReqIfContent content = Reqif10Factory.eINSTANCE.createReqIfContent();
+		ReqIF reqif = ReqIF10Factory.eINSTANCE.createReqIF();
+		ReqIFContent content = ReqIF10Factory.eINSTANCE.createReqIFContent();
 		reqif.setCoreContent(content);
 		this.addFixtureToReqIf(reqif);
-		AttributeDefinition ad = Reqif10Factory.eINSTANCE
+		AttributeDefinition ad = ReqIF10Factory.eINSTANCE
 				.createAttributeDefinitionString();
 		setSpecTypeWithAttributeOnFixture(reqif, ad);
-		SpecType type = ad.getSpecType();
+		SpecType type = ReqIF10Util.getSpecType(ad);
 		// At this point, we have a specElement with a type.
 		ItemProviderAdapter ip = this.getItemProvider(getFixture());
 		ip.addListener(listener);
-		AttributeDefinition ad2 = Reqif10Factory.eINSTANCE
+		AttributeDefinition ad2 = ReqIF10Factory.eINSTANCE
 				.createAttributeDefinitionString();
 		this.setViaCommand(type,
-				Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad2);
+				ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad2);
 		// First Notification: Value changed
 		// Second Notification: Type changed
 		assertEquals(2, this.notifications.size());
@@ -213,10 +215,10 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 	@Test
 	public void testPropertiesOfSpecElementWithAttributeNullLabel()
 			throws URISyntaxException {
-		ReqIf reqif = getTestReqif("simple.reqif");
+		ReqIF reqif = getTestReqif("simple.reqif");
 		addFixtureToReqIf(reqif);
 
-		AttributeDefinitionString ad = Reqif10Factory.eINSTANCE
+		AttributeDefinitionString ad = ReqIF10Factory.eINSTANCE
 				.createAttributeDefinitionString();
 		setSpecTypeWithAttributeOnFixture(reqif, ad);
 
@@ -244,10 +246,10 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 	@Test
 	public void testPropertiesOfSpecElementWithAttribute()
 			throws URISyntaxException {
-		ReqIf reqif = getTestReqif("simple.reqif");
+		ReqIF reqif = getTestReqif("simple.reqif");
 		addFixtureToReqIf(reqif);
 
-		AttributeDefinitionString ad = Reqif10Factory.eINSTANCE
+		AttributeDefinitionString ad = ReqIF10Factory.eINSTANCE
 				.createAttributeDefinitionString();
 		ad.setLongName("Description");
 		setSpecTypeWithAttributeOnFixture(reqif, ad);
@@ -271,21 +273,21 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 
 	@Test
 	public void testResetTypeDeletesValues() throws URISyntaxException {
-		ReqIf reqif = getTestReqif("simple.reqif");
+		ReqIF reqif = getTestReqif("simple.reqif");
 		addFixtureToReqIf(reqif);
-		AttributeDefinitionString ad = Reqif10Factory.eINSTANCE
+		AttributeDefinitionString ad = ReqIF10Factory.eINSTANCE
 				.createAttributeDefinitionString();
 		ad.setLongName("Description");
 		setSpecTypeWithAttributeOnFixture(reqif, ad);
 		assertEquals(1, getFixture().getValues().size());
 		setFixtureType(getFixture(), null);
-		assertNull(Reqif10Util.getSpecType(getFixture()));
+		assertNull(ReqIF10Util.getSpecType(getFixture()));
 		assertEquals(0, getFixture().getValues().size());
 	}
 
 	@Test
 	public void testCreateCommands() throws URISyntaxException {
-		ReqIf reqif = getTestReqif("bare.reqif");
+		ReqIF reqif = getTestReqif("bare.reqif");
 		// Required for generating the Virtual Element lazily.
 		getItemProvider(reqif.getCoreContent()).getChildren(reqif.getCoreContent());
 
@@ -298,7 +300,7 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 		assertEquals(1, childDescriptors.size());
 		
 		// Now we add a type
-		AttributeDefinition ad = Reqif10Factory.eINSTANCE.createAttributeDefinitionString();
+		AttributeDefinition ad = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		setSpecTypeWithAttributeOnFixture(reqif, ad);
 		childDescriptors = ip.getNewChildDescriptors(
 				getFixture(), editingDomain, null);
@@ -327,7 +329,7 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 	 * 
 	 * @param reqif
 	 */
-	protected abstract void setSpecTypeWithAttributeOnFixture(ReqIf reqif,
+	protected abstract void setSpecTypeWithAttributeOnFixture(ReqIF reqif,
 			AttributeDefinition ad);
 
 } // SpecElementWithAttributesTest

@@ -12,7 +12,7 @@
 package org.eclipse.rmf.reqif10.provider;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionReal;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -34,7 +34,7 @@ public class AttributeDefinitionRealTest extends AttributeDefinitionSimpleTest {
 	 */
 	@Before
 	public void setUpAttributeDefinitionRealTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createAttributeDefinitionReal());
+		setFixture(ReqIF10Factory.eINSTANCE.createAttributeDefinitionReal());
 	}
 
 	/**

@@ -12,8 +12,8 @@
 package org.eclipse.rmf.reqif10.provider;
 
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
-import org.eclipse.rmf.reqif10.ReqIfHeader;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIFHeader;
 import org.junit.After;
 import org.junit.Before;
 
@@ -28,19 +28,19 @@ public class ReqIfHeaderTest extends AbstractItemProviderTest {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ReqIfHeader fixture = null;
+	protected ReqIFHeader fixture = null;
 
 	/**
 	 * Sets the fixture for this Req If Header test case.
 	 */
-	protected void setFixture(ReqIfHeader fixture) {
+	protected void setFixture(ReqIFHeader fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
 	 * Returns the fixture for this Req If Header test case.
 	 */
-	protected ReqIfHeader getFixture() {
+	protected ReqIFHeader getFixture() {
 		return fixture;
 	}
 
@@ -49,7 +49,7 @@ public class ReqIfHeaderTest extends AbstractItemProviderTest {
 	 */
 	@Before
 	protected void setUpReqIfHeaderTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createReqIfHeader());
+		setFixture(ReqIF10Factory.eINSTANCE.createReqIFHeader());
 	}
 
 	/**

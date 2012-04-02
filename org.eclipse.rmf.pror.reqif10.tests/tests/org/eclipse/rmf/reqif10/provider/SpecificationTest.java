@@ -10,7 +10,8 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.provider;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URISyntaxException;
 import java.util.Arrays;
@@ -25,9 +26,9 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecificationsItemProvider;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
@@ -54,7 +55,7 @@ public class SpecificationTest extends SpecElementWithAttributesTest {
 	 */
 	@Before
 	public void setUpSpecificationTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createSpecification());
+		setFixture(ReqIF10Factory.eINSTANCE.createSpecification());
 	}
 
 	/**
@@ -66,8 +67,8 @@ public class SpecificationTest extends SpecElementWithAttributesTest {
 	}
 
 	@Override
-	protected void addFixtureToReqIf(ReqIf rif) {
-		setViaCommand(rif.getCoreContent(), Reqif10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS, getFixture());
+	protected void addFixtureToReqIf(ReqIF rif) {
+		setViaCommand(rif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS, getFixture());
 	}
 	
 	@Override
@@ -76,27 +77,27 @@ public class SpecificationTest extends SpecElementWithAttributesTest {
 	}
 
 	@Override
-	protected void setSpecTypeWithAttributeOnFixture(ReqIf reqif,
+	protected void setSpecTypeWithAttributeOnFixture(ReqIF reqif,
 			AttributeDefinition ad) {
-		SpecificationType type = Reqif10Factory.eINSTANCE.createSpecificationType();
-		setViaCommand(type, Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad);
-		setViaCommand(reqif.getCoreContent(), Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, type);
-		setViaCommand(getFixture(), Reqif10Package.Literals.SPECIFICATION__TYPE, type);
+		SpecificationType type = ReqIF10Factory.eINSTANCE.createSpecificationType();
+		setViaCommand(type, ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad);
+		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, type);
+		setViaCommand(getFixture(), ReqIF10Package.Literals.SPECIFICATION__TYPE, type);
 	}
 
 	@Override
 	protected void setFixtureType(SpecElementWithAttributes specElement,
 			SpecType specType) {
-		setViaCommand(specElement, Reqif10Package.Literals.SPECIFICATION__TYPE, specType);
+		setViaCommand(specElement, ReqIF10Package.Literals.SPECIFICATION__TYPE, specType);
 	}
 	
 	@Test
 	public void testParentIsVirtual() throws URISyntaxException {
-		ReqIf reqif = getTestReqif("simple.reqif");
+		ReqIF reqif = getTestReqif("simple.reqif");
 		// Required for generating the Virtual Element lazily.
 		getItemProvider(reqif.getCoreContent()).getChildren(reqif.getCoreContent());
 
-		setViaCommand(reqif.getCoreContent(), Reqif10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS, getFixture());
+		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS, getFixture());
 		ItemProviderAdapter ip = ProrUtil.getItemProvider(adapterFactory, getFixture());
 		assertTrue(ip.getParent(getFixture()) instanceof VirtualSpecificationsItemProvider);
 	}
@@ -106,8 +107,8 @@ public class SpecificationTest extends SpecElementWithAttributesTest {
 	 */
 	@Test
 	public void testCreateChildSpecObject() throws URISyntaxException {
-		ReqIf reqif = getTestReqif("simple.reqif");
-		setViaCommand(reqif.getCoreContent(), Reqif10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS, getFixture());
+		ReqIF reqif = getTestReqif("simple.reqif");
+		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS, getFixture());
 		ItemProviderAdapter ip = ProrUtil.getItemProvider(adapterFactory, getFixture());
 		List<?> cds = (List<?>) ip.getNewChildDescriptors(getFixture(), editingDomain, null);
 
@@ -116,7 +117,7 @@ public class SpecificationTest extends SpecElementWithAttributesTest {
 		
 		Command cmd = ip.createCommand(getFixture(), editingDomain,
 				CreateChildCommand.class, new CommandParameter(getFixture(),
-						Reqif10Package.Literals.SPECIFICATION__CHILDREN,
+						ReqIF10Package.Literals.SPECIFICATION__CHILDREN,
 						specObjectChildDescriptor));
 
 		int specObjectCount = reqif.getCoreContent().getSpecObjects().size();

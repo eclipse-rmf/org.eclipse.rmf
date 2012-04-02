@@ -35,11 +35,11 @@ import org.eclipse.emf.edit.provider.ItemProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.util.ConfigAdapterFactory;
-import org.eclipse.rmf.pror.reqif10.datatypes.provider.DatatypesItemProviderAdapterFactory;
-import org.eclipse.rmf.pror.reqif10.provider.Reqif10ItemProviderAdapterFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.util.ConfigurationAdapterFactory;
+import org.eclipse.rmf.pror.reqif10.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.testdata.TestData;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.pror.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.junit.After;
 import org.junit.Before;
 
@@ -94,11 +94,10 @@ abstract public class AbstractItemProviderTest {
 				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 		adapterFactory
 				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ConfigAdapterFactory());
+		adapterFactory.addAdapterFactory(new ConfigurationAdapterFactory());
 		adapterFactory
-				.addAdapterFactory(new Reqif10ItemProviderAdapterFactory());
-		adapterFactory
-				.addAdapterFactory(new DatatypesItemProviderAdapterFactory());
+				.addAdapterFactory(new ReqIF10ItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new XhtmlItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
@@ -133,19 +132,19 @@ abstract public class AbstractItemProviderTest {
 	}
 
 	/**
-	 * Builds a RIF model from a file that is stored in org.eclipse.rmf.pror.reqif10.testdata.
+	 * Builds a ReqIF model from a file that is stored in org.eclipse.rmf.pror.reqif10.testdata.
 	 * 
 	 * @param filename
 	 *            without path
 	 * @return a {@link RIF} object
 	 * @throws URISyntaxException
 	 */
-	public ReqIf getTestReqif(String filename) throws URISyntaxException {
+	public ReqIF getTestReqif(String filename) throws URISyntaxException {
 		URI resourceURI = TestData.getURI(filename);
 		Resource resource = editingDomain.getResourceSet().getResource(
 				resourceURI, true);
-		ReqIf rif = (ReqIf) resource.getContents().get(0);
-		return rif;
+		ReqIF reqif = (ReqIF) resource.getContents().get(0);
+		return reqif;
 	}
 
 	/**

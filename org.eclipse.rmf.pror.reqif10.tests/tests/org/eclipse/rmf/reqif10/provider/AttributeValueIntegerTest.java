@@ -14,7 +14,7 @@ package org.eclipse.rmf.reqif10.provider;
 import java.math.BigInteger;
 
 import org.eclipse.rmf.reqif10.AttributeValueInteger;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -36,7 +36,7 @@ public class AttributeValueIntegerTest extends AttributeValueSimpleTest {
 	 */
 	@Before
 	public void setUpAttributeValueIntegerTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createAttributeValueInteger());
+		setFixture(ReqIF10Factory.eINSTANCE.createAttributeValueInteger());
 	}
 
 	/**

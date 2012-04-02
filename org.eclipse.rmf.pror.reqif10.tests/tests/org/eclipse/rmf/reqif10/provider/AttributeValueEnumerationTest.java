@@ -14,7 +14,7 @@ package org.eclipse.rmf.reqif10.provider;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.EnumValue;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -36,7 +36,7 @@ public class AttributeValueEnumerationTest extends AttributeValueTest {
 	 */
 	@Before
 	public void setUpAttributeValueEnumerationTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createAttributeValueEnumeration());
+		setFixture(ReqIF10Factory.eINSTANCE.createAttributeValueEnumeration());
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class AttributeValueEnumerationTest extends AttributeValueTest {
 	@Override
 	public Object getValueObject() {
 		BasicEList<EnumValue> values = new BasicEList<EnumValue>();
-		values.add(Reqif10Factory.eINSTANCE.createEnumValue());
+		values.add(ReqIF10Factory.eINSTANCE.createEnumValue());
 		return values;
 	}
 

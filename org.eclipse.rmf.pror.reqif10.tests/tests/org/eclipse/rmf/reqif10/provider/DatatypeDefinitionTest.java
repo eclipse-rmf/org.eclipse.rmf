@@ -10,7 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.provider;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URISyntaxException;
 
@@ -18,8 +18,8 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualDatatypeDefinitionItemProvider;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.junit.Test;
 
 /**
@@ -37,11 +37,11 @@ public abstract class DatatypeDefinitionTest extends IdentifiableTest {
 	
 	@Test
 	public void testParentIsVirtual() throws URISyntaxException {
-		ReqIf reqif = getTestReqif("simple.reqif");
+		ReqIF reqif = getTestReqif("simple.reqif");
 		// Required for generating the Virtual Element lazily.
 		getItemProvider(reqif.getCoreContent()).getChildren(reqif.getCoreContent());
 		
-		setViaCommand(reqif.getCoreContent(), Reqif10Package.Literals.REQ_IF_CONTENT__DATATYPES, getFixture());
+		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES, getFixture());
 		ItemProviderAdapter ip = ProrUtil.getItemProvider(adapterFactory, getFixture());
 		assertTrue(ip.getParent(getFixture()) instanceof VirtualDatatypeDefinitionItemProvider);
 	}

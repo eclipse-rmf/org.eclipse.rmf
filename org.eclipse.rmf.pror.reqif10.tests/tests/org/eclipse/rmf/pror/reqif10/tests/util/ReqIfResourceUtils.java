@@ -22,13 +22,13 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.ReqIF;
 
 public class ReqIfResourceUtils {
 
 	private static IWorkspace workspace = ResourcesPlugin.getWorkspace();
 
-	public static ReqIf createReqIfPlatformResorce(IProject project, String fileName,
+	public static ReqIF createReqIfPlatformResorce(IProject project, String fileName,
 			String contents, EditingDomain editingDomain)
 			throws Exception {
 
@@ -41,13 +41,13 @@ public class ReqIfResourceUtils {
 				.toOSString(), true);
 		Resource resource = editingDomain.getResourceSet().getResource(
 				resourceURI, true);
-		ReqIf rif = (ReqIf) resource.getContents().get(0);
+		ReqIF reqif = (ReqIF) resource.getContents().get(0);
 
-		return rif;
+		return reqif;
 
 	}
 
-	public static ReqIf createReqIfPlatformResorce(IProject project, String fileName,
+	public static ReqIF createReqIfPlatformResorce(IProject project, String fileName,
 			InputStream inputStream, EditingDomain editingDomain)
 			throws Exception {
 		return createReqIfPlatformResorce(project, fileName,

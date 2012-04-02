@@ -11,7 +11,7 @@
 package org.eclipse.rmf.reqif10.provider;
 
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -33,7 +33,7 @@ public class DatatypeDefinitionEnumerationTest extends DatatypeDefinitionTest {
 	 */
 	@Before
 	public void setUpDatatypeDefinitionEnumerationTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createDatatypeDefinitionEnumeration());
+		setFixture(ReqIF10Factory.eINSTANCE.createDatatypeDefinitionEnumeration());
 	}
 
 	/**

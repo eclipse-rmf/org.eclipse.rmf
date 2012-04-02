@@ -11,7 +11,8 @@
 
 package org.eclipse.rmf.reqif10.provider;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URISyntaxException;
 import java.util.Arrays;
@@ -23,9 +24,9 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecObjectItemProvider;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
@@ -53,7 +54,7 @@ public class SpecObjectTest extends SpecElementWithAttributesTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createSpecObject());
+		setFixture(ReqIF10Factory.eINSTANCE.createSpecObject());
 		setupReqif();
 	}
 
@@ -66,7 +67,7 @@ public class SpecObjectTest extends SpecElementWithAttributesTest {
 	}
 	
 	
-	private ReqIf reqif;
+	private ReqIF reqif;
 	private SpecObject specObject;
 	private SpecHierarchy specHierarchy;
 
@@ -89,7 +90,7 @@ public class SpecObjectTest extends SpecElementWithAttributesTest {
 		ProrUtil.setTheValue(specObject.getValues().get(0), "newDescription", editingDomain);
 		assertEquals(1, notifications.size());
 		assertEquals(specObject, notifications.get(0).getNotifier());
-		assertEquals(Reqif10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES, notifications.get(0).getFeature());
+		assertEquals(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES, notifications.get(0).getFeature());
 	}
 
 	/**
@@ -103,7 +104,7 @@ public class SpecObjectTest extends SpecElementWithAttributesTest {
 		ProrUtil.setTheValue(specObject.getValues().get(0), "newDescription", editingDomain);
 		assertEquals(1, notifications.size());
 		assertEquals(specHierarchy, notifications.get(0).getNotifier());
-		assertEquals(Reqif10Package.Literals.SPEC_HIERARCHY__OBJECT, notifications.get(0).getFeature());
+		assertEquals(ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT, notifications.get(0).getFeature());
 	}
 
 	@Test
@@ -118,7 +119,7 @@ public class SpecObjectTest extends SpecElementWithAttributesTest {
 	}
 
 	@Override
-	public void addFixtureToReqIf(ReqIf reqif) {
+	public void addFixtureToReqIf(ReqIF reqif) {
 		reqif.getCoreContent().getSpecObjects().add(getFixture());
 	}
 	
@@ -128,18 +129,18 @@ public class SpecObjectTest extends SpecElementWithAttributesTest {
 	}
 
 	@Override
-	protected void setSpecTypeWithAttributeOnFixture(ReqIf reqif,
+	protected void setSpecTypeWithAttributeOnFixture(ReqIF reqif,
 			AttributeDefinition ad) {
-		SpecObjectType type = Reqif10Factory.eINSTANCE.createSpecObjectType();
-		setViaCommand(type, Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad);
-		setViaCommand(reqif.getCoreContent(), Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, type);
-		setViaCommand(getFixture(), Reqif10Package.Literals.SPEC_OBJECT__TYPE, type);
+		SpecObjectType type = ReqIF10Factory.eINSTANCE.createSpecObjectType();
+		setViaCommand(type, ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad);
+		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, type);
+		setViaCommand(getFixture(), ReqIF10Package.Literals.SPEC_OBJECT__TYPE, type);
 	}
 	
 	@Override
 	protected void setFixtureType(SpecElementWithAttributes specElement,
 			SpecType specType) {
-		setViaCommand(specElement, Reqif10Package.Literals.SPEC_OBJECT__TYPE, specType);
+		setViaCommand(specElement, ReqIF10Package.Literals.SPEC_OBJECT__TYPE, specType);
 	}
 
 } //SpecObjectTest

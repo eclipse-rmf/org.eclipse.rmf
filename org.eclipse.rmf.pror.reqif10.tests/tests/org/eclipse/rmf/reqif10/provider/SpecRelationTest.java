@@ -10,7 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.provider;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URISyntaxException;
 import java.util.Arrays;
@@ -21,9 +21,9 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecRelationsItemProvider;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.SpecRelationType;
@@ -50,7 +50,7 @@ public class SpecRelationTest extends SpecElementWithAttributesTest {
 	 */
 	@Before
 	public void setUpSpecRelationTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createSpecRelation());
+		setFixture(ReqIF10Factory.eINSTANCE.createSpecRelation());
 	}
 
 	/**
@@ -62,8 +62,8 @@ public class SpecRelationTest extends SpecElementWithAttributesTest {
 	}
 
 	@Override
-	protected void addFixtureToReqIf(ReqIf reqif) {
-		setViaCommand(reqif.getCoreContent(), Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS, getFixture());
+	protected void addFixtureToReqIf(ReqIF reqif) {
+		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS, getFixture());
 	}
 	
 	@Override
@@ -75,27 +75,27 @@ public class SpecRelationTest extends SpecElementWithAttributesTest {
 	}
 	
 	@Override
-	protected void setSpecTypeWithAttributeOnFixture(ReqIf reqif,
+	protected void setSpecTypeWithAttributeOnFixture(ReqIF reqif,
 			AttributeDefinition ad) {
-		SpecRelationType type = Reqif10Factory.eINSTANCE.createSpecRelationType();
-		setViaCommand(type, Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad);
-		setViaCommand(reqif.getCoreContent(), Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, type);
-		setViaCommand(getFixture(), Reqif10Package.Literals.SPEC_RELATION__TYPE, type);
+		SpecRelationType type = ReqIF10Factory.eINSTANCE.createSpecRelationType();
+		setViaCommand(type, ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad);
+		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, type);
+		setViaCommand(getFixture(), ReqIF10Package.Literals.SPEC_RELATION__TYPE, type);
 	}
 
 	@Override
 	protected void setFixtureType(SpecElementWithAttributes specElement,
 			SpecType specType) {
-		setViaCommand(specElement, Reqif10Package.Literals.SPEC_RELATION__TYPE, specType);
+		setViaCommand(specElement, ReqIF10Package.Literals.SPEC_RELATION__TYPE, specType);
 	}
 
 	@Test
 	public void testParentIsVirtual() throws URISyntaxException {
-		ReqIf reqif = getTestReqif("simple.reqif");
+		ReqIF reqif = getTestReqif("simple.reqif");
 		// Required for generating the Virtual Element lazily.
 		getItemProvider(reqif.getCoreContent()).getChildren(reqif.getCoreContent());
 
-		setViaCommand(reqif.getCoreContent(), Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS, getFixture());
+		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS, getFixture());
 		ItemProviderAdapter ip = ProrUtil.getItemProvider(adapterFactory, getFixture());
 		assertTrue(ip.getParent(getFixture()) instanceof VirtualSpecRelationsItemProvider);
 	}

@@ -11,7 +11,7 @@
 
 package org.eclipse.rmf.reqif10.configuration.tests;
 
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
 import org.junit.After;
@@ -48,7 +48,7 @@ public class ProrToolExtensionTest extends AbstractItemProviderTest {
 	 */
 	@Before
 	protected void setUp() throws Exception {
-		setFixture(ConfigFactory.eINSTANCE.createProrToolExtension());
+		setFixture(ConfigurationFactory.eINSTANCE.createProrToolExtension());
 	}
 
 	/**

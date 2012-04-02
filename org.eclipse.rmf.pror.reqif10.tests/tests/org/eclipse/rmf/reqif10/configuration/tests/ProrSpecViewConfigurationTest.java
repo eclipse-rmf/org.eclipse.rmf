@@ -14,8 +14,8 @@ package org.eclipse.rmf.reqif10.configuration.tests;
 import static org.junit.Assert.assertEquals;
 
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
 import org.junit.After;
@@ -51,7 +51,7 @@ public class ProrSpecViewConfigurationTest extends AbstractItemProviderTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		setFixture(ConfigFactory.eINSTANCE.createProrSpecViewConfiguration());
+		setFixture(ConfigurationFactory.eINSTANCE.createProrSpecViewConfiguration());
 	}
 
 	/**
@@ -64,11 +64,11 @@ public class ProrSpecViewConfigurationTest extends AbstractItemProviderTest {
 	
 	@Test
 	public void testRenameColumn() {
-		Column column = ConfigFactory.eINSTANCE.createColumn();
+		Column column = ConfigurationFactory.eINSTANCE.createColumn();
 		column.setLabel("Foo");
 		getFixture().getColumns().add(column);
 		getItemProvider(getFixture()).addListener(listener);
-		setViaCommand(column, ConfigPackage.Literals.COLUMN__LABEL, "Bar");
+		setViaCommand(column, ConfigurationPackage.Literals.COLUMN__LABEL, "Bar");
 		assertEquals(1, notifications.size());
 		assertEquals("Bar", column.getLabel());
 	}

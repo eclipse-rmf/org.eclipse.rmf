@@ -11,7 +11,7 @@
 
 package org.eclipse.rmf.reqif10.provider;
 
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecRelationType;
 import org.junit.After;
 import org.junit.Before;
@@ -34,7 +34,7 @@ public class SpecRelationTypeTest extends SpecTypeTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createSpecRelationType());
+		setFixture(ReqIF10Factory.eINSTANCE.createSpecRelationType());
 	}
 
 	/**
