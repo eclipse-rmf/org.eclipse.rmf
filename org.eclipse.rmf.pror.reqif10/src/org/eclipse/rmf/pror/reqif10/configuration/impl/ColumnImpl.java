@@ -12,14 +12,11 @@
 package org.eclipse.rmf.pror.reqif10.configuration.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,7 +89,7 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ConfigPackage.Literals.COLUMN;
+		return ConfigurationPackage.Literals.COLUMN;
 	}
 
 	/**
@@ -113,7 +110,7 @@ public class ColumnImpl extends EObjectImpl implements Column {
 		String oldLabel = label;
 		label = newLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.COLUMN__LABEL, oldLabel, label));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.COLUMN__LABEL, oldLabel, label));
 	}
 
 	/**
@@ -134,7 +131,7 @@ public class ColumnImpl extends EObjectImpl implements Column {
 		int oldWidth = width;
 		width = newWidth;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.COLUMN__WIDTH, oldWidth, width));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.COLUMN__WIDTH, oldWidth, width));
 	}
 
 	/**
@@ -145,9 +142,9 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ConfigPackage.COLUMN__LABEL:
+			case ConfigurationPackage.COLUMN__LABEL:
 				return getLabel();
-			case ConfigPackage.COLUMN__WIDTH:
+			case ConfigurationPackage.COLUMN__WIDTH:
 				return getWidth();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -161,10 +158,10 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ConfigPackage.COLUMN__LABEL:
+			case ConfigurationPackage.COLUMN__LABEL:
 				setLabel((String)newValue);
 				return;
-			case ConfigPackage.COLUMN__WIDTH:
+			case ConfigurationPackage.COLUMN__WIDTH:
 				setWidth((Integer)newValue);
 				return;
 		}
@@ -179,10 +176,10 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.COLUMN__LABEL:
+			case ConfigurationPackage.COLUMN__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
-			case ConfigPackage.COLUMN__WIDTH:
+			case ConfigurationPackage.COLUMN__WIDTH:
 				setWidth(WIDTH_EDEFAULT);
 				return;
 		}
@@ -197,9 +194,9 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.COLUMN__LABEL:
+			case ConfigurationPackage.COLUMN__LABEL:
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
-			case ConfigPackage.COLUMN__WIDTH:
+			case ConfigurationPackage.COLUMN__WIDTH:
 				return width != WIDTH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

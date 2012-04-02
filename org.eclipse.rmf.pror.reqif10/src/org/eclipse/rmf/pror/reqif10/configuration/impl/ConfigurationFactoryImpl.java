@@ -14,12 +14,16 @@ package org.eclipse.rmf.pror.reqif10.configuration.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.rmf.pror.reqif10.configuration.*;
+import org.eclipse.rmf.pror.reqif10.configuration.Column;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,24 +31,24 @@ import org.eclipse.rmf.pror.reqif10.configuration.*;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
+public class ConfigurationFactoryImpl extends EFactoryImpl implements ConfigurationFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static ConfigFactory init() {
+	public static ConfigurationFactory init() {
 		try {
-			ConfigFactory theConfigFactory = (ConfigFactory)EPackage.Registry.INSTANCE.getEFactory("http://pror.org/presentation/configuration"); 
-			if (theConfigFactory != null) {
-				return theConfigFactory;
+			ConfigurationFactory theConfigurationFactory = (ConfigurationFactory)EPackage.Registry.INSTANCE.getEFactory("http://pror.org/presentation/configuration"); 
+			if (theConfigurationFactory != null) {
+				return theConfigurationFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new ConfigFactoryImpl();
+		return new ConfigurationFactoryImpl();
 	}
 
 	/**
@@ -53,7 +57,7 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigFactoryImpl() {
+	public ConfigurationFactoryImpl() {
 		super();
 	}
 
@@ -65,12 +69,12 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ConfigPackage.PROR_TOOL_EXTENSION: return createProrToolExtension();
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION: return createProrSpecViewConfiguration();
-			case ConfigPackage.COLUMN: return createColumn();
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATIONS: return createProrPresentationConfigurations();
-			case ConfigPackage.PROR_GENERAL_CONFIGURATION: return createProrGeneralConfiguration();
-			case ConfigPackage.LABEL_CONFIGURATION: return createLabelConfiguration();
+			case ConfigurationPackage.PROR_TOOL_EXTENSION: return createProrToolExtension();
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION: return createProrSpecViewConfiguration();
+			case ConfigurationPackage.COLUMN: return createColumn();
+			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS: return createProrPresentationConfigurations();
+			case ConfigurationPackage.PROR_GENERAL_CONFIGURATION: return createProrGeneralConfiguration();
+			case ConfigurationPackage.LABEL_CONFIGURATION: return createLabelConfiguration();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -141,8 +145,8 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigPackage getConfigPackage() {
-		return (ConfigPackage)getEPackage();
+	public ConfigurationPackage getConfigurationPackage() {
+		return (ConfigurationPackage)getEPackage();
 	}
 
 	/**
@@ -152,8 +156,8 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	 * @generated
 	 */
 	@Deprecated
-	public static ConfigPackage getPackage() {
-		return ConfigPackage.eINSTANCE;
+	public static ConfigurationPackage getPackage() {
+		return ConfigurationPackage.eINSTANCE;
 	}
 
 } //ConfigFactoryImpl

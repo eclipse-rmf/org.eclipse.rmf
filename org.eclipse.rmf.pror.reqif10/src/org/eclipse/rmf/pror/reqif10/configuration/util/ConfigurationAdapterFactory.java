@@ -16,7 +16,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
@@ -31,17 +31,17 @@ import org.eclipse.rmf.reqif10.ReqIFToolExtension;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage
+ * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage
  * @generated
  */
-public class ConfigAdapterFactory extends AdapterFactoryImpl {
+public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static ConfigPackage modelPackage;
+	protected static ConfigurationPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -49,9 +49,9 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigAdapterFactory() {
+	public ConfigurationAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = ConfigPackage.eINSTANCE;
+			modelPackage = ConfigurationPackage.eINSTANCE;
 		}
 	}
 
@@ -80,8 +80,8 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConfigSwitch<Adapter> modelSwitch =
-		new ConfigSwitch<Adapter>() {
+	protected ConfigurationSwitch<Adapter> modelSwitch =
+		new ConfigurationSwitch<Adapter>() {
 			@Override
 			public Adapter caseProrToolExtension(ProrToolExtension object) {
 				return createProrToolExtensionAdapter();
@@ -112,7 +112,7 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 			}
 			@Override
 			public Adapter caseReqIFToolExtension(ReqIFToolExtension object) {
-				return createReqIfToolExtensionAdapter();
+				return createReqIFToolExtensionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -233,16 +233,24 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+<<<<<<< HEAD:org.eclipse.rmf.pror.reqif10/src/org/eclipse/rmf/pror/reqif10/configuration/util/ConfigAdapterFactory.java
 	 * Creates a new adapter for an object of class '{@link org.eclipse.rmf.pror.reqif10.ReqIfToolExtension <em>Req If Tool Extension</em>}'.
+=======
+	 * Creates a new adapter for an object of class '{@link org.eclipse.rmf.pror.reqif10.ReqIFToolExtension <em>Req IF Tool Extension</em>}'.
+>>>>>>> 638a585... Regenerated Model Code:org.eclipse.rmf.pror.reqif10/src/org/eclipse/rmf/pror/reqif10/configuration/util/ConfigurationAdapterFactory.java
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
+<<<<<<< HEAD:org.eclipse.rmf.pror.reqif10/src/org/eclipse/rmf/pror/reqif10/configuration/util/ConfigAdapterFactory.java
 	 * @see org.eclipse.rmf.pror.reqif10.ReqIfToolExtension
+=======
+	 * @see org.eclipse.rmf.pror.reqif10.ReqIFToolExtension
+>>>>>>> 638a585... Regenerated Model Code:org.eclipse.rmf.pror.reqif10/src/org/eclipse/rmf/pror/reqif10/configuration/util/ConfigurationAdapterFactory.java
 	 * @generated
 	 */
-	public Adapter createReqIfToolExtensionAdapter() {
+	public Adapter createReqIFToolExtensionAdapter() {
 		return null;
 	}
 

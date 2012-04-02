@@ -18,17 +18,17 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage
+ * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage
  * @generated
  */
-public interface ConfigFactory extends EFactory {
+public interface ConfigurationFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	ConfigFactory eINSTANCE = org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigFactoryImpl.init();
+	ConfigurationFactory eINSTANCE = org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Pror Tool Extension</em>'.
@@ -91,6 +91,6 @@ public interface ConfigFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	ConfigPackage getConfigPackage();
+	ConfigurationPackage getConfigurationPackage();
 
 } //ConfigFactory

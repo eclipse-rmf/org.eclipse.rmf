@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.Specification;
 
@@ -90,7 +90,7 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ConfigPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION;
+		return ConfigurationPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION;
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 			specification = (Specification)eResolveProxy(oldSpecification);
 			if (specification != oldSpecification) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION, oldSpecification, specification));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION, oldSpecification, specification));
 			}
 		}
 		return specification;
@@ -128,7 +128,7 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 		Specification oldSpecification = specification;
 		specification = newSpecification;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION, oldSpecification, specification));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION, oldSpecification, specification));
 	}
 
 	/**
@@ -138,7 +138,7 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	 */
 	public EList<Column> getColumns() {
 		if (columns == null) {
-			columns = new EObjectContainmentEList<Column>(Column.class, this, ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS);
+			columns = new EObjectContainmentEList<Column>(Column.class, this, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS);
 		}
 		return columns;
 	}
@@ -194,7 +194,7 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
 				return ((InternalEList<?>)getColumns()).basicRemove(otherEnd, msgs);
 			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
 				return basicSetLeftHeaderColumn(null, msgs);
@@ -210,10 +210,10 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION:
 				if (resolve) return getSpecification();
 				return basicGetSpecification();
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
 				return getColumns();
 			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
 				return getLeftHeaderColumn();
@@ -230,10 +230,10 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION:
 				setSpecification((Specification)newValue);
 				return;
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
 				getColumns().clear();
 				getColumns().addAll((Collection<? extends Column>)newValue);
 				return;
@@ -252,10 +252,10 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION:
 				setSpecification((Specification)null);
 				return;
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
 				getColumns().clear();
 				return;
 			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
@@ -273,9 +273,9 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION:
 				return specification != null;
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
 				return columns != null && !columns.isEmpty();
 			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
 				return leftHeaderColumn != null;

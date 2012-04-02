@@ -28,11 +28,11 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory
+ * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory
  * @model kind="package"
  * @generated
  */
-public interface ConfigPackage extends EPackage {
+public interface ConfigurationPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -63,26 +63,26 @@ public interface ConfigPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	ConfigPackage eINSTANCE = org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl.init();
+	ConfigurationPackage eINSTANCE = org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.pror.reqif10.configuration.impl.ProrToolExtensionImpl <em>Pror Tool Extension</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ProrToolExtensionImpl
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getProrToolExtension()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getProrToolExtension()
 	 * @generated
 	 */
 	int PROR_TOOL_EXTENSION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Document Root</b></em>' container reference.
+	 * The feature id for the '<em><b>Any</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROR_TOOL_EXTENSION__DOCUMENT_ROOT = ReqIF10Package.REQ_IF_TOOL_EXTENSION__ANY;
+	int PROR_TOOL_EXTENSION__ANY = ReqIF10Package.REQ_IF_TOOL_EXTENSION__ANY;
 
 	/**
 	 * The feature id for the '<em><b>Spec View Configurations</b></em>' containment reference list.
@@ -125,7 +125,7 @@ public interface ConfigPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ProrSpecViewConfigurationImpl
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getProrSpecViewConfiguration()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getProrSpecViewConfiguration()
 	 * @generated
 	 */
 	int PROR_SPEC_VIEW_CONFIGURATION = 1;
@@ -171,7 +171,7 @@ public interface ConfigPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ColumnImpl
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getColumn()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getColumn()
 	 * @generated
 	 */
 	int COLUMN = 2;
@@ -208,7 +208,7 @@ public interface ConfigPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ProrPresentationConfigurationsImpl
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getProrPresentationConfigurations()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getProrPresentationConfigurations()
 	 * @generated
 	 */
 	int PROR_PRESENTATION_CONFIGURATIONS = 3;
@@ -236,7 +236,7 @@ public interface ConfigPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ProrPresentationConfigurationImpl
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getProrPresentationConfiguration()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getProrPresentationConfiguration()
 	 * @generated
 	 */
 	int PROR_PRESENTATION_CONFIGURATION = 4;
@@ -264,7 +264,7 @@ public interface ConfigPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ProrGeneralConfigurationImpl
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getProrGeneralConfiguration()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getProrGeneralConfiguration()
 	 * @generated
 	 */
 	int PROR_GENERAL_CONFIGURATION = 5;
@@ -292,7 +292,7 @@ public interface ConfigPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.LabelConfigurationImpl
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getLabelConfiguration()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getLabelConfiguration()
 	 * @generated
 	 */
 	int LABEL_CONFIGURATION = 6;
@@ -525,7 +525,7 @@ public interface ConfigPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	ConfigFactory getConfigFactory();
+	ConfigurationFactory getConfigurationFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -545,7 +545,7 @@ public interface ConfigPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ProrToolExtensionImpl
-		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getProrToolExtension()
+		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getProrToolExtension()
 		 * @generated
 		 */
 		EClass PROR_TOOL_EXTENSION = eINSTANCE.getProrToolExtension();
@@ -579,7 +579,7 @@ public interface ConfigPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ProrSpecViewConfigurationImpl
-		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getProrSpecViewConfiguration()
+		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getProrSpecViewConfiguration()
 		 * @generated
 		 */
 		EClass PROR_SPEC_VIEW_CONFIGURATION = eINSTANCE.getProrSpecViewConfiguration();
@@ -613,7 +613,7 @@ public interface ConfigPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ColumnImpl
-		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getColumn()
+		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getColumn()
 		 * @generated
 		 */
 		EClass COLUMN = eINSTANCE.getColumn();
@@ -639,7 +639,7 @@ public interface ConfigPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ProrPresentationConfigurationsImpl
-		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getProrPresentationConfigurations()
+		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getProrPresentationConfigurations()
 		 * @generated
 		 */
 		EClass PROR_PRESENTATION_CONFIGURATIONS = eINSTANCE.getProrPresentationConfigurations();
@@ -657,7 +657,7 @@ public interface ConfigPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ProrPresentationConfigurationImpl
-		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getProrPresentationConfiguration()
+		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getProrPresentationConfiguration()
 		 * @generated
 		 */
 		EClass PROR_PRESENTATION_CONFIGURATION = eINSTANCE.getProrPresentationConfiguration();
@@ -675,7 +675,7 @@ public interface ConfigPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ProrGeneralConfigurationImpl
-		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getProrGeneralConfiguration()
+		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getProrGeneralConfiguration()
 		 * @generated
 		 */
 		EClass PROR_GENERAL_CONFIGURATION = eINSTANCE.getProrGeneralConfiguration();
@@ -693,7 +693,7 @@ public interface ConfigPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.LabelConfigurationImpl
-		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigPackageImpl#getLabelConfiguration()
+		 * @see org.eclipse.rmf.pror.reqif10.configuration.impl.ConfigurationPackageImpl#getLabelConfiguration()
 		 * @generated
 		 */
 		EClass LABEL_CONFIGURATION = eINSTANCE.getLabelConfiguration();

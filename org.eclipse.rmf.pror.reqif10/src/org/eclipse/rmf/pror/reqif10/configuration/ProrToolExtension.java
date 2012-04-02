@@ -28,7 +28,7 @@ import org.eclipse.rmf.reqif10.ReqIFToolExtension;
  * </ul>
  * </p>
  *
- * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrToolExtension()
+ * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrToolExtension()
  * @model
  * @generated
  */
@@ -43,7 +43,7 @@ public interface ProrToolExtension extends ReqIFToolExtension {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Spec View Configurations</em>' containment reference list.
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrToolExtension_SpecViewConfigurations()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrToolExtension_SpecViewConfigurations()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -59,7 +59,7 @@ public interface ProrToolExtension extends ReqIFToolExtension {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>General Configuration</em>' containment reference.
 	 * @see #setGeneralConfiguration(ProrGeneralConfiguration)
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrToolExtension_GeneralConfiguration()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrToolExtension_GeneralConfiguration()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
@@ -85,7 +85,7 @@ public interface ProrToolExtension extends ReqIFToolExtension {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Presentation Configurations</em>' containment reference.
 	 * @see #setPresentationConfigurations(ProrPresentationConfigurations)
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrToolExtension_PresentationConfigurations()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrToolExtension_PresentationConfigurations()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */

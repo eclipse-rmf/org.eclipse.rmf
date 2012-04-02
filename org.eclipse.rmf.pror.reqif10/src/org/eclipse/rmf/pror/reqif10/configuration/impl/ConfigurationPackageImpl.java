@@ -16,9 +16,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
@@ -29,6 +30,8 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 import org.eclipse.rmf.reqif10.datatypes.impl.DatatypesPackageImpl;
 import org.eclipse.rmf.reqif10.impl.ReqIF10PackageImpl;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
+import org.eclipse.rmf.reqif10.xhtml.impl.XhtmlPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +39,7 @@ import org.eclipse.rmf.reqif10.impl.ReqIF10PackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
+public class ConfigurationPackageImpl extends EPackageImpl implements ConfigurationPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,12 +100,12 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#eNS_URI
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private ConfigPackageImpl() {
-		super(eNS_URI, ConfigFactory.eINSTANCE);
+	private ConfigurationPackageImpl() {
+		super(eNS_URI, ConfigurationFactory.eINSTANCE);
 	}
 
 	/**
@@ -115,7 +118,7 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link ConfigPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link ConfigurationPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,35 +127,45 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static ConfigPackage init() {
-		if (isInited) return (ConfigPackage)EPackage.Registry.INSTANCE.getEPackage(ConfigPackage.eNS_URI);
+	public static ConfigurationPackage init() {
+		if (isInited) return (ConfigurationPackage)EPackage.Registry.INSTANCE.getEPackage(ConfigurationPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ConfigPackageImpl theConfigPackage = (ConfigPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ConfigPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ConfigPackageImpl());
+		ConfigurationPackageImpl theConfigurationPackage = (ConfigurationPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ConfigurationPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ConfigurationPackageImpl());
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		XMLNamespacePackage.eINSTANCE.eClass();
+
 		// Obtain or create and register interdependencies
-		ReqIF10PackageImpl theReqif10Package = (ReqIF10PackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI) instanceof ReqIF10PackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI) : ReqIF10Package.eINSTANCE);
+		ReqIF10PackageImpl theReqIF10Package = (ReqIF10PackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI) instanceof ReqIF10PackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI) : ReqIF10Package.eINSTANCE);
+		XhtmlPackageImpl theXhtmlPackage = (XhtmlPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI) instanceof XhtmlPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI) : XhtmlPackage.eINSTANCE);
 		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) : DatatypesPackage.eINSTANCE);
 
+		// Load packages
+		theXhtmlPackage.loadPackage();
+
 		// Create package meta-data objects
-		theConfigPackage.createPackageContents();
-		theReqif10Package.createPackageContents();
+		theConfigurationPackage.createPackageContents();
+		theReqIF10Package.createPackageContents();
 		theDatatypesPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theConfigPackage.initializePackageContents();
-		theReqif10Package.initializePackageContents();
+		theConfigurationPackage.initializePackageContents();
+		theReqIF10Package.initializePackageContents();
 		theDatatypesPackage.initializePackageContents();
 
+		// Fix loaded packages
+		theXhtmlPackage.fixPackageContents();
+
 		// Mark meta-data to indicate it can't be changed
-		theConfigPackage.freeze();
+		theConfigurationPackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(ConfigPackage.eNS_URI, theConfigPackage);
-		return theConfigPackage;
+		EPackage.Registry.INSTANCE.put(ConfigurationPackage.eNS_URI, theConfigurationPackage);
+		return theConfigurationPackage;
 	}
 
 	/**
@@ -331,8 +344,8 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigFactory getConfigFactory() {
-		return (ConfigFactory)getEFactoryInstance();
+	public ConfigurationFactory getConfigurationFactory() {
+		return (ConfigurationFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -405,14 +418,14 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ReqIF10Package theReqif10Package = (ReqIF10Package)EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI);
+		ReqIF10Package theReqIF10Package = (ReqIF10Package)EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		prorToolExtensionEClass.getESuperTypes().add(theReqif10Package.getReqIFToolExtension());
+		prorToolExtensionEClass.getESuperTypes().add(theReqIF10Package.getReqIFToolExtension());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(prorToolExtensionEClass, ProrToolExtension.class, "ProrToolExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -421,7 +434,7 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		initEReference(getProrToolExtension_PresentationConfigurations(), this.getProrPresentationConfigurations(), null, "presentationConfigurations", null, 1, 1, ProrToolExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(prorSpecViewConfigurationEClass, ProrSpecViewConfiguration.class, "ProrSpecViewConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProrSpecViewConfiguration_Specification(), theReqif10Package.getSpecification(), null, "specification", null, 1, 1, ProrSpecViewConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProrSpecViewConfiguration_Specification(), theReqIF10Package.getSpecification(), null, "specification", null, 1, 1, ProrSpecViewConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProrSpecViewConfiguration_Columns(), this.getColumn(), null, "columns", null, 0, -1, ProrSpecViewConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProrSpecViewConfiguration_LeftHeaderColumn(), this.getColumn(), null, "leftHeaderColumn", null, 1, 1, ProrSpecViewConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -433,7 +446,7 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		initEReference(getProrPresentationConfigurations_PresentationConfigurations(), this.getProrPresentationConfiguration(), null, "presentationConfigurations", null, 0, -1, ProrPresentationConfigurations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(prorPresentationConfigurationEClass, ProrPresentationConfiguration.class, "ProrPresentationConfiguration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProrPresentationConfiguration_Datatype(), theReqif10Package.getDatatypeDefinition(), null, "datatype", null, 1, 1, ProrPresentationConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProrPresentationConfiguration_Datatype(), theReqIF10Package.getDatatypeDefinition(), null, "datatype", null, 1, 1, ProrPresentationConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(prorGeneralConfigurationEClass, ProrGeneralConfiguration.class, "ProrGeneralConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProrGeneralConfiguration_LabelConfiguration(), this.getLabelConfiguration(), null, "labelConfiguration", null, 1, 1, ProrGeneralConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

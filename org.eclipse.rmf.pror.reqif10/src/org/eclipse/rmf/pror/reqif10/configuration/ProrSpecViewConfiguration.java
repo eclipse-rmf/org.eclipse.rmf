@@ -29,7 +29,7 @@ import org.eclipse.rmf.reqif10.Specification;
  * </ul>
  * </p>
  *
- * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrSpecViewConfiguration()
+ * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrSpecViewConfiguration()
  * @model
  * @generated
  */
@@ -44,7 +44,7 @@ public interface ProrSpecViewConfiguration extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Specification</em>' reference.
 	 * @see #setSpecification(Specification)
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrSpecViewConfiguration_Specification()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrSpecViewConfiguration_Specification()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -70,7 +70,7 @@ public interface ProrSpecViewConfiguration extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Columns</em>' containment reference list.
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrSpecViewConfiguration_Columns()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrSpecViewConfiguration_Columns()
 	 * @model containment="true"
 	 * @generated
 	 */

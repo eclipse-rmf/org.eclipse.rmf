@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
@@ -35,17 +35,17 @@ import org.eclipse.rmf.reqif10.ReqIFToolExtension;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage
+ * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage
  * @generated
  */
-public class ConfigSwitch<T> extends Switch<T> {
+public class ConfigurationSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static ConfigPackage modelPackage;
+	protected static ConfigurationPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -53,9 +53,9 @@ public class ConfigSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigSwitch() {
+	public ConfigurationSwitch() {
 		if (modelPackage == null) {
-			modelPackage = ConfigPackage.eINSTANCE;
+			modelPackage = ConfigurationPackage.eINSTANCE;
 		}
 	}
 
@@ -82,44 +82,44 @@ public class ConfigSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ConfigPackage.PROR_TOOL_EXTENSION: {
+			case ConfigurationPackage.PROR_TOOL_EXTENSION: {
 				ProrToolExtension prorToolExtension = (ProrToolExtension)theEObject;
 				T result = caseProrToolExtension(prorToolExtension);
 				if (result == null) result = caseReqIFToolExtension(prorToolExtension);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION: {
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION: {
 				ProrSpecViewConfiguration prorSpecViewConfiguration = (ProrSpecViewConfiguration)theEObject;
 				T result = caseProrSpecViewConfiguration(prorSpecViewConfiguration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConfigPackage.COLUMN: {
+			case ConfigurationPackage.COLUMN: {
 				Column column = (Column)theEObject;
 				T result = caseColumn(column);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATIONS: {
+			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS: {
 				ProrPresentationConfigurations prorPresentationConfigurations = (ProrPresentationConfigurations)theEObject;
 				T result = caseProrPresentationConfigurations(prorPresentationConfigurations);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATION: {
+			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION: {
 				ProrPresentationConfiguration prorPresentationConfiguration = (ProrPresentationConfiguration)theEObject;
 				T result = caseProrPresentationConfiguration(prorPresentationConfiguration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConfigPackage.PROR_GENERAL_CONFIGURATION: {
+			case ConfigurationPackage.PROR_GENERAL_CONFIGURATION: {
 				ProrGeneralConfiguration prorGeneralConfiguration = (ProrGeneralConfiguration)theEObject;
 				T result = caseProrGeneralConfiguration(prorGeneralConfiguration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConfigPackage.LABEL_CONFIGURATION: {
+			case ConfigurationPackage.LABEL_CONFIGURATION: {
 				LabelConfiguration labelConfiguration = (LabelConfiguration)theEObject;
 				T result = caseLabelConfiguration(labelConfiguration);
 				if (result == null) result = defaultCase(theEObject);
@@ -235,13 +235,13 @@ public class ConfigSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Req If Tool Extension</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Req IF Tool Extension</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Req If Tool Extension</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Req IF Tool Extension</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
