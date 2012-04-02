@@ -173,5 +173,12 @@ Contributors:
    </extension>
 
  <extension-point id="presentation" name="Renderer and Editor for ReqIF Datatypes" schema="schema/presentation.exsd"/>
+ <extension
+       point="org.eclipse.emf.ecore.extension_parser">
+    <parser
+          class="org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl"
+          type="reqif">
+    </parser>
+ </extension>
 
 </plugin>

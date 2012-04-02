@@ -20,7 +20,7 @@ Contributors:
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://www.omg.org/spec/ReqIF/20101201"
+            uri="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd"
             class="org.eclipse.rmf.pror.reqif10.provider.ReqIF10ItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -33,7 +33,7 @@ Contributors:
    <extension
          point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            class="org.eclipse.rmf.pror.reqif10.configuration.provider.ConfigItemProviderAdapterFactory"
+            class="org.eclipse.rmf.pror.reqif10.configuration.provider.ConfigurationItemProviderAdapterFactory"
             uri="http://pror.org/presentation/configuration"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
