@@ -92,12 +92,13 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
-import org.eclipse.rmf.pror.reqif10.configuration.provider.ConfigItemProviderAdapterFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorManager;
 import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertySheetPage;
 import org.eclipse.rmf.pror.reqif10.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualDatatypeDefinitionItemProvider;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecTypeItemProvider;
+import org.eclipse.rmf.pror.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
@@ -689,9 +690,11 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		adapterFactory
 				.addAdapterFactory(new ReqIF10ItemProviderAdapterFactory());
 		adapterFactory
-				.addAdapterFactory(new ConfigItemProviderAdapterFactory());
+				.addAdapterFactory(new ConfigurationItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+		adapterFactory
+				.addAdapterFactory(new XhtmlItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are
 		// executed.
