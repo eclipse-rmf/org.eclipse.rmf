@@ -164,6 +164,11 @@ public class ReqIF10Util {
 		return (SpecType) reflectiveGet(specElement, "getType");
 	}
 
+	public static SpecType getSpecType(AttributeDefinition ad) {
+		return (SpecType) ad.eContainer();
+	}
+
+
 	/**
 	 * Helper method that reflectively executes methods. The annoying thing with
 	 * ReqIF is, that many classes share a method (e.g. getType()) that returns
