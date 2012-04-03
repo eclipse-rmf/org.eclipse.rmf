@@ -119,7 +119,7 @@ public class ProrAgileGridViewer extends Viewer {
 	 * @param adapterFactory
 	 */
 	public ProrAgileGridViewer(Composite composite, AdapterFactory adapterFactory, EditingDomain editingDomain) {
-		agileGrid = new ProrAgileGrid(composite, SWTX.AUTO_SCROLL
+		agileGrid = new ProrAgileGrid(composite, SWT.V_SCROLL | SWT.H_SCROLL
 				| SWTX.FILL_WITH_LASTCOL | SWT.MULTI | SWT.DOUBLE_BUFFERED);
 		agileGrid.setLayoutAdvisor(new ProrLayoutAdvisor(agileGrid));
 		// agileGrid.setAgileGridEditor(new ProrAgileGridEditor(agileGrid));

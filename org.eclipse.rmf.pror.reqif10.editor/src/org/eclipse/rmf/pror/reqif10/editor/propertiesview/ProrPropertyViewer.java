@@ -40,7 +40,7 @@ public class ProrPropertyViewer extends Viewer {
 
 	public ProrPropertyViewer(Composite parent, EditingDomain editingDomain, AdapterFactory adapterFactory) {
 		// Create Agile Grid
-		agileGrid = new AgileGrid(parent, SWTX.AUTO_SCROLL
+		agileGrid = new AgileGrid(parent, SWT.V_SCROLL | SWT.H_SCROLL
 				| SWTX.FILL_WITH_DUMMYCOL | SWT.FLAT);
 		agileGrid.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
 		this.contentProvider = new ProrPropertyContentProvider(editingDomain);
