@@ -28,10 +28,6 @@ Contributors:
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
-
-   <extension
-         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             class="org.eclipse.rmf.pror.reqif10.configuration.provider.ConfigurationItemProviderAdapterFactory"
             uri="http://eclipse.org/rmf/pror/toolextensions/1.0"
@@ -42,6 +38,7 @@ Contributors:
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
+
 <!--
 TODO reactivate!
    <extension
