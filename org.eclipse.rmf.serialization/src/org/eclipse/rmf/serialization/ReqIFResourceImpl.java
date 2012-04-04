@@ -103,16 +103,6 @@ public class ReqIFResourceImpl extends XMLResourceImpl {
 	public EObject getEObject(String uriFragment) {
 		return getEObjectByID(uriFragment);
 	}
-	/*
-	@Override
-	
-	public EObject getEObject(String uriFragment) {
-		if (getContents().size() > 0) {
-			return AutosarURIFactory.getEObject(getContents().get(0), uriFragment);
-		}
-		return null;
-	}
-*/
 
 
 }
