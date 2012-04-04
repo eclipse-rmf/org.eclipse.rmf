@@ -42,8 +42,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -72,6 +70,8 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
+import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -329,7 +329,11 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 						try {
 							// Create a resource set
 							//
-							ResourceSet resourceSet = new ResourceSetImpl();
+							ReqIFResourceSetImpl resourceSet = new ReqIFResourceSetImpl();
+
+							// (mj) Sollte nicht notwendig sein, übernommmen von Mark's Unit Test
+							resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new ReqIFResourceFactoryImpl());
+							resourceSet.getPackageRegistry().put(ReqIF10Package.eNS_URI, ReqIF10Package.eINSTANCE);
 
 							// Get the URI of the model file.
 							//
@@ -353,7 +357,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 							// options.put(XMLResource.OPTION_ENCODING,
 							// initialObjectCreationPage.getEncoding());
 							options.put(XMLResource.OPTION_ENCODING, "UTF-8");
-							resource.save(options);
+							resource.save(null);
 						}
 						catch (Exception exception) {
 							Reqif10EditorPlugin.INSTANCE.log(exception);
