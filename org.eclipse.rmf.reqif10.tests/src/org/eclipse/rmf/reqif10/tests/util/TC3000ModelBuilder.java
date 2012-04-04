@@ -11,44 +11,16 @@
  */
 package org.eclipse.rmf.reqif10.tests.util;
 
-import java.math.BigInteger;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EcoreFactory;
-import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.impl.EcoreFactoryImpl;
-import org.eclipse.emf.ecore.util.FeatureMap.Entry;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
-import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
-import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
-import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
-import org.eclipse.rmf.reqif10.AttributeDefinitionInteger;
-import org.eclipse.rmf.reqif10.AttributeDefinitionReal;
-import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
-import org.eclipse.rmf.reqif10.AttributeValueBoolean;
-import org.eclipse.rmf.reqif10.AttributeValueDate;
-import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
-import org.eclipse.rmf.reqif10.AttributeValueInteger;
-import org.eclipse.rmf.reqif10.AttributeValueReal;
-import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
-import org.eclipse.rmf.reqif10.DatatypeDefinitionBoolean;
-import org.eclipse.rmf.reqif10.DatatypeDefinitionDate;
-import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
-import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
-import org.eclipse.rmf.reqif10.DatatypeDefinitionReal;
-import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML;
-import org.eclipse.rmf.reqif10.EmbeddedValue;
-import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
@@ -59,7 +31,6 @@ import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlH1Type;
-import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
 public class TC3000ModelBuilder extends SimpleModelBuilder {
 

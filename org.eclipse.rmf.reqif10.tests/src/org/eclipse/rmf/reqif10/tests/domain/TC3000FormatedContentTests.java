@@ -69,8 +69,8 @@ public class TC3000FormatedContentTests extends AbstractTestCase {
 				.put(ReqIF10Package.eNS_URI, ReqIF10Package.eINSTANCE);
 		// ___
 		originalReqIF = new TC3000ModelBuilder().getReqIF();
-		saveReqIFFile(originalReqIF, WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000.ReqIF");
-		loadedReqIF = loadReqIFFile(WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000.ReqIF");
+		saveReqIFFile(originalReqIF, WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000.reqif");
+		loadedReqIF = loadReqIFFile(WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000.reqif");
 
 	}
 	
@@ -79,7 +79,7 @@ public class TC3000FormatedContentTests extends AbstractTestCase {
 	
 	@Test
 	public void testSchemaCompliance() throws Exception {
-		validateAgainstSchema(WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000.ReqIF");
+		validateAgainstSchema(WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000.reqif");
 	}
 	
 	
@@ -88,7 +88,7 @@ public class TC3000FormatedContentTests extends AbstractTestCase {
 	@Test
 	public void testResave() throws IOException {
 		try {
-			saveReqIFFile(loadedReqIF, WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000_2.ReqIF");
+			saveReqIFFile(loadedReqIF, WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000_2.reqif");
 		} catch (IOException ioe) {
 			Assert.assertFalse("We shall be able to save without exception. However the following exception occurred: " + ioe.toString(), true);
 		}

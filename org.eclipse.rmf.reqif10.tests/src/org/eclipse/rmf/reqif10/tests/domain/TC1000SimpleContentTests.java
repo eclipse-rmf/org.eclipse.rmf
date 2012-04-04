@@ -53,8 +53,8 @@ public class TC1000SimpleContentTests extends AbstractTestCase {
 				.getProtocolToFactoryMap()
 				.put(ReqIF10Package.eNS_URI, ReqIF10Package.eINSTANCE);
 		originalReqIF = new TC1000ModelBuilder().getReqIF();
-		saveReqIFFile(originalReqIF, WORKING_DIRECTORY + IPath.SEPARATOR + "TC1000.ReqIF");
-		loadedReqIF = loadReqIFFile(WORKING_DIRECTORY + IPath.SEPARATOR + "TC1000.ReqIF");
+		saveReqIFFile(originalReqIF, WORKING_DIRECTORY + IPath.SEPARATOR + "TC1000.reqif");
+		loadedReqIF = loadReqIFFile(WORKING_DIRECTORY + IPath.SEPARATOR + "TC1000.reqif");
 
 	}
 	
@@ -75,7 +75,7 @@ public class TC1000SimpleContentTests extends AbstractTestCase {
 	@Test
 	public void testResave() throws IOException {
 		try {
-			saveReqIFFile(loadedReqIF, WORKING_DIRECTORY + IPath.SEPARATOR + "TC1000_2.ReqIF");
+			saveReqIFFile(loadedReqIF, WORKING_DIRECTORY + IPath.SEPARATOR + "TC1000_2.reqif");
 		} catch (IOException ioe) {
 			Assert.assertFalse("We shall be able to save without exception. However the following exception occurred: " + ioe.toString(), true);
 		}
