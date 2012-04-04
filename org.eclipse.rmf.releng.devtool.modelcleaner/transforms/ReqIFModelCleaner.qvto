@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- *     Mark Bršrkens - initial API and implementation
+ *     Mark Broerkens - initial API and implementation
  * 
  */
 modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';

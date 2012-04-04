@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- *     Mark Bršrkens - initial API and implementation
+ *     Mark Broerkens - initial API and implementation
  */
 package org.eclipse.rmf.serialization;
 
