@@ -60,12 +60,10 @@ public class TC1000SimpleContentTests extends AbstractTestCase {
 	
 	private static final String WORKING_DIRECTORY = "work";
 
-	/**
 	@Test
 	public void testSchemaCompliance() throws Exception {
-		validateAgainstSchema("TC1000.ReqIF");
+		validateAgainstSchema(WORKING_DIRECTORY + IPath.SEPARATOR + "TC1000.reqif");
 	}
-	*/
 
 	
 	@Test

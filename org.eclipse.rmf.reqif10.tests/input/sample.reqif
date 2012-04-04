@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd">
   <THE-HEADER>
     <REQ-IF-HEADER IDENTIFIER="_3dd1a60c-59d1-11da-86ca-4bda04a730ce">
       <COMMENT>Embedded OLE object with multiple representation forms.</COMMENT>
