@@ -104,6 +104,7 @@ import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;
@@ -730,7 +731,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		// Create the editing domain with a special command stack.
 		//
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
-				commandStack, new HashMap<Resource, Boolean>());
+				commandStack, new ReqIFResourceSetImpl());
 	}
 
 	/**
