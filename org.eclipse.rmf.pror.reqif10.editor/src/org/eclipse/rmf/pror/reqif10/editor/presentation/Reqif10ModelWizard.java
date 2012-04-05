@@ -274,7 +274,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		col.setWidth(400);
 		prorSpecViewConfiguration.getColumns().add(col);
 
-		Column leftHeaderColumn = ConfigFactory.eINSTANCE.createColumn();
+		Column leftHeaderColumn = ConfigurationFactory.eINSTANCE.createColumn();
 		leftHeaderColumn
 				.setWidth(ConfigurationUtil.DEFAULT_LEFT_HEADER_COLUMN_WIDTH);
 		leftHeaderColumn

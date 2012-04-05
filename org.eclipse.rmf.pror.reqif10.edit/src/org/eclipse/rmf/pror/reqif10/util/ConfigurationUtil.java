@@ -168,7 +168,7 @@ public class ConfigurationUtil {
 		Column leftHeaderColumn = specViewConfiguration.getLeftHeaderColumn();
 
 		if (leftHeaderColumn == null) {
-			leftHeaderColumn = ConfigFactory.eINSTANCE.createColumn();
+			leftHeaderColumn = ConfigurationFactory.eINSTANCE.createColumn();
 			leftHeaderColumn.setLabel(DEFAULT_LEFT_HEADER_COLUMN_NAME);
 			leftHeaderColumn.setWidth(DEFAULT_LEFT_HEADER_COLUMN_WIDTH);
 			specViewConfiguration.setLeftHeaderColumn(leftHeaderColumn);

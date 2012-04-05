@@ -154,10 +154,10 @@ public class ProrSpecViewConfigurationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ProrSpecViewConfiguration.class)) {
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

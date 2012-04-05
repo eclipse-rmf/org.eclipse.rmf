@@ -18,6 +18,9 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -29,6 +32,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 
 
@@ -147,11 +151,19 @@ public class ColumnItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		switch (notification.getFeatureID(Column.class)) {
-			case ConfigurationPackage.COLUMN__LABEL:
-			case ConfigurationPackage.COLUMN__WIDTH:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		int featureID = notification.getFeatureID(Column.class);
+		if (featureID == ConfigurationPackage.COLUMN__LABEL
+				|| featureID == ConfigurationPackage.COLUMN__WIDTH) {
+			// inform the parent
+			InternalEObject parent = (InternalEObject) ((EObject) notification
+					.getNotifier()).eContainer();
+			if (parent instanceof ProrSpecViewConfiguration) {
+				parent.eNotify(new ENotificationImpl(
+						parent,
+						ENotificationImpl.SET,
+						ConfigurationPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
+						notification.getNotifier(), notification.getNotifier()));
+			}
 		}
 		super.notifyChanged(notification);
 	}

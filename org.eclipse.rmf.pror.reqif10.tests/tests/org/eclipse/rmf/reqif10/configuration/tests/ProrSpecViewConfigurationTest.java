@@ -75,12 +75,12 @@ public class ProrSpecViewConfigurationTest extends AbstractItemProviderTest {
 
 	@Test
 	public void testResizeColumn() {
-		Column column = ConfigFactory.eINSTANCE.createColumn();
+		Column column = ConfigurationFactory.eINSTANCE.createColumn();
 		column.setLabel("Foo");
 		column.setWidth(50);
 		getFixture().getColumns().add(column);
 		getItemProvider(getFixture()).addListener(listener);
-		setViaCommand(column, ConfigPackage.Literals.COLUMN__WIDTH, 100);
+		setViaCommand(column, ConfigurationPackage.Literals.COLUMN__WIDTH, 100);
 		assertEquals(1, notifications.size());
 		assertEquals(100, column.getWidth());
 	}

@@ -86,7 +86,7 @@ public class ConfigUtilTest extends AbstractItemProviderTest {
 
 	@Test
 	public void testGetLeftHeaderColumn() throws URISyntaxException {
-		ReqIf reqif = getTestReqif("simple.reqif");
+		ReqIF reqif = getTestReqif("simple.reqif");
 		Specification specification = reqif.getCoreContent()
 				.getSpecifications().get(0);
 		Column leftHeaderColumn = ConfigurationUtil.getLeftHeaderColumn(specification, editingDomain);

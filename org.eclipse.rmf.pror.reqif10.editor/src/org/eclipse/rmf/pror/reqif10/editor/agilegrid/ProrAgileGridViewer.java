@@ -311,7 +311,7 @@ public class ProrAgileGridViewer extends Viewer {
 						.get(col);
 				if (column != null) {
 					Command cmd = SetCommand.create(editingDomain, column,
-							ConfigPackage.Literals.COLUMN__WIDTH, newWidth);
+							ConfigurationPackage.Literals.COLUMN__WIDTH, newWidth);
 					editingDomain.getCommandStack().execute(cmd);
 				}
 			}

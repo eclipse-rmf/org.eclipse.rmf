@@ -233,21 +233,13 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-<<<<<<< HEAD:org.eclipse.rmf.pror.reqif10/src/org/eclipse/rmf/pror/reqif10/configuration/util/ConfigAdapterFactory.java
-	 * Creates a new adapter for an object of class '{@link org.eclipse.rmf.pror.reqif10.ReqIfToolExtension <em>Req If Tool Extension</em>}'.
-=======
 	 * Creates a new adapter for an object of class '{@link org.eclipse.rmf.pror.reqif10.ReqIFToolExtension <em>Req IF Tool Extension</em>}'.
->>>>>>> 638a585... Regenerated Model Code:org.eclipse.rmf.pror.reqif10/src/org/eclipse/rmf/pror/reqif10/configuration/util/ConfigurationAdapterFactory.java
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-<<<<<<< HEAD:org.eclipse.rmf.pror.reqif10/src/org/eclipse/rmf/pror/reqif10/configuration/util/ConfigAdapterFactory.java
-	 * @see org.eclipse.rmf.pror.reqif10.ReqIfToolExtension
-=======
 	 * @see org.eclipse.rmf.pror.reqif10.ReqIFToolExtension
->>>>>>> 638a585... Regenerated Model Code:org.eclipse.rmf.pror.reqif10/src/org/eclipse/rmf/pror/reqif10/configuration/util/ConfigurationAdapterFactory.java
 	 * @generated
 	 */
 	public Adapter createReqIFToolExtensionAdapter() {

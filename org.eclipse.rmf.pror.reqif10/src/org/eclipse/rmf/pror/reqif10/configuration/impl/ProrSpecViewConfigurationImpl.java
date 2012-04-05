@@ -161,7 +161,7 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 		Column oldLeftHeaderColumn = leftHeaderColumn;
 		leftHeaderColumn = newLeftHeaderColumn;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, oldLeftHeaderColumn, newLeftHeaderColumn);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, oldLeftHeaderColumn, newLeftHeaderColumn);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -176,14 +176,14 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 		if (newLeftHeaderColumn != leftHeaderColumn) {
 			NotificationChain msgs = null;
 			if (leftHeaderColumn != null)
-				msgs = ((InternalEObject)leftHeaderColumn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, null, msgs);
+				msgs = ((InternalEObject)leftHeaderColumn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, null, msgs);
 			if (newLeftHeaderColumn != null)
-				msgs = ((InternalEObject)newLeftHeaderColumn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, null, msgs);
+				msgs = ((InternalEObject)newLeftHeaderColumn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, null, msgs);
 			msgs = basicSetLeftHeaderColumn(newLeftHeaderColumn, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, newLeftHeaderColumn, newLeftHeaderColumn));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, newLeftHeaderColumn, newLeftHeaderColumn));
 	}
 
 	/**
@@ -196,7 +196,7 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 		switch (featureID) {
 			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
 				return ((InternalEList<?>)getColumns()).basicRemove(otherEnd, msgs);
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
 				return basicSetLeftHeaderColumn(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -215,7 +215,7 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 				return basicGetSpecification();
 			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
 				return getColumns();
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
 				return getLeftHeaderColumn();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -237,7 +237,7 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 				getColumns().clear();
 				getColumns().addAll((Collection<? extends Column>)newValue);
 				return;
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
 				setLeftHeaderColumn((Column)newValue);
 				return;
 		}
@@ -258,7 +258,7 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
 				getColumns().clear();
 				return;
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
 				setLeftHeaderColumn((Column)null);
 				return;
 		}
@@ -277,7 +277,7 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 				return specification != null;
 			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
 				return columns != null && !columns.isEmpty();
-			case ConfigPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
+			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
 				return leftHeaderColumn != null;
 		}
 		return super.eIsSet(featureID);
