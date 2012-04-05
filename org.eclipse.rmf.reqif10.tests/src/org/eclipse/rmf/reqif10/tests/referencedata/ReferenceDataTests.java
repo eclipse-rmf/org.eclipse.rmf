@@ -5,7 +5,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.FilenameFilter;
-import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
 
@@ -23,7 +22,6 @@ public class ReferenceDataTests extends AbstractTestCase {
 	final String WORK_DIR = "work";
 	
 	class ReqIFFileNameFilter implements FilenameFilter {
-		@Override
 		public boolean accept(File dir, String name) {
 			if (name.endsWith("reqif")) {
 				return true;
