@@ -21,43 +21,29 @@ import java.io.IOException;
 import junit.framework.Assert;
 
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIFContent;
-import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.tests.util.AbstractTestCase;
 import org.eclipse.rmf.reqif10.tests.util.TC1000ModelBuilder;
-import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
-import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+@SuppressWarnings("nls")
 public class TC1000SimpleContentTests extends AbstractTestCase {
 	static ReqIF originalReqIF = null;
 	static ReqIF loadedReqIF = null;
-	
-	
-	
+
 	@BeforeClass
 	public static void setupOnce() throws Exception {
-
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
-				"ReqIF", new ReqIFResourceFactoryImpl());
-		ResourceSet rifResourceSet = new ReqIFResourceSetImpl();
-
-		rifResourceSet.getResourceFactoryRegistry()
-				.getProtocolToFactoryMap()
-				.put(ReqIF10Package.eNS_URI, ReqIF10Package.eINSTANCE);
+		AbstractTestCase.setupOnce();
 		originalReqIF = new TC1000ModelBuilder().getReqIF();
 		saveReqIFFile(originalReqIF, WORKING_DIRECTORY + IPath.SEPARATOR + "TC1000.reqif");
 		loadedReqIF = loadReqIFFile(WORKING_DIRECTORY + IPath.SEPARATOR + "TC1000.reqif");
-
 	}
-	
+
 	private static final String WORKING_DIRECTORY = "work";
 
 	@Test
@@ -65,13 +51,11 @@ public class TC1000SimpleContentTests extends AbstractTestCase {
 		validateAgainstSchema(WORKING_DIRECTORY + IPath.SEPARATOR + "TC1000.reqif");
 	}
 
-	
 	@Test
 	public void testReqIFNotNull() {
 		assertNotNull("The loaded ReqIF model shall not be Null", loadedReqIF);
-	} 
-	
-	
+	}
+
 	@Test
 	public void testResave() throws IOException {
 		try {
@@ -80,15 +64,15 @@ public class TC1000SimpleContentTests extends AbstractTestCase {
 			Assert.assertFalse("We shall be able to save without exception. However the following exception occurred: " + ioe.toString(), true);
 		}
 	}
-	
+
 	@Test
 	public void testReqIF() {
 		assertTrue(loadedReqIF.isSetCoreContent());
 		assertFalse(loadedReqIF.isSetLang());
 		assertTrue(loadedReqIF.isSetTheHeader());
-		assertFalse(loadedReqIF.isSetToolExtensions());		
+		assertFalse(loadedReqIF.isSetToolExtensions());
 	}
-	
+
 	@Test
 	public void testReqIFHeader() {
 		assertFalse(loadedReqIF.getTheHeader().isSetComment());
@@ -100,15 +84,15 @@ public class TC1000SimpleContentTests extends AbstractTestCase {
 		assertTrue(loadedReqIF.getTheHeader().isSetSourceToolId());
 		assertTrue(loadedReqIF.getTheHeader().isSetTitle());
 
-		
-		assertEquals(originalReqIF.getTheHeader().getCreationTime().toGregorianCalendar(), loadedReqIF.getTheHeader().getCreationTime().toGregorianCalendar());
+		assertEquals(originalReqIF.getTheHeader().getCreationTime().toGregorianCalendar(), loadedReqIF.getTheHeader().getCreationTime()
+				.toGregorianCalendar());
 		assertEquals(originalReqIF.getTheHeader().getIdentifier(), loadedReqIF.getTheHeader().getIdentifier());
 		assertEquals(originalReqIF.getTheHeader().getReqIFToolId(), loadedReqIF.getTheHeader().getReqIFToolId());
 		assertEquals(originalReqIF.getTheHeader().getReqIFVersion(), loadedReqIF.getTheHeader().getReqIFVersion());
 		assertEquals(originalReqIF.getTheHeader().getSourceToolId(), loadedReqIF.getTheHeader().getSourceToolId());
 		assertEquals(originalReqIF.getTheHeader().getTitle(), loadedReqIF.getTheHeader().getTitle());
 	}
-	
+
 	@Test
 	public void testReqIFContent() {
 		assertTrue(loadedReqIF.getCoreContent().isSetDatatypes());
@@ -118,25 +102,25 @@ public class TC1000SimpleContentTests extends AbstractTestCase {
 		assertFalse(loadedReqIF.getCoreContent().isSetSpecRelations());
 		assertTrue(loadedReqIF.getCoreContent().isSetSpecTypes());
 	}
-	
+
 	@Test
 	public void testSpecObjectType() {
-		
+
 		// get the specObject Type
 		ReqIFContent ReqIFContent = loadedReqIF.getCoreContent();
 		assertTrue(ReqIFContent.isSetSpecTypes());
-		assertEquals(2 , ReqIFContent.getSpecTypes().size());
-		
+		assertEquals(2, ReqIFContent.getSpecTypes().size());
+
 		SpecObjectType specObjectType = null;
 		for (SpecType specType : ReqIFContent.getSpecTypes()) {
-			if (specType instanceof SpecObjectType ) {
-				specObjectType = (SpecObjectType)specType;
+			if (specType instanceof SpecObjectType) {
+				specObjectType = (SpecObjectType) specType;
 				break;
 			}
 		}
-		
+
 		assertNotNull("SpecObjectType must be available", specObjectType);
-		
+
 		// check the specObjectType
 		assertFalse(specObjectType.isSetDesc());
 		assertTrue(specObjectType.isSetIdentifier());
@@ -145,18 +129,17 @@ public class TC1000SimpleContentTests extends AbstractTestCase {
 		assertTrue(specObjectType.isSetSpecAttributes());
 		// TODO: test the values
 	}
-	
+
 	@Test
 	public void testSpecObject() {
-		
+
 		// get the specObject Type
 		ReqIFContent ReqIFContent = loadedReqIF.getCoreContent();
 		assertTrue(ReqIFContent.isSetSpecObjects());
-		assertEquals(1 , ReqIFContent.getSpecObjects().size());
-		
+		assertEquals(1, ReqIFContent.getSpecObjects().size());
+
 		SpecObject specObject = ReqIFContent.getSpecObjects().get(0);
 
-		
 		// check the specObject
 		assertFalse(specObject.isSetDesc());
 		assertTrue(specObject.isSetIdentifier());
@@ -164,21 +147,21 @@ public class TC1000SimpleContentTests extends AbstractTestCase {
 		assertFalse(specObject.isSetLongName());
 		assertTrue(specObject.isSetValues());
 		assertTrue(specObject.isSetType());
-		
+
 		// check the reference to SpecObjectType
 		SpecObjectType expectedSpecObjectType = null;
 		for (SpecType specType : ReqIFContent.getSpecTypes()) {
-			if (specType instanceof SpecObjectType ) {
-				expectedSpecObjectType = (SpecObjectType)specType;
+			if (specType instanceof SpecObjectType) {
+				expectedSpecObjectType = (SpecObjectType) specType;
 				break;
 			}
 		}
-		
+
 		SpecObjectType specObjectType = specObject.getType();
 		assertNotNull(specObjectType);
 		assertFalse(specObjectType.eIsProxy());
 		assertEquals(expectedSpecObjectType, specObjectType);
-		
+
 	}
 
 }

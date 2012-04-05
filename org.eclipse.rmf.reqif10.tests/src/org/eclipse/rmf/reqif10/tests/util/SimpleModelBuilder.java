@@ -19,13 +19,14 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
-import org.eclipse.rmf.reqif10.ReqIF10Factory;
 
+@SuppressWarnings("nls")
 public class SimpleModelBuilder {
 	private ReqIF reqIf;
-	
+
 	private final String comment;
 	private final Date creationTime;
 	private final String identifier;
@@ -34,13 +35,15 @@ public class SimpleModelBuilder {
 	private final String reqIfVersion;
 	private final String sourceToolId;
 	private final String title;
-	
+
 	public SimpleModelBuilder(Date creationTime, String identifier, String title) {
-		this(creationTime, identifier, "RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)", "RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)", title);
-	}	
-		
+		this(creationTime, identifier, "RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)",
+				"RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)", title);
+	}
+
 	/**
 	 * Constructor that requires mandatory attributes only
+	 * 
 	 * @param creationTime
 	 * @param identifier
 	 * @param reqIfToolId
@@ -49,10 +52,11 @@ public class SimpleModelBuilder {
 	 */
 	public SimpleModelBuilder(Date creationTime, String identifier, String reqIfToolId, String sourceToolId, String title) {
 		this(null, creationTime, identifier, null, reqIfToolId, sourceToolId, title);
-	}	
-	
+	}
+
 	/**
 	 * Constructor for fixed reqif version number
+	 * 
 	 * @param comment
 	 * @param creationTime
 	 * @param identifier
@@ -61,79 +65,99 @@ public class SimpleModelBuilder {
 	 * @param sourceToolId
 	 * @param title
 	 */
-	public SimpleModelBuilder(String comment, Date creationTime, String identifier, String repositoryId, String reqIfToolId, String sourceToolId, String title) {
+	public SimpleModelBuilder(String comment, Date creationTime, String identifier, String repositoryId, String reqIfToolId, String sourceToolId,
+			String title) {
 		this(comment, creationTime, identifier, repositoryId, reqIfToolId, "1.0", sourceToolId, title);
 	}
-	
-	public SimpleModelBuilder(String comment, Date creationTime, String identifier, String repositoryId, String reqIfToolId, String reqIfVersion, String sourceToolId, String title) {
-			this.comment = comment;
-			this.creationTime = creationTime;
-			this.identifier = identifier;
-			this.repositoryId = repositoryId;
-			this.reqIfToolId = reqIfToolId;
-			this.reqIfVersion = reqIfVersion;
-			this.sourceToolId = sourceToolId;
-			this.title = title;
+
+	public SimpleModelBuilder(String comment, Date creationTime, String identifier, String repositoryId, String reqIfToolId, String reqIfVersion,
+			String sourceToolId, String title) {
+		this.comment = comment;
+		this.creationTime = creationTime;
+		this.identifier = identifier;
+		this.repositoryId = repositoryId;
+		this.reqIfToolId = reqIfToolId;
+		this.reqIfVersion = reqIfVersion;
+		this.sourceToolId = sourceToolId;
+		this.title = title;
 	}
-	
-	public ReqIF getReqIF() throws DatatypeConfigurationException {
+
+	public ReqIF getReqIF() throws Exception {
 		if (null == reqIf) {
-	        reqIf = ReqIF10Factory.eINSTANCE.createReqIF();
-			
+			reqIf = ReqIF10Factory.eINSTANCE.createReqIF();
+
 			ReqIFContent reqIfContent = ReqIF10Factory.eINSTANCE.createReqIFContent();
 			reqIf.setCoreContent(reqIfContent);
-			
+
 			ReqIFHeader reqIfHeader = ReqIF10Factory.eINSTANCE.createReqIFHeader();
 			reqIf.setTheHeader(reqIfHeader);
-			
-			//if (null!= comment) 
+
+			// if (null!= comment)
 			reqIfHeader.setComment(comment);
-			if (null!= creationTime) reqIfHeader.setCreationTime(getLastChangeDate());
-			if (null!= identifier) reqIfHeader.setIdentifier(identifier);
-			if (null!= repositoryId) reqIfHeader.setRepositoryId(repositoryId);
-			if (null!= reqIfToolId) reqIfHeader.setReqIFToolId(reqIfToolId);
-			if (null!= reqIfVersion) reqIfHeader.setReqIFVersion(reqIfVersion);
-			if (null!= sourceToolId) reqIfHeader.setSourceToolId(sourceToolId);
-			if (null!= title) reqIfHeader.setTitle(title);	
-			
+			if (null != creationTime) {
+				reqIfHeader.setCreationTime(getLastChangeDate());
+			}
+			if (null != identifier) {
+				reqIfHeader.setIdentifier(identifier);
+			}
+			if (null != repositoryId) {
+				reqIfHeader.setRepositoryId(repositoryId);
+			}
+			if (null != reqIfToolId) {
+				reqIfHeader.setReqIFToolId(reqIfToolId);
+			}
+			if (null != reqIfVersion) {
+				reqIfHeader.setReqIFVersion(reqIfVersion);
+			}
+			if (null != sourceToolId) {
+				reqIfHeader.setSourceToolId(sourceToolId);
+			}
+			if (null != title) {
+				reqIfHeader.setTitle(title);
+			}
+
 			// create datatypes
 			createDatatypes();
-			
+
 			// create types
 			createSpecObjectTypes();
 			createSpecificationTypes();
 			createSpecRelationGroups();
-			
+
 			// create objects
 			createSpecObjects();
 			createSpecifications();
 			createSpecRelations();
-			} 
-			return reqIf;
+		}
+		return reqIf;
 	}
-	
-	public void createDatatypes() throws DatatypeConfigurationException {}
-	
-	public void createSpecObjectTypes() throws DatatypeConfigurationException {}
-	
-	public void createSpecificationTypes() throws DatatypeConfigurationException {}
-	
-	public void createSpecRelationGroups() {}
-	
-	public void createSpecifications() throws DatatypeConfigurationException {}
-	
-	public void createSpecObjects() throws DatatypeConfigurationException {}
-	
-	public void createSpecRelations() {}
-	
-	
+
+	public void createDatatypes() throws Exception {
+	}
+
+	public void createSpecObjectTypes() throws Exception {
+	}
+
+	public void createSpecificationTypes() throws Exception {
+	}
+
+	public void createSpecRelationGroups() throws Exception {
+	}
+
+	public void createSpecifications() throws Exception {
+	}
+
+	public void createSpecObjects() throws Exception {
+	}
+
+	public void createSpecRelations() throws Exception {
+	}
+
 	public XMLGregorianCalendar getLastChangeDate() throws DatatypeConfigurationException {
 		GregorianCalendar calendar = new GregorianCalendar();
 		calendar.setTime(new Date());
 		XMLGregorianCalendar xmlGregoriaCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
 		return xmlGregoriaCalendar;
 	}
-	
-	
-	
+
 }

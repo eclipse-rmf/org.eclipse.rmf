@@ -30,35 +30,66 @@ public class ReqIFResourceImpl extends XMLResourceImpl {
 
 	public ReqIFResourceImpl() {
 		super();
-		// TODO Auto-generated constructor stub
+		initDefaultOptions();
 	}
 
 	public ReqIFResourceImpl(URI uri) {
-		super(uri);		
-		// set encoding to UTF-8
-		getDefaultSaveOptions().put(XMLResource.OPTION_ENCODING, "UTF-8");
-		// get XML names and attribute/value information from extended metadata
-		getDefaultSaveOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
-		// make sure to write the <?xml version="1.0" encoding="UTF-8"?> header
-		getDefaultSaveOptions().put(XMLResource.OPTION_DECLARE_XML, Boolean.TRUE);
-		
-		// get XML names and attribute/value information from extended metadata
-		getDefaultLoadOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
-		// TODO: why do we need this setting?
-		getDefaultLoadOptions().put(XMLResource.OPTION_USE_LEXICAL_HANDLER, Boolean.TRUE);
-		// Use deprecated methods - the default is true. To improve deserialization performance turn this option to false.
-		getDefaultLoadOptions().put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.FALSE);
-		
-		getDefaultLoadOptions().put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.TRUE);
-		
-		getDefaultSaveOptions().put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.TRUE);
+		super(uri);
+		initDefaultOptions();
+	}
 
-		getDefaultSaveOptions().put(XMLResource.OPTION_SAVE_TYPE_INFORMATION, Boolean.FALSE);
+	@Override
+	protected XMLHelper createXMLHelper() {
+		return new ReqIFXMLHelperImpl(this);
+	}
+
+	@Override
+	protected XMLLoad createXMLLoad() {
+		return new ReqIFXMLLoadImpl(createXMLHelper());
+	}
+
+	@Override
+	protected XMLSave createXMLSave() {
+		return new ReqIFXMLSaveImpl(createXMLHelper());
+	}
+
+	@Override
+	public void save(Map<?, ?> options) throws IOException {
+		super.save(options);
+	}
+
+	@Override
+	public EObject getEObject(String uriFragment) {
+		return getEObjectByID(uriFragment);
+	}
+
+	public void initDefaultOptions() {
+		// ========= default save options ===================
+		Map<Object, Object> saveOptions = getDefaultSaveOptions();
+		// set encoding to UTF-8
+		saveOptions.put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
+		// get XML names and attribute/value information from extended metadata
+		saveOptions.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
+		// make sure to write the <?xml version="1.0" encoding="UTF-8"?> header
+		saveOptions.put(XMLResource.OPTION_DECLARE_XML, Boolean.TRUE);
+
+		saveOptions.put(XMLResource.OPTION_SAVE_TYPE_INFORMATION, Boolean.FALSE);
+
+		// ========= default load options ===================
+		Map<Object, Object> loadOptions = getDefaultLoadOptions();
+		// get XML names and attribute/value information from extended metadata
+		loadOptions.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
+		// TODO: why do we need this setting?
+		loadOptions.put(XMLResource.OPTION_USE_LEXICAL_HANDLER, Boolean.TRUE);
+		// Use deprecated methods - the default is true. To improve deserialization performance turn this option to
+		// false.
+		loadOptions.put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.FALSE);
+
+		loadOptions.put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.TRUE);
 
 		// Performance enhancement
-		getDefaultLoadOptions().put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
-		
-		
+		loadOptions.put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
+
 		// Retrieve application-defined XMLReader features (see http://xerces.apache.org/xerces2-j/features.html for
 		// available features and their details)
 		Map<String, Boolean> parserFeatures = new HashMap<String, Boolean>();
@@ -73,36 +104,9 @@ public class ReqIFResourceImpl extends XMLResourceImpl {
 		parserFeatures.put(Constants.SAX_FEATURE_PREFIX + Constants.NAMESPACES_FEATURE, true);
 		parserFeatures.put(Constants.SAX_FEATURE_PREFIX + Constants.NAMESPACE_PREFIXES_FEATURE, false);
 
-		
-		getDefaultLoadOptions().put(XMLResource.OPTION_PARSER_FEATURES, parserFeatures);
-		getDefaultLoadOptions().put(XMLResource.OPTION_PARSER_PROPERTIES, parserProperties);
-		
-	}
+		loadOptions.put(XMLResource.OPTION_PARSER_FEATURES, parserFeatures);
+		loadOptions.put(XMLResource.OPTION_PARSER_PROPERTIES, parserProperties);
 
-	@Override
-	protected XMLHelper createXMLHelper() {
-		return new ReqIFXMLHelperImpl(this);
 	}
-
-	@Override
-	protected XMLLoad createXMLLoad() {
-		return new ReqIFXMLLoadImpl(createXMLHelper());
-	}
-	
-	@Override
-	protected XMLSave createXMLSave() {
-		return new ReqIFXMLSaveImpl(createXMLHelper());
-	}
-	
-	@Override
-	public void save(Map<?, ?> options) throws IOException {
-		super.save(options);
-	}
-
-	@Override
-	public EObject getEObject(String uriFragment) {
-		return getEObjectByID(uriFragment);
-	}
-
 
 }

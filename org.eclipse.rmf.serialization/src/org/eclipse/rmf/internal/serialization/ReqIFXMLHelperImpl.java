@@ -7,12 +7,10 @@
  * 
  * Contributors:
  *     Mark Broerkens - initial API and implementation
- * 
+ *
  */
 package org.eclipse.rmf.internal.serialization;
 
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.util.URI;
@@ -26,15 +24,6 @@ import org.eclipse.emf.ecore.xmi.impl.XMLHelperImpl;
 import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
 
 public class ReqIFXMLHelperImpl extends XMLHelperImpl implements XMLHelper {
-	private static DatatypeFactory datatypeFactory = null;
-	static {
-		try {
-			datatypeFactory = DatatypeFactory.newInstance();
-		} catch (DatatypeConfigurationException dce) {
-			throw new IllegalStateException(
-					"Exception while obtaining DatatypeFactory instance", dce);
-		}
-	}
 
 	public ReqIFXMLHelperImpl(XMLResource resource) {
 		super(resource);
@@ -58,16 +47,12 @@ public class ReqIFXMLHelperImpl extends XMLHelperImpl implements XMLHelper {
 	}
 
 	@Override
-	public String convertToString(EFactory factory, EDataType dataType,
-			Object value) {
-		if (value instanceof XMLGregorianCalendar && null != datatypeFactory) {
-
-			return XMLTypeFactory.eINSTANCE
-					.convertDateTime((XMLGregorianCalendar)value);
+	public String convertToString(EFactory factory, EDataType dataType, Object value) {
+		if (value instanceof XMLGregorianCalendar) {
+			return XMLTypeFactory.eINSTANCE.convertDateTime((XMLGregorianCalendar) value);
 		} else {
 			return super.convertToString(factory, dataType, value);
 		}
 	}
-
 
 }
