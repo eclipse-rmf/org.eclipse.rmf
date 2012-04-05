@@ -16,7 +16,7 @@ import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRendere
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueSimple;
 import org.eclipse.rmf.reqif10.AttributeValueString;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
@@ -25,7 +25,7 @@ public class IdLabelCellRenderer implements IProrCellRenderer {
 
 	public int doDrawCellContent(GC gc, Rectangle rect, Object value) {
 		if (value instanceof AttributeValueSimple) {
-			Object text = Reqif10Util.getTheValue((AttributeValue) value);
+			Object text = ReqIF10Util.getTheValue((AttributeValue) value);
 			if (text != null) {
 				gc.drawText(text.toString(), rect.x + 1, rect.y + 1);
 				Point extend = gc.textExtent(value.toString());

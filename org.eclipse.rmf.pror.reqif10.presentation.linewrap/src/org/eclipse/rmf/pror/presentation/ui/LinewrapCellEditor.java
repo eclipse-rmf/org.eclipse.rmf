@@ -16,7 +16,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.AttributeValueString;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.TraverseEvent;
 
@@ -48,7 +48,7 @@ public class LinewrapCellEditor extends TextCellEditor {
 			return attributeValue;
 		}
 		Command cmd = SetCommand.create(editingDomain, attributeValue,
-				Reqif10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
+				ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
 				newText);
 		editingDomain.getCommandStack().execute(cmd);
 		return attributeValue;

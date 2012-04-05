@@ -20,7 +20,7 @@ import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRendere
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 /**
  * A very basic Presentation that handles {@link DatatypeDefinitionString}s and
@@ -49,7 +49,7 @@ public class LinewrapPresentationService extends AbstractPresentationService imp
 
 	@Override
 	public String getLabel(AttributeValue av) {
-		Object value = Reqif10Util.getTheValue(av);
+		Object value = ReqIF10Util.getTheValue(av);
 		if (value == null) {
 			return "";
 		}

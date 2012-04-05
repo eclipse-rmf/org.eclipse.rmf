@@ -14,7 +14,7 @@ package org.eclipse.rmf.pror.presentation.headline;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,7 +81,7 @@ public interface HeadlinePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADLINE_CONFIGURATION__DATATYPE = ConfigPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE;
+	int HEADLINE_CONFIGURATION__DATATYPE = ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -90,7 +90,7 @@ public interface HeadlinePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADLINE_CONFIGURATION__SIZE = ConfigPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 0;
+	int HEADLINE_CONFIGURATION__SIZE = ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
@@ -99,7 +99,7 @@ public interface HeadlinePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADLINE_CONFIGURATION_FEATURE_COUNT = ConfigPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 1;
+	int HEADLINE_CONFIGURATION_FEATURE_COUNT = ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 1;
 
 
 	/**

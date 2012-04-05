@@ -13,7 +13,7 @@ package org.eclipse.rmf.pror.presentation.linewrap;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,7 +80,7 @@ public interface LinewrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINEWRAP_CONFIGURATION__DATATYPE = ConfigPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE;
+	int LINEWRAP_CONFIGURATION__DATATYPE = ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE;
 
 	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
@@ -89,7 +89,7 @@ public interface LinewrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINEWRAP_CONFIGURATION_FEATURE_COUNT = ConfigPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 0;
+	int LINEWRAP_CONFIGURATION_FEATURE_COUNT = ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 0;
 
 
 	/**

@@ -31,8 +31,8 @@ import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.util.Reqif10Switch;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 public class HeadlinePresentationService extends AbstractPresentationService
 		implements PresentationService {
@@ -51,9 +51,9 @@ public class HeadlinePresentationService extends AbstractPresentationService
 	@Override
 	public IProrCellRenderer getCellRenderer(final AttributeValue av) {
 		if (headlineCellRenderer == null) {
-			if (Reqif10Util.getDatatypeDefinition(av) == null)
+			if (ReqIF10Util.getDatatypeDefinition(av) == null)
 				return null;
-			headlineCellRenderer = new HeadlineCellRenderer(Reqif10Util
+			headlineCellRenderer = new HeadlineCellRenderer(ReqIF10Util
 					.getDatatypeDefinition(av).getIdentifier());
 			HeadlineConfiguration headlineConfiguration = (HeadlineConfiguration) ConfigurationUtil
 					.getPresentationConfig(av, null);
@@ -96,9 +96,9 @@ public class HeadlinePresentationService extends AbstractPresentationService
 	 */
 	@SuppressWarnings("rawtypes")
 	private void refreshUi(AttributeValue av) {
-		if (Reqif10Util.getDatatypeDefinition(av) == null)
+		if (ReqIF10Util.getDatatypeDefinition(av) == null)
 			return;
-		Reqif10Switch visitor = new Reqif10Switch() {
+		ReqIF10Switch visitor = new ReqIF10Switch() {
 			@Override
 			public Object caseSpecHierarchy(SpecHierarchy object) {
 				Notification n = new NotificationImpl(Notification.SET,
@@ -107,8 +107,8 @@ public class HeadlinePresentationService extends AbstractPresentationService
 				return super.caseSpecHierarchy(object);
 			}
 		};
-		EList<Specification> roots = Reqif10Util
-				.getReqIf(Reqif10Util.getDatatypeDefinition(av))
+		EList<Specification> roots = ReqIF10Util
+				.getReqIF(ReqIF10Util.getDatatypeDefinition(av))
 				.getCoreContent().getSpecifications();
 		for (Iterator i = EcoreUtil.getAllProperContents(roots, true); i
 				.hasNext();) {

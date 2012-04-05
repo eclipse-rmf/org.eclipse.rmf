@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapConfiguration;
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapFactory;
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapPackage;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 
 /**
@@ -82,8 +82,8 @@ public class LinewrapPackageImpl extends EPackageImpl implements LinewrapPackage
 		isInited = true;
 
 		// Initialize simple dependencies
-		ConfigPackage.eINSTANCE.eClass();
-		Reqif10Package.eINSTANCE.eClass();
+		ConfigurationPackage.eINSTANCE.eClass();
+		ReqIF10Package.eINSTANCE.eClass();
 		DatatypesPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -165,7 +165,7 @@ public class LinewrapPackageImpl extends EPackageImpl implements LinewrapPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ConfigPackage theConfigPackage = (ConfigPackage)EPackage.Registry.INSTANCE.getEPackage(ConfigPackage.eNS_URI);
+		ConfigurationPackage theConfigPackage = (ConfigurationPackage)EPackage.Registry.INSTANCE.getEPackage(ConfigurationPackage.eNS_URI);
 
 		// Create type parameters
 

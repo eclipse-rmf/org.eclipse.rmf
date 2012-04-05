@@ -16,7 +16,7 @@ import org.eclipse.jface.resource.FontRegistry;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.AttributeValueSimple;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
@@ -57,8 +57,8 @@ public class HeadlineCellRenderer implements IProrCellRenderer {
 	public int doDrawCellContent(GC gc, Rectangle rect, Object value) {
 		AttributeValueSimple av = (AttributeValueSimple) value;
 		String text = " ";
-		if (av != null && Reqif10Util.getTheValue(av) != null) {
-			text = Reqif10Util.getTheValue(av).toString();
+		if (av != null && ReqIF10Util.getTheValue(av) != null) {
+			text = ReqIF10Util.getTheValue(av).toString();
 		}
 		gc.setFont(font);
 		gc.drawText(text, rect.x, rect.y);
@@ -69,7 +69,7 @@ public class HeadlineCellRenderer implements IProrCellRenderer {
 		AttributeValueSimple av = (AttributeValueSimple) value;
 		return "<div style='font-size: " + fontSize
 				+ "pt; font-weight: bold; padding-top: 4pt;'>"
-				+ Reqif10Util.getTheValue(av) + "</div>";
+				+ ReqIF10Util.getTheValue(av) + "</div>";
 	}
 
 }

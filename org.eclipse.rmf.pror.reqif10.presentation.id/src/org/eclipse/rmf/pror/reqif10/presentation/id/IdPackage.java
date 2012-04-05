@@ -14,7 +14,7 @@ package org.eclipse.rmf.pror.reqif10.presentation.id;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,7 +81,7 @@ public interface IdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ID_CONFIGURATION__DATATYPE = ConfigPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE;
+	int ID_CONFIGURATION__DATATYPE = ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE;
 
 	/**
 	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
@@ -90,7 +90,7 @@ public interface IdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ID_CONFIGURATION__PREFIX = ConfigPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 0;
+	int ID_CONFIGURATION__PREFIX = ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Count</b></em>' attribute.
@@ -99,7 +99,7 @@ public interface IdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ID_CONFIGURATION__COUNT = ConfigPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 1;
+	int ID_CONFIGURATION__COUNT = ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
@@ -108,7 +108,7 @@ public interface IdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ID_CONFIGURATION_FEATURE_COUNT = ConfigPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 2;
+	int ID_CONFIGURATION_FEATURE_COUNT = ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 2;
 
 
 	/**
