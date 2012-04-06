@@ -21,6 +21,7 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -37,9 +38,11 @@ import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
 import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Test;
 
 @SuppressWarnings("nls")
 public class AbstractTestCase {
+	private static final String WORKING_DIRECTORY = "work";
 	static Map<String, Object> backupRegistry = null;
 
 	@BeforeClass
@@ -75,7 +78,21 @@ public class AbstractTestCase {
 		System.out.println("AfterClass: reset to: " + EPackage.Registry.INSTANCE.keySet());
 	}
 
-	public void validateAgainstSchema(String filename) throws Exception {
+	@Test
+	public void testSchemaCompliance() throws Exception {
+		validateAgainstSchema(getReqIFFileName());
+	}
+
+	protected static String getReqIFFileName() {
+		return getWorkingDirectoryFileName() + IPath.SEPARATOR + "default.reqif";
+	}
+
+	protected static String getWorkingDirectoryFileName() {
+		return WORKING_DIRECTORY;
+
+	}
+
+	protected void validateAgainstSchema(String filename) throws Exception {
 
 		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource("schema/reqif.xsd") };
 		// StreamSource[] schemaDocuments = new StreamSource[]{new
@@ -88,7 +105,7 @@ public class AbstractTestCase {
 		v.validate(instanceDocument);
 	}
 
-	public static void saveReqIFFile(ReqIF reqif, String fileName) throws IOException {
+	protected static void saveReqIFFile(ReqIF reqif, String fileName) throws IOException {
 		ReqIFResourceSetImpl resourceSet = getReqIFResourceSet();
 
 		URI emfURI = createEMFURI(fileName);
@@ -98,7 +115,7 @@ public class AbstractTestCase {
 		resource.save(null);
 	}
 
-	public static ReqIF loadReqIFFile(String fileName) throws IOException {
+	protected static ReqIF loadReqIFFile(String fileName) throws IOException {
 		ReqIFResourceSetImpl resourceSet = getReqIFResourceSet();
 
 		URI emfURI = createEMFURI(fileName);

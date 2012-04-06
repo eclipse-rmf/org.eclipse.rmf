@@ -32,25 +32,21 @@ public class TC3000FormatedContentTests extends AbstractTestCase {
 		AbstractTestCase.setupOnce();
 		// ___
 		originalReqIF = new TC3000ModelBuilder().getReqIF();
-		saveReqIFFile(originalReqIF, WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000.reqif");
-		loadedReqIF = loadReqIFFile(WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000.reqif");
+		saveReqIFFile(originalReqIF, getReqIFFileName());
+		loadedReqIF = loadReqIFFile(getReqIFFileName());
 
-	}
-
-	private static final String WORKING_DIRECTORY = "work";
-
-	@Test
-	public void testSchemaCompliance() throws Exception {
-		validateAgainstSchema(WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000.reqif");
 	}
 
 	@Test
 	public void testResave() throws IOException {
 		try {
-			saveReqIFFile(loadedReqIF, WORKING_DIRECTORY + IPath.SEPARATOR + "TC3000_2.reqif");
+			saveReqIFFile(loadedReqIF, getReqIFFileName().replace(".reqif", "_resave.reqif"));
 		} catch (IOException ioe) {
 			Assert.assertFalse("We shall be able to save without exception. However the following exception occurred: " + ioe.toString(), true);
 		}
 	}
 
+	protected static String getReqIFFileName() {
+		return getWorkingDirectoryFileName() + IPath.SEPARATOR + "TC3000_FormatedContent.reqif";
+	}
 }

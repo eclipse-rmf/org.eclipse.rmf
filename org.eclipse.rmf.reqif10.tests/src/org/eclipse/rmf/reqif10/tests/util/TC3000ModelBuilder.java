@@ -269,6 +269,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		SpecObject specObject;
 		String description;
 		EObject xhtml;
+		// top level objects
 		// create full XhtmlPType in XhtmlContent.p
 		description = "xhtml.p.type";
 		xhtml = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), true);
@@ -281,9 +282,16 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		specObject = createSpecObject(description, xhtml);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
+		// first level objects that are contained on xhtml.p.type
+
+		description = "xhtml.br.type";
+		xhtml = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlBrType(), true);
+		specObject = createSpecObject(description, xhtml);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
 	}
 
-	protected Map<EClass, EObject> createXhtmlEClassInstances() {
+	private Map<EClass, EObject> createXhtmlEClassInstances() {
 		Map<EClass, EObject> xhtmlEClassInstances = new HashMap<EClass, EObject>();
 		for (EClassifier eClassifier : XhtmlPackage.eINSTANCE.getEClassifiers()) {
 			if (eClassifier instanceof EClass) {
@@ -297,7 +305,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		return xhtmlEClassInstances;
 	}
 
-	protected SpecObject createSpecObject(String text, EObject eObject) throws Exception {
+	private SpecObject createSpecObject(String text, EObject eObject) throws Exception {
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		specObject.setIdentifier("ID_TC3000_SpecObject_" + text);
 		specObject.setLastChange(getLastChangeDate());
@@ -330,7 +338,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		super.createSpecRelations();
 	}
 
-	protected SortedMap<String, EObject> getCleanedXhtml(List<EObject> list) {
+	private SortedMap<String, EObject> getCleanedXhtml(List<EObject> list) {
 		SortedMap<String, EObject> map = new TreeMap<String, EObject>();
 		for (EObject eObject : list) {
 			map.put(getQualifiedName(eObject), eObject);
@@ -339,7 +347,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		return map;
 	}
 
-	protected EObject createXhtmlInstance(EClass eClass, boolean createAll) {
+	private EObject createXhtmlInstance(EClass eClass, boolean createAll) {
 		EObject eObject = EcoreUtil.create(eClass);
 		setAttributes(eObject, createAll);
 		setSubElements(eObject, createAll);
@@ -348,7 +356,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		return eObject;
 	}
 
-	protected void setMixedText(EObject eObject, boolean createAll) {
+	private void setMixedText(EObject eObject, boolean createAll) {
 		// get the mixed attribute
 		EAttribute mixedAttribute = null;
 		for (EAttribute eAttribute : eObject.eClass().getEAllAttributes()) {
@@ -431,11 +439,11 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		return list;
 	}
 
-	protected void setMandatorySubElements(EObject eObject) {
+	private void setMandatorySubElements(EObject eObject) {
 
 	}
 
-	protected void setSubElements(EObject eObject, boolean createAll) {
+	private void setSubElements(EObject eObject, boolean createAll) {
 		if (createAll) {
 			// create full set of sub elements
 			for (EReference eReference : eObject.eClass().getEAllContainments()) {
@@ -481,7 +489,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		}
 	}
 
-	protected void setAttributes(EObject eObject) {
+	private void setAttributes(EObject eObject) {
 		for (EAttribute eAttribute : eObject.eClass().getEAllAttributes()) {
 			Object value = getValue(eAttribute);
 			if (null != value && eAttribute.isChangeable()) {
@@ -494,7 +502,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		}
 	}
 
-	protected void setAttributes(EObject eObject, boolean createAll) {
+	private void setAttributes(EObject eObject, boolean createAll) {
 		for (EAttribute eAttribute : eObject.eClass().getEAllAttributes()) {
 			if (createAll || eAttribute.isRequired()) {
 				Object value = getValue(eAttribute);
@@ -509,7 +517,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		}
 	}
 
-	protected Object getValue(EAttribute eAttribute) {
+	private Object getValue(EAttribute eAttribute) {
 		EDataType eDataType = eAttribute.getEAttributeType();
 		String datatypeName = eDataType.getName();
 
@@ -623,7 +631,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 	 * @param eObject
 	 * @return
 	 */
-	protected String getQualifiedName(EObject eObject) {
+	private String getQualifiedName(EObject eObject) {
 		String qualifiedName = "";
 		if (null != eObject.eContainingFeature()) {
 			qualifiedName = eObject.eContainingFeature().getName();
