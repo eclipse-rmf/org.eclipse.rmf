@@ -12,18 +12,11 @@
 package org.eclipse.rmf.reqif10.tests.util;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -248,7 +241,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 	@Override
 	public void createSpecifications() throws Exception {
 		Specification specification = ReqIF10Factory.eINSTANCE.createSpecification();
-		specification.setIdentifier("ID_TCs000_Specification");
+		specification.setIdentifier("ID_TC3000_Specification");
 		specification.setType(specificationType);
 		specification.setLastChange(getLastChangeDate());
 
@@ -268,41 +261,250 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 	public void createSpecObjects() throws Exception {
 		SpecObject specObject;
 		String description;
-		EObject xhtml;
-		// top level objects
+		EObject xhtmlLevel1;
+		EObject xhtmlLevel2;
+		EObject xhtmlLevel3;
+		EObject xhtmlLevel4;
+		// level 0 / empty xhtml input
+		description = "empty";
+		specObject = createSpecObject(description, null);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		// level 1 / top level
 		// create full XhtmlPType in XhtmlContent.p
 		description = "xhtml.p.type";
-		xhtml = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), true);
-		specObject = createSpecObject(description, xhtml);
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), true);
+		specObject = createSpecObject(description, xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		// create fill XhtmlDivType in XhtmlContent.div
 		description = "xhtml.div.type";
-		xhtml = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), true);
-		specObject = createSpecObject(description, xhtml);
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), true);
+		specObject = createSpecObject(description, xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
-		// first level objects that are contained on xhtml.p.type
+		// level 2
+		// objects that are contained on xhtml.p.type
+		createSpecObjectWithPXhtml("xhtml.br.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Br(), XhtmlPackage.eINSTANCE.getXhtmlBrType());
+		createSpecObjectWithPXhtml("xhtml.span.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Span(), XhtmlPackage.eINSTANCE.getXhtmlSpanType());
+		createSpecObjectWithPXhtml("xhtml.em.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Em(), XhtmlPackage.eINSTANCE.getXhtmlEmType());
+		createSpecObjectWithPXhtml("xhtml.strong.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Strong(), XhtmlPackage.eINSTANCE.getXhtmlStrongType());
+		createSpecObjectWithPXhtml("xhtml.dfn.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Dfn(), XhtmlPackage.eINSTANCE.getXhtmlDfnType());
+		createSpecObjectWithPXhtml("xhtml.code.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Code(), XhtmlPackage.eINSTANCE.getXhtmlCodeType());
+		createSpecObjectWithPXhtml("xhtml.samp.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Samp(), XhtmlPackage.eINSTANCE.getXhtmlSampType());
+		createSpecObjectWithPXhtml("xhtml.kbd.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Kbd(), XhtmlPackage.eINSTANCE.getXhtmlKbdType());
+		createSpecObjectWithPXhtml("xhtml.var.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Var(), XhtmlPackage.eINSTANCE.getXhtmlVarType());
+		createSpecObjectWithPXhtml("xhtml.cite.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Cite(), XhtmlPackage.eINSTANCE.getXhtmlCiteType());
+		createSpecObjectWithPXhtml("xhtml.abbr.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Abbr(), XhtmlPackage.eINSTANCE.getXhtmlAbbrType());
+		createSpecObjectWithPXhtml("xhtml.acronym.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Acronym(), XhtmlPackage.eINSTANCE.getXhtmlAcronymType());
+		createSpecObjectWithPXhtml("xhtml.q.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Q(), XhtmlPackage.eINSTANCE.getXhtmlQType());
+		createSpecObjectWithPXhtml("xhtml.inl.pres.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Tt(), XhtmlPackage.eINSTANCE.getXhtmlInlPresType());
+		createSpecObjectWithPXhtml("xhtml.a.type", XhtmlPackage.eINSTANCE.getXhtmlPType_A(), XhtmlPackage.eINSTANCE.getXhtmlAType());
+		createSpecObjectWithPXhtml("xhtml.object.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Object(), XhtmlPackage.eINSTANCE.getXhtmlObjectType());
+		createSpecObjectWithPXhtml("xhtml.edit.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Ins(), XhtmlPackage.eINSTANCE.getXhtmlEditType());
 
-		description = "xhtml.br.type";
-		xhtml = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlBrType(), true);
-		specObject = createSpecObject(description, xhtml);
+		// first level objects that are contained in xhtml.div.type and are not already covered by xhtml.p.type
+		createSpecObjectWithDivXhtml("xhtml.h1.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H1(), XhtmlPackage.eINSTANCE.getXhtmlH1Type());
+		createSpecObjectWithDivXhtml("xhtml.h2.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H2(), XhtmlPackage.eINSTANCE.getXhtmlH2Type());
+		createSpecObjectWithDivXhtml("xhtml.h3.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H3(), XhtmlPackage.eINSTANCE.getXhtmlH3Type());
+		createSpecObjectWithDivXhtml("xhtml.h4.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H4(), XhtmlPackage.eINSTANCE.getXhtmlH4Type());
+		createSpecObjectWithDivXhtml("xhtml.h5.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H5(), XhtmlPackage.eINSTANCE.getXhtmlH5Type());
+		createSpecObjectWithDivXhtml("xhtml.h6.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H6(), XhtmlPackage.eINSTANCE.getXhtmlH6Type());
+		createSpecObjectWithDivXhtml("xhtml.ul.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Ul(), XhtmlPackage.eINSTANCE.getXhtmlUlType());
+		createSpecObjectWithDivXhtml("xhtml.ol.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Ol(), XhtmlPackage.eINSTANCE.getXhtmlOlType());
+		createSpecObjectWithDivXhtml("xhtml.dl.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Dl(), XhtmlPackage.eINSTANCE.getXhtmlDlType());
+		createSpecObjectWithDivXhtml("xhtml.pre.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Pre(), XhtmlPackage.eINSTANCE.getXhtmlPreType());
+		createSpecObjectWithDivXhtml("xhtml.blockquote.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Blockquote(),
+				XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType());
+		createSpecObjectWithDivXhtml("xhtml.address.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Address(),
+				XhtmlPackage.eINSTANCE.getXhtmlAddressType());
+		createSpecObjectWithDivXhtml("xhtml.hr.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Hr(), XhtmlPackage.eINSTANCE.getXhtmlHrType());
+		createSpecObjectWithDivXhtml("xhtml.table.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), XhtmlPackage.eINSTANCE.getXhtmlTableType());
+
+		// level 3
+		// xhtml.li.type
+		description = "xhtml.li.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		specObject = createSpecObject(description, xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlUlType(), false);
+		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Ul(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlLiType(), true);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlUlType_Li(), xhtmlLevel3);
+
+		// xhtml.dt.type
+		description = "xhtml.dt.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		specObject = createSpecObject(description, xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDlType(), false);
+		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Dl(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDtType(), true);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlDlType_Dt(), xhtmlLevel3);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDdType(), false);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlDlType_Dd(), xhtmlLevel3);
+
+		// xhtml.dd.type
+		description = "xhtml.dd.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		specObject = createSpecObject(description, xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDlType(), false);
+		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Dl(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDtType(), false);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlDlType_Dt(), xhtmlLevel3);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDdType(), true);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlDlType_Dd(), xhtmlLevel3);
+
+		// xhtml.caption.type
+		description = "xhtml.caption.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		specObject = createSpecObject(description, xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlCaptionType(), true);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Caption(), xhtmlLevel3);
+
+		// xhtml.thead.type
+		description = "xhtml.thead.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		specObject = createSpecObject(description, xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTheadType(), true);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Thead(), xhtmlLevel3);
+
+		// xhtml.col.type
+		description = "xhtml.col.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		specObject = createSpecObject(description, xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlColType(), true);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Col(), xhtmlLevel3);
+
+		// xhtml.colgroup.type
+		description = "xhtml.colgroup.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		specObject = createSpecObject(description, xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlColgroupType(), true);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Colgroup(), xhtmlLevel3);
+
+		// xhtml.tfoot.type
+		description = "xhtml.tfoot.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		specObject = createSpecObject(description, xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTfootType(), true);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tfoot(), xhtmlLevel3);
+
+		// xhtml.tbody.type
+		description = "xhtml.tbody.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		specObject = createSpecObject(description, xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTbodyType(), true);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tbody(), xhtmlLevel3);
+
+		// xhtml.tr.type
+		description = "xhtml.tr.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		specObject = createSpecObject(description, xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTrType(), true);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tr(), xhtmlLevel3);
+
+		// xhtml.param.type
+		description = "xhtml.param.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		specObject = createSpecObject(description, xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlObjectType(), false);
+		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Object(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlParamType(), true);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlObjectType_Param(), xhtmlLevel3);
+
+		// level 4
+		// xhtml.td.type
+		description = "xhtml.td.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		specObject = createSpecObject(description, xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTrType(), false);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tr(), xhtmlLevel3);
+
+		xhtmlLevel4 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTdType(), true);
+		setValue(xhtmlLevel3, XhtmlPackage.eINSTANCE.getXhtmlTrType_Td(), xhtmlLevel4);
+
+		// xhtml.th.type
+		description = "xhtml.td.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		specObject = createSpecObject(description, xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTrType(), false);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tr(), xhtmlLevel3);
+
+		xhtmlLevel4 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlThType(), true);
+		setValue(xhtmlLevel3, XhtmlPackage.eINSTANCE.getXhtmlTrType_Th(), xhtmlLevel4);
 
 	}
 
-	private Map<EClass, EObject> createXhtmlEClassInstances() {
-		Map<EClass, EObject> xhtmlEClassInstances = new HashMap<EClass, EObject>();
-		for (EClassifier eClassifier : XhtmlPackage.eINSTANCE.getEClassifiers()) {
-			if (eClassifier instanceof EClass) {
-				EClass eClass = (EClass) eClassifier;
-				xhtmlEClassInstances.put(eClass, createXhtmlInstance(eClass, true));
-			} else {
-				// do nothing, its a EDataType
-			}
-		}
+	private void createSpecObjectWithPXhtml(String description, EReference eReference, EClass targetType) throws Exception {
+		EObject xhtmlRoot = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), false);
+		setValue(xhtmlRoot, eReference, createXhtmlInstance(targetType, true));
+		SpecObject specObject = createSpecObject(description, xhtmlRoot);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+	}
 
-		return xhtmlEClassInstances;
+	private void createSpecObjectWithDivXhtml(String description, EReference eReference, EClass targetType) throws Exception {
+		EObject xhtmlRoot = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		setValue(xhtmlRoot, eReference, createXhtmlInstance(targetType, true));
+		SpecObject specObject = createSpecObject(description, xhtmlRoot);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 	}
 
 	private SpecObject createSpecObject(String text, EObject eObject) throws Exception {
@@ -321,10 +523,18 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		XhtmlContent xhtmlContent = ReqIF10Factory.eINSTANCE.createXhtmlContent();
 		attributeValueXHTML.setTheValue(xhtmlContent);
 
-		if (eObject instanceof XhtmlDivType) {
-			xhtmlContent.setDiv((XhtmlDivType) eObject);
-		} else if (eObject instanceof XhtmlPType) {
-			xhtmlContent.setP((XhtmlPType) eObject);
+		if (null != eObject) {
+			// do nothing
+			if (eObject instanceof XhtmlDivType) {
+
+				xhtmlContent.setDiv((XhtmlDivType) eObject);
+			} else if (eObject instanceof XhtmlPType) {
+				xhtmlContent.setP((XhtmlPType) eObject);
+			} else {
+				System.out.println("unsupported xhtml type");
+			}
+		} else {
+			// null
 		}
 
 		specObject.getValues().add(attributeValueXHTML);
@@ -336,15 +546,6 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 	public void createSpecRelations() throws Exception {
 		// TODO Auto-generated method stub
 		super.createSpecRelations();
-	}
-
-	private SortedMap<String, EObject> getCleanedXhtml(List<EObject> list) {
-		SortedMap<String, EObject> map = new TreeMap<String, EObject>();
-		for (EObject eObject : list) {
-			map.put(getQualifiedName(eObject), eObject);
-		}
-
-		return map;
 	}
 
 	private EObject createXhtmlInstance(EClass eClass, boolean createAll) {
@@ -371,13 +572,14 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 			if (0 == featureMapSize) {
 				featureMap.add(FeatureMapUtil.createTextEntry(eObject.eClass().getName()));
 			} else {
+				if (createAll) {
+					for (int i = 0; i < featureMapSize * 3; i = i + 3) {
+						FeatureMap.Entry entry = featureMap.get(i);
+						EStructuralFeature feature = entry.getEStructuralFeature();
+						featureMap.add(i, FeatureMapUtil.createTextEntry("\n                    text before " + feature.getName()));
+						featureMap.add(i + 2, FeatureMapUtil.createTextEntry("text after " + feature.getName()));
 
-				for (int i = 0; i < featureMapSize * 3; i = i + 3) {
-					FeatureMap.Entry entry = featureMap.get(i);
-					EStructuralFeature feature = entry.getEStructuralFeature();
-					featureMap.add(i, FeatureMapUtil.createTextEntry("\n                    text before " + feature.getName()));
-					featureMap.add(i + 2, FeatureMapUtil.createTextEntry("text after " + feature.getName()));
-
+					}
 				}
 
 			}
@@ -386,73 +588,12 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		}
 	}
 
-	private List<EObject> getFullXhtml(EClass eClass, int level) {
-		List<EObject> list = new ArrayList<EObject>();
-
-		// get the mixed attribute
-		EAttribute mixedAttribute = null;
-		for (EAttribute eAttribute : eClass.getEAllAttributes()) {
-			if ("mixed".equals(eAttribute.getName())) {
-				mixedAttribute = eAttribute;
-				break;
-			}
-		}
-
-		if (0 < level) {
-
-			// create instance of class
-			EObject eObject = null;
-			EClass referenceType = null;
-			for (EReference eReference : eClass.getEAllContainments()) {
-				referenceType = eReference.getEReferenceType();
-				for (EObject referenceEObject : getFullXhtml(referenceType, level - 1)) {
-					eObject = XhtmlFactory.eINSTANCE.create(eClass);
-					setMandatorySubElements(eObject);
-					setAttributes(eObject);
-
-					if (eReference.isMany()) {
-						((EList<Object>) eObject.eGet(eReference)).add(referenceEObject);
-					} else {
-						eObject.eSet(eReference, referenceEObject);
-					}
-					list.add(eObject);
-				}
-			}
-		} else {
-			if (XhtmlPackage.eINSTANCE.getXhtmlOlType().equals(eClass) || XhtmlPackage.eINSTANCE.getXhtmlUlType().equals(eClass)) {
-				// ignore DL,OL,UL,TABLE since it would require complex inner content
-
-			} else {
-				EObject eObject = XhtmlFactory.eINSTANCE.create(eClass);
-				setMandatorySubElements(eObject);
-				setAttributes(eObject);
-				if (null != mixedAttribute) {
-					Object mixedAttributeValue = eObject.eGet(mixedAttribute);
-					if (null != mixedAttributeValue && mixedAttributeValue instanceof FeatureMap) {
-						FeatureMap map = (FeatureMap) mixedAttributeValue;
-						map.add(FeatureMapUtil.createTextEntry("text"));
-					}
-				}
-				list.add(eObject);
-			}
-		}
-		return list;
-	}
-
-	private void setMandatorySubElements(EObject eObject) {
-
-	}
-
 	private void setSubElements(EObject eObject, boolean createAll) {
 		if (createAll) {
 			// create full set of sub elements
 			for (EReference eReference : eObject.eClass().getEAllContainments()) {
 				EObject subEObject = createXhtmlInstance(eReference.getEReferenceType(), false);
-				if (eReference.isMany()) {
-					((EList<Object>) eObject.eGet(eReference)).add(subEObject);
-				} else {
-					eObject.eSet(eReference, subEObject);
-				}
+				setValue(eObject, eReference, subEObject);
 			}
 		} else {
 			// create mandatory sub elements only
@@ -473,31 +614,22 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 			} else if (eObject instanceof XhtmlDlType) {
 				XhtmlDtType dt = XhtmlFactory.eINSTANCE.createXhtmlDtType();
 				setAttributes(dt, false);
+				setMixedText(dt, false);
 				XhtmlDdType dd = XhtmlFactory.eINSTANCE.createXhtmlDdType();
 				setAttributes(dd, false);
+				setMixedText(dd, false);
 				((XhtmlDlType) eObject).getDt().add(dt);
 				((XhtmlDlType) eObject).getDd().add(dd);
 			} else if (eObject instanceof XhtmlUlType) {
 				XhtmlLiType li = XhtmlFactory.eINSTANCE.createXhtmlLiType();
 				setAttributes(li, false);
+				setMixedText(li, false);
 				((XhtmlUlType) eObject).getLi().add(li);
 			} else if (eObject instanceof XhtmlOlType) {
 				XhtmlLiType li = XhtmlFactory.eINSTANCE.createXhtmlLiType();
 				setAttributes(li, false);
+				setMixedText(li, false);
 				((XhtmlOlType) eObject).getLi().add(li);
-			}
-		}
-	}
-
-	private void setAttributes(EObject eObject) {
-		for (EAttribute eAttribute : eObject.eClass().getEAllAttributes()) {
-			Object value = getValue(eAttribute);
-			if (null != value && eAttribute.isChangeable()) {
-				if (eAttribute.isMany()) {
-					((EList<Object>) eObject.eGet(eAttribute)).add(value);
-				} else {
-					eObject.eSet(eAttribute, value);
-				}
 			}
 		}
 	}
@@ -507,11 +639,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 			if (createAll || eAttribute.isRequired()) {
 				Object value = getValue(eAttribute);
 				if (null != value && eAttribute.isChangeable()) {
-					if (eAttribute.isMany()) {
-						((EList<Object>) eObject.eGet(eAttribute)).add(value);
-					} else {
-						eObject.eSet(eAttribute, value);
-					}
+					setValue(eObject, eAttribute, value);
 				}
 			}
 		}
@@ -576,7 +704,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 			return EcoreUtil.createFromString(eDataType, "en");
 		}
 		if ("Number".equals(datatypeName)) {
-			return EcoreUtil.createFromString(eDataType, "1234");
+			return EcoreUtil.createFromString(eDataType, "1");
 		}
 		if ("Charset".equals(datatypeName)) {
 			return EcoreUtil.createFromString(eDataType, "UTF-8");
@@ -627,29 +755,13 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		return null;
 	}
 
-	/**
-	 * @param eObject
-	 * @return
-	 */
-	private String getQualifiedName(EObject eObject) {
-		String qualifiedName = "";
-		if (null != eObject.eContainingFeature()) {
-			qualifiedName = eObject.eContainingFeature().getName();
-		}
-		int contentsSize = eObject.eContents().size();
-		if (0 == contentsSize) {
-			// do nothing
-		} else if (1 == contentsSize) {
-			qualifiedName += "/" + getQualifiedName(eObject.eContents().get(0));
+	@SuppressWarnings("unchecked")
+	private void setValue(EObject eObject, EStructuralFeature eStructuralFeature, Object value) {
+		if (eStructuralFeature.isMany()) {
+			((EList<Object>) eObject.eGet(eStructuralFeature)).add(value);
 		} else {
-			qualifiedName += "/{";
-			qualifiedName += getQualifiedName(eObject.eContents().get(0));
-			for (int i = 1; i < contentsSize; i++) {
-				qualifiedName += ",";
-				qualifiedName += getQualifiedName(eObject.eContents().get(i));
-			}
-			qualifiedName += "}";
+			eObject.eSet(eStructuralFeature, value);
 		}
-		return qualifiedName;
 	}
+
 }
