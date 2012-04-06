@@ -203,6 +203,7 @@ public class ReqIFXMLSAXHandler extends XMLHandler implements IReqIFSerializatio
 		}
 	}
 
+	// TODO: cleanup algorithm for hand-over between different serialization stretegies
 	/**
 	 * Pop the appropriate stacks and set features whose values are in the content of XML elements.
 	 */
@@ -216,13 +217,20 @@ public class ReqIFXMLSAXHandler extends XMLHandler implements IReqIFSerializatio
 			}
 		}
 
-		level--;
-
-		if (SerializationStrategy.XHTML == serializationStrategy && level == xhtmlLevel) {
+		if (SerializationStrategy.XHTML == serializationStrategy && level - 1 <= xhtmlLevel) {
 			// we finished reading xhtml
 			serializationStrategy = SerializationStrategy.REQIF;
 			// xhtmlLevel = OUT_OF_XHTML;
+
+			// required in case of empty xhtml content
+			if (level - 1 < xhtmlLevel) {
+				if (isFeatureExpected()) {
+					deferredFeatures.pop();
+				}
+			}
 		}
+
+		level--;
 
 	}
 
