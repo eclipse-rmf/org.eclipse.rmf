@@ -18,6 +18,8 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIFContent;
@@ -28,7 +30,7 @@ public class SimpleModelBuilder {
 	private ReqIF reqIf;
 
 	private final String comment;
-	private final Date creationTime;
+	private final XMLGregorianCalendar creationTime;
 	private final String identifier;
 	private final String repositoryId;
 	private final String reqIfToolId;
@@ -36,8 +38,12 @@ public class SimpleModelBuilder {
 	private final String sourceToolId;
 	private final String title;
 
-	public SimpleModelBuilder(Date creationTime, String identifier, String title) {
-		this(creationTime, identifier, "RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)",
+	public SimpleModelBuilder(String identifier, String title) throws Exception {
+		this(null, identifier, title);
+	}
+
+	public SimpleModelBuilder(String creationTimeString, String identifier, String title) throws Exception {
+		this(creationTimeString, identifier, "RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)",
 				"RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)", title);
 	}
 
@@ -49,9 +55,10 @@ public class SimpleModelBuilder {
 	 * @param reqIfToolId
 	 * @param sourceToolId
 	 * @param title
+	 * @throws Exception 
 	 */
-	public SimpleModelBuilder(Date creationTime, String identifier, String reqIfToolId, String sourceToolId, String title) {
-		this(null, creationTime, identifier, null, reqIfToolId, sourceToolId, title);
+	public SimpleModelBuilder(String creationTimeString, String identifier, String reqIfToolId, String sourceToolId, String title) throws Exception {
+		this(null, creationTimeString, identifier, null, reqIfToolId, sourceToolId, title);
 	}
 
 	/**
@@ -64,16 +71,17 @@ public class SimpleModelBuilder {
 	 * @param reqIfToolId
 	 * @param sourceToolId
 	 * @param title
+	 * @throws Exception 
 	 */
-	public SimpleModelBuilder(String comment, Date creationTime, String identifier, String repositoryId, String reqIfToolId, String sourceToolId,
-			String title) {
-		this(comment, creationTime, identifier, repositoryId, reqIfToolId, "1.0", sourceToolId, title);
+	public SimpleModelBuilder(String comment, String creationTimeString, String identifier, String repositoryId, String reqIfToolId,
+			String sourceToolId, String title) throws Exception {
+		this(comment, creationTimeString, identifier, repositoryId, reqIfToolId, "1.0", sourceToolId, title);
 	}
 
-	public SimpleModelBuilder(String comment, Date creationTime, String identifier, String repositoryId, String reqIfToolId, String reqIfVersion,
-			String sourceToolId, String title) {
+	public SimpleModelBuilder(String comment, String creationTimeString, String identifier, String repositoryId, String reqIfToolId,
+			String reqIfVersion, String sourceToolId, String title) throws Exception {
 		this.comment = comment;
-		this.creationTime = creationTime;
+		creationTime = toDate(creationTimeString);
 		this.identifier = identifier;
 		this.repositoryId = repositoryId;
 		this.reqIfToolId = reqIfToolId;
@@ -95,7 +103,9 @@ public class SimpleModelBuilder {
 			// if (null!= comment)
 			reqIfHeader.setComment(comment);
 			if (null != creationTime) {
-				reqIfHeader.setCreationTime(getLastChangeDate());
+				reqIfHeader.setCreationTime(creationTime);
+			} else {
+				reqIfHeader.setCreationTime(getCurrentDate());
 			}
 			if (null != identifier) {
 				reqIfHeader.setIdentifier(identifier);
@@ -153,10 +163,15 @@ public class SimpleModelBuilder {
 	public void createSpecRelations() throws Exception {
 	}
 
-	public XMLGregorianCalendar getLastChangeDate() throws DatatypeConfigurationException {
+	public XMLGregorianCalendar getCurrentDate() throws DatatypeConfigurationException {
 		GregorianCalendar calendar = new GregorianCalendar();
 		calendar.setTime(new Date());
 		XMLGregorianCalendar xmlGregoriaCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
+		return xmlGregoriaCalendar;
+	}
+
+	public XMLGregorianCalendar toDate(String date) throws DatatypeConfigurationException {
+		XMLGregorianCalendar xmlGregoriaCalendar = (XMLGregorianCalendar) EcoreUtil.createFromString(XMLTypePackage.eINSTANCE.getDateTime(), date);
 		return xmlGregoriaCalendar;
 	}
 

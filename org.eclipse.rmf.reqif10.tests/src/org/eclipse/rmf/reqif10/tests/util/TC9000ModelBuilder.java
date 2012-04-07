@@ -12,17 +12,17 @@
 package org.eclipse.rmf.reqif10.tests.util;
 
 import java.math.BigInteger;
-import java.util.Date;
 
 import org.eclipse.rmf.reqif10.SpecObject;
 
 @SuppressWarnings("nls")
 public class TC9000ModelBuilder extends TC1000ModelBuilder {
+	final static String LAST_CHANGE_STRING = "2012-04-07T01:51:37.112+02:00";
 
 	final int numberOfSpecObjects;
 
-	public TC9000ModelBuilder(Date lastChangeDate, String identifier, String longName, int numberOfSpecObjects) {
-		super(lastChangeDate, identifier, longName);
+	public TC9000ModelBuilder(String lastChangeDateString, String identifier, String longName, int numberOfSpecObjects) throws Exception {
+		super(lastChangeDateString, identifier, longName);
 		this.numberOfSpecObjects = numberOfSpecObjects;
 	}
 
@@ -30,8 +30,8 @@ public class TC9000ModelBuilder extends TC1000ModelBuilder {
 	public void createSpecObjects() throws Exception {
 		for (int i = 0; i < numberOfSpecObjects; i++) {
 
-			SpecObject specObject = createTC1000SpecObject("ID_TC1000_SpecObject" + i, getLastChangeDate(), true, false, new BigInteger("5000"),
-					"Plain", 1234.5, getLastChangeDate(), enumValueYellow);
+			SpecObject specObject = createTC1000SpecObject("ID_TC1000_SpecObject" + i, toDate(LAST_CHANGE_STRING), true, false,
+					new BigInteger("5000"), "Plain", 1234.5, toDate(LAST_CHANGE_STRING), enumValueYellow);
 
 			getReqIF().getCoreContent().getSpecObjects().add(specObject);
 		}

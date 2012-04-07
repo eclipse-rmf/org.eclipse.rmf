@@ -13,7 +13,6 @@ package org.eclipse.rmf.reqif10.tests.domain;
 
 import java.io.File;
 import java.math.BigDecimal;
-import java.util.Date;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.rmf.reqif10.ReqIF;
@@ -23,7 +22,6 @@ import org.junit.Test;
 
 @SuppressWarnings("nls")
 public class TC9000SimpleContentPerformanceTest extends AbstractTestCase {
-
 	private static final String WORKING_DIRECTORY = "work";
 
 	@Test
@@ -31,7 +29,7 @@ public class TC9000SimpleContentPerformanceTest extends AbstractTestCase {
 
 		for (int i = 1; i < 10000; i = i * 2) {
 			String fileName = "TC9000_SimpleContent_PerformanceTests_SpecObjects_" + i + ".reqif";
-			ReqIF reqif = new TC9000ModelBuilder(new Date(), "ID_" + fileName, fileName, i).getReqIF();
+			ReqIF reqif = new TC9000ModelBuilder(null, "ID_" + fileName, fileName, i).getReqIF();
 
 			saveReqIFFile(reqif, WORKING_DIRECTORY + IPath.SEPARATOR + fileName);
 			doTest(fileName);

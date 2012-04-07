@@ -12,10 +12,7 @@
 package org.eclipse.rmf.reqif10.tests.util;
 
 import java.math.BigInteger;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
-import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.util.EList;
@@ -49,6 +46,7 @@ import org.eclipse.rmf.reqif10.SpecificationType;
 
 @SuppressWarnings("nls")
 public class TC1000ModelBuilder extends SimpleModelBuilder {
+	final static String LAST_CHANGE_STRING = "2012-04-07T01:51:37.112+02:00";
 
 	// datatypes
 	DatatypeDefinitionBoolean datatypeDefinitionBoolean;
@@ -78,15 +76,15 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 	SpecObject specObject;
 
 	/**
+	 * @throws Exception 
 	 * 
 	 */
-	public TC1000ModelBuilder() {
-		super(new Date(), "ID_TC1000_ReqIfHeader", "TC 1000 'Simple Content'");
+	public TC1000ModelBuilder() throws Exception {
+		super(null, "ID_TC1000_ReqIfHeader", "TC 1000 'Simple Content'");
 	}
 
-	public TC1000ModelBuilder(Date creationTime, String identifier, String title) {
-		super(creationTime, identifier, title);
-		// TODO Auto-generated constructor stub
+	public TC1000ModelBuilder(String creationTimeString, String identifier, String title) throws Exception {
+		super(creationTimeString, identifier, title);
 	}
 
 	@Override
@@ -94,25 +92,25 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 		datatypeDefinitionBoolean = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionBoolean();
 		datatypeDefinitionBoolean.setIdentifier("ID_TC1000_DatatypeDefinitionBoolean");
 		datatypeDefinitionBoolean.setLongName("TC1000 DatatypeDefinitionBoolean");
-		datatypeDefinitionBoolean.setLastChange(getLastChangeDate());
+		datatypeDefinitionBoolean.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		datatypeDefinitionInteger = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionInteger();
 		datatypeDefinitionInteger.setIdentifier("ID_TC1000_DatatypeDefinitionInteger");
 		datatypeDefinitionInteger.setLongName("TC1000 DatatypeDefinitionInteger");
-		datatypeDefinitionInteger.setLastChange(getLastChangeDate());
+		datatypeDefinitionInteger.setLastChange(toDate(LAST_CHANGE_STRING));
 		datatypeDefinitionInteger.setMin(new BigInteger("-17496"));
 		datatypeDefinitionInteger.setMax(new BigInteger("5000"));
 
 		datatypeDefinitionString = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString();
 		datatypeDefinitionString.setIdentifier("ID_TC1000_DatatypeDefinitionString");
 		datatypeDefinitionString.setLongName("TC1000 DatatypeDefinitionString");
-		datatypeDefinitionString.setLastChange(getLastChangeDate());
+		datatypeDefinitionString.setLastChange(toDate(LAST_CHANGE_STRING));
 		datatypeDefinitionString.setMaxLength(new BigInteger("256"));
 
 		datatypeDefinitionReal = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionReal();
 		datatypeDefinitionReal.setIdentifier("ID_TC1000_DatatypeDefinitionReal");
 		datatypeDefinitionReal.setLongName("TC1000 DatatypeDefinitionReal");
-		datatypeDefinitionReal.setLastChange(getLastChangeDate());
+		datatypeDefinitionReal.setLastChange(toDate(LAST_CHANGE_STRING));
 		datatypeDefinitionReal.setMin(-1234.5678);
 		datatypeDefinitionReal.setMax(1234.5678);
 		datatypeDefinitionReal.setAccuracy(new BigInteger("10"));
@@ -120,17 +118,17 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 		datatypeDefinitionDate = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionDate();
 		datatypeDefinitionDate.setIdentifier("ID_TC1000_DatatypeDefinitionDate");
 		datatypeDefinitionDate.setLongName("TC1000 DatatypeDefinitionDate");
-		datatypeDefinitionDate.setLastChange(getLastChangeDate());
+		datatypeDefinitionDate.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		datatypeDefinitionEnumeration = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionEnumeration();
 		datatypeDefinitionEnumeration.setIdentifier("ID_TC1000_DatatypeDefinitionEnumeration");
 		datatypeDefinitionEnumeration.setLongName("TC1000 DatatypeDefinitionEnumeration");
-		datatypeDefinitionEnumeration.setLastChange(getLastChangeDate());
+		datatypeDefinitionEnumeration.setLastChange(toDate(LAST_CHANGE_STRING));
 		// red
 		enumValueRed = ReqIF10Factory.eINSTANCE.createEnumValue();
 		enumValueRed.setIdentifier("ID_TC1000_DatatypeDefinitionEnumeration_EnumValue_Red");
 		enumValueRed.setLongName("TC1000 Red");
-		enumValueRed.setLastChange(getLastChangeDate());
+		enumValueRed.setLastChange(toDate(LAST_CHANGE_STRING));
 		EmbeddedValue embeddedValueRed = ReqIF10Factory.eINSTANCE.createEmbeddedValue();
 		embeddedValueRed.setKey(new BigInteger("0"));
 		embeddedValueRed.setOtherContent("");
@@ -139,7 +137,7 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 		enumValueGreen = ReqIF10Factory.eINSTANCE.createEnumValue();
 		enumValueGreen.setIdentifier("ID_TC1000_DatatypeDefinitionEnumeration_EnumValue_Green");
 		enumValueGreen.setLongName("TC1000 Green");
-		enumValueGreen.setLastChange(getLastChangeDate());
+		enumValueGreen.setLastChange(toDate(LAST_CHANGE_STRING));
 		EmbeddedValue embeddedValueGreen = ReqIF10Factory.eINSTANCE.createEmbeddedValue();
 		embeddedValueGreen.setKey(new BigInteger("1"));
 		embeddedValueGreen.setOtherContent("");
@@ -148,7 +146,7 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 		enumValueYellow = ReqIF10Factory.eINSTANCE.createEnumValue();
 		enumValueYellow.setIdentifier("ID_TC1000_DatatypeDefinitionEnumeration_EnumValue_Yellow");
 		enumValueYellow.setLongName("TC1000 Yellow");
-		enumValueYellow.setLastChange(getLastChangeDate());
+		enumValueYellow.setLastChange(toDate(LAST_CHANGE_STRING));
 		EmbeddedValue embeddedValueYellow = ReqIF10Factory.eINSTANCE.createEmbeddedValue();
 		embeddedValueYellow.setKey(new BigInteger("2"));
 		embeddedValueYellow.setOtherContent("");
@@ -172,50 +170,48 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 		specObjectType = ReqIF10Factory.eINSTANCE.createSpecObjectType();
 		specObjectType.setIdentifier("ID_TC1000_SpecObjectType");
 		specObjectType.setLongName("TC1000 SpecObjectType");
-		System.out.println("last Change Date: " + getLastChangeDate());
-		specObjectType.setLastChange(getLastChangeDate());
-		System.out.println("saved Last Change Date: " + specObjectType.getLastChange());
+		specObjectType.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		attributeDefinitionBooleanTc1000t = ReqIF10Factory.eINSTANCE.createAttributeDefinitionBoolean();
 		attributeDefinitionBooleanTc1000t.setIdentifier("ID_TC1000_AttributeDefinitionBoolean_TC1000T");
 		attributeDefinitionBooleanTc1000t.setLongName("TC1000T");
-		attributeDefinitionBooleanTc1000t.setLastChange(getLastChangeDate());
+		attributeDefinitionBooleanTc1000t.setLastChange(toDate(LAST_CHANGE_STRING));
 		attributeDefinitionBooleanTc1000t.setType(datatypeDefinitionBoolean);
 
 		attributeDefinitionBooleanTc1000f = ReqIF10Factory.eINSTANCE.createAttributeDefinitionBoolean();
 		attributeDefinitionBooleanTc1000f.setIdentifier("ID_TC1000_AttributeDefinitionBoolean_TC1000F");
 		attributeDefinitionBooleanTc1000f.setLongName("TC1000F");
-		attributeDefinitionBooleanTc1000f.setLastChange(getLastChangeDate());
+		attributeDefinitionBooleanTc1000f.setLastChange(toDate(LAST_CHANGE_STRING));
 		attributeDefinitionBooleanTc1000f.setType(datatypeDefinitionBoolean);
 
 		attributeDefinitionInteger = ReqIF10Factory.eINSTANCE.createAttributeDefinitionInteger();
 		attributeDefinitionInteger.setIdentifier("ID_TC1000_AttributeDefinitionInteger");
 		attributeDefinitionInteger.setLongName("TC1000 Integer");
-		attributeDefinitionInteger.setLastChange(getLastChangeDate());
+		attributeDefinitionInteger.setLastChange(toDate(LAST_CHANGE_STRING));
 		attributeDefinitionInteger.setType(datatypeDefinitionInteger);
 
 		attributeDefinitionString = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		attributeDefinitionString.setIdentifier("ID_TC1000_AttributeDefinitionString");
 		attributeDefinitionString.setLongName("TC1000 String");
-		attributeDefinitionString.setLastChange(getLastChangeDate());
+		attributeDefinitionString.setLastChange(toDate(LAST_CHANGE_STRING));
 		attributeDefinitionString.setType(datatypeDefinitionString);
 
 		attributeDefinitionReal = ReqIF10Factory.eINSTANCE.createAttributeDefinitionReal();
 		attributeDefinitionReal.setIdentifier("ID_TC1000_AttributeDefinitionReal");
 		attributeDefinitionReal.setLongName("TC1000 Real");
-		attributeDefinitionReal.setLastChange(getLastChangeDate());
+		attributeDefinitionReal.setLastChange(toDate(LAST_CHANGE_STRING));
 		attributeDefinitionReal.setType(datatypeDefinitionReal);
 
 		attributeDefinitionDate = ReqIF10Factory.eINSTANCE.createAttributeDefinitionDate();
 		attributeDefinitionDate.setIdentifier("ID_TC1000_AttributeDefinitionDate");
 		attributeDefinitionDate.setLongName("TC1000 Date");
-		attributeDefinitionDate.setLastChange(getLastChangeDate());
+		attributeDefinitionDate.setLastChange(toDate(LAST_CHANGE_STRING));
 		attributeDefinitionDate.setType(datatypeDefinitionDate);
 
 		attributeDefinitionEnumeration = ReqIF10Factory.eINSTANCE.createAttributeDefinitionEnumeration();
 		attributeDefinitionEnumeration.setIdentifier("ID_TC1000_AttributeDefinitionEnumeration");
 		attributeDefinitionEnumeration.setLongName("TC1000 Enum");
-		attributeDefinitionEnumeration.setLastChange(getLastChangeDate());
+		attributeDefinitionEnumeration.setLastChange(toDate(LAST_CHANGE_STRING));
 		attributeDefinitionEnumeration.setType(datatypeDefinitionEnumeration);
 		attributeDefinitionEnumeration.setMultiValued(false);
 
@@ -236,7 +232,7 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 		specificationType = ReqIF10Factory.eINSTANCE.createSpecificationType();
 		specificationType.setIdentifier("ID_TC1000_SpecificationType");
 		specificationType.setLongName("TC1000 SpecificationType");
-		specificationType.setLastChange(getLastChangeDate());
+		specificationType.setLastChange(toDate(LAST_CHANGE_STRING));
 		getReqIF().getCoreContent().getSpecTypes().add(specificationType);
 	}
 
@@ -251,12 +247,12 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 		Specification specification = ReqIF10Factory.eINSTANCE.createSpecification();
 		specification.setIdentifier("ID_TC1000_Specification");
 		specification.setType(specificationType);
-		specification.setLastChange(getLastChangeDate());
+		specification.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		SpecHierarchy specHierarchy = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
 		specHierarchy.setIdentifier("ID_TC1000_SpecHierarchy");
 		specHierarchy.setLongName("TC1000 SpecHierarchy");
-		specHierarchy.setLastChange(getLastChangeDate());
+		specHierarchy.setLastChange(toDate(LAST_CHANGE_STRING));
 		specHierarchy.setObject(specObject);
 		specification.getChildren().add(specHierarchy);
 
@@ -268,7 +264,7 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 	public void createSpecObjects() throws Exception {
 		specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		specObject.setIdentifier("ID_TC1000_SpecObject");
-		specObject.setLastChange(getLastChangeDate());
+		specObject.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObject.setType(specObjectType);
 		// TODO: Backlinkage should be a derived reference
 		// TODO: same for Document root
@@ -295,21 +291,7 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 
 		AttributeValueDate attributeValueDate = ReqIF10Factory.eINSTANCE.createAttributeValueDate();
 		attributeValueDate.setDefinition(attributeDefinitionDate);
-		// TODO: the following expression doesn't work: parse exception
-		Date date;
-		try {
-			// date = DateFormat.getDateInstance().parse(
-			// "2002-05-30T09:30:10+06:00");
-
-			date = new Date();
-
-			GregorianCalendar gregorianCalendar = new GregorianCalendar();
-			gregorianCalendar.setTime(date);
-			attributeValueDate.setTheValue(DatatypeFactory.newInstance().newXMLGregorianCalendar(gregorianCalendar));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		attributeValueDate.setTheValue(toDate("2002-05-30T09:30:10+06:00"));
 
 		AttributeValueEnumeration attributeValueEnumeration = ReqIF10Factory.eINSTANCE.createAttributeValueEnumeration();
 		attributeValueEnumeration.setDefinition(attributeDefinitionEnumeration);

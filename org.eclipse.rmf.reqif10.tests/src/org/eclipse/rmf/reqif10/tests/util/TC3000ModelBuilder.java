@@ -12,7 +12,6 @@
 package org.eclipse.rmf.reqif10.tests.util;
 
 import java.math.BigInteger;
-import java.util.Date;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
@@ -33,6 +32,7 @@ import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
@@ -143,6 +143,8 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
  */
 @SuppressWarnings("nls")
 public class TC3000ModelBuilder extends SimpleModelBuilder {
+	final static String LAST_CHANGE_STRING = "2012-04-07T01:51:37.112+02:00";
+
 	int id_counter = 0;
 	int specHierarchyCounter = 0;
 	int specObjectCounter = 0;
@@ -163,31 +165,28 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 	SpecObject specObject;
 
 	/**
+	 * @throws Exception 
 	 * 
 	 */
-	public TC3000ModelBuilder() {
-		super(new Date(), "ID_TC3000_ReqIfHeader", "TC 3000 'Formated Content'");
-	}
-
-	public TC3000ModelBuilder(Date creationTime, String identifier, String title) {
-		super(creationTime, identifier, title);
-		// TODO Auto-generated constructor stub
+	public TC3000ModelBuilder() throws Exception {
+		super(null, "ID_TC3000_ReqIfHeader", "TC 3000 'Formated Content'");
 	}
 
 	@Override
 	public void createDatatypes() throws Exception {
+
 		// datatypeDefinitionXHTML
 		datatypeDefinitionXHTML = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionXHTML();
 		datatypeDefinitionXHTML.setIdentifier("ID_TC3000_DatatypeDefinitionXHTML");
 		datatypeDefinitionXHTML.setLongName("TC3000 DatatypeDefinitionXHTML");
-		datatypeDefinitionXHTML.setLastChange(getLastChangeDate());
+		datatypeDefinitionXHTML.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		// datatypeDefinitionString
 		datatypeDefinitionString = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString();
 		datatypeDefinitionString.setIdentifier("ID_TC3000_DatatypeDefinitionString");
 		datatypeDefinitionString.setLongName("TC3000 DatatypeDefinitionString");
 		datatypeDefinitionString.setMaxLength(new BigInteger("255"));
-		datatypeDefinitionString.setLastChange(getLastChangeDate());
+		datatypeDefinitionString.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		EList<DatatypeDefinition> datatypes = getReqIF().getCoreContent().getDatatypes();
 		datatypes.add(datatypeDefinitionXHTML);
@@ -201,20 +200,20 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		specObjectType = ReqIF10Factory.eINSTANCE.createSpecObjectType();
 		specObjectType.setIdentifier("ID_TC3000_SpecObjectType");
 		specObjectType.setLongName("TC3000 SpecObjectType");
-		specObjectType.setLastChange(getLastChangeDate());
+		specObjectType.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		// AttributeDefinitionXHTML
 		attributeDefinitionXHTML = ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML();
 		attributeDefinitionXHTML.setIdentifier("ID_TC3000_AttributeDefinitionXHTML");
 		attributeDefinitionXHTML.setLongName("TC3000 AttributeDefinitionXHTML");
-		attributeDefinitionXHTML.setLastChange(getLastChangeDate());
+		attributeDefinitionXHTML.setLastChange(toDate(LAST_CHANGE_STRING));
 		attributeDefinitionXHTML.setType(datatypeDefinitionXHTML);
 
 		// AttributeDefinitionString
 		attributeDefinitionString = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		attributeDefinitionString.setIdentifier("ID_TC3000_AttributeDefinitionString");
 		attributeDefinitionString.setLongName("TC3000 AttributeDefinitionString");
-		attributeDefinitionString.setLastChange(getLastChangeDate());
+		attributeDefinitionString.setLastChange(toDate(LAST_CHANGE_STRING));
 		attributeDefinitionString.setType(datatypeDefinitionString);
 
 		specObjectType.getSpecAttributes().add(attributeDefinitionXHTML);
@@ -228,14 +227,8 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		specificationType = ReqIF10Factory.eINSTANCE.createSpecificationType();
 		specificationType.setIdentifier("ID_TC3000_SpecificationType");
 		specificationType.setLongName("TC3000 SpecificationType");
-		specificationType.setLastChange(getLastChangeDate());
+		specificationType.setLastChange(toDate(LAST_CHANGE_STRING));
 		getReqIF().getCoreContent().getSpecTypes().add(specificationType);
-	}
-
-	@Override
-	public void createSpecRelationGroups() throws Exception {
-		// TODO Auto-generated method stub
-		super.createSpecRelationGroups();
 	}
 
 	@Override
@@ -243,13 +236,13 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		Specification specification = ReqIF10Factory.eINSTANCE.createSpecification();
 		specification.setIdentifier("ID_TC3000_Specification");
 		specification.setType(specificationType);
-		specification.setLastChange(getLastChangeDate());
+		specification.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		SpecHierarchy specHierarchy;
 		for (SpecObject specObject : getReqIF().getCoreContent().getSpecObjects()) {
 			specHierarchy = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
 			specHierarchy.setIdentifier("ID_TC3000_SpecHierarchy_" + specHierarchyCounter++);
-			specHierarchy.setLastChange(getLastChangeDate());
+			specHierarchy.setLastChange(toDate(LAST_CHANGE_STRING));
 			specHierarchy.setObject(specObject);
 			specification.getChildren().add(specHierarchy);
 			getReqIF().getCoreContent().getSpecifications().add(specification);
@@ -267,20 +260,36 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		EObject xhtmlLevel4;
 		// level 0 / empty xhtml input
 		description = "empty";
-		specObject = createSpecObject(description, null);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), null);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		description = "empty_the_original_value";
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue(), null);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		// level 1 / top level
+		// create fill XhtmlDivType in XhtmlContent.div at original value
+		description = "xhtml.p.type_the_original_value";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), true);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue(), xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
+		// create fill XhtmlDivType in XhtmlContent.div at original value
+		description = "xhtml.div.type_the_original_value";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), true);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue(), xhtmlLevel1);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+
 		// create full XhtmlPType in XhtmlContent.p
 		description = "xhtml.p.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), true);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		// create fill XhtmlDivType in XhtmlContent.div
 		description = "xhtml.div.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), true);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		// level 2
@@ -325,7 +334,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		// xhtml.li.type
 		description = "xhtml.li.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlUlType(), false);
@@ -337,7 +346,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		// xhtml.dt.type
 		description = "xhtml.dt.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDlType(), false);
@@ -352,7 +361,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		// xhtml.dd.type
 		description = "xhtml.dd.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDlType(), false);
@@ -367,7 +376,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		// xhtml.caption.type
 		description = "xhtml.caption.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
@@ -379,7 +388,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		// xhtml.thead.type
 		description = "xhtml.thead.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
@@ -391,7 +400,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		// xhtml.col.type
 		description = "xhtml.col.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
@@ -403,7 +412,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		// xhtml.colgroup.type
 		description = "xhtml.colgroup.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
@@ -415,7 +424,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		// xhtml.tfoot.type
 		description = "xhtml.tfoot.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
@@ -427,7 +436,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		// xhtml.tbody.type
 		description = "xhtml.tbody.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
@@ -439,7 +448,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		// xhtml.tr.type
 		description = "xhtml.tr.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
@@ -451,7 +460,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		// xhtml.param.type
 		description = "xhtml.param.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlObjectType(), false);
@@ -464,7 +473,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		// xhtml.td.type
 		description = "xhtml.td.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
@@ -479,7 +488,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		// xhtml.th.type
 		description = "xhtml.td.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, xhtmlLevel1);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
@@ -496,21 +505,21 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 	private void createSpecObjectWithPXhtml(String description, EReference eReference, EClass targetType) throws Exception {
 		EObject xhtmlRoot = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), false);
 		setValue(xhtmlRoot, eReference, createXhtmlInstance(targetType, true));
-		SpecObject specObject = createSpecObject(description, xhtmlRoot);
+		SpecObject specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlRoot);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 	}
 
 	private void createSpecObjectWithDivXhtml(String description, EReference eReference, EClass targetType) throws Exception {
 		EObject xhtmlRoot = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
 		setValue(xhtmlRoot, eReference, createXhtmlInstance(targetType, true));
-		SpecObject specObject = createSpecObject(description, xhtmlRoot);
+		SpecObject specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlRoot);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 	}
 
-	private SpecObject createSpecObject(String text, EObject eObject) throws Exception {
+	private SpecObject createSpecObject(String text, EStructuralFeature attributeValueXhtmlFeature, EObject eObject) throws Exception {
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		specObject.setIdentifier("ID_TC3000_SpecObject_" + text);
-		specObject.setLastChange(getLastChangeDate());
+		specObject.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObject.setType(specObjectType);
 
 		AttributeValueString attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
@@ -521,7 +530,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		AttributeValueXHTML attributeValueXHTML = ReqIF10Factory.eINSTANCE.createAttributeValueXHTML();
 		attributeValueXHTML.setDefinition(attributeDefinitionXHTML);
 		XhtmlContent xhtmlContent = ReqIF10Factory.eINSTANCE.createXhtmlContent();
-		attributeValueXHTML.setTheValue(xhtmlContent);
+		setValue(attributeValueXHTML, attributeValueXhtmlFeature, xhtmlContent);
 
 		if (null != eObject) {
 			// do nothing
@@ -531,7 +540,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 			} else if (eObject instanceof XhtmlPType) {
 				xhtmlContent.setP((XhtmlPType) eObject);
 			} else {
-				System.out.println("unsupported xhtml type");
+				// System.out.println("unsupported xhtml type");
 			}
 		} else {
 			// null
@@ -540,12 +549,6 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		specObject.getValues().add(attributeValueXHTML);
 
 		return specObject;
-	}
-
-	@Override
-	public void createSpecRelations() throws Exception {
-		// TODO Auto-generated method stub
-		super.createSpecRelations();
 	}
 
 	private EObject createXhtmlInstance(EClass eClass, boolean createAll) {
@@ -584,7 +587,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 
 			}
 		} else {
-			System.out.println("no mixed Attribute found in " + eObject);
+			// System.out.println("no mixed Attribute found in " + eObject);
 		}
 	}
 
@@ -751,7 +754,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		if ("ScopeType".equals(datatypeName)) {
 			return EcoreUtil.createFromString(eDataType, "row");
 		}
-		System.out.println("Not Implemented Datatype: " + datatypeName);
+		// System.out.println("Not Implemented Datatype: " + datatypeName);
 		return null;
 	}
 
