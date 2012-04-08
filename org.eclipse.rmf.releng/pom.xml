@@ -169,10 +169,6 @@
 		<module>../org.eclipse.rmf.releng.target</module>
 		<module>../org.eclipse.rmf.releng.repository</module>
 		<module>../org.eclipse.rmf.releng.product</module>
-		<module>../org.eclipse.rmf.reqif10.feature</module>
-		<module>../org.eclipse.rmf.reqif10.model</module>
-		<module>../org.eclipse.rmf.reqif10.xsd.model</module>
-		<module>../org.eclipse.rmf.reqif10.resource</module>
 		<module>../org.eclipse.rmf.emf.ecore.converter</module>
 		
 		<module>../org.eclipse.rmf.rif11.model</module>		
@@ -204,9 +200,8 @@
 		<module>../org.eclipse.rmf.reqif10</module>
 		<module>../org.eclipse.rmf.serialization</module>
 		<module>../org.eclipse.rmf.reqif10.feature2</module>
-		<!-- deactivated due to conflict with old core 
 		<module>../org.eclipse.rmf.reqif10.tests</module> 
-		<module>../org.eclipse.rmf.reqif10.tests.feature</module> -->
+		<module>../org.eclipse.rmf.reqif10.tests.feature</module>
 		
 		
 		
