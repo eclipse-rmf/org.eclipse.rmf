@@ -15,7 +15,7 @@
 	
 	<properties>
     	<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
-    	<app.version>0.1.0</app.version>
+    	<app.version>0.2.0</app.version>
   	</properties>
 	
 	<build>
