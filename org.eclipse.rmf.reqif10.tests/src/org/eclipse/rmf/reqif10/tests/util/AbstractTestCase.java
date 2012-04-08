@@ -11,6 +11,7 @@
  */
 package org.eclipse.rmf.reqif10.tests.util;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -93,16 +94,22 @@ public class AbstractTestCase {
 	}
 
 	protected void validateAgainstSchema(String filename) throws Exception {
+		File schemaFolder = new File("schema");
 
-		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource("schema/reqif.xsd") };
-		// StreamSource[] schemaDocuments = new StreamSource[]{new
-		// StreamSource("http://www.omg.org/spec/ReqIF/20110401/ReqIF.xsd")};
-		Source instanceDocument = new StreamSource(filename);
+		if (schemaFolder.exists() && schemaFolder.isDirectory()) {
 
-		SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-		Schema s = sf.newSchema(schemaDocuments);
-		Validator v = s.newValidator();
-		v.validate(instanceDocument);
+			StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource("schema/reqif.xsd") };
+			// StreamSource[] schemaDocuments = new StreamSource[]{new
+			// StreamSource("http://www.omg.org/spec/ReqIF/20110401/ReqIF.xsd")};
+			Source instanceDocument = new StreamSource(filename);
+
+			SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+			Schema s = sf.newSchema(schemaDocuments);
+			Validator v = s.newValidator();
+			v.validate(instanceDocument);
+		} else {
+			System.err.println("Could not find schema folder. Schema validation is turned off!!! ");
+		}
 	}
 
 	protected static void saveReqIFFile(ReqIF reqif, String fileName) throws IOException {
