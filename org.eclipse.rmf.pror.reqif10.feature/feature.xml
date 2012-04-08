@@ -30,7 +30,7 @@ Contributors:
    </url>
 
    <requires>
-      <import feature="org.eclipse.rmf.reqif10.feature" version="0.1.0.qualifier"/>
+      <import feature="org.eclipse.rmf.reqif10.feature" version="0.2.0.qualifier"/>
    </requires>
 
    <plugin
