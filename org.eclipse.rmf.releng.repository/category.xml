@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.rmf.reqif10.feature2_0.2.0.qualifier.jar" id="org.eclipse.rmf.reqif10.feature" version="0.2.0.qualifier">
+   <feature url="features/org.eclipse.rmf.reqif10.feature_0.2.0.qualifier.jar" id="org.eclipse.rmf.reqif10.feature" version="0.2.0.qualifier">
       <category name="RMF"/>
    </feature>
    <feature url="features/org.eclipse.rmf.pror.reqif10.feature_0.2.0.qualifier.jar" id="org.eclipse.rmf.pror.reqif10.feature" version="0.2.0.qualifier">

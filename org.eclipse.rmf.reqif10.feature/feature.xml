@@ -30,28 +30,14 @@ Contributors:
    </url>
 
    <plugin
-         id="org.eclipse.rmf.reqif10.model"
+         id="org.eclipse.rmf.reqif10"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.rmf.reqif10.resource"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.rmf.reqif10.xsd.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.rmf.emf.ecore.converter"
+         id="org.eclipse.rmf.serialization"
          download-size="0"
          install-size="0"
          version="0.0.0"
