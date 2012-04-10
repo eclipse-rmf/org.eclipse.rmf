@@ -188,12 +188,9 @@
 		<module>../org.eclipse.rmf.pror.reqif10.presentation.headline</module>
 		<module>../org.eclipse.rmf.pror.reqif10.presentation.id</module>
 		<module>../org.eclipse.rmf.pror.reqif10.presentation.linewrap</module>
-		<!-- <module>../org.eclipse.rmf.pror.reqif10.presentation.service</module> -->
 		
-		
-       <!--  <module>../org.eclipse.rmf.pror.reqif10.tests</module>
-        <module>../org.eclipse.rmf.pror.reqif10.presentation.id.tests</module>	 -->
-
+        <module>../org.eclipse.rmf.pror.reqif10.tests</module>
+        <!-- <module>../org.eclipse.rmf.pror.reqif10.presentation.id.tests</module> -->
 		
 		<!-- core next generation -->	 
 		<module>../org.eclipse.rmf.reqif10</module>
@@ -201,11 +198,6 @@
 		<module>../org.eclipse.rmf.reqif10.feature</module>
 		<module>../org.eclipse.rmf.reqif10.tests</module> 
 		<module>../org.eclipse.rmf.reqif10.tests.feature</module>
-		
-		
-		
-		
-		
 	</modules>
 
 </project>

@@ -8,7 +8,7 @@
  * Contributors:
  *     Mark Broerkens - initial API and implementation
  ******************************************************************************/
-package org.eclipse.rmf.reqif10.provider;
+package org.eclipse.rmf.reqif10.configuration.tests;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -16,10 +16,9 @@ import org.junit.runners.Suite.SuiteClasses;
 
 
 @RunWith(Suite.class)
-@SuiteClasses({ AttributeDefinitionBooleanTest.class, AttributeDefinitionDateTest.class, AttributeDefinitionEnumerationTest.class, AttributeDefinitionIntegerTest.class, AttributeDefinitionRealTest.class, AttributeDefinitionStringTest.class, AttributeDefinitionXhtmlTest.class,
-	AttributeValueBooleanTest.class, AttributeValueDateTest.class, AttributeValueEnumerationTest.class, AttributeValueBooleanTest.class, AttributeValueIntegerTest.class, AttributeValueRealTest.class, AttributeValueStringTest.class})
+@SuiteClasses({ ProrSpecViewConfigurationTest.class})
 //TODO: Add all other tests
-public class AllTests {
+public class AllConfigurationTests {
 	
 
 
