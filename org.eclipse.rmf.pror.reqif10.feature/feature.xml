@@ -29,6 +29,10 @@ Contributors:
       <discovery label="RMF at Eclipse.org" url="http://eclipse.org/rmf"/>
    </url>
 
+   <includes
+         id="org.eclipse.rmf.reqif10.feature2"
+         version="0.0.0"/>
+
    <requires>
       <import feature="org.eclipse.rmf.reqif10.feature" version="0.2.0.qualifier"/>
    </requires>
