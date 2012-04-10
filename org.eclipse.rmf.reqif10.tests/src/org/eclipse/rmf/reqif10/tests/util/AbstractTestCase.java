@@ -11,13 +11,22 @@
  */
 package org.eclipse.rmf.reqif10.tests.util;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
@@ -39,6 +48,7 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
+import org.eclipse.rmf.serialization.ReqIFResourceImpl;
 import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -220,7 +230,66 @@ public abstract class AbstractTestCase {
 			stringBuffer.append("reqif");
 		}
 		return stringBuffer.toString();
+	}
 
+	public static List<ReqIF> loadReqIFFromZip(String zipSourceFileName) throws IOException {
+		ZipFile zipSourceFile = new ZipFile(zipSourceFileName);
+		List<ReqIF> reqIFs = new ArrayList<ReqIF>();
+		Enumeration<? extends ZipEntry> zipFileEntries = zipSourceFile.entries();
+		ReqIFResourceSetImpl resourceSet = getReqIFResourceSet();
+
+		while (zipFileEntries.hasMoreElements()) {
+			ZipEntry entry = zipFileEntries.nextElement();
+
+			if (entry.isDirectory() || !entry.getName().endsWith(".reqif")) {
+				continue;
+			}
+			InputStream zipEntryInputStream;
+			zipEntryInputStream = zipSourceFile.getInputStream(entry);
+
+			Resource resource = new ReqIFResourceImpl();
+			resourceSet.getResources().add(resource);
+
+			resource.load(zipEntryInputStream, null);
+			List<EObject> rootObjects = resource.getContents();
+			if (0 < rootObjects.size()) {
+				reqIFs.add((ReqIF) rootObjects.get(0));
+			}
+
+		}
+		return reqIFs;
+	}
+
+	public static void saveReqIFsToZip(List<ReqIF> reqIFs, String zipFileName) throws IOException {
+		ReqIFResourceSetImpl resourceSet = getReqIFResourceSet();
+		for (ReqIF reqIF : reqIFs) {
+			XMLResource resource = new ReqIFResourceImpl();
+			resource.getContents().add(reqIF);
+			resourceSet.getResources().add(resource);
+		}
+
+		int lastDotIndex = zipFileName.lastIndexOf(".");
+		String entryName = zipFileName;
+		if (0 < lastDotIndex) {
+			entryName = zipFileName.substring(0, lastDotIndex);
+		}
+		int lastSlashIndex = entryName.lastIndexOf("/");
+		if (0 < lastSlashIndex) {
+			entryName = entryName.substring(lastSlashIndex + 1);
+		}
+
+		FileOutputStream fileOutputStream = new FileOutputStream(zipFileName);
+		ZipOutputStream zipOutputStream = new ZipOutputStream(new BufferedOutputStream(fileOutputStream));
+
+		for (int i = 0; i < resourceSet.getResources().size(); i++) {
+			Resource resource = resourceSet.getResources().get(i);
+			ZipEntry zipEntry = new ZipEntry(entryName + "_" + i + ".reqif");
+
+			zipOutputStream.putNextEntry(zipEntry);
+			resource.save(zipOutputStream, null);
+		}
+
+		zipOutputStream.close();
 	}
 
 }

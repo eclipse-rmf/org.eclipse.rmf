@@ -11,11 +11,17 @@
  */
 package org.eclipse.rmf.reqif10.tests.domain.tc1200;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Map;
 
 import junit.framework.Assert;
 
-import org.eclipse.core.runtime.IPath;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.tests.util.AbstractTestCase;
 import org.junit.BeforeClass;
@@ -54,7 +60,11 @@ public class TC1200FormatedContentTests extends AbstractTestCase {
 		}
 	}
 
-	protected static String getReqIFFileName() {
-		return getWorkingDirectoryFileName() + IPath.SEPARATOR + "TC3000_FormatedContent.reqif";
+	@Test
+	public void testNoProxies() throws IOException {
+		EcoreUtil.resolveAll(loadedReqIF);
+		Map<EObject, Collection<Setting>> map = EcoreUtil.ProxyCrossReferencer.find(loadedReqIF);
+		assertEquals(0, map.size());
 	}
+
 }

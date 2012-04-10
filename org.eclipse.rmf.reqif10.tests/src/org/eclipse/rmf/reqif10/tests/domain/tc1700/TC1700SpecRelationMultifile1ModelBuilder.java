@@ -1,4 +1,4 @@
-package org.eclipse.rmf.reqif10.tests.domain.tc1300;
+package org.eclipse.rmf.reqif10.tests.domain.tc1700;
 
 import java.math.BigInteger;
 
@@ -7,22 +7,18 @@ import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
-import org.eclipse.rmf.reqif10.RelationGroup;
-import org.eclipse.rmf.reqif10.RelationGroupType;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
-import org.eclipse.rmf.reqif10.SpecRelation;
-import org.eclipse.rmf.reqif10.SpecRelationType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
 import org.eclipse.rmf.reqif10.tests.util.SimpleModelBuilder;
 
 @SuppressWarnings("nls")
-public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
+public class TC1700SpecRelationMultifile1ModelBuilder extends SimpleModelBuilder {
 	final static String LAST_CHANGE_STRING = "2012-04-07T01:51:37.112+02:00";
-	final static String TEST_CASE_ID = "TC1300";
+	final static String TEST_CASE_ID = "TC1700";
 
 	// datatypes
 	DatatypeDefinitionString datatypeDefinitionString;
@@ -38,30 +34,17 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 	SpecObject specObject1;
 	SpecObject specObject2;
 
-	// SpecRelationTypes
-	SpecRelationType specRelationType;
-
-	// RelationGroupTypes
-	// TODO: why isn't it called SpecRelationGroupType?
-	RelationGroupType relationGroupType;
-
-	// TODO: why isn't it called SpecRelationGroup?
-	RelationGroup relationGroup;
-
-	// SpecRelation
-	SpecRelation specRelation;
-
 	// Specifications
 	Specification specification;
 
-	public TC1300SpecRelationModelBuilder() throws Exception {
-		super("ID_TC1300_ReqIfHeader", "TC 1300 'SpecRelation'");
+	public TC1700SpecRelationMultifile1ModelBuilder() throws Exception {
+		super("ID_TC1700_ReqIfHeader_1", "TC 1700 'SpecRelation'");
 	}
 
 	@Override
 	public void createDatatypes() throws Exception {
 		datatypeDefinitionString = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString();
-		datatypeDefinitionString.setIdentifier("ID_TC1300_DatatypeDefinitionString");
+		datatypeDefinitionString.setIdentifier("ID_TC1700_DatatypeDefinitionString");
 		datatypeDefinitionString.setLongName("ReqIF.Name");
 		datatypeDefinitionString.setLastChange(toDate(LAST_CHANGE_STRING));
 		datatypeDefinitionString.setMaxLength(new BigInteger("256"));
@@ -74,8 +57,8 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 	@Override
 	public void createSpecObjectTypes() throws Exception {
 		specObjectType = ReqIF10Factory.eINSTANCE.createSpecObjectType();
-		specObjectType.setIdentifier("ID_TC1300_SpecObjectType");
-		specObjectType.setLongName("TC1300 SpecObjectType");
+		specObjectType.setIdentifier("ID_TC1700_SpecObjectType");
+		specObjectType.setLongName("TC1700 SpecObjectType");
 		specObjectType.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		attributeDefinitionString = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
@@ -93,8 +76,8 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 	@Override
 	public void createSpecificationTypes() throws Exception {
 		specificationType = ReqIF10Factory.eINSTANCE.createSpecificationType();
-		specificationType.setIdentifier("ID_TC1300_SpecificationType");
-		specificationType.setLongName("TC1300 SpecificationType");
+		specificationType.setIdentifier("ID_TC1700_SpecificationType");
+		specificationType.setLongName("TC1700 SpecificationType");
 		specificationType.setLastChange(toDate(LAST_CHANGE_STRING));
 		getReqIF().getCoreContent().getSpecTypes().add(specificationType);
 	}
@@ -102,21 +85,21 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 	@Override
 	public void createSpecifications() throws Exception {
 		specification = ReqIF10Factory.eINSTANCE.createSpecification();
-		specification.setIdentifier("ID_TC1300_Specification");
+		specification.setIdentifier("ID_TC1700_Specification");
 		specification.setType(specificationType);
 		specification.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		SpecHierarchy specHierarchy;
 		specHierarchy = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
-		specHierarchy.setIdentifier("ID_TC1300_SpecHierarchy1");
-		specHierarchy.setLongName("TC1300 SpecHierarchy1");
+		specHierarchy.setIdentifier("ID_TC1700_SpecHierarchy1");
+		specHierarchy.setLongName("TC1700 SpecHierarchy1");
 		specHierarchy.setLastChange(toDate(LAST_CHANGE_STRING));
 		specHierarchy.setObject(specObject1);
 		specification.getChildren().add(specHierarchy);
 
 		specHierarchy = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
-		specHierarchy.setIdentifier("ID_TC1300_SpecHierarchy2");
-		specHierarchy.setLongName("TC1300 SpecHierarchy2");
+		specHierarchy.setIdentifier("ID_TC1700_SpecHierarchy2");
+		specHierarchy.setLongName("TC1700 SpecHierarchy2");
 		specHierarchy.setLastChange(toDate(LAST_CHANGE_STRING));
 		specHierarchy.setObject(specObject2);
 		specification.getChildren().add(specHierarchy);
@@ -129,7 +112,7 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 	public void createSpecObjects() throws Exception {
 		// specObject1
 		specObject1 = ReqIF10Factory.eINSTANCE.createSpecObject();
-		specObject1.setIdentifier("ID_TC1300_SpecObject1");
+		specObject1.setIdentifier("ID_TC1700_SpecObject1");
 		specObject1.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObject1.setType(specObjectType);
 
@@ -142,7 +125,7 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 
 		// specObject2
 		specObject2 = ReqIF10Factory.eINSTANCE.createSpecObject();
-		specObject2.setIdentifier("ID_TC1300_SpecObject2");
+		specObject2.setIdentifier("ID_TC1700_SpecObject2");
 		specObject2.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObject2.setType(specObjectType);
 
@@ -154,47 +137,12 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 
 	}
 
-	@Override
-	public void createSpecRelationGroupTypes() throws Exception {
-		relationGroupType = ReqIF10Factory.eINSTANCE.createRelationGroupType();
-		relationGroupType.setIdentifier("ID_TC1300_SpecRelationGroupType");
-		relationGroupType.setLongName("TC 1300 SpecRelationGroupType");
-		relationGroupType.setLastChange(toDate(LAST_CHANGE_STRING));
-		getReqIF().getCoreContent().getSpecTypes().add(relationGroupType);
+	public SpecObject getSpecObject1() {
+		return specObject1;
 	}
 
-	@Override
-	public void createSpecRelationGroups() throws Exception {
-		relationGroup = ReqIF10Factory.eINSTANCE.createRelationGroup();
-		relationGroup.setIdentifier("ID_TC1300_SpecRelationGroup");
-		relationGroup.setLongName("TC 1300 SpecRelationGroup");
-		relationGroup.setLastChange(toDate(LAST_CHANGE_STRING));
-		relationGroup.setType(relationGroupType);
-		relationGroup.getSpecRelations().add(specRelation);
-		relationGroup.setSourceSpecification(specification);
-		relationGroup.setTargetSpecification(specification);
-		getReqIF().getCoreContent().getSpecRelationGroups().add(relationGroup);
-	}
-
-	@Override
-	public void createSpecRelations() throws Exception {
-		specRelation = ReqIF10Factory.eINSTANCE.createSpecRelation();
-		specRelation.setIdentifier("ID_TC1300_SpecRelation");
-		specRelation.setLongName("TC 1300 SpecRelation");
-		specRelation.setLastChange(toDate(LAST_CHANGE_STRING));
-		specRelation.setType(specRelationType);
-		specRelation.setSource(specObject1);
-		specRelation.setTarget(specObject2);
-		getReqIF().getCoreContent().getSpecRelations().add(specRelation);
-	}
-
-	@Override
-	public void createSpecRelationTypes() throws Exception {
-		specRelationType = ReqIF10Factory.eINSTANCE.createSpecRelationType();
-		specRelationType.setIdentifier("ID_TC1300_SpecRelationType");
-		specRelationType.setLongName("TC 1300 SpecRelationType");
-		specRelationType.setLastChange(toDate(LAST_CHANGE_STRING));
-		getReqIF().getCoreContent().getSpecTypes().add(specRelationType);
+	public SpecObject getSpecObject2() {
+		return specObject2;
 	}
 
 }

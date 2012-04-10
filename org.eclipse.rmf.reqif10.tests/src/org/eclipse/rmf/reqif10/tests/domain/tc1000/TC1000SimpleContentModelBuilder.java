@@ -83,7 +83,7 @@ public class TC1000SimpleContentModelBuilder extends SimpleModelBuilder {
 	 * 
 	 */
 	public TC1000SimpleContentModelBuilder() throws Exception {
-		super(null, "ID_TC1000_ReqIfHeader", "TC 1000 'Simple Content'");
+		super("ID_TC1000_ReqIfHeader", "TC 1000 'Simple Content'");
 	}
 
 	public TC1000SimpleContentModelBuilder(String creationTimeString, String identifier, String title) throws Exception {
@@ -277,9 +277,7 @@ public class TC1000SimpleContentModelBuilder extends SimpleModelBuilder {
 		specObject.setIdentifier("ID_TC1000_SpecObject");
 		specObject.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObject.setType(specObjectType);
-		// TODO: Backlinkage should be a derived reference
-		// TODO: same for Document root
-		// specObject.setCoreContent(value)
+
 		AttributeValueBoolean attributeValueBooleanTc1000t = ReqIF10Factory.eINSTANCE.createAttributeValueBoolean();
 		attributeValueBooleanTc1000t.setDefinition(attributeDefinitionBooleanTc1000t);
 		attributeValueBooleanTc1000t.setTheValue(true);

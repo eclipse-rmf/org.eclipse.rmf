@@ -18,9 +18,13 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import java.util.Collection;
+import java.util.Map;
 
 import junit.framework.Assert;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.reqif10.AttributeValue;
@@ -63,6 +67,13 @@ public class TC1000SimpleContentTests extends AbstractTestCase {
 	@Test
 	public void testReqIFNotNull() {
 		assertNotNull("The loaded ReqIF model shall not be Null", loadedReqIF);
+	}
+
+	@Test
+	public void testNoProxies() throws IOException {
+		EcoreUtil.resolveAll(loadedReqIF);
+		Map<EObject, Collection<Setting>> map = EcoreUtil.ProxyCrossReferencer.find(loadedReqIF);
+		assertEquals(0, map.size());
 	}
 
 	@Test
