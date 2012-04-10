@@ -13,6 +13,9 @@ package org.eclipse.rmf.reqif10.tests.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,12 +42,14 @@ import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
 import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Test;
 
 @SuppressWarnings("nls")
-public class AbstractTestCase {
+public abstract class AbstractTestCase {
 	private static final String WORKING_DIRECTORY = "work";
 	static Map<String, Object> backupRegistry = null;
+
+	static final DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+	static final DateFormat timeFormat = new SimpleDateFormat("HHmm");
 
 	@BeforeClass
 	public static void setupOnce() throws Exception {
@@ -79,18 +84,12 @@ public class AbstractTestCase {
 		System.out.println("AfterClass: reset to: " + EPackage.Registry.INSTANCE.keySet());
 	}
 
-	@Test
-	public void testSchemaCompliance() throws Exception {
-		validateAgainstSchema(getReqIFFileName());
-	}
-
-	protected static String getReqIFFileName() {
-		return getWorkingDirectoryFileName() + IPath.SEPARATOR + "default.reqif";
-	}
-
 	protected static String getWorkingDirectoryFileName() {
 		return WORKING_DIRECTORY;
+	}
 
+	protected static String getWorkingFileName(String fileName) {
+		return WORKING_DIRECTORY + IPath.SEPARATOR + fileName;
 	}
 
 	protected void validateAgainstSchema(String filename) throws Exception {
@@ -148,6 +147,80 @@ public class AbstractTestCase {
 
 	private static URI createEMFURI(String fileName) {
 		return URI.createURI(fileName, true);
+	}
+
+	/**
+	 * Creates the file name of reference test data.
+	 * 
+	 * The name pattern as defined by the ReqIF Implementor Forum.
+	 * #TestCaseID#_E0000_S10_Reference_#yyyyMMdd#_#HHmm#
+	 * #NameOfHumanCreator#.<reqif/reqifz>
+	 * 
+	 *
+	 * @param testCaseId
+	 * @return
+	 */
+	protected static String getReferenceDataFileName(String testCaseId, boolean isArchive) {
+		return getFileName(testCaseId, 0, 10, "Reference", isArchive);
+	}
+
+	/**
+	 * Creates the file name of reference test data.
+	 * 
+	 * The name pattern as defined by the ReqIF Implementor Forum.
+	 * #TestCaseID#_E0001_S21_Reference_#yyyyMMdd#_#HHmm#
+	 * #NameOfHumanCreator#.<reqif/reqifz>
+	 * 
+	 *
+	 * @param testCaseId
+	 * @return
+	 */
+	protected static String getFirstExportFileName(String testCaseId, boolean isArchive) {
+		return getFileName(testCaseId, 1, 21, "EclipseRMF", isArchive);
+	}
+
+	/**
+	 * Creates the file name according to the ReqIF Implementor Forum naming conventions.
+	 * 
+	 * The name pattern as defined by the ReqIF Implementor Forum.
+	 * #TestCaseID#_E#NumberOfExports#_S#TestStep#_#Tool#_#yyyyMMdd#_#HHmm#_#NameOfHumanCreator#.#reqif/reqifz#
+	 * 
+	 *
+	 * @param testCaseId
+	 * @return
+	 */
+	private static String getFileName(String testCaseId, int numberOfExports, int testStep, String tool, boolean isArchive) {
+		Date now = new Date();
+		String dateString = dateFormat.format(now);
+		String timeString = timeFormat.format(now);
+		String creatorName = System.getProperty("user.name");
+		if (null == creatorName || "".equals(creatorName)) {
+			creatorName = "RMFUser";
+		}
+		StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append(testCaseId);
+		stringBuffer.append("_");
+		stringBuffer.append("E");
+		stringBuffer.append(String.format("%03d", numberOfExports));
+		stringBuffer.append("_");
+		stringBuffer.append("S");
+		stringBuffer.append(String.format("%02d", testStep));
+		stringBuffer.append("_");
+		stringBuffer.append(tool);
+		stringBuffer.append("_");
+		stringBuffer.append(dateString);
+		stringBuffer.append("_");
+		stringBuffer.append(timeString);
+		stringBuffer.append("_");
+		stringBuffer.append(creatorName);
+		stringBuffer.append(".");
+		if (isArchive) {
+			stringBuffer.append("reqifz");
+		} else {
+			stringBuffer.append("reqif");
+		}
+		return stringBuffer.toString();
+
 	}
 
 }

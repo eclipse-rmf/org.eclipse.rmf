@@ -14,9 +14,10 @@ package org.eclipse.rmf.reqif10.tests.util;
 import java.math.BigInteger;
 
 import org.eclipse.rmf.reqif10.SpecObject;
+import org.eclipse.rmf.reqif10.tests.domain.tc1000.TC1000SimpleContentModelBuilder;
 
 @SuppressWarnings("nls")
-public class TC9000ModelBuilder extends TC1000ModelBuilder {
+public class TC9000ModelBuilder extends TC1000SimpleContentModelBuilder {
 	final static String LAST_CHANGE_STRING = "2012-04-07T01:51:37.112+02:00";
 
 	final int numberOfSpecObjects;
