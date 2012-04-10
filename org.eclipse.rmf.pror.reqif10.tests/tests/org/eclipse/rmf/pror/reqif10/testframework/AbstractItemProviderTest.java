@@ -40,6 +40,7 @@ import org.eclipse.rmf.pror.reqif10.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.testdata.TestData;
 import org.eclipse.rmf.pror.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
 import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.junit.After;
 import org.junit.Before;
@@ -105,6 +106,10 @@ abstract public class AbstractItemProviderTest {
 		commandStack = new BasicCommandStack();
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
 				commandStack, new ReqIFResourceSetImpl());
+
+		editingDomain.getResourceSet().getResourceFactoryRegistry()
+				.getExtensionToFactoryMap()
+				.put("reqif", new ReqIFResourceFactoryImpl());
 
 		listener = new INotifyChangedListener() {
 			public void notifyChanged(Notification notification) {
