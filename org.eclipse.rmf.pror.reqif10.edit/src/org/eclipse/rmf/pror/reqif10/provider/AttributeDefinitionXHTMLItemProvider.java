@@ -126,11 +126,11 @@ public class AttributeDefinitionXHTMLItemProvider
 	 * This returns AttributeDefinitionXHTML.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AttributeDefinitionXHTML"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AttributeDefinition.png"));
 	}
 
 	/**
