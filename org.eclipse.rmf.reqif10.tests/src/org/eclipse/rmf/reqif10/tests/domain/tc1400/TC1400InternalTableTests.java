@@ -1,4 +1,4 @@
-package org.eclipse.rmf.reqif10.tests.domain.tc1100;
+package org.eclipse.rmf.reqif10.tests.domain.tc1400;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,7 +17,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 @SuppressWarnings("nls")
-public class TC1100UnformattedSystemAttributesAndSpecHierarchyTests extends AbstractTestCase {
+public class TC1400InternalTableTests extends AbstractTestCase {
 
 	static final String TEST_CASE_ID = "TC1100";
 	static final String REFERENCE_DATA_FILENAME = getWorkingFileName(getReferenceDataFileName(TEST_CASE_ID, false));
@@ -28,7 +28,7 @@ public class TC1100UnformattedSystemAttributesAndSpecHierarchyTests extends Abst
 	@BeforeClass
 	public static void setupOnce() throws Exception {
 		AbstractTestCase.setupOnce();
-		originalReqIF = new TC1100UnformattedSystemAttributesAndSpecHierarchyModelBuilder().getReqIF();
+		originalReqIF = new TC1400InternalTableModelBuilder().getReqIF();
 		saveReqIFFile(originalReqIF, REFERENCE_DATA_FILENAME);
 		loadedReqIF = loadReqIFFile(REFERENCE_DATA_FILENAME);
 	}
