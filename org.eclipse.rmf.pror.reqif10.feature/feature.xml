@@ -30,7 +30,7 @@ Contributors:
    </url>
 
    <includes
-         id="org.eclipse.rmf.reqif10.feature2"
+         id="org.eclipse.rmf.reqif10.feature"
          version="0.0.0"/>
 
    <requires>
