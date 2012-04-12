@@ -14,8 +14,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.agilemore.agilegrid.AgileGrid;
-import org.agilemore.agilegrid.SWTResourceManager;
-import org.agilemore.agilegrid.renderers.TextCellRenderer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10EditorPlugin;
