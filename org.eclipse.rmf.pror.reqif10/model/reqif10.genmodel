@@ -43,12 +43,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AccessControlledElement/editable"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//Identifiable">
-      <genFeatures createChild="false" propertyCategory="Identifiable" propertyDescription=""
+      <genFeatures createChild="false" propertyCategory="" propertyDescription=""
           ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//Identifiable/desc"/>
-      <genFeatures createChild="false" propertyCategory="Identifiable" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//Identifiable/identifier"/>
-      <genFeatures createChild="false" propertyCategory="Identifiable" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//Identifiable/lastChange"/>
-      <genFeatures createChild="false" propertyCategory="Identifiable" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//Identifiable/longName"/>
-      <genFeatures property="None" children="true" createChild="true" propertyCategory="Identifiable"
+      <genFeatures createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//Identifiable/identifier"/>
+      <genFeatures createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//Identifiable/lastChange"/>
+      <genFeatures createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//Identifiable/longName"/>
+      <genFeatures property="None" children="true" createChild="false" propertyCategory=""
           ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//Identifiable/alternativeID"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeValueXHTML">
