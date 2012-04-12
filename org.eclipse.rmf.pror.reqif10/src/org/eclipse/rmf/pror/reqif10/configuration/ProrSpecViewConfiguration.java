@@ -86,7 +86,7 @@ public interface ProrSpecViewConfiguration extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Left Header Column</em>' containment reference.
 	 * @see #setLeftHeaderColumn(Column)
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrSpecViewConfiguration_LeftHeaderColumn()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrSpecViewConfiguration_LeftHeaderColumn()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
