@@ -70,12 +70,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//SpecType/specAttributes"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/datatypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specTypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specObjects"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specRelations"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specifications"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specRelationGroups"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/datatypes"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specTypes"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specObjects"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specRelations"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specifications"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specRelationGroups"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF/lang"/>
