@@ -48,8 +48,8 @@
     <genClasses ecoreClass="reqif10.ecore#//ReqIF">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//ReqIF/lang"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIF/theHeader"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIF/toolExtensions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIF/coreContent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqif10.ecore#//ReqIF/toolExtensions"/>
     </genClasses>
     <genClasses ecoreClass="reqif10.ecore#//ReqIFHeader">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//ReqIFHeader/comment"/>

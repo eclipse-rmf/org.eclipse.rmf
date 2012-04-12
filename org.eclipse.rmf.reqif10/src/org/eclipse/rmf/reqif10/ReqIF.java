@@ -25,8 +25,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipse.rmf.reqif10.ReqIF#getLang <em>Lang</em>}</li>
  *   <li>{@link org.eclipse.rmf.reqif10.ReqIF#getTheHeader <em>The Header</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.ReqIF#getToolExtensions <em>Tool Extensions</em>}</li>
  *   <li>{@link org.eclipse.rmf.reqif10.ReqIF#getCoreContent <em>Core Content</em>}</li>
+ *   <li>{@link org.eclipse.rmf.reqif10.ReqIF#getToolExtensions <em>Tool Extensions</em>}</li>
  * </ul>
  * </p>
  *

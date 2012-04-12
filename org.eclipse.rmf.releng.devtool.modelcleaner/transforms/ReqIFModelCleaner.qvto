@@ -34,6 +34,7 @@ main() {
 	reqIfModel.objectsOfType(ECORE::EClass)->map removeBackLinkages();
 	reqIfModel.objectsOfType(ECORE::EClass)->map setMetadata();
 	reqIfModel.objectsOfType(ECORE::EClass)->map fixOrderOfCoreContentFeatures();
+	reqIfModel.objectsOfType(ECORE::EClass)->map fixOrderOfReqIFFeatures();
 	reqIfModel.objectsOfType(ECORE::EDataType)->map fixDatatypeID();
 	
 	// allow any xml inside of element REQ-IF-TOOL-EXTENSION 
@@ -129,6 +130,16 @@ when {self.name="ReqIFContent"}
 	->append(self.eStructuralFeatures![name="specRelations"])
 	->append(self.eStructuralFeatures![name="specifications"])
 	->append(self.eStructuralFeatures![name="specRelationGroups"]);
+	
+}
+
+mapping inout ECORE::EClass :: fixOrderOfReqIFFeatures() 
+when {self.name="ReqIF"}
+{
+	self.eStructuralFeatures := self.eStructuralFeatures[name="lang"]
+	->append(self.eStructuralFeatures![name="theHeader"])
+	->append(self.eStructuralFeatures![name="coreContent"])
+	->append(self.eStructuralFeatures![name="toolExtensions"]);
 	
 }
 

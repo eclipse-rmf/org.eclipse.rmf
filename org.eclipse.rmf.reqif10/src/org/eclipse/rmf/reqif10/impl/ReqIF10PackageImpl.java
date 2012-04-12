@@ -803,7 +803,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReqIF_ToolExtensions() {
+	public EReference getReqIF_CoreContent() {
 		return (EReference)reqIFEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -812,7 +812,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReqIF_CoreContent() {
+	public EReference getReqIF_ToolExtensions() {
 		return (EReference)reqIFEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1785,8 +1785,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		reqIFEClass = createEClass(REQ_IF);
 		createEAttribute(reqIFEClass, REQ_IF__LANG);
 		createEReference(reqIFEClass, REQ_IF__THE_HEADER);
-		createEReference(reqIFEClass, REQ_IF__TOOL_EXTENSIONS);
 		createEReference(reqIFEClass, REQ_IF__CORE_CONTENT);
+		createEReference(reqIFEClass, REQ_IF__TOOL_EXTENSIONS);
 
 		reqIFHeaderEClass = createEClass(REQ_IF_HEADER);
 		createEAttribute(reqIFHeaderEClass, REQ_IF_HEADER__COMMENT);
@@ -2044,8 +2044,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		initEClass(reqIFEClass, ReqIF.class, "ReqIF", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReqIF_Lang(), theXMLNamespacePackage_1.getLangType(), "lang", null, 0, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getReqIF_TheHeader(), this.getReqIFHeader(), null, "theHeader", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIF_ToolExtensions(), this.getReqIFToolExtension(), null, "toolExtensions", null, 0, -1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getReqIF_CoreContent(), this.getReqIFContent(), null, "coreContent", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getReqIF_ToolExtensions(), this.getReqIFToolExtension(), null, "toolExtensions", null, 0, -1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(reqIFHeaderEClass, ReqIFHeader.class, "ReqIFHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReqIFHeader_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2450,18 +2450,18 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
-		  (getReqIF_ToolExtensions(), 
-		   source, 
-		   new String[] {
-			 "name", "TOOL-EXTENSIONS",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
 		  (getReqIF_CoreContent(), 
 		   source, 
 		   new String[] {
 			 "name", "CORE-CONTENT",
+			 "kind", "element",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
+		  (getReqIF_ToolExtensions(), 
+		   source, 
+		   new String[] {
+			 "name", "TOOL-EXTENSIONS",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
 		   });		
