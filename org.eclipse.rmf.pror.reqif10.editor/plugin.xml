@@ -29,7 +29,8 @@ Contributors:
             finalPerspective="org.eclipse.rmf.pror.ProrPerspective"
             icon="icons/full/obj16/ReqIf.png"
             id="org.eclipse.rmf.reqif10.presentation.Reqif10ModelWizardID"
-            name="%_UI_Reqif10ModelWizard_label">
+            name="%_UI_Reqif10ModelWizard_label"
+            preferredPerspectives="org.eclipse.rmf.pror.ProrPerspective">
          <description>%_UI_Reqif10ModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
