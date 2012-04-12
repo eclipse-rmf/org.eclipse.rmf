@@ -1,4 +1,4 @@
-package org.eclipse.rmf.reqif10.tests.domain.tc1400;
+package org.eclipse.rmf.reqif10.tests.uc001.tc1400;
 
 import java.math.BigInteger;
 

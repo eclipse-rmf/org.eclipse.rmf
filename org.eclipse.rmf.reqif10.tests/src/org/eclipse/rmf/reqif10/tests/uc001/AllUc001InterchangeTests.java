@@ -9,14 +9,14 @@
  *     Mark Broerkens - initial API and implementation
  * 
  */
-package org.eclipse.rmf.reqif10.tests.domain;
+package org.eclipse.rmf.reqif10.tests.uc001;
 
-import org.eclipse.rmf.reqif10.tests.domain.tc1000.TC1000SimpleContentTests;
-import org.eclipse.rmf.reqif10.tests.domain.tc1100.TC1100UnformattedSystemAttributesAndSpecHierarchyTests;
-import org.eclipse.rmf.reqif10.tests.domain.tc1200.TC1200FormatedContentTests;
-import org.eclipse.rmf.reqif10.tests.domain.tc1300.TC1300SpecRelationTests;
-import org.eclipse.rmf.reqif10.tests.domain.tc1400.TC1400InternalTableTests;
-import org.eclipse.rmf.reqif10.tests.domain.tc1700.TC1700SpecRelationMultifileTests;
+import org.eclipse.rmf.reqif10.tests.uc001.tc1000.TC1000SimpleContentTests;
+import org.eclipse.rmf.reqif10.tests.uc001.tc1100.TC1100UnformattedSystemAttributesAndSpecHierarchyTests;
+import org.eclipse.rmf.reqif10.tests.uc001.tc1200.TC1200FormatedContentTests;
+import org.eclipse.rmf.reqif10.tests.uc001.tc1300.TC1300SpecRelationTests;
+import org.eclipse.rmf.reqif10.tests.uc001.tc1400.TC1400InternalTableTests;
+import org.eclipse.rmf.reqif10.tests.uc001.tc1700.TC1700SpecRelationMultifileTests;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
@@ -28,6 +28,6 @@ import org.junit.runners.Suite.SuiteClasses;
 																		 * TC1600ExternalContentTests.class,
 																		 */
 		TC1700SpecRelationMultifileTests.class, TC9000SimpleContentPerformanceTest.class })
-public class AllDomainTests {
+public class AllUc001InterchangeTests {
 
 }

@@ -9,7 +9,7 @@
  *     Mark Broerkens - initial API and implementation
  * 
  */
-package org.eclipse.rmf.reqif10.tests.domain;
+package org.eclipse.rmf.reqif10.tests.uc001;
 
 import java.io.File;
 import java.math.BigDecimal;

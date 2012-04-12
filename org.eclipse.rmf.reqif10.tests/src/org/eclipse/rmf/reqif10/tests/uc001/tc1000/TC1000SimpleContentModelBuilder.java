@@ -9,7 +9,7 @@
  *     Mark Broerkens - initial API and implementation
  * 
  */
-package org.eclipse.rmf.reqif10.tests.domain.tc1000;
+package org.eclipse.rmf.reqif10.tests.uc001.tc1000;
 
 import java.math.BigInteger;
 

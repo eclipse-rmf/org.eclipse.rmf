@@ -1,4 +1,4 @@
-package org.eclipse.rmf.reqif10.tests.domain.tc1500;
+package org.eclipse.rmf.reqif10.tests.uc001.tc1500;
 
 import org.eclipse.rmf.reqif10.tests.util.AbstractTestCase;
 

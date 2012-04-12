@@ -14,7 +14,7 @@ package org.eclipse.rmf.reqif10.tests.util;
 import java.math.BigInteger;
 
 import org.eclipse.rmf.reqif10.SpecObject;
-import org.eclipse.rmf.reqif10.tests.domain.tc1000.TC1000SimpleContentModelBuilder;
+import org.eclipse.rmf.reqif10.tests.uc001.tc1000.TC1000SimpleContentModelBuilder;
 
 @SuppressWarnings("nls")
 public class TC9000ModelBuilder extends TC1000SimpleContentModelBuilder {

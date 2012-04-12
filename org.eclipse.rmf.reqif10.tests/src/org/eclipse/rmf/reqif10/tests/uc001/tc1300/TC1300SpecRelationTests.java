@@ -1,4 +1,4 @@
-package org.eclipse.rmf.reqif10.tests.domain.tc1300;
+package org.eclipse.rmf.reqif10.tests.uc001.tc1300;
 
 import static org.junit.Assert.assertEquals;
 
