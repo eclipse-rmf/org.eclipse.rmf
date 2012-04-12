@@ -13,7 +13,7 @@ package org.eclipse.rmf.reqif10.provider;
 
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.EmbeddedValue;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -46,7 +46,7 @@ public class EmbeddedValueTest extends AbstractItemProviderTest {
 	 */
 	@Before
 	public void setUpEmbeddedValueTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createEmbeddedValue());
+		setFixture(ReqIF10Factory.eINSTANCE.createEmbeddedValue());
 	}
 
 	/**

@@ -30,8 +30,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.Identifiable;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.Identifiable} object.
@@ -89,12 +88,12 @@ public class IdentifiableItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Identifiable_desc_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_desc_feature", "_UI_Identifiable_type"),
-				 Reqif10Package.Literals.IDENTIFIABLE__DESC,
+				 ReqIF10Package.Literals.IDENTIFIABLE__DESC,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI_IdentifiablePropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -111,12 +110,12 @@ public class IdentifiableItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Identifiable_identifier_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_identifier_feature", "_UI_Identifiable_type"),
-				 Reqif10Package.Literals.IDENTIFIABLE__IDENTIFIER,
+				 ReqIF10Package.Literals.IDENTIFIABLE__IDENTIFIER,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI_IdentifiablePropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -133,12 +132,12 @@ public class IdentifiableItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Identifiable_lastChange_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_lastChange_feature", "_UI_Identifiable_type"),
-				 Reqif10Package.Literals.IDENTIFIABLE__LAST_CHANGE,
+				 ReqIF10Package.Literals.IDENTIFIABLE__LAST_CHANGE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI_IdentifiablePropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -155,12 +154,12 @@ public class IdentifiableItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Identifiable_longName_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_longName_feature", "_UI_Identifiable_type"),
-				 Reqif10Package.Literals.IDENTIFIABLE__LONG_NAME,
+				 ReqIF10Package.Literals.IDENTIFIABLE__LONG_NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI_IdentifiablePropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -176,7 +175,7 @@ public class IdentifiableItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Reqif10Package.Literals.IDENTIFIABLE__ALTERNATIVE_ID);
+			childrenFeatures.add(ReqIF10Package.Literals.IDENTIFIABLE__ALTERNATIVE_ID);
 		}
 		return childrenFeatures;
 	}
@@ -192,16 +191,6 @@ public class IdentifiableItemProvider
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	/**
@@ -238,13 +227,13 @@ public class IdentifiableItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Identifiable.class)) {
-			case Reqif10Package.IDENTIFIABLE__DESC:
-			case Reqif10Package.IDENTIFIABLE__IDENTIFIER:
-			case Reqif10Package.IDENTIFIABLE__LAST_CHANGE:
-			case Reqif10Package.IDENTIFIABLE__LONG_NAME:
+			case ReqIF10Package.IDENTIFIABLE__DESC:
+			case ReqIF10Package.IDENTIFIABLE__IDENTIFIER:
+			case ReqIF10Package.IDENTIFIABLE__LAST_CHANGE:
+			case ReqIF10Package.IDENTIFIABLE__LONG_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case Reqif10Package.IDENTIFIABLE__ALTERNATIVE_ID:
+			case ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -261,11 +250,6 @@ public class IdentifiableItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Reqif10Package.Literals.IDENTIFIABLE__ALTERNATIVE_ID,
-				 Reqif10Factory.eINSTANCE.createAlternativeId()));
 	}
 
 	/**

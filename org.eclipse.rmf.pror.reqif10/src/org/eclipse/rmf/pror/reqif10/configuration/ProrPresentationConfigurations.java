@@ -12,7 +12,6 @@
 package org.eclipse.rmf.pror.reqif10.configuration;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -27,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrPresentationConfigurations()
+ * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrPresentationConfigurations()
  * @model
  * @generated
  */
@@ -42,7 +41,7 @@ public interface ProrPresentationConfigurations extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Presentation Configurations</em>' containment reference list.
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrPresentationConfigurations_PresentationConfigurations()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrPresentationConfigurations_PresentationConfigurations()
 	 * @model containment="true"
 	 * @generated
 	 */

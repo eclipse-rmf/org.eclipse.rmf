@@ -20,8 +20,17 @@ Contributors:
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://www.omg.org/spec/ReqIF/20101201"
-            class="org.eclipse.rmf.pror.reqif10.provider.Reqif10ItemProviderAdapterFactory"
+            uri="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd"
+            class="org.eclipse.rmf.pror.reqif10.provider.ReqIF10ItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+      <factory
+            class="org.eclipse.rmf.pror.reqif10.configuration.provider.ConfigurationItemProviderAdapterFactory"
+            uri="http://eclipse.org/rmf/pror/toolextensions/1.0"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -30,34 +39,13 @@ Contributors:
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
-   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <factory
-            uri="http:///reqIf/datatypes.ecore"
-            class="org.eclipse.rmf.pror.reqif10.datatypes.provider.DatatypesItemProviderAdapterFactory"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
-   <extension
-         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <factory
-            class="org.eclipse.rmf.pror.reqif10.configuration.provider.ConfigItemProviderAdapterFactory"
-            uri="http://pror.org/presentation/configuration"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
+<!--
+TODO reactivate!
    <extension
          point="org.eclipse.rmf.reqif10.resource.reqiftoolextension">
       <reqiftoolextension
             class="org.eclipse.rmf.pror.reqif10.configuration.impl.ProrToolExtensionImpl">
       </reqiftoolextension>
    </extension>
-
+-->
 </plugin>

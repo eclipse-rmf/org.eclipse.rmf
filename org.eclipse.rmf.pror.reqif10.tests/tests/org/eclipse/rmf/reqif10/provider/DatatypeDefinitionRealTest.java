@@ -11,7 +11,7 @@
 package org.eclipse.rmf.reqif10.provider;
 
 import org.eclipse.rmf.reqif10.DatatypeDefinitionReal;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -33,7 +33,7 @@ public class DatatypeDefinitionRealTest extends DatatypeDefinitionSimpleTest {
 	 */
 	@Before
 	public void setUpDatatypeDefinitionRealTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createDatatypeDefinitionReal());
+		setFixture(ReqIF10Factory.eINSTANCE.createDatatypeDefinitionReal());
 	}
 
 	/**

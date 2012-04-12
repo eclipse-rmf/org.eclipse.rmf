@@ -11,11 +11,11 @@
 
 package org.eclipse.rmf.pror.reqif10.provider;
 
-import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS;
-import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPECIFICATION__CHILDREN;
-import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPECIFICATION__TYPE;
-import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPEC_HIERARCHY__OBJECT;
-import static org.eclipse.rmf.reqif10.Reqif10Package.Literals.SPEC_OBJECT__TYPE;
+import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS;
+import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPECIFICATION__CHILDREN;
+import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPECIFICATION__TYPE;
+import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT;
+import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_OBJECT__TYPE;
 
 import java.util.Collection;
 import java.util.List;
@@ -38,15 +38,15 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.Specification} object.
@@ -99,7 +99,7 @@ public class SpecificationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Specification_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Specification_type_feature", "_UI_Specification_type"),
-				 Reqif10Package.Literals.SPECIFICATION__TYPE,
+				 ReqIF10Package.Literals.SPECIFICATION__TYPE,
 				 true,
 				 false,
 				 true,
@@ -120,7 +120,7 @@ public class SpecificationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Reqif10Package.Literals.SPECIFICATION__CHILDREN);
+			childrenFeatures.add(ReqIF10Package.Literals.SPECIFICATION__CHILDREN);
 		}
 		return childrenFeatures;
 	}
@@ -136,16 +136,6 @@ public class SpecificationItemProvider
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	@Override
@@ -178,11 +168,11 @@ public class SpecificationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Specification.class)) {
-		case Reqif10Package.SPECIFICATION__CHILDREN:
+		case ReqIF10Package.SPECIFICATION__CHILDREN:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, false));
 			return;
-		case Reqif10Package.SPECIFICATION__TYPE:
+		case ReqIF10Package.SPECIFICATION__TYPE:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, true));
 			return;
@@ -203,11 +193,11 @@ public class SpecificationItemProvider
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(SPECIFICATION__CHILDREN,
-				Reqif10Factory.eINSTANCE.createSpecHierarchy()));
+				ReqIF10Factory.eINSTANCE.createSpecHierarchy()));
 
 		// Allow creation of new untyped SpecObjects
 		newChildDescriptors.add(createChildParameter(SPECIFICATION__CHILDREN,
-				Reqif10Factory.eINSTANCE.createSpecObject()));
+				ReqIF10Factory.eINSTANCE.createSpecObject()));
 
 		// Allow creation of typed SpecObjects
 		ProrUtil.collectNewChildDescriptorsForTypeCreators(newChildDescriptors,
@@ -231,9 +221,9 @@ public class SpecificationItemProvider
 			EObject owner, EStructuralFeature feature, Object value, int index,
 			Collection<?> collection) {
 		if (value instanceof SpecType) {
-			ReqIfContent content = Reqif10Util.getReqIf(owner).getCoreContent();
-			SpecObject specObject = Reqif10Factory.eINSTANCE.createSpecObject();
-			SpecHierarchy specHierarchy = Reqif10Factory.eINSTANCE.createSpecHierarchy();
+			ReqIFContent content = ReqIF10Util.getReqIF(owner).getCoreContent();
+			SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
+			SpecHierarchy specHierarchy = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
 			
 			CompoundCommand cmd = ProrUtil.createAddTypedElementCommand(
 					content, REQ_IF_CONTENT__SPEC_OBJECTS, specObject,
@@ -252,11 +242,11 @@ public class SpecificationItemProvider
 					icon, 0);
 			cmd.setLabel("Adding SpecObject");
 			cmd.setDescription("Adding SpecObject");
-			SpecHierarchy specHierarchy = Reqif10Factory.eINSTANCE
+			SpecHierarchy specHierarchy = ReqIF10Factory.eINSTANCE
 					.createSpecHierarchy();
 			cmd.append(AddCommand.create(domain, owner,
 					SPECIFICATION__CHILDREN, specHierarchy, index));
-			cmd.append(AddCommand.create(domain, Reqif10Util.getReqIf(owner)
+			cmd.append(AddCommand.create(domain, ReqIF10Util.getReqIF(owner)
 					.getCoreContent(), REQ_IF_CONTENT__SPEC_OBJECTS, value));
 			cmd.append(SetCommand.create(domain, specHierarchy,
 					SPEC_HIERARCHY__OBJECT, value));
@@ -269,14 +259,14 @@ public class SpecificationItemProvider
 	
 	/**
 	 * Use the virtual intermediate provider as the parent, rather than
-	 * {@link ReqIfContentItemProvider}.
+	 * {@link ReqIFContentItemProvider}.
 	 */
 	@Override
 	public Object getParent(Object object) {
-		ReqIfContent content = ((ReqIfContent) super.getParent(object));
+		ReqIFContent content = ((ReqIFContent) super.getParent(object));
 		if (content == null)
 			return null;
-		ReqIfContentItemProvider reqifProvider = (ReqIfContentItemProvider) ProrUtil
+		ReqIFContentItemProvider reqifProvider = (ReqIFContentItemProvider) ProrUtil
 				.getItemProvider(adapterFactory, content);
 		return reqifProvider != null ? reqifProvider
 				.getVirtualSpecifications(content) : null;

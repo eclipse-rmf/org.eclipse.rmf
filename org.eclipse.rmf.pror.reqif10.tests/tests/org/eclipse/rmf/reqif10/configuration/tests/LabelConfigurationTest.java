@@ -11,7 +11,7 @@
 
 package org.eclipse.rmf.reqif10.configuration.tests;
 
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
 import org.junit.After;
@@ -46,7 +46,7 @@ public class LabelConfigurationTest extends AbstractItemProviderTest {
 	 */
 	@Before
 	protected void setUp() throws Exception {
-		setFixture(ConfigFactory.eINSTANCE.createLabelConfiguration());
+		setFixture(ConfigurationFactory.eINSTANCE.createLabelConfiguration());
 	}
 
 	/**

@@ -11,8 +11,8 @@
 
 package org.eclipse.rmf.reqif10.provider;
 
-import org.eclipse.rmf.reqif10.DatatypeDefinitionXhtml;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -25,8 +25,8 @@ public class DatatypeDefinitionXhtmlTest extends DatatypeDefinitionTest {
 	 * Returns the fixture for this Datatype Definition Xhtml test case.
 	 */
 	@Override
-	protected DatatypeDefinitionXhtml getFixture() {
-		return (DatatypeDefinitionXhtml)fixture;
+	protected DatatypeDefinitionXHTML getFixture() {
+		return (DatatypeDefinitionXHTML)fixture;
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class DatatypeDefinitionXhtmlTest extends DatatypeDefinitionTest {
 	 */
 	@Before
 	public void setUpDatatypeDefinitionXhtmlTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createDatatypeDefinitionXhtml());
+		setFixture(ReqIF10Factory.eINSTANCE.createDatatypeDefinitionXHTML());
 	}
 
 	/**

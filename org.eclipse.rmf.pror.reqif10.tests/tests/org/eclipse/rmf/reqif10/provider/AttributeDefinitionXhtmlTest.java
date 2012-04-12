@@ -11,8 +11,8 @@
 
 package org.eclipse.rmf.reqif10.provider;
 
-import org.eclipse.rmf.reqif10.AttributeDefinitionXhtml;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -25,8 +25,8 @@ public class AttributeDefinitionXhtmlTest extends AttributeDefinitionTest {
 	 * Returns the fixture for this Attribute Definition Complex test case.
 	 */
 	@Override
-	protected AttributeDefinitionXhtml getFixture() {
-		return (AttributeDefinitionXhtml)fixture;
+	protected AttributeDefinitionXHTML getFixture() {
+		return (AttributeDefinitionXHTML)fixture;
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class AttributeDefinitionXhtmlTest extends AttributeDefinitionTest {
 	 */
 	@Before
 	public void setUpAttributeDefinitionComplexTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createAttributeDefinitionXhtml());
+		setFixture(ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML());
 	}
 
 	/**

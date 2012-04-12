@@ -17,7 +17,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -27,12 +26,11 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinitionString} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.DatatypeDefinitionString} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -84,23 +82,13 @@ public class DatatypeDefinitionStringItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DatatypeDefinitionString_maxLength_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DatatypeDefinitionString_maxLength_feature", "_UI_DatatypeDefinitionString_type"),
-				 Reqif10Package.Literals.DATATYPE_DEFINITION_STRING__MAX_LENGTH,
+				 ReqIF10Package.Literals.DATATYPE_DEFINITION_STRING__MAX_LENGTH,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	/**
@@ -126,7 +114,7 @@ public class DatatypeDefinitionStringItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DatatypeDefinitionString.class)) {
-			case Reqif10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH:
+			case ReqIF10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -7,38 +7,78 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Kay Münch       - vertical alignment of the spec objects id
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.presentation.ui;
 
 import java.io.File;
 
-import org.eclipse.rmf.pror.reqif10.presentation.service.IProrCellRenderer;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
+import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
+import org.eclipse.rmf.pror.reqif10.presentation.id.IdVerticalAlign;
+import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
+import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.AttributeValueSimple;
 import org.eclipse.rmf.reqif10.AttributeValueString;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 
 public class IdLabelCellRenderer implements IProrCellRenderer {
 
-	@Override
-	public int doDrawCellContent(GC gc, Rectangle rect, Object value) {
-		if (value instanceof AttributeValueSimple) {
-			Object text = Reqif10Util.getTheValue((AttributeValue) value);
-			if (text != null) {
-				gc.drawText(text.toString(), rect.x + 1, rect.y + 1);
-				Point extend = gc.textExtent(value.toString());
-				return extend.y + 2;
-			}
-		}
+	IdConfiguration config;
+
+	public IdLabelCellRenderer() {
+		
+	}
+
+	public IdLabelCellRenderer(IdConfiguration config) {
+		this.config = config;
+	}
+
+ 	public int doDrawCellContent(GC gc, Rectangle rect, Object value) {
+ 		if (value instanceof AttributeValueString) {
+ 			Object text = ReqIF10Util.getTheValue((AttributeValue) value);
+ 			if (text != null) {
+ 	 			IdVerticalAlign align = getAlignment((AttributeValueString) value);
+ 				Point extend = gc.textExtent(value.toString());
+				int y = rect.y + 1;
+				if (IdVerticalAlign.CENTER.equals(align)) {
+					y = rect.y + rect.height / 2 - extend.y / 2;
+				}
+				gc.drawText(text.toString(), rect.x + 1, y);
+ 				return extend.y + 2;
+ 			}
+ 		}
 
 		// Default
 		return 16;
 	}
 
-	@Override
+
+	/**
+	 * Finds the corresponding configuration element and extracts the alignment
+	 * information from it.
+	 * 
+	 * @return either the configured alignment or the default alignment, never null.
+	 */
+	private IdVerticalAlign getAlignment(AttributeValueString av) {
+		AttributeDefinitionString ad = av.getDefinition();
+		if (ad != null) {
+			DatatypeDefinitionString dd = ad.getType();
+			if (dd != null) {
+				ProrPresentationConfiguration config = ConfigurationUtil.getConfiguration(dd);
+				if (config instanceof IdConfiguration) {
+					return ((IdConfiguration) config).getVerticalAlign();
+				}
+			}
+		}
+		return IdVerticalAlign.CENTER;
+	}
+
 	public String doDrawHtmlContent(Object value, File folder) {
 		AttributeValueString av = (AttributeValueString) value;
 		return av.getTheValue();

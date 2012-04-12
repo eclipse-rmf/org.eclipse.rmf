@@ -30,7 +30,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.rmf.reqif10.ReqIfContent;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 
 /**
  * Taken from the EMF-Book. This is the basis for a virtual node object for
@@ -44,7 +44,7 @@ public abstract class TransientReqIFItemProvider extends ItemProviderAdapter
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 
 	public TransientReqIFItemProvider(AdapterFactory adapterFactory,
-			ReqIfContent reqifContent) {
+			ReqIFContent reqifContent) {
 		super(adapterFactory);
 		reqifContent.eAdapters().add(this);
 	}

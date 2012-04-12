@@ -12,8 +12,8 @@
 package org.eclipse.rmf.reqif10.provider;
 
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
-import org.eclipse.rmf.reqif10.AlternativeId;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.AlternativeID;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 
 /**
  * A test case for the model object '<em><b>Alternative Id</b></em>'.
@@ -23,19 +23,19 @@ public class AlternativeIdTest extends AbstractItemProviderTest {
 	/**
 	 * The fixture for this Alternative Id test case.
 	 */
-	protected AlternativeId fixture = null;
+	protected AlternativeID fixture = null;
 
 	/**
 	 * Sets the fixture for this Alternative Id test case.
 	 */
-	protected void setFixture(AlternativeId fixture) {
+	protected void setFixture(AlternativeID fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
 	 * Returns the fixture for this Alternative Id test case.
 	 */
-	protected AlternativeId getFixture() {
+	protected AlternativeID getFixture() {
 		return fixture;
 	}
 
@@ -43,7 +43,7 @@ public class AlternativeIdTest extends AbstractItemProviderTest {
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	protected void setUpAlternativeIdTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createAlternativeId());
+		setFixture(ReqIF10Factory.eINSTANCE.createAlternativeID());
 	}
 
 	/**

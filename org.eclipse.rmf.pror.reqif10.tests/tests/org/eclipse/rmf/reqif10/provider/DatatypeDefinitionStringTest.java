@@ -12,7 +12,7 @@
 package org.eclipse.rmf.reqif10.provider;
 
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -34,7 +34,7 @@ public class DatatypeDefinitionStringTest extends DatatypeDefinitionSimpleTest {
 	 */
 	@Before
 	public void setUpDatatypeDefinitionStringTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createDatatypeDefinitionString());
+		setFixture(ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString());
 	}
 
 	/**

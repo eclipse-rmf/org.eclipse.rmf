@@ -13,10 +13,12 @@ package org.eclipse.rmf.pror.reqif10.editor.actions;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
@@ -34,11 +36,13 @@ import org.eclipse.jface.action.ToolBarManager;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.TrayDialog;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredViewer;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.ProrAdapterFactoryContentProvider;
@@ -47,6 +51,8 @@ import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
+import org.eclipse.swt.events.KeyAdapter;
+import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
@@ -88,12 +94,12 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	private final EditingDomain editingDomain;
 	private final Reqif10Editor rifEditor;
 
-	protected SubtreeDialog(Reqif10Editor rifEditor, EObject input, String title,
+	protected SubtreeDialog(Reqif10Editor reqifEditor, EObject input, String title,
 			String helpContext) {
 		super(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
-		this.rifEditor = rifEditor;
-		this.editingDomain = rifEditor.getEditingDomain();
-		this.adapterFactory = rifEditor.getAdapterFactory();
+		this.rifEditor = reqifEditor;
+		this.editingDomain = reqifEditor.getEditingDomain();
+		this.adapterFactory = reqifEditor.getAdapterFactory();
 		this.input = input;
 		this.title = title;
 		this.helpContext = helpContext;
@@ -166,7 +172,6 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 
 		// Without this, the sash wouldn't hold its new position
 		sash.addListener(SWT.Selection, new Listener() {
-			@Override
 			public void handleEvent(Event e) {
 				sash.setBounds(e.x, e.y, e.width, e.height);
 				((FormData) sash.getLayoutData()).bottom = new FormAttachment(
@@ -183,6 +188,20 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		viewer.setInput(input);
 		viewer.setFilters(filters.toArray(new ViewerFilter[] {}));
 		createContextMenuFor(viewer);
+
+		viewer.getTree().addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.keyCode == SWT.DEL) {
+					ISelection selection = viewer.getSelection();
+					TreeSelection treeSelection = (TreeSelection) selection;
+					Object firstElement = treeSelection.getFirstElement();
+					Command create = DeleteCommand.create(editingDomain,
+							firstElement);
+					editingDomain.getCommandStack().execute(create);
+				}
+			}
+		});
 
 		data = new FormData();
 		data.top = new FormAttachment(toolbar, 0);
@@ -214,7 +233,6 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 
 		// We just wire these two controls, to show the tree's properties.
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				propertySheet.selectionChanged(null, event.getSelection());
 			}
@@ -227,8 +245,6 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		getActionBarContributor().getActiveEditor().getSite()
 				.setSelectionProvider(viewer);
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				((ISelectionProvider) getActionBarContributor()
 						.getActiveEditor()).setSelection(event.getSelection());
@@ -264,7 +280,6 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		final ToolItem item = new ToolItem(toolbar, SWT.DROP_DOWN);
 		item.setText("Select Action...");
 		item.addListener(SWT.Selection, new Listener() {
-			@Override
 			public void handleEvent(Event event) {
 				// The following code would allow to distinguish arrow and
 				// button, something we don't need right now.
@@ -311,7 +326,6 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 				new EditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
 
-	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
 		getActionBarContributor().menuAboutToShow(menuManager);
 	}

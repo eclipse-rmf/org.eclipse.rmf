@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecRelationType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
@@ -35,7 +35,7 @@ public class VirtualSpecRelationsItemProvider extends
 		TransientReqIFItemProvider {
 
 	public VirtualSpecRelationsItemProvider(AdapterFactory adapterFactory,
-			ReqIfContent content) {
+			ReqIFContent content) {
 		super(adapterFactory, content);
 	}
 
@@ -45,7 +45,7 @@ public class VirtualSpecRelationsItemProvider extends
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS);
+					.add(ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -68,13 +68,13 @@ public class VirtualSpecRelationsItemProvider extends
 		
 		// Allow creation of new untyped SpecRelations
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS,
-				Reqif10Factory.eINSTANCE.createSpecRelation()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS,
+				ReqIF10Factory.eINSTANCE.createSpecRelation()));
 		
 		// Allow creation of typed SpecRelations
 		ProrUtil.collectNewChildDescriptorsForTypeCreators(newChildDescriptors,
 				target,
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS, SpecRelationType.class);
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS, SpecRelationType.class);
 	}
 
 	@Override
@@ -84,9 +84,9 @@ public class VirtualSpecRelationsItemProvider extends
 
 		if (value instanceof SpecType) {
 			return ProrUtil.createAddTypedElementCommand(owner,
-					Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS,
-					Reqif10Factory.eINSTANCE.createSpecRelation(),
-					Reqif10Package.Literals.SPEC_RELATION__TYPE,
+					ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS,
+					ReqIF10Factory.eINSTANCE.createSpecRelation(),
+					ReqIF10Package.Literals.SPEC_RELATION__TYPE,
 					(SpecType) value, index, 0, domain,
 					adapterFactory);
 		}

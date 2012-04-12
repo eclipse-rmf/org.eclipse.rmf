@@ -12,7 +12,7 @@
 package org.eclipse.rmf.reqif10.provider;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -33,7 +33,7 @@ public class AttributeDefinitionBooleanTest extends AttributeDefinitionSimpleTes
 	 */
 	@Before
 	public void setUpAttributeDefinitionBooleanTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createAttributeDefinitionBoolean());
+		setFixture(ReqIF10Factory.eINSTANCE.createAttributeDefinitionBoolean());
 	}
 
 	/**

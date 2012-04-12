@@ -11,7 +11,8 @@
 
 package org.eclipse.rmf.reqif10.provider;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URISyntaxException;
 
@@ -19,9 +20,9 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecTypeItemProvider;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.junit.Test;
 
@@ -43,21 +44,21 @@ public abstract class SpecTypeTest extends IdentifiableTest {
 	 */
 	@Test
 	public void testAttributeDefinitionChanges() {
-		AttributeDefinitionString ad = Reqif10Factory.eINSTANCE.createAttributeDefinitionString();
+		AttributeDefinitionString ad = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		getFixture().getSpecAttributes().add(ad);
 		ItemProviderAdapter ip = getItemProvider(getFixture());
 		ip.addListener(listener);
-		setViaCommand(ad, Reqif10Package.Literals.IDENTIFIABLE__LONG_NAME, "New Name");
+		setViaCommand(ad, ReqIF10Package.Literals.IDENTIFIABLE__LONG_NAME, "New Name");
 		assertEquals(1, notifications.size());
 	}
 	
 	@Test
 	public void testParentIsVirtual() throws URISyntaxException {
-		ReqIf reqif = getTestReqif("simple.reqif");
+		ReqIF reqif = getTestReqif("simple.reqif");
 		// Required for generating the Virtual Element lazily.
 		getItemProvider(reqif.getCoreContent()).getChildren(reqif.getCoreContent());
 
-		setViaCommand(reqif.getCoreContent(), Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, getFixture());
+		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, getFixture());
 		ItemProviderAdapter ip = ProrUtil.getItemProvider(adapterFactory, getFixture());
 		assertTrue(ip.getParent(getFixture()) instanceof VirtualSpecTypeItemProvider);
 	}

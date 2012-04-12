@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrGeneralConfiguration()
+ * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrGeneralConfiguration()
  * @model
  * @generated
  */
@@ -40,7 +40,7 @@ public interface ProrGeneralConfiguration extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label Configuration</em>' containment reference.
 	 * @see #setLabelConfiguration(LabelConfiguration)
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrGeneralConfiguration_LabelConfiguration()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrGeneralConfiguration_LabelConfiguration()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */

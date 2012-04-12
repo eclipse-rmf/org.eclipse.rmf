@@ -22,11 +22,14 @@ import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.EMFEditPlugin;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -39,6 +42,8 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditService;
 import org.eclipse.rmf.pror.reqif10.provider.SpecElementWithAttributesItemProvider;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
@@ -47,7 +52,7 @@ import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.AttributeDefinitionInteger;
 import org.eclipse.rmf.reqif10.AttributeDefinitionReal;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
-import org.eclipse.rmf.reqif10.AttributeDefinitionXhtml;
+import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueBoolean;
 import org.eclipse.rmf.reqif10.AttributeValueDate;
@@ -55,19 +60,21 @@ import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.AttributeValueInteger;
 import org.eclipse.rmf.reqif10.AttributeValueReal;
 import org.eclipse.rmf.reqif10.AttributeValueString;
-import org.eclipse.rmf.reqif10.AttributeValueXhtml;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
+import org.eclipse.rmf.reqif10.DatatypeDefinition;
+import org.eclipse.rmf.reqif10.Identifiable;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.util.Reqif10Switch;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 /**
  * A Class full of tools for PorR-Programming. Note that you find more tools in
@@ -82,7 +89,8 @@ public final class ProrUtil {
 	 * This class is not designed to be instantiated.
 	 */
 	private ProrUtil() {
-		throw new InstantiationError("This class is not designed to be instantiated.");
+		throw new InstantiationError(
+				"This class is not designed to be instantiated.");
 	}
 
 	/**
@@ -112,15 +120,16 @@ public final class ProrUtil {
 
 			IItemPropertyDescriptor descriptor = valueProvider
 					.getPropertyDescriptor(value,
-							Reqif10Util.getTheValueFeature(value));
-			AttributeDefinition definition = Reqif10Util
+							ReqIF10Util.getTheValueFeature(value));
+			AttributeDefinition definition = ReqIF10Util
 					.getAttributeDefinition(value);
 
 			if (definition == null)
 				continue;
 
 			final String label = definition.getLongName() != null ? definition
-					.getLongName() : "UNNAMED (" + definition.getIdentifier() + ")";
+					.getLongName() : "UNNAMED (" + definition.getIdentifier()
+					+ ")";
 			itemPropertyDescriptors
 					.add(buildAttributeValueItemPropertyDescriptor(specElement,
 							value, descriptor, label));
@@ -133,11 +142,10 @@ public final class ProrUtil {
 		if (label == null) {
 			throw new NullPointerException("Label must not be null");
 		}
-		return new ItemPropertyDescriptorDecorator(
-				value, descriptor) {
+		return new ItemPropertyDescriptorDecorator(value, descriptor) {
 			@Override
 			public String getCategory(Object thisObject) {
-				SpecType specType = Reqif10Util.getSpecType(specElement);
+				SpecType specType = ReqIF10Util.getSpecType(specElement);
 				if (specType != null) {
 					if (specType.getLongName() == null) {
 						return "<UNNAMED TYPE>";
@@ -167,7 +175,7 @@ public final class ProrUtil {
 	 */
 	public static void setTheValue(AttributeValue av, Object value,
 			EditingDomain ed) {
-		EStructuralFeature feature = Reqif10Util.getTheValueFeature(av);
+		EStructuralFeature feature = ReqIF10Util.getTheValueFeature(av);
 		Command cmd = SetCommand.create(ed, av, feature, value);
 		ed.getCommandStack().execute(cmd);
 	}
@@ -179,9 +187,9 @@ public final class ProrUtil {
 	 * {@link SpecHierarchy} as an argument that is being used as the affected
 	 * object.
 	 */
-	public static void setTheValue(final AttributeValue av, Object value, final Object affectedObject,
-			EditingDomain ed) {
-		EStructuralFeature feature = Reqif10Util.getTheValueFeature(av);
+	public static void setTheValue(final AttributeValue av, Object value,
+			final Object affectedObject, EditingDomain ed) {
+		EStructuralFeature feature = ReqIF10Util.getTheValueFeature(av);
 		Command cmd = SetCommand.create(ed, av, feature, value);
 
 		Command cmd2 = new CommandWrapper(cmd) {
@@ -198,6 +206,27 @@ public final class ProrUtil {
 	}
 
 	/**
+	 * Sets the value on the given element, provided the value exists.
+	 * 
+	 * @param specObject
+	 * @param definition
+	 * @param value
+	 * 
+	 * @return true if the value was set, otherwise false.
+	 */
+	public static boolean setTheValue(SpecObject specObject,
+			DatatypeDefinition definition, Object value, EditingDomain ed) {
+		EList<AttributeValue> list = specObject.getValues();
+		for (AttributeValue av : list) {
+			if (definition.equals(ReqIF10Util.getDatatypeDefinition(av))) {
+				ProrUtil.setTheValue(av, value, specObject, ed);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * Tries to retrieve the ItemProvider for the given object, using the
 	 * {@link AdapterFactory}. May return null.
 	 * 
@@ -210,8 +239,8 @@ public final class ProrUtil {
 				IItemLabelProvider.class);
 	}
 
-	public static void visitAllSpecElementsWithAttributes(ReqIf reqif,
-			Reqif10Switch<?> visitor) {
+	public static void visitAllSpecElementsWithAttributes(ReqIF reqif,
+			ReqIF10Switch<?> visitor) {
 		for (TreeIterator<Object> i = EcoreUtil.getAllContents(reqif, false); i
 				.hasNext();) {
 			Object obj = i.next();
@@ -220,7 +249,7 @@ public final class ProrUtil {
 			}
 		}
 	}
-	
+
 	/**
 	 * Collects NewChildDescriptors for the creation of new Elements for
 	 * SpecElements that are already typed. These should be hooked into the
@@ -251,8 +280,8 @@ public final class ProrUtil {
 			EStructuralFeature feature, Class<?> specTypeClass) {
 
 		// Add a Descriptor for each SpecType
-		EList<SpecType> specTypes = Reqif10Util.getReqIf(object).getCoreContent()
-				.getSpecTypes();
+		EList<SpecType> specTypes = ReqIF10Util.getReqIF(object)
+				.getCoreContent().getSpecTypes();
 
 		for (final SpecType specType : specTypes) {
 			if (specTypeClass.isAssignableFrom(specType.getClass())) {
@@ -292,18 +321,19 @@ public final class ProrUtil {
 	 * @return
 	 */
 	public static CompoundCommand createAddTypedElementCommand(Object parent,
-			EReference childFeature, SpecElementWithAttributes newSpecElement,
-			EReference typeFeature, SpecType specType,
-			int index, int resultIndex, EditingDomain domain, AdapterFactory adapterFactory) {
+			EReference childFeature, Identifiable newSpecElement,
+			EReference typeFeature, SpecType specType, int index,
+			int resultIndex, EditingDomain domain, AdapterFactory adapterFactory) {
 
 		ItemProviderAdapter newElementItemProvider = ProrUtil.getItemProvider(
 				adapterFactory, newSpecElement);
 		Object icon = newElementItemProvider.getImage(newSpecElement);
 
-		final CompoundCommand cmd = createCompoundCommandWithAddIcon(icon, resultIndex);
+		final CompoundCommand cmd = createCompoundCommandWithAddIcon(icon,
+				resultIndex);
 
-		cmd.append(AddCommand.create(domain, parent, childFeature, newSpecElement,
-				index));
+		cmd.append(AddCommand.create(domain, parent, childFeature,
+				newSpecElement, index));
 
 		HashSet<SpecType> typeCollection = new HashSet<SpecType>();
 		typeCollection.add((SpecType) specType);
@@ -348,23 +378,26 @@ public final class ProrUtil {
 		};
 	}
 
-	// FIXME Support Presentation drag and drop
-	private static Command getPresentationCommand(EditingDomain domain,
-			Object owner, float location, int operations, int operation,
-			java.util.Collection<?> collection) {
-//		// See whether a Presentation feels responsible.
-//		Collection<PresentationService> services = PresentationPluginManager
-//				.getPresentationServiceMap().values();
-//		for (PresentationService service : services) {
-//			Command cmd = service.handleDragAndDrop(collection, owner, domain,
-//					operation);
-//			if (cmd != null) {
-//				return cmd;
-//			}
-//		}
+	/**
+	 * @return the handle drag and drop command from presentation plugin or null
+	 *         if no plugin can handle the operation.
+	 */
+	public static Command getPresentationHandleDragAndDropCommand(
+			EditingDomain domain, Object owner, float location, int operations,
+			int operation, java.util.Collection<?> collection) {
+		// See whether a Presentation feels responsible.
+		Collection<PresentationEditService> services = PresentationEditManager
+				.getPresentationEditServiceMap().values();
+		for (PresentationEditService service : services) {
+			Command cmd = service.handleDragAndDrop(collection, owner, domain,
+					operation);
+			if (cmd != null) {
+				return cmd;
+			}
+		}
 		return null;
 	}
-	
+
 	/**
 	 * This method creates the command for updating the {@link SpecType} of an
 	 * {@link SpecElementWithUserDefinedAttributes}. It does <b>not</b> update
@@ -381,24 +414,26 @@ public final class ProrUtil {
 	 * 
 	 * @return The Command that updates the Values
 	 */
-	public static CompoundCommand createValueAdjustCommand(EditingDomain domain,
-			SpecElementWithAttributes specElement, Collection<AttributeDefinition> definitions) {
+	public static CompoundCommand createValueAdjustCommand(
+			EditingDomain domain, SpecElementWithAttributes specElement,
+			Collection<AttributeDefinition> definitions) {
 		// First make sure all required values exist
 		HashSet<AttributeValue> existingObsoleteValues = new HashSet<AttributeValue>(
 				specElement.getValues());
-	
+
 		// The list of types for the new values.
-		Set<AttributeDefinition> newDefs = new HashSet<AttributeDefinition>(definitions);
-	
+		Set<AttributeDefinition> newDefs = new HashSet<AttributeDefinition>(
+				definitions);
+
 		// A CompoundCommand for adding and removing values
 		CompoundCommand cmd = new CompoundCommand(
 				"Updating Type (and associated Values)");
-	
+
 		// Iterate over the required attributes...
 		outer: for (AttributeDefinition newDef : newDefs) {
 			// ... and check for each whether it already exists:
 			for (AttributeValue value : specElement.getValues()) {
-				AttributeDefinition def = Reqif10Util
+				AttributeDefinition def = ReqIF10Util
 						.getAttributeDefinition(value);
 				if (def != null && def.equals(newDef)) {
 					// It does: Continue the outer loop
@@ -406,14 +441,14 @@ public final class ProrUtil {
 					continue outer;
 				}
 			}
-	
+
 			// The attribute is missing: Let's add it
 			AttributeValue value = createAttributeValue(newDef);
 			if (value != null) {
 				cmd.append(AddCommand
 						.create(domain,
 								specElement,
-								Reqif10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+								ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
 								value));
 			}
 		}
@@ -422,7 +457,7 @@ public final class ProrUtil {
 			cmd.append(RemoveCommand
 					.create(domain,
 							specElement,
-							Reqif10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+							ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
 							value));
 		}
 		return cmd;
@@ -440,17 +475,17 @@ public final class ProrUtil {
 		if (attributeDefinition == null) {
 			return null;
 		} else if (attributeDefinition instanceof AttributeDefinitionBoolean) {
-			AttributeValueBoolean value = Reqif10Factory.eINSTANCE
+			AttributeValueBoolean value = ReqIF10Factory.eINSTANCE
 					.createAttributeValueBoolean();
 			value.setDefinition((AttributeDefinitionBoolean) attributeDefinition);
 			AttributeValueBoolean defaultValue = ((AttributeDefinitionBoolean) attributeDefinition)
 					.getDefaultValue();
 			if (defaultValue != null) {
-				value.setTheValue(defaultValue.getTheValue());
+				value.setTheValue(defaultValue.isTheValue());
 			}
 			return value;
 		} else if (attributeDefinition instanceof AttributeDefinitionDate) {
-			AttributeValueDate value = Reqif10Factory.eINSTANCE
+			AttributeValueDate value = ReqIF10Factory.eINSTANCE
 					.createAttributeValueDate();
 			value.setDefinition((AttributeDefinitionDate) attributeDefinition);
 			AttributeValueDate defaultValue = ((AttributeDefinitionDate) attributeDefinition)
@@ -460,7 +495,7 @@ public final class ProrUtil {
 			}
 			return value;
 		} else if (attributeDefinition instanceof AttributeDefinitionInteger) {
-			AttributeValueInteger value = Reqif10Factory.eINSTANCE
+			AttributeValueInteger value = ReqIF10Factory.eINSTANCE
 					.createAttributeValueInteger();
 			value.setDefinition((AttributeDefinitionInteger) attributeDefinition);
 			AttributeValueInteger defaultValue = ((AttributeDefinitionInteger) attributeDefinition)
@@ -470,7 +505,7 @@ public final class ProrUtil {
 			}
 			return value;
 		} else if (attributeDefinition instanceof AttributeDefinitionReal) {
-			AttributeValueReal value = Reqif10Factory.eINSTANCE
+			AttributeValueReal value = ReqIF10Factory.eINSTANCE
 					.createAttributeValueReal();
 			value.setDefinition((AttributeDefinitionReal) attributeDefinition);
 			AttributeValueReal defaultValue = ((AttributeDefinitionReal) attributeDefinition)
@@ -480,28 +515,28 @@ public final class ProrUtil {
 			}
 			return value;
 		} else if (attributeDefinition instanceof AttributeDefinitionString) {
-			AttributeValueString value = Reqif10Factory.eINSTANCE
+			AttributeValueString value = ReqIF10Factory.eINSTANCE
 					.createAttributeValueString();
 			value.setDefinition((AttributeDefinitionString) attributeDefinition);
-			
+
 			AttributeValueString defaultValue = ((AttributeDefinitionString) attributeDefinition)
 					.getDefaultValue();
 			if (defaultValue != null) {
 				value.setTheValue(defaultValue.getTheValue());
 			}
 			return value;
-		} else if (attributeDefinition instanceof AttributeDefinitionXhtml) {
-			AttributeValueXhtml value = Reqif10Factory.eINSTANCE
-					.createAttributeValueXhtml();
-			value.setDefinition((AttributeDefinitionXhtml) attributeDefinition);			
-			AttributeValueXhtml defaultValue = ((AttributeDefinitionXhtml) attributeDefinition)
+		} else if (attributeDefinition instanceof AttributeDefinitionXHTML) {
+			AttributeValueXHTML value = ReqIF10Factory.eINSTANCE
+					.createAttributeValueXHTML();
+			value.setDefinition((AttributeDefinitionXHTML) attributeDefinition);
+			AttributeValueXHTML defaultValue = ((AttributeDefinitionXHTML) attributeDefinition)
 					.getDefaultValue();
 			if (defaultValue != null) {
 				value.setTheValue(defaultValue.getTheValue());
 			}
 			return value;
 		} else if (attributeDefinition instanceof AttributeDefinitionEnumeration) {
-			AttributeValueEnumeration value = Reqif10Factory.eINSTANCE
+			AttributeValueEnumeration value = ReqIF10Factory.eINSTANCE
 					.createAttributeValueEnumeration();
 			value.setDefinition((AttributeDefinitionEnumeration) attributeDefinition);
 			AttributeValueEnumeration defaultValue = ((AttributeDefinitionEnumeration) attributeDefinition)
@@ -517,8 +552,9 @@ public final class ProrUtil {
 	}
 
 	/**
-	 * Builds a command that creates new {@link SpecRelation}s between the given sources and target.
-	 * Both, source and target can be {@link SpecObject}s and {@link SpecHierarchy}s.  
+	 * Builds a command that creates new {@link SpecRelation}s between the given
+	 * sources and target. Both, source and target can be {@link SpecObject}s
+	 * and {@link SpecHierarchy}s.
 	 */
 	public static Command createCreateSpecRelationsCommand(
 			EditingDomain domain, Collection<?> sources, Object target) {
@@ -528,52 +564,60 @@ public final class ProrUtil {
 		if (target instanceof SpecObject) {
 			targetObject = (SpecObject) target;
 		} else if (target instanceof SpecHierarchy) {
-			targetObject = ((SpecHierarchy)target).getObject();
+			targetObject = ((SpecHierarchy) target).getObject();
 		}
 		if (targetObject == null) {
 			return UnexecutableCommand.INSTANCE;
 		}
-		
-		ReqIfContent content = Reqif10Util.getReqIf(targetObject).getCoreContent();
+
+		ReqIFContent content = ReqIF10Util.getReqIF(targetObject)
+				.getCoreContent();
 		ArrayList<SpecRelation> relations = new ArrayList<SpecRelation>();
 
 		for (Object source : sources) {
 			if (source instanceof SpecHierarchy) {
-				source = ((SpecHierarchy)source).getObject();
+				source = ((SpecHierarchy) source).getObject();
 			}
 			if (source instanceof SpecObject) {
-				SpecObject sourceObject = (SpecObject)source;
-				SpecRelation relation = Reqif10Factory.eINSTANCE.createSpecRelation();
+				SpecObject sourceObject = (SpecObject) source;
+				SpecRelation relation = ReqIF10Factory.eINSTANCE
+						.createSpecRelation();
 				relation.setSource(sourceObject);
 				relation.setTarget(targetObject);
 				relations.add(relation);
 			}
 		}
 		return AddCommand.create(domain, content,
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS,
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS,
 				relations);
 	}
-		
+
 	/**
-	 * This class reflectively looks for the given postfix and removes it from the classname of the given object.
-	 * Should the result contain camel case, then spaces will be inserted.<p>
+	 * This class reflectively looks for the given postfix and removes it from
+	 * the classname of the given object. Should the result contain camel case,
+	 * then spaces will be inserted.
+	 * <p>
 	 * 
-	 * If obj is itself a {@link Class}, its simple name is used directly. 
+	 * If obj is itself a {@link Class}, its simple name is used directly.
 	 * 
-	 * If the postfix does not match, the simple class name is returned.<p>
+	 * If the postfix does not match, the simple class name is returned.
+	 * <p>
 	 * 
-	 * If obj is null, the empty string is returned.<p>
+	 * If obj is null, the empty string is returned.
+	 * <p>
 	 * 
-	 * The idea is that in some places, it is convenient to extract information directly from
-	 * the CamelCased classname, e.g. SpecRelationTypeItemProvider => "Spec Relation Type".
+	 * The idea is that in some places, it is convenient to extract information
+	 * directly from the CamelCased classname, e.g. SpecRelationTypeItemProvider
+	 * => "Spec Relation Type".
 	 */
-	public static String substractPrefixPostfix(Object obj, String prefix, String suffix) {
+	public static String substractPrefixPostfix(Object obj, String prefix,
+			String suffix) {
 		if (obj == null) {
 			return "";
 		}
-		
-		String className = obj instanceof Class ? ((Class<?>) obj).getSimpleName()
-				: obj.getClass().getSimpleName();
+
+		String className = obj instanceof Class ? ((Class<?>) obj)
+				.getSimpleName() : obj.getClass().getSimpleName();
 		if (!className.startsWith(suffix) && !className.endsWith(suffix)) {
 			return className;
 		}
@@ -582,12 +626,94 @@ public final class ProrUtil {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < name.length(); i++) {
 			char c = name.charAt(i);
-			if (i !=0 && Character.isUpperCase(c)) {
+			if (i != 0 && Character.isUpperCase(c)) {
 				sb.append(' ');
 			}
 			sb.append(c);
 		}
 		return sb.toString();
+	}
+
+	/**
+	 * This method must be called by all setType() calls of the subclasses, to
+	 * set the values that correspond to the attributes of the type.
+	 * <p>
+	 * 
+	 * @param valueFeature
+	 *            the correct value from {@link ReqIFPackage}, e.g.
+	 *            {@link ReqIFPackage#SPEC_OBJECT__VALUES}.
+	 */
+	public static void updateValuesForCurrentType(SpecObject specObject) {
+
+		// First make sure all required values exist
+		HashSet<AttributeValue> existingRequiredValues = new HashSet<AttributeValue>(
+				specObject.getValues());
+
+		if (specObject.getType() != null) {
+			// Iterate over the required attributes...
+			outer: for (AttributeDefinition attrDefFromNewType : specObject
+					.getType().getSpecAttributes()) {
+				// ... and check for each whether it already exists:
+				for (AttributeValue value : specObject.getValues()) {
+					AttributeDefinition definition = ReqIF10Util
+							.getAttributeDefinition(value);
+					if (definition != null
+							&& definition.equals(attrDefFromNewType)) {
+						// It does: Continue the outer loop
+						existingRequiredValues.remove(value);
+						continue outer;
+					}
+				}
+
+				// The attribute is missing: Let's add it; but we can only add
+				// it, if a type is set.
+				AttributeValue value = createAttributeValue(attrDefFromNewType);
+
+				if (value != null) {
+					specObject.getValues().add(value);
+					if (((EObjectImpl) specObject).eNotificationRequired())
+						specObject.eNotify(new ENotificationImpl(
+								(EObjectImpl) specObject, Notification.ADD,
+								null, null, value));
+				}
+				// If there are any values left, we need to remove them
+				for (AttributeValue attributeValue : existingRequiredValues) {
+					specObject.getValues().remove(attributeValue);
+				}
+			}
+		} else {
+			// We don't do a thing: We leave the (now stale) Attributes. They
+			// will be removed if a new type is set.
+		}
+	}
+
+	
+	/**
+	 * Helper function for drag and drop operations:
+	 * Tests if the element source may be dropped onto the target object.
+	 * 
+	 * @param source
+	 * @param target
+	 * @return true if the drop should be accepted, false otherwise
+	 */
+	public static boolean isValidDrop(SpecHierarchy source, Object target) {
+			if (source == target){
+				return false;
+			}
+			
+			if (source.getChildren().contains(target)){
+				return false;
+			}
+			
+			for (EObject child : source.getChildren()) {
+				if (child instanceof SpecHierarchy){
+					if (!isValidDrop((SpecHierarchy) child, target)){
+						return false;
+					}
+				}
+			}
+			
+			return true;
 	}
 
 }

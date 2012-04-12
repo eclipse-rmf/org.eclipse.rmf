@@ -10,14 +10,14 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.provider;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.net.URISyntaxException;
 
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.junit.Test;
 
@@ -55,8 +55,8 @@ public abstract class AttributeValueTest extends AbstractItemProviderTest {
 	 */
 	@Test
 	public void testEnclosingSpecObjectIsNotified() throws URISyntaxException {
-		ReqIf rif = getTestReqif("simple.reqif");
-		SpecObject specObject = rif.getCoreContent().getSpecObjects().get(0);
+		ReqIF reqif = getTestReqif("simple.reqif");
+		SpecObject specObject = reqif.getCoreContent().getSpecObjects().get(0);
 		specObject.getValues().add(getFixture());
 		ProrUtil.getItemProvider(adapterFactory, specObject).addListener(listener);
 		ProrUtil.setTheValue(getFixture(), getValueObject(), editingDomain);

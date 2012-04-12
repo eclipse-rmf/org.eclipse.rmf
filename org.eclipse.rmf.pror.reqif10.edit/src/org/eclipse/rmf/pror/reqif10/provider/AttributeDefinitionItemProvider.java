@@ -28,7 +28,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
  * This is the item provider adapter for a
@@ -111,13 +111,12 @@ public class AttributeDefinitionItemProvider extends
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AttributeDefinition.class)) {
-		case Reqif10Package.ATTRIBUTE_DEFINITION__ALTERNATIVE_ID:
-		case Reqif10Package.ATTRIBUTE_DEFINITION__DESC:
-		case Reqif10Package.ATTRIBUTE_DEFINITION__IDENTIFIER:
-		case Reqif10Package.ATTRIBUTE_DEFINITION__IS_EDITABLE:
-		case Reqif10Package.ATTRIBUTE_DEFINITION__LAST_CHANGE:
-		case Reqif10Package.ATTRIBUTE_DEFINITION__LONG_NAME:
-		case Reqif10Package.ATTRIBUTE_DEFINITION__SPEC_TYPE:
+		case ReqIF10Package.ATTRIBUTE_DEFINITION__ALTERNATIVE_ID:
+		case ReqIF10Package.ATTRIBUTE_DEFINITION__DESC:
+		case ReqIF10Package.ATTRIBUTE_DEFINITION__IDENTIFIER:
+		case ReqIF10Package.ATTRIBUTE_DEFINITION__EDITABLE:
+		case ReqIF10Package.ATTRIBUTE_DEFINITION__LAST_CHANGE:
+		case ReqIF10Package.ATTRIBUTE_DEFINITION__LONG_NAME:
 
 			// Find the specType
 			InternalEObject specType = (InternalEObject) ((EObject) notification
@@ -125,7 +124,7 @@ public class AttributeDefinitionItemProvider extends
 			if (specType != null) {
 				specType.eNotify(new ENotificationImpl(
 						specType, ENotificationImpl.SET,
-						Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
+						ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
 						notification.getNotifier(), notification.getNotifier()));
 			}
 

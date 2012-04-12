@@ -11,7 +11,7 @@
 
 package org.eclipse.rmf.reqif10.configuration.tests;
 
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
 import org.junit.After;
@@ -46,7 +46,7 @@ public class ProrPresentationConfigurationsTest extends AbstractItemProviderTest
 	 */
 	@Before
 	protected void setUp() throws Exception {
-		setFixture(ConfigFactory.eINSTANCE.createProrPresentationConfigurations());
+		setFixture(ConfigurationFactory.eINSTANCE.createProrPresentationConfigurations());
 	}
 
 	/**

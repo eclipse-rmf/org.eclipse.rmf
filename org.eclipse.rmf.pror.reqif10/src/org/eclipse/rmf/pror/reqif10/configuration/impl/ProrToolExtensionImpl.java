@@ -15,24 +15,18 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
-
-import org.eclipse.rmf.reqif10.impl.ReqIfToolExtensionImpl;
+import org.eclipse.rmf.reqif10.impl.ReqIFToolExtensionImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,7 +43,7 @@ import org.eclipse.rmf.reqif10.impl.ReqIfToolExtensionImpl;
  *
  * @generated
  */
-public class ProrToolExtensionImpl extends ReqIfToolExtensionImpl implements ProrToolExtension {
+public class ProrToolExtensionImpl extends ReqIFToolExtensionImpl implements ProrToolExtension {
 	/**
 	 * The cached value of the '{@link #getSpecViewConfigurations() <em>Spec View Configurations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -97,7 +91,7 @@ public class ProrToolExtensionImpl extends ReqIfToolExtensionImpl implements Pro
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ConfigPackage.Literals.PROR_TOOL_EXTENSION;
+		return ConfigurationPackage.Literals.PROR_TOOL_EXTENSION;
 	}
 
 	/**
@@ -107,7 +101,7 @@ public class ProrToolExtensionImpl extends ReqIfToolExtensionImpl implements Pro
 	 */
 	public EList<ProrSpecViewConfiguration> getSpecViewConfigurations() {
 		if (specViewConfigurations == null) {
-			specViewConfigurations = new EObjectContainmentEList<ProrSpecViewConfiguration>(ProrSpecViewConfiguration.class, this, ConfigPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS);
+			specViewConfigurations = new EObjectContainmentEList<ProrSpecViewConfiguration>(ProrSpecViewConfiguration.class, this, ConfigurationPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS);
 		}
 		return specViewConfigurations;
 	}
@@ -130,7 +124,7 @@ public class ProrToolExtensionImpl extends ReqIfToolExtensionImpl implements Pro
 		ProrGeneralConfiguration oldGeneralConfiguration = generalConfiguration;
 		generalConfiguration = newGeneralConfiguration;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION, oldGeneralConfiguration, newGeneralConfiguration);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION, oldGeneralConfiguration, newGeneralConfiguration);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -145,14 +139,14 @@ public class ProrToolExtensionImpl extends ReqIfToolExtensionImpl implements Pro
 		if (newGeneralConfiguration != generalConfiguration) {
 			NotificationChain msgs = null;
 			if (generalConfiguration != null)
-				msgs = ((InternalEObject)generalConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION, null, msgs);
+				msgs = ((InternalEObject)generalConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION, null, msgs);
 			if (newGeneralConfiguration != null)
-				msgs = ((InternalEObject)newGeneralConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION, null, msgs);
+				msgs = ((InternalEObject)newGeneralConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION, null, msgs);
 			msgs = basicSetGeneralConfiguration(newGeneralConfiguration, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION, newGeneralConfiguration, newGeneralConfiguration));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION, newGeneralConfiguration, newGeneralConfiguration));
 	}
 
 	/**
@@ -173,7 +167,7 @@ public class ProrToolExtensionImpl extends ReqIfToolExtensionImpl implements Pro
 		ProrPresentationConfigurations oldPresentationConfigurations = presentationConfigurations;
 		presentationConfigurations = newPresentationConfigurations;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS, oldPresentationConfigurations, newPresentationConfigurations);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS, oldPresentationConfigurations, newPresentationConfigurations);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -188,14 +182,14 @@ public class ProrToolExtensionImpl extends ReqIfToolExtensionImpl implements Pro
 		if (newPresentationConfigurations != presentationConfigurations) {
 			NotificationChain msgs = null;
 			if (presentationConfigurations != null)
-				msgs = ((InternalEObject)presentationConfigurations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS, null, msgs);
+				msgs = ((InternalEObject)presentationConfigurations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS, null, msgs);
 			if (newPresentationConfigurations != null)
-				msgs = ((InternalEObject)newPresentationConfigurations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS, null, msgs);
+				msgs = ((InternalEObject)newPresentationConfigurations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS, null, msgs);
 			msgs = basicSetPresentationConfigurations(newPresentationConfigurations, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS, newPresentationConfigurations, newPresentationConfigurations));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS, newPresentationConfigurations, newPresentationConfigurations));
 	}
 
 	/**
@@ -206,11 +200,11 @@ public class ProrToolExtensionImpl extends ReqIfToolExtensionImpl implements Pro
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ConfigPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS:
 				return ((InternalEList<?>)getSpecViewConfigurations()).basicRemove(otherEnd, msgs);
-			case ConfigPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION:
 				return basicSetGeneralConfiguration(null, msgs);
-			case ConfigPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS:
 				return basicSetPresentationConfigurations(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -224,11 +218,11 @@ public class ProrToolExtensionImpl extends ReqIfToolExtensionImpl implements Pro
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ConfigPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS:
 				return getSpecViewConfigurations();
-			case ConfigPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION:
 				return getGeneralConfiguration();
-			case ConfigPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS:
 				return getPresentationConfigurations();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -243,14 +237,14 @@ public class ProrToolExtensionImpl extends ReqIfToolExtensionImpl implements Pro
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ConfigPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS:
 				getSpecViewConfigurations().clear();
 				getSpecViewConfigurations().addAll((Collection<? extends ProrSpecViewConfiguration>)newValue);
 				return;
-			case ConfigPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION:
 				setGeneralConfiguration((ProrGeneralConfiguration)newValue);
 				return;
-			case ConfigPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS:
 				setPresentationConfigurations((ProrPresentationConfigurations)newValue);
 				return;
 		}
@@ -265,13 +259,13 @@ public class ProrToolExtensionImpl extends ReqIfToolExtensionImpl implements Pro
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS:
 				getSpecViewConfigurations().clear();
 				return;
-			case ConfigPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION:
 				setGeneralConfiguration((ProrGeneralConfiguration)null);
 				return;
-			case ConfigPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS:
 				setPresentationConfigurations((ProrPresentationConfigurations)null);
 				return;
 		}
@@ -286,11 +280,11 @@ public class ProrToolExtensionImpl extends ReqIfToolExtensionImpl implements Pro
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS:
 				return specViewConfigurations != null && !specViewConfigurations.isEmpty();
-			case ConfigPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION:
 				return generalConfiguration != null;
-			case ConfigPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS:
 				return presentationConfigurations != null;
 		}
 		return super.eIsSet(featureID);

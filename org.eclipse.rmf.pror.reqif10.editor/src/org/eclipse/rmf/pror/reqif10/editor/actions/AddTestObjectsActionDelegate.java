@@ -21,12 +21,12 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecType;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
@@ -47,7 +47,6 @@ public class AddTestObjectsActionDelegate implements IEditorActionDelegate,
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
 	 */
-	@Override
 	public void run(IAction action) {
 		if (selection.size() != 1)
 			return;
@@ -81,21 +80,21 @@ public class AddTestObjectsActionDelegate implements IEditorActionDelegate,
 				+ " Test objects");
 		EditingDomain ed = specificationEditor.getEditingDomain();
 		for (int i = 0; i < count; i++) {
-			SpecHierarchy newSpecHierarchy = Reqif10Factory.eINSTANCE
+			SpecHierarchy newSpecHierarchy = ReqIF10Factory.eINSTANCE
 					.createSpecHierarchy();
-			SpecObject newSpecObject = Reqif10Factory.eINSTANCE
+			SpecObject newSpecObject = ReqIF10Factory.eINSTANCE
 					.createSpecObject();
-			cmd.append(AddCommand.create(ed, Reqif10Util
-					.getReqIf(specHierarchy).getCoreContent(),
-					Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
+			cmd.append(AddCommand.create(ed, ReqIF10Util
+					.getReqIF(specHierarchy).getCoreContent(),
+					ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
 					newSpecObject));
 			cmd.append(SetCommand.create(ed, newSpecHierarchy,
-					Reqif10Package.Literals.SPEC_HIERARCHY__OBJECT,
+					ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT,
 					newSpecObject));
 			cmd.append(SetCommand.create(ed, newSpecObject,
-					Reqif10Package.Literals.SPEC_OBJECT__TYPE, type));
+					ReqIF10Package.Literals.SPEC_OBJECT__TYPE, type));
 			cmd.append(AddCommand.create(ed, specHierarchy,
-					Reqif10Package.Literals.SPEC_HIERARCHY__CHILDREN,
+					ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN,
 					newSpecHierarchy));
 		}
 		ed.getCommandStack().execute(cmd);
@@ -105,7 +104,6 @@ public class AddTestObjectsActionDelegate implements IEditorActionDelegate,
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction, org.eclipse.jface.viewers.ISelection)
 	 */
-	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		if (selection instanceof IStructuredSelection) {
 			this.selection = (IStructuredSelection) selection;
@@ -115,14 +113,12 @@ public class AddTestObjectsActionDelegate implements IEditorActionDelegate,
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#dispose()
 	 */
-	@Override
 	public void dispose() {
 	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#init(org.eclipse.ui.IWorkbenchWindow)
 	 */
-	@Override
 	public void init(IWorkbenchWindow window) {
 		this.window = window;
 	}
@@ -130,7 +126,6 @@ public class AddTestObjectsActionDelegate implements IEditorActionDelegate,
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IEditorActionDelegate#setActiveEditor(org.eclipse.jface.action.IAction, org.eclipse.ui.IEditorPart)
 	 */
-	@Override
 	public void setActiveEditor(IAction action, IEditorPart targetEditor) {
 		this.editor = targetEditor;
 	}

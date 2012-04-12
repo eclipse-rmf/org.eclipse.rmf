@@ -1,3 +1,31 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+
+package org.eclipse.rmf.pror.reqif10.provider;
+
+
+
+import java.util.Collection;
+import java.util.List;
+
+import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.rmf.reqif10.AccessControlledElement;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+
 /*******************************************************************************
  * Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
  * All rights reserved. This program and the accompanying materials
@@ -8,35 +36,6 @@
  * Contributors:
  *     Michael Jastram - initial API and implementation
  ******************************************************************************/
-
-package org.eclipse.rmf.pror.reqif10.provider;
-
-
-import java.util.Collection;
-import java.util.List;
-
-import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
-import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.eclipse.rmf.reqif10.AccessControlledElement;
-import org.eclipse.rmf.reqif10.Reqif10Package;
-
-/**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AccessControlledElement} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
- * @generated
- */
 public class AccessControlledElementItemProvider
 	extends IdentifiableItemProvider
 	implements
@@ -66,41 +65,31 @@ public class AccessControlledElementItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsEditablePropertyDescriptor(object);
+			addEditablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Editable feature.
+	 * This adds a property descriptor for the Editable feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsEditablePropertyDescriptor(Object object) {
+	protected void addEditablePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AccessControlledElement_isEditable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AccessControlledElement_isEditable_feature", "_UI_AccessControlledElement_type"),
-				 Reqif10Package.Literals.ACCESS_CONTROLLED_ELEMENT__IS_EDITABLE,
+				 getString("_UI_AccessControlledElement_editable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AccessControlledElement_editable_feature", "_UI_AccessControlledElement_type"),
+				 ReqIF10Package.Literals.ACCESS_CONTROLLED_ELEMENT__EDITABLE,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	/**
@@ -129,7 +118,7 @@ public class AccessControlledElementItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AccessControlledElement.class)) {
-			case Reqif10Package.ACCESS_CONTROLLED_ELEMENT__IS_EDITABLE:
+			case ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -11,16 +11,17 @@
 
 package org.eclipse.rmf.reqif10.provider;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URISyntaxException;
 
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.junit.After;
@@ -33,7 +34,7 @@ import org.junit.Test;
  */
 public abstract class AttributeDefinitionTest extends IdentifiableTest {
 
-	private ReqIf reqif;
+	private ReqIF reqif;
 	private SpecType specType;
 
 	/**
@@ -70,12 +71,12 @@ public abstract class AttributeDefinitionTest extends IdentifiableTest {
 	 */
 	@Test
 	public void testSpecTypeNotificationOnNameChange() throws URISyntaxException {
-		ReqIf reqif = getTestReqif("simple.reqif");
+		ReqIF reqif = getTestReqif("simple.reqif");
 		SpecType type = reqif.getCoreContent().getSpecTypes().get(0);
 		type.getSpecAttributes().add(getFixture());
 		getItemProvider(type).addListener(listener);
 		
-		setViaCommand(getFixture(), Reqif10Package.Literals.IDENTIFIABLE__LONG_NAME, "New Name");
+		setViaCommand(getFixture(), ReqIF10Package.Literals.IDENTIFIABLE__LONG_NAME, "New Name");
 		assertEquals("New Name", getFixture().getLongName());
 		assertEquals(1, notifications.size());
 		
@@ -88,11 +89,11 @@ public abstract class AttributeDefinitionTest extends IdentifiableTest {
 	 */
 	@Test
 	public void testAttributeDefinitionChanges() {
-		SpecObjectType specType = Reqif10Factory.eINSTANCE.createSpecObjectType();
+		SpecObjectType specType = ReqIF10Factory.eINSTANCE.createSpecObjectType();
 		specType.getSpecAttributes().add(getFixture());
 		ItemProviderAdapter ip = getItemProvider(specType);
 		ip.addListener(listener);
-		setViaCommand(getFixture(), Reqif10Package.Literals.IDENTIFIABLE__LONG_NAME, "New Name");
+		setViaCommand(getFixture(), ReqIF10Package.Literals.IDENTIFIABLE__LONG_NAME, "New Name");
 		assertEquals(1, notifications.size());
 	}
 

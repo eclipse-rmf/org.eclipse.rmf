@@ -11,6 +11,10 @@
 package org.eclipse.rmf.pror.reqif10.editor.agilegrid;
 
 import org.agilemore.agilegrid.AgileGrid;
+import org.agilemore.agilegrid.Cell;
+import org.agilemore.agilegrid.EditorActivationEvent;
+import org.agilemore.agilegrid.ILayoutAdvisor;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 
 /**
@@ -21,6 +25,13 @@ import org.eclipse.swt.widgets.Composite;
  * 
  */
 public class ProrAgileGrid extends AgileGrid {
+
+	public static final int DND_DROP_AS_SIBLING = 0;
+	public static final int DND_DROP_AS_CHILD = 1;
+
+	protected Cell dndHoverCell;
+	protected int dndHoverDropMode;
+	
 
 	public ProrAgileGrid(Composite parent, int style) {
 		super(parent, style);
@@ -41,4 +52,66 @@ public class ProrAgileGrid extends AgileGrid {
 //		});
 	}
 
+	/**
+	 * Returns the upper y-coordinate of a row. 
+	 * Returns a negative value id the row does not exist or is invisible  
+	 * @param row
+	 * @return
+	 */
+	public int getYForRow(int row) {
+		if (row < 0 || row > topRow + getRowsVisible() - 1) {
+			return Integer.MIN_VALUE;
+		}
+		
+		ILayoutAdvisor layoutAdvisor = getLayoutAdvisor();
+		int fixedRowCount = layoutAdvisor.getFixedRowCount();
+
+		if (row < fixedRowCount){
+			return Integer.MIN_VALUE;
+		}
+		
+
+		int y = getLinePixels();
+		
+		if (layoutAdvisor.isTopHeaderVisible()) {
+			y += layoutAdvisor.getTopHeaderHeight();
+			y += getLinePixels();
+		}
+		
+		for (int i = 0; i < fixedRowCount; i++) {
+			if (row == i) {
+				return y;
+			}
+			y += layoutAdvisor.getRowHeight(i);
+			y += getLinePixels();
+		}
+		
+		for (int i = topRow; i <= topRow + getRowsVisible() - 1; i++) {
+			if (row == i) {
+				return y;
+			}
+			y += layoutAdvisor.getRowHeight(i);
+			y += getLinePixels();
+		}		
+		
+
+		return Integer.MIN_VALUE;
+	}
+	
+	@Override
+	public void triggerEditorActivationEvent(
+			EditorActivationEvent editorActivationEvent, Object hint) {
+		if (editorActivationEvent.eventType == EditorActivationEvent.KEY_PRESSED
+				&& editorActivationEvent.keyCode == SWT.DEL) {
+			/*
+			 * This is a workaround for Bug 374183 - Deleting multiple
+			 * SpecElements in Specification editor via DEL key does not work No
+			 * need to activate an Editor since the rows are deleted. Activating
+			 * the editor would reset the selection to one single cell
+			 */
+			return;
+		}
+		super.triggerEditorActivationEvent(editorActivationEvent, hint);
+	}
+	
 }

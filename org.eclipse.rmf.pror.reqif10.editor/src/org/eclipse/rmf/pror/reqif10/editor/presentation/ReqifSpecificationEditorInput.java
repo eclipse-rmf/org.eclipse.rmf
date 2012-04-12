@@ -45,7 +45,6 @@ public class ReqifSpecificationEditorInput implements IEditorInput {
 	 * @see org.eclipse.core.runtime.IAdaptable#getAdapter(java.lang.Class)
 	 */
 	@SuppressWarnings("rawtypes")
-	@Override
 	public Object getAdapter(Class adapter) {
 		return null;
 	}
@@ -53,7 +52,6 @@ public class ReqifSpecificationEditorInput implements IEditorInput {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IEditorInput#exists()
 	 */
-	@Override
 	public boolean exists() {
 		return false;
 	}
@@ -61,7 +59,6 @@ public class ReqifSpecificationEditorInput implements IEditorInput {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IEditorInput#getImageDescriptor()
 	 */
-	@Override
 	public ImageDescriptor getImageDescriptor() {
 		return null;
 	}
@@ -69,7 +66,6 @@ public class ReqifSpecificationEditorInput implements IEditorInput {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IEditorInput#getName()
 	 */
-	@Override
 	public String getName() {
 		ItemProviderAdapter ip = ProrUtil.getItemProvider(rifEditor.getAdapterFactory(), spec);
 		return ip.getText(spec);
@@ -78,7 +74,6 @@ public class ReqifSpecificationEditorInput implements IEditorInput {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IEditorInput#getPersistable()
 	 */
-	@Override
 	public IPersistableElement getPersistable() {
 		return null;
 	}
@@ -86,7 +81,6 @@ public class ReqifSpecificationEditorInput implements IEditorInput {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IEditorInput#getToolTipText()
 	 */
-	@Override
 	public String getToolTipText() {
 		if (spec != null && spec.eResource() != null) {
 			return spec.eResource().getURI() + "";			

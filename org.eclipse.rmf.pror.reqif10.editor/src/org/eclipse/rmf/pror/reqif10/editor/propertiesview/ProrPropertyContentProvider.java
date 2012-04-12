@@ -11,6 +11,7 @@
 package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -26,8 +27,15 @@ import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
+/**
+ * 
+ * The agile grid content provider for the properties view.
+ * 
+ * @author Lukas Ladenberger
+ * 
+ */
 public class ProrPropertyContentProvider extends AbstractContentProvider {
 
 	private AdapterFactoryEditingDomain editingDomain;
@@ -36,8 +44,19 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	private Identifiable identifiable;
 
 	// This is only a help HashMap for storing temporarily the item categories
-	private HashMap<String, ItemCategory> categories;
+	private HashMap<String, ItemCategory> customCategories;
 
+	public static String SPEC_HIERARCHY_NAME = "Spec Hierarchy";
+	public static String SPEC_OBJECT_NAME = "Spec Object";
+	public static String SPEC_RELATION_NAME = "Spec Relation";
+		
+	private ItemCategory specHierarchyItemCategory = new ItemCategory(
+			SPEC_HIERARCHY_NAME);
+	private ItemCategory specObjectItemCategory = new ItemCategory(
+			SPEC_OBJECT_NAME);
+	private ItemCategory specRelationItemCategory = new ItemCategory(
+			SPEC_RELATION_NAME);
+	
 	// HashMap for storing the row with the corresponding object
 	private HashMap<Integer, Object> rows;
 
@@ -45,12 +64,17 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 		
 	public ProrPropertyContentProvider(EditingDomain editingDomain) {
 		this.editingDomain = (AdapterFactoryEditingDomain) editingDomain;
-		this.categories = new HashMap<String, ItemCategory>();
+		this.customCategories = new HashMap<String, ItemCategory>();
 		this.rows = new HashMap<Integer, Object>();
 	}
 	
+	/**
+	 * This method is responsible for displaying the right content at the given
+	 * row and col.
+	 */
 	@Override
 	public Object doGetContentAt(int row, int col) {
+
 		if (identifiable != null) {
 			
 			int size = this.rows.size();
@@ -62,19 +86,24 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 
 			switch (col) {
 			case 0:
-				if (element instanceof String) { // Category
-					return element;
-				} else { // Attribute
-					return ((IItemPropertyDescriptor) element)
-							.getDisplayName(this.identifiable);
+				if (element instanceof ItemCategory) { // Category Name
+					return ((ItemCategory) element).getCategoryName();
+				} else if (element instanceof SortedItemPropertyDescriptor) { // Attribute
+					SortedItemPropertyDescriptor descriptor = (SortedItemPropertyDescriptor) element;
+					if (descriptor.getItemPropertyDescriptor() != null) {
+						return descriptor.getItemPropertyDescriptor()
+								.getDisplayName(identifiable);
+					}
 				}
 			case 1:
-				AttributeValue atrValue = getAttributeValue((IItemPropertyDescriptor) element);
-				if (atrValue != null) {
-					return atrValue;
-				} else {
-					return getItemLabelProvider(row).getText(
-							getItemPropertyValue(row));
+				if (element instanceof SortedItemPropertyDescriptor) {
+					AttributeValue atrValue = getAttributeValue((SortedItemPropertyDescriptor) element);
+					if (atrValue != null) {
+						return atrValue;
+					} else {
+						return getItemLabelProvider(row).getText(
+								getItemPropertyValue(row));
+					}
 				}
 			default:
 				break;
@@ -94,64 +123,90 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 
 	/**
 	 * Sets the current selected specification element and fetches the
-	 * corresponding {@link IItemPropertyDescriptor}.
+	 * corresponding {@link IItemPropertyDescriptor} and builds up the structure
+	 * to be displayed.
 	 * 
 	 * @param identifiable
 	 *            the selected specification element
 	 */
-	protected void setIdentifiable(Identifiable identifiable) {
+	protected void setContent(Identifiable identifiable) {
 
 		this.identifiable = identifiable;
 		
-		this.categories.clear();
+		this.customCategories.clear();
+		this.specHierarchyItemCategory.getDescriptors().clear();
+		this.specObjectItemCategory.getDescriptors().clear();
+		this.specRelationItemCategory.getDescriptors().clear();
 		this.rows.clear();
 
 		if (identifiable != null) {
 			
 			// Get the item property source
 			IItemPropertySource itemPropertySource = (IItemPropertySource) this.editingDomain
-					.getAdapterFactory().adapt(this.identifiable,
+					.getAdapterFactory().adapt(identifiable,
 							IItemPropertySource.class);
 
 			// Get the list of item property descriptors
 			List<IItemPropertyDescriptor> descriptorList = itemPropertySource
-					.getPropertyDescriptors(this.identifiable);
+					.getPropertyDescriptors(identifiable);
 
 			// Iterate over the item property descriptors and collect the needed
 			// data
 			for (IItemPropertyDescriptor descriptor : descriptorList) {
 
-				String categoryName = descriptor.getCategory(this.identifiable);
+				String categoryName = descriptor.getCategory(identifiable);
 
 				if (categoryName == null)
 					categoryName = DEFAULT_CATEGORY_NAME;
 
-				ItemCategory category;
+				ItemCategory customCategory;
 
-				if (!this.categories.containsKey(categoryName)) {
-					category = new ItemCategory(categoryName, this.identifiable);
-					category.addDescriptor(descriptor);
-					this.categories.put(categoryName, category);
+
+				if (categoryName.equals(SPEC_HIERARCHY_NAME)) {
+					specHierarchyItemCategory.addDescriptor(descriptor,
+							identifiable);
+				} else if (categoryName.equals(SPEC_OBJECT_NAME)) {
+					specObjectItemCategory.addDescriptor(descriptor,
+							identifiable);
+				} else if (categoryName.equals(SPEC_RELATION_NAME)) {
+					specRelationItemCategory.addDescriptor(descriptor,
+							identifiable);
 				} else {
-					category = this.categories.get(categoryName);
-					category.addDescriptor(descriptor);
+					if (!this.customCategories.containsKey(categoryName)) {
+						customCategory = new ItemCategory(categoryName);
+						customCategory.addDescriptor(descriptor, identifiable);
+						this.customCategories.put(categoryName, customCategory);
+					} else {
+						customCategory = this.customCategories.get(categoryName);
+						customCategory.addDescriptor(descriptor, identifiable);
+					}
 				}
+
 
 			}
 
-			int i = 0;
-			for (ItemCategory cat : this.categories.values()) {
-				String catName = cat.getCategoryName();
-				this.rows.put(i, catName);
-				i = i + 1;
-				for (IItemPropertyDescriptor des : cat.getDescriptors()) {
-					this.rows.put(i, des);
-					i = i + 1;
-				}
-			}
+			for (ItemCategory cat : customCategories.values())
+				addItemCategory(cat);
+			addItemCategory(specObjectItemCategory);
+			addItemCategory(specHierarchyItemCategory);
+			addItemCategory(specRelationItemCategory);
 
 		}
 
+	}
+
+	private void addItemCategory(ItemCategory cat) {
+		if (cat.getDescriptors().size() == 0)
+			return;
+		int size = this.rows.size();
+		this.rows.put(size, cat);
+		size = size + 1;
+		Collections.sort(cat.getDescriptors());
+		for (SortedItemPropertyDescriptor des : cat
+				.getDescriptors()) {
+			this.rows.put(size, des);
+			size = size + 1;
+		}
 	}
 
 	/**
@@ -166,16 +221,16 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	}
 
 	/**
-	 * Returns the {@link IItemPropertyDescriptor} of the row's object.
+	 * Returns the {@link SortedItemPropertyDescriptor} of the row's object.
 	 * 
 	 * @param row
-	 * @return an instance of {@link IItemPropertyDescriptor}
+	 * @return an instance of {@link SortedItemPropertyDescriptor}
 	 */
-	public IItemPropertyDescriptor getItemPropertyDescriptor(int row) {
+	public SortedItemPropertyDescriptor getItemPropertyDescriptor(int row) {
 		if (this.identifiable != null) {
 			Object obj = this.rows.get(row);
-			if (obj instanceof IItemPropertyDescriptor) {
-				return (IItemPropertyDescriptor) obj;
+			if (obj instanceof SortedItemPropertyDescriptor) {
+				return (SortedItemPropertyDescriptor) obj;
 			}
 		}
 		return null;
@@ -188,8 +243,12 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * @return an instance of {@link IItemLabelProvider}
 	 */
 	public IItemLabelProvider getItemLabelProvider(int row) {
-		return getItemPropertyDescriptor(row)
+		IItemPropertyDescriptor itemPropertyDescriptor = getItemPropertyDescriptor(
+				row).getItemPropertyDescriptor();
+		if (itemPropertyDescriptor != null)
+			return itemPropertyDescriptor
 				.getLabelProvider(this.identifiable);
+		return null;
 	}
 
 	/**
@@ -199,7 +258,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * @return the property value
 	 */
 	public Object getItemPropertyValue(int row) {
-		return getItemPropertyDescriptor(row)
+		return getItemPropertyDescriptor(row).getItemPropertyDescriptor()
 				.getPropertyValue(this.identifiable);
 	}
 
@@ -216,22 +275,24 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 */
 	public AttributeValue getAttributeValue(int row) {
 		Object obj = this.rows.get(row);
-		if (obj instanceof IItemPropertyDescriptor) {
-			return getAttributeValue((IItemPropertyDescriptor) obj);
+		if (obj instanceof SortedItemPropertyDescriptor) {
+			return getAttributeValue((SortedItemPropertyDescriptor) obj);
 		}
 		return null;
 	}
 	
-	public AttributeValue getAttributeValue(IItemPropertyDescriptor descriptor) {
+	private AttributeValue getAttributeValue(
+			SortedItemPropertyDescriptor descriptor) {
 		SpecElementWithAttributes sepcAtr = null;
 		if (this.identifiable instanceof SpecElementWithAttributes) {
 			sepcAtr = (SpecElementWithAttributes) this.identifiable;
 		} else if (this.identifiable instanceof SpecHierarchy) {
 			sepcAtr = ((SpecHierarchy) this.identifiable).getObject();
 		}
-		if (sepcAtr != null)
-			return Reqif10Util.getAttributeValueForLabel(sepcAtr,
-					descriptor.getDisplayName(sepcAtr));
+		if (sepcAtr != null && descriptor.getItemPropertyDescriptor() != null) {
+			return ReqIF10Util.getAttributeValueForLabel(sepcAtr, descriptor
+					.getItemPropertyDescriptor().getDisplayName(sepcAtr));
+		}
 		return null;
 	}
 
@@ -241,19 +302,16 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 
 	/**
 	 * Helper class for storing category with corresponding
-	 * {@link IItemPropertyDescriptor}'s.
+	 * {@link SortedItemPropertyDescriptor}'s.
 	 */
 	class ItemCategory {
 
 		private String categoryName;
-		private ArrayList<IItemPropertyDescriptor> descriptors;
+		private ArrayList<SortedItemPropertyDescriptor> descriptors;
 
-		private Identifiable specElement;
-
-		public ItemCategory(String categoryName, Identifiable specElement) {
+		public ItemCategory(String categoryName) {
 			this.categoryName = categoryName;
-			this.descriptors = new ArrayList<IItemPropertyDescriptor>();
-			this.specElement = specElement;
+			this.descriptors = new ArrayList<SortedItemPropertyDescriptor>();
 		}
 
 		public void setCategoryName(String categoryName) {
@@ -264,25 +322,43 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 			return categoryName;
 		}
 		
-		public ArrayList<IItemPropertyDescriptor> getDescriptors() {
+		public ArrayList<SortedItemPropertyDescriptor> getDescriptors() {
 			return descriptors;
 		}
 
-		public void addDescriptor(IItemPropertyDescriptor descriptor) {
-			this.descriptors.add(descriptor);
+		public void addDescriptor(IItemPropertyDescriptor descriptor, Identifiable specElement) {
+			this.descriptors.add(new SortedItemPropertyDescriptor(descriptor,
+					specElement));
 		}
 		
-		@Override
-		public String toString() {
+	}
 
-			StringBuffer sb = new StringBuffer();
-			sb.append("Category name: " + categoryName + "\n");
-			for (IItemPropertyDescriptor descriptor : this.descriptors) {
-				sb.append("	--> " + descriptor.getDisplayName(this.specElement)
-						+ "\n");
-			}
-			return sb.toString();
+	/**
+	 * HelpercClass for sorting the {@link IItemPropertyDescriptor}s in the
+	 * categories.
+	 */
+	class SortedItemPropertyDescriptor implements
+			Comparable<SortedItemPropertyDescriptor> {
 
+		private IItemPropertyDescriptor itemPropertyDescriptor;
+		private Identifiable specElement;
+
+		public SortedItemPropertyDescriptor(
+				IItemPropertyDescriptor itemPropertyDescriptor,
+				Identifiable specElement) {
+			this.itemPropertyDescriptor = itemPropertyDescriptor;
+			this.specElement = specElement;
+		}
+
+		public int compareTo(SortedItemPropertyDescriptor o) {
+			return itemPropertyDescriptor.getDisplayName(specElement)
+					.compareTo(
+							o.itemPropertyDescriptor
+									.getDisplayName(o.specElement));
+		}
+
+		public IItemPropertyDescriptor getItemPropertyDescriptor() {
+			return itemPropertyDescriptor;
 		}
 
 	}

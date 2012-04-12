@@ -42,8 +42,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -53,24 +51,27 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
+import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.ReqIfHeader;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
+import org.eclipse.rmf.reqif10.ReqIFHeader;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
+import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -122,7 +123,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Reqif10Package reqif10Package = Reqif10Package.eINSTANCE;
+	protected ReqIF10Package reqif10Package = ReqIF10Package.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
@@ -130,7 +131,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Reqif10Factory reqif10Factory = reqif10Package.getReqif10Factory();
+	protected ReqIF10Factory reqif10Factory = reqif10Package.getReqIF10Factory();
 
 	/**
 	 * This is the file creation page.
@@ -215,9 +216,9 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		ReqIf root = reqif10Factory.createReqIf();
+		ReqIF root = reqif10Factory.createReqIF();
 
-		ReqIfHeader header = reqif10Factory.createReqIfHeader();
+		ReqIFHeader header = reqif10Factory.createReqIFHeader();
 		root.setTheHeader(header);
 
 		// Setting the time gets more and more complicated...
@@ -233,7 +234,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		header.setSourceToolId("ProR (http://pror.org)");
 //		header.setAuthor(System.getProperty("user.name"));
 
-		ReqIfContent content = reqif10Factory.createReqIfContent();
+		ReqIFContent content = reqif10Factory.createReqIFContent();
 		root.setCoreContent(content);
 
 		// Add a DatatypeDefinition
@@ -261,22 +262,29 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		specType.getSpecAttributes().add(ad);
 
 		// Configure the Specification View
-		ProrToolExtension extension = ConfigFactory.eINSTANCE
+		ProrToolExtension extension = ConfigurationFactory.eINSTANCE
 				.createProrToolExtension();
 		root.getToolExtensions().add(extension);
-		ProrSpecViewConfiguration prorSpecViewConfiguration = ConfigFactory.eINSTANCE
+		ProrSpecViewConfiguration prorSpecViewConfiguration = ConfigurationFactory.eINSTANCE
 				.createProrSpecViewConfiguration();
 		extension.getSpecViewConfigurations().add(prorSpecViewConfiguration);
 		prorSpecViewConfiguration.setSpecification(spec);
-		Column col = ConfigFactory.eINSTANCE.createColumn();
+		Column col = ConfigurationFactory.eINSTANCE.createColumn();
 		col.setLabel("Description");
 		col.setWidth(400);
 		prorSpecViewConfiguration.getColumns().add(col);
 
+		Column leftHeaderColumn = ConfigurationFactory.eINSTANCE.createColumn();
+		leftHeaderColumn
+				.setWidth(ConfigurationUtil.DEFAULT_LEFT_HEADER_COLUMN_WIDTH);
+		leftHeaderColumn
+				.setLabel(ConfigurationUtil.DEFAULT_LEFT_HEADER_COLUMN_NAME);
+		prorSpecViewConfiguration.setLeftHeaderColumn(leftHeaderColumn);
+
 		// Configure the Label configuration
-		ProrGeneralConfiguration generalConfig = ConfigFactory.eINSTANCE
+		ProrGeneralConfiguration generalConfig = ConfigurationFactory.eINSTANCE
 				.createProrGeneralConfiguration();
-		LabelConfiguration labelConfig = ConfigFactory.eINSTANCE
+		LabelConfiguration labelConfig = ConfigurationFactory.eINSTANCE
 				.createLabelConfiguration();
 		labelConfig.getDefaultLabel().add("Description");
 		generalConfig.setLabelConfiguration(labelConfig);
@@ -321,7 +329,11 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 						try {
 							// Create a resource set
 							//
-							ResourceSet resourceSet = new ResourceSetImpl();
+							ReqIFResourceSetImpl resourceSet = new ReqIFResourceSetImpl();
+
+							// (mj) Sollte nicht notwendig sein, übernommmen von Mark's Unit Test
+							resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new ReqIFResourceFactoryImpl());
+							resourceSet.getPackageRegistry().put(ReqIF10Package.eNS_URI, ReqIF10Package.eINSTANCE);
 
 							// Get the URI of the model file.
 							//
@@ -345,7 +357,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 							// options.put(XMLResource.OPTION_ENCODING,
 							// initialObjectCreationPage.getEncoding());
 							options.put(XMLResource.OPTION_ENCODING, "UTF-8");
-							resource.save(options);
+							resource.save(null);
 						}
 						catch (Exception exception) {
 							Reqif10EditorPlugin.INSTANCE.log(exception);

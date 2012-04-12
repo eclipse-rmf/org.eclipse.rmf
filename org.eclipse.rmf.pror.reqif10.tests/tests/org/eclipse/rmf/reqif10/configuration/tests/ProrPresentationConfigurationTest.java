@@ -11,14 +11,15 @@
 
 package org.eclipse.rmf.reqif10.configuration.tests;
 
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import static org.junit.Assert.assertEquals;
+
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import static org.junit.Assert.*;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.Test;
 
 /**
@@ -47,13 +48,13 @@ public abstract class ProrPresentationConfigurationTest extends AbstractItemProv
 	
 	@Test
 	public void testTypeNotifications() {
-		ProrPresentationConfigurations configs = ConfigFactory.eINSTANCE.createProrPresentationConfigurations();
-		setViaCommand(configs, ConfigPackage.Literals.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS, fixture);
+		ProrPresentationConfigurations configs = ConfigurationFactory.eINSTANCE.createProrPresentationConfigurations();
+		setViaCommand(configs, ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS, fixture);
 		assertEquals(fixture, configs.getPresentationConfigurations().get(0));
 		
 		this.getItemProvider(fixture).addListener(listener);
-		DatatypeDefinition dd = Reqif10Factory.eINSTANCE.createDatatypeDefinitionString();
-		setViaCommand(fixture, ConfigPackage.Literals.PROR_PRESENTATION_CONFIGURATION__DATATYPE, dd);
+		DatatypeDefinition dd = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString();
+		setViaCommand(fixture, ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATION__DATATYPE, dd);
 		assertEquals(dd, fixture.getDatatype());
 		assertEquals(1, this.notifications.size());
 	}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<REQ-IF xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/spec/ReqIF/20101201" xsi:schemaLocation="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd reqif.xsd http://www.w3.org/1999/xhtml driver.xsd">
+<REQ-IF xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xsi:schemaLocation="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd reqif.xsd http://www.w3.org/1999/xhtml driver.xsd">
   <CORE-CONTENT>
     <REQ-IF-CONTENT/>
   </CORE-CONTENT>

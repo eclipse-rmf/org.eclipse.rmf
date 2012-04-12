@@ -19,6 +19,7 @@ import java.util.Set;
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.Cell;
 import org.agilemore.agilegrid.CellResizeAdapter;
+import org.agilemore.agilegrid.EditorActivationStrategy;
 import org.agilemore.agilegrid.ICellResizeListener;
 import org.agilemore.agilegrid.ISelectionChangedListener;
 import org.agilemore.agilegrid.SWTX;
@@ -47,18 +48,18 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrAgileGridContentProvider.ProrRow;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DragSource;
@@ -118,10 +119,11 @@ public class ProrAgileGridViewer extends Viewer {
 	 * @param adapterFactory
 	 */
 	public ProrAgileGridViewer(Composite composite, AdapterFactory adapterFactory, EditingDomain editingDomain) {
-		agileGrid = new ProrAgileGrid(composite, SWTX.AUTO_SCROLL
+		agileGrid = new ProrAgileGrid(composite, SWT.V_SCROLL | SWT.H_SCROLL
 				| SWTX.FILL_WITH_LASTCOL | SWT.MULTI | SWT.DOUBLE_BUFFERED);
 		agileGrid.setLayoutAdvisor(new ProrLayoutAdvisor(agileGrid));
 		// agileGrid.setAgileGridEditor(new ProrAgileGridEditor(agileGrid));
+		agileGrid.setEditorActivationStrategy(new EditorActivationStrategy(agileGrid, true));
 		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
 		enableDragNDrop();
@@ -134,7 +136,7 @@ public class ProrAgileGridViewer extends Viewer {
 			@Override
 			public void keyPressed(KeyEvent e) {
 
-				if (e.keyCode == 13 && e.stateMask == SWT.CTRL) {
+				if (e.stateMask == SWT.CTRL && (e.keyCode == SWT.CR || e.keyCode == SWT.KEYPAD_CR) ) {
 					e.doit = false;
 					if (selection.isEmpty()) {
 						return;
@@ -166,29 +168,29 @@ public class ProrAgileGridViewer extends Viewer {
 		}
 
 		// Create the new elements
-		SpecHierarchy newSpecHierarchy = Reqif10Factory.eINSTANCE.createSpecHierarchy();
-		SpecObject newSpecObject = Reqif10Factory.eINSTANCE.createSpecObject();
+		SpecHierarchy newSpecHierarchy = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
+		SpecObject newSpecObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		newSpecHierarchy.setObject(newSpecObject);
 		
 		EReference childFeature;
 		int pos;
 		EObject parent = specHierarchy.eContainer();
 		if (parent instanceof SpecHierarchy) {
-			childFeature = Reqif10Package.Literals.SPEC_HIERARCHY__CHILDREN;
+			childFeature = ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN;
 			pos = ((SpecHierarchy) specHierarchy.eContainer()).getChildren()
 					.indexOf(specHierarchy) + 1;
 		} else if (parent instanceof Specification) {
-			childFeature = Reqif10Package.Literals.SPECIFICATION__CHILDREN;
+			childFeature = ReqIF10Package.Literals.SPECIFICATION__CHILDREN;
 			pos = ((Specification) specHierarchy.eContainer())
 					.getChildren().indexOf(specHierarchy) + 1;
 		} else {
 			throw new IllegalStateException("Wrong parent: " + parent);
 		}
 
-		CompoundCommand cmd = ProrUtil.createAddTypedElementCommand(Reqif10Util
-				.getReqIf(specHierarchy).getCoreContent(),
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
-				newSpecObject, Reqif10Package.Literals.SPEC_OBJECT__TYPE,
+		CompoundCommand cmd = ProrUtil.createAddTypedElementCommand(ReqIF10Util
+				.getReqIF(specHierarchy).getCoreContent(),
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
+				newSpecObject, ReqIF10Package.Literals.SPEC_OBJECT__TYPE,
 				specHierarchy.getObject().getType(), -1, -1, editingDomain,
 				adapterFactory);
 		
@@ -227,6 +229,10 @@ public class ProrAgileGridViewer extends Viewer {
 		agileGrid.redraw();
 	}
 
+	/**
+	 * This method sets a {@link Specification} as input and registers some
+	 * listeners.
+	 */
 	@Override
 	public void setInput(Object input) {
 		unregisterColumnListener();
@@ -294,18 +300,20 @@ public class ProrAgileGridViewer extends Viewer {
 			}
 		};
 		specViewConfig.eAdapters().add(emfColumnListener);
-
 		agColumnListener = new CellResizeAdapter() {
 			@Override
 			public void columnResized(int col, int newWidth) {
-				// Can happen when the label column is resized.
-				if (col < 0)
-					return;
-				Column column = specViewConfig.getColumns().get(col);
-				Command cmd = SetCommand.create(editingDomain, column,
-						ConfigPackage.Literals.COLUMN__WIDTH, newWidth);
-
-				editingDomain.getCommandStack().execute(cmd);
+				// If the column index is -1 we resized the very first column,
+				// otherwise we resized a normal column
+				Column column = (col == -1) ? ConfigurationUtil
+						.getLeftHeaderColumn(specification, editingDomain)
+						: specViewConfig.getColumns()
+						.get(col);
+				if (column != null) {
+					Command cmd = SetCommand.create(editingDomain, column,
+							ConfigurationPackage.Literals.COLUMN__WIDTH, newWidth);
+					editingDomain.getCommandStack().execute(cmd);
+				}
 			}
 		};
 		agileGrid.addCellResizeListener(agColumnListener);
@@ -320,7 +328,7 @@ public class ProrAgileGridViewer extends Viewer {
 
 	private void unregisterSpecRelationListener() {
 		if (specRelationContentAdapter != null) {
-			Reqif10Util.getReqIf(specification).getCoreContent().eAdapters()
+			ReqIF10Util.getReqIF(specification).getCoreContent().eAdapters()
 					.remove(specHierarchyRootContentAdapter);
 		}
 	}
@@ -339,8 +347,8 @@ public class ProrAgileGridViewer extends Viewer {
 					SpecObject specObject = (SpecObject) notification
 							.getNewValue();
 					contentProvider.updateElement(specObject);
-				} else if (notification.getFeature() == Reqif10Package.Literals.SPECIFICATION__CHILDREN
-						|| notification.getFeature() == Reqif10Package.Literals.SPEC_HIERARCHY__CHILDREN) {
+				} else if (notification.getFeature() == ReqIF10Package.Literals.SPECIFICATION__CHILDREN
+						|| notification.getFeature() == ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN) {
 					updateRowCount();
 					refresh();
 				}
@@ -377,7 +385,7 @@ public class ProrAgileGridViewer extends Viewer {
 			}
 		};
 
-		Reqif10Util.getReqIf(specification).getCoreContent().eAdapters()
+		ReqIF10Util.getReqIF(specification).getCoreContent().eAdapters()
 				.add(specRelationContentAdapter);
 	}
 
@@ -405,7 +413,6 @@ public class ProrAgileGridViewer extends Viewer {
 		// Create a Listener that translates the new selection from Cells to
 		// SpecHierarchies
 		selectionChangedistener = new ISelectionChangedListener() {
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				Set<Cell> cells = event.getNewSelections();
 				List<Object> items = new ArrayList<Object>();
@@ -419,7 +426,9 @@ public class ProrAgileGridViewer extends Viewer {
 									.size()) {
 						item = ((SpecRelation) item).getTarget();
 					}
-					items.add(item);
+					if (item != null) {
+						items.add(item);
+					}
 				}
 				selection = new StructuredSelection(items);
 				ProrAgileGridViewer.this
@@ -446,6 +455,12 @@ public class ProrAgileGridViewer extends Viewer {
 	 */
 	private void updateColumnInformation() {
 		EList<Column> cols = specViewConfig.getColumns();
+		Column leftHeaderColumn = ConfigurationUtil.getLeftHeaderColumn(
+				specification, editingDomain);
+		// Handle first column
+		if (leftHeaderColumn != null)
+			agileGrid.getLayoutAdvisor().setLeftHeaderWidth(
+					leftHeaderColumn.getWidth());
 		// One more column for the links
 		if (!agileGrid.isDisposed()) {
 			agileGrid.getLayoutAdvisor().setColumnCount(cols.size() + 1);
@@ -544,6 +559,13 @@ public class ProrAgileGridViewer extends Viewer {
 				}
 				super.dragStart(event);
 			}
+			
+			@Override
+			public void dragFinished(DragSourceEvent event) {
+				super.dragFinished(event);
+				agileGrid.dndHoverCell = null;
+				agileGrid.redraw();
+			}
 		});
 
 		// Modified to make the EMF-Based Drag and Drop work.
@@ -567,8 +589,51 @@ public class ProrAgileGridViewer extends Viewer {
 						Object target = contentProvider.getProrRow(cell.row).element;
 						if (target instanceof SpecHierarchy) {
 							dragTarget = (SpecHierarchy) target;
+							float location = getLocation(e);
+							if (location == 0.5){
+								agileGrid.dndHoverCell = cell;
+								agileGrid.dndHoverDropMode = ProrAgileGrid.DND_DROP_AS_CHILD;
+							}
+							if (location == 0.0){
+								Cell prevCell = agileGrid.getNeighbor(cell, AgileGrid.ABOVE, true);
+								agileGrid.dndHoverCell = prevCell;
+								agileGrid.dndHoverDropMode = ProrAgileGrid.DND_DROP_AS_SIBLING;
+							}
+							if (location == 1.0){
+								agileGrid.dndHoverCell = cell;
+								agileGrid.dndHoverDropMode = ProrAgileGrid.DND_DROP_AS_SIBLING;
+							}
+							agileGrid.redraw();
 						}
 					}
+					
+					@Override
+					protected float getLocation(DropTargetEvent event) {
+						Point pos = agileGrid.toControl(event.x, event.y);
+						Cell cell = agileGrid.getCell(pos.x, pos.y);
+						
+						if (agileGrid.getLayoutAdvisor() instanceof ProrLayoutAdvisor) {
+							ProrLayoutAdvisor layoutAdvisor = (ProrLayoutAdvisor) agileGrid.getLayoutAdvisor();
+						
+							int rowHeight = layoutAdvisor.getRowHeight(cell.row);
+							int y = agileGrid.getYForRow(cell.row);
+							int mouseY = pos.y - y;
+							
+							float location = (float)mouseY / (float)rowHeight;
+							
+							if (location < 0.3){
+								return 0.0F;
+							}else if(location <= 0.7){
+								return 0.5F;
+							}else{
+								return 1.0F;
+							}
+						}
+						
+						return 1.0F;
+						
+					}
+					
 				});
 	}
 

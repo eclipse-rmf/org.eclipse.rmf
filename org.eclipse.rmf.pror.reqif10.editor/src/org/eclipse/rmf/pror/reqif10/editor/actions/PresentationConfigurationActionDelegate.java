@@ -19,17 +19,18 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10Editor;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor;
-import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationPluginManager;
-import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorManager;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 
@@ -41,7 +42,6 @@ public class PresentationConfigurationActionDelegate implements
 	/**
 	 * Retrieves the {@link EditingDomain} from the Editor if present.
 	 */
-	@Override
 	public void setActiveEditor(IAction action, IEditorPart editor) {
 		if (editor instanceof Reqif10Editor) {
 			this.editor = (Reqif10Editor) editor;
@@ -56,7 +56,6 @@ public class PresentationConfigurationActionDelegate implements
 	 * Opens the {@link ReqIFToolExtension} for the current
 	 * {@link EditingDomain}.
 	 */
-	@Override
 	public void run(IAction action) {
 		if (editor == null)
 			return;
@@ -68,7 +67,7 @@ public class PresentationConfigurationActionDelegate implements
 
 	private IAction[] buildAddPresentationActions() {
 
-		Set<Class<? extends ProrPresentationConfiguration>> configs = PresentationPluginManager
+		Set<Class<? extends ProrPresentationConfiguration>> configs = PresentationEditorManager
 				.getPresentationServiceMap().keySet();
 		IAction[] actions = new IAction[configs.size()];
 
@@ -78,14 +77,14 @@ public class PresentationConfigurationActionDelegate implements
 			actions[i++] = new Action(ProrUtil.substractPrefixPostfix(config, "","ConfigurationImpl")) {
 				@Override
 				public void run() {
-					PresentationService service = PresentationPluginManager
+					PresentationService service = PresentationEditorManager
 							.getPresentationServiceMap().get(config);
 					ProrPresentationConfiguration config = service
 							.getConfigurationInstance();
 					Command command = AddCommand
 							.create(editor.getEditingDomain(),
 									getProrPresentationConfigurations(),
-									ConfigPackage.Literals.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS,
+									ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS,
 									config);
 					editor.getEditingDomain().getCommandStack()
 							.execute(command);
@@ -108,15 +107,14 @@ public class PresentationConfigurationActionDelegate implements
 			Command cmd = SetCommand
 					.create(editor.getEditingDomain(),
 							ext,
-							ConfigPackage.Literals.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS,
-							ConfigFactory.eINSTANCE
+							ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS,
+							ConfigurationFactory.eINSTANCE
 									.createProrPresentationConfigurations());
 			editor.getEditingDomain().getCommandStack().execute(cmd);
 		}
 		return ext.getPresentationConfigurations();
 	}
 
-	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// No action required.
 	}

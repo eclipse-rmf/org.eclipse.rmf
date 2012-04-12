@@ -27,10 +27,10 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.AttributeValueReal;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueReal} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.AttributeValueReal} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -83,11 +83,11 @@ public class AttributeValueRealItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeValueReal_theValue_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueReal_theValue_feature", "_UI_AttributeValueReal_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_VALUE_REAL__THE_VALUE,
+				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_REAL__THE_VALUE,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -105,23 +105,13 @@ public class AttributeValueRealItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeValueReal_definition_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueReal_definition_feature", "_UI_AttributeValueReal_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_VALUE_REAL__DEFINITION,
+				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_REAL__DEFINITION,
 				 true,
 				 false,
 				 true,
 				 null,
 				 null,
 				 null));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	/**
@@ -132,11 +122,8 @@ public class AttributeValueRealItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Double labelValue = ((AttributeValueReal)object).getTheValue();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AttributeValueReal_type") :
-			getString("_UI_AttributeValueReal_type") + " " + label;
+		AttributeValueReal attributeValueReal = (AttributeValueReal)object;
+		return getString("_UI_AttributeValueReal_type") + " " + attributeValueReal.getTheValue();
 	}
 
 	/**
@@ -152,7 +139,7 @@ public class AttributeValueRealItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AttributeValueReal.class)) {
-			case Reqif10Package.ATTRIBUTE_VALUE_REAL__THE_VALUE:
+			case ReqIF10Package.ATTRIBUTE_VALUE_REAL__THE_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 		}
 		super.notifyChanged(notification);

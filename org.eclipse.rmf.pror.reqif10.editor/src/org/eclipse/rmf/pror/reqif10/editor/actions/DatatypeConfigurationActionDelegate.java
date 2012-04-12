@@ -21,7 +21,8 @@ import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecObjectItemProvider;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecRelationGroupItemProvider;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecRelationsItemProvider;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecificationsItemProvider;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 
@@ -33,7 +34,6 @@ public class DatatypeConfigurationActionDelegate implements
 	/**
 	 * Retrieves the {@link EditingDomain} from the Editor if present.
 	 */
-	@Override
 	public void setActiveEditor(IAction action, IEditorPart editor) {
 		if (editor instanceof Reqif10Editor) {
 			this.editor = (Reqif10Editor) editor;
@@ -48,14 +48,13 @@ public class DatatypeConfigurationActionDelegate implements
 	 * Opens the {@link ReqIFToolExtension} for the current
 	 * {@link EditingDomain}.
 	 */
-	@Override
 	public void run(IAction action) {
 		if (editor == null)
 			return;
-		ReqIf rif = (ReqIf) editor.getEditingDomain().getResourceSet()
+		ReqIF reqif = (ReqIF) editor.getEditingDomain().getResourceSet()
 				.getResources().get(0).getContents().get(0);
 
-		SubtreeDialog dialog = new SubtreeDialog(editor, rif.getCoreContent(),
+		SubtreeDialog dialog = new SubtreeDialog(editor, reqif.getCoreContent(),
 				"Datatype Configuration",
 				"org.eclipse.rmf.pror.reqif10.editor.datatypeConfiguration");
 		dialog.addFilter(new ViewerFilter() {
@@ -72,7 +71,6 @@ public class DatatypeConfigurationActionDelegate implements
 		dialog.open();
 	}
 
-	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// No action required.
 	}

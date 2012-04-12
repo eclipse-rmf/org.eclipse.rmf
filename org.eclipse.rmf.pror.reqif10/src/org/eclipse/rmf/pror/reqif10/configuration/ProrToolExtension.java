@@ -12,8 +12,7 @@
 package org.eclipse.rmf.pror.reqif10.configuration;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.rmf.reqif10.ReqIfToolExtension;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,11 +28,11 @@ import org.eclipse.rmf.reqif10.ReqIfToolExtension;
  * </ul>
  * </p>
  *
- * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrToolExtension()
+ * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrToolExtension()
  * @model
  * @generated
  */
-public interface ProrToolExtension extends ReqIfToolExtension {
+public interface ProrToolExtension extends ReqIFToolExtension {
 	/**
 	 * Returns the value of the '<em><b>Spec View Configurations</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration}.
@@ -44,7 +43,7 @@ public interface ProrToolExtension extends ReqIfToolExtension {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Spec View Configurations</em>' containment reference list.
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrToolExtension_SpecViewConfigurations()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrToolExtension_SpecViewConfigurations()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -60,7 +59,7 @@ public interface ProrToolExtension extends ReqIfToolExtension {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>General Configuration</em>' containment reference.
 	 * @see #setGeneralConfiguration(ProrGeneralConfiguration)
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrToolExtension_GeneralConfiguration()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrToolExtension_GeneralConfiguration()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
@@ -86,7 +85,7 @@ public interface ProrToolExtension extends ReqIfToolExtension {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Presentation Configurations</em>' containment reference.
 	 * @see #setPresentationConfigurations(ProrPresentationConfigurations)
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrToolExtension_PresentationConfigurations()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrToolExtension_PresentationConfigurations()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */

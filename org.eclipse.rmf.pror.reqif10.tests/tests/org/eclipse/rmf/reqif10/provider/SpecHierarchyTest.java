@@ -11,7 +11,7 @@
 
 package org.eclipse.rmf.reqif10.provider;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.net.URISyntaxException;
 import java.util.HashSet;
@@ -21,9 +21,9 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.junit.After;
@@ -48,7 +48,7 @@ public class SpecHierarchyTest extends IdentifiableTest {
 	 */
 	@Before
 	public void setUpSpecHierarchyTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createSpecHierarchy());
+		setFixture(ReqIF10Factory.eINSTANCE.createSpecHierarchy());
 	}
 
 	/**
@@ -64,36 +64,36 @@ public class SpecHierarchyTest extends IdentifiableTest {
 	 */
 	@Test
 	public void testPropertiesOfSpecElementWithAttribute() throws URISyntaxException {
-		ReqIf reqif = getTestReqif("simple.reqif");
-		setViaCommand(reqif.getCoreContent().getSpecifications().get(0), Reqif10Package.Literals.SPECIFICATION__CHILDREN, getFixture());
+		ReqIF reqif = getTestReqif("simple.reqif");
+		setViaCommand(reqif.getCoreContent().getSpecifications().get(0), ReqIF10Package.Literals.SPECIFICATION__CHILDREN, getFixture());
 		SpecObject specObject = reqif.getCoreContent().getSpecObjects().get(0);
 		getFixture().setObject(specObject);
 		ItemProviderAdapter ip = getItemProvider(getFixture());
 
 		Set<String> expected = new HashSet<String>();
 		for (IItemPropertyDescriptor prop: ip.getPropertyDescriptors(getFixture())) {
-			expected.add(prop.getDisplayName(getFixture()));			
+			expected.add(prop.getCategory(getFixture()) + "-" + prop.getDisplayName(getFixture()));			
 		}
 		
-		AttributeDefinitionString ad = Reqif10Factory.eINSTANCE.createAttributeDefinitionString();
+		AttributeDefinitionString ad = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		adapterFactory.adapt(ad, IItemLabelProvider.class);
 		adapterFactory.adapt(specObject.getType(), IItemLabelProvider.class);
 		adapterFactory.adapt(specObject, IItemLabelProvider.class);
 		adapterFactory.adapt(getFixture(), IItemLabelProvider.class);
 
 		ad.setLongName("New");
-		setViaCommand(specObject.getType(), Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad);
+		setViaCommand(specObject.getType(), ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad);
 		
 		assertEquals(expected.size() + 1, ip.getPropertyDescriptors(getFixture()).size());
 		
 		// Set of actuals
 		Set<String> actual = new HashSet<String>();
 		for (IItemPropertyDescriptor prop: ip.getPropertyDescriptors(getFixture())) {
-			actual.add(prop.getDisplayName(getFixture()));			
+			actual.add(prop.getCategory(getFixture()) + "-" + prop.getDisplayName(getFixture()));			
 		}
 
 		// Set of expected
-		expected.add("New");
+		expected.add("Example SpecType-New");
 		assertEquals(expected, actual);
 	}
 

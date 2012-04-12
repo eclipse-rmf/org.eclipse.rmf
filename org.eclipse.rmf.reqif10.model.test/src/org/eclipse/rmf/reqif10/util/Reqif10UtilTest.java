@@ -52,7 +52,6 @@ public class Reqif10UtilTest {
 	public void testGetTheValueBoolean() {
 		testGetTheValue(Reqif10Factory.eINSTANCE.createAttributeValueBoolean(),
 				Boolean.TRUE, new AttributeValueSetter() {
-					@Override
 					public void setTheValue(AttributeValue av, Object value) {
 						((AttributeValueBoolean) av)
 								.setTheValue((Boolean) value);
@@ -68,7 +67,6 @@ public class Reqif10UtilTest {
 				.newXMLGregorianCalendar(cal);
 		testGetTheValue(Reqif10Factory.eINSTANCE.createAttributeValueDate(),
 				xmlCal, new AttributeValueSetter() {
-					@Override
 					public void setTheValue(AttributeValue av, Object value) {
 						((AttributeValueDate) av)
 								.setTheValue((XMLGregorianCalendar) value);
@@ -80,7 +78,6 @@ public class Reqif10UtilTest {
 	public void testGetTheValueInteger() {
 		testGetTheValue(Reqif10Factory.eINSTANCE.createAttributeValueInteger(),
 				BigInteger.valueOf(10), new AttributeValueSetter() {
-					@Override
 					public void setTheValue(AttributeValue av, Object value) {
 						((AttributeValueInteger) av)
 								.setTheValue((BigInteger) value);
@@ -92,7 +89,6 @@ public class Reqif10UtilTest {
 	public void testGetTheValueReal() {
 		testGetTheValue(Reqif10Factory.eINSTANCE.createAttributeValueReal(),
 				Double.valueOf(10.5), new AttributeValueSetter() {
-					@Override
 					public void setTheValue(AttributeValue av, Object value) {
 						((AttributeValueReal) av).setTheValue((Double) value);
 					}
@@ -103,7 +99,6 @@ public class Reqif10UtilTest {
 	public void testGetTheValueString() {
 		testGetTheValue(Reqif10Factory.eINSTANCE.createAttributeValueString(),
 				"Hello, World", new AttributeValueSetter() {
-					@Override
 					public void setTheValue(AttributeValue av, Object value) {
 						((AttributeValueString) av).setTheValue((String) value);
 					}
@@ -115,7 +110,6 @@ public class Reqif10UtilTest {
 		XhtmlContent content = DatatypesFactory.eINSTANCE.createXhtmlContent();
 		testGetTheValue(Reqif10Factory.eINSTANCE.createAttributeValueXhtml(),
 				content, new AttributeValueSetter() {
-					@Override
 					public void setTheValue(AttributeValue av, Object value) {
 						((AttributeValueXhtml) av)
 								.setTheValue((XhtmlContent) value);

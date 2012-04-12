@@ -17,9 +17,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,10 +26,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 
 
@@ -88,23 +83,13 @@ public class ProrPresentationConfigurationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ProrPresentationConfiguration_datatype_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ProrPresentationConfiguration_datatype_feature", "_UI_ProrPresentationConfiguration_type"),
-				 ConfigPackage.Literals.PROR_PRESENTATION_CONFIGURATION__DATATYPE,
+				 ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATION__DATATYPE,
 				 true,
 				 false,
 				 true,
 				 null,
 				 null,
 				 null));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	@Override
@@ -133,12 +118,6 @@ public class ProrPresentationConfigurationItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ProrPresentationConfiguration.class)) {
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

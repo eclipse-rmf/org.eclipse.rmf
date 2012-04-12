@@ -63,7 +63,7 @@ public class ReqifResourceImpl extends XMLResourceImpl {
 
 			@Override
 			public String getURI(String prefix) {
-				if (prefix != null && prefix.isEmpty())
+				if (prefix != null && prefix.length() == 0)
 					return ReqifPackage.eNS_URI;
 				else
 					return super.getURI(prefix);

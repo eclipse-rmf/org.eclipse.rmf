@@ -23,17 +23,24 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 
+/**
+ * 
+ * The agile grid viewer for the properties view.
+ * 
+ * @author Lukas Ladenberger
+ * 
+ */
 public class ProrPropertyViewer extends Viewer {
 
 	private final AgileGrid agileGrid;
 	
-	private Identifiable specElement;
+	private Identifiable currentSelectedSpecElement;
 	
 	private final ProrPropertyContentProvider contentProvider;
 
 	public ProrPropertyViewer(Composite parent, EditingDomain editingDomain, AdapterFactory adapterFactory) {
 		// Create Agile Grid
-		agileGrid = new AgileGrid(parent, SWTX.AUTO_SCROLL
+		agileGrid = new AgileGrid(parent, SWT.V_SCROLL | SWT.H_SCROLL
 				| SWTX.FILL_WITH_DUMMYCOL | SWT.FLAT);
 		agileGrid.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
 		this.contentProvider = new ProrPropertyContentProvider(editingDomain);
@@ -54,7 +61,7 @@ public class ProrPropertyViewer extends Viewer {
 
 	@Override
 	public Object getInput() {
-		return specElement;
+		return currentSelectedSpecElement;
 	}
 
 	@Override
@@ -64,19 +71,25 @@ public class ProrPropertyViewer extends Viewer {
 
 	@Override
 	public void refresh() {
+	}
+
+	public void update() {
+		this.contentProvider.setContent(this.currentSelectedSpecElement);
 		agileGrid.redraw();
 	}
 
+	/**
+	 * If a new selection was detected, set the corresponding input to the
+	 * {@link ProrPropertyContentProvider}.
+	 */
 	@Override
 	public void setInput(Object specElement) {
-		// Set the input to the content provider of the agile grid
 		if (specElement instanceof Identifiable) {
-			this.specElement = (Identifiable) specElement;
+			this.currentSelectedSpecElement = (Identifiable) specElement;
 		} else {
-			this.specElement = null;
+			this.currentSelectedSpecElement = null;
 		}
-		this.contentProvider.setIdentifiable(this.specElement);
-		refresh();
+		update();
 	}
 	
     @Override

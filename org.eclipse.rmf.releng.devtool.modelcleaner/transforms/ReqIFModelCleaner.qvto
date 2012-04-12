@@ -1,0 +1,327 @@
+/**
+ * Copyright (c) 2012 itemis GmbH.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Mark Broerkens - initial API and implementation
+ * 
+ */
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype XSD uses 'http://www.eclipse.org/emf/2003/XMLType';
+modeltype NAMESPACE uses 'http://www.w3.org/XML/1998/namespace';
+
+transformation ReqIfModelCleaner(inout reqIfModel : ECORE);
+
+
+main() {
+	reqIfModel.objectsOfType(ECORE::EPackage)->map flattenDatatypesPackage();
+	reqIfModel.objectsOfType(ECORE::EPackage)->map setNamespaceData();		
+	
+ 	reqIfModel.objectsOfType(ECORE::EStructuralFeature)->map makeUnsettable();
+	reqIfModel.objectsOfType(ECORE::EAttribute)->map setMetadata();
+	reqIfModel.objectsOfType(ECORE::EAttribute)->map makeId();
+	reqIfModel.objectsOfType(ECORE::EAttribute)->map removeIsPrefix();
+	reqIfModel.objectsOfType(ECORE::EAttribute)->map makeEBigInteger();
+	reqIfModel.objectsOfType(ECORE::EAttribute)->map makeEFloat(); 
+	reqIfModel.objectsOfType(ECORE::EAttribute)->map makeDateTime();
+
+	reqIfModel.objectsOfType(ECORE::EAttribute)->map fixReqIFLang();
+	
+	reqIfModel.objectsOfType(ECORE::EReference)->map setMetadata();
+	reqIfModel.objectsOfType(ECORE::EClass)->map removeBackLinkages();
+	reqIfModel.objectsOfType(ECORE::EClass)->map setMetadata();
+	reqIfModel.objectsOfType(ECORE::EClass)->map fixOrderOfCoreContentFeatures();
+	reqIfModel.objectsOfType(ECORE::EDataType)->map fixDatatypeID();
+	
+	// allow any xml inside of element REQ-IF-TOOL-EXTENSION 
+	reqIfModel.objectsOfType(ECORE::EClass)->map fixReqIFToolExtension();
+	
+	// cleanup
+	reqIfModel.objectsOfType(ECORE::EDataType)->map removeDataTypeFloat();
+	reqIfModel.objectsOfType(ECORE::EPackage)->map removePackageDatatype();
+	reqIfModel.objectsOfType(ECORE::EDataType)->map removeDataTypeDateTime();
+}
+
+
+
+mapping inout ECORE::EAttribute :: makeDateTime ()
+when {self.eType.name.toLower()="datetime"} 
+{
+	self.eType := XSD::DateTime.oclAsType(ECORE::EClassifier);
+}
+
+mapping inout ECORE::EDataType :: fixDatatypeID ()
+when {self.name.toLower()="id"} 
+{
+	self.instanceClassName :="java.lang.String";
+	self.name :="ID";
+}
+
+mapping inout ECORE::EClass :: fixReqIFToolExtension ()
+when {self.name.toLower()="reqiftoolextension"} 
+{
+	self.eStructuralFeatures += object EAttribute {
+		name := "any";
+		eType := ECORE::EFeatureMapEntry.oclAsType(ECORE::EClassifier);
+		eAnnotations += getAnyExtendedMetadata();
+	}
+}
+
+mapping inout ECORE::EAttribute :: makeEFloat ()
+when {self.eType.name.toLower()="float"} 
+{
+	self.eType := ECORE::EDouble.oclAsType(ECORE::EClassifier);
+}
+
+mapping inout ECORE::EDataType :: removeDataTypeFloat ()
+when {self.name.toLower()="float"} 
+{
+	self->map removeElements();
+}
+
+mapping inout ECORE::EDataType :: removeDataTypeDateTime ()
+when {self.name.toLower()="datetime"} 
+{
+	self->map removeElements();
+}
+
+mapping inout ECORE::EPackage :: removePackageDatatype ()
+when {self.name.toLower()="datatypes"} 
+{
+	self->map removeElements();
+}
+
+mapping inout ECORE::EModelElement :: removeElements ()
+{
+	self.allSubobjects()[ECORE::EModelElement]->map removeElement();
+	self->map removeElement();
+}
+
+mapping inout ECORE::EModelElement :: removeElement ()
+{
+	reqIfModel.removeElement(self);
+}
+
+// TODO: not sure if we really want to use this. might be better to take an enum with predefined values
+mapping inout ECORE::EAttribute :: fixReqIFLang ()
+when {self.name.toLower()="lang"} 
+{
+	self.eType := NAMESPACE::LangType.oclAsType(ECORE::EClassifier);
+}
+
+mapping inout ECORE::EPackage :: flattenDatatypesPackage() 
+when {self.name.toLower()="datatypes"}
+{
+	var parent : ECORE::EPackage = self.eSuperPackage;
+	parent.eClassifiers += self.eClassifiers;
+}
+
+
+mapping inout ECORE::EClass :: fixOrderOfCoreContentFeatures() 
+when {self.name="ReqIFContent"}
+{
+	self.eStructuralFeatures := self.eStructuralFeatures[name="datatypes"]
+	->append(self.eStructuralFeatures![name="specTypes"])
+	->append(self.eStructuralFeatures![name="specObjects"])
+	->append(self.eStructuralFeatures![name="specRelations"])
+	->append(self.eStructuralFeatures![name="specifications"])
+	->append(self.eStructuralFeatures![name="specRelationGroups"]);
+	
+}
+
+// set namespace prefix to "" in order to serialized with default namespace
+mapping inout ECORE::EPackage :: setNamespaceData() 
+when {self.name.toLower()="reqif"}
+{
+	self.nsURI := "http://www.omg.org/spec/ReqIF/20110401/reqif.xsd";
+	self.nsPrefix := "";
+	self.name := "reqif10";
+	
+}
+
+mapping inout ECORE::EStructuralFeature :: makeUnsettable() {
+	self.unsettable := true;
+}
+
+
+mapping inout ECORE::EAttribute :: makeId() 
+when {self.eType.name.toLower() = "id"}{
+	self.iD := true;
+}
+
+// avoid getters for boolean value attributes that start with a double 'is'
+// e.g. the attribute isEditable:Boolean would be generated as isIsEditable() 
+mapping inout ECORE::EAttribute :: removeIsPrefix() 
+when {self.name.startsWith("is") and self.eType = ECORE::EBoolean}{
+	self.name := self.name.trimLeadingIs();
+}
+
+// xsd:integer refers to unlimited integers. Therefore EInt is not sufficient
+// TODO: it is questionable to have a Real.accuracy or Sting.maxLength of unlimited
+mapping inout ECORE::EAttribute :: makeEBigInteger() 
+when {self.eType = ECORE::EInt}{
+	self.eType := ECORE::EBigInteger.oclAsType(ECORE::EClassifier);
+}
+
+// sets the XML name and attribute/element serialization information
+// all Eattributes except most Eattributes of ReqIfHeader are serialized as attributes
+mapping inout ECORE::EAttribute :: setMetadata() {
+    if (self.eContainingClass.name = "ReqIFHeader" and self.name != "identifier") then {
+		self.eAnnotations := self.getFeatureExtendedMetadata("element");
+	} else { 
+		self.eAnnotations := self.getFeatureExtendedMetadata("attribute");
+	} endif;
+}
+
+// sets the XML name and attribute/element serialization information
+mapping inout ECORE::EReference :: setMetadata() {
+	self.eAnnotations := self.getFeatureExtendedMetadata("element");
+}
+
+// sets the XML name and attribute/element serialization information
+mapping inout ECORE::EClass :: setMetadata() {
+	self.eAnnotations := self.getClassExtendedMetadata("elementOnly");
+}
+
+
+mapping inout ECORE::EClass :: removeBackLinkages() {
+	eStructuralFeatures := self.eStructuralFeatures[isValid()]
+}
+
+
+query ECORE :: EStructuralFeature :: isValid() : Boolean {
+    return true;	
+}
+
+query ECORE :: EReference :: isValid() : Boolean {
+    return not self.container
+}
+
+query ECORE::ENamedElement :: getFeatureExtendedMetadata(kind : String) : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "name";
+			value := self.getXMLName();
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "kind";
+			value := kind;
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "namespace";
+			value := "##targetNamespace";
+		};
+	}
+}
+
+query ECORE::ENamedElement :: getAnyExtendedMetadata() : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "kind";
+			value := "elementWildcard";
+		};
+	    details += object ECORE::EStringToStringMapEntry {
+			key := "wildcards";
+			value := "##other";
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "name";
+			value := ":0";
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "processing";
+			value := "lax";
+		};
+	}
+}
+
+query ECORE::ENamedElement :: getClassExtendedMetadata(kind : String) : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "name";
+			value := self.getXMLName();
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "kind";
+			value := kind;
+		};
+	}
+}
+
+
+query ECORE::ENamedElement :: getXMLName() : String {
+		var retTag : String = "";
+		
+		var index : Integer := 1;
+		var lastChar := " ";
+		var currentChar : String;
+		var nextChar := " ";
+		
+		while (index<=self.name.length()) {
+			currentChar := self.name.substring(index,index);
+			if (index+1 <= self.name.length()) then {
+				nextChar := self.name.substring(index+1,index+1);  
+			} endif;
+			if (hasStateChanged(lastChar, currentChar, nextChar)) then {
+				retTag := retTag + "-";
+			} endif;
+			lastChar := currentChar;
+			retTag := retTag + currentChar.toUpper(); 
+			index := index+1;
+		};
+		
+		return retTag;
+
+}
+
+query hasStateChanged(lastChar : String, currentChar : String , nextChar : String ) : Boolean {
+	if (lastChar.isLower() and currentChar.isUpper()) then {
+		return true;
+	} else {
+		if (lastChar.isUpper() and currentChar.isUpper() and nextChar.isLower()) then {
+			return true;
+		} else {
+			return false;
+		} endif;
+	} endif;
+	
+	return false;
+}
+
+	
+query String :: isLower() : Boolean {
+	return (self.toLower() = self and " " != self);
+}
+
+query String :: isUpper() : Boolean {
+	return (self.toUpper() = self and " " != self);
+}
+
+query String :: trimLeadingIs() : String {
+	var returnValue : String;
+	
+	if (self.startsWith("is")) then {
+		var tail : String;
+		if (3<self.size()) then {
+			tail := self.substring(4,self.size());
+		} else {
+			tail := "";
+		} endif;
+		
+		var firstLower : String;
+		firstLower := self.substring(3,3).toLower();
+		
+		returnValue := firstLower+tail;
+	} else {
+		returnValue := self;
+	} endif;
+	
+	return returnValue;
+	
+}	

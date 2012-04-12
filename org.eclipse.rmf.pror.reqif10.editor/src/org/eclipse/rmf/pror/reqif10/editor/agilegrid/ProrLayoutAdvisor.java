@@ -87,6 +87,7 @@ public class ProrLayoutAdvisor extends DefaultLayoutAdvisor {
 			agileGrid.redraw();
 		}
 	}
+	
 
 	@Override
 	public int getRowHeight(int row) {

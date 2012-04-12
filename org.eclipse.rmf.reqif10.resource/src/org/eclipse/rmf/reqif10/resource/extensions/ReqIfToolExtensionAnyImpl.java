@@ -25,17 +25,14 @@ public class ReqIfToolExtensionAnyImpl extends ReqIfToolExtensionImpl implements
 		anyType = XMLTypeFactory.eINSTANCE.createAnyType();
 	}
 
-	@Override
 	public FeatureMap getMixed() {
 		return anyType.getMixed();
 	}
 
-	@Override
 	public FeatureMap getAny() {
 		return anyType.getAny();
 	}
 
-	@Override
 	public FeatureMap getAnyAttribute() {
 		return anyType.getAnyAttribute();
 	}

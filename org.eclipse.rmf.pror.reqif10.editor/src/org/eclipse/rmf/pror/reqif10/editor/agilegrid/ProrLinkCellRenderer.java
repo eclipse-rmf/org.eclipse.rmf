@@ -14,22 +14,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.agilemore.agilegrid.AgileGrid;
-import org.agilemore.agilegrid.SWTResourceManager;
-import org.agilemore.agilegrid.renderers.TextCellRenderer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
-import org.eclipse.rmf.reqif10.ReqIf;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
 
-public class ProrLinkCellRenderer extends TextCellRenderer {
+public class ProrLinkCellRenderer extends AbstractProrCellRenderer {
 
 	private Set<SpecRelation> incoming;
 	private Set<SpecRelation> outgoing;
@@ -81,12 +79,12 @@ public class ProrLinkCellRenderer extends TextCellRenderer {
 	 */
 	private void updateIncomingAndOutgoing(
 			SpecElementWithAttributes specElement) {
-		ReqIf rif = Reqif10Util.getReqIf(specElement);
+		ReqIF reqif = ReqIF10Util.getReqIF(specElement);
 		incoming = new HashSet<SpecRelation>();
 		outgoing = new HashSet<SpecRelation>();
 		if (specElement == null)
 			return;
-		EList<SpecRelation> relations = rif.getCoreContent()
+		EList<SpecRelation> relations = reqif.getCoreContent()
 				.getSpecRelations();
 		for (SpecRelation relation : relations) {
 			if (relation.getTarget() != null
@@ -100,13 +98,5 @@ public class ProrLinkCellRenderer extends TextCellRenderer {
 		}
 	}
 	
-	// Workaround: Upon closing a UIEditor and reopening a new one, the color got
-	// disposed. No idea why. This is a workaround.
-	@Override
-	protected void initialColor(int row, int col) {
-		if (agileGrid.isCellSelected(row, col)) {
-			background = SWTResourceManager.getColor(223, 227, 237);
-		}
-	}
 
 }

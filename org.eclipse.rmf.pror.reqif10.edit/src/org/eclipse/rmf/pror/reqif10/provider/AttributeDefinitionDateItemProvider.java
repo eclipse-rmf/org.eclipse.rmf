@@ -17,9 +17,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,13 +26,12 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionDate} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.AttributeDefinitionDate} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -86,7 +83,7 @@ public class AttributeDefinitionDateItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeDefinitionDate_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeDefinitionDate_type_feature", "_UI_AttributeDefinitionDate_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_DEFINITION_DATE__TYPE,
+				 ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_DATE__TYPE,
 				 true,
 				 false,
 				 true,
@@ -107,7 +104,7 @@ public class AttributeDefinitionDateItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Reqif10Package.Literals.ATTRIBUTE_DEFINITION_DATE__DEFAULT_VALUE);
+			childrenFeatures.add(ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_DATE__DEFAULT_VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -123,16 +120,6 @@ public class AttributeDefinitionDateItemProvider
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	/**
@@ -158,7 +145,7 @@ public class AttributeDefinitionDateItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AttributeDefinitionDate.class)) {
-			case Reqif10Package.ATTRIBUTE_DEFINITION_DATE__DEFAULT_VALUE:
+			case ReqIF10Package.ATTRIBUTE_DEFINITION_DATE__DEFAULT_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -178,8 +165,8 @@ public class AttributeDefinitionDateItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.ATTRIBUTE_DEFINITION_DATE__DEFAULT_VALUE,
-				 Reqif10Factory.eINSTANCE.createAttributeValueDate()));
+				(ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_DATE__DEFAULT_VALUE,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueDate()));
 	}
 
 }

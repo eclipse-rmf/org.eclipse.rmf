@@ -37,13 +37,13 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
-import org.eclipse.rmf.reqif10.util.Reqif10Switch;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.SpecObject} object.
@@ -96,7 +96,7 @@ public class SpecObjectItemProvider
 			 getResourceLocator(),
 			 getString("_UI_SpecObject_type_feature"),
 			 getString("_UI_PropertyDescriptor_description", "_UI_SpecObject_type_feature", "_UI_SpecObject_type"),
-			 Reqif10Package.Literals.SPEC_OBJECT__TYPE,
+			 ReqIF10Package.Literals.SPEC_OBJECT__TYPE,
 			 true,
 			 false,
 			 true,
@@ -105,16 +105,6 @@ public class SpecObjectItemProvider
 			 null);
 		itemPropertyDescriptors.add
 			(new ItemPropertyDescriptorDecorator(object, descriptor));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	@Override
@@ -147,11 +137,11 @@ public class SpecObjectItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SpecObject.class)) {
-		case Reqif10Package.SPEC_OBJECT__TYPE:
+		case ReqIF10Package.SPEC_OBJECT__TYPE:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, true));
 			return;
-		case Reqif10Package.SPEC_OBJECT__VALUES:
+		case ReqIF10Package.SPEC_OBJECT__VALUES:
 			notifyReferencingSpecHierarchies((SpecObject) notification.getNotifier());
 		}
 		super.notifyChanged(notification);
@@ -166,20 +156,20 @@ public class SpecObjectItemProvider
 		if (specObject == null)
 			return;
 
-		final Reqif10Switch<SpecHierarchy> visitor = new Reqif10Switch<SpecHierarchy>() {
+		final ReqIF10Switch<SpecHierarchy> visitor = new ReqIF10Switch<SpecHierarchy>() {
 			@Override
 			public SpecHierarchy caseSpecHierarchy(SpecHierarchy specHierarchy) {
 				if (specObject.equals(specHierarchy.getObject())) {
 					specHierarchy.eNotify(new ENotificationImpl(
 							(InternalEObject) specHierarchy, Notification.SET,
-							Reqif10Package.Literals.SPEC_HIERARCHY__OBJECT,
+							ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT,
 							specObject, specObject));
 				}
 				return super.caseSpecHierarchy(specHierarchy);
 			}
 		};
 
-		ReqIf reqif = Reqif10Util.getReqIf(specObject);
+		ReqIF reqif = ReqIF10Util.getReqIF(specObject);
 		if (reqif != null) {
 			for (TreeIterator<Object> i = EcoreUtil.getAllContents(reqif
 					.getCoreContent().getSpecifications(), true); i.hasNext();) {
@@ -202,17 +192,17 @@ public class SpecObjectItemProvider
 
 	@Override
 	protected EStructuralFeature getSpecTypeFeature() {
-		return Reqif10Package.Literals.SPEC_OBJECT__TYPE;
+		return ReqIF10Package.Literals.SPEC_OBJECT__TYPE;
 	}
 	
 	/**
 	 * Use the virtual intermediate provider as the parent, rather than
-	 * {@link ReqIfContentItemProvider}.
+	 * {@link ReqIFContentItemProvider}.
 	 */
 	@Override
 	public Object getParent(Object object) {
-		ReqIfContent content = ((ReqIfContent) super.getParent(object));
-		ReqIfContentItemProvider reqifContentProvider = (ReqIfContentItemProvider) ProrUtil
+		ReqIFContent content = ((ReqIFContent) super.getParent(object));
+		ReqIFContentItemProvider reqifContentProvider = (ReqIFContentItemProvider) ProrUtil
 				.getItemProvider(adapterFactory, content);
 		return reqifContentProvider != null ? reqifContentProvider
 				.getVirtualSpecObjects(content) : null;

@@ -12,8 +12,8 @@
 package org.eclipse.rmf.reqif10.provider;
 
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
-import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.junit.After;
 import org.junit.Before;
 
@@ -25,19 +25,19 @@ public class ReqIfContentTest extends AbstractItemProviderTest {
 	/**
 	 * The fixture for this Req If Content test case.
 	 */
-	protected ReqIfContent fixture = null;
+	protected ReqIFContent fixture = null;
 
 	/**
 	 * Sets the fixture for this Req If Content test case.
 	 */
-	protected void setFixture(ReqIfContent fixture) {
+	protected void setFixture(ReqIFContent fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
 	 * Returns the fixture for this Req If Content test case.
 	 */
-	protected ReqIfContent getFixture() {
+	protected ReqIFContent getFixture() {
 		return fixture;
 	}
 
@@ -46,7 +46,7 @@ public class ReqIfContentTest extends AbstractItemProviderTest {
 	 */
 	@Before
 	protected void setUpReqIfContentTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createReqIfContent());
+		setFixture(ReqIF10Factory.eINSTANCE.createReqIFContent());
 	}
 
 	/**

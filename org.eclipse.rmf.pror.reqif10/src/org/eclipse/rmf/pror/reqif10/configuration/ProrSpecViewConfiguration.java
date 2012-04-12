@@ -12,9 +12,7 @@
 package org.eclipse.rmf.pror.reqif10.configuration;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.rmf.reqif10.Specification;
 
 /**
@@ -27,10 +25,11 @@ import org.eclipse.rmf.reqif10.Specification;
  * <ul>
  *   <li>{@link org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration#getSpecification <em>Specification</em>}</li>
  *   <li>{@link org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration#getColumns <em>Columns</em>}</li>
+ *   <li>{@link org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration#getLeftHeaderColumn <em>Left Header Column</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrSpecViewConfiguration()
+ * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrSpecViewConfiguration()
  * @model
  * @generated
  */
@@ -45,7 +44,7 @@ public interface ProrSpecViewConfiguration extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Specification</em>' reference.
 	 * @see #setSpecification(Specification)
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrSpecViewConfiguration_Specification()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrSpecViewConfiguration_Specification()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -71,10 +70,36 @@ public interface ProrSpecViewConfiguration extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Columns</em>' containment reference list.
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrSpecViewConfiguration_Columns()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrSpecViewConfiguration_Columns()
 	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Column> getColumns();
+
+	/**
+	 * Returns the value of the '<em><b>Left Header Column</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Left Header Column</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Left Header Column</em>' containment reference.
+	 * @see #setLeftHeaderColumn(Column)
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrSpecViewConfiguration_LeftHeaderColumn()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	Column getLeftHeaderColumn();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration#getLeftHeaderColumn <em>Left Header Column</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Left Header Column</em>' containment reference.
+	 * @see #getLeftHeaderColumn()
+	 * @generated
+	 */
+	void setLeftHeaderColumn(Column value);
 
 } // ProrSpecViewConfiguration

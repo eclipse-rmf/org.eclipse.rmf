@@ -11,14 +11,16 @@
 package org.eclipse.rmf.pror.reqif10.editor.agilegrid;
 
 import org.agilemore.agilegrid.AgileGrid;
+import org.agilemore.agilegrid.EditorActivationEvent;
 import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorSite;
@@ -93,7 +95,7 @@ public abstract class ProrCellEditor extends TextCellEditor {
 		this.attributeValue = null;
 		if (value instanceof AttributeValue) {
 			attributeValue = (AttributeValue) value;
-			value = Reqif10Util.getTheValue(attributeValue);
+			value = ReqIF10Util.getTheValue(attributeValue);
 		}
 		super.doSetValue(value);
 	}
@@ -128,4 +130,56 @@ public abstract class ProrCellEditor extends TextCellEditor {
 	 */
 	@Override
 	abstract protected Object doGetValue();
+	
+	/**
+	 * Changes the TextCellEditor behavior to capture the first character when
+	 * starting to edit. I.e. if one activates the edit mode by pressing a
+	 * character key, the current text is replaced by that character.
+	 */
+	@Override
+	public void activate(EditorActivationEvent activationEvent) {
+		if (activationEvent.sourceEvent instanceof KeyEvent) {
+			KeyEvent keyEvent = (KeyEvent) activationEvent.sourceEvent;
+			if (isValidCellEditorCharacter(keyEvent) && keyEvent.character != SWT.DEL) {
+				text.setText("" + keyEvent.character);
+				//this.fireApplyEditorValue();
+				super.activate(activationEvent);
+				text.setSelection(1, 1);
+				return;
+			}
+			if (keyEvent.character != SWT.DEL){
+				super.activate(activationEvent);
+			}
+		}else{
+			super.activate(activationEvent);
+		}
+	}
+
+	/**
+	 * Helper function to determine if a keypress that already triggered editor
+	 * activation is a valid character that can be displayed in the text field.
+	 * 
+	 * @param keyEvent
+	 * @return
+	 */
+	protected boolean isValidCellEditorCharacter(KeyEvent keyEvent) {
+		switch (keyEvent.character) {
+		case ' ':
+		case '\r':
+		case SWT.DEL:
+		case SWT.BS:
+			return false;
+		}
+
+		if ((Character.isLetterOrDigit(keyEvent.character) || keyEvent.keyCode > 32
+				&& keyEvent.keyCode < 254 && keyEvent.keyCode != 127)
+				&& keyEvent.keyCode != SWT.CTRL
+				&& keyEvent.keyCode != SWT.ALT
+				&& (keyEvent.stateMask & SWT.CONTROL) == 0
+				&& (keyEvent.stateMask & SWT.ALT) == 0) {
+			return true;
+		}
+
+		return false;
+	}
 }

@@ -17,7 +17,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -27,12 +26,11 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinitionInteger} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.DatatypeDefinitionInteger} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -85,7 +83,7 @@ public class DatatypeDefinitionIntegerItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DatatypeDefinitionInteger_max_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DatatypeDefinitionInteger_max_feature", "_UI_DatatypeDefinitionInteger_type"),
-				 Reqif10Package.Literals.DATATYPE_DEFINITION_INTEGER__MAX,
+				 ReqIF10Package.Literals.DATATYPE_DEFINITION_INTEGER__MAX,
 				 true,
 				 false,
 				 false,
@@ -107,23 +105,13 @@ public class DatatypeDefinitionIntegerItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DatatypeDefinitionInteger_min_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DatatypeDefinitionInteger_min_feature", "_UI_DatatypeDefinitionInteger_type"),
-				 Reqif10Package.Literals.DATATYPE_DEFINITION_INTEGER__MIN,
+				 ReqIF10Package.Literals.DATATYPE_DEFINITION_INTEGER__MIN,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	/**
@@ -149,8 +137,8 @@ public class DatatypeDefinitionIntegerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DatatypeDefinitionInteger.class)) {
-			case Reqif10Package.DATATYPE_DEFINITION_INTEGER__MAX:
-			case Reqif10Package.DATATYPE_DEFINITION_INTEGER__MIN:
+			case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MAX:
+			case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MIN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

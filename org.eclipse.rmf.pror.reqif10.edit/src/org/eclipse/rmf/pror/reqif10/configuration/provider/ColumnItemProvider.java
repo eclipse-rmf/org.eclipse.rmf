@@ -17,9 +17,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -29,10 +30,9 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 
 
@@ -90,7 +90,7 @@ public class ColumnItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Column_label_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Column_label_feature", "_UI_Column_type"),
-				 ConfigPackage.Literals.COLUMN__LABEL,
+				 ConfigurationPackage.Literals.COLUMN__LABEL,
 				 true,
 				 false,
 				 false,
@@ -112,23 +112,13 @@ public class ColumnItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Column_width_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Column_width_feature", "_UI_Column_type"),
-				 ConfigPackage.Literals.COLUMN__WIDTH,
+				 ConfigurationPackage.Literals.COLUMN__WIDTH,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	@Override
@@ -151,21 +141,29 @@ public class ColumnItemProvider
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * This handles model notifications by calling {@link #updateChildren} to
+	 * update any cached children and by creating a viewer notification, which
+	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Column.class)) {
-			case ConfigPackage.COLUMN__LABEL:
-			case ConfigPackage.COLUMN__WIDTH:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		int featureID = notification.getFeatureID(Column.class);
+		if (featureID == ConfigurationPackage.COLUMN__LABEL
+				|| featureID == ConfigurationPackage.COLUMN__WIDTH) {
+			// inform the parent
+			InternalEObject parent = (InternalEObject) ((EObject) notification
+					.getNotifier()).eContainer();
+			if (parent instanceof ProrSpecViewConfiguration) {
+				parent.eNotify(new ENotificationImpl(
+						parent,
+						ENotificationImpl.SET,
+						ConfigurationPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
+						notification.getNotifier(), notification.getNotifier()));
+			}
 		}
 		super.notifyChanged(notification);
 	}

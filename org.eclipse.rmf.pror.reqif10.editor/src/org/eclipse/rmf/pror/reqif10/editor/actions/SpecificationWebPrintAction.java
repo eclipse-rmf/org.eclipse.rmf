@@ -23,8 +23,8 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationPluginManager;
-import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorManager;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
@@ -32,7 +32,7 @@ import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.program.Program;
 import org.eclipse.swt.widgets.Display;
 
@@ -131,13 +131,13 @@ public class SpecificationWebPrintAction extends Action {
 						html.append("<div style='margin-left: " + (indent * 20)
 								+ ";'>");
 					}
-					AttributeValue av = Reqif10Util.getAttributeValueForLabel(
+					AttributeValue av = ReqIF10Util.getAttributeValueForLabel(
 							specObject, col.getLabel());
-					DatatypeDefinition dd = Reqif10Util.getDatatypeDefinition(av);
+					DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(av);
 					ProrPresentationConfiguration configuration = ConfigurationUtil
 							.getConfiguration(dd, editingDomain);
 					if (configuration != null) {
-						PresentationService service = PresentationPluginManager.getPresentationService(configuration);
+						PresentationService service = PresentationEditorManager.getPresentationService(configuration);
 						if (service != null)
 							html.append(service.getCellRenderer(av)
 								.doDrawHtmlContent(av, folder));
@@ -162,7 +162,7 @@ public class SpecificationWebPrintAction extends Action {
 	 * Returns the default HTML for the given {@link AttributeValue}.
 	 */
 	private String getDefaultValue(AttributeValue av) {
-		Object value = av == null ? null : Reqif10Util.getTheValue(av);
+		Object value = av == null ? null : ReqIF10Util.getTheValue(av);
 		String textValue;
 		if (value == null) {
 			textValue = "";

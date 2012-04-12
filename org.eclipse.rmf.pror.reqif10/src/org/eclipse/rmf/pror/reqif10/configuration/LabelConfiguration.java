@@ -12,7 +12,6 @@
 package org.eclipse.rmf.pror.reqif10.configuration;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -27,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getLabelConfiguration()
+ * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getLabelConfiguration()
  * @model
  * @generated
  */
@@ -42,7 +41,7 @@ public interface LabelConfiguration extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default Label</em>' attribute list.
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getLabelConfiguration_DefaultLabel()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getLabelConfiguration_DefaultLabel()
 	 * @model
 	 * @generated
 	 */

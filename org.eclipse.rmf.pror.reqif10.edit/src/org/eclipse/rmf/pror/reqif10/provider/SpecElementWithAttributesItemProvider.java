@@ -36,7 +36,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecType;
@@ -130,12 +130,6 @@ public abstract class SpecElementWithAttributesItemProvider extends
 		SpecElementWithAttributes specElement = (SpecElementWithAttributes) object;
 		
 		return ConfigurationUtil.getSpecElementLabel(specElement);
-		
-//		String label = specElement.getLongName();
-//		String type = specElement.getClass().getSimpleName();
-//		if (type.length() > 4)
-//			type = type.substring(0, type.length() - 4);
-//		return label == null || label.length() == 0 ? type : type + " " + label;
 	}
 
 	/**
@@ -150,7 +144,7 @@ public abstract class SpecElementWithAttributesItemProvider extends
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SpecElementWithAttributes.class)) {
-			case Reqif10Package.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES:
+			case ReqIF10Package.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -228,7 +222,7 @@ public abstract class SpecElementWithAttributesItemProvider extends
 				.createAddCommand(domain, owner, feature, collection, index);
 	}
 	/**
-	 * Simply returns the appropriate feature from {@link Reqif10Package.Literals}.
+	 * Simply returns the appropriate feature from {@link ReqIF10Package.Literals}.
 	 */
 	protected abstract EStructuralFeature getSpecTypeFeature();
 

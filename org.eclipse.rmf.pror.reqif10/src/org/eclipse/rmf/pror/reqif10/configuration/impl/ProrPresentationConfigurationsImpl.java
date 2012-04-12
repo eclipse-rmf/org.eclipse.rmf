@@ -14,18 +14,13 @@ package org.eclipse.rmf.pror.reqif10.configuration.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 
@@ -69,7 +64,7 @@ public class ProrPresentationConfigurationsImpl extends EObjectImpl implements P
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ConfigPackage.Literals.PROR_PRESENTATION_CONFIGURATIONS;
+		return ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATIONS;
 	}
 
 	/**
@@ -79,7 +74,7 @@ public class ProrPresentationConfigurationsImpl extends EObjectImpl implements P
 	 */
 	public EList<ProrPresentationConfiguration> getPresentationConfigurations() {
 		if (presentationConfigurations == null) {
-			presentationConfigurations = new EObjectContainmentEList<ProrPresentationConfiguration>(ProrPresentationConfiguration.class, this, ConfigPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS);
+			presentationConfigurations = new EObjectContainmentEList<ProrPresentationConfiguration>(ProrPresentationConfiguration.class, this, ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS);
 		}
 		return presentationConfigurations;
 	}
@@ -92,7 +87,7 @@ public class ProrPresentationConfigurationsImpl extends EObjectImpl implements P
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
 				return ((InternalEList<?>)getPresentationConfigurations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +101,7 @@ public class ProrPresentationConfigurationsImpl extends EObjectImpl implements P
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
 				return getPresentationConfigurations();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -121,7 +116,7 @@ public class ProrPresentationConfigurationsImpl extends EObjectImpl implements P
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
 				getPresentationConfigurations().clear();
 				getPresentationConfigurations().addAll((Collection<? extends ProrPresentationConfiguration>)newValue);
 				return;
@@ -137,7 +132,7 @@ public class ProrPresentationConfigurationsImpl extends EObjectImpl implements P
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
 				getPresentationConfigurations().clear();
 				return;
 		}
@@ -152,7 +147,7 @@ public class ProrPresentationConfigurationsImpl extends EObjectImpl implements P
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
+			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
 				return presentationConfigurations != null && !presentationConfigurations.isEmpty();
 		}
 		return super.eIsSet(featureID);

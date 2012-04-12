@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -29,11 +28,11 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeValue} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.AttributeValue} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -67,41 +66,8 @@ public class AttributeValueItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSpecElAtPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Spec El At feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSpecElAtPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AttributeValue_specElAt_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValue_specElAt_feature", "_UI_AttributeValue_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_VALUE__SPEC_EL_AT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	@Override
@@ -138,7 +104,7 @@ public class AttributeValueItemProvider
 		if (parent instanceof SpecElementWithAttributes) {
 			parent.eNotify(new ENotificationImpl(
 					parent, ENotificationImpl.SET,
-					Reqif10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+					ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
 					notification.getNotifier(), notification.getNotifier()));
 		}
 		

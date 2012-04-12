@@ -15,12 +15,12 @@ import org.agilemore.agilegrid.CellEditor;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.pror.reqif10.presentation.service.AbstractPresentationService;
-import org.eclipse.rmf.pror.reqif10.presentation.service.IProrCellRenderer;
-import org.eclipse.rmf.pror.reqif10.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.AbstractPresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 /**
  * A very basic Presentation that handles {@link DatatypeDefinitionString}s and
@@ -49,7 +49,7 @@ public class LinewrapPresentationService extends AbstractPresentationService imp
 
 	@Override
 	public String getLabel(AttributeValue av) {
-		Object value = Reqif10Util.getTheValue(av);
+		Object value = ReqIF10Util.getTheValue(av);
 		if (value == null) {
 			return "";
 		}

@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
@@ -34,7 +34,7 @@ public class VirtualSpecObjectItemProvider extends
 		TransientReqIFItemProvider {
 
 	public VirtualSpecObjectItemProvider(AdapterFactory adapterFactory,
-			ReqIfContent content) {
+			ReqIFContent content) {
 		super(adapterFactory, content);
 	}
 
@@ -44,7 +44,7 @@ public class VirtualSpecObjectItemProvider extends
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS);
+					.add(ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS);
 		}
 		return childrenFeatures;
 	}
@@ -67,13 +67,13 @@ public class VirtualSpecObjectItemProvider extends
 		
 		// Allow creation of new untyped SpecObjects
 		newChildDescriptors.add(createChildParameter(
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
-				Reqif10Factory.eINSTANCE.createSpecObject()));
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
+				ReqIF10Factory.eINSTANCE.createSpecObject()));
 		
 		// Allow creation of typed SpecObjects
 		ProrUtil.collectNewChildDescriptorsForTypeCreators(newChildDescriptors,
 				target,
-				Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS, SpecObjectType.class);
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS, SpecObjectType.class);
 	}
 
 	@Override
@@ -83,9 +83,9 @@ public class VirtualSpecObjectItemProvider extends
 
 		if (value instanceof SpecType) {
 			return ProrUtil.createAddTypedElementCommand(owner,
-					Reqif10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
-					Reqif10Factory.eINSTANCE.createSpecObject(),
-					Reqif10Package.Literals.SPEC_OBJECT__TYPE,
+					ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
+					ReqIF10Factory.eINSTANCE.createSpecObject(),
+					ReqIF10Package.Literals.SPEC_OBJECT__TYPE,
 					(SpecType) value, index, 0, domain,
 					adapterFactory);
 		}

@@ -7,5 +7,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="REQ-"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalAlign" eType="#//IdVerticalAlign"
+        defaultValueLiteral="Top"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="IdVerticalAlign">
+    <eLiterals name="Top" literal="Top"/>
+    <eLiterals name="Center" value="1" literal="Center"/>
   </eClassifiers>
 </ecore:EPackage>

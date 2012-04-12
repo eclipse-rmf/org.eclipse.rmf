@@ -12,14 +12,11 @@
 package org.eclipse.rmf.pror.reqif10.configuration.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 
@@ -64,7 +61,7 @@ public abstract class ProrPresentationConfigurationImpl extends EObjectImpl impl
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ConfigPackage.Literals.PROR_PRESENTATION_CONFIGURATION;
+		return ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATION;
 	}
 
 	/**
@@ -78,7 +75,7 @@ public abstract class ProrPresentationConfigurationImpl extends EObjectImpl impl
 			datatype = (DatatypeDefinition)eResolveProxy(oldDatatype);
 			if (datatype != oldDatatype) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ConfigPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE, oldDatatype, datatype));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE, oldDatatype, datatype));
 			}
 		}
 		return datatype;
@@ -102,7 +99,7 @@ public abstract class ProrPresentationConfigurationImpl extends EObjectImpl impl
 		DatatypeDefinition oldDatatype = datatype;
 		datatype = newDatatype;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE, oldDatatype, datatype));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE, oldDatatype, datatype));
 	}
 
 	/**
@@ -113,7 +110,7 @@ public abstract class ProrPresentationConfigurationImpl extends EObjectImpl impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE:
+			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE:
 				if (resolve) return getDatatype();
 				return basicGetDatatype();
 		}
@@ -128,7 +125,7 @@ public abstract class ProrPresentationConfigurationImpl extends EObjectImpl impl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE:
+			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE:
 				setDatatype((DatatypeDefinition)newValue);
 				return;
 		}
@@ -143,7 +140,7 @@ public abstract class ProrPresentationConfigurationImpl extends EObjectImpl impl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE:
+			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE:
 				setDatatype((DatatypeDefinition)null);
 				return;
 		}
@@ -158,7 +155,7 @@ public abstract class ProrPresentationConfigurationImpl extends EObjectImpl impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE:
+			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE:
 				return datatype != null;
 		}
 		return super.eIsSet(featureID);

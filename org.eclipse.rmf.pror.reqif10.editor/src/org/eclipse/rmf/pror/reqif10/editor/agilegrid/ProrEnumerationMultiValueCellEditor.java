@@ -23,7 +23,7 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.EnumValue;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
@@ -114,7 +114,7 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 				cmd.append(AddCommand
 						.create(editingDomain,
 								attributeValue,
-								Reqif10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES,
+								ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES,
 								item));
 			}
 		}
@@ -123,7 +123,7 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 			cmd.append(RemoveCommand
 					.create(editingDomain,
 							attributeValue,
-							Reqif10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES,
+							ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES,
 							item));
 		}
 		editingDomain.getCommandStack().execute(cmd);

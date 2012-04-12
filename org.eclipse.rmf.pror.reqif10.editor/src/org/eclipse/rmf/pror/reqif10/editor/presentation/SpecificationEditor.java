@@ -35,10 +35,8 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.pror.reqif10.editor.actions.SpecificationWebPrintAction;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrAgileGridViewer;
-import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertySheetPage;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
@@ -140,27 +138,24 @@ public class SpecificationEditor extends EditorPart implements
 	 */
 	private void registerCommandStackListener(final Composite parent) {
 		commandStackListener = new CommandStackListener() {
-			 public void commandStackChanged(final EventObject event) {
-				  parent.getDisplay().asyncExec
-					 (new Runnable() {
-						  public void run() {
-							  firePropertyChange(IEditorPart.PROP_DIRTY);
-
-							  // Try to select the affected objects.
-							  //
-							  Command mostRecentCommand = ((CommandStack)event.getSource()).getMostRecentCommand();
-							  if (mostRecentCommand != null) {
-								  setSelectionToViewer(mostRecentCommand.getAffectedObjects());
-							  }
-							  ProrPropertySheetPage propSheet = reqifEditor.getPropertySheetPage();
-							  if (propSheet != null && !propSheet.getControl().isDisposed()) {
-								  propSheet.refresh();
-							  }
-						  }
-					  });
-			 }
-		 };
-		getEditingDomain().getCommandStack().addCommandStackListener(commandStackListener);
+			public void commandStackChanged(final EventObject event) {
+				parent.getDisplay().asyncExec(new Runnable() {
+					public void run() {
+						firePropertyChange(IEditorPart.PROP_DIRTY);
+						// Try to select the affected objects.
+						Command mostRecentCommand = ((CommandStack) event
+								.getSource()).getMostRecentCommand();
+						if (mostRecentCommand != null) {
+							Collection<?> affectedObjects = mostRecentCommand
+									.getAffectedObjects();
+							setSelectionToViewer(affectedObjects);
+						}
+					}
+				});
+			}
+		};
+		getEditingDomain().getCommandStack().addCommandStackListener(
+				commandStackListener);
 	}
 
 	/**
@@ -170,7 +165,7 @@ public class SpecificationEditor extends EditorPart implements
 		changeNameListener = new AdapterImpl() {
 			@Override
 			public void notifyChanged(Notification notification) {
-				if (notification.getFeature() == Reqif10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES) {
+				if (notification.getFeature() == ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES) {
 					ItemProviderAdapter ip = ProrUtil.getItemProvider(reqifEditor.getAdapterFactory(), specification);
 					setPartName(ip.getText(specification));
 				}
@@ -187,7 +182,7 @@ public class SpecificationEditor extends EditorPart implements
 		deleteSpecListener = new AdapterImpl() {
 			@Override
 			public void notifyChanged(Notification msg) {
-				if (msg.getFeature() == Reqif10Package.Literals.SPECIFICATION__CHILDREN
+				if (msg.getFeature() == ReqIF10Package.Literals.SPECIFICATION__CHILDREN
 						|| msg.getEventType() == Notification.REMOVE
 						&& msg.getOldValue() == specification) {
 
@@ -211,11 +206,13 @@ public class SpecificationEditor extends EditorPart implements
 			Runnable runnable =
 				new Runnable() {
 					public void run() {
+
 						// Try to select the items in the current content viewer of the editor.
 						//
 						if (prorAgileGridViewer != null) {
 							prorAgileGridViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
 						}
+
 					}
 				};
 			getSite().getShell().getDisplay().syncExec(runnable);
@@ -224,10 +221,10 @@ public class SpecificationEditor extends EditorPart implements
 
 	private void registerSelectionChangedListener() {
 		selectionChangedListener = new ISelectionChangedListener() {
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
+				if(event.getSource() != prorAgileGridViewer){
 				SpecificationEditor.this.setSelection(event.getSelection());
-			}
+			}}
 		};
 		prorAgileGridViewer.addSelectionChangedListener(selectionChangedListener);
 	}
@@ -261,7 +258,6 @@ public class SpecificationEditor extends EditorPart implements
 	/**
 	 * Delegate selection management to {@link #prorAgileGridViewer}.
 	 */
-	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		prorAgileGridViewer.addSelectionChangedListener(listener);
 	}
@@ -269,7 +265,6 @@ public class SpecificationEditor extends EditorPart implements
 	/**
 	 * Delegate selection management to {@link #prorAgileGridViewer}.
 	 */
-	@Override
 	public void removeSelectionChangedListener(
 			ISelectionChangedListener listener) {
 		prorAgileGridViewer.removeSelectionChangedListener(listener);
@@ -278,7 +273,6 @@ public class SpecificationEditor extends EditorPart implements
 	/**
 	 * Delegate selection management to {@link #prorAgileGridViewer}.
 	 */
-	@Override
 	public ISelection getSelection() {
 		return prorAgileGridViewer.getSelection();
 	}
@@ -286,7 +280,6 @@ public class SpecificationEditor extends EditorPart implements
 	/**
 	 * Delegate selection management to {@link #prorAgileGridViewer}.
 	 */
-	@Override
 	public void setSelection(ISelection selection) {
 		prorAgileGridViewer.setSelection(selection);
 		reqifEditor.setStatusLineManager(selection);
@@ -296,7 +289,6 @@ public class SpecificationEditor extends EditorPart implements
 	 * This implements {@link org.eclipse.jface.action.IMenuListener} to help
 	 * fill the context menus with contributions from the Edit menu.
 	 */
-	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
 		((IMenuListener)getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
 	}
@@ -304,7 +296,6 @@ public class SpecificationEditor extends EditorPart implements
 	/**
 	 * The {@link EditingDomain} from the {@link Reqif10Editor}.
 	 */
-	@Override
 	public EditingDomain getEditingDomain() {
 		return reqifEditor.getEditingDomain();
 	}

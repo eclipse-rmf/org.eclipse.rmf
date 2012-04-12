@@ -7,6 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Kay Münch       - vertical alignment of the spec objects id
  ******************************************************************************/
 
 package org.eclipse.rmf.pror.reqif10.presentation.id.impl;
@@ -17,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.rmf.pror.reqif10.configuration.impl.ProrPresentationConfigurationImpl;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdPackage;
+import org.eclipse.rmf.pror.reqif10.presentation.id.IdVerticalAlign;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +29,7 @@ import org.eclipse.rmf.pror.reqif10.presentation.id.IdPackage;
  * <ul>
  *   <li>{@link org.eclipse.rmf.pror.reqif10.presentation.id.impl.IdConfigurationImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.eclipse.rmf.pror.reqif10.presentation.id.impl.IdConfigurationImpl#getCount <em>Count</em>}</li>
+ *   <li>{@link org.eclipse.rmf.pror.reqif10.presentation.id.impl.IdConfigurationImpl#getVerticalAlign <em>Vertical Align</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,6 +75,26 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	 * @ordered
 	 */
 	protected int count = COUNT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVerticalAlign() <em>Vertical Align</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVerticalAlign()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final IdVerticalAlign VERTICAL_ALIGN_EDEFAULT = IdVerticalAlign.TOP;
+
+	/**
+	 * The cached value of the '{@link #getVerticalAlign() <em>Vertical Align</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVerticalAlign()
+	 * @generated
+	 * @ordered
+	 */
+	protected IdVerticalAlign verticalAlign = VERTICAL_ALIGN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -139,6 +162,27 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public IdVerticalAlign getVerticalAlign() {
+		return verticalAlign;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVerticalAlign(IdVerticalAlign newVerticalAlign) {
+		IdVerticalAlign oldVerticalAlign = verticalAlign;
+		verticalAlign = newVerticalAlign == null ? VERTICAL_ALIGN_EDEFAULT : newVerticalAlign;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, IdPackage.ID_CONFIGURATION__VERTICAL_ALIGN, oldVerticalAlign, verticalAlign));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -146,6 +190,8 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 				return getPrefix();
 			case IdPackage.ID_CONFIGURATION__COUNT:
 				return getCount();
+			case IdPackage.ID_CONFIGURATION__VERTICAL_ALIGN:
+				return getVerticalAlign();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,6 +209,9 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 				return;
 			case IdPackage.ID_CONFIGURATION__COUNT:
 				setCount((Integer)newValue);
+				return;
+			case IdPackage.ID_CONFIGURATION__VERTICAL_ALIGN:
+				setVerticalAlign((IdVerticalAlign)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -182,6 +231,9 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 			case IdPackage.ID_CONFIGURATION__COUNT:
 				setCount(COUNT_EDEFAULT);
 				return;
+			case IdPackage.ID_CONFIGURATION__VERTICAL_ALIGN:
+				setVerticalAlign(VERTICAL_ALIGN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -198,6 +250,8 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 				return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
 			case IdPackage.ID_CONFIGURATION__COUNT:
 				return count != COUNT_EDEFAULT;
+			case IdPackage.ID_CONFIGURATION__VERTICAL_ALIGN:
+				return verticalAlign != VERTICAL_ALIGN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -216,6 +270,8 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 		result.append(prefix);
 		result.append(", count: ");
 		result.append(count);
+		result.append(", verticalAlign: ");
+		result.append(verticalAlign);
 		result.append(')');
 		return result.toString();
 	}

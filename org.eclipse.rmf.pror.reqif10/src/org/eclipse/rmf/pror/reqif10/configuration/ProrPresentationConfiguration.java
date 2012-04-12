@@ -12,7 +12,6 @@
 package org.eclipse.rmf.pror.reqif10.configuration;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 
 /**
@@ -27,7 +26,7 @@ import org.eclipse.rmf.reqif10.DatatypeDefinition;
  * </ul>
  * </p>
  *
- * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrPresentationConfiguration()
+ * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrPresentationConfiguration()
  * @model abstract="true"
  * @generated
  */
@@ -42,7 +41,7 @@ public interface ProrPresentationConfiguration extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Datatype</em>' reference.
 	 * @see #setDatatype(DatatypeDefinition)
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getProrPresentationConfiguration_Datatype()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getProrPresentationConfiguration_Datatype()
 	 * @model required="true"
 	 * @generated
 	 */

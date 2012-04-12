@@ -1,0 +1,44 @@
+<project name="getReqIFSchema" default="download" basedir=".." xmlns:qvto="http://www.eclipse.org/qvt/1.0.0/Operational">
+    <description>
+        Get the ReqIF XML schema and the XHTML Schema fragments
+    </description>
+	<property file="./ant/modelcleaner.properties"></property>
+	
+    <property name="retries" value="40"/>
+
+<target name="download">
+ 
+    <mkdir dir="${GEN_FOLDER}"/>
+	<mkdir dir="${GEN_ORIGINAL_FOLDER}"/>
+	<mkdir dir="${GEN_ORIGINAL_FOLDER}/schema"/>
+	<mkdir dir="${GEN_ORIGINAL_FOLDER}/cmof"/>
+	
+	<get src="http://www.omg.org/spec/ReqIF/20101201/reqif.cmof" dest="${GEN_ORIGINAL_FOLDER}/cmof/reqif.cmof" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/reqif.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.omg.org/spec/ReqIF/20110402/driver.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/driver.xsd" retries="${retries}" usetimestamp="true"/>
+    
+    <!-- xsd modules that are directly imported by driver.xsd --> 
+	<get src="http://www.w3.org/2009/01/xml.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xml.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-datatypes-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-datatypes-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-framework-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-framework-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-text-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-text-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-hypertext-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-hypertext-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-list-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-list-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-edit-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-edit-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-pres-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-pres-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-inlstyle-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-inlstyle-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-object-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-object-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-table-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-table-1.xsd" retries="${retries}" usetimestamp="true"/>
+
+    <!-- xsd modules that are indirectly imported -->
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-attribs-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-attribs-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-struct-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-struct-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-inlstruct-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-inlstruct-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-inlphras-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-inlphras-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-inpres-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-inlpres-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-blkphras-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-blkphras-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-blkpres-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-blkpres-1.xsd" retries="${retries}" usetimestamp="true"/>
+    <get src="http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-param-1.xsd" dest="${GEN_ORIGINAL_FOLDER}/schema/xhtml-param-1.xsd" retries="${retries}" usetimestamp="true"/>    
+</target>
+
+</project>

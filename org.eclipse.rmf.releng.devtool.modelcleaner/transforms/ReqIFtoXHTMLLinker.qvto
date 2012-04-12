@@ -1,0 +1,60 @@
+/**
+ * Copyright (c) 2012 itemis GmbH.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Mark Broerkens - initial API and implementation
+ * 
+ */
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+
+transformation ReqIFtoXHTMLLinker(inout reqIfModel : ECORE, in xhtmlModel : ECORE);
+
+main() {
+	var reqif_XhtmlContentClass : ECORE::EClass;
+	var xhtml_PType : ECORE::EClass;
+	var xhtml_DIVType : ECORE::EClass;
+		
+	reqif_XhtmlContentClass := reqIfModel.objectsOfType(ECORE::EClass)![name="XhtmlContent"];
+	xhtml_PType := xhtmlModel.objectsOfType(ECORE::EClass)![name="XhtmlPType"];
+	xhtml_DIVType := xhtmlModel.objectsOfType(ECORE::EClass)![name="XhtmlDivType"];
+	
+	reqif_XhtmlContentClass.eStructuralFeatures += object EReference {
+		name := "p";
+		eType := xhtml_PType;
+		containment := true;
+		eAnnotations += getExtendedMetadata("p");
+	};
+	
+	reqif_XhtmlContentClass.eStructuralFeatures += object EReference {
+		name := "div";
+		eType := xhtml_DIVType;
+		containment := true;
+		eAnnotations += getExtendedMetadata("div");
+	};
+		
+}
+
+
+query getExtendedMetadata(name : String) : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "name";
+			value := name;
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "kind";
+			value := "element";
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "namespace";
+			value := "http://www.w3.org/1999/xhtml";
+		};
+	}
+}
+
+

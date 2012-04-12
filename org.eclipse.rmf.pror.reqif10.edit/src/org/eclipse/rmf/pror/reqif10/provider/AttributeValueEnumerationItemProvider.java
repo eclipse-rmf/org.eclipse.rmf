@@ -17,7 +17,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -25,11 +24,10 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueEnumeration} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.AttributeValueEnumeration} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -82,7 +80,7 @@ public class AttributeValueEnumerationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeValueEnumeration_values_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueEnumeration_values_feature", "_UI_AttributeValueEnumeration_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES,
+				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES,
 				 true,
 				 false,
 				 true,
@@ -104,23 +102,13 @@ public class AttributeValueEnumerationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeValueEnumeration_definition_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueEnumeration_definition_feature", "_UI_AttributeValueEnumeration_type"),
-				 Reqif10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__DEFINITION,
+				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__DEFINITION,
 				 true,
 				 false,
 				 true,
 				 null,
 				 null,
 				 null));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	/**

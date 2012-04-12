@@ -29,16 +29,16 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
-import org.eclipse.rmf.reqif10.util.Reqif10Switch;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration} object.
@@ -91,7 +91,7 @@ public class ProrGeneralConfigurationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ConfigPackage.Literals.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION);
+			childrenFeatures.add(ConfigurationPackage.Literals.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION);
 		}
 		return childrenFeatures;
 	}
@@ -107,16 +107,6 @@ public class ProrGeneralConfigurationItemProvider
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	@Override
@@ -148,9 +138,9 @@ public class ProrGeneralConfigurationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ProrGeneralConfiguration.class)) {
-			case ConfigPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
+			case ConfigurationPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				ReqIf reqif = Reqif10Util.getReqIf(notification.getNotifier());
+				ReqIF reqif = ReqIF10Util.getReqIF(notification.getNotifier());
 				if (reqif != null) {
 					notifyAllSpecElements(reqif);
 				}
@@ -159,13 +149,13 @@ public class ProrGeneralConfigurationItemProvider
 		super.notifyChanged(notification);
 	}
 
-	private void notifyAllSpecElements(ReqIf reqif) {
-		Reqif10Switch<?> visitor = new Reqif10Switch<SpecElementWithAttributes>() {
+	private void notifyAllSpecElements(ReqIF reqif) {
+		ReqIF10Switch<?> visitor = new ReqIF10Switch<SpecElementWithAttributes>() {
 			@Override
 			public SpecElementWithAttributes caseSpecElementWithAttributes(
 					SpecElementWithAttributes object) {
 				object.eNotify(new ENotificationImpl((InternalEObject) object, Notification.SET,
-						Reqif10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES, null, null));
+						ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES, null, null));
 				return object;
 			}
 		};
@@ -185,8 +175,8 @@ public class ProrGeneralConfigurationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ConfigPackage.Literals.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION,
-				 ConfigFactory.eINSTANCE.createLabelConfiguration()));
+				(ConfigurationPackage.Literals.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION,
+				 ConfigurationFactory.eINSTANCE.createLabelConfiguration()));
 	}
 
 	/**

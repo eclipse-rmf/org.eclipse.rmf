@@ -13,14 +13,11 @@ package org.eclipse.rmf.pror.reqif10.configuration.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 
@@ -64,7 +61,7 @@ public class ProrGeneralConfigurationImpl extends EObjectImpl implements ProrGen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ConfigPackage.Literals.PROR_GENERAL_CONFIGURATION;
+		return ConfigurationPackage.Literals.PROR_GENERAL_CONFIGURATION;
 	}
 
 	/**
@@ -85,7 +82,7 @@ public class ProrGeneralConfigurationImpl extends EObjectImpl implements ProrGen
 		LabelConfiguration oldLabelConfiguration = labelConfiguration;
 		labelConfiguration = newLabelConfiguration;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION, oldLabelConfiguration, newLabelConfiguration);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION, oldLabelConfiguration, newLabelConfiguration);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -100,14 +97,14 @@ public class ProrGeneralConfigurationImpl extends EObjectImpl implements ProrGen
 		if (newLabelConfiguration != labelConfiguration) {
 			NotificationChain msgs = null;
 			if (labelConfiguration != null)
-				msgs = ((InternalEObject)labelConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION, null, msgs);
+				msgs = ((InternalEObject)labelConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION, null, msgs);
 			if (newLabelConfiguration != null)
-				msgs = ((InternalEObject)newLabelConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION, null, msgs);
+				msgs = ((InternalEObject)newLabelConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION, null, msgs);
 			msgs = basicSetLabelConfiguration(newLabelConfiguration, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION, newLabelConfiguration, newLabelConfiguration));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION, newLabelConfiguration, newLabelConfiguration));
 	}
 
 	/**
@@ -118,7 +115,7 @@ public class ProrGeneralConfigurationImpl extends EObjectImpl implements ProrGen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ConfigPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
+			case ConfigurationPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
 				return basicSetLabelConfiguration(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -132,7 +129,7 @@ public class ProrGeneralConfigurationImpl extends EObjectImpl implements ProrGen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ConfigPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
+			case ConfigurationPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
 				return getLabelConfiguration();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -146,7 +143,7 @@ public class ProrGeneralConfigurationImpl extends EObjectImpl implements ProrGen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ConfigPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
+			case ConfigurationPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
 				setLabelConfiguration((LabelConfiguration)newValue);
 				return;
 		}
@@ -161,7 +158,7 @@ public class ProrGeneralConfigurationImpl extends EObjectImpl implements ProrGen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
+			case ConfigurationPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
 				setLabelConfiguration((LabelConfiguration)null);
 				return;
 		}
@@ -176,7 +173,7 @@ public class ProrGeneralConfigurationImpl extends EObjectImpl implements ProrGen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
+			case ConfigurationPackage.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION:
 				return labelConfiguration != null;
 		}
 		return super.eIsSet(featureID);

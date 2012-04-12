@@ -18,20 +18,22 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.SWTResourceManager;
+import org.agilemore.agilegrid.SWTX;
 import org.agilemore.agilegrid.renderers.TextCellRenderer;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.EnumValue;
-import org.eclipse.rmf.reqif10.datatypes.XhtmlContent;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Rectangle;
 
 /**
  * @author Lukas Ladenberger
- * 
+ * @author Ingo Weigelt
  */
 public class AbstractProrCellRenderer extends TextCellRenderer {
 
@@ -44,11 +46,15 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		super(agileGrid);
 		this.adapterFactory = adapterFactory;
 	}
+	
+	public AbstractProrCellRenderer(AgileGrid agileGrid) {
+		this(agileGrid, null);
+	}
 
 	protected int doDrawCellContentDefault(GC gc, Rectangle rect, Object value) {
 		String stringValue;
 		if (value instanceof AttributeValue) {
-			Object v = Reqif10Util.getTheValue((AttributeValue) value);
+			Object v = ReqIF10Util.getTheValue((AttributeValue) value);
 			if (v instanceof XMLGregorianCalendar) {
 				XMLGregorianCalendar cal = (XMLGregorianCalendar) v;
 				Date date = cal.toGregorianCalendar().getTime();
@@ -92,11 +98,60 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 
 	// Workaround: Upon closing a UIEditor and reopening a new one, the color got
 	// disposed. No idea why. This is a workaround.
-	@Override
 	protected void initialColor(int row, int col) {
 		if (agileGrid.isCellSelected(row, col)) {
 			background = SWTResourceManager.getColor(223, 227, 237);
 		}
+	}
+	
+	@Override
+	protected void drawGridLines(GC gc, Rectangle rect, int row, int col) {
+		Color vBorderColor = COLOR_LINE_LIGHTGRAY;
+		Color hBorderColor = COLOR_LINE_LIGHTGRAY;
+		
+		if (agileGrid instanceof ProrAgileGrid) {
+			ProrAgileGrid grid = (ProrAgileGrid) agileGrid;
+			if (grid.dndHoverCell != null
+					&& row == grid.dndHoverCell.row
+					&& grid.dndHoverDropMode == ProrAgileGrid.DND_DROP_AS_SIBLING) {
+				hBorderColor = COLOR_LINE_DARKGRAY;
+			}
+		}
+		
+		if ((style & INDICATION_SELECTION_ROW) != 0) {
+			vBorderColor = COLOR_BGROWSELECTION;
+			hBorderColor = COLOR_BGROWSELECTION;
+		}
+
+		if ((agileGrid.getStyle() & SWTX.NOT_SHOW_GRID_LINE) == SWTX.NOT_SHOW_GRID_LINE) {
+			vBorderColor = COLOR_BACKGROUND;
+			hBorderColor = COLOR_BACKGROUND;
+		}
+
+		drawDefaultCellLine(gc, rect, vBorderColor, hBorderColor);
+	}
+	
+	@Override
+	protected void drawCellContent(GC gc, Rectangle rect, int row, int col) {
+		this.foreground = this.getDefaultForeground();
+		this.background = this.getDefaultBackground();
+
+		if (agileGrid instanceof ProrAgileGrid) {
+			ProrAgileGrid grid = (ProrAgileGrid) agileGrid;
+			if (grid.dndHoverCell != null && row == grid.dndHoverCell.row
+					&& grid.dndHoverDropMode == ProrAgileGrid.DND_DROP_AS_CHILD) {
+				this.background = COLOR_BGROWSELECTION;
+			}
+		}
+
+		// initial color for current cell.
+		initialColor(row, col);
+
+		// Clear background.
+		clearCellContentRect(gc, rect);
+
+		// draw text and image in the given area.
+		doDrawCellContent(gc, rect, row, col);
 	}
 
 }

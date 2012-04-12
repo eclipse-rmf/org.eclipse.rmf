@@ -34,20 +34,20 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
-import org.eclipse.rmf.reqif10.ReqIf;
-import org.eclipse.rmf.reqif10.ReqIfContent;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
-import org.eclipse.rmf.reqif10.Reqif10Package;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.util.Reqif10Switch;
-import org.eclipse.rmf.reqif10.util.Reqif10Util;
+import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
+import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.SpecType} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.SpecType} object.
  * <!-- begin-user-doc --> <!--
  * end-user-doc -->
  * @generated
@@ -92,7 +92,7 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES);
+			childrenFeatures.add(ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES);
 		}
 		return childrenFeatures;
 	}
@@ -107,16 +107,6 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
 	}
 
 	@Override
@@ -153,11 +143,11 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SpecType.class)) {
-		case Reqif10Package.SPEC_TYPE__SPEC_ATTRIBUTES:
+		case ReqIF10Package.SPEC_TYPE__SPEC_ATTRIBUTES:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, false));
 			// no return here on purpose!
-		case Reqif10Package.SPEC_TYPE__LONG_NAME:
+		case ReqIF10Package.SPEC_TYPE__LONG_NAME:
 			notifyAllSpecElementWithAttributesTypeChange(
 					(SpecType) notification.getNotifier(), adapterFactory);
 			// no return here on purpose!
@@ -170,16 +160,16 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 	 */
 	private void notifyAllSpecElementWithAttributesTypeChange(
 			final SpecType specType, AdapterFactory adapterFactory) {
-		ReqIf reqif = Reqif10Util.getReqIf(specType);
+		ReqIF reqif = ReqIF10Util.getReqIF(specType);
 		if (reqif != null) {
-			Reqif10Switch<SpecElementWithAttributes> visitor = new Reqif10Switch<SpecElementWithAttributes>() {
+			ReqIF10Switch<SpecElementWithAttributes> visitor = new ReqIF10Switch<SpecElementWithAttributes>() {
 
 				@Override
 				public SpecElementWithAttributes caseSpecObject(
 						SpecObject object) {
 					object.eNotify(new ENotificationImpl(
 							(InternalEObject) object, Notification.SET,
-							Reqif10Package.Literals.SPEC_OBJECT__TYPE,
+							ReqIF10Package.Literals.SPEC_OBJECT__TYPE,
 							specType, specType));
 					return object;
 				}
@@ -189,7 +179,7 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 						Specification object) {
 					object.eNotify(new ENotificationImpl(
 							(InternalEObject) object, Notification.SET,
-							Reqif10Package.Literals.SPECIFICATION__TYPE,
+							ReqIF10Package.Literals.SPECIFICATION__TYPE,
 							specType, specType));
 					return object;
 				}
@@ -199,7 +189,7 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 						SpecRelation object) {
 					object.eNotify(new ENotificationImpl(
 							(InternalEObject) object, Notification.SET,
-							Reqif10Package.Literals.SPEC_RELATION__TYPE,
+							ReqIF10Package.Literals.SPEC_RELATION__TYPE,
 							specType, specType));
 					return object;
 				}
@@ -223,38 +213,38 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
-				 Reqif10Factory.eINSTANCE.createAttributeDefinitionXhtml()));
+				(ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
-				 Reqif10Factory.eINSTANCE.createAttributeDefinitionBoolean()));
+				(ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionBoolean()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
-				 Reqif10Factory.eINSTANCE.createAttributeDefinitionDate()));
+				(ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionDate()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
-				 Reqif10Factory.eINSTANCE.createAttributeDefinitionEnumeration()));
+				(ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionEnumeration()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
-				 Reqif10Factory.eINSTANCE.createAttributeDefinitionInteger()));
+				(ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionInteger()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
-				 Reqif10Factory.eINSTANCE.createAttributeDefinitionReal()));
+				(ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
-				 Reqif10Factory.eINSTANCE.createAttributeDefinitionString()));
+				(ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionString()));
 	}
 
 	/**
@@ -265,7 +255,7 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 	@Override
 	protected Command createAddCommand(EditingDomain domain, EObject owner,
 			EStructuralFeature feature, Collection<?> collection, int index) {
-		if (feature == Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES) {
+		if (feature == ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES) {
 			SpecType specType = (SpecType) owner;
 			Set<Object> attrs = new HashSet<Object>(
 					specType.getSpecAttributes());
@@ -288,7 +278,7 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 	@Override
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner,
 			EStructuralFeature feature, Collection<?> collection) {
-		if (feature == Reqif10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES) {
+		if (feature == ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES) {
 			SpecType specType = (SpecType) owner;
 			Set<Object> attrs = new HashSet<Object>(
 					specType.getSpecAttributes());
@@ -310,17 +300,17 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 			final EditingDomain domain, final SpecType specType,
 			final Collection<?> newAttributeDefinitions) {
 		final CompoundCommand cmd = new CompoundCommand();
-		ReqIf reqif = Reqif10Util.getReqIf(specType);
+		ReqIF reqif = ReqIF10Util.getReqIF(specType);
 		if (reqif == null) {
 			return cmd;
 		}
 
-		Reqif10Switch<?> visitor = new Reqif10Switch<SpecElementWithAttributes>() {
+		ReqIF10Switch<?> visitor = new ReqIF10Switch<SpecElementWithAttributes>() {
 			@SuppressWarnings("unchecked")
 			@Override
 			public SpecElementWithAttributes caseSpecElementWithAttributes(
 					SpecElementWithAttributes object) {
-				SpecType type = Reqif10Util.getSpecType(object);
+				SpecType type = ReqIF10Util.getSpecType(object);
 				if (specType.equals(type)) {
 					CompoundCommand adjustValuesCommand = ProrUtil
 							.createValueAdjustCommand(
@@ -340,14 +330,14 @@ public class SpecTypeItemProvider extends IdentifiableItemProvider implements
 
 	/**
 	 * Use the virtual intermediate provider as the parent, rather than
-	 * {@link ReqIfContentItemProvider}.
+	 * {@link ReqIFContentItemProvider}.
 	 */
 	@Override
 	public Object getParent(Object object) {
-		ReqIfContent content = ((ReqIfContent) super.getParent(object));
+		ReqIFContent content = ((ReqIFContent) super.getParent(object));
 		if (content == null)
 			return null;
-		ReqIfContentItemProvider reqifProvider = (ReqIfContentItemProvider) ProrUtil
+		ReqIFContentItemProvider reqifProvider = (ReqIFContentItemProvider) ProrUtil
 				.getItemProvider(adapterFactory, content);
 		return reqifProvider != null ? reqifProvider
 				.getVirtualSpecTypes(content) : null;

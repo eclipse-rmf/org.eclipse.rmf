@@ -7,6 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Kay Münch       - vertical alignment of the spec objects id
  ******************************************************************************/
 
 package org.eclipse.rmf.pror.reqif10.presentation.id.util;

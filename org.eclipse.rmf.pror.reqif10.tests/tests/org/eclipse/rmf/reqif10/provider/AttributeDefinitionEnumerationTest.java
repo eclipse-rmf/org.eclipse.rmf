@@ -12,7 +12,7 @@
 package org.eclipse.rmf.reqif10.provider;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
-import org.eclipse.rmf.reqif10.Reqif10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -34,7 +34,7 @@ public class AttributeDefinitionEnumerationTest extends AttributeDefinitionTest 
 	 */
 	@Before
 	public void setUpAttributeDefinitionEnumerationTest() throws Exception {
-		setFixture(Reqif10Factory.eINSTANCE.createAttributeDefinitionEnumeration());
+		setFixture(ReqIF10Factory.eINSTANCE.createAttributeDefinitionEnumeration());
 	}
 
 	/**

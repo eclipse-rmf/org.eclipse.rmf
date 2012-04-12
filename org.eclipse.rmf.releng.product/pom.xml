@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.eclipse.rmf</groupId>
+		<artifactId>org.eclipse.rmf.releng</artifactId>
+		<version>0.2.0-SNAPSHOT</version>
+		<relativePath>../org.eclipse.rmf.releng/pom.xml</relativePath>
+	</parent>
+	<artifactId>org.eclipse.rmf.releng.product</artifactId>
+	<version>0.2.0-SNAPSHOT</version>
+	<packaging>eclipse-repository</packaging>
+	
+	<properties>
+    	<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+    	<app.version>0.2.0</app.version>
+  	</properties>
+	
+	<build>
+		<plugins>
+			<plugin>
+		        <groupId>org.eclipse.tycho</groupId>
+		        <artifactId>tycho-p2-repository-plugin</artifactId>
+		        <version>${tycho-version}</version>
+		        <configuration>
+		          <includeAllDependencies>true</includeAllDependencies>
+		        </configuration>
+	      	</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>materialize-products</id>
+						<goals>
+							<goal>materialize-products</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>archive-products</id>
+						<goals>
+							<goal>archive-products</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- ANT actions -->
+        	<plugin>
+	            <artifactId>maven-antrun-plugin</artifactId>
+	            <version>1.6</version>
+	            <executions>
+	                <!-- Rename the ZIP files -->
+	                <execution>
+	                    <id>update-zip-files</id>
+	                    <phase>install</phase>
+	                    <configuration>
+	                        <target>
+	                            <!-- Rename the products -->
+	                            <move verbose="true" todir="${project.build.directory}/products">
+	                                <mapper type="regexp" from="^(org.eclipse.rmf.pror.reqif10.product-)(.*)$$"
+	                                    to="eclipse-rmf-pror-${app.version}-nightly-${maven.build.timestamp}-incubation-\2" />
+	                                <fileset dir="${project.build.directory}/products">
+	                                    <include name="*.zip" />
+	                                </fileset>
+	                            </move>
+	                        </target>
+	                    </configuration>
+	                    <goals>
+	                        <goal>run</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+      	  </plugin>
+		</plugins>
+	</build>
+	
+<!--  
+	<properties>
+		<signer-version>1.0.5</signer-version>
+		<signer-input-directory>/home/data/httpd/download-staging.priv/tools/gef/gef4</signer-input-directory>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>hudson.eclipse.org</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.dash.maven</groupId>
+						<artifactId>eclipse-signing-maven-plugin</artifactId>
+						<version>${signer-version}</version>
+						<executions>
+							<execution>
+								<id>pack</id>
+								<configuration>
+									<inputFile>${project.build.directory}/org.eclipse.gef4.repository.zip</inputFile>
+								</configuration>
+								<phase>package</phase>
+								<goals>
+									<goal>pack</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>sign</id>
+								<configuration>
+									<inputFile>${project.build.directory}/org.eclipse.gef4.repository.zip</inputFile>
+									<signerInputDirectory>${signer-input-directory}</signerInputDirectory>
+								</configuration>
+								<phase>package</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>repack</id>
+								<configuration>
+									<inputFile>${project.build.directory}/signed/site_assembly.zip</inputFile>
+								</configuration>
+								<phase>package</phase>
+								<goals>
+									<goal>pack</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>fixCheckSums</id>
+								<phase>package</phase>
+								<goals>
+									<goal>fixCheckSums</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
+	-->
+</project>

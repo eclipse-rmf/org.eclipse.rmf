@@ -14,14 +14,10 @@ package org.eclipse.rmf.pror.reqif10.configuration.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
 
 /**
@@ -64,7 +60,7 @@ public class LabelConfigurationImpl extends EObjectImpl implements LabelConfigur
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ConfigPackage.Literals.LABEL_CONFIGURATION;
+		return ConfigurationPackage.Literals.LABEL_CONFIGURATION;
 	}
 
 	/**
@@ -74,7 +70,7 @@ public class LabelConfigurationImpl extends EObjectImpl implements LabelConfigur
 	 */
 	public EList<String> getDefaultLabel() {
 		if (defaultLabel == null) {
-			defaultLabel = new EDataTypeUniqueEList<String>(String.class, this, ConfigPackage.LABEL_CONFIGURATION__DEFAULT_LABEL);
+			defaultLabel = new EDataTypeUniqueEList<String>(String.class, this, ConfigurationPackage.LABEL_CONFIGURATION__DEFAULT_LABEL);
 		}
 		return defaultLabel;
 	}
@@ -87,7 +83,7 @@ public class LabelConfigurationImpl extends EObjectImpl implements LabelConfigur
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ConfigPackage.LABEL_CONFIGURATION__DEFAULT_LABEL:
+			case ConfigurationPackage.LABEL_CONFIGURATION__DEFAULT_LABEL:
 				return getDefaultLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -102,7 +98,7 @@ public class LabelConfigurationImpl extends EObjectImpl implements LabelConfigur
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ConfigPackage.LABEL_CONFIGURATION__DEFAULT_LABEL:
+			case ConfigurationPackage.LABEL_CONFIGURATION__DEFAULT_LABEL:
 				getDefaultLabel().clear();
 				getDefaultLabel().addAll((Collection<? extends String>)newValue);
 				return;
@@ -118,7 +114,7 @@ public class LabelConfigurationImpl extends EObjectImpl implements LabelConfigur
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.LABEL_CONFIGURATION__DEFAULT_LABEL:
+			case ConfigurationPackage.LABEL_CONFIGURATION__DEFAULT_LABEL:
 				getDefaultLabel().clear();
 				return;
 		}
@@ -133,7 +129,7 @@ public class LabelConfigurationImpl extends EObjectImpl implements LabelConfigur
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.LABEL_CONFIGURATION__DEFAULT_LABEL:
+			case ConfigurationPackage.LABEL_CONFIGURATION__DEFAULT_LABEL:
 				return defaultLabel != null && !defaultLabel.isEmpty();
 		}
 		return super.eIsSet(featureID);

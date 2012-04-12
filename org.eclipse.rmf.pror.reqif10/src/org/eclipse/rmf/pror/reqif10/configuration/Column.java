@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getColumn()
+ * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getColumn()
  * @model
  * @generated
  */
@@ -42,7 +42,7 @@ public interface Column extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getColumn_Label()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getColumn_Label()
 	 * @model default="<PLEASE SET LABEL>" required="true"
 	 * @generated
 	 */
@@ -69,7 +69,7 @@ public interface Column extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Width</em>' attribute.
 	 * @see #setWidth(int)
-	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigPackage#getColumn_Width()
+	 * @see org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage#getColumn_Width()
 	 * @model default="100" required="true"
 	 * @generated
 	 */
