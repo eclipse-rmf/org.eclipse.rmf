@@ -13,30 +13,34 @@ package org.eclipse.rmf.internal.serialization;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLHelperImpl;
 import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
 public class ReqIFXMLHelperImpl extends XMLHelperImpl implements XMLHelper {
 
 	public ReqIFXMLHelperImpl(XMLResource resource) {
 		super(resource);
+		EMap<String, String> prefixToNamespaceMap = getPrefixToNamespaceMap();
+		prefixToNamespaceMap.put("", ReqIF10Package.eNS_URI); //$NON-NLS-1$
+		setPrefixToNamespaceMap(prefixToNamespaceMap);
 	}
-
-	// TODO: how to avoid writing xsi namespace
 
 	/**
 	 * TODO: how to always make use of IDREF references?
 	 */
-
 	@Override
 	public String getHREF(EObject obj) {
 		if (obj.eIsProxy()) {
@@ -59,8 +63,14 @@ public class ReqIFXMLHelperImpl extends XMLHelperImpl implements XMLHelper {
 
 	@Override
 	public String getQName(EStructuralFeature feature) {
-		// TODO Auto-generated method stub
-		return super.getQName(feature);
+		// we want all features of tool extensions that are not written as attributes to be fully qualified
+		EPackage ePackage = feature.getEContainingClass().getEPackage();
+		if (ReqIF10Package.eINSTANCE == ePackage || XhtmlPackage.eINSTANCE == ePackage) {
+			return super.getQName(feature);
+		} else {
+			return getQName(ePackage, getName(feature));
+		}
+
 	}
 
 	@Override
