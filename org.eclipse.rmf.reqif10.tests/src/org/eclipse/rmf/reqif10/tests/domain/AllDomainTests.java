@@ -11,15 +11,23 @@
  */
 package org.eclipse.rmf.reqif10.tests.domain;
 
+import org.eclipse.rmf.reqif10.tests.domain.tc1000.TC1000SimpleContentTests;
+import org.eclipse.rmf.reqif10.tests.domain.tc1100.TC1100UnformattedSystemAttributesAndSpecHierarchyTests;
+import org.eclipse.rmf.reqif10.tests.domain.tc1200.TC1200FormatedContentTests;
+import org.eclipse.rmf.reqif10.tests.domain.tc1300.TC1300SpecRelationTests;
+import org.eclipse.rmf.reqif10.tests.domain.tc1400.TC1400InternalTableTests;
+import org.eclipse.rmf.reqif10.tests.domain.tc1700.TC1700SpecRelationMultifileTests;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-
 @RunWith(Suite.class)
-@SuiteClasses({ TC1000SimpleContentTests.class, TC3000FormatedContentTests.class, TC9000SimpleContentPerformanceTest.class })
+@SuiteClasses({ TC1000SimpleContentTests.class, TC1100UnformattedSystemAttributesAndSpecHierarchyTests.class, TC1200FormatedContentTests.class,
+		TC1300SpecRelationTests.class, TC1400InternalTableTests.class, /*
+																		 * TC1500AccessRestrictionTests.class,
+																		 * TC1600ExternalContentTests.class,
+																		 */
+		TC1700SpecRelationMultifileTests.class, TC9000SimpleContentPerformanceTest.class })
 public class AllDomainTests {
-	
-
 
 }

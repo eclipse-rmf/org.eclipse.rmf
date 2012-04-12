@@ -11,10 +11,22 @@
  */
 package org.eclipse.rmf.reqif10.tests.util;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
@@ -36,15 +48,18 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
+import org.eclipse.rmf.serialization.ReqIFResourceImpl;
 import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Test;
 
 @SuppressWarnings("nls")
-public class AbstractTestCase {
+public abstract class AbstractTestCase {
 	private static final String WORKING_DIRECTORY = "work";
 	static Map<String, Object> backupRegistry = null;
+
+	static final DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+	static final DateFormat timeFormat = new SimpleDateFormat("HHmm");
 
 	@BeforeClass
 	public static void setupOnce() throws Exception {
@@ -79,18 +94,12 @@ public class AbstractTestCase {
 		System.out.println("AfterClass: reset to: " + EPackage.Registry.INSTANCE.keySet());
 	}
 
-	@Test
-	public void testSchemaCompliance() throws Exception {
-		validateAgainstSchema(getReqIFFileName());
-	}
-
-	protected static String getReqIFFileName() {
-		return getWorkingDirectoryFileName() + IPath.SEPARATOR + "default.reqif";
-	}
-
 	protected static String getWorkingDirectoryFileName() {
 		return WORKING_DIRECTORY;
+	}
 
+	protected static String getWorkingFileName(String fileName) {
+		return WORKING_DIRECTORY + IPath.SEPARATOR + fileName;
 	}
 
 	protected void validateAgainstSchema(String filename) throws Exception {
@@ -148,6 +157,139 @@ public class AbstractTestCase {
 
 	private static URI createEMFURI(String fileName) {
 		return URI.createURI(fileName, true);
+	}
+
+	/**
+	 * Creates the file name of reference test data.
+	 * 
+	 * The name pattern as defined by the ReqIF Implementor Forum.
+	 * #TestCaseID#_E0000_S10_Reference_#yyyyMMdd#_#HHmm#
+	 * #NameOfHumanCreator#.<reqif/reqifz>
+	 * 
+	 *
+	 * @param testCaseId
+	 * @return
+	 */
+	protected static String getReferenceDataFileName(String testCaseId, boolean isArchive) {
+		return getFileName(testCaseId, 0, 10, "Reference", isArchive);
+	}
+
+	/**
+	 * Creates the file name of reference test data.
+	 * 
+	 * The name pattern as defined by the ReqIF Implementor Forum.
+	 * #TestCaseID#_E0001_S21_Reference_#yyyyMMdd#_#HHmm#
+	 * #NameOfHumanCreator#.<reqif/reqifz>
+	 * 
+	 *
+	 * @param testCaseId
+	 * @return
+	 */
+	protected static String getFirstExportFileName(String testCaseId, boolean isArchive) {
+		return getFileName(testCaseId, 1, 21, "EclipseRMF", isArchive);
+	}
+
+	/**
+	 * Creates the file name according to the ReqIF Implementor Forum naming conventions.
+	 * 
+	 * The name pattern as defined by the ReqIF Implementor Forum.
+	 * #TestCaseID#_E#NumberOfExports#_S#TestStep#_#Tool#_#yyyyMMdd#_#HHmm#_#NameOfHumanCreator#.#reqif/reqifz#
+	 * 
+	 *
+	 * @param testCaseId
+	 * @return
+	 */
+	private static String getFileName(String testCaseId, int numberOfExports, int testStep, String tool, boolean isArchive) {
+		Date now = new Date();
+		String dateString = dateFormat.format(now);
+		String timeString = timeFormat.format(now);
+		String creatorName = System.getProperty("user.name");
+		if (null == creatorName || "".equals(creatorName)) {
+			creatorName = "RMFUser";
+		}
+		StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append(testCaseId);
+		stringBuffer.append("_");
+		stringBuffer.append("E");
+		stringBuffer.append(String.format("%03d", numberOfExports));
+		stringBuffer.append("_");
+		stringBuffer.append("S");
+		stringBuffer.append(String.format("%02d", testStep));
+		stringBuffer.append("_");
+		stringBuffer.append(tool);
+		stringBuffer.append("_");
+		stringBuffer.append(dateString);
+		stringBuffer.append("_");
+		stringBuffer.append(timeString);
+		stringBuffer.append("_");
+		stringBuffer.append(creatorName);
+		stringBuffer.append(".");
+		if (isArchive) {
+			stringBuffer.append("reqifz");
+		} else {
+			stringBuffer.append("reqif");
+		}
+		return stringBuffer.toString();
+	}
+
+	public static List<ReqIF> loadReqIFFromZip(String zipSourceFileName) throws IOException {
+		ZipFile zipSourceFile = new ZipFile(zipSourceFileName);
+		List<ReqIF> reqIFs = new ArrayList<ReqIF>();
+		Enumeration<? extends ZipEntry> zipFileEntries = zipSourceFile.entries();
+		ReqIFResourceSetImpl resourceSet = getReqIFResourceSet();
+
+		while (zipFileEntries.hasMoreElements()) {
+			ZipEntry entry = zipFileEntries.nextElement();
+
+			if (entry.isDirectory() || !entry.getName().endsWith(".reqif")) {
+				continue;
+			}
+			InputStream zipEntryInputStream;
+			zipEntryInputStream = zipSourceFile.getInputStream(entry);
+
+			Resource resource = new ReqIFResourceImpl();
+			resourceSet.getResources().add(resource);
+
+			resource.load(zipEntryInputStream, null);
+			List<EObject> rootObjects = resource.getContents();
+			if (0 < rootObjects.size()) {
+				reqIFs.add((ReqIF) rootObjects.get(0));
+			}
+
+		}
+		return reqIFs;
+	}
+
+	public static void saveReqIFsToZip(List<ReqIF> reqIFs, String zipFileName) throws IOException {
+		ReqIFResourceSetImpl resourceSet = getReqIFResourceSet();
+		for (ReqIF reqIF : reqIFs) {
+			XMLResource resource = new ReqIFResourceImpl();
+			resource.getContents().add(reqIF);
+			resourceSet.getResources().add(resource);
+		}
+
+		int lastDotIndex = zipFileName.lastIndexOf(".");
+		String entryName = zipFileName;
+		if (0 < lastDotIndex) {
+			entryName = zipFileName.substring(0, lastDotIndex);
+		}
+		int lastSlashIndex = entryName.lastIndexOf("/");
+		if (0 < lastSlashIndex) {
+			entryName = entryName.substring(lastSlashIndex + 1);
+		}
+
+		FileOutputStream fileOutputStream = new FileOutputStream(zipFileName);
+		ZipOutputStream zipOutputStream = new ZipOutputStream(new BufferedOutputStream(fileOutputStream));
+
+		for (int i = 0; i < resourceSet.getResources().size(); i++) {
+			Resource resource = resourceSet.getResources().get(i);
+			ZipEntry zipEntry = new ZipEntry(entryName + "_" + i + ".reqif");
+
+			zipOutputStream.putNextEntry(zipEntry);
+			resource.save(zipOutputStream, null);
+		}
+
+		zipOutputStream.close();
 	}
 
 }

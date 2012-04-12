@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
@@ -28,7 +29,6 @@ import org.eclipse.rmf.reqif10.XhtmlContent;
  * 
  * @author broerkens
  */
-
 public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerializationConstants {
 	private static final String EMPTY_URI = ""; //$NON-NLS-1$
 	boolean reqIfFormat = true;
@@ -180,6 +180,55 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 	}
 
 	@Override
+	protected void saveElementReferenceSingle(EObject o, EStructuralFeature f) {
+		if (!reqIfFormat) {
+			super.saveElementReferenceMany(o, f);
+		} else {
+			EObject value = (EObject) helper.getValue(o, f);
+			if (value != null) {
+				if (!toDOM) {
+					doc.startElement(helper.getQName(f));
+					saveElementReference(value, f);
+					doc.endElement();
+				} else {
+					// TODO
+					throw new UnsupportedOperationException();
+				}
+			}
+		}
+	}
+
+	@Override
+	protected void saveElementReferenceMany(EObject o, EStructuralFeature f) {
+		if (!reqIfFormat) {
+			super.saveElementReferenceMany(o, f);
+		} else {
+			@SuppressWarnings("unchecked")
+			InternalEList<? extends EObject> values = (InternalEList<? extends EObject>) helper.getValue(o, f);
+			int size = values.size();
+
+			if (!toDOM) {
+				doc.startElement(helper.getQName(f));
+			} else {
+				// TODO
+				throw new UnsupportedOperationException();
+			}
+
+			for (int i = 0; i < size; i++) {
+				saveElementReference(values.basicGet(i), f);
+			}
+
+			if (!toDOM) {
+				doc.endElement();
+			} else {
+				// TODO
+				throw new UnsupportedOperationException();
+			}
+		}
+
+	}
+
+	@Override
 	protected void saveElementReference(EObject remote, EStructuralFeature f) {
 		if (!reqIfFormat) {
 			super.saveElementReference(remote, f);
@@ -190,7 +239,6 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 				EClass eClass = remote.eClass();
 
 				if (!toDOM) {
-					doc.startElement(helper.getQName(f));
 					doc.startElement(helper.getQName(eClass) + REF);
 				} else {
 					// TODO
@@ -199,7 +247,6 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 
 				if (!toDOM) {
 					doc.endContentElement(href);
-					doc.endElement();
 				} else {
 					// TODO
 					throw new UnsupportedOperationException();

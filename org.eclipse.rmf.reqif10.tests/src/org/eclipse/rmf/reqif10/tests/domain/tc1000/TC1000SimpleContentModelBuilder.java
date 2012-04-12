@@ -9,7 +9,7 @@
  *     Mark Broerkens - initial API and implementation
  * 
  */
-package org.eclipse.rmf.reqif10.tests.util;
+package org.eclipse.rmf.reqif10.tests.domain.tc1000;
 
 import java.math.BigInteger;
 
@@ -43,21 +43,23 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
+import org.eclipse.rmf.reqif10.tests.util.SimpleModelBuilder;
 
 @SuppressWarnings("nls")
-public class TC1000ModelBuilder extends SimpleModelBuilder {
+public class TC1000SimpleContentModelBuilder extends SimpleModelBuilder {
 	final static String LAST_CHANGE_STRING = "2012-04-07T01:51:37.112+02:00";
+	final static String TEST_CASE_ID = "TC1000";
 
 	// datatypes
-	DatatypeDefinitionBoolean datatypeDefinitionBoolean;
-	DatatypeDefinitionInteger datatypeDefinitionInteger;
-	DatatypeDefinitionString datatypeDefinitionString;
-	DatatypeDefinitionReal datatypeDefinitionReal;
-	DatatypeDefinitionDate datatypeDefinitionDate;
-	DatatypeDefinitionEnumeration datatypeDefinitionEnumeration;
-	EnumValue enumValueRed;
-	EnumValue enumValueYellow;
-	EnumValue enumValueGreen;
+	protected DatatypeDefinitionBoolean datatypeDefinitionBoolean;
+	protected DatatypeDefinitionInteger datatypeDefinitionInteger;
+	protected DatatypeDefinitionString datatypeDefinitionString;
+	protected DatatypeDefinitionReal datatypeDefinitionReal;
+	protected DatatypeDefinitionDate datatypeDefinitionDate;
+	protected DatatypeDefinitionEnumeration datatypeDefinitionEnumeration;
+	protected EnumValue enumValueRed;
+	protected EnumValue enumValueYellow;
+	protected EnumValue enumValueGreen;
 
 	// SpecObjectTypes
 	SpecObjectType specObjectType;
@@ -68,6 +70,7 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 	AttributeDefinitionReal attributeDefinitionReal;
 	AttributeDefinitionDate attributeDefinitionDate;
 	AttributeDefinitionEnumeration attributeDefinitionEnumeration;
+	AttributeDefinitionEnumeration attributeDefinitionEnumerationMultiValue;
 
 	// SpecificationTypes
 	SpecificationType specificationType;
@@ -79,11 +82,11 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 	 * @throws Exception 
 	 * 
 	 */
-	public TC1000ModelBuilder() throws Exception {
-		super(null, "ID_TC1000_ReqIfHeader", "TC 1000 'Simple Content'");
+	public TC1000SimpleContentModelBuilder() throws Exception {
+		super("ID_TC1000_ReqIfHeader", "TC 1000 'Simple Content'");
 	}
 
-	public TC1000ModelBuilder(String creationTimeString, String identifier, String title) throws Exception {
+	public TC1000SimpleContentModelBuilder(String creationTimeString, String identifier, String title) throws Exception {
 		super(creationTimeString, identifier, title);
 	}
 
@@ -215,6 +218,13 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 		attributeDefinitionEnumeration.setType(datatypeDefinitionEnumeration);
 		attributeDefinitionEnumeration.setMultiValued(false);
 
+		attributeDefinitionEnumerationMultiValue = ReqIF10Factory.eINSTANCE.createAttributeDefinitionEnumeration();
+		attributeDefinitionEnumerationMultiValue.setIdentifier("ID_TC1000_AttributeDefinitionEnumerationMultiValue");
+		attributeDefinitionEnumerationMultiValue.setLongName("TC1000 Enum MultiValue");
+		attributeDefinitionEnumerationMultiValue.setLastChange(toDate(LAST_CHANGE_STRING));
+		attributeDefinitionEnumerationMultiValue.setType(datatypeDefinitionEnumeration);
+		attributeDefinitionEnumerationMultiValue.setMultiValued(true);
+
 		specObjectType.getSpecAttributes().add(attributeDefinitionBooleanTc1000t);
 		specObjectType.getSpecAttributes().add(attributeDefinitionBooleanTc1000f);
 		specObjectType.getSpecAttributes().add(attributeDefinitionInteger);
@@ -222,6 +232,7 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 		specObjectType.getSpecAttributes().add(attributeDefinitionReal);
 		specObjectType.getSpecAttributes().add(attributeDefinitionDate);
 		specObjectType.getSpecAttributes().add(attributeDefinitionEnumeration);
+		specObjectType.getSpecAttributes().add(attributeDefinitionEnumerationMultiValue);
 
 		getReqIF().getCoreContent().getSpecTypes().add(specObjectType);
 
@@ -266,9 +277,7 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 		specObject.setIdentifier("ID_TC1000_SpecObject");
 		specObject.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObject.setType(specObjectType);
-		// TODO: Backlinkage should be a derived reference
-		// TODO: same for Document root
-		// specObject.setCoreContent(value)
+
 		AttributeValueBoolean attributeValueBooleanTc1000t = ReqIF10Factory.eINSTANCE.createAttributeValueBoolean();
 		attributeValueBooleanTc1000t.setDefinition(attributeDefinitionBooleanTc1000t);
 		attributeValueBooleanTc1000t.setTheValue(true);
@@ -297,6 +306,12 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 		attributeValueEnumeration.setDefinition(attributeDefinitionEnumeration);
 		attributeValueEnumeration.getValues().add(enumValueYellow);
 
+		AttributeValueEnumeration attributeValueEnumerationMultiValue = ReqIF10Factory.eINSTANCE.createAttributeValueEnumeration();
+		attributeValueEnumerationMultiValue.setDefinition(attributeDefinitionEnumerationMultiValue);
+		attributeValueEnumerationMultiValue.getValues().add(enumValueYellow);
+		attributeValueEnumerationMultiValue.getValues().add(enumValueRed);
+		attributeValueEnumerationMultiValue.getValues().add(enumValueGreen);
+
 		specObject.getValues().add(attributeValueBooleanTc1000t);
 		specObject.getValues().add(attributeValueBooleanTc1000f);
 		specObject.getValues().add(attributeValueInteger);
@@ -304,6 +319,7 @@ public class TC1000ModelBuilder extends SimpleModelBuilder {
 		specObject.getValues().add(attributeValueReal);
 		specObject.getValues().add(attributeValueDate);
 		specObject.getValues().add(attributeValueEnumeration);
+		specObject.getValues().add(attributeValueEnumerationMultiValue);
 
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 

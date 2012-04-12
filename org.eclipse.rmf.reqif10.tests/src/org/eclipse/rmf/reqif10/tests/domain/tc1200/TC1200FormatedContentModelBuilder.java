@@ -9,7 +9,7 @@
  *     Mark Broerkens - initial API and implementation
  * 
  */
-package org.eclipse.rmf.reqif10.tests.util;
+package org.eclipse.rmf.reqif10.tests.domain.tc1200;
 
 import java.math.BigInteger;
 
@@ -39,6 +39,9 @@ import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
 import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.tests.util.SimpleModelBuilder;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlColType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlColgroupType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDdType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDlType;
@@ -51,6 +54,8 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlTableType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlTbodyType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlTdType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTfootType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTheadType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlTrType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
 
@@ -142,7 +147,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
  * </ul>
  */
 @SuppressWarnings("nls")
-public class TC3000ModelBuilder extends SimpleModelBuilder {
+public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 	final static String LAST_CHANGE_STRING = "2012-04-07T01:51:37.112+02:00";
 
 	int id_counter = 0;
@@ -168,7 +173,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 	 * @throws Exception 
 	 * 
 	 */
-	public TC3000ModelBuilder() throws Exception {
+	public TC1200FormatedContentModelBuilder() throws Exception {
 		super(null, "ID_TC3000_ReqIfHeader", "TC 3000 'Formated Content'");
 	}
 
@@ -259,34 +264,29 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		EObject xhtmlLevel3;
 		EObject xhtmlLevel4;
 		// level 0 / empty xhtml input
-		description = "empty";
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), null);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		description = "empty_the_original_value";
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue(), null);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		/*
+		 * description = "empty"; specObject = createSpecObject(description,
+		 * ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), null);
+		 * getReqIF().getCoreContent().getSpecObjects().add(specObject); description = "empty_the_original_value";
+		 * specObject = createSpecObject(description,
+		 * ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue(), null);
+		 * getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		 */
 
 		// level 1 / top level
 		// create fill XhtmlDivType in XhtmlContent.div at original value
 		description = "xhtml.p.type_the_original_value";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), true);
 		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue(), xhtmlLevel1);
+		description = "xhtml.p.type";
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), true);
+		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		// create fill XhtmlDivType in XhtmlContent.div at original value
 		description = "xhtml.div.type_the_original_value";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), true);
 		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		// create full XhtmlPType in XhtmlContent.p
-		description = "xhtml.p.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), true);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		// create fill XhtmlDivType in XhtmlContent.div
 		description = "xhtml.div.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), true);
 		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
@@ -392,10 +392,17 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		((XhtmlTableType) xhtmlLevel2).getTr().clear();
 		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
 
 		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTheadType(), true);
 		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Thead(), xhtmlLevel3);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTbodyType(), false);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tbody(), xhtmlLevel3);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTfootType(), false);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tfoot(), xhtmlLevel3);
 
 		// xhtml.col.type
 		description = "xhtml.col.type";
@@ -428,7 +435,14 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		((XhtmlTableType) xhtmlLevel2).getTr().clear();
 		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTheadType(), false);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Thead(), xhtmlLevel3);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTbodyType(), false);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tbody(), xhtmlLevel3);
 
 		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTfootType(), true);
 		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tfoot(), xhtmlLevel3);
@@ -440,10 +454,17 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		((XhtmlTableType) xhtmlLevel2).getTr().clear();
 		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTheadType(), false);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Thead(), xhtmlLevel3);
 
 		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTbodyType(), true);
 		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tbody(), xhtmlLevel3);
+
+		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTfootType(), false);
+		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tfoot(), xhtmlLevel3);
 
 		// xhtml.tr.type
 		description = "xhtml.tr.type";
@@ -486,7 +507,7 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 		setValue(xhtmlLevel3, XhtmlPackage.eINSTANCE.getXhtmlTrType_Td(), xhtmlLevel4);
 
 		// xhtml.th.type
-		description = "xhtml.td.type";
+		description = "xhtml.th.type";
 		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
 		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
@@ -593,10 +614,40 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 
 	private void setSubElements(EObject eObject, boolean createAll) {
 		if (createAll) {
-			// create full set of sub elements
-			for (EReference eReference : eObject.eClass().getEAllContainments()) {
-				EObject subEObject = createXhtmlInstance(eReference.getEReferenceType(), false);
-				setValue(eObject, eReference, subEObject);
+			if (eObject instanceof XhtmlTableType) {
+				EObject subEObject;
+				// caption
+				subEObject = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlCaptionType(), false);
+				setValue(eObject, XhtmlPackage.eINSTANCE.getXhtmlTableType_Caption(), subEObject);
+
+				// colgroup
+				subEObject = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlColgroupType(), false);
+				setValue(eObject, XhtmlPackage.eINSTANCE.getXhtmlTableType_Colgroup(), subEObject);
+
+				// thead
+				subEObject = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTheadType(), false);
+				setValue(eObject, XhtmlPackage.eINSTANCE.getXhtmlTableType_Thead(), subEObject);
+
+				// tbody
+				subEObject = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTbodyType(), false);
+				setValue(eObject, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tbody(), subEObject);
+
+				// tfoot
+				subEObject = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTfootType(), false);
+				setValue(eObject, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tfoot(), subEObject);
+
+				// tr
+				/*
+				 * subEObject = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTrType(), false); setValue(eObject,
+				 * XhtmlPackage.eINSTANCE.getXhtmlTableType_Tr(), subEObject);
+				 */
+
+			} else {
+				// create full set of sub elements
+				for (EReference eReference : eObject.eClass().getEAllContainments()) {
+					EObject subEObject = createXhtmlInstance(eReference.getEReferenceType(), false);
+					setValue(eObject, eReference, subEObject);
+				}
 			}
 		} else {
 			// create mandatory sub elements only
@@ -614,6 +665,24 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 				XhtmlTdType td = XhtmlFactory.eINSTANCE.createXhtmlTdType();
 				setAttributes(td, false);
 				tr.getTd().add(td);
+			} else if (eObject instanceof XhtmlTheadType) {
+				XhtmlTrType tr = XhtmlFactory.eINSTANCE.createXhtmlTrType();
+				setAttributes(tr, false);
+				((XhtmlTheadType) eObject).getTr().add(tr);
+				XhtmlTdType td = XhtmlFactory.eINSTANCE.createXhtmlTdType();
+				setAttributes(td, false);
+				tr.getTd().add(td);
+			} else if (eObject instanceof XhtmlTfootType) {
+				XhtmlTrType tr = XhtmlFactory.eINSTANCE.createXhtmlTrType();
+				setAttributes(tr, false);
+				((XhtmlTfootType) eObject).getTr().add(tr);
+				XhtmlTdType td = XhtmlFactory.eINSTANCE.createXhtmlTdType();
+				setAttributes(td, false);
+				tr.getTd().add(td);
+			} else if (eObject instanceof XhtmlTrType) {
+				XhtmlTdType td = XhtmlFactory.eINSTANCE.createXhtmlTdType();
+				setAttributes(td, false);
+				((XhtmlTrType) eObject).getTd().add(td);
 			} else if (eObject instanceof XhtmlDlType) {
 				XhtmlDtType dt = XhtmlFactory.eINSTANCE.createXhtmlDtType();
 				setAttributes(dt, false);
@@ -633,6 +702,11 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 				setAttributes(li, false);
 				setMixedText(li, false);
 				((XhtmlOlType) eObject).getLi().add(li);
+			} else if (eObject instanceof XhtmlColgroupType) {
+				XhtmlColType col = XhtmlFactory.eINSTANCE.createXhtmlColType();
+				setAttributes(col, false);
+				setMixedText(col, false);
+				((XhtmlColgroupType) eObject).getCol().add(col);
 			}
 		}
 	}
@@ -749,12 +823,12 @@ public class TC3000ModelBuilder extends SimpleModelBuilder {
 			return EcoreUtil.createFromString(eDataType, "data");
 		}
 		if ("IDREFS".equals(datatypeName)) {
-			return EcoreUtil.createFromString(eDataType, "a123");
+			return null;
+			// EcoreUtil.createFromString(eDataType, "a123");
 		}
 		if ("ScopeType".equals(datatypeName)) {
 			return EcoreUtil.createFromString(eDataType, "row");
 		}
-		// System.out.println("Not Implemented Datatype: " + datatypeName);
 		return null;
 	}
 

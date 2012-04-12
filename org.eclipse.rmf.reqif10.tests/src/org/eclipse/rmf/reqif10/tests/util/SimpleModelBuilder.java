@@ -132,12 +132,14 @@ public class SimpleModelBuilder {
 			// create types
 			createSpecObjectTypes();
 			createSpecificationTypes();
-			createSpecRelationGroups();
+			createSpecRelationTypes();
+			createSpecRelationGroupTypes();
 
 			// create objects
 			createSpecObjects();
 			createSpecifications();
 			createSpecRelations();
+			createSpecRelationGroups();
 		}
 		return reqIf;
 	}
@@ -154,6 +156,9 @@ public class SimpleModelBuilder {
 	public void createSpecRelationGroups() throws Exception {
 	}
 
+	public void createSpecRelationGroupTypes() throws Exception {
+	}
+
 	public void createSpecifications() throws Exception {
 	}
 
@@ -161,6 +166,9 @@ public class SimpleModelBuilder {
 	}
 
 	public void createSpecRelations() throws Exception {
+	}
+
+	public void createSpecRelationTypes() throws Exception {
 	}
 
 	public XMLGregorianCalendar getCurrentDate() throws DatatypeConfigurationException {
