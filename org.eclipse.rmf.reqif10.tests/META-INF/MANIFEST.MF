@@ -11,5 +11,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.rmf.reqif10;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport,
- org.eclipse.rmf.serialization
+ org.eclipse.rmf.serialization,
+ org.eclipse.rmf.pror.reqif10;bundle-version="0.2.0",
+ org.eclipse.rmf.pror.reqif10.presentation.headline;bundle-version="0.2.0"
 Bundle-ActivationPolicy: lazy

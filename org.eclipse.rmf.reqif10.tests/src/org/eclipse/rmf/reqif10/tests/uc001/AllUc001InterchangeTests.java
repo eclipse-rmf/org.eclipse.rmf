@@ -17,6 +17,7 @@ import org.eclipse.rmf.reqif10.tests.uc001.tc1200.TC1200FormatedContentTests;
 import org.eclipse.rmf.reqif10.tests.uc001.tc1300.TC1300SpecRelationTests;
 import org.eclipse.rmf.reqif10.tests.uc001.tc1400.TC1400InternalTableTests;
 import org.eclipse.rmf.reqif10.tests.uc001.tc1700.TC1700SpecRelationMultifileTests;
+import org.eclipse.rmf.reqif10.tests.uc001.tc3000.TC3000ToolExtensionsTests;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
@@ -27,7 +28,7 @@ import org.junit.runners.Suite.SuiteClasses;
 																		 * TC1500AccessRestrictionTests.class,
 																		 * TC1600ExternalContentTests.class,
 																		 */
-		TC1700SpecRelationMultifileTests.class, TC9000SimpleContentPerformanceTest.class })
+		TC1700SpecRelationMultifileTests.class, TC3000ToolExtensionsTests.class, TC9000SimpleContentPerformanceTest.class })
 public class AllUc001InterchangeTests {
 
 }
