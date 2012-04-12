@@ -34,7 +34,6 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
-import org.apache.xerces.impl.Constants;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -108,15 +107,11 @@ public abstract class AbstractTestCase {
 		if (schemaFolder.exists() && schemaFolder.isDirectory()) {
 
 			StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource("schema/reqif.xsd") };
-			// StreamSource[] schemaDocuments = new StreamSource[]{new
-			// StreamSource("http://www.omg.org/spec/ReqIF/20110401/ReqIF.xsd")};
 			Source instanceDocument = new StreamSource(filename);
 
 			SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 			Schema s = sf.newSchema(schemaDocuments);
 			Validator v = s.newValidator();
-			v.setFeature(Constants.XERCES_FEATURE_PREFIX + Constants.IGNORE_XSI_TYPE_FEATURE, Boolean.TRUE);
-			v.setFeature(Constants.XERCES_FEATURE_PREFIX + Constants.ID_IDREF_CHECKING_FEATURE, Boolean.FALSE);
 			v.validate(instanceDocument);
 		} else {
 			System.err.println("Could not find schema folder. Schema validation is turned off!!! ");
