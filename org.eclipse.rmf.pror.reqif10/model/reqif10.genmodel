@@ -17,10 +17,7 @@
     <genClasses ecoreClass="configuration.ecore#//ProrSpecViewConfiguration">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrSpecViewConfiguration/specification"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrSpecViewConfiguration/columns"/>
-<<<<<<< HEAD
-=======
             <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//ProrSpecViewConfiguration/leftHeaderColumn"/>
->>>>>>> 222ee13... Merge branch 'new-core' into develop
     </genClasses>
     <genClasses ecoreClass="configuration.ecore#//Column">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Column/label"/>
