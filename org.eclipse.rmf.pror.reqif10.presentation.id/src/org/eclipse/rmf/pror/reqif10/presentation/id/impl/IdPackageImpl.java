@@ -13,12 +13,14 @@ package org.eclipse.rmf.pror.reqif10.presentation.id.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdFactory;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdPackage;
+import org.eclipse.rmf.pror.reqif10.presentation.id.IdVerticalAlign;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
@@ -36,6 +38,13 @@ public class IdPackageImpl extends EPackageImpl implements IdPackage {
 	 * @generated
 	 */
 	private EClass idConfigurationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum idVerticalAlignEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -136,6 +145,24 @@ public class IdPackageImpl extends EPackageImpl implements IdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getIdConfiguration_VerticalAlign() {
+		return (EAttribute)idConfigurationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getIdVerticalAlign() {
+		return idVerticalAlignEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public IdFactory getIdFactory() {
 		return (IdFactory)getEFactoryInstance();
 	}
@@ -162,6 +189,10 @@ public class IdPackageImpl extends EPackageImpl implements IdPackage {
 		idConfigurationEClass = createEClass(ID_CONFIGURATION);
 		createEAttribute(idConfigurationEClass, ID_CONFIGURATION__PREFIX);
 		createEAttribute(idConfigurationEClass, ID_CONFIGURATION__COUNT);
+		createEAttribute(idConfigurationEClass, ID_CONFIGURATION__VERTICAL_ALIGN);
+
+		// Create enums
+		idVerticalAlignEEnum = createEEnum(ID_VERTICAL_ALIGN);
 	}
 
 	/**
@@ -201,6 +232,12 @@ public class IdPackageImpl extends EPackageImpl implements IdPackage {
 		initEClass(idConfigurationEClass, IdConfiguration.class, "IdConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIdConfiguration_Prefix(), ecorePackage.getEString(), "prefix", "REQ-", 1, 1, IdConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIdConfiguration_Count(), ecorePackage.getEInt(), "count", null, 1, 1, IdConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIdConfiguration_VerticalAlign(), this.getIdVerticalAlign(), "verticalAlign", "Top", 0, 1, IdConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(idVerticalAlignEEnum, IdVerticalAlign.class, "IdVerticalAlign");
+		addEEnumLiteral(idVerticalAlignEEnum, IdVerticalAlign.TOP);
+		addEEnumLiteral(idVerticalAlignEEnum, IdVerticalAlign.CENTER);
 
 		// Create resource
 		createResource(eNS_URI);

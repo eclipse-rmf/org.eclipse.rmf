@@ -7,6 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Kay Münch       - vertical alignment of the spec objects id
  ******************************************************************************/
 
 package org.eclipse.rmf.pror.reqif10.presentation.id.provider;
@@ -68,6 +69,7 @@ public class IdConfigurationItemProvider
 
 			addPrefixPropertyDescriptor(object);
 			addCountPropertyDescriptor(object);
+			addVerticalAlignPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -117,6 +119,28 @@ public class IdConfigurationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Vertical Align feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVerticalAlignPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IdConfiguration_verticalAlign_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IdConfiguration_verticalAlign_feature", "_UI_IdConfiguration_type"),
+				 IdPackage.Literals.ID_CONFIGURATION__VERTICAL_ALIGN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns IdConfiguration.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -157,6 +181,7 @@ public class IdConfigurationItemProvider
 		switch (notification.getFeatureID(IdConfiguration.class)) {
 			case IdPackage.ID_CONFIGURATION__PREFIX:
 			case IdPackage.ID_CONFIGURATION__COUNT:
+			case IdPackage.ID_CONFIGURATION__VERTICAL_ALIGN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

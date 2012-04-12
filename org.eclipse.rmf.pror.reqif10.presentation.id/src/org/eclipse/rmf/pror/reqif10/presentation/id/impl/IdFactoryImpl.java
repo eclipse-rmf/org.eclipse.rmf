@@ -7,15 +7,18 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Kay Münch       - vertical alignment of the spec objects id
  ******************************************************************************/
 
 package org.eclipse.rmf.pror.reqif10.presentation.id.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.rmf.pror.reqif10.presentation.id.*;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdFactory;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdPackage;
@@ -76,9 +79,59 @@ public class IdFactoryImpl extends EFactoryImpl implements IdFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case IdPackage.ID_VERTICAL_ALIGN:
+				return createIdVerticalAlignFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case IdPackage.ID_VERTICAL_ALIGN:
+				return convertIdVerticalAlignToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public IdConfiguration createIdConfiguration() {
 		IdConfigurationImpl idConfiguration = new IdConfigurationImpl();
 		return idConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IdVerticalAlign createIdVerticalAlignFromString(EDataType eDataType, String initialValue) {
+		IdVerticalAlign result = IdVerticalAlign.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIdVerticalAlignToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
