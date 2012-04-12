@@ -30,7 +30,7 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinitionString} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.DatatypeDefinitionString} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

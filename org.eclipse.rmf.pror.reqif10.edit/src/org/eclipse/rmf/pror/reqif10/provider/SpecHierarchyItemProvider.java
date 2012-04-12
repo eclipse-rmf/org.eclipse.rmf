@@ -54,10 +54,9 @@ import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.rmf.reqif10.SpecHierarchy} object. <!-- begin-user-doc -->
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.SpecHierarchy} object.
+ * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class SpecHierarchyItemProvider extends

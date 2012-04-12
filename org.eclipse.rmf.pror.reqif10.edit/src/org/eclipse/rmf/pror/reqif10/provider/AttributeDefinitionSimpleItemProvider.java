@@ -25,7 +25,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionSimple} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.AttributeDefinitionSimple} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

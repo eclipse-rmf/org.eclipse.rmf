@@ -9,30 +9,30 @@
   <foreignModel>configuration.ecore</foreignModel>
   <genPackages prefix="Configuration" basePackage="org.eclipse.rmf.pror.reqif10" resource="XML"
       disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
-    <genClasses ecoreClass="configuration.ecore#//ProrToolExtension">
+    <genClasses image="false" ecoreClass="configuration.ecore#//ProrToolExtension">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrToolExtension/specViewConfigurations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrToolExtension/generalConfiguration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrToolExtension/presentationConfigurations"/>
     </genClasses>
-    <genClasses ecoreClass="configuration.ecore#//ProrSpecViewConfiguration">
+    <genClasses image="false" ecoreClass="configuration.ecore#//ProrSpecViewConfiguration">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrSpecViewConfiguration/specification"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrSpecViewConfiguration/columns"/>
-            <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//ProrSpecViewConfiguration/leftHeaderColumn"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//ProrSpecViewConfiguration/leftHeaderColumn"/>
     </genClasses>
-    <genClasses ecoreClass="configuration.ecore#//Column">
+    <genClasses image="false" ecoreClass="configuration.ecore#//Column">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Column/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Column/width"/>
     </genClasses>
-    <genClasses ecoreClass="configuration.ecore#//ProrPresentationConfigurations">
+    <genClasses image="false" ecoreClass="configuration.ecore#//ProrPresentationConfigurations">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrPresentationConfigurations/presentationConfigurations"/>
     </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//ProrPresentationConfiguration">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrPresentationConfiguration/datatype"/>
     </genClasses>
-    <genClasses ecoreClass="configuration.ecore#//ProrGeneralConfiguration">
+    <genClasses image="false" ecoreClass="configuration.ecore#//ProrGeneralConfiguration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrGeneralConfiguration/labelConfiguration"/>
     </genClasses>
-    <genClasses ecoreClass="configuration.ecore#//LabelConfiguration">
+    <genClasses image="false" ecoreClass="configuration.ecore#//LabelConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LabelConfiguration/defaultLabel"/>
     </genClasses>
   </genPackages>
@@ -61,7 +61,7 @@
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//SpecElementWithAttributes">
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//SpecElementWithAttributes/values"/>
     </genClasses>
-    <genClasses ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionXHTML">
+    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionXHTML">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionXHTML/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionXHTML/defaultValue"/>
     </genClasses>
@@ -69,7 +69,7 @@
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//SpecType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//SpecType/specAttributes"/>
     </genClasses>
-    <genClasses ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent">
+    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/datatypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specObjects"/>
@@ -77,13 +77,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specifications"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFContent/specRelationGroups"/>
     </genClasses>
-    <genClasses ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF">
+    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF/lang"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF/theHeader"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF/toolExtensions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF/coreContent"/>
     </genClasses>
-    <genClasses ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFHeader">
+    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFHeader">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFHeader/comment"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFHeader/creationTime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFHeader/identifier"/>
@@ -93,7 +93,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFHeader/sourceToolId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFHeader/title"/>
     </genClasses>
-    <genClasses ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFToolExtension">
+    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFToolExtension">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFToolExtension/any"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//SpecObject">
@@ -137,8 +137,8 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//RelationGroup/targetSpecification"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//RelationGroupType"/>
-    <genClasses ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinitionXHTML"/>
-    <genClasses ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AlternativeID">
+    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinitionXHTML"/>
+    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AlternativeID">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AlternativeID/identifier"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionBoolean">
@@ -217,7 +217,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeValueString/theValue"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeValueString/definition"/>
     </genClasses>
-    <genClasses ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//XhtmlContent">
+    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//XhtmlContent">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//XhtmlContent/p"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//XhtmlContent/div"/>
     </genClasses>
@@ -1785,4 +1785,3 @@
     <genDataTypes ecoreDataType="../../org.eclipse.rmf.reqif10/model/datatypes.ecore#//URIs"/>
   </genPackages>
 </genmodel:GenModel>
-s

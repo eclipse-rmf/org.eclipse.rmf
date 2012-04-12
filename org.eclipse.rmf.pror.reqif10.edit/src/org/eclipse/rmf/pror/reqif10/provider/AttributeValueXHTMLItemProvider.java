@@ -32,7 +32,7 @@ import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueXhtml} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.AttributeValueXHTML} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
