@@ -30,7 +30,6 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.Identifiable;
-import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
@@ -94,7 +93,7 @@ public class IdentifiableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI_IdentifiablePropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -116,7 +115,7 @@ public class IdentifiableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI_IdentifiablePropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -138,7 +137,7 @@ public class IdentifiableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI_IdentifiablePropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -160,7 +159,7 @@ public class IdentifiableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI_IdentifiablePropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -251,11 +250,6 @@ public class IdentifiableItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.IDENTIFIABLE__ALTERNATIVE_ID,
-				 ReqIF10Factory.eINSTANCE.createAlternativeID()));
 	}
 
 	/**
