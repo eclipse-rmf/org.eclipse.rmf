@@ -13,7 +13,6 @@ package org.eclipse.rmf.pror.reqif10.editor.agilegrid;
 import java.util.HashMap;
 
 import org.agilemore.agilegrid.AgileGrid;
-import org.agilemore.agilegrid.Cell;
 import org.agilemore.agilegrid.DefaultLayoutAdvisor;
 import org.agilemore.agilegrid.ICellRenderer;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
