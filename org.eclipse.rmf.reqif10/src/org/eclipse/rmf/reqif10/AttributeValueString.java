@@ -44,7 +44,7 @@ public interface AttributeValueString extends AttributeValueSimple {
 	 * @see #setTheValue(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueString_TheValue()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='THE-VALUE' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='THE-VALUE' kind='attribute'"
 	 * @generated
 	 */
 	String getTheValue();

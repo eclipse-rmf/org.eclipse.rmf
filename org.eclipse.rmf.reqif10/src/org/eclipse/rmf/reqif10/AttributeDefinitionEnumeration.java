@@ -45,7 +45,7 @@ public interface AttributeDefinitionEnumeration extends AttributeDefinition {
 	 * @see #setMultiValued(boolean)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeDefinitionEnumeration_MultiValued()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='MULTI-VALUED' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='MULTI-VALUED' kind='attribute'"
 	 * @generated
 	 */
 	boolean isMultiValued();

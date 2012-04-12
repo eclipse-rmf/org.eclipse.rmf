@@ -55,7 +55,7 @@ public interface ReqIF10Package extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "";
+	String eNS_PREFIX = "reqif";
 
 	/**
 	 * The singleton instance of the package.

@@ -47,7 +47,7 @@ public interface EmbeddedValue extends EObject {
 	 * @see #setKey(BigInteger)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getEmbeddedValue_Key()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='KEY' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='KEY' kind='attribute'"
 	 * @generated
 	 */
 	BigInteger getKey();
@@ -101,7 +101,7 @@ public interface EmbeddedValue extends EObject {
 	 * @see #setOtherContent(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getEmbeddedValue_OtherContent()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='OTHER-CONTENT' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='OTHER-CONTENT' kind='attribute'"
 	 * @generated
 	 */
 	String getOtherContent();

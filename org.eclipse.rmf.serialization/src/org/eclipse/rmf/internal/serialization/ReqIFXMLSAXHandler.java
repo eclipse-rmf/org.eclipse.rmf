@@ -31,7 +31,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializationConstants {
-	private static final String PREFIX = ""; //$NON-NLS-1$
 	private static final String WRAPPER_TYPE = "wrapper_type";
 	private static final int OUT_OF_XHTML = -1;
 
@@ -135,7 +134,8 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 
 		EFactory eFactory = getFactoryForPrefix(prefix);
 
-		if (eFactory == null && prefix.equals(PREFIX) && helper.getURI(prefix) == null) {
+		// TODO: check why do we need to check for empty namespace prefix?
+		if (eFactory == null && prefix.equals("") && helper.getURI(prefix) == null) {
 			// handle anonymous namespace
 			EPackage ePackage = handleMissingPackage(null);
 			if (ePackage == null) {
@@ -307,10 +307,9 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 		} else {
 			int index = name.indexOf(':', 0);
 
-			// We use null here instead of "" because an attribute without a prefix
 			// is considered to have the null target namespace...
 			// TODO: make sure that we correctly handle the null namespace case
-			String prefix = PREFIX;
+			String prefix = null;
 			String localName = name;
 			if (index != -1) {
 				prefix = name.substring(0, index);

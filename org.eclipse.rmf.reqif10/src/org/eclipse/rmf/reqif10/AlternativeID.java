@@ -44,7 +44,7 @@ public interface AlternativeID extends EObject {
 	 * @see #setIdentifier(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAlternativeID_Identifier()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='IDENTIFIER' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='IDENTIFIER' kind='attribute'"
 	 * @generated
 	 */
 	String getIdentifier();

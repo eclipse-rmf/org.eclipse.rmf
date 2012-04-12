@@ -2215,8 +2215,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "IS-EDITABLE",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (identifiableEClass, 
@@ -2230,32 +2229,28 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "DESC",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getIdentifiable_Identifier(), 
 		   source, 
 		   new String[] {
 			 "name", "IDENTIFIER",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getIdentifiable_LastChange(), 
 		   source, 
 		   new String[] {
 			 "name", "LAST-CHANGE",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getIdentifiable_LongName(), 
 		   source, 
 		   new String[] {
 			 "name", "LONG-NAME",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getIdentifiable_AlternativeID(), 
@@ -2277,8 +2272,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "IS-SIMPLIFIED",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getAttributeValueXHTML_Definition(), 
@@ -2438,8 +2432,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "LANG",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getReqIF_TheHeader(), 
@@ -2493,8 +2486,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "IDENTIFIER",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getReqIFHeader_RepositoryId(), 
@@ -2616,8 +2608,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "IS-TABLE-INTERNAL",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getSpecHierarchy_Object(), 
@@ -2753,8 +2744,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "IDENTIFIER",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (attributeDefinitionBooleanEClass, 
@@ -2812,8 +2802,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "THE-VALUE",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getAttributeValueBoolean_Definition(), 
@@ -2872,8 +2861,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "THE-VALUE",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getAttributeValueDate_Definition(), 
@@ -2895,8 +2883,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "MULTI-VALUED",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getAttributeDefinitionEnumeration_Type(), 
@@ -2956,16 +2943,14 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "KEY",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getEmbeddedValue_OtherContent(), 
 		   source, 
 		   new String[] {
 			 "name", "OTHER-CONTENT",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (attributeValueEnumerationEClass, 
@@ -3025,16 +3010,14 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "MAX",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getDatatypeDefinitionInteger_Min(), 
 		   source, 
 		   new String[] {
 			 "name", "MIN",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (attributeValueIntegerEClass, 
@@ -3048,8 +3031,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "THE-VALUE",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getAttributeValueInteger_Definition(), 
@@ -3094,24 +3076,21 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "ACCURACY",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getDatatypeDefinitionReal_Max(), 
 		   source, 
 		   new String[] {
 			 "name", "MAX",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getDatatypeDefinitionReal_Min(), 
 		   source, 
 		   new String[] {
 			 "name", "MIN",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (attributeValueRealEClass, 
@@ -3125,8 +3104,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "THE-VALUE",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getAttributeValueReal_Definition(), 
@@ -3171,8 +3149,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "MAX-LENGTH",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (attributeValueStringEClass, 
@@ -3186,8 +3163,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   source, 
 		   new String[] {
 			 "name", "THE-VALUE",
-			 "kind", "attribute",
-			 "namespace", "##targetNamespace"
+			 "kind", "attribute"
 		   });		
 		addAnnotation
 		  (getAttributeValueString_Definition(), 

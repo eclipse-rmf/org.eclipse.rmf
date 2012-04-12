@@ -51,7 +51,7 @@ public interface Identifiable extends EObject {
 	 * @see #setDesc(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_Desc()
 	 * @model unsettable="true" ordered="false"
-	 *        extendedMetaData="name='DESC' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='DESC' kind='attribute'"
 	 * @generated
 	 */
 	String getDesc();
@@ -105,7 +105,7 @@ public interface Identifiable extends EObject {
 	 * @see #setIdentifier(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_Identifier()
 	 * @model unsettable="true" id="true" dataType="org.eclipse.rmf.reqif10.ID" required="true" ordered="false"
-	 *        extendedMetaData="name='IDENTIFIER' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='IDENTIFIER' kind='attribute'"
 	 * @generated
 	 */
 	String getIdentifier();
@@ -159,7 +159,7 @@ public interface Identifiable extends EObject {
 	 * @see #setLastChange(XMLGregorianCalendar)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_LastChange()
 	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.DateTime" required="true" ordered="false"
-	 *        extendedMetaData="name='LAST-CHANGE' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='LAST-CHANGE' kind='attribute'"
 	 * @generated
 	 */
 	XMLGregorianCalendar getLastChange();
@@ -213,7 +213,7 @@ public interface Identifiable extends EObject {
 	 * @see #setLongName(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_LongName()
 	 * @model unsettable="true" ordered="false"
-	 *        extendedMetaData="name='LONG-NAME' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='LONG-NAME' kind='attribute'"
 	 * @generated
 	 */
 	String getLongName();

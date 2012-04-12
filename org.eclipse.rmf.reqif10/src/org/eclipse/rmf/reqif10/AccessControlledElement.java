@@ -44,7 +44,7 @@ public interface AccessControlledElement extends Identifiable {
 	 * @see #setEditable(boolean)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAccessControlledElement_Editable()
 	 * @model unsettable="true" ordered="false"
-	 *        extendedMetaData="name='IS-EDITABLE' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='IS-EDITABLE' kind='attribute'"
 	 * @generated
 	 */
 	boolean isEditable();

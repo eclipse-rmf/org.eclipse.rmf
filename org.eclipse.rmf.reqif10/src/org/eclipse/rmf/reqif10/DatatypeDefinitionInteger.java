@@ -45,7 +45,7 @@ public interface DatatypeDefinitionInteger extends DatatypeDefinitionSimple {
 	 * @see #setMax(BigInteger)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionInteger_Max()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='MAX' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='MAX' kind='attribute'"
 	 * @generated
 	 */
 	BigInteger getMax();
@@ -99,7 +99,7 @@ public interface DatatypeDefinitionInteger extends DatatypeDefinitionSimple {
 	 * @see #setMin(BigInteger)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionInteger_Min()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='MIN' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='MIN' kind='attribute'"
 	 * @generated
 	 */
 	BigInteger getMin();

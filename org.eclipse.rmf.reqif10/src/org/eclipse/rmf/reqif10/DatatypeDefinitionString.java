@@ -44,7 +44,7 @@ public interface DatatypeDefinitionString extends DatatypeDefinitionSimple {
 	 * @see #setMaxLength(BigInteger)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionString_MaxLength()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='MAX-LENGTH' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='MAX-LENGTH' kind='attribute'"
 	 * @generated
 	 */
 	BigInteger getMaxLength();

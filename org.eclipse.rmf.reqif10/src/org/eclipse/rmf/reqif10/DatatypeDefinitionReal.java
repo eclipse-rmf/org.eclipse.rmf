@@ -46,7 +46,7 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 	 * @see #setAccuracy(BigInteger)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionReal_Accuracy()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='ACCURACY' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='ACCURACY' kind='attribute'"
 	 * @generated
 	 */
 	BigInteger getAccuracy();
@@ -100,7 +100,7 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 	 * @see #setMax(double)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionReal_Max()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='MAX' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='MAX' kind='attribute'"
 	 * @generated
 	 */
 	double getMax();
@@ -154,7 +154,7 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 	 * @see #setMin(double)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionReal_Min()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='MIN' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='MIN' kind='attribute'"
 	 * @generated
 	 */
 	double getMin();
