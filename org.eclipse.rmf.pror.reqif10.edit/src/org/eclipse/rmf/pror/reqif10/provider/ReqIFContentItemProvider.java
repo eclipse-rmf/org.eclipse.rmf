@@ -34,12 +34,11 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.ReqIfContent} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.ReqIFContent} object.
  * <!-- begin-user-doc -->
  * <p>This ItemProvider is special, as it contains only virutal children that group
  * the "real" children into more useful groups. To achieve this, we apply the
@@ -169,81 +168,6 @@ public class ReqIFContentItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionXHTML()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionBoolean()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionDate()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionEnumeration()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionInteger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionReal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,
-				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES,
-				 ReqIF10Factory.eINSTANCE.createSpecObjectType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES,
-				 ReqIF10Factory.eINSTANCE.createSpecificationType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES,
-				 ReqIF10Factory.eINSTANCE.createSpecRelationType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES,
-				 ReqIF10Factory.eINSTANCE.createRelationGroupType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
-				 ReqIF10Factory.eINSTANCE.createSpecObject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS,
-				 ReqIF10Factory.eINSTANCE.createSpecRelation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__SPECIFICATIONS,
-				 ReqIF10Factory.eINSTANCE.createSpecification()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATION_GROUPS,
-				 ReqIF10Factory.eINSTANCE.createRelationGroup()));
 	}
 
 	/**

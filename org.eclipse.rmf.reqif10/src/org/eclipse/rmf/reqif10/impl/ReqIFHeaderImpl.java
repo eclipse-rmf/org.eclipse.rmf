@@ -11,6 +11,8 @@
  */
 package org.eclipse.rmf.reqif10.impl;
 
+import java.util.UUID;
+
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -279,10 +281,13 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected ReqIFHeaderImpl() {
 		super();
+		// FIXME (mj) Hard-coded ID-Generation, until we have an extension point for ID generators
+		setIdentifier("rmf-" + UUID.randomUUID().toString());
+
 	}
 
 	/**

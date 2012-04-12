@@ -7,6 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Kay Münch       - vertical alignment of the spec objects id
  ******************************************************************************/
 
 package org.eclipse.rmf.pror.reqif10.presentation.id;
@@ -24,6 +25,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
  * <ul>
  *   <li>{@link org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration#getCount <em>Count</em>}</li>
+ *   <li>{@link org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration#getVerticalAlign <em>Vertical Align</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,5 +86,35 @@ public interface IdConfiguration extends ProrPresentationConfiguration {
 	 * @generated
 	 */
 	void setCount(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Vertical Align</b></em>' attribute.
+	 * The default value is <code>"Top"</code>.
+	 * The literals are from the enumeration {@link org.eclipse.rmf.pror.reqif10.presentation.id.IdVerticalAlign}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Vertical Align</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Vertical Align</em>' attribute.
+	 * @see org.eclipse.rmf.pror.reqif10.presentation.id.IdVerticalAlign
+	 * @see #setVerticalAlign(IdVerticalAlign)
+	 * @see org.eclipse.rmf.pror.reqif10.presentation.id.IdPackage#getIdConfiguration_VerticalAlign()
+	 * @model default="Top"
+	 * @generated
+	 */
+	IdVerticalAlign getVerticalAlign();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration#getVerticalAlign <em>Vertical Align</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Vertical Align</em>' attribute.
+	 * @see org.eclipse.rmf.pror.reqif10.presentation.id.IdVerticalAlign
+	 * @see #getVerticalAlign()
+	 * @generated
+	 */
+	void setVerticalAlign(IdVerticalAlign value);
 
 } // IdConfiguration

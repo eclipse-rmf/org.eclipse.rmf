@@ -13,10 +13,9 @@ package org.eclipse.rmf.reqif10.datatypes.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.eclipse.rmf.reqif10.datatypes.*;
+import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
+import org.eclipse.rmf.reqif10.datatypes.XhtmlContent;
 
 /**
  * <!-- begin-user-doc -->

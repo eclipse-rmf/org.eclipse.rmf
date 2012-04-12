@@ -4,7 +4,7 @@
       label="RMF ReqIf 1.0 Feature (Incubation)"
       version="0.2.0.qualifier"
       provider-name="Eclipse Modeling Project"
-      plugin="org.eclipse.rmf.reqif10.model">
+      plugin="org.eclipse.rmf.reqif10">
 
    <description url="http://www.pror.org">
       An EMF-based implementation of ReqIf 1.0.1
@@ -42,5 +42,33 @@ Contributors:
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+         
+   <plugin
+         id="org.apache.xerces"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="javax.xml"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.xml.resolver"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.xml.serializer"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>         
 
 </feature>
