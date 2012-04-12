@@ -20,11 +20,12 @@ Contributors:
 
    <extension point="org.eclipse.ui.newWizards">
       <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            id="org.eclipse.rmf.pror.category"
             name="%_UI_Wizard_category"/>
       <wizard
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="org.eclipse.rmf.pror.category"
             class="org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10ModelWizard"
+            descriptionImage="icons/full/prorIcon/prorIcon64.png"
             finalPerspective="org.eclipse.rmf.pror.ProrPerspective"
             icon="icons/full/obj16/ReqIf.png"
             id="org.eclipse.rmf.reqif10.presentation.Reqif10ModelWizardID"
@@ -174,11 +175,28 @@ Contributors:
 
  <extension-point id="presentation" name="Renderer and Editor for ReqIF Datatypes" schema="schema/presentation.exsd"/>
  <extension
+       point="org.eclipse.ui.perspectiveExtensions">
+    <perspectiveExtension
+          targetID="*">
+       <newWizardShortcut
+             id="org.eclipse.rmf.reqif10.presentation.Reqif10ModelWizardID">
+       </newWizardShortcut>
+    </perspectiveExtension>
+ </extension>
+ <extension
        point="org.eclipse.emf.ecore.extension_parser">
     <parser
           class="org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl"
           type="reqif">
     </parser>
+ </extension>
+ <extension
+       point="org.eclipse.ui.navigator.navigatorContent">
+    <commonWizard
+          type="new"
+          wizardId="org.eclipse.rmf.reqif10.presentation.Reqif10ModelWizardID">
+       <enablement></enablement>
+    </commonWizard>
  </extension>
 
 </plugin>
