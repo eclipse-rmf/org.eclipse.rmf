@@ -62,7 +62,7 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 
 	@Override
 	protected void processElement(String name, String prefix, String localName) {
-		if (SerializationStrategy.REQIF == serializationStrategy) {
+		if (SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy) {
 			if (isRoot) {
 				isRoot = false;
 				recordHeaderInformation();
@@ -85,25 +85,8 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 					}
 				}
 			}
-		} else if (SerializationStrategy.TOOL_EXTENSION_TOP == serializationStrategy) {
-			if (WRAPPER_TYPE != types.peek()) {
-				createTopObject(prefix, localName);
-				EObject obj = objects.pop();
-				EObject peekObject = objects.peekEObject();
-
-				// obj = validateCreateObjectFromFactory(eFactory, localName, obj, deferredFeatures.peek());
-
-				if (obj != null) {
-					setFeatureValue(peekObject, deferredFeatures.peek(), obj);
-				}
-
-				processObject(obj);
-
-				serializationStrategy = SerializationStrategy.TOOL_EXTENSION;
-			} else {
-				types.pop();
-				// this happens if we have previously found <TOOL-EXTENSION>
-			}
+		} else if (SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT == serializationStrategy) {
+			serializationStrategy = SerializationStrategy.TOOL_EXTENSION;
 
 		} else {
 			super.processElement(name, prefix, localName);
@@ -163,7 +146,7 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 	 */
 	@Override
 	protected void handleFeature(String prefix, String name) {
-		if (SerializationStrategy.REQIF == serializationStrategy) {
+		if (SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy) {
 			EObject peekObject = objects.peekEObject();
 
 			// This happens when processing an element with simple content that has
@@ -206,12 +189,12 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 							xhtmlLevel = level;
 							// we might need to switch to another handler here
 						} else if (feature == ReqIF10Package.eINSTANCE.getReqIF_ToolExtensions()) {
-							serializationStrategy = SerializationStrategy.TOOL_EXTENSION_TOP;
+							serializationStrategy = SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT;
 							toolExtensionsLevel = level;
 							// objects.push(peekObject);
 							objects.push(peekObject);
 							types.push(OBJECT_TYPE);
-							types.push(WRAPPER_TYPE);
+							// types.push(WRAPPER_TYPE);
 						} else {
 							objects.push(peekObject);
 							types.push(OBJECT_TYPE);
@@ -240,12 +223,15 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 	@Override
 	public void endElement(String uri, String localName, String name) {
 
-		if (SerializationStrategy.TOOL_EXTENSION_TOP == serializationStrategy) {
+		if (SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT == serializationStrategy) {
 			//
 			serializationStrategy = SerializationStrategy.REQIF;
 		} else {
 			super.endElement(uri, localName, name);
-			if (SerializationStrategy.REQIF == serializationStrategy) {
+			if (SerializationStrategy.TOOL_EXTENSION == serializationStrategy && level - 1 <= toolExtensionsLevel) {
+				// we finished reading tool extensions
+				serializationStrategy = SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT;
+			} else if (SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy) {
 				if (isFeatureExpected()) {
 					deferredFeatures.pop();
 				}
@@ -258,9 +244,6 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 						deferredFeatures.pop();
 					}
 				}
-			} else if (SerializationStrategy.TOOL_EXTENSION == serializationStrategy && level - 2 <= toolExtensionsLevel) {
-				// we finished reading tool extensions
-				serializationStrategy = SerializationStrategy.TOOL_EXTENSION_TOP;
 			}
 		}
 
@@ -270,12 +253,11 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 
 	// a feature is expected if level is even
 	protected boolean isFeatureExpected() {
-		return level % 2 == 0 ? true : false;
-	}
-
-	// a feature is expected if level is not even
-	protected boolean isObjectExpected() {
-		return level % 2 > 0 ? true : false;
+		if (SerializationStrategy.REQIF == serializationStrategy) {
+			return level % 2 == 0 ? true : false;
+		} else {
+			return level % 2 == 0 ? false : true;
+		}
 	}
 
 	@Override

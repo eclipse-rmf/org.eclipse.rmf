@@ -4,7 +4,7 @@ public interface IReqIFSerializationConstants {
 	public static final String REF = "-REF"; //$NON-NLS-1$
 
 	enum SerializationStrategy {
-		REQIF, XHTML, TOOL_EXTENSION, TOOL_EXTENSION_TOP
+		REQIF, XHTML, TOOL_EXTENSION, TOOL_EXTENSION_IGNORE_ELEMENT
 	};
 
 }

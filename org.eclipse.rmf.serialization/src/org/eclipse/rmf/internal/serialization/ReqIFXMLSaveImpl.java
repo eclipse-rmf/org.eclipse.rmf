@@ -74,7 +74,7 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 				String name = helper.getQName(f);
 				doc.startElement(name);
 				if (isReqIFToolExtensionFeature) {
-					serializationStrategy = SerializationStrategy.TOOL_EXTENSION_TOP;
+					serializationStrategy = SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT;
 					String typeName = helper.getQName(ReqIF10Package.eINSTANCE.getReqIFToolExtension());
 					doc.startElement(typeName);
 				}
@@ -140,10 +140,9 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 				saveElementID(o);
 
 			}
-		} else if (SerializationStrategy.TOOL_EXTENSION_TOP == serializationStrategy) {
-			serializationStrategy = SerializationStrategy.TOOL_EXTENSION;
+		} else if (SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT == serializationStrategy) {
+			serializationStrategy = SerializationStrategy.REQIF;
 			super.writeTopObject(o);
-			serializationStrategy = SerializationStrategy.TOOL_EXTENSION_TOP;
 		} else {
 			super.saveElement(o, f);
 		}
