@@ -222,7 +222,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//XhtmlContent/div"/>
     </genClasses>
   </genPackages>
-  <genPackages prefix="Xhtml" basePackage="org.eclipse.rmf.pror.reqif10" resource="XML"
+  <genPackages prefix="Xhtml" basePackage="org.eclipse.rmf.reqif10" resource="XML"
       disposableProviderFactory="true" loadInitialization="true" literalsInterface="false"
       ecorePackage="../../org.eclipse.rmf.reqif10/model/xhtml.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../org.eclipse.rmf.reqif10/model/xhtml.ecore#//AlignType">
@@ -1741,7 +1741,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/xhtml.ecore#//DocumentRoot/title"/>
     </genClasses>
   </genPackages>
-  <genPackages prefix="Datatypes" disposableProviderFactory="true" ecorePackage="../../org.eclipse.rmf.reqif10/model/datatypes.ecore#/">
+  <genPackages prefix="Datatypes" basePackage="org.eclipse.rmf.reqif10" disposableProviderFactory="true"
+      ecorePackage="../../org.eclipse.rmf.reqif10/model/datatypes.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../org.eclipse.rmf.reqif10/model/datatypes.ecore#//FrameTargetMember0">
       <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.rmf.reqif10/model/datatypes.ecore#//FrameTargetMember0/blank"/>
       <genEnumLiterals ecoreEnumLiteral="../../org.eclipse.rmf.reqif10/model/datatypes.ecore#//FrameTargetMember0/self"/>

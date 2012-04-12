@@ -14,11 +14,11 @@ package org.eclipse.rmf.pror.reqif10.presentation.id.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.rmf.pror.reqif10.presentation.id.*;
+import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
+import org.eclipse.rmf.pror.reqif10.presentation.id.IdFactory;
+import org.eclipse.rmf.pror.reqif10.presentation.id.IdPackage;
 
 
 /**
