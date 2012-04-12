@@ -34,7 +34,7 @@ Contributors:
       </intro>
       <introProductBinding
             introId="org.eclipse.rmf.pror.reqif10.intro"
-            productId="org.eclipse.platform.ide">
+            productId="org.eclipse.rmf.pror.reqif10.product">
       </introProductBinding>
    </extension>
    <extension
