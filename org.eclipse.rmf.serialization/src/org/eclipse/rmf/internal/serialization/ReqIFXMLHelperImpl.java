@@ -14,9 +14,11 @@ package org.eclipse.rmf.internal.serialization;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
@@ -53,6 +55,24 @@ public class ReqIFXMLHelperImpl extends XMLHelperImpl implements XMLHelper {
 		} else {
 			return super.convertToString(factory, dataType, value);
 		}
+	}
+
+	@Override
+	public String getQName(EStructuralFeature feature) {
+		// TODO Auto-generated method stub
+		return super.getQName(feature);
+	}
+
+	@Override
+	public String getQName(EClass c) {
+		// TODO Auto-generated method stub
+		return super.getQName(c);
+	}
+
+	@Override
+	public String getQName(EDataType c) {
+		// TODO Auto-generated method stub
+		return super.getQName(c);
 	}
 
 }

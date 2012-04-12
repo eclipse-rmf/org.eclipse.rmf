@@ -34,6 +34,7 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
+import org.apache.xerces.impl.Constants;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -43,6 +44,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
+import org.eclipse.rmf.pror.presentation.headline.HeadlinePackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
@@ -70,17 +73,14 @@ public abstract class AbstractTestCase {
 		backupRegistry.putAll(EPackage.Registry.INSTANCE);
 		System.out.println("BeforeClass: Initial package registry: " + EPackage.Registry.INSTANCE.keySet());
 		EPackage.Registry.INSTANCE.clear();
-		// put doesn't overwrite existing entries. We have to remove them before setting a new value
-		EPackage.Registry.INSTANCE.remove(ReqIF10Package.eNS_URI);
 		EPackage.Registry.INSTANCE.put(ReqIF10Package.eNS_URI, ReqIF10Package.eINSTANCE);
-		EPackage.Registry.INSTANCE.remove(XhtmlPackage.eNS_URI);
 		EPackage.Registry.INSTANCE.put(XhtmlPackage.eNS_URI, XhtmlPackage.eINSTANCE);
-		EPackage.Registry.INSTANCE.remove(DatatypesPackage.eNS_URI);
 		EPackage.Registry.INSTANCE.put(DatatypesPackage.eNS_URI, DatatypesPackage.eINSTANCE);
-		EPackage.Registry.INSTANCE.remove(XMLNamespacePackage.eNS_URI);
 		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(ConfigurationPackage.eNS_URI, ConfigurationPackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(HeadlinePackage.eNS_URI, HeadlinePackage.eINSTANCE);
+
 		// TODO: me might be able to live without the last package
-		EPackage.Registry.INSTANCE.remove(XMLTypePackage.eNS_URI);
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
 		System.out.println("BeforeClass: reset to: " + EPackage.Registry.INSTANCE.keySet());
 	}
@@ -115,6 +115,8 @@ public abstract class AbstractTestCase {
 			SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 			Schema s = sf.newSchema(schemaDocuments);
 			Validator v = s.newValidator();
+			v.setFeature(Constants.XERCES_FEATURE_PREFIX + Constants.IGNORE_XSI_TYPE_FEATURE, Boolean.TRUE);
+			v.setFeature(Constants.XERCES_FEATURE_PREFIX + Constants.ID_IDREF_CHECKING_FEATURE, Boolean.FALSE);
 			v.validate(instanceDocument);
 		} else {
 			System.err.println("Could not find schema folder. Schema validation is turned off!!! ");

@@ -33,6 +33,23 @@ public class ReferenceDataTests extends AbstractTestCase {
 	}
 
 	@Test
+	public void testSchemaCompliance() {
+		File folder = new File(INPUT_DIR);
+		if (folder.exists() && folder.isDirectory()) {
+			for (String fileName : folder.list(new ReqIFFileNameFilter())) {
+				System.out.println("Reading file: " + fileName);
+				try {
+					validateAgainstSchema(INPUT_DIR + IPath.SEPARATOR + fileName);
+				} catch (Exception e) {
+					e.printStackTrace();
+					assertFalse(true);
+				}
+			}
+		}
+
+	}
+
+	@Test
 	public void testAllFilesInInputFolder() {
 		File folder = new File(INPUT_DIR);
 		if (folder.exists() && folder.isDirectory()) {
