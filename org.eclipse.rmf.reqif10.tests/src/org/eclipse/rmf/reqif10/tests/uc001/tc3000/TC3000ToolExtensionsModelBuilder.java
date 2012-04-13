@@ -90,7 +90,7 @@ public class TC3000ToolExtensionsModelBuilder extends SimpleModelBuilder {
 		attributeDefinitionString.setType(datatypeDefinitionString);
 		specObjectType.getSpecAttributes().add(attributeDefinitionString);
 
-		// getReqIF().getCoreContent().getSpecTypes().add(specObjectType);
+		getReqIF().getCoreContent().getSpecTypes().add(specObjectType);
 
 	}
 
@@ -100,7 +100,7 @@ public class TC3000ToolExtensionsModelBuilder extends SimpleModelBuilder {
 		specificationType.setIdentifier("ID_TC3000_SpecificationType");
 		specificationType.setLongName("TC3000 SpecificationType");
 		specificationType.setLastChange(toDate(LAST_CHANGE_STRING));
-		// getReqIF().getCoreContent().getSpecTypes().add(specificationType);
+		getReqIF().getCoreContent().getSpecTypes().add(specificationType);
 	}
 
 	@Override
@@ -123,7 +123,7 @@ public class TC3000ToolExtensionsModelBuilder extends SimpleModelBuilder {
 		specHierarchy.setObject(specObject);
 		specification.getChildren().add(specHierarchy);
 
-		// getReqIF().getCoreContent().getSpecifications().add(specification);
+		getReqIF().getCoreContent().getSpecifications().add(specification);
 
 	}
 
@@ -140,7 +140,7 @@ public class TC3000ToolExtensionsModelBuilder extends SimpleModelBuilder {
 
 		specObject.getValues().add(attributeValueString);
 
-		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
 	}
 

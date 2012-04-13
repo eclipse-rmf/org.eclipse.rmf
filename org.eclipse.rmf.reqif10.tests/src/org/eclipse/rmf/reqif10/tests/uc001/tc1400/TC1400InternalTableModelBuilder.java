@@ -333,6 +333,8 @@ public class TC1400InternalTableModelBuilder extends SimpleModelBuilder implemen
 		specHierarchy113.setTableInternal(true);
 		specHierarchy11.getChildren().add(specHierarchy113);
 
+		getReqIF().getCoreContent().getSpecifications().add(specification);
+
 	}
 
 }
