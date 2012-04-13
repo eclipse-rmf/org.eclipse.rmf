@@ -19,7 +19,7 @@ import org.junit.Test;
 @SuppressWarnings("nls")
 public class TC1400InternalTableTests extends AbstractTestCase {
 
-	static final String TEST_CASE_ID = "TC1100";
+	static final String TEST_CASE_ID = "TC1400";
 	static final String REFERENCE_DATA_FILENAME = getWorkingFileName(getReferenceDataFileName(TEST_CASE_ID, false));
 	static final String EXPORT_DATA_FILENAME = getWorkingFileName(getFirstExportFileName(TEST_CASE_ID, false));
 	static ReqIF originalReqIF = null;

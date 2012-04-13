@@ -77,8 +77,8 @@ public class TC1400InternalTableModelBuilder extends SimpleModelBuilder implemen
 	public void createSpecObjectTypes() throws Exception {
 		// specObjectTypeRegular
 		specObjectTypeRegular = ReqIF10Factory.eINSTANCE.createSpecObjectType();
-		specObjectTypeRegular.setIdentifier("ID_TC1100_SpecObjectTypeRegular");
-		specObjectTypeRegular.setLongName("TC1100 SpecObjectType Regular");
+		specObjectTypeRegular.setIdentifier("ID_TC1400_SpecObjectTypeRegular");
+		specObjectTypeRegular.setLongName("TC1400 SpecObjectType Regular");
 		specObjectTypeRegular.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		specObjectTypeRegularAttributeDefinitionStringForeignId = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();

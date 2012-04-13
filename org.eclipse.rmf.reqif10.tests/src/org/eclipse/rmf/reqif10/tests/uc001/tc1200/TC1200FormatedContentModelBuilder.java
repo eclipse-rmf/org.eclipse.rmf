@@ -60,7 +60,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlTrType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
 
 /**
- * <h2>TC3000FormatedContent</h2> 
+ * <h2>TC1200FormatedContent</h2> 
  * <h3>Purpose</h3> 
  * my purpose 
  * <h3>Description of Reference Data</h3> 
@@ -121,13 +121,13 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
  *  </tfoot>
  *  <tbody>
  *  <tr>
- *    <td>TC3000 String</td>
+ *    <td>TC1200 String</td>
  *    <td>String</td>
  *    <td>maxLength=255</td>
  *    <td>Short description of the formated text</td>
  *  </tr>
  *  <tr>
- *    <td>TC3000 XHTML</td>
+ *    <td>TC1200 XHTML</td>
  *    <td>XHTML</td>
  *    <td>&nbsp;</td>
  *    <td>The formated text</td>
@@ -174,7 +174,7 @@ public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 	 * 
 	 */
 	public TC1200FormatedContentModelBuilder() throws Exception {
-		super(null, "ID_TC3000_ReqIfHeader", "TC 3000 'Formated Content'");
+		super(null, "ID_TC1200_ReqIfHeader", "TC 1200 'Formated Content'");
 	}
 
 	@Override
@@ -182,14 +182,14 @@ public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 
 		// datatypeDefinitionXHTML
 		datatypeDefinitionXHTML = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionXHTML();
-		datatypeDefinitionXHTML.setIdentifier("ID_TC3000_DatatypeDefinitionXHTML");
-		datatypeDefinitionXHTML.setLongName("TC3000 DatatypeDefinitionXHTML");
+		datatypeDefinitionXHTML.setIdentifier("ID_TC1200_DatatypeDefinitionXHTML");
+		datatypeDefinitionXHTML.setLongName("TC1200 DatatypeDefinitionXHTML");
 		datatypeDefinitionXHTML.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		// datatypeDefinitionString
 		datatypeDefinitionString = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString();
-		datatypeDefinitionString.setIdentifier("ID_TC3000_DatatypeDefinitionString");
-		datatypeDefinitionString.setLongName("TC3000 DatatypeDefinitionString");
+		datatypeDefinitionString.setIdentifier("ID_TC1200_DatatypeDefinitionString");
+		datatypeDefinitionString.setLongName("TC1200 DatatypeDefinitionString");
 		datatypeDefinitionString.setMaxLength(new BigInteger("255"));
 		datatypeDefinitionString.setLastChange(toDate(LAST_CHANGE_STRING));
 
@@ -203,21 +203,21 @@ public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 	public void createSpecObjectTypes() throws Exception {
 		// SpecObjectType
 		specObjectType = ReqIF10Factory.eINSTANCE.createSpecObjectType();
-		specObjectType.setIdentifier("ID_TC3000_SpecObjectType");
-		specObjectType.setLongName("TC3000 SpecObjectType");
+		specObjectType.setIdentifier("ID_TC1200_SpecObjectType");
+		specObjectType.setLongName("TC1200 SpecObjectType");
 		specObjectType.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		// AttributeDefinitionXHTML
 		attributeDefinitionXHTML = ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML();
-		attributeDefinitionXHTML.setIdentifier("ID_TC3000_AttributeDefinitionXHTML");
-		attributeDefinitionXHTML.setLongName("TC3000 AttributeDefinitionXHTML");
+		attributeDefinitionXHTML.setIdentifier("ID_TC1200_AttributeDefinitionXHTML");
+		attributeDefinitionXHTML.setLongName("TC1200 AttributeDefinitionXHTML");
 		attributeDefinitionXHTML.setLastChange(toDate(LAST_CHANGE_STRING));
 		attributeDefinitionXHTML.setType(datatypeDefinitionXHTML);
 
 		// AttributeDefinitionString
 		attributeDefinitionString = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
-		attributeDefinitionString.setIdentifier("ID_TC3000_AttributeDefinitionString");
-		attributeDefinitionString.setLongName("TC3000 AttributeDefinitionString");
+		attributeDefinitionString.setIdentifier("ID_TC1200_AttributeDefinitionString");
+		attributeDefinitionString.setLongName("TC1200 AttributeDefinitionString");
 		attributeDefinitionString.setLastChange(toDate(LAST_CHANGE_STRING));
 		attributeDefinitionString.setType(datatypeDefinitionString);
 
@@ -230,8 +230,8 @@ public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 	@Override
 	public void createSpecificationTypes() throws Exception {
 		specificationType = ReqIF10Factory.eINSTANCE.createSpecificationType();
-		specificationType.setIdentifier("ID_TC3000_SpecificationType");
-		specificationType.setLongName("TC3000 SpecificationType");
+		specificationType.setIdentifier("ID_TC1200_SpecificationType");
+		specificationType.setLongName("TC1200 SpecificationType");
 		specificationType.setLastChange(toDate(LAST_CHANGE_STRING));
 		getReqIF().getCoreContent().getSpecTypes().add(specificationType);
 	}
@@ -239,14 +239,14 @@ public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 	@Override
 	public void createSpecifications() throws Exception {
 		Specification specification = ReqIF10Factory.eINSTANCE.createSpecification();
-		specification.setIdentifier("ID_TC3000_Specification");
+		specification.setIdentifier("ID_TC1200_Specification");
 		specification.setType(specificationType);
 		specification.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		SpecHierarchy specHierarchy;
 		for (SpecObject specObject : getReqIF().getCoreContent().getSpecObjects()) {
 			specHierarchy = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
-			specHierarchy.setIdentifier("ID_TC3000_SpecHierarchy_" + specHierarchyCounter++);
+			specHierarchy.setIdentifier("ID_TC1200_SpecHierarchy_" + specHierarchyCounter++);
 			specHierarchy.setLastChange(toDate(LAST_CHANGE_STRING));
 			specHierarchy.setObject(specObject);
 			specification.getChildren().add(specHierarchy);
@@ -539,7 +539,7 @@ public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 
 	private SpecObject createSpecObject(String text, EStructuralFeature attributeValueXhtmlFeature, EObject eObject) throws Exception {
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
-		specObject.setIdentifier("ID_TC3000_SpecObject_" + text);
+		specObject.setIdentifier("ID_TC1200_SpecObject_" + text);
 		specObject.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObject.setType(specObjectType);
 
