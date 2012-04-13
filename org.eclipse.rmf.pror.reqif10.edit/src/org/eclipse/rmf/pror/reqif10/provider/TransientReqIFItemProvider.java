@@ -51,7 +51,8 @@ public abstract class TransientReqIFItemProvider extends ItemProviderAdapter
 
 	@Override
 	public Collection<?> getChildren(Object object) {
-		return super.getChildren(target);
+		
+		return target != null ? super.getChildren(target) : Collections.EMPTY_LIST;
 	}
 
 	@Override
