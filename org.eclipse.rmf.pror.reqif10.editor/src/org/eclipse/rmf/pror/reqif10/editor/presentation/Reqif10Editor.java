@@ -600,9 +600,12 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 
 	/**
 	 * Updates the problems indication with the information described in the
-	 * specified diagnostic. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * specified diagnostic. 
+	 * <!-- begin-user-doc -->
+	 * Provides a better error text.
+	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void updateProblemIndication() {
 		if (updateProblemIndication) {
@@ -625,6 +628,17 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 				}
 			} else if (diagnostic.getSeverity() != Diagnostic.OK) {
 				ProblemEditorPart problemEditorPart = new ProblemEditorPart();
+				problemEditorPart
+				.setTextProvider(new ProblemEditorPart.TextProvider() {
+					@Override
+							public String getMessage(Diagnostic rootDiagnostic) {
+								return rootDiagnostic.getSeverity() == Diagnostic.OK ? getString("_UI_NoProblems_message")
+										: rootDiagnostic.getMessage() != null ? rootDiagnostic
+												.getMessage()
+												: getString("_UI_DefaultProblem_message");
+							}
+				});
+
 				problemEditorPart.setDiagnostic(diagnostic);
 				problemEditorPart.setMarkerHelper(markerHelper);
 				try {
