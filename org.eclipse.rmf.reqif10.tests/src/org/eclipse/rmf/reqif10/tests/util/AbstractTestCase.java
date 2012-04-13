@@ -208,7 +208,7 @@ public abstract class AbstractTestCase {
 		stringBuffer.append(testCaseId);
 		stringBuffer.append("_");
 		stringBuffer.append("E");
-		stringBuffer.append(String.format("%03d", numberOfExports));
+		stringBuffer.append(String.format("%04d", numberOfExports));
 		stringBuffer.append("_");
 		stringBuffer.append("S");
 		stringBuffer.append(String.format("%02d", testStep));
