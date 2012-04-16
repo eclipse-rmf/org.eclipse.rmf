@@ -47,7 +47,9 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * associated with the row. May return null.
 	 */
 	@Override
-	public Object doGetContentAt(int row, int col) {
+	public Object doGetContentAt(int row, int col) throws IndexOutOfBoundsException {
+		if (row >= getRowCount())
+			throw new IndexOutOfBoundsException("Row does not exist: " + row);
 		SpecElementWithAttributes element = getProrRow(row)
 				.getSpecElement();
 
