@@ -29,7 +29,10 @@ import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * @author Lukas Ladenberger
@@ -38,6 +41,8 @@ import org.eclipse.swt.graphics.Rectangle;
 public class AbstractProrCellRenderer extends TextCellRenderer {
 
 	private final AdapterFactory adapterFactory;
+	private final static Image IMG_WARN = PlatformUI.getWorkbench()
+			.getSharedImages().getImage(ISharedImages.IMG_OBJS_WARN_TSK);
 
 	/**
 	 * @param agileGrid
@@ -60,7 +65,11 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 				Date date = cal.toGregorianCalendar().getTime();
 				stringValue = DateFormat.getDateInstance().format(date);
 			} else if (v instanceof XhtmlContent) {
-				stringValue = "XHTML NOT YET SUPPORTED";
+				// Render XhtmlContent as simplified version
+				XhtmlContent xhtmlContent = (XhtmlContent) v;
+				stringValue = ProrXhtmlSimplifiedHelper
+						.xhtmlToSimplifiedString(xhtmlContent);
+				gc.drawImage(IMG_WARN, rect.x + rect.width - 20, rect.y + 5);
 			} else if (v instanceof List<?>) {
 				stringValue = convertListToString((List<?>) v);
 			} else {
