@@ -145,4 +145,8 @@ public class TC1700SpecRelationMultifile1ModelBuilder extends SimpleModelBuilder
 		return specObject2;
 	}
 
+	public Specification getSpecification() {
+		return specification;
+	}
+
 }

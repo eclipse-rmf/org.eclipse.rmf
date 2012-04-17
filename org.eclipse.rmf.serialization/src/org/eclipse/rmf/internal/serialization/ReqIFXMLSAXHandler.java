@@ -31,7 +31,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializationConstants {
-	private static final String WRAPPER_TYPE = "wrapper_type";
 	private static final int OUT_OF_XHTML = -1;
 
 	private SerializationStrategy serializationStrategy = SerializationStrategy.REQIF;
@@ -118,7 +117,7 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 		EFactory eFactory = getFactoryForPrefix(prefix);
 
 		// TODO: check why do we need to check for empty namespace prefix?
-		if (eFactory == null && prefix.equals("") && helper.getURI(prefix) == null) {
+		if (eFactory == null && prefix.equals("") && helper.getURI(prefix) == null) { //$NON-NLS-1$
 			// handle anonymous namespace
 			EPackage ePackage = handleMissingPackage(null);
 			if (ePackage == null) {

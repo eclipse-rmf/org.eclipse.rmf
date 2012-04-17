@@ -60,91 +60,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlTrType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
 
 /**
- * <h2>TC1200FormatedContent</h2> 
- * <h3>Purpose</h3> 
- * my purpose 
- * <h3>Description of Reference Data</h3> 
- * <h4>ReqIFHeader</h4>
- * mandatory data only
- * <h4>ReqIFToolExtension</h4> 
- * none 
- * <h4>ReqIFContent</h4>
- * <table border="1">
- *  <thead>
- * 	<tr>
- *    <th>ReqIF element name</th>
- *    <th>Multiplicity</th>
- *    <th>Description</th>
- *  </tr>
- *  </thead>
- *  <tfoot>
- *  </tfoot>
- *  <tbody>
- *  <tr>
- *    <td>SpecObjectType</td>
- *    <td>1</td>
- *    <td>one SpecObjectType with two attributes: a description and the formated text</td>
- *  </tr>
- *  <tr>
- *    <td>SpecificationType</td>
- *    <td>1</td>
- *    <td>one SpecificationType with no additional attributes</td>
- *  </tr>
- *  <tr>
- *    <td>Specification</td>
- *    <td>1</td>
- *    <td>one Specification for all SpecObjects</td>
- *  </tr>
- *  <tr>
- *    <td>SpecHierarchy</td>
- *    <td>1</td>
- *    <td>Specification is structured as a flat list</td>
- *  </tr>
- *  <tr>
- *    <td>SpecObject</td>
- *    <td>*</td>
- *    <td>one specObject per ComplexType in XHTML XML schema</td>
- *  </tr>
- *  </tbody>
- * </table>
- * <h5>SpecObjectType</h5>
- * <table border="1">
- *  <thead>
- * 	<tr>
- *    <th>Attribute Name</th>
- *    <th>Attribute Type (ReqIF AttributeDefinition...)</th>
- *    <th>Properties</th>
- *    <th>Description</th>
- *  </tr>
- *  </thead>
- *  <tfoot>
- *  </tfoot>
- *  <tbody>
- *  <tr>
- *    <td>TC1200 String</td>
- *    <td>String</td>
- *    <td>maxLength=255</td>
- *    <td>Short description of the formated text</td>
- *  </tr>
- *  <tr>
- *    <td>TC1200 XHTML</td>
- *    <td>XHTML</td>
- *    <td>&nbsp;</td>
- *    <td>The formated text</td>
- *  </tr>
- *  </tbody>
- * </table>
- * <h5>SpecObjects</h5>
- * The set of SpecObjects shall follow the following rules:
- * <ul>
- *  <li>One SpecObject per ComplexType that occurs in the XHTML XML schema. 
- *      Within this SpecObject all XHTML sub elements and attributes of the 
- *      XHTML ComplexType are set.</li>
- *  <li>If the XHTML ComplexType is a mixed type, then dummy text is added between all XML elements</li>
- *  <li>The formated text starts with an "p" element or a "div" element</li>
- *  <li>The shortest possible XML path is used</li>
- *  <li>If the XHTML XML schema enforces sub elements, then only mandatory data is set for the sub elements</li> 
- * </ul>
+
  */
 @SuppressWarnings("nls")
 public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
@@ -183,13 +99,13 @@ public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 		// datatypeDefinitionXHTML
 		datatypeDefinitionXHTML = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionXHTML();
 		datatypeDefinitionXHTML.setIdentifier("ID_TC1200_DatatypeDefinitionXHTML");
-		datatypeDefinitionXHTML.setLongName("TC1200 DatatypeDefinitionXHTML");
+		datatypeDefinitionXHTML.setLongName("TC1200 XHTML");
 		datatypeDefinitionXHTML.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		// datatypeDefinitionString
 		datatypeDefinitionString = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString();
 		datatypeDefinitionString.setIdentifier("ID_TC1200_DatatypeDefinitionString");
-		datatypeDefinitionString.setLongName("TC1200 DatatypeDefinitionString");
+		datatypeDefinitionString.setLongName("TC1200 String");
 		datatypeDefinitionString.setMaxLength(new BigInteger("255"));
 		datatypeDefinitionString.setLastChange(toDate(LAST_CHANGE_STRING));
 

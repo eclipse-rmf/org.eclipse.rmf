@@ -79,8 +79,8 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 		specObjectType.setLastChange(toDate(LAST_CHANGE_STRING));
 
 		attributeDefinitionString = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
-		attributeDefinitionString.setIdentifier("ID_TC1000_AttributeDefinitionString");
-		attributeDefinitionString.setLongName("TC1000 String");
+		attributeDefinitionString.setIdentifier("ID_TC1300_AttributeDefinitionString");
+		attributeDefinitionString.setLongName("TC1300 String");
 		attributeDefinitionString.setLastChange(toDate(LAST_CHANGE_STRING));
 		attributeDefinitionString.setType(datatypeDefinitionString);
 
@@ -166,8 +166,8 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 	@Override
 	public void createSpecRelationGroups() throws Exception {
 		relationGroup = ReqIF10Factory.eINSTANCE.createRelationGroup();
-		relationGroup.setIdentifier("ID_TC1300_SpecRelationGroup");
-		relationGroup.setLongName("TC 1300 SpecRelationGroup");
+		relationGroup.setIdentifier("ID_TC1300_RelationGroup");
+		relationGroup.setLongName("TC 1300 RelationGroup");
 		relationGroup.setLastChange(toDate(LAST_CHANGE_STRING));
 		relationGroup.setType(relationGroupType);
 		relationGroup.getSpecRelations().add(specRelation);

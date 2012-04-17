@@ -30,11 +30,9 @@ public class TC1400InternalTableModelBuilder extends SimpleModelBuilder implemen
 
 	// SpecObjectTypes
 	SpecObjectType specObjectTypeRegular;
-	AttributeDefinitionString specObjectTypeRegularAttributeDefinitionStringForeignId;
 	AttributeDefinitionString specObjectTypeRegularAttributeDefinitionStringName;
 
 	SpecObjectType specObjectTypeInternalTable;
-	AttributeDefinitionString specObjectTypeInternalTableAttributeDefinitionStringForeignId;
 	AttributeDefinitionString specObjectTypeInternalTableAttributeDefinitionStringName;
 	AttributeDefinitionInteger specObjectTypeInternalTableAttributeDefinitionIntegerRevivision;
 	AttributeDefinitionString specObjectTypeInternalTableAttributeDefinitionStringChangeDescription;
@@ -81,20 +79,12 @@ public class TC1400InternalTableModelBuilder extends SimpleModelBuilder implemen
 		specObjectTypeRegular.setLongName("TC1400 SpecObjectType Regular");
 		specObjectTypeRegular.setLastChange(toDate(LAST_CHANGE_STRING));
 
-		specObjectTypeRegularAttributeDefinitionStringForeignId = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
-		specObjectTypeRegularAttributeDefinitionStringForeignId.setIdentifier("ID_TC1400_SpecObjectTypeRegularAttributeDefinitionString_"
-				+ REQIF_FOREIGN_ID);
-		specObjectTypeRegularAttributeDefinitionStringForeignId.setLongName(REQIF_FOREIGN_ID);
-		specObjectTypeRegularAttributeDefinitionStringForeignId.setLastChange(toDate(LAST_CHANGE_STRING));
-		specObjectTypeRegularAttributeDefinitionStringForeignId.setType(datatypeDefinitionString);
-
 		specObjectTypeRegularAttributeDefinitionStringName = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		specObjectTypeRegularAttributeDefinitionStringName.setIdentifier("ID_TC1400_SpecObjectTypeRegularAttributeDefinitionString_" + REQIF_NAME);
 		specObjectTypeRegularAttributeDefinitionStringName.setLongName(REQIF_NAME);
 		specObjectTypeRegularAttributeDefinitionStringName.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObjectTypeRegularAttributeDefinitionStringName.setType(datatypeDefinitionString);
 
-		specObjectTypeRegular.getSpecAttributes().add(specObjectTypeRegularAttributeDefinitionStringForeignId);
 		specObjectTypeRegular.getSpecAttributes().add(specObjectTypeRegularAttributeDefinitionStringName);
 
 		getReqIF().getCoreContent().getSpecTypes().add(specObjectTypeRegular);
@@ -104,13 +94,6 @@ public class TC1400InternalTableModelBuilder extends SimpleModelBuilder implemen
 		specObjectTypeInternalTable.setIdentifier("ID_TC1400_SpecObjectTypeInternalTable");
 		specObjectTypeInternalTable.setLongName("TC1400 SpecObjectType Internal Table");
 		specObjectTypeInternalTable.setLastChange(toDate(LAST_CHANGE_STRING));
-
-		specObjectTypeInternalTableAttributeDefinitionStringForeignId = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
-		specObjectTypeInternalTableAttributeDefinitionStringForeignId.setIdentifier("ID_TC1400_SpecObjectTypeInternalTableAttributeDefinitionString_"
-				+ REQIF_FOREIGN_ID);
-		specObjectTypeInternalTableAttributeDefinitionStringForeignId.setLongName(REQIF_FOREIGN_ID);
-		specObjectTypeInternalTableAttributeDefinitionStringForeignId.setLastChange(toDate(LAST_CHANGE_STRING));
-		specObjectTypeInternalTableAttributeDefinitionStringForeignId.setType(datatypeDefinitionString);
 
 		specObjectTypeInternalTableAttributeDefinitionStringName = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		specObjectTypeInternalTableAttributeDefinitionStringName.setIdentifier("ID_TC1400_SpecObjectTypeInternalTableAttributeDefinitionString_"
@@ -133,7 +116,6 @@ public class TC1400InternalTableModelBuilder extends SimpleModelBuilder implemen
 		specObjectTypeInternalTableAttributeDefinitionIntegerRevivision.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObjectTypeInternalTableAttributeDefinitionIntegerRevivision.setType(datatypeDefinitionInteger);
 
-		specObjectTypeInternalTable.getSpecAttributes().add(specObjectTypeInternalTableAttributeDefinitionStringForeignId);
 		specObjectTypeInternalTable.getSpecAttributes().add(specObjectTypeInternalTableAttributeDefinitionStringName);
 		specObjectTypeInternalTable.getSpecAttributes().add(specObjectTypeInternalTableAttributeDefinitionStringChangeDescription);
 		specObjectTypeInternalTable.getSpecAttributes().add(specObjectTypeInternalTableAttributeDefinitionIntegerRevivision);
@@ -165,11 +147,6 @@ public class TC1400InternalTableModelBuilder extends SimpleModelBuilder implemen
 		specObject1.setType(specObjectTypeRegular);
 
 		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
-		attributeValueString.setDefinition(specObjectTypeRegularAttributeDefinitionStringForeignId);
-		attributeValueString.setTheValue("1");
-		specObject1.getValues().add(attributeValueString);
-
-		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 		attributeValueString.setDefinition(specObjectTypeRegularAttributeDefinitionStringName);
 		attributeValueString.setTheValue("Obj1");
 		specObject1.getValues().add(attributeValueString);
@@ -181,11 +158,6 @@ public class TC1400InternalTableModelBuilder extends SimpleModelBuilder implemen
 		specObject11.setIdentifier("ID_TC1400_SpecObject11");
 		specObject11.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObject11.setType(specObjectTypeRegular);
-
-		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
-		attributeValueString.setDefinition(specObjectTypeRegularAttributeDefinitionStringForeignId);
-		attributeValueString.setTheValue("1.1");
-		specObject11.getValues().add(attributeValueString);
 
 		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 		attributeValueString.setDefinition(specObjectTypeRegularAttributeDefinitionStringName);
@@ -200,11 +172,6 @@ public class TC1400InternalTableModelBuilder extends SimpleModelBuilder implemen
 		specObject111.setIdentifier("ID_TC1400_SpecObject111");
 		specObject111.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObject111.setType(specObjectTypeInternalTable);
-
-		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
-		attributeValueString.setDefinition(specObjectTypeInternalTableAttributeDefinitionStringForeignId);
-		attributeValueString.setTheValue("1.1.1");
-		specObject111.getValues().add(attributeValueString);
 
 		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 		attributeValueString.setDefinition(specObjectTypeInternalTableAttributeDefinitionStringName);
@@ -230,11 +197,6 @@ public class TC1400InternalTableModelBuilder extends SimpleModelBuilder implemen
 		specObject112.setType(specObjectTypeInternalTable);
 
 		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
-		attributeValueString.setDefinition(specObjectTypeInternalTableAttributeDefinitionStringForeignId);
-		attributeValueString.setTheValue("1.1.2");
-		specObject112.getValues().add(attributeValueString);
-
-		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 		attributeValueString.setDefinition(specObjectTypeInternalTableAttributeDefinitionStringName);
 		attributeValueString.setTheValue("TableObj1.1.2");
 		specObject112.getValues().add(attributeValueString);
@@ -256,11 +218,6 @@ public class TC1400InternalTableModelBuilder extends SimpleModelBuilder implemen
 		specObject113.setIdentifier("ID_TC1400_SpecObject113");
 		specObject113.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObject113.setType(specObjectTypeInternalTable);
-
-		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
-		attributeValueString.setDefinition(specObjectTypeInternalTableAttributeDefinitionStringForeignId);
-		attributeValueString.setTheValue("1.1.3");
-		specObject113.getValues().add(attributeValueString);
 
 		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 		attributeValueString.setDefinition(specObjectTypeInternalTableAttributeDefinitionStringName);

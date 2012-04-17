@@ -1,5 +1,7 @@
 package org.eclipse.rmf.reqif10.tests.uc001.tc1700;
 
+import org.eclipse.rmf.reqif10.RelationGroup;
+import org.eclipse.rmf.reqif10.RelationGroupType;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
@@ -25,10 +27,18 @@ public class TC1700SpecRelationMultifile2ModelBuilder extends SimpleModelBuilder
 	// Specifications
 	Specification specification;
 
+	// RelationGroupTypes
+	// TODO: why isn't it called SpecRelationGroupType?
+	RelationGroupType relationGroupType;
+
+	// TODO: why isn't it called SpecRelationGroup?
+	RelationGroup relationGroup;
+
 	public TC1700SpecRelationMultifile2ModelBuilder(TC1700SpecRelationMultifile1ModelBuilder modelBuilder) throws Exception {
 		super("ID_TC1700_ReqIfHeader_2", "TC1700 'SpecRelation MultiFile'");
 		specObject1 = modelBuilder.getSpecObject1();
 		specObject2 = modelBuilder.getSpecObject2();
+		specification = modelBuilder.getSpecification();
 	}
 
 	@Override
@@ -50,6 +60,28 @@ public class TC1700SpecRelationMultifile2ModelBuilder extends SimpleModelBuilder
 		specRelationType.setLongName("TC 1700 SpecRelationType");
 		specRelationType.setLastChange(toDate(LAST_CHANGE_STRING));
 		getReqIF().getCoreContent().getSpecTypes().add(specRelationType);
+	}
+
+	@Override
+	public void createSpecRelationGroupTypes() throws Exception {
+		relationGroupType = ReqIF10Factory.eINSTANCE.createRelationGroupType();
+		relationGroupType.setIdentifier("ID_TC1700_SpecRelationGroupType");
+		relationGroupType.setLongName("TC 1700 SpecRelationGroupType");
+		relationGroupType.setLastChange(toDate(LAST_CHANGE_STRING));
+		getReqIF().getCoreContent().getSpecTypes().add(relationGroupType);
+	}
+
+	@Override
+	public void createSpecRelationGroups() throws Exception {
+		relationGroup = ReqIF10Factory.eINSTANCE.createRelationGroup();
+		relationGroup.setIdentifier("ID_TC1700_RelationGroup");
+		relationGroup.setLongName("TC 1700 RelationGroup");
+		relationGroup.setLastChange(toDate(LAST_CHANGE_STRING));
+		relationGroup.setType(relationGroupType);
+		relationGroup.getSpecRelations().add(specRelation);
+		relationGroup.setSourceSpecification(specification);
+		relationGroup.setTargetSpecification(specification);
+		getReqIF().getCoreContent().getSpecRelationGroups().add(relationGroup);
 	}
 
 }
