@@ -45,39 +45,46 @@ public class ProrXhtmlSimplifiedCellEditor extends TextCellEditor {
 	@Override
 	protected Object doGetValue() {
 
+		XhtmlDivType div = ProrXhtmlSimplifiedHelper
+				.stringToSimplifiedXhtml(text.getText());
 		XhtmlContent origTheValue = attributeValue.getTheValue();
-		XhtmlDivType div = ProrXhtmlSimplifiedHelper.stringToSimplifiedXhtml(text
-				.getText());
-		
-		// Copy the original value
-		Command create = CopyCommand.create(editingDomain, origTheValue);
-		create.execute();
-		Collection<?> result = create.getResult();
-		XhtmlContent xhtmlContentCopy = (XhtmlContent) result.toArray()[0];
-		xhtmlContentCopy.setDiv(div);
+
+		CompoundCommand compoundCommand = new CompoundCommand();
+
+		if (!attributeValue.isSimplified()) {
+			// Copy the original value
+			Command create = CopyCommand.create(editingDomain, origTheValue);
+			create.execute();
+			Collection<?> result = create.getResult();
+			XhtmlContent xhtmlContentCopy = (XhtmlContent) result.toArray()[0];
+
+			// Comand for setting original value
+			Command setTheOriginalValueCmd = SetCommand
+					.create(editingDomain,
+							attributeValue,
+							ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE,
+							xhtmlContentCopy);
+
+			// Comand for setting simplified flag
+			Command setSimplifiedCmd = SetCommand.create(editingDomain,
+					attributeValue,
+					ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED,
+					true);
+
+			compoundCommand.append(setTheOriginalValueCmd);
+			compoundCommand.append(setSimplifiedCmd);
+
+		}
 
 		// Command for setting new simplified version
 		Command setTheValueCmd = SetCommand.create(editingDomain,
-				attributeValue,
-				ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE,
-				xhtmlContentCopy);
-
-		// Comand for setting original value
-		Command setTheOriginalValueCmd = SetCommand.create(editingDomain,
-						attributeValue,
-						ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE,
-						origTheValue);
-
-		// Comand for setting simplified flag
-		Command setSimplifiedCmd = SetCommand.create(editingDomain,
-						attributeValue,
-						ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED,
-						true);
-
-		CompoundCommand compoundCommand = new CompoundCommand();
-		compoundCommand.append(setSimplifiedCmd);
+				origTheValue,
+				ReqIF10Package.Literals.XHTML_CONTENT__DIV, div);
+		Command removePCmd = SetCommand.create(editingDomain,
+				origTheValue, ReqIF10Package.Literals.XHTML_CONTENT__P, null);
 		compoundCommand.append(setTheValueCmd);
-		compoundCommand.append(setTheOriginalValueCmd);
+		compoundCommand.append(removePCmd);
+
 		editingDomain.getCommandStack().execute(compoundCommand);
 
 		return attributeValue;
