@@ -60,14 +60,11 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 	@Override
 	public boolean canEdit(int row, int col) {
 
-		ProrPresentationConfiguration config = ConfigurationUtil
-				.getPresentationConfig(this.contentProvider
-				.getAttributeValue(row), editingDomain);
-
-		if (config != null) {
-			PresentationService service = PresentationEditorManager.getPresentationService(config);
-			if (service != null)
-				return service.canEdit();
+		AttributeValue attrValue = getAttributeValue(row, col);
+		if (attrValue != null) {
+			PresentationService service = PresentationEditorManager
+					.getPresentationService(attrValue, editingDomain);
+			return service == null ? true : service.canEdit();
 		} else {
 			IItemPropertyDescriptor descriptor = this.contentProvider
 					.getItemPropertyDescriptor(row).getItemPropertyDescriptor();
