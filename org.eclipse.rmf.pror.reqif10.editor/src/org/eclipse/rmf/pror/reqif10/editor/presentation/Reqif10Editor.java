@@ -46,6 +46,7 @@ import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EValidator;
@@ -99,11 +100,15 @@ import org.eclipse.rmf.pror.reqif10.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualDatatypeDefinitionItemProvider;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecTypeItemProvider;
 import org.eclipse.rmf.pror.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
+import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
+import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
@@ -1083,6 +1088,41 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 
 		reqif = (ReqIF) resource.getContents().get(0);
 
+		// Handle isSimplified = true values
+		boolean askedToRestore = false;
+		boolean restoreSimplifiedValues = false;
+		EList<SpecObject> specObjects = reqif.getCoreContent().getSpecObjects();
+		for (SpecObject specObject : specObjects) {
+			EList<AttributeValue> values = specObject.getValues();
+			for (AttributeValue atrVal : values) {
+				if (atrVal instanceof AttributeValueXHTML) {
+					AttributeValueXHTML atrXhtml = (AttributeValueXHTML) atrVal;
+					if (atrXhtml.isSimplified()) {
+
+						if (!askedToRestore) {
+							restoreSimplifiedValues = MessageDialog
+									.openQuestion(
+											Display.getDefault()
+													.getActiveShell(),
+											"Please choose",
+											Reqif10EditorPlugin.INSTANCE
+													.getString("_UI_Reqif10XhtmlRestoreIsSimplified"));
+							askedToRestore = true;
+						}
+						
+						if(restoreSimplifiedValues) {
+							// Restore value
+							XhtmlContent theOriginalValue = atrXhtml.getTheOriginalValue();							
+							atrXhtml.setTheValue(theOriginalValue);
+							atrXhtml.setTheOriginalValue(null);
+							atrXhtml.setSimplified(false);
+						}
+						
+					}
+				}
+			}
+		}
+		
 		// TODO there must be a better place?
 		PresentationEditorManager.notifiyOpenReqif(reqif, editingDomain);
 		return reqif;

@@ -199,5 +199,19 @@ Contributors:
        <enablement></enablement>
     </commonWizard>
  </extension>
+ <extension
+       point="org.eclipse.ui.preferencePages">
+    <page
+          class="org.eclipse.rmf.pror.reqif10.editor.preferences.ProRPreferencePage"
+          id="org.eclipse.rmf.pror.reqif10.editor.preferencePage"
+          name="ProR">
+    </page>
+ </extension>
+ <extension
+       point="org.eclipse.core.runtime.preferences">
+    <initializer
+          class="org.eclipse.rmf.pror.reqif10.editor.preferences.PreferenceInitializer">
+    </initializer>
+ </extension>
 
 </plugin>
