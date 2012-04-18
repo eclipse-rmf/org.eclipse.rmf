@@ -52,6 +52,7 @@ Contributors:
 	</profiles>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
+		<testOutputDirectory>work</testOutputDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
