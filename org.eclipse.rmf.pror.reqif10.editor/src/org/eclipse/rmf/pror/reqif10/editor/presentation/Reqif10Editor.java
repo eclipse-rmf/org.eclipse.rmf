@@ -1083,6 +1083,9 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 
 		reqif = (ReqIF) resource.getContents().get(0);
 
+		// Handle isSimplified = true values
+		
+		
 		// TODO there must be a better place?
 		PresentationEditorManager.notifiyOpenReqif(reqif, editingDomain);
 		return reqif;

@@ -19,6 +19,9 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.CopyCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.rmf.pror.reqif10.editor.preferences.PreferenceConstants;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.Identifiable;
@@ -27,6 +30,7 @@ import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.impl.AttributeValueXHTMLImpl;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
 
 /**
  * @author Lukas Ladenberger
@@ -52,6 +56,7 @@ public class ProrXhtmlSimplifiedCellEditor extends TextCellEditor {
 		CompoundCommand compoundCommand = new CompoundCommand();
 
 		if (!attributeValue.isSimplified()) {
+			
 			// Copy the original value
 			Command create = CopyCommand.create(editingDomain, origTheValue);
 			create.execute();
@@ -73,6 +78,20 @@ public class ProrXhtmlSimplifiedCellEditor extends TextCellEditor {
 
 			compoundCommand.append(setTheOriginalValueCmd);
 			compoundCommand.append(setSimplifiedCmd);
+
+			// Notify user about potential information loss
+			if (!Reqif10EditorPlugin
+					.getPlugin()
+					.getPreferenceStore()
+					.getBoolean(
+							PreferenceConstants.P_STOP_IS_SIMPLIFIED_WARNING)) {
+				MessageDialog
+						.openInformation(
+								Display.getDefault().getActiveShell(),
+								"Information",
+								Reqif10EditorPlugin.INSTANCE
+										.getString("_UI_Reqif10XhtmlIsSimplifiedWarning"));
+			}
 
 		}
 
