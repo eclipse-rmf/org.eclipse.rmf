@@ -47,7 +47,7 @@ public interface SpecHierarchy extends AccessControlledElement {
 	 * @see #setTableInternal(boolean)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecHierarchy_TableInternal()
 	 * @model unsettable="true" ordered="false"
-	 *        extendedMetaData="name='IS-TABLE-INTERNAL' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='IS-TABLE-INTERNAL' kind='attribute'"
 	 * @generated
 	 */
 	boolean isTableInternal();

@@ -24,17 +24,18 @@ import org.eclipse.emf.ecore.xmi.FeatureNotFoundException;
 import org.eclipse.emf.ecore.xmi.PackageNotFoundException;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xmi.impl.SAXXMLHandler;
 import org.eclipse.emf.ecore.xmi.impl.XMLHandler;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
-public class ReqIFXMLSAXHandler extends XMLHandler implements IReqIFSerializationConstants {
-	private static final String PREFIX = ""; //$NON-NLS-1$
+public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializationConstants {
 	private static final int OUT_OF_XHTML = -1;
 
 	private SerializationStrategy serializationStrategy = SerializationStrategy.REQIF;
 	int xhtmlLevel = OUT_OF_XHTML;
+	int toolExtensionsLevel = OUT_OF_XHTML;
 
 	protected XMLHandler.MyStack<EStructuralFeature> deferredFeatures;
 
@@ -60,9 +61,7 @@ public class ReqIFXMLSAXHandler extends XMLHandler implements IReqIFSerializatio
 
 	@Override
 	protected void processElement(String name, String prefix, String localName) {
-		if (SerializationStrategy.REQIF != serializationStrategy) {
-			super.processElement(name, prefix, localName);
-		} else {
+		if (SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy) {
 			if (isRoot) {
 				isRoot = false;
 				recordHeaderInformation();
@@ -85,6 +84,11 @@ public class ReqIFXMLSAXHandler extends XMLHandler implements IReqIFSerializatio
 					}
 				}
 			}
+		} else if (SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT == serializationStrategy) {
+			serializationStrategy = SerializationStrategy.TOOL_EXTENSION;
+
+		} else {
+			super.processElement(name, prefix, localName);
 		}
 	}
 
@@ -112,7 +116,8 @@ public class ReqIFXMLSAXHandler extends XMLHandler implements IReqIFSerializatio
 
 		EFactory eFactory = getFactoryForPrefix(prefix);
 
-		if (eFactory == null && prefix.equals(PREFIX) && helper.getURI(prefix) == null) {
+		// TODO: check why do we need to check for empty namespace prefix?
+		if (eFactory == null && prefix.equals("") && helper.getURI(prefix) == null) { //$NON-NLS-1$
 			// handle anonymous namespace
 			EPackage ePackage = handleMissingPackage(null);
 			if (ePackage == null) {
@@ -140,9 +145,7 @@ public class ReqIFXMLSAXHandler extends XMLHandler implements IReqIFSerializatio
 	 */
 	@Override
 	protected void handleFeature(String prefix, String name) {
-		if (SerializationStrategy.REQIF != serializationStrategy) {
-			super.handleFeature(prefix, name);
-		} else {
+		if (SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy) {
 			EObject peekObject = objects.peekEObject();
 
 			// This happens when processing an element with simple content that has
@@ -184,6 +187,13 @@ public class ReqIFXMLSAXHandler extends XMLHandler implements IReqIFSerializatio
 							serializationStrategy = SerializationStrategy.XHTML;
 							xhtmlLevel = level;
 							// we might need to switch to another handler here
+						} else if (feature == ReqIF10Package.eINSTANCE.getReqIF_ToolExtensions()) {
+							serializationStrategy = SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT;
+							toolExtensionsLevel = level;
+							// objects.push(peekObject);
+							objects.push(peekObject);
+							types.push(OBJECT_TYPE);
+							// types.push(WRAPPER_TYPE);
 						} else {
 							objects.push(peekObject);
 							types.push(OBJECT_TYPE);
@@ -200,6 +210,8 @@ public class ReqIFXMLSAXHandler extends XMLHandler implements IReqIFSerializatio
 				handleUnknownFeature(prefix, name, true, peekObject, null);
 
 			}
+		} else {
+			super.handleFeature(prefix, name);
 		}
 	}
 
@@ -210,22 +222,26 @@ public class ReqIFXMLSAXHandler extends XMLHandler implements IReqIFSerializatio
 	@Override
 	public void endElement(String uri, String localName, String name) {
 
-		super.endElement(uri, localName, name);
-		if (SerializationStrategy.REQIF == serializationStrategy) {
-			if (isFeatureExpected()) {
-				deferredFeatures.pop();
-			}
-		}
-
-		if (SerializationStrategy.XHTML == serializationStrategy && level - 1 <= xhtmlLevel) {
-			// we finished reading xhtml
+		if (SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT == serializationStrategy) {
+			//
 			serializationStrategy = SerializationStrategy.REQIF;
-			// xhtmlLevel = OUT_OF_XHTML;
-
-			// required in case of empty xhtml content
-			if (level - 1 < xhtmlLevel) {
+		} else {
+			super.endElement(uri, localName, name);
+			if (SerializationStrategy.TOOL_EXTENSION == serializationStrategy && level - 1 <= toolExtensionsLevel) {
+				// we finished reading tool extensions
+				serializationStrategy = SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT;
+			} else if (SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy) {
 				if (isFeatureExpected()) {
 					deferredFeatures.pop();
+				}
+			} else if (SerializationStrategy.XHTML == serializationStrategy && level - 1 <= xhtmlLevel) {
+				// we finished reading xhtml
+				serializationStrategy = SerializationStrategy.REQIF;
+				// required in case of empty xhtml content
+				if (level - 1 < xhtmlLevel) {
+					if (isFeatureExpected()) {
+						deferredFeatures.pop();
+					}
 				}
 			}
 		}
@@ -236,18 +252,11 @@ public class ReqIFXMLSAXHandler extends XMLHandler implements IReqIFSerializatio
 
 	// a feature is expected if level is even
 	protected boolean isFeatureExpected() {
-		return level % 2 == 0 ? true : false;
-	}
-
-	// a feature is expected if level is not even
-	protected boolean isObjectExpected() {
-		return level % 2 > 0 ? true : false;
-	}
-
-	@Override
-	protected String getXSIType() {
-		// TODO Auto-generated method stub
-		return null;
+		if (SerializationStrategy.REQIF == serializationStrategy) {
+			return level % 2 == 0 ? true : false;
+		} else {
+			return level % 2 == 0 ? false : true;
+		}
 	}
 
 	@Override
@@ -279,10 +288,9 @@ public class ReqIFXMLSAXHandler extends XMLHandler implements IReqIFSerializatio
 		} else {
 			int index = name.indexOf(':', 0);
 
-			// We use null here instead of "" because an attribute without a prefix
 			// is considered to have the null target namespace...
 			// TODO: make sure that we correctly handle the null namespace case
-			String prefix = PREFIX;
+			String prefix = null;
 			String localName = name;
 			if (index != -1) {
 				prefix = name.substring(0, index);
@@ -302,5 +310,4 @@ public class ReqIFXMLSAXHandler extends XMLHandler implements IReqIFSerializatio
 			}
 		}
 	}
-
 }

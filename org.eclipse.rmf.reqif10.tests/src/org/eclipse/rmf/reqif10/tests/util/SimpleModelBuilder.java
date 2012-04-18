@@ -140,6 +140,9 @@ public class SimpleModelBuilder {
 			createSpecifications();
 			createSpecRelations();
 			createSpecRelationGroups();
+
+			// create tool extensions
+			createToolExtensions();
 		}
 		return reqIf;
 	}
@@ -169,6 +172,9 @@ public class SimpleModelBuilder {
 	}
 
 	public void createSpecRelationTypes() throws Exception {
+	}
+
+	public void createToolExtensions() throws Exception {
 	}
 
 	public XMLGregorianCalendar getCurrentDate() throws DatatypeConfigurationException {

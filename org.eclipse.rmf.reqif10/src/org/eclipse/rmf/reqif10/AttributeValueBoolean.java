@@ -44,7 +44,7 @@ public interface AttributeValueBoolean extends AttributeValueSimple {
 	 * @see #setTheValue(boolean)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueBoolean_TheValue()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='THE-VALUE' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='THE-VALUE' kind='attribute'"
 	 * @generated
 	 */
 	boolean isTheValue();

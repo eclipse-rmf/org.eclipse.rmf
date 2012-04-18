@@ -55,7 +55,7 @@ public interface ReqIF10Package extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "";
+	String eNS_PREFIX = "reqif";
 
 	/**
 	 * The singleton instance of the package.
@@ -688,22 +688,22 @@ public interface ReqIF10Package extends EPackage {
 	int REQ_IF__THE_HEADER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Tool Extensions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQ_IF__TOOL_EXTENSIONS = 2;
-
-	/**
 	 * The feature id for the '<em><b>Core Content</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQ_IF__CORE_CONTENT = 3;
+	int REQ_IF__CORE_CONTENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Tool Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQ_IF__TOOL_EXTENSIONS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Req IF</em>' class.

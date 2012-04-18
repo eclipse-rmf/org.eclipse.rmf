@@ -46,7 +46,7 @@ public interface AttributeValueXHTML extends AttributeValue {
 	 * @see #setSimplified(boolean)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueXHTML_Simplified()
 	 * @model unsettable="true" ordered="false"
-	 *        extendedMetaData="name='IS-SIMPLIFIED' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='IS-SIMPLIFIED' kind='attribute'"
 	 * @generated
 	 */
 	boolean isSimplified();

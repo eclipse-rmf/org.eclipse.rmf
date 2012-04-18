@@ -25,8 +25,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipse.rmf.reqif10.ReqIF#getLang <em>Lang</em>}</li>
  *   <li>{@link org.eclipse.rmf.reqif10.ReqIF#getTheHeader <em>The Header</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.ReqIF#getToolExtensions <em>Tool Extensions</em>}</li>
  *   <li>{@link org.eclipse.rmf.reqif10.ReqIF#getCoreContent <em>Core Content</em>}</li>
+ *   <li>{@link org.eclipse.rmf.reqif10.ReqIF#getToolExtensions <em>Tool Extensions</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,7 +49,7 @@ public interface ReqIF extends EObject {
 	 * @see #setLang(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIF_Lang()
 	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.namespace.LangType" ordered="false"
-	 *        extendedMetaData="name='LANG' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='LANG' kind='attribute'"
 	 * @generated
 	 */
 	String getLang();

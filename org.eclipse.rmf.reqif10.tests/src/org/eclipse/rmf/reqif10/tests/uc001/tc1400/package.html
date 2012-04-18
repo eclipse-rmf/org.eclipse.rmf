@@ -1,0 +1,180 @@
+<html>
+<body>
+
+<h2>TC1400 "Internal Table"</h2>
+
+<h3>Purpose</h3>
+
+<p>To check whether ReqIF tools can correctly import/export</p>
+
+<ol>
+<li>tables as part of a requirement's content, where parts of
+the table represent requirements as well.</li>
+<li>Specifications that contain SpecObjects with different SpecObjectType</li>
+</ol>
+
+<h3>Description of Reference Test Data</h3>
+
+<h4>ReqIFHeader</h4>
+The ReqIF Header contains all data that is mandatory according to the reqif XML schema.
+<h4>ReqIFToolExtension</h4> 
+No ReqIF Tool Extensions are contained in the reqif file  
+<h4>ReqIFContent</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> 
+<tr>
+<th valign="top" >ReqIF element name</th>
+<th valign="top" >Multi-plicity</th>
+<th valign="top" >Description</th>
+</tr>
+</thead> 
+<tbody>
+<tr>
+<td valign="top" >Specification</td>
+<td valign="top" >1</td>
+<td valign="top" >One specification for the contents.</td>
+</tr>
+
+<tr>
+<td valign="top" >SpecHierarchy</td>
+<td valign="top" >5</td>
+<td valign="top" >SpecHierarchy elements that each reference one SpecObject.</td>
+</tr>
+
+<tr>
+<td valign="top" >SpecObject</td>
+<td valign="top" >5</td>
+<td valign="top" >In total, there are 5 SpecObjects. 3 of them are requirements contained in a table</td>
+</tr>
+
+<tr>
+<td valign="top" >SpecObjectType</td>
+<td valign="top" >2</td>
+<td valign="top" >1 type for regular requirements. 1 type for requirements in table.</td>
+</tr>
+
+<tr>
+<td valign="top" >SpecificationType</td>
+<td valign="top" >1</td>
+<td valign="top" >No attributes on specification level.</td>
+</tr>
+
+<tr>
+<td valign="top" ><i>AttributeDefinition/<br />
+AttributeValue/ DatatypeDefinition</i></td>
+<td colspan="2" valign="top" >See tables for Attribute Definitions and Attribute Values</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4>SpecObjectType (regular SpecObject)</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> 
+<tr>
+<th valign="top" >Attribute Name</th>
+<th valign="top" >ReqIF Attribute Type (AttributeDefinition..)</th>
+<th valign="top" >Further Settings</th>
+</tr>
+</thead> 
+<tbody>
+
+<tr>
+<td valign="top" >ReqIF.Name</td>
+<td valign="top" >String</td>
+<td valign="top" > </td>
+</tr>
+</tbody>
+</table>
+
+<h4>SpecObjectType (SpecObject contained in table)</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> 
+<tr>
+<th valign="top" >Attribute Name</th>
+<th valign="top" >ReqIF Attribute Type (AttributeDefinition..)</th>
+<th valign="top" >Further Settings</th>
+</tr>
+</thead> 
+<tbody>
+
+<tr>
+<td valign="top" >ReqIF.Name</td>
+<td valign="top" >String</td>
+<td valign="top" > </td>
+</tr>
+
+<tr>
+<td valign="top" >ReqIF.ChangeDescription</td>
+<td valign="top" >String</td>
+<td valign="top" > </td>
+</tr>
+
+<tr>
+<td valign="top" >ReqIF.Revision</td>
+<td valign="top" >Integer</td>
+<td valign="top" > </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4>SpecObjects (regular)</h4>
+
+<p>Note: For simplicity, the intended position in the hierarchy matches the ReqIF.ForeignID</p>
+
+<table border="1" cellspacing="0" cellpadding="0" > <thead> <tr>
+<th valign="top" >ReqIF.Name</th>
+</tr>
+
+</thead> 
+<tbody>
+<tr>
+<td valign="top" >Obj1</td>
+</tr>
+
+<tr>
+<td valign="top" >Obj1.1</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4>SpecObjects (contained in table)</h4>
+
+<p>Note: For simplicity, the intended position in the hierarchy matches the ReqIF.ForeignID</p>
+
+<table border="1" cellspacing="0" cellpadding="0" > <thead> <tr>
+<th valign="top" >ReqIF.Name</th>
+<th valign="top" >ReqIF.ChangeDescription</th>
+<th valign="top" >ReqIF.Revision</th>
+</tr>
+
+</thead> 
+<tbody>
+<tr>
+<td valign="top" >TableObj1.1.1</td>
+<td valign="top" >Changed name</td>
+<td valign="top" >3</td>
+</tr>
+<tr>
+<td valign="top" >TableObj1.1.2</td>
+<td valign="top" >Changed name in order to comply to company naming conventions</td>
+<td valign="top" >20</td>
+</tr>
+<tr>
+<td valign="top" >TableObj1.1.3</td>
+<td valign="top" >initial revision</td>
+<td valign="top" >1</td>
+</tr>
+
+
+
+</tbody>
+</table>
+
+</body>
+</html>

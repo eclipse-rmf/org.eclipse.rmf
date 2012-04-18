@@ -75,6 +75,8 @@ public class ReqIFResourceImpl extends XMLResourceImpl {
 
 		saveOptions.put(XMLResource.OPTION_SAVE_TYPE_INFORMATION, Boolean.FALSE);
 
+		saveOptions.put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.FALSE);
+
 		// ========= default load options ===================
 		Map<Object, Object> loadOptions = getDefaultLoadOptions();
 		// get XML names and attribute/value information from extended metadata
@@ -85,7 +87,7 @@ public class ReqIFResourceImpl extends XMLResourceImpl {
 		// false.
 		loadOptions.put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.FALSE);
 
-		loadOptions.put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.TRUE);
+		loadOptions.put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.FALSE);
 
 		// Performance enhancement
 		loadOptions.put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);

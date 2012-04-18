@@ -1,0 +1,147 @@
+<html>
+<body>
+<h2>TC1700 "SpecRelation Multiple Files in Archive"</h2>
+
+<h3>Purpose</h3>
+<p>To check whether ReqIF tools can import/export reqif content that is stored in multiple files</p>
+
+<h3>Description of Reference Test Data</h3>
+The Reference Test Data is contains of two files that are ziped into an archive.
+The first file contains some Spec Objects and the second file contains the links between these SpecObjects.
+
+
+<h3>Description of Reference Test Data File 1</h3>
+<h4>ReqIFHeader</h4>
+The ReqIF Header contains all data that is mandatory according to the reqif XML schema.
+<h4>ReqIFToolExtension</h4> 
+No ReqIF Tool Extensions are contained in the reqif file  
+<h4>ReqIFContent</h4>
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> 
+<tr>
+<th>ReqIF element name</th>
+<th>Multiplicity</th>
+<th>Description</th>
+</tr>
+
+</thead> 
+<tbody>
+<tr>
+<td>Specification</td>
+<td>1</td>
+<td>One specification for the contents. </td>
+</tr>
+
+<tr>
+<td>SpecHierarchy</td>
+<td>1</td>
+<td>SpecHierarchy element that references two SpecObjects.</td>
+</tr>
+
+<tr>
+<td>SpecObject</td>
+<td>2</td>
+<td>Two simple requirements</td>
+</tr>
+
+<tr>
+<td>SpecificationType</td>
+<td>1</td>
+<td>Specification type without additional attributes. </td>
+</tr>
+
+<tr>
+<td><i>AttributeDefinition/<br />
+AttributeValue/ DatatypeDefinition</i></td>
+<td colspan="2"><p>See tables for Attribute Definitions and Attribute Values</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4>SpecObjectType</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> <tr>
+<th>Attribute Name</th>
+<th>ReqIF Attribute Type (AttributeDefinition..)</th>
+<th>Further Settings</th>
+</tr>
+</thead> 
+
+<tbody>
+<tr>
+<td>TC1700 String</td>
+<td>String</td>
+<td>maxLength := 256</td>
+</tr>
+</tbody>
+</table>
+
+<h4>SpecObjects</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> <tr>
+<th>TC1300 String</th>
+</tr>
+
+</thead> 
+<tbody>
+<tr>
+<td>Requirement 1</td>
+</tr>
+
+<tr>
+<td>Requirement 2</td>
+</tr>
+
+</tbody>
+</table>
+
+<h3>Description of Reference Test Data File 2</h3>
+<h4>ReqIFHeader</h4>
+The ReqIF Header contains all data that is mandatory according to the reqif XML schema.
+<h4>ReqIFToolExtension</h4> 
+No ReqIF Tool Extensions are contained in the reqif file  
+<h4>ReqIFContent</h4>
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> 
+<tr>
+<th>ReqIF element name</th>
+<th>Multiplicity</th>
+<th>Description</th>
+</tr>
+
+</thead> 
+<tbody>
+<tr>
+<td>SpecRelation</td>
+<td>1</td>
+<td>a single link between the two SpecObjects</td>
+</tr>
+
+<tr>
+<td>RelationGroup</td>
+<td>1</td>
+<td>a single RelationGroup that references the single specification as source and target and the single SpecRelation as specRelations</td>
+</tr>
+
+<tr>
+<td>SpecRelationType</td>
+<td>1</td>
+<td>SpecRelation type without additional attributes</td>
+</tr>
+
+<tr>
+<td>RelationGroupType</td>
+<td>1</td>
+<td>RelationGroup type without additional attributes</td>
+</tr>
+
+
+
+</tbody>
+</table>
+
+</body>
+</html>

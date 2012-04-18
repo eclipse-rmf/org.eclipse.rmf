@@ -45,7 +45,7 @@ public interface AttributeValueDate extends AttributeValueSimple {
 	 * @see #setTheValue(XMLGregorianCalendar)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueDate_TheValue()
 	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.DateTime" required="true" ordered="false"
-	 *        extendedMetaData="name='THE-VALUE' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='THE-VALUE' kind='attribute'"
 	 * @generated
 	 */
 	XMLGregorianCalendar getTheValue();

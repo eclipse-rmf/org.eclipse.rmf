@@ -161,7 +161,7 @@ public interface ReqIFHeader extends EObject {
 	 * @see #setIdentifier(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_Identifier()
 	 * @model unsettable="true" id="true" dataType="org.eclipse.rmf.reqif10.ID" required="true" ordered="false"
-	 *        extendedMetaData="name='IDENTIFIER' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='IDENTIFIER' kind='attribute'"
 	 * @generated
 	 */
 	String getIdentifier();

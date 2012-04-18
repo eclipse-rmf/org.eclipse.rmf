@@ -20,15 +20,17 @@ Contributors:
 
    <extension point="org.eclipse.ui.newWizards">
       <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            id="org.eclipse.rmf.pror.category"
             name="%_UI_Wizard_category"/>
       <wizard
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="org.eclipse.rmf.pror.category"
             class="org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10ModelWizard"
+            descriptionImage="icons/full/prorIcon/prorIcon64.png"
             finalPerspective="org.eclipse.rmf.pror.ProrPerspective"
             icon="icons/full/obj16/ReqIf.png"
             id="org.eclipse.rmf.reqif10.presentation.Reqif10ModelWizardID"
-            name="%_UI_Reqif10ModelWizard_label">
+            name="%_UI_Reqif10ModelWizard_label"
+            preferredPerspectives="org.eclipse.rmf.pror.ProrPerspective">
          <description>%_UI_Reqif10ModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
@@ -174,11 +176,42 @@ Contributors:
 
  <extension-point id="presentation" name="Renderer and Editor for ReqIF Datatypes" schema="schema/presentation.exsd"/>
  <extension
+       point="org.eclipse.ui.perspectiveExtensions">
+    <perspectiveExtension
+          targetID="*">
+       <newWizardShortcut
+             id="org.eclipse.rmf.reqif10.presentation.Reqif10ModelWizardID">
+       </newWizardShortcut>
+    </perspectiveExtension>
+ </extension>
+ <extension
        point="org.eclipse.emf.ecore.extension_parser">
     <parser
           class="org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl"
           type="reqif">
     </parser>
+ </extension>
+ <extension
+       point="org.eclipse.ui.navigator.navigatorContent">
+    <commonWizard
+          type="new"
+          wizardId="org.eclipse.rmf.reqif10.presentation.Reqif10ModelWizardID">
+       <enablement></enablement>
+    </commonWizard>
+ </extension>
+ <extension
+       point="org.eclipse.ui.preferencePages">
+    <page
+          class="org.eclipse.rmf.pror.reqif10.editor.preferences.ProRPreferencePage"
+          id="org.eclipse.rmf.pror.reqif10.editor.preferencePage"
+          name="ProR">
+    </page>
+ </extension>
+ <extension
+       point="org.eclipse.core.runtime.preferences">
+    <initializer
+          class="org.eclipse.rmf.pror.reqif10.editor.preferences.PreferenceInitializer">
+    </initializer>
  </extension>
 
 </plugin>

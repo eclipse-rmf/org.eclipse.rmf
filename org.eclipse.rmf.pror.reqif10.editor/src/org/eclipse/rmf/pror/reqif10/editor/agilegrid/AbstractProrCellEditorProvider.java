@@ -27,6 +27,7 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionReal;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
@@ -96,11 +97,10 @@ public abstract class AbstractProrCellEditorProvider extends
 				return new ProrEnumerationMultiValueCellEditor(agileGrid, dde,
 						editingDomain, adapterFactory);
 			}
-//		} else if (dd instanceof DatatypeDefinitionXhtml) {
-//			ProrXHTMLCellEditor integerCellEditor = new ProrXHTMLCellEditor(
-//					agileGrid, editingDomain);
-//			return integerCellEditor;
-
+		} else if (dd instanceof DatatypeDefinitionXHTML) {
+			ProrXhtmlSimplifiedCellEditor stringCellEditor = new ProrXhtmlSimplifiedCellEditor(
+					agileGrid, editingDomain, affectedObject);
+			return stringCellEditor;
 		}
 		throw new IllegalArgumentException("No editor for: " + value);
 	}

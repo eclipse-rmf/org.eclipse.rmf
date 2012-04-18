@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <introContent>
-    <page id="root" content="http://dev.pror.org/wiki/Welcome"/>
+    <page id="root" content="intro/intro.html"/>
 </introContent>

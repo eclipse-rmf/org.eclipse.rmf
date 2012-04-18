@@ -20,6 +20,7 @@ import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEdit
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.swt.graphics.GC;
@@ -33,6 +34,7 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 	private final Image specObjectIcon;
 	private final Image specRelationIcon;
 	private EditingDomain editingDomain;
+	private final ProrXhtmlCellRenderer xhtmlCellRenderer;
 
 	/**
 	 * Create a ProRCellRenderer. Note that the associated ContentProvider must
@@ -48,7 +50,8 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 		this.contentProvider = (ProrAgileGridContentProvider) agileGrid
 				.getContentProvider();
 		this.editingDomain = editingDomain;
-//		this.xhtmlCellRenderer = new ProrXHTMLCellRenderer(agileGrid);
+		this.xhtmlCellRenderer = new ProrXhtmlCellRenderer(agileGrid,
+				this.contentProvider);
 		//FIXME: Remove these static dependencies
 		specObjectIcon = ExtendedImageRegistry.getInstance().getImage(
 				Reqif10EditPlugin.INSTANCE.getImage("full/obj16/SpecObject.png"));
@@ -75,14 +78,14 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 		AttributeValue attrValue = contentProvider.getValueForColumn(
 				contentProvider.getProrRow(row).getSpecElement(), col);
 
-//		if (attrValue instanceof AttributeValueXhtml) {
-//			renderer = xhtmlCellRenderer;
-//		} else {
-		PresentationService service = PresentationEditorManager
+		if (attrValue instanceof AttributeValueXHTML) {
+			renderer = xhtmlCellRenderer;
+		} else {
+			PresentationService service = PresentationEditorManager
 					.getPresentationService(attrValue, editingDomain);
 			if (service != null)
 				renderer = service.getCellRenderer(attrValue);
-//		}
+		}
 
 		if (renderer != null) {
 			rowHeight = renderer.doDrawCellContent(gc, rect, content);

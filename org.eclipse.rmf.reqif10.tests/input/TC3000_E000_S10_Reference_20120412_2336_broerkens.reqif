@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reqif:REQ-IF xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline" xmlns:reqif="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd">
+  <reqif:THE-HEADER>
+    <reqif:REQ-IF-HEADER IDENTIFIER="ID_TC3000_ReqIfHeader">
+      <reqif:CREATION-TIME>2012-04-12T23:36:24.397+02:00</reqif:CREATION-TIME>
+      <reqif:REQ-IF-TOOL-ID>RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)</reqif:REQ-IF-TOOL-ID>
+      <reqif:REQ-IF-VERSION>1.0</reqif:REQ-IF-VERSION>
+      <reqif:SOURCE-TOOL-ID>RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)</reqif:SOURCE-TOOL-ID>
+      <reqif:TITLE>TC 3000 'Tool Extensions'</reqif:TITLE>
+    </reqif:REQ-IF-HEADER>
+  </reqif:THE-HEADER>
+  <reqif:CORE-CONTENT>
+    <reqif:REQ-IF-CONTENT>
+      <reqif:DATATYPES>
+        <reqif:DATATYPE-DEFINITION-STRING IDENTIFIER="ID_TC3000_DatatypeDefinitionString" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC3000 DatatypeDefinitionString" MAX-LENGTH="255"/>
+      </reqif:DATATYPES>
+    </reqif:REQ-IF-CONTENT>
+  </reqif:CORE-CONTENT>
+  <reqif:TOOL-EXTENSIONS>
+    <reqif:REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration/>
+          <configuration:ProrSpecViewConfiguration/>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration/>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+        <configuration:presentationConfigurations>
+          <configuration:ProrPresentationConfigurations>
+            <configuration:presentationConfigurations>
+              <headline:HeadlineConfiguration datatype="ID_TC3000_DatatypeDefinitionString"/>
+              <headline:HeadlineConfiguration datatype="ID_TC3000_DatatypeDefinitionString"/>
+            </configuration:presentationConfigurations>
+          </configuration:ProrPresentationConfigurations>
+        </configuration:presentationConfigurations>
+      </configuration:ProrToolExtension>
+    </reqif:REQ-IF-TOOL-EXTENSION>
+  </reqif:TOOL-EXTENSIONS>
+</reqif:REQ-IF>

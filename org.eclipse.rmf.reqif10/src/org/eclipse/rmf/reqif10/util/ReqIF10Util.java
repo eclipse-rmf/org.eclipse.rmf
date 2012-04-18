@@ -76,7 +76,9 @@ public class ReqIF10Util {
 	 * getTheValue() method. This convenience method returns the value.
 	 */
 	public static Object getTheValue(AttributeValue attributeValue) {
-		if (attributeValue instanceof AttributeValueSimple
+		if (attributeValue instanceof AttributeValueBoolean) {
+			return ((AttributeValueBoolean)attributeValue).isTheValue();
+		} else if (attributeValue instanceof AttributeValueSimple
 				|| attributeValue instanceof AttributeValueXHTML) {
 			return reflectiveGet(attributeValue, "getTheValue");
 		} else if (attributeValue instanceof AttributeValueEnumeration) {

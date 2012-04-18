@@ -42,8 +42,8 @@ import org.eclipse.rmf.reqif10.ReqIFToolExtension;
  * <ul>
  *   <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFImpl#getLang <em>Lang</em>}</li>
  *   <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFImpl#getTheHeader <em>The Header</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFImpl#getToolExtensions <em>Tool Extensions</em>}</li>
  *   <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFImpl#getCoreContent <em>Core Content</em>}</li>
+ *   <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFImpl#getToolExtensions <em>Tool Extensions</em>}</li>
  * </ul>
  * </p>
  *
@@ -99,16 +99,6 @@ public class ReqIFImpl extends EObjectImpl implements ReqIF {
 	protected boolean theHeaderESet;
 
 	/**
-	 * The cached value of the '{@link #getToolExtensions() <em>Tool Extensions</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getToolExtensions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ReqIFToolExtension> toolExtensions;
-
-	/**
 	 * The cached value of the '{@link #getCoreContent() <em>Core Content</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -126,6 +116,16 @@ public class ReqIFImpl extends EObjectImpl implements ReqIF {
 	 * @ordered
 	 */
 	protected boolean coreContentESet;
+
+	/**
+	 * The cached value of the '{@link #getToolExtensions() <em>Tool Extensions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToolExtensions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ReqIFToolExtension> toolExtensions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -422,10 +422,10 @@ public class ReqIFImpl extends EObjectImpl implements ReqIF {
 		switch (featureID) {
 			case ReqIF10Package.REQ_IF__THE_HEADER:
 				return basicUnsetTheHeader(msgs);
-			case ReqIF10Package.REQ_IF__TOOL_EXTENSIONS:
-				return ((InternalEList<?>)getToolExtensions()).basicRemove(otherEnd, msgs);
 			case ReqIF10Package.REQ_IF__CORE_CONTENT:
 				return basicUnsetCoreContent(msgs);
+			case ReqIF10Package.REQ_IF__TOOL_EXTENSIONS:
+				return ((InternalEList<?>)getToolExtensions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -442,10 +442,10 @@ public class ReqIFImpl extends EObjectImpl implements ReqIF {
 				return getLang();
 			case ReqIF10Package.REQ_IF__THE_HEADER:
 				return getTheHeader();
-			case ReqIF10Package.REQ_IF__TOOL_EXTENSIONS:
-				return getToolExtensions();
 			case ReqIF10Package.REQ_IF__CORE_CONTENT:
 				return getCoreContent();
+			case ReqIF10Package.REQ_IF__TOOL_EXTENSIONS:
+				return getToolExtensions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -465,12 +465,12 @@ public class ReqIFImpl extends EObjectImpl implements ReqIF {
 			case ReqIF10Package.REQ_IF__THE_HEADER:
 				setTheHeader((ReqIFHeader)newValue);
 				return;
+			case ReqIF10Package.REQ_IF__CORE_CONTENT:
+				setCoreContent((ReqIFContent)newValue);
+				return;
 			case ReqIF10Package.REQ_IF__TOOL_EXTENSIONS:
 				getToolExtensions().clear();
 				getToolExtensions().addAll((Collection<? extends ReqIFToolExtension>)newValue);
-				return;
-			case ReqIF10Package.REQ_IF__CORE_CONTENT:
-				setCoreContent((ReqIFContent)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -490,11 +490,11 @@ public class ReqIFImpl extends EObjectImpl implements ReqIF {
 			case ReqIF10Package.REQ_IF__THE_HEADER:
 				unsetTheHeader();
 				return;
-			case ReqIF10Package.REQ_IF__TOOL_EXTENSIONS:
-				unsetToolExtensions();
-				return;
 			case ReqIF10Package.REQ_IF__CORE_CONTENT:
 				unsetCoreContent();
+				return;
+			case ReqIF10Package.REQ_IF__TOOL_EXTENSIONS:
+				unsetToolExtensions();
 				return;
 		}
 		super.eUnset(featureID);
@@ -512,10 +512,10 @@ public class ReqIFImpl extends EObjectImpl implements ReqIF {
 				return isSetLang();
 			case ReqIF10Package.REQ_IF__THE_HEADER:
 				return isSetTheHeader();
-			case ReqIF10Package.REQ_IF__TOOL_EXTENSIONS:
-				return isSetToolExtensions();
 			case ReqIF10Package.REQ_IF__CORE_CONTENT:
 				return isSetCoreContent();
+			case ReqIF10Package.REQ_IF__TOOL_EXTENSIONS:
+				return isSetToolExtensions();
 		}
 		return super.eIsSet(featureID);
 	}

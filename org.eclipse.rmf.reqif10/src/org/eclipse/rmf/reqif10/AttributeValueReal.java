@@ -44,7 +44,7 @@ public interface AttributeValueReal extends AttributeValueSimple {
 	 * @see #setTheValue(double)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueReal_TheValue()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='THE-VALUE' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='THE-VALUE' kind='attribute'"
 	 * @generated
 	 */
 	double getTheValue();

@@ -25,7 +25,6 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.EnumValue;
-import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
@@ -59,8 +58,7 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 				XMLGregorianCalendar cal = (XMLGregorianCalendar) v;
 				Date date = cal.toGregorianCalendar().getTime();
 				stringValue = DateFormat.getDateInstance().format(date);
-			} else if (v instanceof XhtmlContent) {
-				stringValue = "XHTML NOT YET SUPPORTED";
+				// } else if (v instanceof XhtmlContent) {
 			} else if (v instanceof List<?>) {
 				stringValue = convertListToString((List<?>) v);
 			} else {

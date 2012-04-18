@@ -34,6 +34,7 @@ main() {
 	reqIfModel.objectsOfType(ECORE::EClass)->map removeBackLinkages();
 	reqIfModel.objectsOfType(ECORE::EClass)->map setMetadata();
 	reqIfModel.objectsOfType(ECORE::EClass)->map fixOrderOfCoreContentFeatures();
+	reqIfModel.objectsOfType(ECORE::EClass)->map fixOrderOfReqIFFeatures();
 	reqIfModel.objectsOfType(ECORE::EDataType)->map fixDatatypeID();
 	
 	// allow any xml inside of element REQ-IF-TOOL-EXTENSION 
@@ -132,12 +133,22 @@ when {self.name="ReqIFContent"}
 	
 }
 
+mapping inout ECORE::EClass :: fixOrderOfReqIFFeatures() 
+when {self.name="ReqIF"}
+{
+	self.eStructuralFeatures := self.eStructuralFeatures[name="lang"]
+	->append(self.eStructuralFeatures![name="theHeader"])
+	->append(self.eStructuralFeatures![name="coreContent"])
+	->append(self.eStructuralFeatures![name="toolExtensions"]);
+	
+}
+
 // set namespace prefix to "" in order to serialized with default namespace
 mapping inout ECORE::EPackage :: setNamespaceData() 
 when {self.name.toLower()="reqif"}
 {
 	self.nsURI := "http://www.omg.org/spec/ReqIF/20110401/reqif.xsd";
-	self.nsPrefix := "";
+	self.nsPrefix := "reqif";
 	self.name := "reqif10";
 	
 }
@@ -170,15 +181,15 @@ when {self.eType = ECORE::EInt}{
 // all Eattributes except most Eattributes of ReqIfHeader are serialized as attributes
 mapping inout ECORE::EAttribute :: setMetadata() {
     if (self.eContainingClass.name = "ReqIFHeader" and self.name != "identifier") then {
-		self.eAnnotations := self.getFeatureExtendedMetadata("element");
+		self.eAnnotations := self.getElementFeatureExtendedMetadata("element");
 	} else { 
-		self.eAnnotations := self.getFeatureExtendedMetadata("attribute");
+		self.eAnnotations := self.getAttributeFeatureExtendedMetadata("attribute");
 	} endif;
 }
 
 // sets the XML name and attribute/element serialization information
 mapping inout ECORE::EReference :: setMetadata() {
-	self.eAnnotations := self.getFeatureExtendedMetadata("element");
+	self.eAnnotations := self.getElementFeatureExtendedMetadata("element");
 }
 
 // sets the XML name and attribute/element serialization information
@@ -200,7 +211,7 @@ query ECORE :: EReference :: isValid() : Boolean {
     return not self.container
 }
 
-query ECORE::ENamedElement :: getFeatureExtendedMetadata(kind : String) : ECORE::EAnnotation {
+query ECORE::ENamedElement :: getElementFeatureExtendedMetadata(kind : String) : ECORE::EAnnotation {
 	return object ECORE::EAnnotation {
 		source := "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
 		details += object ECORE::EStringToStringMapEntry {
@@ -214,6 +225,20 @@ query ECORE::ENamedElement :: getFeatureExtendedMetadata(kind : String) : ECORE:
 		details += object ECORE::EStringToStringMapEntry {
 			key := "namespace";
 			value := "##targetNamespace";
+		};
+	}
+}
+
+query ECORE::ENamedElement :: getAttributeFeatureExtendedMetadata(kind : String) : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "name";
+			value := self.getXMLName();
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "kind";
+			value := kind;
 		};
 	}
 }

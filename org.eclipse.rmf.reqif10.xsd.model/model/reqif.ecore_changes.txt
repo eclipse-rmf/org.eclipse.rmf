@@ -1,4 +1,0 @@
-The following changes were applied to reqif.ecore
-
-1. Added Featuremap to XHTMLCONTENT
-2. Changed package name to reqif10.xsd

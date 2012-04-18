@@ -252,7 +252,7 @@ public class ConfigurationUtil {
 		EList<ProrSpecViewConfiguration> configs = extension
 				.getSpecViewConfigurations();
 		for (ProrSpecViewConfiguration config : configs) {
-			if (config.getSpecification().equals(specification)) {
+			if (config.getSpecification() != null && config.getSpecification().equals(specification)) {
 				return config;
 			}
 		}

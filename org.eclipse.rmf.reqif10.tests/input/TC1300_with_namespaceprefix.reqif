@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reqif:REQ-IF xmlns:reqif="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd">
+  <reqif:THE-HEADER>
+    <reqif:REQ-IF-HEADER IDENTIFIER="ID_TC1300_ReqIfHeader">
+      <reqif:CREATION-TIME>2012-04-12T21:47:12.485+02:00</reqif:CREATION-TIME>
+      <reqif:REQ-IF-TOOL-ID>RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)</reqif:REQ-IF-TOOL-ID>
+      <reqif:REQ-IF-VERSION>1.0</reqif:REQ-IF-VERSION>
+      <reqif:SOURCE-TOOL-ID>RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)</reqif:SOURCE-TOOL-ID>
+      <reqif:TITLE>TC 1300 'SpecRelation'</reqif:TITLE>
+    </reqif:REQ-IF-HEADER>
+  </reqif:THE-HEADER>
+  <reqif:CORE-CONTENT>
+    <reqif:REQ-IF-CONTENT>
+      <reqif:DATATYPES>
+        <reqif:DATATYPE-DEFINITION-STRING IDENTIFIER="ID_TC1300_DatatypeDefinitionString" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="ReqIF.Name" MAX-LENGTH="256"/>
+      </reqif:DATATYPES>
+      <reqif:SPEC-TYPES>
+        <reqif:SPEC-OBJECT-TYPE IDENTIFIER="ID_TC1300_SpecObjectType" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1300 SpecObjectType">
+          <reqif:SPEC-ATTRIBUTES>
+            <reqif:ATTRIBUTE-DEFINITION-STRING IDENTIFIER="ID_TC1000_AttributeDefinitionString" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1000 String">
+              <reqif:TYPE>
+                <reqif:DATATYPE-DEFINITION-STRING-REF>ID_TC1300_DatatypeDefinitionString</reqif:DATATYPE-DEFINITION-STRING-REF>
+              </reqif:TYPE>
+            </reqif:ATTRIBUTE-DEFINITION-STRING>
+          </reqif:SPEC-ATTRIBUTES>
+        </reqif:SPEC-OBJECT-TYPE>
+        <reqif:SPECIFICATION-TYPE IDENTIFIER="ID_TC1300_SpecificationType" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1300 SpecificationType"/>
+        <reqif:SPEC-RELATION-TYPE IDENTIFIER="ID_TC1300_SpecRelationType" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC 1300 SpecRelationType"/>
+        <reqif:RELATION-GROUP-TYPE IDENTIFIER="ID_TC1300_SpecRelationGroupType" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC 1300 SpecRelationGroupType"/>
+      </reqif:SPEC-TYPES>
+      <reqif:SPEC-OBJECTS>
+        <reqif:SPEC-OBJECT IDENTIFIER="ID_TC1300_SpecObject1" LAST-CHANGE="2012-04-07T01:51:37.112+02:00">
+          <reqif:VALUES>
+            <reqif:ATTRIBUTE-VALUE-STRING THE-VALUE="Requirement 1">
+              <reqif:DEFINITION>
+                <reqif:ATTRIBUTE-DEFINITION-STRING-REF>ID_TC1000_AttributeDefinitionString</reqif:ATTRIBUTE-DEFINITION-STRING-REF>
+              </reqif:DEFINITION>
+            </reqif:ATTRIBUTE-VALUE-STRING>
+          </reqif:VALUES>
+          <reqif:TYPE>
+            <reqif:SPEC-OBJECT-TYPE-REF>ID_TC1300_SpecObjectType</reqif:SPEC-OBJECT-TYPE-REF>
+          </reqif:TYPE>
+        </reqif:SPEC-OBJECT>
+        <reqif:SPEC-OBJECT IDENTIFIER="ID_TC1300_SpecObject2" LAST-CHANGE="2012-04-07T01:51:37.112+02:00">
+          <reqif:VALUES>
+            <reqif:ATTRIBUTE-VALUE-STRING THE-VALUE="Requirement 2">
+              <reqif:DEFINITION>
+                <reqif:ATTRIBUTE-DEFINITION-STRING-REF>ID_TC1000_AttributeDefinitionString</reqif:ATTRIBUTE-DEFINITION-STRING-REF>
+              </reqif:DEFINITION>
+            </reqif:ATTRIBUTE-VALUE-STRING>
+          </reqif:VALUES>
+          <reqif:TYPE>
+            <reqif:SPEC-OBJECT-TYPE-REF>ID_TC1300_SpecObjectType</reqif:SPEC-OBJECT-TYPE-REF>
+          </reqif:TYPE>
+        </reqif:SPEC-OBJECT>
+      </reqif:SPEC-OBJECTS>
+      <reqif:SPEC-RELATIONS>
+        <reqif:SPEC-RELATION IDENTIFIER="ID_TC1300_SpecRelation" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC 1300 SpecRelation">
+          <reqif:TARGET>
+            <reqif:SPEC-OBJECT-REF>ID_TC1300_SpecObject2</reqif:SPEC-OBJECT-REF>
+          </reqif:TARGET>
+          <reqif:SOURCE>
+            <reqif:SPEC-OBJECT-REF>ID_TC1300_SpecObject1</reqif:SPEC-OBJECT-REF>
+          </reqif:SOURCE>
+          <reqif:TYPE>
+            <reqif:SPEC-RELATION-TYPE-REF>ID_TC1300_SpecRelationType</reqif:SPEC-RELATION-TYPE-REF>
+          </reqif:TYPE>
+        </reqif:SPEC-RELATION>
+      </reqif:SPEC-RELATIONS>
+      <reqif:SPECIFICATIONS>
+        <reqif:SPECIFICATION IDENTIFIER="ID_TC1300_Specification" LAST-CHANGE="2012-04-07T01:51:37.112+02:00">
+          <reqif:TYPE>
+            <reqif:SPECIFICATION-TYPE-REF>ID_TC1300_SpecificationType</reqif:SPECIFICATION-TYPE-REF>
+          </reqif:TYPE>
+          <reqif:CHILDREN>
+            <reqif:SPEC-HIERARCHY IDENTIFIER="ID_TC1300_SpecHierarchy1" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1300 SpecHierarchy1">
+              <reqif:OBJECT>
+                <reqif:SPEC-OBJECT-REF>ID_TC1300_SpecObject1</reqif:SPEC-OBJECT-REF>
+              </reqif:OBJECT>
+            </reqif:SPEC-HIERARCHY>
+            <reqif:SPEC-HIERARCHY IDENTIFIER="ID_TC1300_SpecHierarchy2" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1300 SpecHierarchy2">
+              <reqif:OBJECT>
+                <reqif:SPEC-OBJECT-REF>ID_TC1300_SpecObject2</reqif:SPEC-OBJECT-REF>
+              </reqif:OBJECT>
+            </reqif:SPEC-HIERARCHY>
+          </reqif:CHILDREN>
+        </reqif:SPECIFICATION>
+      </reqif:SPECIFICATIONS>
+      <reqif:SPEC-RELATION-GROUPS>
+        <reqif:RELATION-GROUP IDENTIFIER="ID_TC1300_SpecRelationGroup" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC 1300 SpecRelationGroup">
+          <reqif:SPEC-RELATIONS>
+            <reqif:SPEC-RELATION-REF>ID_TC1300_SpecRelation</reqif:SPEC-RELATION-REF>
+          </reqif:SPEC-RELATIONS>
+          <reqif:TYPE>
+            <reqif:RELATION-GROUP-TYPE-REF>ID_TC1300_SpecRelationGroupType</reqif:RELATION-GROUP-TYPE-REF>
+          </reqif:TYPE>
+          <reqif:SOURCE-SPECIFICATION>
+            <reqif:SPECIFICATION-REF>ID_TC1300_Specification</reqif:SPECIFICATION-REF>
+          </reqif:SOURCE-SPECIFICATION>
+          <reqif:TARGET-SPECIFICATION>
+            <reqif:SPECIFICATION-REF>ID_TC1300_Specification</reqif:SPECIFICATION-REF>
+          </reqif:TARGET-SPECIFICATION>
+        </reqif:RELATION-GROUP>
+      </reqif:SPEC-RELATION-GROUPS>
+    </reqif:REQ-IF-CONTENT>
+  </reqif:CORE-CONTENT>
+</reqif:REQ-IF>
