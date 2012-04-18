@@ -39,7 +39,8 @@ public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 		super(agileGrid, adapterFactory);
 		this.contentProvider = (ProrPropertyContentProvider) agileGrid.getContentProvider();
 		this.editingDomain = editingDomain;
-		this.xhtmlCellRenderer = new ProrXhtmlCellRenderer(agileGrid);
+		this.xhtmlCellRenderer = new ProrXhtmlCellRenderer(agileGrid,
+				this.contentProvider);
 	}
 	
 	@Override

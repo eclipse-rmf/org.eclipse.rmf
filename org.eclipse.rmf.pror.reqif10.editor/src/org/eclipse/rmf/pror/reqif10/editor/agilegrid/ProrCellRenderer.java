@@ -50,7 +50,8 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 		this.contentProvider = (ProrAgileGridContentProvider) agileGrid
 				.getContentProvider();
 		this.editingDomain = editingDomain;
-		this.xhtmlCellRenderer = new ProrXhtmlCellRenderer(agileGrid);
+		this.xhtmlCellRenderer = new ProrXhtmlCellRenderer(agileGrid,
+				this.contentProvider);
 		//FIXME: Remove these static dependencies
 		specObjectIcon = ExtendedImageRegistry.getInstance().getImage(
 				Reqif10EditPlugin.INSTANCE.getImage("full/obj16/SpecObject.png"));

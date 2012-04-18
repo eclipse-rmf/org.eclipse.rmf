@@ -12,6 +12,7 @@ package org.eclipse.rmf.pror.reqif10.editor.agilegrid;
 
 import java.io.File;
 
+import org.agilemore.agilegrid.AbstractContentProvider;
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.Cell;
 import org.agilemore.agilegrid.renderers.TextCellRenderer;
@@ -40,24 +41,34 @@ public class ProrXhtmlCellRenderer extends TextCellRenderer implements
 		IProrCellRenderer {
 
 	private Shell tip;
+	private AbstractContentProvider contentProvider;
 
-	public ProrXhtmlCellRenderer(AgileGrid agileGrid) {
+	public ProrXhtmlCellRenderer(AgileGrid agileGrid,
+			AbstractContentProvider contentProvider) {
 		super(agileGrid);
+		this.contentProvider = contentProvider;
 		initToolTipListener();
 	}
 
-	private final static Image IMG_WARN = PlatformUI.getWorkbench()
+	private final static Image IMG_WARN_FALSE = PlatformUI.getWorkbench()
+			.getSharedImages().getImage(ISharedImages.IMG_OBJS_INFO_TSK);
+
+	private final static Image IMG_WARN_TRUE = PlatformUI.getWorkbench()
 			.getSharedImages().getImage(ISharedImages.IMG_OBJS_WARN_TSK);
 
 	public int doDrawCellContent(GC gc, Rectangle rect, Object v) {
 		if (v instanceof AttributeValueXHTML) {
-			XhtmlContent xhtmlContent = ((AttributeValueXHTML) v).getTheValue();
+			AttributeValueXHTML atrValXhtml = (AttributeValueXHTML) v;
+			XhtmlContent xhtmlContent = atrValXhtml.getTheValue();
 			String stringValue = ProrXhtmlSimplifiedHelper
 					.xhtmlToSimplifiedString(xhtmlContent);
 			String wrappedText = wrapText(gc, stringValue, rect.width);
 			drawTextImage(gc, wrappedText, alignment, null, alignment,
 					rect.x + 3, rect.y + 2, rect.width - 6, rect.height - 4);
-			gc.drawImage(IMG_WARN, rect.x + rect.width - 20, rect.y + 5);
+			Image icon = IMG_WARN_FALSE;
+			if (atrValXhtml.isSimplified())
+				icon = IMG_WARN_TRUE;
+			gc.drawImage(icon, rect.x + rect.width - 20, rect.y + 5);
 			return gc.textExtent(wrappedText).y;
 		}
 		return 0;
@@ -100,11 +111,24 @@ public class ProrXhtmlCellRenderer extends TextCellRenderer implements
 						Point displayPointer = agileGrid
 								.toDisplay(mousePointer);
 
-						tip = showTooltip(
-								Display.getDefault().getActiveShell(),
-								displayPointer.x + 10, displayPointer.y + 10,
-								Reqif10EditorPlugin.INSTANCE
-										.getString("_UI_Reqif10XhtmlSimplifiedWarning"));
+						Object contentAt = contentProvider.getContentAt(
+								cell.row, cell.column);
+						if (contentAt instanceof AttributeValueXHTML) {
+
+							AttributeValueXHTML atrXhtml = (AttributeValueXHTML) contentAt;
+
+							String msg = "_UI_Reqif10XhtmlIsSimplifiedFalse";
+
+							if (atrXhtml.isSimplified())
+								msg = "_UI_Reqif10XhtmlIsSimplifiedTrue";
+
+							tip = showTooltip(Display.getDefault()
+									.getActiveShell(), displayPointer.x + 10,
+									displayPointer.y + 10,
+									Reqif10EditorPlugin.INSTANCE.getString(msg));
+
+						}
+
 					}
 
 				}
