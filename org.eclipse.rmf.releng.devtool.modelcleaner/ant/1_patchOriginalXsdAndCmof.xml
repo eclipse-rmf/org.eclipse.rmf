@@ -21,9 +21,29 @@
 	
 <target name="patchXsds" depends="preparePatchOriginalXsdAndCmof">
 	<replace file="${GEN_PATCHED1_FOLDER}/schema/driver.xsd" token="schemaLocation=&quot;http://www.w3.org/TR/xhtml-modularization/SCHEMA/" value="schemaLocation=&quot;"/>
-	<replace file="${GEN_PATCHED1_FOLDER}/schema/driver.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/" value="schemaLocation=&quot;"/>
-	<replace file="${GEN_PATCHED1_FOLDER}/schema/reqif.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/" value="schemaLocation=&quot;"/>
+	<replace file="${GEN_PATCHED1_FOLDER}/schema/driver.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+	<replace file="${GEN_PATCHED1_FOLDER}/schema/reqif.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
     <replace file="${GEN_PATCHED1_FOLDER}/schema/reqif.xsd" token="schemaLocation=&quot;http://www.omg.org/spec/ReqIF/20110402/" value="schemaLocation=&quot;"/>
+	
+	<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-attribs-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+	<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-datatypes-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+	<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-framework-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+	<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-text-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-hypertext-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+	<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-list-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-edit-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-pres-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-inlstyle-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-object-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-table-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-attribs-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-blkstruct-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-inlstruct-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-inlphras-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-inlpres-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-blkphras-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-blkpres-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
+		<replace file="${GEN_PATCHED1_FOLDER}/schema/xhtml-param-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd"/>
 </target>
 	
 <target name="patchCmof" depends="preparePatchOriginalXsdAndCmof">
