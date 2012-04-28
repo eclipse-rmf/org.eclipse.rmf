@@ -10,7 +10,7 @@
 
 	<!-- this is the parent POM from which all modules inherit common settings -->
 	<properties>
-		<tycho-version>0.13.0</tycho-version>
+		<tycho-version>0.14.1</tycho-version>
 		<antrun-version>1.6</antrun-version>
 	</properties>
 
@@ -220,8 +220,33 @@
 		<module>../org.eclipse.rmf.releng.target</module>
 		<module>../org.eclipse.rmf.releng.repository</module>
 		<module>../org.eclipse.rmf.releng.product</module>
-		<module>../org.eclipse.rmf.emf.ecore.converter</module>
 		
+		<!-- ReqIF Core -->
+		<module>../org.eclipse.rmf.reqif10</module>
+		<module>../org.eclipse.rmf.serialization</module>
+		<module>../org.eclipse.rmf.reqif10.feature</module>
+		<module>../org.eclipse.rmf.reqif10.sdk.feature</module>
+		
+		<module>../org.eclipse.rmf.reqif10.tests</module> 
+		<module>../org.eclipse.rmf.reqif10.tests.feature</module>
+		
+		<!-- ReqIF UI ProR -->		
+		<module>../org.eclipse.rmf.pror.reqif10</module>
+		<module>../org.eclipse.rmf.pror.reqif10.edit</module>
+		<module>../org.eclipse.rmf.pror.reqif10.editor</module>
+		<module>../org.eclipse.rmf.pror.reqif10.presentation.headline</module>
+		<module>../org.eclipse.rmf.pror.reqif10.presentation.id</module>
+		<module>../org.eclipse.rmf.pror.reqif10.presentation.linewrap</module>
+		<module>../org.eclipse.rmf.pror.reqif10.feature</module>
+		<module>../org.eclipse.rmf.pror.reqif10.sdk.feature</module>
+		
+        <module>../org.eclipse.rmf.pror.reqif10.tests</module>
+        <!-- <module>../org.eclipse.rmf.pror.reqif10.presentation.id.tests</module> -->
+		
+
+		
+		<!-- legacy plugins -->
+		<module>../org.eclipse.rmf.emf.ecore.converter</module>
 		<module>../org.eclipse.rmf.rif11.model</module>		
 		<module>../org.eclipse.rmf.rif11.xsd.model</module>
 		<module>../org.eclipse.rmf.rif11.resource</module>
@@ -232,23 +257,6 @@
 		<module>../org.eclipse.rmf.rif12.resource</module>
 		<!-- <module>../org.eclipse.rmf.rif12.model.test</module> -->		
 		
-		<module>../org.eclipse.rmf.pror.reqif10</module>
-		<module>../org.eclipse.rmf.pror.reqif10.edit</module>
-		<module>../org.eclipse.rmf.pror.reqif10.editor</module>
-		<module>../org.eclipse.rmf.pror.reqif10.feature</module>
-		<module>../org.eclipse.rmf.pror.reqif10.presentation.headline</module>
-		<module>../org.eclipse.rmf.pror.reqif10.presentation.id</module>
-		<module>../org.eclipse.rmf.pror.reqif10.presentation.linewrap</module>
-		
-        <module>../org.eclipse.rmf.pror.reqif10.tests</module>
-        <!-- <module>../org.eclipse.rmf.pror.reqif10.presentation.id.tests</module> -->
-		
-		<!-- core next generation -->	 
-		<module>../org.eclipse.rmf.reqif10</module>
-		<module>../org.eclipse.rmf.serialization</module>
-		<module>../org.eclipse.rmf.reqif10.feature</module>
-		<module>../org.eclipse.rmf.reqif10.tests</module> 
-		<module>../org.eclipse.rmf.reqif10.tests.feature</module>
 	</modules>
 
 </project>
