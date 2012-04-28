@@ -34,7 +34,7 @@ Contributors:
          version="0.0.0"/>
 
    <requires>
-      <import feature="org.eclipse.rmf.reqif10.sdk.feature" version="0.2.0.qualifier" match="greaterOrEqual"/>
+      <import feature="org.eclipse.rmf.reqif10.sdk.feature" version="0.2.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin

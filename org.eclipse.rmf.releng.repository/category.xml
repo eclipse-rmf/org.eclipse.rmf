@@ -12,6 +12,6 @@
    <feature url="features/org.eclipse.rmf.reqif10.sdk.feature_0.2.0.qualifier.jar" id="org.eclipse.rmf.reqif10.sdk.feature" version="0.2.0.qualifier">
       <category name="org.eclipse.rmf.sdk"/>
    </feature>
-   <category-def name="org.eclipse.rmf" label="RMF"/>
-   <category-def name="org.eclipse.rmf.sdk" label="RMF SDK"/>
+   <category-def name="RMF" label="RMF"/>
+   <category-def name="RMD SDK" label="RMF SDK"/>
 </site>
