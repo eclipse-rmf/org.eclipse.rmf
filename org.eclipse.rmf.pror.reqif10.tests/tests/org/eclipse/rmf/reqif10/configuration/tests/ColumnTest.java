@@ -11,11 +11,19 @@
 
 package org.eclipse.rmf.reqif10.configuration.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 
 /**
  * A test case for the model object '<em><b>Column</b></em>'.
@@ -45,7 +53,7 @@ public class ColumnTest extends AbstractItemProviderTest {
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Before
-	protected void setUp() throws Exception {
+	public void setUp() throws Exception {
 		setFixture(ConfigurationFactory.eINSTANCE.createColumn());
 	}
 
@@ -53,8 +61,21 @@ public class ColumnTest extends AbstractItemProviderTest {
 	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@After
-	protected void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 		setFixture(null);
 	}
-
+	
+	@Test
+	public void testLabelNotification() throws Exception {
+		ProrSpecViewConfiguration specViewConfig = ConfigurationFactory.eINSTANCE
+				.createProrSpecViewConfiguration();
+		specViewConfig.getColumns().add(fixture);
+		ItemProviderAdapter itemProvider = getItemProvider(specViewConfig);
+		itemProvider.addListener(listener);
+		setViaCommand(fixture, ConfigurationPackage.Literals.COLUMN__LABEL, "new label");
+		assertEquals(1, notifications.size());
+		assertTrue(notifications.get(0) instanceof ViewerNotification);
+		assertTrue(((ViewerNotification)notifications.get(0)).isLabelUpdate());
+	}
+	
 } //ColumnTest
