@@ -29,7 +29,7 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 
 	// SpecObjectTypes
 	SpecObjectType specObjectType;
-	AttributeDefinitionString attributeDefinitionString;
+	AttributeDefinitionString attributeDefinitionStringForSpecObject;
 
 	// SpecificationTypes
 	SpecificationType specificationType;
@@ -40,6 +40,7 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 
 	// SpecRelationTypes
 	SpecRelationType specRelationType;
+	AttributeDefinitionString attributeDefinitionStringForSpecRelation;
 
 	// RelationGroupTypes
 	// TODO: why isn't it called SpecRelationGroupType?
@@ -78,13 +79,13 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 		specObjectType.setLongName("TC1300 SpecObjectType");
 		specObjectType.setLastChange(toDate(LAST_CHANGE_STRING));
 
-		attributeDefinitionString = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
-		attributeDefinitionString.setIdentifier("ID_TC1300_AttributeDefinitionString");
-		attributeDefinitionString.setLongName("TC1300 String");
-		attributeDefinitionString.setLastChange(toDate(LAST_CHANGE_STRING));
-		attributeDefinitionString.setType(datatypeDefinitionString);
+		attributeDefinitionStringForSpecObject = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
+		attributeDefinitionStringForSpecObject.setIdentifier("ID_TC1300_AttributeDefinitionString");
+		attributeDefinitionStringForSpecObject.setLongName("TC1300 String");
+		attributeDefinitionStringForSpecObject.setLastChange(toDate(LAST_CHANGE_STRING));
+		attributeDefinitionStringForSpecObject.setType(datatypeDefinitionString);
 
-		specObjectType.getSpecAttributes().add(attributeDefinitionString);
+		specObjectType.getSpecAttributes().add(attributeDefinitionStringForSpecObject);
 
 		getReqIF().getCoreContent().getSpecTypes().add(specObjectType);
 
@@ -135,7 +136,7 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 
 		AttributeValueString attributeValueString;
 		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
-		attributeValueString.setDefinition(attributeDefinitionString);
+		attributeValueString.setDefinition(attributeDefinitionStringForSpecObject);
 		attributeValueString.setTheValue("Requirement 1");
 		specObject1.getValues().add(attributeValueString);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject1);
@@ -147,7 +148,7 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 		specObject2.setType(specObjectType);
 
 		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
-		attributeValueString.setDefinition(attributeDefinitionString);
+		attributeValueString.setDefinition(attributeDefinitionStringForSpecObject);
 		attributeValueString.setTheValue("Requirement 2");
 		specObject2.getValues().add(attributeValueString);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject2);
@@ -178,6 +179,8 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 
 	@Override
 	public void createSpecRelations() throws Exception {
+		AttributeValueString attributeValueString;
+
 		specRelation = ReqIF10Factory.eINSTANCE.createSpecRelation();
 		specRelation.setIdentifier("ID_TC1300_SpecRelation");
 		specRelation.setLongName("TC 1300 SpecRelation");
@@ -185,6 +188,12 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 		specRelation.setType(specRelationType);
 		specRelation.setSource(specObject1);
 		specRelation.setTarget(specObject2);
+
+		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
+		attributeValueString.setDefinition(attributeDefinitionStringForSpecRelation);
+		attributeValueString.setTheValue("TC 1300 SpecRelation");
+		specRelation.getValues().add(attributeValueString);
+
 		getReqIF().getCoreContent().getSpecRelations().add(specRelation);
 	}
 
@@ -194,6 +203,15 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 		specRelationType.setIdentifier("ID_TC1300_SpecRelationType");
 		specRelationType.setLongName("TC 1300 SpecRelationType");
 		specRelationType.setLastChange(toDate(LAST_CHANGE_STRING));
+
+		attributeDefinitionStringForSpecRelation = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
+		attributeDefinitionStringForSpecRelation.setIdentifier("ID_TC1300_AttributeDefinitionString_SpecRelation");
+		attributeDefinitionStringForSpecRelation.setLongName("ReqIF.Name");
+		attributeDefinitionStringForSpecRelation.setLastChange(toDate(LAST_CHANGE_STRING));
+		attributeDefinitionStringForSpecRelation.setType(datatypeDefinitionString);
+
+		specRelationType.getSpecAttributes().add(attributeDefinitionStringForSpecRelation);
+
 		getReqIF().getCoreContent().getSpecTypes().add(specRelationType);
 	}
 
