@@ -21,6 +21,7 @@ import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
@@ -30,7 +31,6 @@ import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServ
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
-import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
@@ -44,6 +44,10 @@ import org.eclipse.swt.custom.CCombo;
 public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvider {
 
 	private final ProrPropertyContentProvider contentProvider;
+	
+	public static String SPEC_HIERARCHY_NAME = "Spec Hierarchy";
+	public static String SPEC_OBJECT_NAME = "Spec Object";
+	public static String SPEC_RELATION_NAME = "Spec Relation";
 	
 	public ProrPropertyCellEditorProvider(AgileGrid agileGrid,
 			AdapterFactory adapterFactory, EditingDomain editingDomain) {
@@ -108,81 +112,128 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 			final IItemPropertyDescriptor descriptor = this.contentProvider
 					.getItemPropertyDescriptor(row).getItemPropertyDescriptor();
 			
-			final Identifiable selectedElement = this.contentProvider.getIdentifiable();
+			String categoryName = descriptor.getCategory(this.contentProvider.getIdentifiable());
+			Identifiable selectedElement = this.contentProvider.getIdentifiable();
 			
-			Collection<?> collection = descriptor
-					.getChoiceOfValues(selectedElement);
-
-			if (collection != null) { // Multivalue --> combobox celleditor
-				final ArrayList<String> strList = new ArrayList<String>();
-				final ArrayList<Object> objList = new ArrayList<Object>();
-				// Add a null entry. This is particularly fatal when no entries
-				// exist, i.e. the user opens a dropdown that has no entries.
-				strList.add("");
-				objList.add(null);
-				for (Object o : collection) {
-					if (o != null) {
-						String str = descriptor.getLabelProvider(
-								selectedElement)
-								.getText(o);
-						objList.add(o);
-						strList.add(str);
-					}
-				}
-				
-				cellEditor = new ComboBoxCellEditor(agileGrid,
-						strList.toArray(new String[strList.size()]), SWT.NONE) {
-
-					@Override
-					protected Object doGetValue() {
-						CCombo combo = (CCombo) getControl();
-						int selectionIndex = combo.getSelectionIndex();
-						descriptor.setPropertyValue(selectedElement, objList.get(selectionIndex));
-						fixAffectedObjectsOfLastcommand();
-						return strList.get(selectionIndex);
-					}
-				};
-	
-			} else { // Singlevalue --> text celleditor				
-				cellEditor = new TextCellEditor(agileGrid) {
-
-					@Override
-					protected Object doGetValue() {
-						Object value = super.doGetValue();
-						descriptor.setPropertyValue(selectedElement, value);
-						fixAffectedObjectsOfLastcommand();
-						return value;
-					}
-				};
+			if (categoryName.equals(SPEC_OBJECT_NAME)) {
+				if (this.contentProvider.getIdentifiable() instanceof SpecHierarchy)
+					selectedElement = ((SpecHierarchy) this.contentProvider.getIdentifiable())
+							.getObject();
 			}
+			
+			cellEditor = getNonAttributeCellEditor(selectedElement, descriptor);
+				
 		}
+		return cellEditor;
+		
+	}
+	
+	private CellEditor getNonAttributeCellEditor(
+			final Identifiable selectedElement,
+			final IItemPropertyDescriptor descriptor) {
+
+		Collection<?> collection = descriptor
+				.getChoiceOfValues(selectedElement);
+
+		CellEditor cellEditor;
+
+		// Multivalue --> combobox celleditor
+		if (collection != null) {
+			final ArrayList<String> strList = new ArrayList<String>();
+			final ArrayList<Object> objList = new ArrayList<Object>();
+			// Add a null entry. This is particularly fatal when no entries
+			// exist, i.e. the user opens a dropdown that has no entries.
+			strList.add("");
+			objList.add(null);
+			for (Object o : collection) {
+				if (o != null) {
+					String str = descriptor.getLabelProvider(selectedElement)
+							.getText(o);
+					objList.add(o);
+					strList.add(str);
+				}
+			}
+
+			cellEditor = new ComboBoxCellEditor(agileGrid,
+					strList.toArray(new String[strList.size()]), SWT.NONE) {
+
+				@Override
+				protected Object doGetValue() {
+					CCombo combo = (CCombo) getControl();
+					int selectionIndex = combo.getSelectionIndex();
+
+					Command setCmd = SetCommand.create(editingDomain,
+							selectedElement,
+							descriptor.getFeature(selectedElement),
+							objList.get(selectionIndex));
+					Command affectedObjectCommand = getAffectedObjectCommand(
+							selectedElement, setCmd);
+					editingDomain.getCommandStack().execute(
+							affectedObjectCommand);
+					// fixAffectedObjectsOfLastcommand();
+					return strList.get(selectionIndex);
+				}
+
+			};
+
+		} else { // Singlevalue --> text celleditor
+			cellEditor = new TextCellEditor(agileGrid) {
+
+				@Override
+				protected Object doGetValue() {
+					Object value = super.doGetValue();
+					// descriptor.setPropertyValue(selectedElement, value);
+					Command setCmd = SetCommand.create(editingDomain,
+							selectedElement,
+							descriptor.getFeature(selectedElement), value);
+					Command affectedObjectCommand = getAffectedObjectCommand(
+							selectedElement, setCmd);
+					editingDomain.getCommandStack().execute(
+							affectedObjectCommand);
+					// fixAffectedObjectsOfLastcommand();
+					return value;
+				}
+
+			};
+		}
+
 		return cellEditor;
 	}
 	
-	/**
-	 * This method undos the last command, wrapps it to change the affected
-	 * objects, and executes it again.
-	 * <p>
-	 * This is a workaround, as we modify properties via
-	 * {@link IItemPropertyDescriptor#setPropertyValue(Object, Object)}. That
-	 * method builds the appropriate command and executes it. However, the
-	 * affected objects are incorrect, as this is typically the
-	 * {@link SpecElementWithAttributes} (or {@link SpecHierarchy}), but the
-	 * property belongs to {@link AttributeValue}, which is therefore reported
-	 * as the affected element.
-	 */
-	private void fixAffectedObjectsOfLastcommand() {
-		Command lastCmd = editingDomain.getCommandStack().getMostRecentCommand();
-		if (lastCmd == null) return;
-		editingDomain.getCommandStack().undo();
-		CommandWrapper wrappedCmd = new CommandWrapper(lastCmd) {
+//	/**
+//	 * This method undos the last command, wrapps it to change the affected
+//	 * objects, and executes it again.
+//	 * <p>
+//	 * This is a workaround, as we modify properties via
+//	 * {@link IItemPropertyDescriptor#setPropertyValue(Object, Object)}. That
+//	 * method builds the appropriate command and executes it. However, the
+//	 * affected objects are incorrect, as this is typically the
+//	 * {@link SpecElementWithAttributes} (or {@link SpecHierarchy}), but the
+//	 * property belongs to {@link AttributeValue}, which is therefore reported
+//	 * as the affected element.
+//	 */
+//	private void fixAffectedObjectsOfLastcommand() {
+//		Command lastCmd = editingDomain.getCommandStack().getMostRecentCommand();
+//		if (lastCmd == null) return;
+//		editingDomain.getCommandStack().undo();
+//		CommandWrapper wrappedCmd = new CommandWrapper(lastCmd) {
+//			public java.util.Collection<?> getAffectedObjects() {
+//				List<Object> list = new ArrayList<Object>();
+//				list.add(contentProvider.getIdentifiable());
+//				return list;
+//			}
+//		};
+//		editingDomain.getCommandStack().execute(wrappedCmd);
+//	}
+	
+	private Command getAffectedObjectCommand(final Identifiable element, Command cmd) {
+		return new CommandWrapper(cmd) {
 			public java.util.Collection<?> getAffectedObjects() {
 				List<Object> list = new ArrayList<Object>();
-				list.add(contentProvider.getIdentifiable());
+				list.add(element);
 				return list;
 			}
 		};
-		editingDomain.getCommandStack().execute(wrappedCmd);
 	}
 
 	@Override
