@@ -46,7 +46,7 @@ import org.eclipse.ui.PartInitException;
  * This is the action bar contributor for the Reqif10 model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * @generated
+ * @generated NOT
  */
 public class Reqif10ActionBarContributor
 	extends EditingDomainActionBarContributor
@@ -161,33 +161,39 @@ public class Reqif10ActionBarContributor
 //		controlAction = new ControlAction();
 	}
 
-	 @Override
-	  public void init(IActionBars actionBars)
-	  {
-	    
+	@Override
+	public void init(IActionBars actionBars) {
+
 		super.init(actionBars);
 
-		agileCellEditorActionHandler = new AgileCellEditorActionHandler(actionBars);
-	    
-	    agileCellEditorActionHandler.setDeleteAction(deleteAction);
-	    //actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(), deleteAction);
+		agileCellEditorActionHandler = new AgileCellEditorActionHandler(
+				actionBars);
 
-	    agileCellEditorActionHandler.setCutAction(cutAction);
-	    //actionBars.setGlobalActionHandler(ActionFactory.CUT.getId(), cutAction);
+		agileCellEditorActionHandler.setDeleteAction(deleteAction);
+		// actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(),
+		// deleteAction);
 
-	    agileCellEditorActionHandler.setCopyAction(copyAction);
-	    //actionBars.setGlobalActionHandler(ActionFactory.COPY.getId(), copyAction);
+		agileCellEditorActionHandler.setCutAction(cutAction);
+		// actionBars.setGlobalActionHandler(ActionFactory.CUT.getId(),
+		// cutAction);
 
-	    agileCellEditorActionHandler.setPasteAction(pasteAction);
-	    //actionBars.setGlobalActionHandler(ActionFactory.PASTE.getId(), pasteAction);
+		agileCellEditorActionHandler.setCopyAction(copyAction);
+		// actionBars.setGlobalActionHandler(ActionFactory.COPY.getId(),
+		// copyAction);
 
-	    agileCellEditorActionHandler.setUndoAction(undoAction);
-	    //actionBars.setGlobalActionHandler(ActionFactory.UNDO.getId(), undoAction);
+		agileCellEditorActionHandler.setPasteAction(pasteAction);
+		// actionBars.setGlobalActionHandler(ActionFactory.PASTE.getId(),
+		// pasteAction);
 
-	    agileCellEditorActionHandler.setRedoAction(redoAction);
-	    //actionBars.setGlobalActionHandler(ActionFactory.REDO.getId(), redoAction);
-	    
-	  }
+		agileCellEditorActionHandler.setUndoAction(undoAction);
+		// actionBars.setGlobalActionHandler(ActionFactory.UNDO.getId(),
+		// undoAction);
+
+		agileCellEditorActionHandler.setRedoAction(redoAction);
+		// actionBars.setGlobalActionHandler(ActionFactory.REDO.getId(),
+		// redoAction);
+
+	}
 	
 	/**
 	 * This adds Separators for editor additions to the tool bar.
