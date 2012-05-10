@@ -67,6 +67,8 @@ public class SpecificationEditor extends EditorPart implements
 	 */
 	private ProrAgileGridViewer prorAgileGridViewer;
 
+	private Reqif10ActionBarContributor reqifActionBarContributor;
+	
 	/**
 	 * The {@link Reqif10Editor} of the owning {@link ReqIf} object. We keep a
 	 * reference, as we reuse a number of elements from that editor (Property
@@ -94,6 +96,8 @@ public class SpecificationEditor extends EditorPart implements
 		// Extracting Info from the input
 		reqifEditor = ((ReqifSpecificationEditorInput)input).getReqifEditor();
 		specification = ((ReqifSpecificationEditorInput)input).getSpec();
+		
+		reqifActionBarContributor = (Reqif10ActionBarContributor) site.getActionBarContributor();
 
 		// Part Setup
 		setSite(site);
@@ -127,7 +131,8 @@ public class SpecificationEditor extends EditorPart implements
 	 */
 	private void createSpecificationPart(Composite containter) {
 		prorAgileGridViewer = new ProrAgileGridViewer(containter,
-				reqifEditor.getAdapterFactory(), getEditingDomain());
+				reqifEditor.getAdapterFactory(), getEditingDomain(),
+				reqifActionBarContributor.getAgileCellEditorActionHandler());
 		prorAgileGridViewer.setInput(specification);
 		prorAgileGridViewer.setContextMenu(buildContextMenu());
 	}
@@ -392,4 +397,9 @@ public class SpecificationEditor extends EditorPart implements
 	public boolean isSaveOnCloseNeeded() {
 		return false;
 	}
+
+	public Reqif10ActionBarContributor getReqifActionBarContributor() {
+		return reqifActionBarContributor;
+	}
+
 }

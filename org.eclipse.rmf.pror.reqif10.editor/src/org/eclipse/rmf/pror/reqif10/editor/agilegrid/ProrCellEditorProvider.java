@@ -22,12 +22,14 @@ import org.eclipse.rmf.reqif10.Identifiable;
 public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 
 	private final ProrAgileGridContentProvider contentProvider;
+	private final AgileCellEditorActionHandler agileCellEditorActionHandler;
 	
 	public ProrCellEditorProvider(AgileGrid agileGrid,
-			EditingDomain editingDomain, AdapterFactory adapterFactory) {
+			EditingDomain editingDomain, AdapterFactory adapterFactory, AgileCellEditorActionHandler agileCellEditorActionHandler) {
 		super(agileGrid, adapterFactory, editingDomain);
-		contentProvider = (ProrAgileGridContentProvider) agileGrid
+		this.contentProvider = (ProrAgileGridContentProvider) agileGrid
 				.getContentProvider();
+		this.agileCellEditorActionHandler = agileCellEditorActionHandler;
 	}
 
 	@Override
@@ -44,17 +46,24 @@ public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 
 	@Override
 	public CellEditor getCellEditor(int row, int col, Object hint) {
+		
+		CellEditor cellEditor = null;		
 		AttributeValue attrValue = getAttributeValue(row, col);
+		
+		cellEditor = getDefaultCellEditor(attrValue, getAffectedElement(row, col));
+		
 		PresentationService service = PresentationEditorManager
 				.getPresentationService(attrValue, editingDomain);
 		if (service != null) {
-			CellEditor cellEditor = service.getCellEditor(agileGrid,
-					editingDomain, attrValue);
-			if (cellEditor != null) {
-				return cellEditor;
-			}
+			CellEditor serviceCellEditor = service.getCellEditor(agileGrid,editingDomain, attrValue);
+			cellEditor = serviceCellEditor == null ? cellEditor : serviceCellEditor;
 		}
-		return getDefaultCellEditor(attrValue, getAffectedElement(row, col));
+	
+		if (cellEditor != null)
+			agileCellEditorActionHandler.setActiveCellEditor(cellEditor);
+		
+		return cellEditor;
+		
 	}
 
 	@Override

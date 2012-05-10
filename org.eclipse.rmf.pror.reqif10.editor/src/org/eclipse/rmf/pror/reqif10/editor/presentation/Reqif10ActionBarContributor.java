@@ -37,6 +37,8 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.rmf.pror.reqif10.editor.agilegrid.AgileCellEditorActionHandler;
+import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
@@ -65,6 +67,8 @@ public class Reqif10ActionBarContributor
 	 */
 	protected ISelectionProvider selectionProvider;
 
+	private AgileCellEditorActionHandler agileCellEditorActionHandler;
+	
 	/**
 	 * This action opens the Properties view.
 	 * <!-- begin-user-doc -->
@@ -157,6 +161,34 @@ public class Reqif10ActionBarContributor
 //		controlAction = new ControlAction();
 	}
 
+	 @Override
+	  public void init(IActionBars actionBars)
+	  {
+	    
+		super.init(actionBars);
+
+		agileCellEditorActionHandler = new AgileCellEditorActionHandler(actionBars);
+	    
+	    agileCellEditorActionHandler.setDeleteAction(deleteAction);
+	    //actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(), deleteAction);
+
+	    agileCellEditorActionHandler.setCutAction(cutAction);
+	    //actionBars.setGlobalActionHandler(ActionFactory.CUT.getId(), cutAction);
+
+	    agileCellEditorActionHandler.setCopyAction(copyAction);
+	    //actionBars.setGlobalActionHandler(ActionFactory.COPY.getId(), copyAction);
+
+	    agileCellEditorActionHandler.setPasteAction(pasteAction);
+	    //actionBars.setGlobalActionHandler(ActionFactory.PASTE.getId(), pasteAction);
+
+	    agileCellEditorActionHandler.setUndoAction(undoAction);
+	    //actionBars.setGlobalActionHandler(ActionFactory.UNDO.getId(), undoAction);
+
+	    agileCellEditorActionHandler.setRedoAction(redoAction);
+	    //actionBars.setGlobalActionHandler(ActionFactory.REDO.getId(), redoAction);
+	    
+	  }
+	
 	/**
 	 * This adds Separators for editor additions to the tool bar.
 	 * <!-- begin-user-doc -->
@@ -422,4 +454,8 @@ public class Reqif10ActionBarContributor
 		return true;
 	}
 
+	public AgileCellEditorActionHandler getAgileCellEditorActionHandler() {
+		return agileCellEditorActionHandler;
+	}
+	
 }

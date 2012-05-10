@@ -112,20 +112,26 @@ public class ProrAgileGridViewer extends Viewer {
 	protected SpecHierarchy dragTarget;
 	private EContentAdapter specRelationContentAdapter;
 	private AdapterFactory adapterFactory;
+	
+	private AgileCellEditorActionHandler agileCellEditorActionHandler;
 
 	/**
 	 * Constructs the Viewer.
 	 * 
 	 * @param adapterFactory
 	 */
-	public ProrAgileGridViewer(Composite composite, AdapterFactory adapterFactory, EditingDomain editingDomain) {
+	public ProrAgileGridViewer(Composite composite,
+			AdapterFactory adapterFactory, EditingDomain editingDomain,
+			AgileCellEditorActionHandler agileCellEditorActionHandler) {
 		agileGrid = new ProrAgileGrid(composite, SWT.V_SCROLL | SWT.H_SCROLL
 				| SWTX.FILL_WITH_LASTCOL | SWT.MULTI | SWT.DOUBLE_BUFFERED);
 		agileGrid.setLayoutAdvisor(new ProrLayoutAdvisor(agileGrid));
 		// agileGrid.setAgileGridEditor(new ProrAgileGridEditor(agileGrid));
-		agileGrid.setEditorActivationStrategy(new EditorActivationStrategy(agileGrid, true));
+		agileGrid.setEditorActivationStrategy(new EditorActivationStrategy(
+				agileGrid, true));
 		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
+		this.agileCellEditorActionHandler = agileCellEditorActionHandler;
 		enableDragNDrop();
 		enableKeyHandling();
 	}
@@ -241,15 +247,15 @@ public class ProrAgileGridViewer extends Viewer {
 		unregisterSpecRelationListener();
 
 		this.specification = (Specification) input;
-		this.specViewConfig = ConfigurationUtil
-				.getSpecViewConfiguration(specification, editingDomain);
-		this.contentProvider = new ProrAgileGridContentProvider(
-				specification, specViewConfig);
+		this.specViewConfig = ConfigurationUtil.getSpecViewConfiguration(
+				specification, editingDomain);
+		this.contentProvider = new ProrAgileGridContentProvider(specification,
+				specViewConfig);
 		agileGrid.setContentProvider(contentProvider);
 		agileGrid.setCellRendererProvider(new ProrCellRendererProvider(
 				agileGrid, adapterFactory, editingDomain));
 		agileGrid.setCellEditorProvider(new ProrCellEditorProvider(agileGrid,
-				editingDomain, adapterFactory));
+				editingDomain, adapterFactory, agileCellEditorActionHandler));
 		agileGrid.setRowResizeCursor(new Cursor(agileGrid.getDisplay(),
 				SWT.CURSOR_ARROW));
 
