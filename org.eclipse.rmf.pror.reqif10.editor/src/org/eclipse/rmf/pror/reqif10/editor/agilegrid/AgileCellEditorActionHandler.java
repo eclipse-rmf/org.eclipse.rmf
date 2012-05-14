@@ -818,19 +818,26 @@ public class AgileCellEditorActionHandler {
     }
     
 	public void setActiveCellEditor(CellEditor editor) {
+		
 		// Remove old listener
-		if (this.activeEditor != null && this.activeEditor.getControl() != null
-				&& !this.activeEditor.getControl().isDisposed()) {
+		if (this.activeEditor != null)
 			this.activeEditor.removePropertyChangeListener(cellListener);
-		}
-		this.activeEditor = editor;
-		Control control = editor.getControl();
-		if (control != null && !control.isDisposed()) {
-			control.addListener(SWT.Activate, controlListener);
-			control.addListener(SWT.Deactivate, controlListener);
-			this.activeEditor.addPropertyChangeListener(cellListener);
+		
+		if (editor != null) {
+
+			Control control = editor.getControl();
+			if (control != null && !control.isDisposed()) {
+				control.addListener(SWT.Activate, controlListener);
+				control.addListener(SWT.Deactivate, controlListener);
+			}
+
+			editor.addPropertyChangeListener(cellListener);
 			updateActionsEnableState();
+
 		}
+		
+		this.activeEditor = editor;
+
 	}
     
 }
