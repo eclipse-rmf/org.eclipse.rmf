@@ -50,8 +50,10 @@
     	    		dest="${basedir}"
     	    		title="RMF"
     	    		generateUnifiedToc="false">
-    	    		<path name="RMF/User_Guide" title="RMF User Guide" generateToc="true"/>
-    				<path name="RMF/FAQ" title="RMF FAQ" generateToc="true"/>
+    	    		<path name="RMF/User_Guide/Tutorial" title="ProR Tutorial" generateToc="true"/>
+    				<path name="RMF/User_Guide/Reference" title="ProR Reference" generateToc="true"/>
+    	    		<path name="RMF/User_Guide/Presentations" title="ProR Presentations Plugins" generateToc="true"/>
+    				<path name="RMF/FAQ" title="ProR FAQ" generateToc="true"/>
     	    		<pageAppendum>
 = Updating This Document =
 

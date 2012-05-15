@@ -26,12 +26,22 @@ Contributors:
       </toc>
       <toc
             category="RMF"
-            file="RMF-User-Guide-toc.xml"
+            file="RMF-User-Guide-Presentations-toc.xml"
             primary="false">
       </toc>
       <toc
             category="RMF"
             file="RMF-FAQ-toc.xml"
+            primary="false">
+      </toc>
+      <toc
+            category="RMF"
+            file="RMF-User-Guide-Reference-toc.xml"
+            primary="false">
+      </toc>
+      <toc
+            category="RMF"
+            file="RMF-User-Guide-Tutorial-toc.xml"
             primary="false">
       </toc>
    </extension>
