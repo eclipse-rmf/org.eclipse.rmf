@@ -34,6 +34,9 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 
 /**
+ * 
+ * Action for adding test objects to the current SpecHierarchy.
+ * 
  * @author jastram
  *
  */
