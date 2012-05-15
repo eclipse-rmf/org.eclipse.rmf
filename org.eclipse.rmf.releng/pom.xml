@@ -237,6 +237,7 @@
 		<module>../org.eclipse.rmf.pror.reqif10.presentation.headline</module>
 		<module>../org.eclipse.rmf.pror.reqif10.presentation.id</module>
 		<module>../org.eclipse.rmf.pror.reqif10.presentation.linewrap</module>
+		<module>../org.eclipse.rmf.pror.reqif10.help.ui</module>
 		<module>../org.eclipse.rmf.pror.reqif10.feature</module>
 		<module>../org.eclipse.rmf.pror.reqif10.sdk.feature</module>
 		
