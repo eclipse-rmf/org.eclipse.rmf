@@ -569,8 +569,6 @@ public class ProrAgileGridViewer extends Viewer {
 			@Override
 			public void dragFinished(DragSourceEvent event) {
 				super.dragFinished(event);
-				agileGrid.dndHoverCell = null;
-				agileGrid.redraw();
 			}
 		});
 
@@ -611,6 +609,13 @@ public class ProrAgileGridViewer extends Viewer {
 							}
 							agileGrid.redraw();
 						}
+					}
+					
+					@Override
+					public void drop(DropTargetEvent event) {
+						super.drop(event);
+						agileGrid.dndHoverCell = null;
+						agileGrid.redraw();
 					}
 					
 					@Override
