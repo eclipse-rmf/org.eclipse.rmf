@@ -28,3 +28,14 @@ This makes sure that
    Make sure that the ant files is executed in the same JVM as the current Eclipse Runtime
    Make sure that QVTO is installed in your Eclipse IDE
    
+(4)
+copy the generated ecore files to 
+org.eclipse.rmf.reqif10
+
+(5)
+regenerate code
+select the genmodel in org.eclipse.rmf.reqif10/model
+right-click -> reload...
+generate "model"
+
+   

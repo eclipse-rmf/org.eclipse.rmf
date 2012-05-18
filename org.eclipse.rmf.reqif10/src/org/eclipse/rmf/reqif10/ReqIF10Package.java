@@ -58,6 +58,14 @@ public interface ReqIF10Package extends EPackage {
 	String eNS_PREFIX = "reqif";
 
 	/**
+	 * The package content type ID.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eCONTENT_TYPE = "org.eclipse.rmf.reqif10.reqif10XMLFile";
+
+	/**
 	 * The singleton instance of the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
