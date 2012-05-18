@@ -6,7 +6,7 @@
     modelName="Reqif10" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
     copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
   <foreignModel>reqif10.ecore</foreignModel>
-  <genPackages prefix="ReqIF10" basePackage="org.eclipse.rmf" resource="XML" disposableProviderFactory="true"
+  <genPackages prefix="ReqIF10" basePackage="org.eclipse.rmf" disposableProviderFactory="true"
       contentTypeIdentifier="org.eclipse.rmf.reqif10.reqif10XMLFile" fileExtensions="reqif"
       ecorePackage="reqif10.ecore#/">
     <genDataTypes ecoreDataType="reqif10.ecore#//ID"/>

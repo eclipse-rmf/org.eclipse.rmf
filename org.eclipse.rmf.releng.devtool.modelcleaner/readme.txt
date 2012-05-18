@@ -38,4 +38,18 @@ select the genmodel in org.eclipse.rmf.reqif10/model
 right-click -> reload...
 generate "model"
 
+(6)
+fix the plugin.xml
+
+take section 
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <parser
+            contentTypeIdentifier="org.eclipse.rmf.reqif10.reqif10XMLFile"
+            class="org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl"/>
+   </extension>
+   
+and move it into
+org.eclipse.rmf.serialization/plugin.xml
+
+
    
