@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.6"?>
 
-<target includeMode="feature" name="INDIGO_3_7_2" sequenceNumber="43">
+<target includeMode="feature" name="INDIGO_3_7_2" sequenceNumber="46">
 <locations>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.agilemore.agilegrid.feature.feature.group" version="1.2.2"/>
-<repository location="http://agilegrid.sourceforge.net/agilegrid/updatesite-rmf/"/>
-</location>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.apache.xerces" version="2.9.0.v201005080400"/>
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/updateSite"/>
@@ -17,6 +13,11 @@
 <unit id="org.eclipse.emf.compare.feature.group" version="1.2.2.v20120214-0915"/>
 <unit id="org.eclipse.jdt.feature.group" version="3.7.2.v20120120-1414-7z8gFcuFMP7BW5XTz0jLTnz0l9B1"/>
 <repository location="http://download.eclipse.org/releases/indigo"/>
+</location>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.agilemore.agilegrid.feature.feature.group" version="1.2.3"/>
+<unit id="org.agilemore.agilegrid.source.feature.feature.group" version="1.2.3"/>
+<repository location="http://agilegrid.sourceforge.net/agilegrid/updatesite-rmf/"/>
 </location>
 </locations>
 </target>
