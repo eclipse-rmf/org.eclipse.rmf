@@ -236,8 +236,6 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * If {@link #showAllProps} is false, only standard descriptors are considered.
 	 */
 	private boolean isStandard(IItemPropertyDescriptor descriptor) {
-		System.out.println(descriptor
-				.getCategory(identifiable) + " - " + descriptor.getId(identifiable));
 		return ! ADVANCED_PROPS.contains(new AdvancedProp(descriptor
 				.getCategory(identifiable), descriptor.getId(identifiable)));
 	}
