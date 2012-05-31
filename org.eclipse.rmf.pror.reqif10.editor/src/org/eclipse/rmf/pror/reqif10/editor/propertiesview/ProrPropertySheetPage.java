@@ -30,6 +30,7 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
@@ -119,13 +120,15 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 			standardProperties = new ProrPropertyControl(tabFolder,
 					editingDomain, adapterFactory, false);
 			TabItem tabStandard = new TabItem(tabFolder, SWT.NONE);
-			tabStandard.setText("Standard Properties"); // TODO localize
+			tabStandard.setText(Reqif10EditorPlugin.getPlugin().getString(
+					"_UI_Standard_Properties"));
 			tabStandard.setControl(standardProperties);
 
 			allProperties = new ProrPropertyControl(tabFolder, editingDomain,
 					adapterFactory, true);
 			TabItem tabAll = new TabItem(tabFolder, SWT.NONE);
-			tabAll.setText("All Properties"); // TODO localize
+			tabAll.setText(Reqif10EditorPlugin.getPlugin().getString(
+					"_UI_All_Properties"));
 			tabAll.setControl(allProperties);
 		}
 	}
