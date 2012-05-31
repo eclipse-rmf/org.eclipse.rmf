@@ -199,7 +199,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	}
 
 	/**
-	 * Represents the Row of a table. A Row holds either a SpecHierarchy or a
+	 * Represents the row of a table. A row holds either a SpecHierarchy or a
 	 * SpecRelation.
 	 */
 	class ProrRow {
