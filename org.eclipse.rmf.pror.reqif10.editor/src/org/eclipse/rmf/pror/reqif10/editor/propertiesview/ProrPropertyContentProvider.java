@@ -90,7 +90,12 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "object"));
 		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "editableAtts"));
 		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "editable"));
-	}
+
+		ADVANCED_PROPS.add(new AdvancedProp(null, "desc"));
+		ADVANCED_PROPS.add(new AdvancedProp(null, "identifier"));
+		ADVANCED_PROPS.add(new AdvancedProp(null, "lastChange"));
+		ADVANCED_PROPS.add(new AdvancedProp(null, "editable"));		
+}
 	
 	public ProrPropertyContentProvider(EditingDomain editingDomain, boolean showAllProps) {
 		this.editingDomain = (AdapterFactoryEditingDomain) editingDomain;
@@ -231,6 +236,8 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * If {@link #showAllProps} is false, only standard descriptors are considered.
 	 */
 	private boolean isStandard(IItemPropertyDescriptor descriptor) {
+		System.out.println(descriptor
+				.getCategory(identifiable) + " - " + descriptor.getId(identifiable));
 		return ! ADVANCED_PROPS.contains(new AdvancedProp(descriptor
 				.getCategory(identifiable), descriptor.getId(identifiable)));
 	}
@@ -408,7 +415,8 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 		private String name;
 		
 		AdvancedProp(String category, String name) {
-			if (category == null || name == null) throw new NullPointerException();
+			if (category == null) category = DEFAULT_CATEGORY_NAME;
+			if (name == null) throw new NullPointerException();
 			this.category = category;
 			this.name = name;
 		}

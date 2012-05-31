@@ -115,7 +115,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 			String categoryName = descriptor.getCategory(this.contentProvider.getIdentifiable());
 			Identifiable selectedElement = this.contentProvider.getIdentifiable();
 			
-			if (categoryName.equals(SPEC_OBJECT_NAME)) {
+			if (categoryName != null && categoryName.equals(SPEC_OBJECT_NAME)) {
 				if (this.contentProvider.getIdentifiable() instanceof SpecHierarchy)
 					selectedElement = ((SpecHierarchy) this.contentProvider.getIdentifiable())
 							.getObject();

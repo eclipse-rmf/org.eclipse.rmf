@@ -42,7 +42,7 @@ public class ProrPropertyLayoutAdvisor extends DefaultLayoutAdvisor {
 		case 0:
 			return 150;
 		case 1:
-			return 400;
+			return 300;
 		default:
 			return 100;
 		}
