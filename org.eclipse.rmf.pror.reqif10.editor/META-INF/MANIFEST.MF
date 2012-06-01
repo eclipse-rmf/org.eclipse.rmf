@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.core.runtime;visibility:=reexport,
  org.eclipse.rmf.pror.reqif10.edit;visibility:=reexport,
  org.eclipse.core.resources;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
- org.agilemore.agilegrid;bundle-version="1.2.2";visibility:=reexport,
+ org.agilemore.agilegrid;bundle-version="1.2.3";visibility:=reexport,
  org.eclipse.rmf.serialization;bundle-version="0.2.0",
  org.eclipse.ui.navigator;bundle-version="3.5.100"
 Bundle-ActivationPolicy: lazy

@@ -13,6 +13,7 @@ package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import org.agilemore.agilegrid.AbstractContentProvider;
@@ -34,6 +35,7 @@ import org.eclipse.rmf.reqif10.util.ReqIF10Util;
  * The agile grid content provider for the properties view.
  * 
  * @author Lukas Ladenberger
+ * @author Michael Jastram
  * 
  */
 public class ProrPropertyContentProvider extends AbstractContentProvider {
@@ -49,6 +51,8 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	public static String SPEC_HIERARCHY_NAME = "Spec Hierarchy";
 	public static String SPEC_OBJECT_NAME = "Spec Object";
 	public static String SPEC_RELATION_NAME = "Spec Relation";
+	
+	private static HashSet<AdvancedProp> ADVANCED_PROPS;
 		
 	private ItemCategory specHierarchyItemCategory = new ItemCategory(
 			SPEC_HIERARCHY_NAME);
@@ -60,12 +64,44 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	// HashMap for storing the row with the corresponding object
 	private HashMap<Integer, Object> rows;
 
+	private boolean showAllProps;
+
 	public static String DEFAULT_CATEGORY_NAME = "Misc";
 		
-	public ProrPropertyContentProvider(EditingDomain editingDomain) {
+	static {
+		ADVANCED_PROPS = new HashSet<ProrPropertyContentProvider.AdvancedProp>();
+		ADVANCED_PROPS.add(new AdvancedProp("Specification", "identifier"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Object", "identifier"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "identifier"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Relation", "identifier"));
+		ADVANCED_PROPS.add(new AdvancedProp("Specification", "longName"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Object", "longName"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "longName"));
+		ADVANCED_PROPS.add(new AdvancedProp("Relation", "longName"));
+		ADVANCED_PROPS.add(new AdvancedProp("Specification", "lastChange"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Object", "lastChange"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "lastChange"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Relation", "lastChange"));
+		ADVANCED_PROPS.add(new AdvancedProp("Specification", "desc"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Object", "desc"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "desc"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Relation", "desc"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "tableInternal"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "object"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "editableAtts"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "editable"));
+
+		ADVANCED_PROPS.add(new AdvancedProp(null, "desc"));
+		ADVANCED_PROPS.add(new AdvancedProp(null, "identifier"));
+		ADVANCED_PROPS.add(new AdvancedProp(null, "lastChange"));
+		ADVANCED_PROPS.add(new AdvancedProp(null, "editable"));		
+}
+	
+	public ProrPropertyContentProvider(EditingDomain editingDomain, boolean showAllProps) {
 		this.editingDomain = (AdapterFactoryEditingDomain) editingDomain;
 		this.customCategories = new HashMap<String, ItemCategory>();
 		this.rows = new HashMap<Integer, Object>();
+		this.showAllProps = showAllProps;
 	}
 	
 	/**
@@ -153,6 +189,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 			// Iterate over the item property descriptors and collect the needed
 			// data
 			for (IItemPropertyDescriptor descriptor : descriptorList) {
+				if (!showAllProps && ! isStandard(descriptor)) continue;
 
 				String categoryName = descriptor.getCategory(identifiable);
 
@@ -193,6 +230,14 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 
 		}
 
+	}
+
+	/**
+	 * If {@link #showAllProps} is false, only standard descriptors are considered.
+	 */
+	private boolean isStandard(IItemPropertyDescriptor descriptor) {
+		return ! ADVANCED_PROPS.contains(new AdvancedProp(descriptor
+				.getCategory(identifiable), descriptor.getId(identifiable)));
 	}
 
 	private void addItemCategory(ItemCategory cat) {
@@ -361,6 +406,30 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 			return itemPropertyDescriptor;
 		}
 
+	}
+	
+	private static class AdvancedProp {
+		private String category;
+		private String name;
+		
+		AdvancedProp(String category, String name) {
+			if (category == null) category = DEFAULT_CATEGORY_NAME;
+			if (name == null) throw new NullPointerException();
+			this.category = category;
+			this.name = name;
+		}
+		
+		@Override
+		public boolean equals(Object obj) {
+			if (! (obj instanceof AdvancedProp)) return false;
+			AdvancedProp that = (AdvancedProp) obj;
+			return category.equals(that.category) && name.equals(that.name);
+		}
+		
+		@Override
+		public int hashCode() {
+			return category.hashCode() + name.hashCode();
+		}
 	}
 
 }
