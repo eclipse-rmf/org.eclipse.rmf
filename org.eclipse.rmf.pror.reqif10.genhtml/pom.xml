@@ -45,7 +45,7 @@
           <goal>java</goal>  
          </goals>  
          <configuration>  
-          <mainClass>org.eclipse.rmf.pror.reqif10.genhtml.MyMainClass</mainClass>  
+          <mainClass>org.eclipse.rmf.pror.reqif10.genhtml.GenerateHtml</mainClass>  
          </configuration>  
         </execution>  
        </executions>  
