@@ -238,9 +238,10 @@
 		<module>../org.eclipse.rmf.pror.reqif10.presentation.id</module>
 		<module>../org.eclipse.rmf.pror.reqif10.presentation.linewrap</module>
 		<module>../org.eclipse.rmf.pror.reqif10.help.ui</module>
+		<module>../org.eclipse.rmf.pror.reqif10.genhtml</module>
 		<module>../org.eclipse.rmf.pror.reqif10.feature</module>
 		<module>../org.eclipse.rmf.pror.reqif10.sdk.feature</module>
-		
+			
         <module>../org.eclipse.rmf.pror.reqif10.tests</module>
         <!-- <module>../org.eclipse.rmf.pror.reqif10.presentation.id.tests</module> -->
 		
