@@ -42,6 +42,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.part.EditorPart;
@@ -82,6 +84,8 @@ public class SpecificationEditor extends EditorPart implements
 	private CommandStackListener commandStackListener;
 	private AdapterImpl changeNameListener;
 	private AdapterImpl deleteSpecListener;
+
+	private ISelectionListener iSelectionListener;
 
 	/**
 	 * Initializes the Editor.
@@ -232,6 +236,15 @@ public class SpecificationEditor extends EditorPart implements
 			}}
 		};
 		prorAgileGridViewer.addSelectionChangedListener(selectionChangedListener);
+		iSelectionListener = new ISelectionListener() {
+
+			public void selectionChanged(IWorkbenchPart part,
+					ISelection selection) {
+				SpecificationEditor.this.setSelection(selection);
+			}
+			
+		};
+		getSite().getPage().addSelectionListener(iSelectionListener);
 	}
 
 	/**
@@ -357,6 +370,11 @@ public class SpecificationEditor extends EditorPart implements
 		if (selectionChangedListener != null) {
 			prorAgileGridViewer.removeSelectionChangedListener(selectionChangedListener);
 			selectionChangedListener = null;
+		}
+		
+		if (iSelectionListener != null) {
+			getSite().getPage().removeSelectionListener(iSelectionListener);
+			iSelectionListener = null;
 		}
 		if (commandStackListener != null) {
 			getEditingDomain().getCommandStack().removeCommandStackListener(commandStackListener);
