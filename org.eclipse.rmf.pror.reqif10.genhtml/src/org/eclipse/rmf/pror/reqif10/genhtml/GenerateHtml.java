@@ -54,13 +54,14 @@ public class GenerateHtml {
 				commandStack, new ReqIFResourceSetImpl());
 		
 		// iterate reqif dump folder
-		File f = new File("../dump/reqif");
+		File f = new File("dump/reqif");
 
+		System.out.println("===> ReqIF Dump folder exists? ===> "
+				+ f.exists());
+		
 		if (f.exists()) {
-			File[] fileArray = f.listFiles();
 
-			System.out.println("===> Reqif Dump folder exists? ===> "
-					+ f.exists());
+			File[] fileArray = f.listFiles();
 
 			for (File file : fileArray) {
 
@@ -79,7 +80,7 @@ public class GenerateHtml {
 							// fileName.length());
 							String createHtmlHeader = ProrEditorUtil
 									.createHtmlContent(spec, editingDomain);
-							File htmlFile = new File("../dump/html/" + fname
+							File htmlFile = new File("dump/html/" + fname
 									+ "_" + spec.getIdentifier() + ".html");
 							Writer output = new BufferedWriter(new FileWriter(
 									htmlFile));
