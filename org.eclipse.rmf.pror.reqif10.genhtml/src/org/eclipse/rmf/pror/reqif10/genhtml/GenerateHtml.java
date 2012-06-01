@@ -55,31 +55,38 @@ public class GenerateHtml {
 		
 		// iterate reqif dump folder
 		File f = new File("../dump/reqif");
-		File[] fileArray = f.listFiles();
 
-		for (File file : fileArray) {
+		if (f.exists()) {
+			File[] fileArray = f.listFiles();
 
-			if (file.getName().endsWith(".reqif")) {
+			System.out.println("===> Reqif Dump folder exists? ===> "
+					+ f.exists());
 
-				ReqIF reqif = loadData(file);
-				if (reqif != null) {
+			for (File file : fileArray) {
 
-					for (Specification spec : reqif.getCoreContent()
-							.getSpecifications()) {
+				if (file.getName().endsWith(".reqif")) {
 
-						String fileName = file.getName();
-						int mid = fileName.lastIndexOf(".");
-						String fname = fileName.substring(0, mid);
-						// String ext = fileName.substring(mid + 1,
-						// fileName.length());
-						String createHtmlHeader = ProrEditorUtil
-								.createHtmlContent(spec, editingDomain);
-						File htmlFile = new File("../dump/html/" + fname + "_"
-								+ spec.getIdentifier() + ".html");
-						Writer output = new BufferedWriter(new FileWriter(
-								htmlFile));
-						output.write(createHtmlHeader);
-						output.close();
+					ReqIF reqif = loadData(file);
+					if (reqif != null) {
+
+						for (Specification spec : reqif.getCoreContent()
+								.getSpecifications()) {
+
+							String fileName = file.getName();
+							int mid = fileName.lastIndexOf(".");
+							String fname = fileName.substring(0, mid);
+							// String ext = fileName.substring(mid + 1,
+							// fileName.length());
+							String createHtmlHeader = ProrEditorUtil
+									.createHtmlContent(spec, editingDomain);
+							File htmlFile = new File("../dump/html/" + fname
+									+ "_" + spec.getIdentifier() + ".html");
+							Writer output = new BufferedWriter(new FileWriter(
+									htmlFile));
+							output.write(createHtmlHeader);
+							output.close();
+
+						}
 
 					}
 
