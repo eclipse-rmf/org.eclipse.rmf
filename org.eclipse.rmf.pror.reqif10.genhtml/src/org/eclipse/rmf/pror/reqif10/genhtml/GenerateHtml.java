@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Lukas Ladenberger - initial API and implementation
+ ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.genhtml;
 
 import java.io.BufferedWriter;
@@ -29,11 +40,6 @@ import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 
 public class GenerateHtml {
 
-	/**
-	 * @param args
-	 * @throws IOException 
-	 * @throws FileNotFoundException 
-	 */
 	public static void main(String[] args) throws FileNotFoundException,
 			IOException {
 
@@ -67,7 +73,10 @@ public class GenerateHtml {
 
 				if (file.getName().endsWith(".reqif")) {
 
+					System.out.println("===> Loading ReqIF file " + file.getName());
+					
 					ReqIF reqif = loadData(file);
+
 					if (reqif != null) {
 
 						for (Specification spec : reqif.getCoreContent()
@@ -80,8 +89,15 @@ public class GenerateHtml {
 							// fileName.length());
 							String createHtmlHeader = ProrEditorUtil
 									.createHtmlContent(spec, editingDomain);
-							File htmlFile = new File("dump/html/" + fname
-									+ "_" + spec.getIdentifier() + ".html");
+							System.out
+									.println("===> Generate HTML file for Loading ReqIF file "
+											+ file.getName());
+
+							String htmlFileName = fname + "_"
+									+ spec.getIdentifier() + ".html";
+
+							File htmlFile = new File("dump/html/"
+									+ htmlFileName);
 							Writer output = new BufferedWriter(new FileWriter(
 									htmlFile));
 							output.write(createHtmlHeader);
