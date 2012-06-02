@@ -503,7 +503,7 @@ public class ProrAgileGridViewer extends Viewer {
 				current = prorRow.getSpecElement();
 
 			for (Object item : ((IStructuredSelection) selection).toList()) {
-				if (item.equals(current) || ((current instanceof SpecHierarchy) && ((SpecHierarchy)current).getObject().equals(item))) {
+				if (item.equals(current) || ((current instanceof SpecHierarchy) && ((SpecHierarchy)current).getObject() != null && ((SpecHierarchy)current).getObject().equals(item))) {
 					boolean added = false;
 					for (int col = 0; col < agileGrid.getLayoutAdvisor()
 							.getColumnCount(); col++) {
