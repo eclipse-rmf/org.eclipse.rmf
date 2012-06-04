@@ -30,7 +30,6 @@ import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEdit
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
@@ -74,7 +73,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 					.getItemPropertyDescriptor(row).getItemPropertyDescriptor();
 			if (descriptor != null)
 				return descriptor.canSetProperty(this.contentProvider
-						.getIdentifiable());
+						.getElement());
 		}
 
 		return false;
@@ -112,12 +111,12 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 			final IItemPropertyDescriptor descriptor = this.contentProvider
 					.getItemPropertyDescriptor(row).getItemPropertyDescriptor();
 			
-			String categoryName = descriptor.getCategory(this.contentProvider.getIdentifiable());
-			Identifiable selectedElement = this.contentProvider.getIdentifiable();
+			String categoryName = descriptor.getCategory(this.contentProvider.getElement());
+			Object selectedElement = this.contentProvider.getElement();
 			
 			if (categoryName != null && categoryName.equals(SPEC_OBJECT_NAME)) {
-				if (this.contentProvider.getIdentifiable() instanceof SpecHierarchy)
-					selectedElement = ((SpecHierarchy) this.contentProvider.getIdentifiable())
+				if (this.contentProvider.getElement() instanceof SpecHierarchy)
+					selectedElement = ((SpecHierarchy) this.contentProvider.getElement())
 							.getObject();
 			}
 			
@@ -129,7 +128,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 	}
 	
 	private CellEditor getNonAttributeCellEditor(
-			final Identifiable selectedElement,
+			final Object selectedElement,
 			final IItemPropertyDescriptor descriptor) {
 
 		Collection<?> collection = descriptor
@@ -226,7 +225,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 //		editingDomain.getCommandStack().execute(wrappedCmd);
 //	}
 	
-	private Command getAffectedObjectCommand(final Identifiable element, Command cmd) {
+	private Command getAffectedObjectCommand(final Object element, Command cmd) {
 		return new CommandWrapper(cmd) {
 			public java.util.Collection<?> getAffectedObjects() {
 				List<Object> list = new ArrayList<Object>();
@@ -237,9 +236,9 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 	}
 
 	@Override
-	public Identifiable getAffectedElement(int row, int col) {
+	public Object getAffectedElement(int row, int col) {
 		if (this.contentProvider != null)
-				return this.contentProvider.getIdentifiable();
+				return this.contentProvider.getElement();
 		return null;
 	}
 

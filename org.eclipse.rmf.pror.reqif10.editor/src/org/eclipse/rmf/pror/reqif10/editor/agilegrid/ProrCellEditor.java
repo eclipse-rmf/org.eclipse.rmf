@@ -16,7 +16,6 @@ import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 import org.eclipse.swt.SWT;
@@ -38,10 +37,10 @@ public abstract class ProrCellEditor extends TextCellEditor {
 
 	protected AttributeValue attributeValue;
 	protected final EditingDomain editingDomain;
-	protected Identifiable affectedObject;
+	protected Object affectedObject;
 
 	public ProrCellEditor(AgileGrid agileGrid, EditingDomain editingDomain,
-			Identifiable affectedObject) {
+			Object affectedObject) {
 		super(agileGrid);
 		this.editingDomain = editingDomain;
 		this.affectedObject = affectedObject;

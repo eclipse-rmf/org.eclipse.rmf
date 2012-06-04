@@ -92,12 +92,12 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	private final List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
 	private final AdapterFactory adapterFactory;
 	private final EditingDomain editingDomain;
-	private final Reqif10Editor rifEditor;
+	private final Reqif10Editor reqifEditor;
 
 	protected SubtreeDialog(Reqif10Editor reqifEditor, EObject input, String title,
 			String helpContext) {
 		super(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
-		this.rifEditor = reqifEditor;
+		this.reqifEditor = reqifEditor;
 		this.editingDomain = reqifEditor.getEditingDomain();
 		this.adapterFactory = reqifEditor.getAdapterFactory();
 		this.input = input;
@@ -328,7 +328,7 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	}
 
 	private EditingDomainActionBarContributor getActionBarContributor() {
-		return rifEditor.getActionBarContributor();
+		return reqifEditor.getActionBarContributor();
 	}
 
 	@Override
