@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline" xmlns:id="http://pror.org/presentation/id" xmlns:linewrap="http://pror.org/presentation/linewrap">
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline" xmlns:linewrap="http://pror.org/presentation/linewrap">
   <THE-HEADER>
     <REQ-IF-HEADER IDENTIFIER="rmf-e22810c2-fa3c-4a57-a3c0-bf5f3f3e9fd3">
       <CREATION-TIME>2012-06-04T09:35:54.414+02:00</CREATION-TIME>
@@ -491,7 +491,6 @@
         <configuration:presentationConfigurations>
           <configuration:ProrPresentationConfigurations>
             <configuration:presentationConfigurations>
-              <id:IdConfiguration configuration:datatype="rmf-5fcb8c77-3ae9-448e-becb-611dd456b8d0" id:count="15" id:verticalAlign="Center"/>
               <headline:HeadlineConfiguration configuration:datatype="rmf-dba1992c-0cff-4d5a-85c8-3d5e6aeb28e7"/>
               <linewrap:LinewrapConfiguration configuration:datatype="rmf-5f2397ad-bd30-4fac-8afe-c0e197e4fd96"/>
             </configuration:presentationConfigurations>
