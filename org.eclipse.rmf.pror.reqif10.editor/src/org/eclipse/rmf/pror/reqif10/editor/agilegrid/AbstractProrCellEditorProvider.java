@@ -28,7 +28,6 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionReal;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML;
-import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 public abstract class AbstractProrCellEditorProvider extends
@@ -53,7 +52,7 @@ public abstract class AbstractProrCellEditorProvider extends
 	 * @return the default cell editor for the attribute value
 	 */
 	protected CellEditor getDefaultCellEditor(AttributeValue value,
-			Identifiable affectedObject) {
+			Object affectedObject) {
 		DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(value);
 		if (dd == null) {
 			MessageDialog
@@ -127,6 +126,6 @@ public abstract class AbstractProrCellEditorProvider extends
 	 * @param col
 	 * @return the attribute value of the cell
 	 */
-	protected abstract Identifiable getAffectedElement(int row, int col);
+	protected abstract Object getAffectedElement(int row, int col);
 
 }

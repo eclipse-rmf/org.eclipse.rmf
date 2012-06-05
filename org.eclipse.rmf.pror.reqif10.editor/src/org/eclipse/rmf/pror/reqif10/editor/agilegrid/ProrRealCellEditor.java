@@ -14,7 +14,6 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.ICellEditorValidator;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.Identifiable;
 
 public class ProrRealCellEditor extends ProrCellEditor {
 
@@ -22,7 +21,7 @@ public class ProrRealCellEditor extends ProrCellEditor {
 	private double max = Double.MAX_VALUE;
 
 	public ProrRealCellEditor(AgileGrid agileGrid, EditingDomain editingDomain,
-			Identifiable affectedObject) {
+			Object affectedObject) {
 		super(agileGrid, editingDomain, affectedObject);
 		this.setValidator(new ICellEditorValidator() {
 			public String isValid(Object value) {

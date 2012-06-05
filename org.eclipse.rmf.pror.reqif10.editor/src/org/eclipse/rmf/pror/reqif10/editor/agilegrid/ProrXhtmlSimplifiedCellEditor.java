@@ -24,7 +24,6 @@ import org.eclipse.rmf.pror.reqif10.editor.preferences.PreferenceConstants;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
-import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.impl.AttributeValueXHTMLImpl;
@@ -41,7 +40,7 @@ public class ProrXhtmlSimplifiedCellEditor extends TextCellEditor {
 	private AttributeValueXHTML attributeValue;
 
 	public ProrXhtmlSimplifiedCellEditor(AgileGrid agileGrid,
-			EditingDomain editingDomain, Identifiable affectedObject) {
+			EditingDomain editingDomain, Object affectedObject) {
 		super(agileGrid, SWT.WRAP);
 		this.editingDomain = editingDomain;
 	}

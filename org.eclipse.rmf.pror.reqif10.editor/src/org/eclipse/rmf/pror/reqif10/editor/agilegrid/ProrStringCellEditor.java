@@ -16,14 +16,13 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.ICellEditorValidator;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.Identifiable;
 
 public class ProrStringCellEditor extends ProrCellEditor {
 
 	private BigInteger maxLength;
 	
 	public ProrStringCellEditor(AgileGrid agileGrid,
-			EditingDomain editingDomain, Identifiable affectedObject) {
+			EditingDomain editingDomain, Object affectedObject) {
 		super(agileGrid, editingDomain, affectedObject);
 		this.setValidator(new ICellEditorValidator() {
 			public String isValid(Object value) {
