@@ -719,7 +719,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		// Create the command stack that will notify this editor as commands are
 		// executed.
 		//
-		BasicCommandStack commandStack = new BasicCommandStack();
+		TimestampedCommandStack commandStack = new TimestampedCommandStack();
 
 		// Add a listener to set the most recent command's affected objects to
 		// be the selection of the viewer with focus.
@@ -751,6 +751,8 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		//
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
 				commandStack, new ReqIFResourceSetImpl());
+		System.out.println("XXX");
+		commandStack.setEditingDomain(editingDomain);
 	}
 
 	/**
