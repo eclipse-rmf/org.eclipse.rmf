@@ -164,6 +164,24 @@ Contributors:
                style="push"
                toolbarPath="additions">
          </action>
+         <action
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.ShiftLevelDownActionDelegate"
+               icon="icons/full/obj16/ShiftDown.png"
+               id="org.eclipse.rmf.pror.reqif10.editor.ShiftLevelDown"
+               label="Shift Level Down"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.ShiftLevelUpActionDelegate"
+               icon="icons/full/obj16/ShiftUp.png"
+               id="org.eclipse.rmf.pror.reqif10.editor.ShiftLevelUp"
+               label="Shift Level Up"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
       </editorContribution>
    </extension>
    <extension point="org.eclipse.ui.perspectives">
