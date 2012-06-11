@@ -27,8 +27,10 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.presentation.headline.util.HeadlineAdapterFactory;
+import org.eclipse.rmf.pror.presentation.linewrap.util.LinewrapAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.util.ConfigurationAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.editor.util.ProrEditorUtil;
+import org.eclipse.rmf.pror.reqif10.presentation.id.util.IdAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.ReqIF;
@@ -53,7 +55,10 @@ public class GenerateHtml {
 		adapterFactory.addAdapterFactory(new XhtmlItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+
 		adapterFactory.addAdapterFactory(new HeadlineAdapterFactory());
+		adapterFactory.addAdapterFactory(new LinewrapAdapterFactory());
+		adapterFactory.addAdapterFactory(new IdAdapterFactory());
 		
 		BasicCommandStack commandStack = new BasicCommandStack();
 		AdapterFactoryEditingDomain editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
