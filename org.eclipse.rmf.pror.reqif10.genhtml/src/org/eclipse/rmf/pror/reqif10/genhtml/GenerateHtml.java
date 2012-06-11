@@ -17,6 +17,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.command.BasicCommandStack;
@@ -26,11 +28,15 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.rmf.pror.presentation.headline.ui.HeadlinePresentationService;
 import org.eclipse.rmf.pror.presentation.headline.util.HeadlineAdapterFactory;
 import org.eclipse.rmf.pror.presentation.linewrap.util.LinewrapAdapterFactory;
+import org.eclipse.rmf.pror.presentation.ui.LinewrapPresentationService;
 import org.eclipse.rmf.pror.reqif10.configuration.util.ConfigurationAdapterFactory;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.editor.util.ProrEditorUtil;
 import org.eclipse.rmf.pror.reqif10.presentation.id.util.IdAdapterFactory;
+import org.eclipse.rmf.pror.reqif10.presentation.ui.IDPresentationService;
 import org.eclipse.rmf.pror.reqif10.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.ReqIF;
@@ -90,10 +96,19 @@ public class GenerateHtml {
 							String fileName = file.getName();
 							int mid = fileName.lastIndexOf(".");
 							String fname = fileName.substring(0, mid);
+
+							List<PresentationService> presentations = new ArrayList<PresentationService>();
+							presentations
+									.add(new LinewrapPresentationService());
+							presentations
+									.add(new HeadlinePresentationService());
+							presentations.add(new IDPresentationService());
+
 							// String ext = fileName.substring(mid + 1,
 							// fileName.length());
 							String createHtmlHeader = ProrEditorUtil
-									.createHtmlContent(spec, editingDomain);
+									.createHtmlContent(spec, editingDomain,
+											presentations);
 							System.out
 									.println("===> Generate HTML file for Loading ReqIF file "
 											+ file.getName());

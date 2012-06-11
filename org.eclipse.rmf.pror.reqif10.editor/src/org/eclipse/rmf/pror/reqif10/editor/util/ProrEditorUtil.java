@@ -78,7 +78,8 @@ public class ProrEditorUtil {
 
 	private static void printRecursive(StringBuilder html,
 			ProrSpecViewConfiguration config, int indent,
-			EList<SpecHierarchy> children, EditingDomain domain) {
+			EList<SpecHierarchy> children, EditingDomain domain,
+			List<PresentationService> presentations) {
 		for (SpecHierarchy child : children) {
 			if (child.getObject() != null) {
 				SpecObject specObject = child.getObject();
@@ -98,12 +99,26 @@ public class ProrEditorUtil {
 							.getDatatypeDefinition(av);
 					ProrPresentationConfiguration configuration = ConfigurationUtil
 							.getConfiguration(dd, domain);
+
 					if (configuration != null) {
-						PresentationService service = PresentationEditorManager
-								.getPresentationService(configuration);
+						
+						PresentationService service = null;
+
+						if (presentations != null) {
+							for (PresentationService serv : presentations) {
+								if (serv.getConfigurationInterface()
+										.isInstance(configuration))
+									service = serv;
+							}
+						} else {
+							service = PresentationEditorManager
+									.getPresentationService(configuration);
+						}
+
 						if (service != null)
 							html.append(service.getCellRenderer(av)
 									.doDrawHtmlContent(av));
+
 					} else {
 						html.append(getDefaultValue(av));
 					}
@@ -117,11 +132,17 @@ public class ProrEditorUtil {
 				html.append("</tr>\n");
 			}
 			printRecursive(html, config, indent + 1, child.getChildren(),
-					domain);
+					domain, presentations);
 		}
 	}
 
-	public static String createHtmlContent(Specification spec, EditingDomain domain) {
+	public static String createHtmlContent(Specification spec,
+			EditingDomain domain) {
+		return createHtmlContent(spec, domain, null);
+	}
+
+	public static String createHtmlContent(Specification spec,
+			EditingDomain domain, List<PresentationService> presentations) {
 
 		ProrSpecViewConfiguration config = ConfigurationUtil
 				.getSpecViewConfiguration(spec, domain);
@@ -136,9 +157,10 @@ public class ProrEditorUtil {
 			html.append("<td><b>" + col.getLabel() + "</b></td>");
 		}
 		html.append("</tr>\n");
-		printRecursive(html, config, 0, spec.getChildren(), domain);
+		printRecursive(html, config, 0, spec.getChildren(), domain,
+				presentations);
 		html.append("</table>");
-		
+
 		return html.toString();
 
 	}
