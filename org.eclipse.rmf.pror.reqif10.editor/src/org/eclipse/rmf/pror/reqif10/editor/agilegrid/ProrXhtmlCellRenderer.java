@@ -10,8 +10,6 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.agilegrid;
 
-import java.io.File;
-
 import org.agilemore.agilegrid.AbstractContentProvider;
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.Cell;
@@ -74,7 +72,7 @@ public class ProrXhtmlCellRenderer extends TextCellRenderer implements
 		return 0;
 	}
 
-	public String doDrawHtmlContent(Object value, File folder) {
+	public String doDrawHtmlContent(Object value) {
 		return null;
 	}
 

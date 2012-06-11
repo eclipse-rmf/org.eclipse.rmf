@@ -10,8 +10,6 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.presentation.headline.ui;
 
-import java.io.File;
-
 import org.eclipse.jface.resource.FontRegistry;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
@@ -65,7 +63,7 @@ public class HeadlineCellRenderer implements IProrCellRenderer {
 		return gc.textExtent(text).y;
 	}
 
-	public String doDrawHtmlContent(Object value, File folder) {
+	public String doDrawHtmlContent(Object value) {
 		AttributeValueSimple av = (AttributeValueSimple) value;
 		return "<div style='font-size: " + fontSize
 				+ "pt; font-weight: bold; padding-top: 4pt;'>"

@@ -10,8 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.presentation.ui;
 
-import java.io.File;
-
+import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.swt.graphics.GC;
@@ -94,7 +93,7 @@ public class LinewrapCellRenderer implements IProrCellRenderer {
 		return sb.toString();
 	}
 
-	public String doDrawHtmlContent(Object value, File folder) {
+	public String doDrawHtmlContent(Object value) {
 		AttributeValueString av = (AttributeValueString) value;
 		String text = av.getTheValue();
 		if (text != null)
