@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.6"?>
 
-<target includeMode="feature" name="INDIGO_3_7_2" sequenceNumber="46">
+<target includeMode="feature" name="INDIGO_3_7_2" sequenceNumber="47">
 <locations>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.apache.xerces" version="2.9.0.v201005080400"/>
@@ -18,6 +18,10 @@
 <unit id="org.agilemore.agilegrid.feature.feature.group" version="1.2.3"/>
 <unit id="org.agilemore.agilegrid.source.feature.feature.group" version="1.2.3"/>
 <repository location="http://agilegrid.sourceforge.net/agilegrid/updatesite-rmf/"/>
+</location>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="com.google.guava.runtime.feature.feature.group" version="11.0.1"/>
+<repository location="http://guava-osgi.googlecode.com/svn/trunk/repository/"/>
 </location>
 </locations>
 </target>
