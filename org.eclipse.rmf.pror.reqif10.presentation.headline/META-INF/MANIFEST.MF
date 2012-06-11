@@ -11,6 +11,7 @@ Export-Package:
  org.eclipse.rmf.pror.presentation.headline,
  org.eclipse.rmf.pror.presentation.headline.impl,
  org.eclipse.rmf.pror.presentation.headline.provider,
+ org.eclipse.rmf.pror.presentation.headline.ui,
  org.eclipse.rmf.pror.presentation.headline.util
 Require-Bundle: org.eclipse.rmf.pror.reqif10.editor;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
