@@ -10,6 +10,8 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.presentation.headline.ui;
 
+import org.eclipse.jface.resource.FontRegistry;
+import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.AttributeValueSimple;
 import org.eclipse.rmf.reqif10.util.ReqIF10Util;
@@ -18,36 +20,30 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.widgets.Display;
 
 public class HeadlineCellRenderer implements IProrCellRenderer {
 
-	// private String PROR_HEADLINE_FONT = "pror_headline_font-";
+	private String PROR_HEADLINE_FONT = "pror_headline_font-";
 	private Font font;
 	private int fontSize;
+	private boolean fontSizeChanged = false;
 
 	public HeadlineCellRenderer(String identifier) {
-		// this.PROR_HEADLINE_FONT = "pror_headline_font-" + identifier;
+		this.PROR_HEADLINE_FONT = "pror_headline_font-" + identifier;
 	}
 
 	public void setDatatypeId(String identifier) {
-		// this.PROR_HEADLINE_FONT = "pror_headline_font-" + identifier;
+		this.PROR_HEADLINE_FONT = "pror_headline_font-" + identifier;
 		setFontSize(fontSize);
 
 	}
 
 	public void setFontSize(final int fontSize) {
 		this.fontSize = fontSize;
+		this.fontSizeChanged = true;
 		// TODO: commented out, since maven java invoke can not handle UI
 		// PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
 		// public void run() {
-		// FontRegistry fr = JFaceResources.getFontRegistry();
-		FontData[] fontData = { new FontData("Arial", fontSize, SWT.BOLD) };
-		if (font != null)
-			font.dispose();
-		font = new Font(Display.getDefault(), fontData);
-		// fr.put(PROR_HEADLINE_FONT, fontData);
-		// font = fr.get(PROR_HEADLINE_FONT);
 		// }
 		// });
 	}
@@ -58,6 +54,17 @@ public class HeadlineCellRenderer implements IProrCellRenderer {
 		if (av != null && ReqIF10Util.getTheValue(av) != null) {
 			text = ReqIF10Util.getTheValue(av).toString();
 		}
+
+		if (font == null || fontSizeChanged) {
+			FontRegistry fr = JFaceResources.getFontRegistry();
+			FontData[] fontData = { new FontData("Arial", fontSize, SWT.BOLD) };
+			if (font != null)
+				font.dispose();
+			fr.put(PROR_HEADLINE_FONT, fontData);
+			font = fr.get(PROR_HEADLINE_FONT);
+			fontSizeChanged = false;
+		}
+
 		gc.setFont(font);
 		gc.drawText(text, rect.x, rect.y);
 		return gc.textExtent(text).y;
