@@ -8,7 +8,8 @@
 <repository location="http://download.eclipse.org/eclipse/updates/3.7/"/>
 </location>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.agilemore.agilegrid.feature.feature.group" version="1.2.2"/>
+<unit id="org.agilemore.agilegrid.feature.feature.group" version="1.2.3"/>
+<unit id="org.agilemore.agilegrid.source.feature.feature.group" version="1.2.3"/>
 <repository location="http://agilegrid.sourceforge.net/agilegrid/updatesite-rmf/"/>
 </location>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
