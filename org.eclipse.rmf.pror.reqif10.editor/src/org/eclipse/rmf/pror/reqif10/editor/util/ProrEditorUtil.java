@@ -91,7 +91,7 @@ public class ProrEditorUtil {
 					// Handle indenting TODO use something better than spaces.
 					if (first) {
 						html.append("<div style='margin-left: " + (indent * 20)
-								+ ";'>");
+								+ "px;'>");
 					}
 					AttributeValue av = ReqIF10Util.getAttributeValueForLabel(
 							specObject, col.getLabel());
