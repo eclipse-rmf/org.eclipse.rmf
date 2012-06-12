@@ -223,6 +223,7 @@
 		
 		<!-- ReqIF Core -->
 		<module>../org.eclipse.rmf.reqif10</module>
+		<module>../org.eclipse.rmf.reqif10.common</module>
 		<module>../org.eclipse.rmf.serialization</module>
 		<module>../org.eclipse.rmf.reqif10.feature</module>
 		<module>../org.eclipse.rmf.reqif10.sdk.feature</module>

@@ -12,11 +12,14 @@
 package org.eclipse.rmf.reqif10.tests.uc001.tc3000;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import junit.framework.Assert;
@@ -25,13 +28,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xml.type.AnyType;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.ReqIF;
-import org.eclipse.rmf.reqif10.ReqIFToolExtension;
+import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.reqif10.tests.util.AbstractTestCase;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -79,11 +83,20 @@ public class TC3000ToolExtensionsTests extends AbstractTestCase {
 	}
 
 	@Test
+	public void testNoXMLAnyType() {
+		Iterator<EObject> iterator = EcoreUtil.getAllContents(loadedReqIF, true);
+		while (iterator.hasNext()) {
+			EObject eObject = iterator.next();
+			assertFalse(eObject instanceof AnyType);
+		}
+	}
+
+	@Test
 	public void testProrToolExtension() {
-		assertEquals(1, loadedReqIF.getToolExtensions().size());
-		ReqIFToolExtension reqIFToolExtension = loadedReqIF.getToolExtensions().get(0);
-		assertTrue(reqIFToolExtension instanceof ProrToolExtension);
-		ProrToolExtension prorToolExtension = (ProrToolExtension) reqIFToolExtension;
+		List<ProrToolExtension> toolExtensions = ReqIFToolExtensionUtil.getToolExtensionsByType(loadedReqIF,
+				ConfigurationPackage.eINSTANCE.getProrToolExtension());
+		assertEquals(1, toolExtensions.size());
+		ProrToolExtension prorToolExtension = toolExtensions.get(0);
 		assertTrue(prorToolExtension.eIsSet(ConfigurationPackage.eINSTANCE.getProrToolExtension_GeneralConfiguration()));
 		assertTrue(prorToolExtension.eIsSet(ConfigurationPackage.eINSTANCE.getProrToolExtension_PresentationConfigurations()));
 		assertTrue(prorToolExtension.eIsSet(ConfigurationPackage.eINSTANCE.getProrToolExtension_SpecViewConfigurations()));
@@ -91,22 +104,26 @@ public class TC3000ToolExtensionsTests extends AbstractTestCase {
 
 	@Test
 	public void testProrGeneralConfiguration() {
-		ProrGeneralConfiguration prorGeneralConfiguration = ((ProrToolExtension) loadedReqIF.getToolExtensions().get(0)).getGeneralConfiguration();
-
+		List<ProrToolExtension> toolExtensions = ReqIFToolExtensionUtil.getToolExtensionsByType(loadedReqIF,
+				ConfigurationPackage.eINSTANCE.getProrToolExtension());
+		ProrGeneralConfiguration prorGeneralConfiguration = toolExtensions.get(0).getGeneralConfiguration();
+		assertNotNull(prorGeneralConfiguration);
 	}
 
 	@Test
 	public void testProrPresentationConfigurations() {
-		ProrPresentationConfigurations prorPresentationConfigurations = ((ProrToolExtension) loadedReqIF.getToolExtensions().get(0))
-				.getPresentationConfigurations();
-
+		List<ProrToolExtension> toolExtensions = ReqIFToolExtensionUtil.getToolExtensionsByType(loadedReqIF,
+				ConfigurationPackage.eINSTANCE.getProrToolExtension());
+		ProrPresentationConfigurations prorPresentationConfigurations = toolExtensions.get(0).getPresentationConfigurations();
+		assertNotNull(prorPresentationConfigurations);
 	}
 
 	@Test
 	public void testProrSpecViewConfiguration() {
-		EList<ProrSpecViewConfiguration> prorSpecViewConfigurations = ((ProrToolExtension) loadedReqIF.getToolExtensions().get(0))
-				.getSpecViewConfigurations();
-
+		List<ProrToolExtension> toolExtensions = ReqIFToolExtensionUtil.getToolExtensionsByType(loadedReqIF,
+				ConfigurationPackage.eINSTANCE.getProrToolExtension());
+		EList<ProrSpecViewConfiguration> prorSpecViewConfigurations = toolExtensions.get(0).getSpecViewConfigurations();
+		assertEquals(2, prorSpecViewConfigurations.size());
 	}
 
 }

@@ -18,6 +18,8 @@ import static org.junit.Assert.assertSame;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
@@ -29,6 +31,7 @@ import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.junit.Test;
 
 public class ConfigUtilTest extends AbstractItemProviderTest {
@@ -38,13 +41,14 @@ public class ConfigUtilTest extends AbstractItemProviderTest {
 		ReqIF reqif = getTestReqif("simple.reqif");
 		assertEquals(0, reqif.getToolExtensions().size());
 		assertNotNull(ConfigurationUtil.getProrToolExtension(reqif, editingDomain));
+		assertEquals(1, reqif.getToolExtensions().size());
 	}
 
 	@Test
 	public void testGetProrToolExtensionAlreadyThere() throws URISyntaxException {
 		ReqIF reqif = getTestReqif("simple.reqif");
 		ProrToolExtension extension = ConfigurationFactory.eINSTANCE.createProrToolExtension();
-		setViaCommand(reqif, ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS, extension );
+		commandStack.execute(ReqIFToolExtensionUtil.getAddToolExtensionCommand(reqif, extension));
 		assertEquals(1, reqif.getToolExtensions().size());
 		
 		ProrToolExtension retrieved = ConfigurationUtil.getProrToolExtension(reqif, editingDomain);
@@ -55,12 +59,12 @@ public class ConfigUtilTest extends AbstractItemProviderTest {
 	@Test
 	public void testGetProrToolExtensionAnotherOneThere() throws URISyntaxException {
 		ReqIF reqif = getTestReqif("simple.reqif");
-		ReqIFToolExtension extension = ReqIF10Factory.eINSTANCE.createReqIFToolExtension();
-		setViaCommand(reqif, ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
-				extension);
+		EPackage ePackage = EcoreFactory.eINSTANCE.createEPackage();
+		commandStack.execute(ReqIFToolExtensionUtil.getAddToolExtensionCommand(reqif, ePackage));
 		assertEquals(1, reqif.getToolExtensions().size());
 		
 		assertNotNull(ConfigurationUtil.getProrToolExtension(reqif, editingDomain));
+		assertEquals(2, reqif.getToolExtensions().size());
 	}
 	
 	@Test
@@ -73,9 +77,8 @@ public class ConfigUtilTest extends AbstractItemProviderTest {
 	@Test
 	public void testGetDefaultLabelsOnlyGeneralConfigThere() throws URISyntaxException {
 		ReqIF reqif = getTestReqif("simple.reqif");
-		ReqIFToolExtension extension = ReqIF10Factory.eINSTANCE.createReqIFToolExtension();
-		setViaCommand(reqif, ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
-				extension);
+		ProrToolExtension extension = ConfigurationFactory.eINSTANCE.createProrToolExtension();
+		commandStack.execute(ReqIFToolExtensionUtil.getAddToolExtensionCommand(reqif, extension));
 		ProrGeneralConfiguration generalConfig = ConfigurationFactory.eINSTANCE.createProrGeneralConfiguration();
 		setViaCommand(extension, ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION, generalConfig);
 		

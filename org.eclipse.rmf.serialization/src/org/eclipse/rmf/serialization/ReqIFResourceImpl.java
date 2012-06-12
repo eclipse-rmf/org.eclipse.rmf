@@ -19,8 +19,10 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLLoad;
+import org.eclipse.emf.ecore.xmi.XMLOptions;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLSave;
+import org.eclipse.emf.ecore.xmi.impl.XMLOptionsImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.rmf.internal.serialization.ReqIFXMLHelperImpl;
 import org.eclipse.rmf.internal.serialization.ReqIFXMLLoadImpl;
@@ -60,7 +62,11 @@ public class ReqIFResourceImpl extends XMLResourceImpl {
 
 	@Override
 	public EObject getEObject(String uriFragment) {
-		return getEObjectByID(uriFragment);
+		EObject object = getEObjectByID(uriFragment);
+		if (null == object) {
+			object = super.getEObject(uriFragment);
+		}
+		return object;
 	}
 
 	public void initDefaultOptions() {
@@ -86,8 +92,11 @@ public class ReqIFResourceImpl extends XMLResourceImpl {
 		// Use deprecated methods - the default is true. To improve deserialization performance turn this option to
 		// false.
 		loadOptions.put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.FALSE);
-
 		loadOptions.put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.FALSE);
+
+		// options for handling unknown tool extensions
+		loadOptions.put(XMLResource.OPTION_RECORD_ANY_TYPE_NAMESPACE_DECLARATIONS, Boolean.TRUE);
+		loadOptions.put(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
 
 		// Performance enhancement
 		loadOptions.put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
@@ -108,6 +117,14 @@ public class ReqIFResourceImpl extends XMLResourceImpl {
 
 		loadOptions.put(XMLResource.OPTION_PARSER_FEATURES, parserFeatures);
 		loadOptions.put(XMLResource.OPTION_PARSER_PROPERTIES, parserProperties);
+
+		XMLOptions xmlOptions = new XMLOptionsImpl();
+
+		xmlOptions.setProcessAnyXML(true);
+
+		// xmlOptions.setProcessSchemaLocations(true);
+
+		loadOptions.put(XMLResource.OPTION_XML_OPTIONS, xmlOptions);
 
 	}
 

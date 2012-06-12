@@ -73,8 +73,8 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
-import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 /**
  * A Class full of tools for PorR-Programming. Note that you find more tools in

@@ -21,6 +21,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,7 +46,7 @@ public class TestProrAgileGridContentProvider extends AbstractItemProviderTest {
 		ProrToolExtension prorToolExtension = ConfigurationFactory.eINSTANCE.createProrToolExtension();
 		specViewConfig = ConfigurationFactory.eINSTANCE.createProrSpecViewConfiguration();
 		prorToolExtension.getSpecViewConfigurations().add(specViewConfig);
-		reqif.getToolExtensions().add(prorToolExtension);
+		ReqIFToolExtensionUtil.addToolExtension(reqif, prorToolExtension);
 		
 		contentProvider = new ProrAgileGridContentProvider(specification, specViewConfig);
 	}

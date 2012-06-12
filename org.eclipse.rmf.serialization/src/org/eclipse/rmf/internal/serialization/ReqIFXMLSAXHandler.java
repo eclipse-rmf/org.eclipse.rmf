@@ -84,9 +84,6 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 					}
 				}
 			}
-		} else if (SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT == serializationStrategy) {
-			serializationStrategy = SerializationStrategy.TOOL_EXTENSION;
-
 		} else {
 			super.processElement(name, prefix, localName);
 		}
@@ -129,10 +126,27 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 
 		EObject obj = createObject(eFactory, helper.getType(eFactory, localName), false);
 
+		// this happens if we find an element that is nested in ReqIFToolExtensions
+		if (null == deferredFeatures.peek()) {
+			deferredFeatures.pop();
+			EStructuralFeature feature = getFeature(peekObject, obj.eClass().getEPackage().getNsPrefix(), "root", true);
+			deferredFeatures.push(feature);
+		}
+
 		obj = validateCreateObjectFromFactory(eFactory, localName, obj, deferredFeatures.peek());
 
 		if (obj != null) {
 			setFeatureValue(peekObject, deferredFeatures.peek(), obj);
+		}
+
+		// checking for instanceof ReqIFToolExtension doesn't work here since we would get all subclasses of
+		// reqIFToolExtension as well
+		// TODO: improve robustness of this algorithm
+		if (obj.eClass().equals(ReqIF10Package.eINSTANCE.getReqIFToolExtension())) {
+			serializationStrategy = SerializationStrategy.TOOL_EXTENSION;
+			deferredFeatures.push(null);
+			// mixedTargets.push((FeatureMap) obj.eGet(ReqIF10Package.eINSTANCE.getReqIFToolExtension_Any()));
+			toolExtensionsLevel = level;
 		}
 
 		processObject(obj);
@@ -186,14 +200,6 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 							createObject(peekObject, feature);
 							serializationStrategy = SerializationStrategy.XHTML;
 							xhtmlLevel = level;
-							// we might need to switch to another handler here
-						} else if (feature == ReqIF10Package.eINSTANCE.getReqIF_ToolExtensions()) {
-							serializationStrategy = SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT;
-							toolExtensionsLevel = level;
-							// objects.push(peekObject);
-							objects.push(peekObject);
-							types.push(OBJECT_TYPE);
-							// types.push(WRAPPER_TYPE);
 						} else {
 							objects.push(peekObject);
 							types.push(OBJECT_TYPE);
@@ -222,26 +228,21 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 	@Override
 	public void endElement(String uri, String localName, String name) {
 
-		if (SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT == serializationStrategy) {
-			//
+		super.endElement(uri, localName, name);
+		if (SerializationStrategy.TOOL_EXTENSION == serializationStrategy && level - 1 <= toolExtensionsLevel) {
+			// we finished reading tool extensions
 			serializationStrategy = SerializationStrategy.REQIF;
-		} else {
-			super.endElement(uri, localName, name);
-			if (SerializationStrategy.TOOL_EXTENSION == serializationStrategy && level - 1 <= toolExtensionsLevel) {
-				// we finished reading tool extensions
-				serializationStrategy = SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT;
-			} else if (SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy) {
+		} else if (SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy) {
+			if (isFeatureExpected()) {
+				deferredFeatures.pop();
+			}
+		} else if (SerializationStrategy.XHTML == serializationStrategy && level - 1 <= xhtmlLevel) {
+			// we finished reading xhtml
+			serializationStrategy = SerializationStrategy.REQIF;
+			// required in case of empty xhtml content
+			if (level - 1 < xhtmlLevel) {
 				if (isFeatureExpected()) {
 					deferredFeatures.pop();
-				}
-			} else if (SerializationStrategy.XHTML == serializationStrategy && level - 1 <= xhtmlLevel) {
-				// we finished reading xhtml
-				serializationStrategy = SerializationStrategy.REQIF;
-				// required in case of empty xhtml content
-				if (level - 1 < xhtmlLevel) {
-					if (isFeatureExpected()) {
-						deferredFeatures.pop();
-					}
 				}
 			}
 		}

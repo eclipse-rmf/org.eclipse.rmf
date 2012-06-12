@@ -20,7 +20,7 @@ import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRendere
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
-import org.eclipse.rmf.reqif10.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 /**
  * A very basic Presentation that handles {@link DatatypeDefinitionString}s and

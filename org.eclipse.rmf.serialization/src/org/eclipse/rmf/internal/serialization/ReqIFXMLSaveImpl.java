@@ -11,15 +11,17 @@
  */
 package org.eclipse.rmf.internal.serialization;
 
+import java.util.Iterator;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
-import org.eclipse.rmf.reqif10.ReqIF;
-import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.rmf.reqif10.XhtmlContent;
 
 /**
@@ -41,7 +43,7 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 	 */
 	@Override
 	protected void saveContainedSingle(EObject o, EStructuralFeature f) {
-		if (SerializationStrategy.REQIF != serializationStrategy) {
+		if (SerializationStrategy.REQIF != serializationStrategy && SerializationStrategy.TOOL_EXTENSION != serializationStrategy) {
 			super.saveContainedSingle(o, f);
 		} else {
 			if (!toDOM) {
@@ -68,16 +70,10 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 	 */
 	@Override
 	protected void saveContainedMany(EObject o, EStructuralFeature f) {
-		if (SerializationStrategy.REQIF == serializationStrategy) {
-			boolean isReqIFToolExtensionFeature = o instanceof ReqIF && ReqIF10Package.REQ_IF__TOOL_EXTENSIONS == f.getFeatureID();
+		if (SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy) {
 			if (!toDOM) {
 				String name = helper.getQName(f);
 				doc.startElement(name);
-				if (isReqIFToolExtensionFeature) {
-					serializationStrategy = SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT;
-					String typeName = helper.getQName(ReqIF10Package.eINSTANCE.getReqIFToolExtension());
-					doc.startElement(typeName);
-				}
 			} else {
 				// TODO
 				throw new UnsupportedOperationException();
@@ -86,10 +82,6 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 			super.saveContainedMany(o, f);
 
 			if (!toDOM) {
-				if (isReqIFToolExtensionFeature) {
-					doc.endElement();
-					serializationStrategy = SerializationStrategy.REQIF;
-				}
 				doc.endElement();
 			} else {
 				// TODO
@@ -102,12 +94,40 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 
 	}
 
+	protected void saveReqIFToolExtensionElement(ReqIFToolExtension toolExtension, EStructuralFeature f) {
+		EClass eClass = toolExtension.eClass();
+		String classXMLName = helper.getQName(eClass);
+		doc.startElement(classXMLName);
+
+		// now save the content of this tool extension
+
+		FeatureMap featureMap = toolExtension.getAny();
+		helper.pushContext();
+		for (Iterator<Object> valueIterator = featureMap.valueListIterator(); valueIterator.hasNext();) {
+			Object obj = valueIterator.next();
+			if (obj instanceof EObject) {
+				EObject extensionRootObj = (EObject) obj;
+				EClass extensionEClass = extensionRootObj.eClass();
+				String name = helper.getQName(extensionEClass);
+				doc.startElement(name);
+				saveElementID(extensionRootObj);
+				doc.endElement();
+			}
+
+		}
+
+		helper.popContext();
+
+		// doc.endElement();
+
+	}
+
 	/**
 	 * avoid writing xsi:type. write XML element name instead
 	 */
 	@Override
 	protected void saveElement(EObject o, EStructuralFeature f) {
-		if (SerializationStrategy.REQIF == serializationStrategy) {
+		if (SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy) {
 			if (o instanceof XhtmlContent) {
 				serializationStrategy = SerializationStrategy.XHTML;
 				XhtmlContent xhtmlContent = (XhtmlContent) o;
@@ -116,6 +136,12 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 						super.saveContainedSingle(xhtmlContent, reference);
 					}
 				}
+				serializationStrategy = SerializationStrategy.REQIF;
+			} else if (o instanceof ReqIFToolExtension) {
+				serializationStrategy = SerializationStrategy.TOOL_EXTENSION;
+				ReqIFToolExtension reqIFToolExtension = (ReqIFToolExtension) o;
+
+				saveReqIFToolExtensionElement(reqIFToolExtension, f);
 				serializationStrategy = SerializationStrategy.REQIF;
 			} else {
 
@@ -140,9 +166,6 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 				saveElementID(o);
 
 			}
-		} else if (SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT == serializationStrategy) {
-			serializationStrategy = SerializationStrategy.REQIF;
-			super.writeTopObject(o);
 		} else {
 			super.saveElement(o, f);
 		}
@@ -158,7 +181,7 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 
 	@Override
 	protected void saveElementReferenceSingle(EObject o, EStructuralFeature f) {
-		if (SerializationStrategy.REQIF != serializationStrategy) {
+		if (SerializationStrategy.REQIF != serializationStrategy && SerializationStrategy.TOOL_EXTENSION != serializationStrategy) {
 			super.saveElementReferenceMany(o, f);
 		} else {
 			EObject value = (EObject) helper.getValue(o, f);
@@ -177,7 +200,7 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 
 	@Override
 	protected void saveElementReferenceMany(EObject o, EStructuralFeature f) {
-		if (SerializationStrategy.REQIF != serializationStrategy) {
+		if (SerializationStrategy.REQIF != serializationStrategy && SerializationStrategy.TOOL_EXTENSION != serializationStrategy) {
 			super.saveElementReferenceMany(o, f);
 		} else {
 			@SuppressWarnings("unchecked")
@@ -207,7 +230,7 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 
 	@Override
 	protected void saveElementReference(EObject remote, EStructuralFeature f) {
-		if (SerializationStrategy.REQIF != serializationStrategy) {
+		if (SerializationStrategy.REQIF != serializationStrategy && SerializationStrategy.TOOL_EXTENSION != serializationStrategy) {
 			super.saveElementReference(remote, f);
 		} else {
 			String href = helper.getHREF(remote);
