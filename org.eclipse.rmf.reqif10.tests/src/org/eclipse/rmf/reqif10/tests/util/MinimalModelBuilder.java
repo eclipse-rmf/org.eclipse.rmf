@@ -36,20 +36,8 @@ public class MinimalModelBuilder {
 		// create header
 		createReqIFHeader();
 
-		createReqIFCoreContents();
-
-		// create types
-		createDatatypes();
-		createSpecObjectTypes();
-		createSpecificationTypes();
-		createSpecRelationTypes();
-		createSpecRelationGroupTypes();
-
-		// create objects
-		createSpecObjects();
-		createSpecifications();
-		createSpecRelations();
-		createSpecRelationGroups();
+		// create core contents
+		createReqIFContent();
 
 		// create tool extensions
 		createToolExtensions();
@@ -58,34 +46,7 @@ public class MinimalModelBuilder {
 	public void createReqIFHeader() throws Exception {
 	}
 
-	public void createReqIFCoreContents() throws Exception {
-	}
-
-	public void createDatatypes() throws Exception {
-	}
-
-	public void createSpecObjectTypes() throws Exception {
-	}
-
-	public void createSpecificationTypes() throws Exception {
-	}
-
-	public void createSpecRelationGroups() throws Exception {
-	}
-
-	public void createSpecRelationGroupTypes() throws Exception {
-	}
-
-	public void createSpecifications() throws Exception {
-	}
-
-	public void createSpecObjects() throws Exception {
-	}
-
-	public void createSpecRelations() throws Exception {
-	}
-
-	public void createSpecRelationTypes() throws Exception {
+	public void createReqIFContent() throws Exception {
 	}
 
 	public void createToolExtensions() throws Exception {

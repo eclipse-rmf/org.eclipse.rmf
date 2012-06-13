@@ -21,11 +21,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
-import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
 
 @SuppressWarnings("nls")
-public class SimpleModelBuilder extends MinimalModelBuilder {
+public class SimpleModelBuilder extends ReqIFContentModelBuilder {
 	private final String comment;
 	private final XMLGregorianCalendar creationTime;
 	private final String identifier;
@@ -93,8 +92,9 @@ public class SimpleModelBuilder extends MinimalModelBuilder {
 		ReqIFHeader reqIfHeader = ReqIF10Factory.eINSTANCE.createReqIFHeader();
 		getReqIF().setTheHeader(reqIfHeader);
 
-		// if (null!= comment)
-		reqIfHeader.setComment(comment);
+		if (null != comment) {
+			reqIfHeader.setComment(comment);
+		}
 		if (null != creationTime) {
 			reqIfHeader.setCreationTime(creationTime);
 		} else {
@@ -118,12 +118,6 @@ public class SimpleModelBuilder extends MinimalModelBuilder {
 		if (null != title) {
 			reqIfHeader.setTitle(title);
 		}
-	}
-
-	@Override
-	public void createReqIFCoreContents() throws Exception {
-		ReqIFContent reqIfContent = ReqIF10Factory.eINSTANCE.createReqIFContent();
-		getReqIF().setCoreContent(reqIfContent);
 	}
 
 	@Override
