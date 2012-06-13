@@ -227,8 +227,10 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 	public void endElement(String uri, String localName, String name) {
 		// make sure that the feature is set if we have seen a feature element without having created an object
 		if ((SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy)
-				&& isEmptyManyFeature(uri, localName, name)) {
-			setFeatureValue(objects.peek(), deferredFeatures.peek(), name, -2);
+				&& isEmptyFeature(uri, localName, name)) {
+			// we are walking this path in order to call the elist.clear() function which explicitly sets isSet of this
+			// feature to true
+			setFeatureValue(objects.peek(), deferredFeatures.peek(), null, -2);
 		}
 		super.endElement(uri, localName, name);
 
@@ -255,12 +257,12 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 
 	}
 
-	protected boolean isEmptyManyFeature(String uri, String localName, String name) {
+	protected boolean isEmptyFeature(String uri, String localName, String name) {
 		if (name.equals(previousElement) && isFeatureExpected()) {
 			EStructuralFeature feature = deferredFeatures.peek();
 			if (null != feature && feature instanceof EReference) {
 				EReference reference = (EReference) feature;
-				return reference.isMany() && reference.isContainment();
+				return reference.isContainment();
 				// return false;
 			}
 		}

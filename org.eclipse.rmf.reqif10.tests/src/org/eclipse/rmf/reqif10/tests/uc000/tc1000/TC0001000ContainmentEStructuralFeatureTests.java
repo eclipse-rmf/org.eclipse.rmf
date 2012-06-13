@@ -6,7 +6,9 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
 import org.eclipse.rmf.reqif10.tests.util.AbstractTestCase;
 import org.junit.BeforeClass;
@@ -29,13 +31,11 @@ public class TC0001000ContainmentEStructuralFeatureTests extends AbstractTestCas
 	}
 
 	@Test
-	public void test0001ReferenceSingleUnsetNotDefaultValue() {
-		// not applicable
-	}
-
-	@Test
 	public void test0002ReferenceSingleUnsetDefaultValue() {
-
+		AttributeDefinitionBoolean attributeDefinitionBoolean = (AttributeDefinitionBoolean) loadedReqIF.getCoreContent().getSpecTypes().get(0)
+				.getSpecAttributes().get(0);
+		assertFalse(attributeDefinitionBoolean.isSetDefaultValue());
+		assertNull(attributeDefinitionBoolean.getDefaultValue());
 	}
 
 	@Test
@@ -45,14 +45,31 @@ public class TC0001000ContainmentEStructuralFeatureTests extends AbstractTestCas
 	}
 
 	@Test
-	public void test0008ReferenceManySetDefaultValue() {
-		assertTrue(loadedReqIF.isSetToolExtensions());
-		assertTrue(loadedReqIF.getToolExtensions().isEmpty());
+	public void test0004ReferenceSingleSetDefaultValue() {
+		AttributeDefinitionBoolean attributeDefinitionBoolean = (AttributeDefinitionBoolean) loadedReqIF.getCoreContent().getSpecTypes().get(0)
+				.getSpecAttributes().get(1);
+		assertTrue(attributeDefinitionBoolean.isSetDefaultValue());
+		assertNull(attributeDefinitionBoolean.getDefaultValue());
 	}
 
 	@Test
-	public void test0009AttributeSingleUnsetNotDefaultValue() {
-		// not applicable
+	public void test0006ReferenceManyUnsetDefaultValue() {
+		ReqIFContent reqIFContent = loadedReqIF.getCoreContent();
+		assertFalse(reqIFContent.isSetSpecRelationGroups());
+		assertTrue(reqIFContent.getSpecRelationGroups().isEmpty());
+	}
+
+	@Test
+	public void test0007ReferenceManySetNotDefaultValue() {
+		ReqIFContent reqIFContent = loadedReqIF.getCoreContent();
+		assertTrue(reqIFContent.isSetDatatypes());
+		assertFalse(reqIFContent.getDatatypes().isEmpty());
+	}
+
+	@Test
+	public void test0008ReferenceManySetDefaultValue() {
+		assertTrue(loadedReqIF.isSetToolExtensions());
+		assertTrue(loadedReqIF.getToolExtensions().isEmpty());
 	}
 
 	@Test
