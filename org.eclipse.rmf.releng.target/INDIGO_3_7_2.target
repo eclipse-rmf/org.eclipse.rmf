@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.6"?>
 
-<target includeMode="feature" name="INDIGO_3_7_2" sequenceNumber="47">
+<target includeMode="feature" name="INDIGO_3_7_2" sequenceNumber="50">
 <locations>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.apache.xerces" version="2.9.0.v201005080400"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/updateSite"/>
+<unit id="org.agilemore.agilegrid.feature.feature.group" version="1.2.3"/>
+<unit id="org.agilemore.agilegrid.source.feature.feature.group" version="1.2.3"/>
+<repository location="http://agilegrid.sourceforge.net/agilegrid/updatesite-rmf/"/>
+</location>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="com.google.guava" version="10.0.1.v201203051515"/>
+<unit id="org.apache.xerces" version="2.9.0.v201101211617"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/"/>
 </location>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.7.2.v20120130-0943"/>
@@ -13,15 +19,6 @@
 <unit id="org.eclipse.emf.compare.feature.group" version="1.2.2.v20120214-0915"/>
 <unit id="org.eclipse.jdt.feature.group" version="3.7.2.v20120120-1414-7z8gFcuFMP7BW5XTz0jLTnz0l9B1"/>
 <repository location="http://download.eclipse.org/releases/indigo"/>
-</location>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.agilemore.agilegrid.feature.feature.group" version="1.2.3"/>
-<unit id="org.agilemore.agilegrid.source.feature.feature.group" version="1.2.3"/>
-<repository location="http://agilegrid.sourceforge.net/agilegrid/updatesite-rmf/"/>
-</location>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="com.google.guava.runtime.feature.feature.group" version="11.0.1"/>
-<repository location="http://guava-osgi.googlecode.com/svn/trunk/repository/"/>
 </location>
 </locations>
 </target>

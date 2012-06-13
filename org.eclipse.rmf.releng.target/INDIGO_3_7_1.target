@@ -20,12 +20,9 @@
 <repository location="http://download.eclipse.org/releases/indigo"/>
 </location>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.apache.xerces" version="2.9.0.v201005080400"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/updateSite"/>
-</location>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="com.google.guava.runtime.feature.feature.group" version="11.0.1"/>
-<repository location="http://guava-osgi.googlecode.com/svn/trunk/repository/"/>
+<unit id="com.google.guava" version="10.0.1.v201203051515"/>
+<unit id="org.apache.xerces" version="2.9.0.v201101211617"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/"/>
 </location>
 </locations>
 <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.5.0_22"/>
