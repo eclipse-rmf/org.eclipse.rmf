@@ -21,6 +21,8 @@ import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -127,6 +129,13 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 		
 	}
 	
+	/**
+	 * (mj) FIXME This method is a total hack and should be cleaned up.
+	 * Bug has been filed: https://bugs.eclipse.org/bugs/show_bug.cgi?id=382484
+	 * @param selectedElement
+	 * @param descriptor
+	 * @return
+	 */
 	private CellEditor getNonAttributeCellEditor(
 			final Object selectedElement,
 			final IItemPropertyDescriptor descriptor) {
@@ -181,6 +190,15 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 				@Override
 				protected Object doGetValue() {
 					Object value = super.doGetValue();
+
+					// Create the correct type
+					// TODO This is not a good solution, all types should be handled generic
+					EAttribute feature = (EAttribute) descriptor.getFeature(selectedElement);
+					EDataType type = feature.getEAttributeType();
+					if (type.getInstanceClassName().equals("int")) {
+						value = new Integer((String)value);
+					}
+
 					// descriptor.setPropertyValue(selectedElement, value);
 					Command setCmd = SetCommand.create(editingDomain,
 							selectedElement,
