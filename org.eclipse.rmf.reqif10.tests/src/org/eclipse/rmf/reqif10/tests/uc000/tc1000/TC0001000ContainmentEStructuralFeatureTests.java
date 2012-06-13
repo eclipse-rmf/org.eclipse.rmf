@@ -1,10 +1,18 @@
 package org.eclipse.rmf.reqif10.tests.uc000.tc1000;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIFHeader;
 import org.eclipse.rmf.reqif10.tests.util.AbstractTestCase;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+@SuppressWarnings("nls")
 public class TC0001000ContainmentEStructuralFeatureTests extends AbstractTestCase {
 	static final String TEST_CASE_ID = "TC0001000";
 	static final String REFERENCE_DATA_FILENAME = getWorkingFileName(getReferenceDataFileName(TEST_CASE_ID, false));
@@ -21,14 +29,53 @@ public class TC0001000ContainmentEStructuralFeatureTests extends AbstractTestCas
 	}
 
 	@Test
-	public void test0004SingleReferenceSetNull() {
-		// assertTrue(loadedReqIF.isSetTheHeader());
-		// assertNull(loadedReqIF.getTheHeader());
+	public void test0001ReferenceSingleUnsetNotDefaultValue() {
+		// not applicable
 	}
 
 	@Test
-	public void test0008ManyReferenceSetEmpty() {
-		// assertTrue(loadedReqIF.isSetToolExtensions());
-		// assertTrue(loadedReqIF.getToolExtensions().isEmpty());
+	public void test0002ReferenceSingleUnsetDefaultValue() {
+
 	}
+
+	@Test
+	public void test0003ReferenceSingleSetNotDefaultValue() {
+		assertTrue(loadedReqIF.isSetTheHeader());
+		assertNotNull(loadedReqIF.getTheHeader());
+	}
+
+	@Test
+	public void test0008ReferenceManySetDefaultValue() {
+		assertTrue(loadedReqIF.isSetToolExtensions());
+		assertTrue(loadedReqIF.getToolExtensions().isEmpty());
+	}
+
+	@Test
+	public void test0009AttributeSingleUnsetNotDefaultValue() {
+		// not applicable
+	}
+
+	@Test
+	public void test0010AttributeSingleUnsetDefaultValue() {
+		ReqIFHeader reqIFHeader = loadedReqIF.getTheHeader();
+		assertFalse(reqIFHeader.isSetComment());
+		assertNull(reqIFHeader.getComment());
+	}
+
+	@Test
+	public void test0011AttributeSingleSetNotDefaultValue() {
+		ReqIFHeader reqIFHeader = loadedReqIF.getTheHeader();
+		assertTrue(reqIFHeader.isSetIdentifier());
+		assertEquals("identifier", reqIFHeader.getIdentifier());
+	}
+
+	@Test
+	public void test0012AttributeSingleSetDefaultValue() {
+		ReqIFHeader reqIFHeader = loadedReqIF.getTheHeader();
+		assertTrue(reqIFHeader.isSetTitle());
+		// it is not possible to distinguish between null and empty string.
+		// thus we assume an empty string
+		assertEquals("", reqIFHeader.getTitle());
+	}
+
 }

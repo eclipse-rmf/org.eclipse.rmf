@@ -34,16 +34,16 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 	private static final int OUT_OF_XHTML = -1;
 
 	private SerializationStrategy serializationStrategy = SerializationStrategy.REQIF;
+	private String previousElement = "";
 	int xhtmlLevel = OUT_OF_XHTML;
 	int toolExtensionsLevel = OUT_OF_XHTML;
 
-	protected XMLHandler.MyStack<EStructuralFeature> deferredFeatures;
+	protected XMLHandler.MyStack<EStructuralFeature> deferredFeatures = new MyStack<EStructuralFeature>();
 
 	protected int level = 0;
 
 	public ReqIFXMLSAXHandler(XMLResource xmiResource, XMLHelper helper, Map<?, ?> options) {
 		super(xmiResource, helper, options);
-		deferredFeatures = new MyStack<EStructuralFeature>();
 	}
 
 	@Override
@@ -57,6 +57,7 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		level++;
 		super.startElement(uri, localName, qName, attributes);
+		previousElement = qName;
 	}
 
 	@Override
@@ -194,18 +195,15 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 						mixedTargets.push(null);
 						types.push(feature);
 						text = new StringBuffer();
+					} else if (feature == ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue()
+							|| feature == ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue()) {
+						createObject(peekObject, feature);
+						serializationStrategy = SerializationStrategy.XHTML;
+						xhtmlLevel = level;
 					} else {
-						if (feature == ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue()
-								|| feature == ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue()) {
-							createObject(peekObject, feature);
-							serializationStrategy = SerializationStrategy.XHTML;
-							xhtmlLevel = level;
-						} else {
-							objects.push(peekObject);
-							types.push(OBJECT_TYPE);
-						}
-						// text = null;
-						// wait for the object to come
+						objects.push(peekObject);
+						types.push(OBJECT_TYPE);
+
 					}
 				} else {
 					assert false;
@@ -221,14 +219,19 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 		}
 	}
 
-	// TODO: cleanup algorithm for hand-over between different serialization stretegies
+	// TODO: cleanup algorithm for hand-over between different serialization strategies
 	/**
 	 * Pop the appropriate stacks and set features whose values are in the content of XML elements.
 	 */
 	@Override
 	public void endElement(String uri, String localName, String name) {
-
+		// make sure that the feature is set if we have seen a feature element without having created an object
+		if ((SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy)
+				&& isEmptyManyFeature(uri, localName, name)) {
+			setFeatureValue(objects.peek(), deferredFeatures.peek(), name, -2);
+		}
 		super.endElement(uri, localName, name);
+
 		if (SerializationStrategy.TOOL_EXTENSION == serializationStrategy && level - 1 <= toolExtensionsLevel) {
 			// we finished reading tool extensions
 			serializationStrategy = SerializationStrategy.REQIF;
@@ -248,7 +251,20 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 		}
 
 		level--;
+		previousElement = name;
 
+	}
+
+	protected boolean isEmptyManyFeature(String uri, String localName, String name) {
+		if (name.equals(previousElement) && isFeatureExpected()) {
+			EStructuralFeature feature = deferredFeatures.peek();
+			if (null != feature && feature instanceof EReference) {
+				EReference reference = (EReference) feature;
+				return reference.isMany() && reference.isContainment();
+				// return false;
+			}
+		}
+		return false;
 	}
 
 	// a feature is expected if level is even
@@ -284,7 +300,7 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 	 */
 	@Override
 	protected void setAttribValue(EObject object, String name, String value) {
-		if (SerializationStrategy.REQIF != serializationStrategy) {
+		if (SerializationStrategy.REQIF != serializationStrategy && SerializationStrategy.TOOL_EXTENSION != serializationStrategy) {
 			super.setAttribValue(object, name, value);
 		} else {
 			int index = name.indexOf(':', 0);
