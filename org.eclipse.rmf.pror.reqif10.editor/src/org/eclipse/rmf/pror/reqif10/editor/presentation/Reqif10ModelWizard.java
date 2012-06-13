@@ -70,6 +70,7 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
 import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.eclipse.swt.SWT;
@@ -264,7 +265,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		// Configure the Specification View
 		ProrToolExtension extension = ConfigurationFactory.eINSTANCE
 				.createProrToolExtension();
-		root.getToolExtensions().add(extension);
+		ReqIFToolExtensionUtil.addToolExtension(root, extension);
 		ProrSpecViewConfiguration prorSpecViewConfiguration = ConfigurationFactory.eINSTANCE
 				.createProrSpecViewConfiguration();
 		extension.getSpecViewConfigurations().add(prorSpecViewConfiguration);

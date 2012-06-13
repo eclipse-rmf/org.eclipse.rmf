@@ -8,7 +8,7 @@
  * Contributors:
  *     Nirmal Sasidharan - initial API and implementation
  ******************************************************************************/
-package org.eclipse.rmf.reqif10.util;
+package org.eclipse.rmf.reqif10.common.util;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -60,6 +60,7 @@ public class ReqIF10Util {
 	 * @return the root {@link ReqIF} object or null if none found.
 	 */
 	public static ReqIF getReqIF(Object obj) {
+		// TODO: replace and test by EcoreUtil.getRootContainer();
 		if (!(obj instanceof EObject))
 			return null;
 		while (((EObject) obj).eContainer() != null)

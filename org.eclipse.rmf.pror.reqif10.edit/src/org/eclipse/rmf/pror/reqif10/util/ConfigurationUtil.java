@@ -42,8 +42,9 @@ import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
-import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 public class ConfigurationUtil {
 	
@@ -128,11 +129,9 @@ public class ConfigurationUtil {
 	 */
 	private static ProrToolExtension getProrToolExtension(ReqIF reqif) {
 		if (reqif != null) {
-			EList<ReqIFToolExtension> extensions = reqif.getToolExtensions();
-			for (ReqIFToolExtension extension : extensions) {
-				if (extension instanceof ProrToolExtension) {
-					return (ProrToolExtension) extension;
-				}
+			List<ProrToolExtension> extensions = ReqIFToolExtensionUtil.getToolExtensionsByType(reqif, ConfigurationPackage.eINSTANCE.getProrToolExtension());
+			if (0 < extensions.size()) {
+				return extensions.get(0);
 			}
 		}
 		return null;
@@ -147,10 +146,7 @@ public class ConfigurationUtil {
 		ProrToolExtension extension = getProrToolExtension(reqif);
 		if (extension != null) return extension;
 		extension = ConfigurationFactory.eINSTANCE.createProrToolExtension();
-		domain.getCommandStack().execute(
-				AddCommand.create(domain, reqif,
-						ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
-						extension));		
+		domain.getCommandStack().execute(ReqIFToolExtensionUtil.getAddToolExtensionCommand(reqif, extension));		
 		return extension;
 	}
 

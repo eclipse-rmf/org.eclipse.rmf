@@ -7,7 +7,8 @@ Bundle-ClassPath: .
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.ui.intro;bundle-version="3.4.100",
- org.eclipse.rmf.reqif10;bundle-version="0.2.0";visibility:=reexport
+ org.eclipse.rmf.reqif10;bundle-version="0.2.0";visibility:=reexport,
+ org.eclipse.rmf.reqif10.common;bundle-version="0.3.0";visibility:=reexport
 Export-Package: org.eclipse.rmf.pror.reqif10.configuration,
  org.eclipse.rmf.pror.reqif10.configuration.impl,
  org.eclipse.rmf.pror.reqif10.configuration.util

@@ -34,16 +34,16 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 	private static final int OUT_OF_XHTML = -1;
 
 	private SerializationStrategy serializationStrategy = SerializationStrategy.REQIF;
+	private String previousElement = "";
 	int xhtmlLevel = OUT_OF_XHTML;
 	int toolExtensionsLevel = OUT_OF_XHTML;
 
-	protected XMLHandler.MyStack<EStructuralFeature> deferredFeatures;
+	protected XMLHandler.MyStack<EStructuralFeature> deferredFeatures = new MyStack<EStructuralFeature>();
 
 	protected int level = 0;
 
 	public ReqIFXMLSAXHandler(XMLResource xmiResource, XMLHelper helper, Map<?, ?> options) {
 		super(xmiResource, helper, options);
-		deferredFeatures = new MyStack<EStructuralFeature>();
 	}
 
 	@Override
@@ -57,6 +57,7 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		level++;
 		super.startElement(uri, localName, qName, attributes);
+		previousElement = qName;
 	}
 
 	@Override
@@ -84,9 +85,6 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 					}
 				}
 			}
-		} else if (SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT == serializationStrategy) {
-			serializationStrategy = SerializationStrategy.TOOL_EXTENSION;
-
 		} else {
 			super.processElement(name, prefix, localName);
 		}
@@ -129,10 +127,27 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 
 		EObject obj = createObject(eFactory, helper.getType(eFactory, localName), false);
 
+		// this happens if we find an element that is nested in ReqIFToolExtensions
+		if (null == deferredFeatures.peek()) {
+			deferredFeatures.pop();
+			EStructuralFeature feature = getFeature(peekObject, obj.eClass().getEPackage().getNsPrefix(), "root", true);
+			deferredFeatures.push(feature);
+		}
+
 		obj = validateCreateObjectFromFactory(eFactory, localName, obj, deferredFeatures.peek());
 
 		if (obj != null) {
 			setFeatureValue(peekObject, deferredFeatures.peek(), obj);
+		}
+
+		// checking for instanceof ReqIFToolExtension doesn't work here since we would get all subclasses of
+		// reqIFToolExtension as well
+		// TODO: improve robustness of this algorithm
+		if (obj.eClass().equals(ReqIF10Package.eINSTANCE.getReqIFToolExtension())) {
+			serializationStrategy = SerializationStrategy.TOOL_EXTENSION;
+			deferredFeatures.push(null);
+			// mixedTargets.push((FeatureMap) obj.eGet(ReqIF10Package.eINSTANCE.getReqIFToolExtension_Any()));
+			toolExtensionsLevel = level;
 		}
 
 		processObject(obj);
@@ -180,26 +195,15 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 						mixedTargets.push(null);
 						types.push(feature);
 						text = new StringBuffer();
+					} else if (feature == ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue()
+							|| feature == ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue()) {
+						createObject(peekObject, feature);
+						serializationStrategy = SerializationStrategy.XHTML;
+						xhtmlLevel = level;
 					} else {
-						if (feature == ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue()
-								|| feature == ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue()) {
-							createObject(peekObject, feature);
-							serializationStrategy = SerializationStrategy.XHTML;
-							xhtmlLevel = level;
-							// we might need to switch to another handler here
-						} else if (feature == ReqIF10Package.eINSTANCE.getReqIF_ToolExtensions()) {
-							serializationStrategy = SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT;
-							toolExtensionsLevel = level;
-							// objects.push(peekObject);
-							objects.push(peekObject);
-							types.push(OBJECT_TYPE);
-							// types.push(WRAPPER_TYPE);
-						} else {
-							objects.push(peekObject);
-							types.push(OBJECT_TYPE);
-						}
-						// text = null;
-						// wait for the object to come
+						objects.push(peekObject);
+						types.push(OBJECT_TYPE);
+
 					}
 				} else {
 					assert false;
@@ -215,39 +219,54 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 		}
 	}
 
-	// TODO: cleanup algorithm for hand-over between different serialization stretegies
+	// TODO: cleanup algorithm for hand-over between different serialization strategies
 	/**
 	 * Pop the appropriate stacks and set features whose values are in the content of XML elements.
 	 */
 	@Override
 	public void endElement(String uri, String localName, String name) {
+		// make sure that the feature is set if we have seen a feature element without having created an object
+		if ((SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy)
+				&& isEmptyFeature(uri, localName, name)) {
+			// we are walking this path in order to call the elist.clear() function which explicitly sets isSet of this
+			// feature to true
+			setFeatureValue(objects.peek(), deferredFeatures.peek(), null, -2);
+		}
+		super.endElement(uri, localName, name);
 
-		if (SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT == serializationStrategy) {
-			//
+		if (SerializationStrategy.TOOL_EXTENSION == serializationStrategy && level - 1 <= toolExtensionsLevel) {
+			// we finished reading tool extensions
 			serializationStrategy = SerializationStrategy.REQIF;
-		} else {
-			super.endElement(uri, localName, name);
-			if (SerializationStrategy.TOOL_EXTENSION == serializationStrategy && level - 1 <= toolExtensionsLevel) {
-				// we finished reading tool extensions
-				serializationStrategy = SerializationStrategy.TOOL_EXTENSION_IGNORE_ELEMENT;
-			} else if (SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy) {
+		} else if (SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy) {
+			if (isFeatureExpected()) {
+				deferredFeatures.pop();
+			}
+		} else if (SerializationStrategy.XHTML == serializationStrategy && level - 1 <= xhtmlLevel) {
+			// we finished reading xhtml
+			serializationStrategy = SerializationStrategy.REQIF;
+			// required in case of empty xhtml content
+			if (level - 1 < xhtmlLevel) {
 				if (isFeatureExpected()) {
 					deferredFeatures.pop();
-				}
-			} else if (SerializationStrategy.XHTML == serializationStrategy && level - 1 <= xhtmlLevel) {
-				// we finished reading xhtml
-				serializationStrategy = SerializationStrategy.REQIF;
-				// required in case of empty xhtml content
-				if (level - 1 < xhtmlLevel) {
-					if (isFeatureExpected()) {
-						deferredFeatures.pop();
-					}
 				}
 			}
 		}
 
 		level--;
+		previousElement = name;
 
+	}
+
+	protected boolean isEmptyFeature(String uri, String localName, String name) {
+		if (name.equals(previousElement) && isFeatureExpected()) {
+			EStructuralFeature feature = deferredFeatures.peek();
+			if (null != feature && feature instanceof EReference) {
+				EReference reference = (EReference) feature;
+				return reference.isContainment();
+				// return false;
+			}
+		}
+		return false;
 	}
 
 	// a feature is expected if level is even
@@ -283,7 +302,7 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 	 */
 	@Override
 	protected void setAttribValue(EObject object, String name, String value) {
-		if (SerializationStrategy.REQIF != serializationStrategy) {
+		if (SerializationStrategy.REQIF != serializationStrategy && SerializationStrategy.TOOL_EXTENSION != serializationStrategy) {
 			super.setAttribValue(object, name, value);
 		} else {
 			int index = name.indexOf(':', 0);
