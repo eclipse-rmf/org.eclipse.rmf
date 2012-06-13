@@ -99,21 +99,6 @@ public abstract class ProrCellEditor extends TextCellEditor {
 		super.doSetValue(value);
 	}
 
-	// LL: this method should not be used cause it depends on the specification
-	// editor and the prorcelleditor is used by the properties view and the
-	// specification editor (both have different content providers)
-	// /**
-	// * Returns the current {@link SpecHierarchy} to which the edited cell
-	// * belongs.
-	// */
-	// protected SpecHierarchy getSpecHierarchy() {
-	// ProrAgileGridContentProvider provider = (ProrAgileGridContentProvider)
-	// getAgileGrid().getContentProvider();
-	// SpecHierarchy specHierarchy =
-	// provider.getProrRow(cell.row).getSpecHierarchy();
-	// return specHierarchy;
-	// }
-
 	/**
 	 * This method "translates" from the editor value (which is a String) to the
 	 * Model (which is an AttributeValue). As a side effect (and not very

@@ -21,6 +21,10 @@ import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -127,6 +131,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 		
 	}
 	
+	// TODO: We need to support all emf datatypes. See Bug 382484.
 	private CellEditor getNonAttributeCellEditor(
 			final Object selectedElement,
 			final IItemPropertyDescriptor descriptor) {
@@ -180,8 +185,20 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 
 				@Override
 				protected Object doGetValue() {
+
 					Object value = super.doGetValue();
-					// descriptor.setPropertyValue(selectedElement, value);
+
+					if (descriptor.getFeature(selectedElement) instanceof EStructuralFeature) {
+						EStructuralFeature feature = (EStructuralFeature) descriptor
+								.getFeature(selectedElement);
+						EClassifier eType = feature.getEType();
+						if (eType instanceof EDataType) {
+							EDataType eDataType = (EDataType) eType;
+							value = EcoreUtil.createFromString(eDataType,
+									value.toString());
+						}
+					}
+
 					Command setCmd = SetCommand.create(editingDomain,
 							selectedElement,
 							descriptor.getFeature(selectedElement), value);
@@ -191,6 +208,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 							affectedObjectCommand);
 					// fixAffectedObjectsOfLastcommand();
 					return value;
+
 				}
 
 			};
