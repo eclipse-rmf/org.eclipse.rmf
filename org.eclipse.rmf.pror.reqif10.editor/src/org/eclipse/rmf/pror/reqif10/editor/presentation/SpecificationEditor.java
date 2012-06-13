@@ -12,6 +12,7 @@ package org.eclipse.rmf.pror.reqif10.editor.presentation;
 
 import java.util.Collection;
 import java.util.EventObject;
+import java.util.Iterator;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.command.BasicCommandStack;
@@ -31,12 +32,15 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.pror.reqif10.editor.actions.SpecificationWebPrintAction;
+import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrAgileGrid;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrAgileGridViewer;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
@@ -240,7 +244,19 @@ public class SpecificationEditor extends EditorPart implements
 
 			public void selectionChanged(IWorkbenchPart part,
 					ISelection selection) {
-				SpecificationEditor.this.setSelection(selection);
+				// Only apply selection if it contains at least one SpecHierarchy
+				if (selection instanceof IStructuredSelection) {
+					
+					for (Iterator<?> i = ((IStructuredSelection)selection).iterator(); i.hasNext();) {
+						Object item = i.next();
+						System.out.println(">>>>> " + item);
+						if (item instanceof SpecHierarchy) {
+							SpecificationEditor.this.setSelection(selection);	
+							((ProrAgileGrid)SpecificationEditor.this.prorAgileGridViewer.getControl()).scrollToFocus();
+							return;
+						}
+					}
+				}
 			}
 			
 		};
