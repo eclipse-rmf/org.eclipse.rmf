@@ -7,6 +7,6 @@ Bundle-Activator: org.eclipse.rmf.reqif10.internal.common.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.rmf.reqif10;bundle-version="0.2.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: %providerName
 Export-Package: org.eclipse.rmf.reqif10.common.util
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
