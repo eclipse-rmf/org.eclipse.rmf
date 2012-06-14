@@ -37,6 +37,12 @@
     <anchor id="after-faq-content"/>
     <anchor id="additions-faq" />
  </topic>
+ <topic label="Glossary">
+    <anchor id="before-glossary-content"/>
+    <link toc="RMF-User-Guide-Glossary-toc.xml"/>
+    <anchor id="after-glossary-content"/>
+    <anchor id="additions-glossary"/>
+ </topic>
   	<anchor id="after-reference" />
   	<anchor id="additions" />
  	<topic href="doc/notices.html" label="Legal" />

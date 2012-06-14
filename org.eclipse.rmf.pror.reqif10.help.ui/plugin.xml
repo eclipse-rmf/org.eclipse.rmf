@@ -44,6 +44,11 @@ Contributors:
             file="RMF-User-Guide-Tutorial-toc.xml"
             primary="false">
       </toc>
+      <toc
+            category="RMF"
+            file="RMF-User-Guide-Glossary-toc.xml"
+            primary="false">
+      </toc>
    </extension>
 
 </plugin>

@@ -54,6 +54,7 @@
     				<path name="RMF/User_Guide/Reference" title="ProR Reference" generateToc="true"/>
     	    		<path name="RMF/User_Guide/Presentations" title="ProR Presentations Plugins" generateToc="true"/>
     				<path name="RMF/FAQ" title="ProR FAQ" generateToc="true"/>
+    				<path name="RMF/User_Guide/Glossary" title="ProR Glossary" generateToc="true"/>
     	    		<pageAppendum>
 = Updating This Document =
 
