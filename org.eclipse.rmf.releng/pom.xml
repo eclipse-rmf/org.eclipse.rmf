@@ -253,12 +253,12 @@
 		<module>../org.eclipse.rmf.rif11.model</module>		
 		<module>../org.eclipse.rmf.rif11.xsd.model</module>
 		<module>../org.eclipse.rmf.rif11.resource</module>
-		<!-- <module>../org.eclipse.rmf.rif11.model.test</module> -->
+		<module>../org.eclipse.rmf.rif11.model.test</module>
 		
 		<module>../org.eclipse.rmf.rif12.model</module>
 		<module>../org.eclipse.rmf.rif12.xsd.model</module>
 		<module>../org.eclipse.rmf.rif12.resource</module>
-		<!-- <module>../org.eclipse.rmf.rif12.model.test</module> -->		
+		<module>../org.eclipse.rmf.rif12.model.test</module>		
 		
 	</modules>
 
