@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
+import java.util.UUID;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
@@ -58,6 +59,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
@@ -70,6 +72,7 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.SpecificationType;
 import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
 import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
@@ -233,7 +236,10 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		}
 
 		header.setSourceToolId("ProR (http://pror.org)");
-//		header.setAuthor(System.getProperty("user.name"));
+		header.setIdentifier("rmf-" + UUID.randomUUID());
+		header.setReqIFVersion("1.0.1");
+		header.setReqIFToolId("ProR (http://pror.org)");
+		header.setComment("Created by: " + System.getProperty("user.name"));
 
 		ReqIFContent content = reqif10Factory.createReqIFContent();
 		root.setCoreContent(content);
@@ -245,22 +251,40 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		ddString.setMaxLength(new BigInteger("32000"));
 		content.getDatatypes().add(ddString);
 
+		// Add a SpecObjectType
+		SpecObjectType specObjectType = reqif10Factory.createSpecObjectType();
+		specObjectType.setLongName("Requirement Type");
+		content.getSpecTypes().add(specObjectType);
+
+		// Add an AttributeDefinition
+		AttributeDefinitionString ad1 = reqif10Factory
+				.createAttributeDefinitionString();
+		ad1.setType(ddString);
+		ad1.setLongName("Description");
+		specObjectType.getSpecAttributes().add(ad1);
+
+		// Add a SpecificationType
+		SpecificationType specificationType = reqif10Factory.createSpecificationType();
+		specificationType.setLongName("Specification Type");
+		content.getSpecTypes().add(specificationType);
+
+		// Add an AttributeDefinition
+		AttributeDefinitionString ad2 = reqif10Factory
+				.createAttributeDefinitionString();
+		ad2.setType(ddString);
+		ad2.setLongName("Description");
+		specificationType.getSpecAttributes().add(ad2);
+
 		// Add a Specification
 		Specification spec = reqif10Factory.createSpecification();
 		spec.setLongName("Specification Document");
+		spec.setType(specificationType);
+		AttributeValueString value1 = reqif10Factory.createAttributeValueString();
+		value1.setTheValue("Requirements Document");
+		value1.setDefinition(ad2);
+		spec.getValues().add(value1);
+
 		content.getSpecifications().add(spec);
-
-		// Add a SpecType
-		SpecObjectType specType = reqif10Factory.createSpecObjectType();
-		specType.setLongName("Requirement Type");
-		content.getSpecTypes().add(specType);
-
-		// Add an AttributeDefinition
-		AttributeDefinitionString ad = reqif10Factory
-				.createAttributeDefinitionString();
-		ad.setType(ddString);
-		ad.setLongName("Description");
-		specType.getSpecAttributes().add(ad);
 
 		// Configure the Specification View
 		ProrToolExtension extension = ConfigurationFactory.eINSTANCE
@@ -293,12 +317,12 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 
 		// Create one Requirement
 		SpecObject specObject = reqif10Factory.createSpecObject();
-		specObject.setType(specType);
+		specObject.setType(specObjectType);
 		content.getSpecObjects().add(specObject);
-		AttributeValueString value = reqif10Factory.createAttributeValueString();
-		value.setTheValue("Start editing here.");
-		value.setDefinition(ad);
-		specObject.getValues().add(value);
+		AttributeValueString value2 = reqif10Factory.createAttributeValueString();
+		value2.setTheValue("Start editing here.");
+		value2.setDefinition(ad1);
+		specObject.getValues().add(value2);
 
 		// Add the requirement to the Specification
 		SpecHierarchy specHierarchy = reqif10Factory.createSpecHierarchy();
