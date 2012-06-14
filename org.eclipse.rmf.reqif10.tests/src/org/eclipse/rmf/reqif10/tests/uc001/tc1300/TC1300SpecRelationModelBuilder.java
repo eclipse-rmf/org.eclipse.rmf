@@ -156,7 +156,7 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 	}
 
 	@Override
-	public void createSpecRelationGroupTypes() throws Exception {
+	public void createRelationGroupTypes() throws Exception {
 		relationGroupType = ReqIF10Factory.eINSTANCE.createRelationGroupType();
 		relationGroupType.setIdentifier("ID_TC1300_SpecRelationGroupType");
 		relationGroupType.setLongName("TC 1300 SpecRelationGroupType");
@@ -165,7 +165,7 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 	}
 
 	@Override
-	public void createSpecRelationGroups() throws Exception {
+	public void createRelationGroups() throws Exception {
 		relationGroup = ReqIF10Factory.eINSTANCE.createRelationGroup();
 		relationGroup.setIdentifier("ID_TC1300_RelationGroup");
 		relationGroup.setLongName("TC 1300 RelationGroup");

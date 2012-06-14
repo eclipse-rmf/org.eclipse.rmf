@@ -32,13 +32,13 @@ public class ReqIFContentModelBuilder extends MinimalModelBuilder {
 		createSpecObjectTypes();
 		createSpecificationTypes();
 		createSpecRelationTypes();
-		createSpecRelationGroupTypes();
+		createRelationGroupTypes();
 
 		// create objects
 		createSpecObjects();
 		createSpecifications();
 		createSpecRelations();
-		createSpecRelationGroups();
+		createRelationGroups();
 
 		// unset if empty
 	}
@@ -52,10 +52,10 @@ public class ReqIFContentModelBuilder extends MinimalModelBuilder {
 	public void createSpecificationTypes() throws Exception {
 	}
 
-	public void createSpecRelationGroups() throws Exception {
+	public void createRelationGroups() throws Exception {
 	}
 
-	public void createSpecRelationGroupTypes() throws Exception {
+	public void createRelationGroupTypes() throws Exception {
 	}
 
 	public void createSpecifications() throws Exception {

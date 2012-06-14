@@ -433,10 +433,9 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 
 		}
 
+		doc.endElement();
+
 		helper.popContext();
-
-		// doc.endElement();
-
 	}
 
 	/**
