@@ -15,6 +15,7 @@ import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.swt.SWT;
@@ -24,10 +25,12 @@ public class LinewrapCellEditor extends TextCellEditor {
 
 	private final EditingDomain editingDomain;
 	private AttributeValueString attributeValue;
+	private Object affectedObject;
 
-	public LinewrapCellEditor(AgileGrid agileGrid, EditingDomain editingDomain) {
+	public LinewrapCellEditor(AgileGrid agileGrid, EditingDomain editingDomain, Object affectedObject) {
 		super(agileGrid, SWT.WRAP);
 		this.editingDomain = editingDomain;
+		this.affectedObject = affectedObject;
 	}
 
 	/**
@@ -47,10 +50,10 @@ public class LinewrapCellEditor extends TextCellEditor {
 		if (newText.equals(attributeValue.getTheValue())) {
 			return attributeValue;
 		}
-		Command cmd = SetCommand.create(editingDomain, attributeValue,
-				ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
-				newText);
-		editingDomain.getCommandStack().execute(cmd);
+
+		ProrUtil.setTheValue(attributeValue, text.getText(), affectedObject,
+				editingDomain);
+
 		return attributeValue;
 	}
 

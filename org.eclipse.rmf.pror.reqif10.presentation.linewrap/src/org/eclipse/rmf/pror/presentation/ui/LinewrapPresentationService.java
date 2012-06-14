@@ -65,8 +65,8 @@ public class LinewrapPresentationService extends AbstractPresentationService imp
 
 	@Override
 	public CellEditor getCellEditor(AgileGrid agileGrid,
-			EditingDomain editingDomain, AttributeValue av) {
-		return new LinewrapCellEditor(agileGrid, editingDomain);
+			EditingDomain editingDomain, AttributeValue av, Object affectedObject) {
+		return new LinewrapCellEditor(agileGrid, editingDomain, affectedObject);
 	}
 
 	@Override

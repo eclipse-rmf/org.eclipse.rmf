@@ -57,7 +57,7 @@ public abstract class AbstractPresentationService extends AdapterImpl implements
 	}
 
 	public CellEditor getCellEditor(AgileGrid agileGrid,
-			EditingDomain editingDomain, AttributeValue attrValue) {
+			EditingDomain editingDomain, AttributeValue attrValue, Object affectedObject) {
 		return null;
 	}
 

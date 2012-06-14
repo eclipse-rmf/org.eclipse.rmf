@@ -102,7 +102,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 				PresentationService service = PresentationEditorManager.getPresentationService(config);
 				if (service != null)
 					cellEditor = service.getCellEditor(agileGrid,
-						editingDomain, attrValue);
+						editingDomain, attrValue, getAffectedElement(row, col));
 			}
 
 			if (cellEditor == null)
