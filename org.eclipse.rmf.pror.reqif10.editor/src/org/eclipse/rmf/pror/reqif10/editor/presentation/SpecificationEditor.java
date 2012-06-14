@@ -249,7 +249,6 @@ public class SpecificationEditor extends EditorPart implements
 					
 					for (Iterator<?> i = ((IStructuredSelection)selection).iterator(); i.hasNext();) {
 						Object item = i.next();
-						System.out.println(">>>>> " + item);
 						if (item instanceof SpecHierarchy) {
 							SpecificationEditor.this.setSelection(selection);	
 							((ProrAgileGrid)SpecificationEditor.this.prorAgileGridViewer.getControl()).scrollToFocus();
