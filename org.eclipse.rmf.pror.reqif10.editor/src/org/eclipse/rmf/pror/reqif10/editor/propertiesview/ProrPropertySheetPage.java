@@ -28,16 +28,18 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.TabFolder;
+import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.Page;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
@@ -48,13 +50,16 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
  * display the content/properties.
  * 
  * @author Lukas Ladenberger
+ * @author Michael Jastram
  * 
  */
 public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 
 	protected EditingDomain editingDomain;
 
-	private ProrPropertyViewer viewer;
+	private TabFolder tabFolder;
+	private ProrPropertyControl allProperties;
+	private ProrPropertyControl standardProperties;
 
 	protected IAction locateValueAction = new LocateValueAction();
 
@@ -63,6 +68,7 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 	private List<AttributeValue> objectsToSelect = new ArrayList<AttributeValue>();
 
 	private CommandStackListener commandStackListener;
+
 
 	public ProrPropertySheetPage(EditingDomain editingDomain,
 			AdapterFactory adapterFactory) {
@@ -108,14 +114,22 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 	 */
 	@Override
 	public void createControl(Composite parent) {
-		if (viewer == null) {
-			viewer = new ProrPropertyViewer(parent, editingDomain,
-					adapterFactory);
-			viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-				public void selectionChanged(SelectionChangedEvent event) {
-					handleEntrySelection(event.getSelection());
-				}
-			});
+		if (tabFolder == null) {
+			tabFolder = new TabFolder(parent, SWT.BOTTOM);
+
+			standardProperties = new ProrPropertyControl(tabFolder,
+					editingDomain, adapterFactory, false);
+			TabItem tabStandard = new TabItem(tabFolder, SWT.NONE);
+			tabStandard.setText(Reqif10EditorPlugin.getPlugin().getString(
+					"_UI_Standard_Properties"));
+			tabStandard.setControl(standardProperties);
+
+			allProperties = new ProrPropertyControl(tabFolder, editingDomain,
+					adapterFactory, true);
+			TabItem tabAll = new TabItem(tabFolder, SWT.NONE);
+			tabAll.setText(Reqif10EditorPlugin.getPlugin().getString(
+					"_UI_All_Properties"));
+			tabAll.setControl(allProperties);
 		}
 	}
 
@@ -143,10 +157,7 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 
 	@Override
 	public Control getControl() {
-		if (viewer == null) {
-			return null;
-		}
-		return viewer.getControl();
+		return tabFolder;
 	}
 
 	@Override
@@ -160,28 +171,20 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 	 */
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 
-		if (viewer == null)
-			return;
-
-		if (viewer.getControl().isDisposed())
-			return;
-
-		IStructuredSelection sel = (IStructuredSelection) selection;
-
-		if (sel.size() == 1) {
-			Object obj = sel.getFirstElement();
-			viewer.setInput(obj);
-		} else {
-			viewer.setInput(null);
+		if (allProperties != null && ! allProperties.isDisposed()) {
+			allProperties.setSelection(selection);
 		}
-
+		if (standardProperties != null && ! standardProperties.isDisposed()) {
+			standardProperties.setSelection(selection);
+		}
 	}
 
-	public void update() {
-		if (viewer == null) {
+	private void update() {
+		if (allProperties == null) {
 			return;
 		}
-		viewer.update();
+		allProperties.update();
+		standardProperties.update();
 	}
 
 	/**

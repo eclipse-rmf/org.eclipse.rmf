@@ -20,7 +20,7 @@ import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRendere
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
-import org.eclipse.rmf.reqif10.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 /**
  * A very basic Presentation that handles {@link DatatypeDefinitionString}s and
@@ -65,8 +65,8 @@ public class LinewrapPresentationService extends AbstractPresentationService imp
 
 	@Override
 	public CellEditor getCellEditor(AgileGrid agileGrid,
-			EditingDomain editingDomain, AttributeValue av) {
-		return new LinewrapCellEditor(agileGrid, editingDomain);
+			EditingDomain editingDomain, AttributeValue av, Object affectedObject) {
+		return new LinewrapCellEditor(agileGrid, editingDomain, affectedObject);
 	}
 
 	@Override

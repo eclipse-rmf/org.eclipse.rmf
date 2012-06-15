@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.rmf.pror.reqif10.feature"
       label="RMF ProR Feature (Incubation)"
-      version="0.2.0.qualifier"
+      version="0.3.0.qualifier"
       provider-name="Eclipse Modeling Project"
       plugin="org.eclipse.rmf.pror.reqif10">
 
@@ -34,7 +34,7 @@ Contributors:
          version="0.0.0"/>
 
    <requires>
-      <import feature="org.eclipse.rmf.reqif10.feature" version="0.2.0.qualifier"/>
+      <import feature="org.eclipse.rmf.reqif10.feature" version="0.3.0.qualifier"/>
    </requires>
 
    <plugin
@@ -81,6 +81,20 @@ Contributors:
 
    <plugin
          id="org.agilemore.agilegrid"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.pror.reqif10.help.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.google.guava"
          download-size="0"
          install-size="0"
          version="0.0.0"

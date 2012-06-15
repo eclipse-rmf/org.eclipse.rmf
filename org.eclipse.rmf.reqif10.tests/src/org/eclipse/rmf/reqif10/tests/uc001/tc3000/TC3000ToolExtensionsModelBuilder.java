@@ -32,6 +32,7 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
+import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.reqif10.tests.util.SimpleModelBuilder;
 
 @SuppressWarnings("nls")
@@ -104,9 +105,9 @@ public class TC3000ToolExtensionsModelBuilder extends SimpleModelBuilder {
 	}
 
 	@Override
-	public void createSpecRelationGroups() throws Exception {
+	public void createRelationGroups() throws Exception {
 		// TODO Auto-generated method stub
-		super.createSpecRelationGroups();
+		super.createRelationGroups();
 	}
 
 	@Override
@@ -173,6 +174,6 @@ public class TC3000ToolExtensionsModelBuilder extends SimpleModelBuilder {
 		prorPresentationConfigurations.getPresentationConfigurations().add(headlineConfiguration);
 		headlineConfiguration.setDatatype(datatypeDefinitionString);
 
-		getReqIF().getToolExtensions().add(prorToolExtension);
+		ReqIFToolExtensionUtil.addToolExtension(getReqIF(), prorToolExtension);
 	}
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<!--
+    Copyright (c) 2009 Tasktop Technologies and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+         Tasktop Technologies - initial API and implementation
+ -->
+
+<toc label="RMF User Guide">
+ <anchor id="before-reference" />
+  <topic label="Tutorial">
+     <anchor id="before-tutorial-content"/>
+     <link toc="RMF-User-Guide-Tutorial-toc.xml"/>
+     <anchor id="after-tutorial-content"/>
+     <anchor id="additions-tutorial"/>
+  </topic>
+ <topic label="Reference">
+  	<anchor id="before-reference-content"/>
+    <link toc="RMF-User-Guide-Reference-toc.xml"/>
+    <anchor id="after-reference-content"/>
+    <anchor id="additions-reference" />
+ </topic>
+  <topic label="Presentation Plugins">
+     <anchor id="before-presentation-content"/>
+     <link toc="RMF-User-Guide-Presentations-toc.xml"/>
+     <anchor id="after-presentation-content"/>
+     <anchor id="additions-presentation"/>
+  </topic>
+ <topic label="Frequently Asked Questions">
+  	<anchor id="before-faq-content"/>
+    <link toc="RMF-FAQ-toc.xml"/>
+    <anchor id="after-faq-content"/>
+    <anchor id="additions-faq" />
+ </topic>
+ <topic label="Glossary">
+    <anchor id="before-glossary-content"/>
+    <link toc="RMF-User-Guide-Glossary-toc.xml"/>
+    <anchor id="after-glossary-content"/>
+    <anchor id="additions-glossary"/>
+ </topic>
+  	<anchor id="after-reference" />
+  	<anchor id="additions" />
+ 	<topic href="doc/notices.html" label="Legal" />
+</toc>
+

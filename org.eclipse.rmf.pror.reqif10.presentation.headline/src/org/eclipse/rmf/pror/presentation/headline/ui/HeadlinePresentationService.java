@@ -31,8 +31,8 @@ import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
-import org.eclipse.rmf.reqif10.util.ReqIF10Util;
 
 public class HeadlinePresentationService extends AbstractPresentationService
 		implements PresentationService {

@@ -26,7 +26,6 @@ import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -47,6 +46,7 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.ProrAdapterFactoryContentProvider;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10Editor;
+import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertySheetPage;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
@@ -92,12 +92,12 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	private final List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
 	private final AdapterFactory adapterFactory;
 	private final EditingDomain editingDomain;
-	private final Reqif10Editor rifEditor;
+	private final Reqif10Editor reqifEditor;
 
 	protected SubtreeDialog(Reqif10Editor reqifEditor, EObject input, String title,
 			String helpContext) {
 		super(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
-		this.rifEditor = reqifEditor;
+		this.reqifEditor = reqifEditor;
 		this.editingDomain = reqifEditor.getEditingDomain();
 		this.adapterFactory = reqifEditor.getAdapterFactory();
 		this.input = input;
@@ -217,12 +217,9 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		data.right = new FormAttachment(100, 0);
 		toolbar.setLayoutData(data);
 
-		final ExtendedPropertySheetPage propertySheet = new ExtendedPropertySheetPage(
-				(AdapterFactoryEditingDomain) editingDomain);
+		final ProrPropertySheetPage propertySheet = new ProrPropertySheetPage(
+				(AdapterFactoryEditingDomain) editingDomain, adapterFactory);
 		propertySheet.createControl(composite);
-		propertySheet
-				.setPropertySourceProvider(new ProrAdapterFactoryContentProvider(
-						getAdapterFactory()));
 
 		data = new FormData();
 		data.top = new FormAttachment(sash, 0);
@@ -331,7 +328,7 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	}
 
 	private EditingDomainActionBarContributor getActionBarContributor() {
-		return rifEditor.getActionBarContributor();
+		return reqifEditor.getActionBarContributor();
 	}
 
 	@Override

@@ -11,8 +11,6 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.presentation.ui;
 
-import java.io.File;
-
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
@@ -22,7 +20,7 @@ import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
-import org.eclipse.rmf.reqif10.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
@@ -79,7 +77,7 @@ public class IdLabelCellRenderer implements IProrCellRenderer {
 		return IdVerticalAlign.CENTER;
 	}
 
-	public String doDrawHtmlContent(Object value, File folder) {
+	public String doDrawHtmlContent(Object value) {
 		AttributeValueString av = (AttributeValueString) value;
 		return av.getTheValue();
 	}

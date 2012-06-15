@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
-import org.eclipse.rmf.reqif10.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.junit.Test;
 
 public class ReqIF10UtilTest {

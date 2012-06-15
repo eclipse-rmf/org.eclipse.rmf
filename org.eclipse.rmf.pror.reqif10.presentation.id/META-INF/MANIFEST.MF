@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.rmf.pror.reqif10.presentation.id;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.rmf.pror.reqif10.presentation.id.provider.IDEditPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -11,6 +11,7 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.rmf.pror.reqif10.presentation.id,
  org.eclipse.rmf.pror.reqif10.presentation.id.impl,
  org.eclipse.rmf.pror.reqif10.presentation.id.provider,
- org.eclipse.rmf.pror.reqif10.presentation.id.util
-Require-Bundle: org.eclipse.rmf.pror.reqif10.editor;bundle-version="0.1.0"
+ org.eclipse.rmf.pror.reqif10.presentation.id.util,
+ org.eclipse.rmf.pror.reqif10.presentation.ui
+Require-Bundle: org.eclipse.rmf.pror.reqif10.editor;bundle-version="0.3.0"
 Bundle-ActivationPolicy: lazy

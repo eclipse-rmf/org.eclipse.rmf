@@ -12,10 +12,13 @@ package org.eclipse.rmf.pror.reqif10.editor.agilegrid;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.Cell;
+import org.agilemore.agilegrid.CellNavigationStrategy;
 import org.agilemore.agilegrid.EditorActivationEvent;
+import org.agilemore.agilegrid.ICellNavigationStrategy;
 import org.agilemore.agilegrid.ILayoutAdvisor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
 
 /**
  * We override the default implementation to slightly change the behavior when
@@ -35,7 +38,7 @@ public class ProrAgileGrid extends AgileGrid {
 
 	public ProrAgileGrid(Composite parent, int style) {
 		super(parent, style);
-
+		setCellNavigationStrategy(cyclingCellNavigationStrategy);
 		// By default, the selection doesn't change if we right-click an
 		// unselected cell. But that's what we want.
 		// TODO This doesn't work, and therefore enableing this code is deceiving.
@@ -113,5 +116,35 @@ public class ProrAgileGrid extends AgileGrid {
 		}
 		super.triggerEditorActivationEvent(editorActivationEvent, hint);
 	}
+	
+	protected ICellNavigationStrategy cyclingCellNavigationStrategy = new CellNavigationStrategy() {
+		@Override
+		public Cell findSelectedCell(AgileGrid agileGrid, Cell currentCell,
+				Event event) {
+			if(event.type != SWT.KeyDown || event.keyCode != SWT.TAB)
+				return super.findSelectedCell(agileGrid, currentCell, event);
+			
+			Cell findSelectedCell = super.findSelectedCell(agileGrid, currentCell, event);
+			System.out.println(findSelectedCell);
+			if(findSelectedCell == null || findSelectedCell == currentCell) {
+				int direction = (event.stateMask & SWT.SHIFT) != 0 ? AgileGrid.LEFT :
+						 AgileGrid.RIGHT;
+						findSelectedCell = getCyclingNeighbor(currentCell, direction, true);
+							
+			}
+			return findSelectedCell;
+		}
+	};
+	
+	public Cell getCyclingNeighbor(Cell cell, int directionMask, boolean sameLevel) {
+		Cell neighborCell = null;
+		if	((directionMask & RIGHT) == RIGHT	&& cell.column == getLayoutAdvisor().getColumnCount() - 1) {
+			neighborCell = getLayoutAdvisor().mergeInto(cell.row+1, 0);
+		}
+		if	((directionMask & LEFT) == LEFT	&& cell.column == 0 && cell.row > 0) {
+			neighborCell = getLayoutAdvisor().mergeInto(cell.row-1, getLayoutAdvisor().getColumnCount()-1);
+		}
+		return neighborCell != null ?  neighborCell : cell;
+	};
 	
 }

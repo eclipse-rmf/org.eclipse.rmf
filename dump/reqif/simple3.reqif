@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xsi:schemaLocation="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd reqif.xsd http://www.w3.org/1999/xhtml driver.xsd">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="3dd1a60c-59d1-11da-86ca-4bda04a730ce">
+      <COMMENT>Embedded OLE object with multiple representation forms.</COMMENT>
+      <CREATION-TIME>2005-05-23T12:00:00+02:00</CREATION-TIME>
+      <SOURCE-TOOL-ID>Manually written</SOURCE-TOOL-ID>
+      <TITLE>Test data RIF72</TITLE>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-STRING DESC="This is a standard string type." IDENTIFIER="3631dcd2-59d1-11da-beb2-6fbc179f63e3" LONG-NAME="Standard String Type" MAX-LENGTH="65535"/>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-OBJECT-TYPE DESC="SpecObjectType" IDENTIFIER="3631dcd2-59d1-11da-beb2-6fbc179f63e2" LAST-CHANGE="2005-05-30T11:42:19+02:00" LONG-NAME="Example SpecType">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING DESC="This attribute contains the author of the requirement as a string." IDENTIFIER="356b02ec-59d1-11da-afa6-6b90abdfb5db" LAST-CHANGE="2005-05-30T11:51:25+02:00" LONG-NAME="Description">
+              <DEFAULT-VALUE>
+                <ATTRIBUTE-VALUE-STRING THE-VALUE="TBD"/>
+              </DEFAULT-VALUE>
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>3631dcd2-59d1-11da-beb2-6fbc179f63e3</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE DESC="" IDENTIFIER="_Hb_0DMf8EeCG3ORKRCOoiQ" LONG-NAME="SpecificationType">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_IZZ3dsf8EeCG3ORKRCOoiQ" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>3631dcd2-59d1-11da-beb2-6fbc179f63e3</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
+        <SPEC-RELATION-TYPE IDENTIFIER="_W2fzNMf8EeCG3ORKRCOoiQ" LONG-NAME="SpecRelationType">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_aNRhtsf8EeCG3ORKRCOoiQ" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>3631dcd2-59d1-11da-beb2-6fbc179f63e3</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-RELATION-TYPE>
+        <RELATION-GROUP-TYPE IDENTIFIER="_dj3qFsf8EeCG3ORKRCOoiQ" LONG-NAME="SpecRelationGroupType">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_feUklsf8EeCG3ORKRCOoiQ" LONG-NAME="Description"/>
+          </SPEC-ATTRIBUTES>
+        </RELATION-GROUP-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT IDENTIFIER="2c84e85a-59d1-11da-8ef5-afdbd01c7a79" LAST-CHANGE="2005-05-30T17:22:47+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="SpecObjectDescriptionValue">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>356b02ec-59d1-11da-afa6-6b90abdfb5db</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>3631dcd2-59d1-11da-beb2-6fbc179f63e2</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPEC-RELATIONS>
+        <SPEC-RELATION IDENTIFIER="_Nd0Micf8EeCG3ORKRCOoiQ">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE=""/>
+          </VALUES>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_W2fzNMf8EeCG3ORKRCOoiQ</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+      </SPEC-RELATIONS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="_J04MUMZOEeCMe7Bm-O_YaA">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="SpecificationDescriptionValue"/>
+          </VALUES>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="3dd45190-59d1-11da-a4bd-f3b1a51212c8" LAST-CHANGE="2005-05-31T10:58:13+02:00" LONG-NAME="Requirements document structure">
+              <OBJECT>
+                <SPEC-OBJECT-REF>2c84e85a-59d1-11da-8ef5-afdbd01c7a79</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>_Hb_0DMf8EeCG3ORKRCOoiQ</SPECIFICATION-TYPE-REF>
+          </TYPE>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+      <SPEC-RELATION-GROUPS>
+        <RELATION-GROUP IDENTIFIER="_P8sCusf8EeCG3ORKRCOoiQ">
+          <TYPE>
+            <RELATION-GROUP-TYPE-REF>_dj3qFsf8EeCG3ORKRCOoiQ</RELATION-GROUP-TYPE-REF>
+          </TYPE>
+        </RELATION-GROUP>
+      </SPEC-RELATION-GROUPS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+</REQ-IF>

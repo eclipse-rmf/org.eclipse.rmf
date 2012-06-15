@@ -30,8 +30,8 @@ No ReqIF Tool Extensions are contained in the reqif file
 
 <tr>
 <td>SpecHierarchy</td>
-<td>1</td>
-<td>SpecHierarchy element that references two SpecObjects.</td>
+<td>2</td>
+<td>One SpecHierarchy per SpecObjects.</td>
 </tr>
 
 <tr>
@@ -73,7 +73,8 @@ No ReqIF Tool Extensions are contained in the reqif file
 <tr>
 <td><i>AttributeDefinition/<br />
 AttributeValue/ DatatypeDefinition</i></td>
-<td colspan="2"><p>See tables for Attribute Definitions and Attribute Values</td>
+<td colspan="2"><p>See chapters SpecObjectType and SpecRelationType (for Attribute Definitions).  
+See chapter SpecObjects (with attribute values) and SpecRelation (with attribute values) for Attribute Values.</td>
 </tr>
 
 </tbody>
@@ -85,10 +86,9 @@ AttributeValue/ DatatypeDefinition</i></td>
 <thead> <tr>
 <th>Attribute Name</th>
 <th>ReqIF Attribute Type (AttributeDefinition..)</th>
-<th>Further Settings</th>
+<th>Properties</th>
 </tr>
 </thead> 
-
 <tbody>
 <tr>
 <td>TC1300 String</td>
@@ -98,23 +98,52 @@ AttributeValue/ DatatypeDefinition</i></td>
 </tbody>
 </table>
 
-<h4>SpecObjects</h4>
+<h4>SpecRelationType</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> <tr>
+<th>Attribute Name</th>
+<th>ReqIF Attribute Type (AttributeDefinition..)</th>
+<th>Properties</th>
+</tr>
+</thead> 
+<tbody>
+<tr>
+<td>TC1300 String</td>
+<td>String</td>
+<td>maxLength := 256</td>
+</tr>
+</tbody>
+</table>
+
+<h4>SpecObjects (with attribute values)</h4>
 
 <table border="1" cellspacing="0" cellpadding="0" > 
 <thead> <tr>
 <th>TC1300 String</th>
 </tr>
-
 </thead> 
 <tbody>
 <tr>
 <td>Requirement 1</td>
 </tr>
-
 <tr>
 <td>Requirement 2</td>
 </tr>
+</tbody>
+</table>
 
+<h4>SpecRelation (with attribute values)</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> <tr>
+<th>TC1300 String</th>
+</tr>
+</thead> 
+<tbody>
+<tr>
+<td>TC 1300 SpecRelation</td>
+</tr>
 </tbody>
 </table>
 

@@ -63,7 +63,7 @@ public class TC1700SpecRelationMultifile2ModelBuilder extends SimpleModelBuilder
 	}
 
 	@Override
-	public void createSpecRelationGroupTypes() throws Exception {
+	public void createRelationGroupTypes() throws Exception {
 		relationGroupType = ReqIF10Factory.eINSTANCE.createRelationGroupType();
 		relationGroupType.setIdentifier("ID_TC1700_SpecRelationGroupType");
 		relationGroupType.setLongName("TC 1700 SpecRelationGroupType");
@@ -72,7 +72,7 @@ public class TC1700SpecRelationMultifile2ModelBuilder extends SimpleModelBuilder
 	}
 
 	@Override
-	public void createSpecRelationGroups() throws Exception {
+	public void createRelationGroups() throws Exception {
 		relationGroup = ReqIF10Factory.eINSTANCE.createRelationGroup();
 		relationGroup.setIdentifier("ID_TC1700_RelationGroup");
 		relationGroup.setLongName("TC 1700 RelationGroup");

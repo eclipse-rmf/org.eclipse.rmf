@@ -13,6 +13,7 @@ package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import org.agilemore.agilegrid.AbstractContentProvider;
@@ -22,18 +23,18 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
-import org.eclipse.rmf.reqif10.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 /**
  * 
  * The agile grid content provider for the properties view.
  * 
  * @author Lukas Ladenberger
+ * @author Michael Jastram
  * 
  */
 public class ProrPropertyContentProvider extends AbstractContentProvider {
@@ -41,7 +42,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	private AdapterFactoryEditingDomain editingDomain;
 
 	// The current selected specification element
-	private Identifiable identifiable;
+	private Object object;
 
 	// This is only a help HashMap for storing temporarily the item categories
 	private HashMap<String, ItemCategory> customCategories;
@@ -49,6 +50,8 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	public static String SPEC_HIERARCHY_NAME = "Spec Hierarchy";
 	public static String SPEC_OBJECT_NAME = "Spec Object";
 	public static String SPEC_RELATION_NAME = "Spec Relation";
+	
+	private static HashSet<AdvancedProp> ADVANCED_PROPS;
 		
 	private ItemCategory specHierarchyItemCategory = new ItemCategory(
 			SPEC_HIERARCHY_NAME);
@@ -60,12 +63,44 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	// HashMap for storing the row with the corresponding object
 	private HashMap<Integer, Object> rows;
 
+	private boolean showAllProps;
+
 	public static String DEFAULT_CATEGORY_NAME = "Misc";
 		
-	public ProrPropertyContentProvider(EditingDomain editingDomain) {
+	static {
+		ADVANCED_PROPS = new HashSet<ProrPropertyContentProvider.AdvancedProp>();
+		ADVANCED_PROPS.add(new AdvancedProp("Specification", "identifier"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Object", "identifier"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "identifier"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Relation", "identifier"));
+		ADVANCED_PROPS.add(new AdvancedProp("Specification", "longName"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Object", "longName"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "longName"));
+		ADVANCED_PROPS.add(new AdvancedProp("Relation", "longName"));
+		ADVANCED_PROPS.add(new AdvancedProp("Specification", "lastChange"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Object", "lastChange"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "lastChange"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Relation", "lastChange"));
+		ADVANCED_PROPS.add(new AdvancedProp("Specification", "desc"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Object", "desc"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "desc"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Relation", "desc"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "tableInternal"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "object"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "editableAtts"));
+		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "editable"));
+
+		ADVANCED_PROPS.add(new AdvancedProp(null, "desc"));
+		ADVANCED_PROPS.add(new AdvancedProp(null, "identifier"));
+		ADVANCED_PROPS.add(new AdvancedProp(null, "lastChange"));
+		ADVANCED_PROPS.add(new AdvancedProp(null, "editable"));		
+}
+	
+	public ProrPropertyContentProvider(EditingDomain editingDomain, boolean showAllProps) {
 		this.editingDomain = (AdapterFactoryEditingDomain) editingDomain;
 		this.customCategories = new HashMap<String, ItemCategory>();
 		this.rows = new HashMap<Integer, Object>();
+		this.showAllProps = showAllProps;
 	}
 	
 	/**
@@ -75,7 +110,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	@Override
 	public Object doGetContentAt(int row, int col) {
 
-		if (identifiable != null) {
+		if (object != null) {
 			
 			int size = this.rows.size();
 
@@ -92,7 +127,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 					SortedItemPropertyDescriptor descriptor = (SortedItemPropertyDescriptor) element;
 					if (descriptor.getItemPropertyDescriptor() != null) {
 						return descriptor.getItemPropertyDescriptor()
-								.getDisplayName(identifiable);
+								.getDisplayName(object);
 					}
 				}
 			case 1:
@@ -126,12 +161,12 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * corresponding {@link IItemPropertyDescriptor} and builds up the structure
 	 * to be displayed.
 	 * 
-	 * @param identifiable
+	 * @param object
 	 *            the selected specification element
 	 */
-	protected void setContent(Identifiable identifiable) {
+	protected void setContent(Object obj) {
 
-		this.identifiable = identifiable;
+		this.object = obj;
 		
 		this.customCategories.clear();
 		this.specHierarchyItemCategory.getDescriptors().clear();
@@ -139,22 +174,23 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 		this.specRelationItemCategory.getDescriptors().clear();
 		this.rows.clear();
 
-		if (identifiable != null) {
+		if (object != null) {
 			
 			// Get the item property source
 			IItemPropertySource itemPropertySource = (IItemPropertySource) this.editingDomain
-					.getAdapterFactory().adapt(identifiable,
+					.getAdapterFactory().adapt(object,
 							IItemPropertySource.class);
 
 			// Get the list of item property descriptors
 			List<IItemPropertyDescriptor> descriptorList = itemPropertySource
-					.getPropertyDescriptors(identifiable);
+					.getPropertyDescriptors(object);
 
 			// Iterate over the item property descriptors and collect the needed
 			// data
 			for (IItemPropertyDescriptor descriptor : descriptorList) {
+				if (!showAllProps && ! isStandard(descriptor)) continue;
 
-				String categoryName = descriptor.getCategory(identifiable);
+				String categoryName = descriptor.getCategory(object);
 
 				if (categoryName == null)
 					categoryName = DEFAULT_CATEGORY_NAME;
@@ -164,21 +200,21 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 
 				if (categoryName.equals(SPEC_HIERARCHY_NAME)) {
 					specHierarchyItemCategory.addDescriptor(descriptor,
-							identifiable);
+							object);
 				} else if (categoryName.equals(SPEC_OBJECT_NAME)) {
 					specObjectItemCategory.addDescriptor(descriptor,
-							identifiable);
+							object);
 				} else if (categoryName.equals(SPEC_RELATION_NAME)) {
 					specRelationItemCategory.addDescriptor(descriptor,
-							identifiable);
+							object);
 				} else {
 					if (!this.customCategories.containsKey(categoryName)) {
 						customCategory = new ItemCategory(categoryName);
-						customCategory.addDescriptor(descriptor, identifiable);
+						customCategory.addDescriptor(descriptor, object);
 						this.customCategories.put(categoryName, customCategory);
 					} else {
 						customCategory = this.customCategories.get(categoryName);
-						customCategory.addDescriptor(descriptor, identifiable);
+						customCategory.addDescriptor(descriptor, object);
 					}
 				}
 
@@ -193,6 +229,14 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 
 		}
 
+	}
+
+	/**
+	 * If {@link #showAllProps} is false, only standard descriptors are considered.
+	 */
+	private boolean isStandard(IItemPropertyDescriptor descriptor) {
+		return ! ADVANCED_PROPS.contains(new AdvancedProp(descriptor
+				.getCategory(object), descriptor.getId(object)));
 	}
 
 	private void addItemCategory(ItemCategory cat) {
@@ -216,8 +260,8 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * 
 	 * @return an instance of the current selected specification element.
 	 */
-	public Identifiable getIdentifiable() {
-		return this.identifiable;
+	public Object getElement() {
+		return this.object;
 	}
 
 	/**
@@ -227,7 +271,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * @return an instance of {@link SortedItemPropertyDescriptor}
 	 */
 	public SortedItemPropertyDescriptor getItemPropertyDescriptor(int row) {
-		if (this.identifiable != null) {
+		if (this.object != null) {
 			Object obj = this.rows.get(row);
 			if (obj instanceof SortedItemPropertyDescriptor) {
 				return (SortedItemPropertyDescriptor) obj;
@@ -247,7 +291,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 				row).getItemPropertyDescriptor();
 		if (itemPropertyDescriptor != null)
 			return itemPropertyDescriptor
-				.getLabelProvider(this.identifiable);
+				.getLabelProvider(this.object);
 		return null;
 	}
 
@@ -259,7 +303,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 */
 	public Object getItemPropertyValue(int row) {
 		return getItemPropertyDescriptor(row).getItemPropertyDescriptor()
-				.getPropertyValue(this.identifiable);
+				.getPropertyValue(this.object);
 	}
 
 	public Object getRowContent(int row) {
@@ -284,10 +328,10 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	private AttributeValue getAttributeValue(
 			SortedItemPropertyDescriptor descriptor) {
 		SpecElementWithAttributes sepcAtr = null;
-		if (this.identifiable instanceof SpecElementWithAttributes) {
-			sepcAtr = (SpecElementWithAttributes) this.identifiable;
-		} else if (this.identifiable instanceof SpecHierarchy) {
-			sepcAtr = ((SpecHierarchy) this.identifiable).getObject();
+		if (this.object instanceof SpecElementWithAttributes) {
+			sepcAtr = (SpecElementWithAttributes) this.object;
+		} else if (this.object instanceof SpecHierarchy) {
+			sepcAtr = ((SpecHierarchy) this.object).getObject();
 		}
 		if (sepcAtr != null && descriptor.getItemPropertyDescriptor() != null) {
 			return ReqIF10Util.getAttributeValueForLabel(sepcAtr, descriptor
@@ -326,7 +370,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 			return descriptors;
 		}
 
-		public void addDescriptor(IItemPropertyDescriptor descriptor, Identifiable specElement) {
+		public void addDescriptor(IItemPropertyDescriptor descriptor, Object specElement) {
 			this.descriptors.add(new SortedItemPropertyDescriptor(descriptor,
 					specElement));
 		}
@@ -341,26 +385,50 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 			Comparable<SortedItemPropertyDescriptor> {
 
 		private IItemPropertyDescriptor itemPropertyDescriptor;
-		private Identifiable specElement;
+		private Object obj;
 
 		public SortedItemPropertyDescriptor(
 				IItemPropertyDescriptor itemPropertyDescriptor,
-				Identifiable specElement) {
+				Object element) {
 			this.itemPropertyDescriptor = itemPropertyDescriptor;
-			this.specElement = specElement;
+			this.obj = element;
 		}
 
 		public int compareTo(SortedItemPropertyDescriptor o) {
-			return itemPropertyDescriptor.getDisplayName(specElement)
+			return itemPropertyDescriptor.getDisplayName(obj)
 					.compareTo(
 							o.itemPropertyDescriptor
-									.getDisplayName(o.specElement));
+									.getDisplayName(o.obj));
 		}
 
 		public IItemPropertyDescriptor getItemPropertyDescriptor() {
 			return itemPropertyDescriptor;
 		}
 
+	}
+	
+	private static class AdvancedProp {
+		private String category;
+		private String name;
+		
+		AdvancedProp(String category, String name) {
+			if (category == null) category = DEFAULT_CATEGORY_NAME;
+			if (name == null) throw new NullPointerException();
+			this.category = category;
+			this.name = name;
+		}
+		
+		@Override
+		public boolean equals(Object obj) {
+			if (! (obj instanceof AdvancedProp)) return false;
+			AdvancedProp that = (AdvancedProp) obj;
+			return category.equals(that.category) && name.equals(that.name);
+		}
+		
+		@Override
+		public int hashCode() {
+			return category.hashCode() + name.hashCode();
+		}
 	}
 
 }

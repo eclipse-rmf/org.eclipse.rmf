@@ -14,7 +14,7 @@
 
 <h3>Description of Reference Test Data</h3>
 
-<h4>ReqIF elements</h4>
+<h4>ReqIFContent</h4>
 
 <table border="1" cellspacing="0" cellpadding="0" > 
 <thead> 
@@ -58,82 +58,49 @@
 <tr>
 <td valign="top" ><i>AttributeDefinition/<br />
 AttributeValue/ DatatypeDefinition</i></td>
-<td colspan="2" valign="top" >See tables for Attribute Definitions and Attribute Values</td>
+<td colspan="2" valign="top" >See chapters SpecObjectType and SpecificationType (for Attribute Definitions).
+See chapters SpecObjects (with attribute values) and Specification (with Attribute Values) for AttributeValues.</td>
 </tr>
 
 </tbody>
 </table>
 
-<h4>Attribute Definitions</h4>
+<h4>SpecObjectType</h4>
 
 <table border="1" cellspacing="0" cellpadding="0" > 
 <thead> 
 <tr>
-<th valign="top" >ReqIF Attribute Level</th>
 <th valign="top" >Attribute Name</th>
 <th valign="top" >ReqIF Attribute Type (AttributeDefinition..)</th>
-<th valign="top" >Further Settings</th>
+<th valign="top" >Properties</th>
 </tr>
 </thead> 
 <tbody>
 <tr>
-<td valign="top" >SpecObject</td>
 <td valign="top" >ReqIF.ForeignID</td>
 <td valign="top" >String</td>
 <td valign="top" > </td>
 </tr>
 
 <tr>
-<td valign="top" >SpecObject</td>
 <td valign="top" >ReqIF.Name</td>
 <td valign="top" >String</td>
 <td valign="top" > </td>
 </tr>
 
 <tr>
-<td valign="top" >SpecObject</td>
 <td valign="top" >ReqIF.ForeignCreatedBy</td>
 <td valign="top" >String</td>
 <td valign="top" > </td>
 </tr>
 
 <tr>
-<td valign="top" >SpecObject</td>
 <td valign="top" >ReqIF.ForeignCreatedOn</td>
 <td valign="top" >Date</td>
 <td valign="top" > </td>
 </tr>
 
 <tr>
-<td valign="top" >SpecObject</td>
-<td valign="top" >ReqIF.ForeignModifiedBy</td>
-<td valign="top" >String</td>
-<td valign="top" > </td>
-</tr>
-
-<tr>
-<td valign="top" >Specification</td>
-<td valign="top" >ReqIF.Name</td>
-<td valign="top" >String</td>
-<td valign="top" > </td>
-</tr>
-
-<tr>
-<td valign="top" >Specification</td>
-<td valign="top" >ReqIF.ForeignCreatedBy</td>
-<td valign="top" >String</td>
-<td valign="top" > </td>
-</tr>
-
-<tr>
-<td valign="top" >Specification</td>
-<td valign="top" >ReqIF.ForeignCreatedOn</td>
-<td valign="top" >Date</td>
-<td valign="top" > </td>
-</tr>
-
-<tr>
-<td valign="top" >Specification</td>
 <td valign="top" >ReqIF.ForeignModifiedBy</td>
 <td valign="top" >String</td>
 <td valign="top" > </td>
@@ -142,7 +109,46 @@ AttributeValue/ DatatypeDefinition</i></td>
 </tbody>
 </table>
 
-<h4>Attribute Values (SpecObject level)</h4>
+
+<h4>SpecificationType</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> 
+<tr>
+<th valign="top" >Attribute Name</th>
+<th valign="top" >ReqIF Attribute Type (AttributeDefinition..)</th>
+<th valign="top" >Properties</th>
+</tr>
+</thead> 
+<tbody>
+<tr>
+<td valign="top" >ReqIF.Name</td>
+<td valign="top" >String</td>
+<td valign="top" > </td>
+</tr>
+
+<tr>
+<td valign="top" >ReqIF.ForeignCreatedBy</td>
+<td valign="top" >String</td>
+<td valign="top" > </td>
+</tr>
+
+<tr>
+<td valign="top" >ReqIF.ForeignCreatedOn</td>
+<td valign="top" >Date</td>
+<td valign="top" > </td>
+</tr>
+
+<tr>
+<td valign="top" >ReqIF.ForeignModifiedBy</td>
+<td valign="top" >String</td>
+<td valign="top" > </td>
+</tr>
+
+</tbody>
+</table>
+
+<h4>SpecObjects (with Attribute Values)</h4>
 
 <p>Note: For simplicity, the intended position in the hierarchy matches the ReqIF.ForeignID</p>
 
@@ -199,7 +205,7 @@ AttributeValue/ DatatypeDefinition</i></td>
 </tbody>
 </table>
 
-<h4>Attribute Values (Specification level)</h4>
+<h4>Specification (with Attribute Values)</h4>
 
 <table border="1" cellspacing="0" cellpadding="0" > <thead> <tr>
 <th valign="top" >ReqIF.Name</th>

@@ -26,7 +26,7 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecType;
-import org.eclipse.rmf.reqif10.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
@@ -34,6 +34,9 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 
 /**
+ * 
+ * Action for adding test objects to the current SpecHierarchy.
+ * 
  * @author jastram
  *
  */

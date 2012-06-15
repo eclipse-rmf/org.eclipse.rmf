@@ -38,12 +38,13 @@ Contributors:
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            id="org.eclipse.rmf.reqif10.presentation.Reqif10EditorID"
-            name="%_UI_Reqif10Editor_label"
-            icon="icons/full/obj16/ReqIf.png"
-            extensions="reqif"
             class="org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10Editor"
-            contributorClass="org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10ActionBarContributor">
+            contributorClass="org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10ActionBarContributor"
+            default="true"
+            extensions="reqif"
+            icon="icons/full/obj16/ReqIf.png"
+            id="org.eclipse.rmf.reqif10.presentation.Reqif10EditorID"
+            name="%_UI_Reqif10Editor_label">
       </editor>
       <editor
             class="org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor"
@@ -159,6 +160,24 @@ Contributors:
                icon="icons/full/prorIcon/prorIcon16.png"
                id="org.eclipse.rmf.pror.reqif10.editor.WebsiteConfiguration"
                label="%_Action_Website"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.ShiftLevelDownActionDelegate"
+               icon="icons/full/obj16/ShiftDown.png"
+               id="org.eclipse.rmf.pror.reqif10.editor.ShiftLevelDown"
+               label="Shift Level Down"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.pror.reqif10.editor.actions.ShiftLevelUpActionDelegate"
+               icon="icons/full/obj16/ShiftUp.png"
+               id="org.eclipse.rmf.pror.reqif10.editor.ShiftLevelUp"
+               label="Shift Level Up"
                menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
                style="push"
                toolbarPath="additions">

@@ -20,15 +20,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
-import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
-import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
 
 @SuppressWarnings("nls")
-public class SimpleModelBuilder {
-	private ReqIF reqIf;
-
+public class SimpleModelBuilder extends ReqIFContentModelBuilder {
 	private final String comment;
 	private final XMLGregorianCalendar creationTime;
 	private final String identifier;
@@ -80,6 +76,7 @@ public class SimpleModelBuilder {
 
 	public SimpleModelBuilder(String comment, String creationTimeString, String identifier, String repositoryId, String reqIfToolId,
 			String reqIfVersion, String sourceToolId, String title) throws Exception {
+		super();
 		this.comment = comment;
 		creationTime = toDate(creationTimeString);
 		this.identifier = identifier;
@@ -90,93 +87,80 @@ public class SimpleModelBuilder {
 		this.title = title;
 	}
 
-	public ReqIF getReqIF() throws Exception {
-		if (null == reqIf) {
-			reqIf = ReqIF10Factory.eINSTANCE.createReqIF();
+	@Override
+	public void createReqIFHeader() throws Exception {
+		ReqIFHeader reqIfHeader = ReqIF10Factory.eINSTANCE.createReqIFHeader();
+		getReqIF().setTheHeader(reqIfHeader);
 
-			ReqIFContent reqIfContent = ReqIF10Factory.eINSTANCE.createReqIFContent();
-			reqIf.setCoreContent(reqIfContent);
-
-			ReqIFHeader reqIfHeader = ReqIF10Factory.eINSTANCE.createReqIFHeader();
-			reqIf.setTheHeader(reqIfHeader);
-
-			// if (null!= comment)
+		if (null != comment) {
 			reqIfHeader.setComment(comment);
-			if (null != creationTime) {
-				reqIfHeader.setCreationTime(creationTime);
-			} else {
-				reqIfHeader.setCreationTime(getCurrentDate());
-			}
-			if (null != identifier) {
-				reqIfHeader.setIdentifier(identifier);
-			}
-			if (null != repositoryId) {
-				reqIfHeader.setRepositoryId(repositoryId);
-			}
-			if (null != reqIfToolId) {
-				reqIfHeader.setReqIFToolId(reqIfToolId);
-			}
-			if (null != reqIfVersion) {
-				reqIfHeader.setReqIFVersion(reqIfVersion);
-			}
-			if (null != sourceToolId) {
-				reqIfHeader.setSourceToolId(sourceToolId);
-			}
-			if (null != title) {
-				reqIfHeader.setTitle(title);
-			}
-
-			// create datatypes
-			createDatatypes();
-
-			// create types
-			createSpecObjectTypes();
-			createSpecificationTypes();
-			createSpecRelationTypes();
-			createSpecRelationGroupTypes();
-
-			// create objects
-			createSpecObjects();
-			createSpecifications();
-			createSpecRelations();
-			createSpecRelationGroups();
-
-			// create tool extensions
-			createToolExtensions();
 		}
-		return reqIf;
+		if (null != creationTime) {
+			reqIfHeader.setCreationTime(creationTime);
+		} else {
+			reqIfHeader.setCreationTime(getCurrentDate());
+		}
+		if (null != identifier) {
+			reqIfHeader.setIdentifier(identifier);
+		}
+		if (null != repositoryId) {
+			reqIfHeader.setRepositoryId(repositoryId);
+		}
+		if (null != reqIfToolId) {
+			reqIfHeader.setReqIFToolId(reqIfToolId);
+		}
+		if (null != reqIfVersion) {
+			reqIfHeader.setReqIFVersion(reqIfVersion);
+		}
+		if (null != sourceToolId) {
+			reqIfHeader.setSourceToolId(sourceToolId);
+		}
+		if (null != title) {
+			reqIfHeader.setTitle(title);
+		}
 	}
 
+	@Override
 	public void createDatatypes() throws Exception {
 	}
 
+	@Override
 	public void createSpecObjectTypes() throws Exception {
 	}
 
+	@Override
 	public void createSpecificationTypes() throws Exception {
 	}
 
-	public void createSpecRelationGroups() throws Exception {
+	@Override
+	public void createRelationGroups() throws Exception {
 	}
 
-	public void createSpecRelationGroupTypes() throws Exception {
+	@Override
+	public void createRelationGroupTypes() throws Exception {
 	}
 
+	@Override
 	public void createSpecifications() throws Exception {
 	}
 
+	@Override
 	public void createSpecObjects() throws Exception {
 	}
 
+	@Override
 	public void createSpecRelations() throws Exception {
 	}
 
+	@Override
 	public void createSpecRelationTypes() throws Exception {
 	}
 
+	@Override
 	public void createToolExtensions() throws Exception {
 	}
 
+	@Override
 	public XMLGregorianCalendar getCurrentDate() throws DatatypeConfigurationException {
 		GregorianCalendar calendar = new GregorianCalendar();
 		calendar.setTime(new Date());
@@ -184,6 +168,7 @@ public class SimpleModelBuilder {
 		return xmlGregoriaCalendar;
 	}
 
+	@Override
 	public XMLGregorianCalendar toDate(String date) throws DatatypeConfigurationException {
 		XMLGregorianCalendar xmlGregoriaCalendar = (XMLGregorianCalendar) EcoreUtil.createFromString(XMLTypePackage.eINSTANCE.getDateTime(), date);
 		return xmlGregoriaCalendar;

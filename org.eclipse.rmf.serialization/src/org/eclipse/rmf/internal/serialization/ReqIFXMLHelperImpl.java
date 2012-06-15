@@ -85,4 +85,10 @@ public class ReqIFXMLHelperImpl extends XMLHelperImpl implements XMLHelper {
 		return super.getQName(c);
 	}
 
+	@Override
+	public void setValue(EObject object, EStructuralFeature feature, Object value, int position) {
+		// TODO Auto-generated method stub
+		super.setValue(object, feature, value, position);
+	}
+
 }

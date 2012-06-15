@@ -16,9 +16,8 @@ import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
-import org.eclipse.rmf.reqif10.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.graphics.Color;
@@ -38,10 +37,10 @@ public abstract class ProrCellEditor extends TextCellEditor {
 
 	protected AttributeValue attributeValue;
 	protected final EditingDomain editingDomain;
-	protected Identifiable affectedObject;
+	protected Object affectedObject;
 
 	public ProrCellEditor(AgileGrid agileGrid, EditingDomain editingDomain,
-			Identifiable affectedObject) {
+			Object affectedObject) {
 		super(agileGrid);
 		this.editingDomain = editingDomain;
 		this.affectedObject = affectedObject;
@@ -99,21 +98,6 @@ public abstract class ProrCellEditor extends TextCellEditor {
 		}
 		super.doSetValue(value);
 	}
-
-	// LL: this method should not be used cause it depends on the specification
-	// editor and the prorcelleditor is used by the properties view and the
-	// specification editor (both have different content providers)
-	// /**
-	// * Returns the current {@link SpecHierarchy} to which the edited cell
-	// * belongs.
-	// */
-	// protected SpecHierarchy getSpecHierarchy() {
-	// ProrAgileGridContentProvider provider = (ProrAgileGridContentProvider)
-	// getAgileGrid().getContentProvider();
-	// SpecHierarchy specHierarchy =
-	// provider.getProrRow(cell.row).getSpecHierarchy();
-	// return specHierarchy;
-	// }
 
 	/**
 	 * This method "translates" from the editor value (which is a String) to the

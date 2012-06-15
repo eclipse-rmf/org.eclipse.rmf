@@ -25,7 +25,7 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 /**
  */
@@ -199,7 +199,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	}
 
 	/**
-	 * Represents the Row of a table. A Row holds either a SpecHierarchy or a
+	 * Represents the row of a table. A row holds either a SpecHierarchy or a
 	 * SpecRelation.
 	 */
 	class ProrRow {

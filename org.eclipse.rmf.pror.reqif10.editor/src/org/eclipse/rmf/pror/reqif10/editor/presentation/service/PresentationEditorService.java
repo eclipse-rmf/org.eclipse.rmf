@@ -80,7 +80,7 @@ public interface PresentationEditorService {
 	 * @return
 	 */
 	CellEditor getCellEditor(AgileGrid agileGrid, EditingDomain editingDomain,
-			AttributeValue av);
+			AttributeValue av, Object affectedObject);
 
 	/**
 	 * Whether the managed {@link AttributeDefinition}s may be modified.

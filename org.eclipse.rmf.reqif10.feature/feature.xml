@@ -2,11 +2,11 @@
 <feature
       id="org.eclipse.rmf.reqif10.feature"
       label="RMF ReqIf 1.0 Feature (Incubation)"
-      version="0.2.0.qualifier"
+      version="0.3.0.qualifier"
       provider-name="Eclipse Modeling Project"
       plugin="org.eclipse.rmf.reqif10">
 
-   <description url="http://www.pror.org">
+   <description url="http://www.eclipse.org/rmf">
       An EMF-based implementation of ReqIf 1.0.1
    </description>
 
@@ -25,10 +25,6 @@ Contributors:
       %license
    </license>
 
-   <url>
-      <discovery label="RMF at Eclipse.org" url="http://eclipse.org/rmf"/>
-   </url>
-
    <plugin
          id="org.eclipse.rmf.reqif10"
          download-size="0"
@@ -42,7 +38,7 @@ Contributors:
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-         
+
    <plugin
          id="org.apache.xerces"
          download-size="0"
@@ -69,6 +65,13 @@ Contributors:
          download-size="0"
          install-size="0"
          version="0.0.0"
-         unpack="false"/>         
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>

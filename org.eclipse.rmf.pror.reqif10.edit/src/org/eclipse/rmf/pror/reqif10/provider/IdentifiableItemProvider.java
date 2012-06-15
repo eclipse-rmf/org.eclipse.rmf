@@ -100,8 +100,9 @@ public class IdentifiableItemProvider
 	/**
 	 * This adds a property descriptor for the Identifier feature.
 	 * <!-- begin-user-doc -->
+	 * Modified to prevent Identifier to be edited.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addIdentifierPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -111,7 +112,7 @@ public class IdentifiableItemProvider
 				 getString("_UI_Identifiable_identifier_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_identifier_feature", "_UI_Identifiable_type"),
 				 ReqIF10Package.Literals.IDENTIFIABLE__IDENTIFIER,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -122,8 +123,9 @@ public class IdentifiableItemProvider
 	/**
 	 * This adds a property descriptor for the Last Change feature.
 	 * <!-- begin-user-doc -->
+	 * Modified to prevent lastChanged to be edited.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addLastChangePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -133,7 +135,7 @@ public class IdentifiableItemProvider
 				 getString("_UI_Identifiable_lastChange_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_lastChange_feature", "_UI_Identifiable_type"),
 				 ReqIF10Package.Literals.IDENTIFIABLE__LAST_CHANGE,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
