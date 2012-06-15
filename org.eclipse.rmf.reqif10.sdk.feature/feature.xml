@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.rmf.reqif10.sdk.feature"
       label="RMF ReqIf 1.0 SDK Feature (Incubation)"
-      version="0.2.0.qualifier"
+      version="0.3.0.qualifier"
       provider-name="Eclipse Modeling Project"
       plugin="org.eclipse.rmf.reqif10">
 
@@ -42,7 +42,7 @@ Mark Broerkens - initial API and implementation
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-         
+
    <plugin
          id="org.eclipse.rmf.reqif10.common.source"
          download-size="0"
