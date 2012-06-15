@@ -427,16 +427,13 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 				EClass extensionEClass = extensionRootObj.eClass();
 				String name = helper.getQName(extensionEClass);
 				doc.startElement(name);
+				// saveElementID takes care of adding the closing element
 				saveElementID(extensionRootObj);
-				doc.endElement();
 			}
 
 		}
 
-		helper.popContext();
-
-		// doc.endElement();
-
+		doc.endElement();
 	}
 
 	/**
@@ -480,6 +477,7 @@ public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerialization
 					}
 				}
 
+				// save element adds the doc.endElement() statements
 				saveElementID(o);
 
 			}

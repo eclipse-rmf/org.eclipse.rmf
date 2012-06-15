@@ -41,6 +41,9 @@ public class MinimalModelBuilder {
 
 		// create tool extensions
 		createToolExtensions();
+
+		// final optins
+		postProcessing();
 	}
 
 	public void createReqIFHeader() throws Exception {
@@ -50,6 +53,9 @@ public class MinimalModelBuilder {
 	}
 
 	public void createToolExtensions() throws Exception {
+	}
+
+	public void postProcessing() throws Exception {
 	}
 
 	public XMLGregorianCalendar getCurrentDate() throws DatatypeConfigurationException {

@@ -133,11 +133,11 @@ public class SimpleModelBuilder extends ReqIFContentModelBuilder {
 	}
 
 	@Override
-	public void createSpecRelationGroups() throws Exception {
+	public void createRelationGroups() throws Exception {
 	}
 
 	@Override
-	public void createSpecRelationGroupTypes() throws Exception {
+	public void createRelationGroupTypes() throws Exception {
 	}
 
 	@Override

@@ -44,10 +44,10 @@ public class WebsiteActionDelegate implements IEditorActionDelegate,
 							IWorkbenchBrowserSupport.AS_EDITOR
 									| IWorkbenchBrowserSupport.STATUS,
 							"pror-user-manual",
-							"ProR User Manual",
-							"ProR User Manual at www.pror.org");
+							"ProR at eclipse.org",
+							"ProR at eclipse.org/rmf/pror");
 
-			URL url = new URL("http://pror.org/docs/user-manual");
+			URL url = new URL("http://eclipse.org/rmf/pror");
 			browser.openURL(url);
 		} catch (PartInitException e) {
 			// TODO Auto-generated catch block

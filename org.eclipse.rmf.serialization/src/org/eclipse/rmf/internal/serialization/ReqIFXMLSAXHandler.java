@@ -35,6 +35,7 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 
 	private SerializationStrategy serializationStrategy = SerializationStrategy.REQIF;
 	private String previousElement = "";
+	private int previousLevel = -1;;
 	int xhtmlLevel = OUT_OF_XHTML;
 	int toolExtensionsLevel = OUT_OF_XHTML;
 
@@ -55,6 +56,7 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+		previousLevel = level;
 		level++;
 		super.startElement(uri, localName, qName, attributes);
 		previousElement = qName;
@@ -251,14 +253,16 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 				}
 			}
 		}
-
+		previousLevel = level;
 		level--;
 		previousElement = name;
 
 	}
 
 	protected boolean isEmptyFeature(String uri, String localName, String name) {
-		if (name.equals(previousElement) && isFeatureExpected()) {
+		// name.equals(previousElement): two xml elements with same name followed each other
+		// previousLevel + 1 == level: the xml elements belong to the same hierarchical level
+		if (name.equals(previousElement) && previousLevel + 1 == level && isFeatureExpected()) {
 			EStructuralFeature feature = deferredFeatures.peek();
 			if (null != feature && feature instanceof EReference) {
 				EReference reference = (EReference) feature;

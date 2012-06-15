@@ -105,9 +105,9 @@ public class TC3000ToolExtensionsModelBuilder extends SimpleModelBuilder {
 	}
 
 	@Override
-	public void createSpecRelationGroups() throws Exception {
+	public void createRelationGroups() throws Exception {
 		// TODO Auto-generated method stub
-		super.createSpecRelationGroups();
+		super.createRelationGroups();
 	}
 
 	@Override
