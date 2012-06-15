@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="RMF ProR Standalone" uid="org.eclipse.rmf.pror.reqif10.product" id="org.eclipse.rmf.pror.reqif10.product" application="org.eclipse.ui.ide.workbench" version="0.2.0" useFeatures="true" includeLaunchers="true">
+<product name="RMF ProR Standalone" uid="org.eclipse.rmf.pror.reqif10.product" id="org.eclipse.rmf.pror.reqif10.product" application="org.eclipse.ui.ide.workbench" version="0.3.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.eclipse.rmf.pror.reqif10/pror-about.png"/>
