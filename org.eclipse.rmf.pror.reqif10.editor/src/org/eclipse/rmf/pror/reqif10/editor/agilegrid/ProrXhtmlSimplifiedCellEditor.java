@@ -10,13 +10,11 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.agilegrid;
 
-import java.util.Collection;
-
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
-import org.eclipse.emf.edit.command.CopyCommand;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -24,6 +22,7 @@ import org.eclipse.rmf.pror.reqif10.editor.preferences.PreferenceConstants;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.impl.AttributeValueXHTMLImpl;
@@ -55,12 +54,8 @@ public class ProrXhtmlSimplifiedCellEditor extends TextCellEditor {
 		CompoundCommand compoundCommand = new CompoundCommand();
 
 		if (!attributeValue.isSimplified()) {
-			
-			// Copy the original value
-			Command create = CopyCommand.create(editingDomain, origTheValue);
-			create.execute();
-			Collection<?> result = create.getResult();
-			XhtmlContent xhtmlContentCopy = (XhtmlContent) result.toArray()[0];
+
+			XhtmlContent xhtmlContentCopy = EcoreUtil.copy(origTheValue);
 
 			// Comand for setting original value
 			Command setTheOriginalValueCmd = SetCommand
@@ -116,6 +111,15 @@ public class ProrXhtmlSimplifiedCellEditor extends TextCellEditor {
 			attributeValue = (AttributeValueXHTML) value;
 			AttributeValueXHTMLImpl attributeValueXHTMLImpl = (AttributeValueXHTMLImpl) value;
 			XhtmlContent xhtmlContent = attributeValueXHTMLImpl.getTheValue();
+			if (xhtmlContent == null) {
+				xhtmlContent = ReqIF10Factory.eINSTANCE.createXhtmlContent();
+				Command setTheOriginalValueCmd = SetCommand
+						.create(editingDomain,
+								attributeValue,
+								ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE,
+								xhtmlContent);
+				editingDomain.getCommandStack().execute(setTheOriginalValueCmd);
+			}
 			value = ProrXhtmlSimplifiedHelper
 					.xhtmlToSimplifiedString(xhtmlContent);
 		}
