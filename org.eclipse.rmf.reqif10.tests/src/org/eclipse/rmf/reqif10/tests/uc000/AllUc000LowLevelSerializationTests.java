@@ -14,12 +14,14 @@ package org.eclipse.rmf.reqif10.tests.uc000;
 import org.eclipse.rmf.reqif10.tests.uc000.tc1000.TC0001000ContainmentEStructuralFeatureTests;
 import org.eclipse.rmf.reqif10.tests.uc000.tc1001.TC0001001FullModelTests;
 import org.eclipse.rmf.reqif10.tests.uc000.tc4000.TC0004000ToolExtensionWithEcoreMetamodelTests;
+import org.eclipse.rmf.reqif10.tests.uc000.tc4001.TC0004001ToolExtensionWithCustomRuntimeCreatedMetamodelTests;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TC0001000ContainmentEStructuralFeatureTests.class, TC0001001FullModelTests.class, TC0004000ToolExtensionWithEcoreMetamodelTests.class })
+@SuiteClasses({ TC0001000ContainmentEStructuralFeatureTests.class, TC0001001FullModelTests.class,
+		TC0004000ToolExtensionWithEcoreMetamodelTests.class, TC0004001ToolExtensionWithCustomRuntimeCreatedMetamodelTests.class })
 public class AllUc000LowLevelSerializationTests {
 
 }
