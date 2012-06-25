@@ -180,11 +180,10 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 	}
 
 	private void update() {
-		if (allProperties == null) {
-			return;
+		if (allProperties != null && !allProperties.isDisposed()) {
+			allProperties.update();
+			standardProperties.update();
 		}
-		allProperties.update();
-		standardProperties.update();
 	}
 
 	/**
