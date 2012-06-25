@@ -23,14 +23,12 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecObjectItemProvider;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
-import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.junit.After;
 import org.junit.Before;
@@ -127,20 +125,16 @@ public class SpecObjectTest extends SpecElementWithAttributesTest {
 	protected Set<String> getStandardPropertyNames() {
 		return new HashSet<String>(Arrays.asList(STANDARD_PROPERTIES));
 	}
-
-	@Override
-	protected void setSpecTypeWithAttributeOnFixture(ReqIF reqif,
-			AttributeDefinition ad) {
-		SpecObjectType type = ReqIF10Factory.eINSTANCE.createSpecObjectType();
-		setViaCommand(type, ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad);
-		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, type);
-		setViaCommand(getFixture(), ReqIF10Package.Literals.SPEC_OBJECT__TYPE, type);
-	}
 	
 	@Override
 	protected void setFixtureType(SpecElementWithAttributes specElement,
 			SpecType specType) {
 		setViaCommand(specElement, ReqIF10Package.Literals.SPEC_OBJECT__TYPE, specType);
+	}
+
+	@Override
+	protected SpecType getSpecTypeInstance() {
+		return ReqIF10Factory.eINSTANCE.createSpecObjectType();
 	}
 
 } //SpecObjectTest

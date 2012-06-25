@@ -185,6 +185,22 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 		assertEquals(2, this.notifications.size());
 	}
 
+	@Test
+	public void testSpecElementTypeChangedWithoutAttributes() {
+		ReqIF reqif = ReqIF10Factory.eINSTANCE.createReqIF();
+		ReqIFContent content = ReqIF10Factory.eINSTANCE.createReqIFContent();
+		reqif.setCoreContent(content);
+		this.addFixtureToReqIf(reqif);
+
+		ItemProviderAdapter ip = this.getItemProvider(getFixture());
+		ip.addListener(listener);
+
+		SpecType specTypeExpected = setSpecTypeWithoutAttributeOnFixture(reqif);
+		SpecType specTypeActual = ReqIF10Util.getSpecType(getFixture());
+		assertSame(specTypeExpected, specTypeActual);
+		assertEquals(1, notifications.size());
+	}
+
 	/**
 	 * When there are no attributes set, we will get only the standard ones and
 	 * those inherited from {@link Identifiable}. We check the names of the
@@ -312,6 +328,22 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 	 */
 	protected abstract Set<String> getStandardPropertyNames();
 
+	protected void setSpecTypeWithAttributeOnFixture(ReqIF reqif,
+			AttributeDefinition ad) {
+		SpecType type = getSpecTypeInstance();
+		setViaCommand(type, ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad);
+		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, type);
+		setFixtureType(getFixture(), type);
+	}
+
+	protected SpecType setSpecTypeWithoutAttributeOnFixture(ReqIF reqif) {
+		SpecType type = getSpecTypeInstance();
+		setViaCommand(reqif.getCoreContent(),
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, type);
+		setFixtureType(getFixture(), type);
+		return type;
+	}
+
 	/**
 	 * Sets the given Type on the given specElement.
 	 */
@@ -319,17 +351,12 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 			SpecElementWithAttributes specElement, SpecType specType);
 
 	/**
-	 * Subclasses must override this. They have to:
-	 * <ul>
-	 * <li>Create the correct {@link SpecType}
-	 * <li>Add the provided ad to the specType
-	 * <li>add the specType to the reqif (with a command!)
-	 * <li>set the specType on the fixture.
-	 * </ul>
 	 * 
-	 * @param reqif
+	 * Subclasses must override this. They have to return their corresponding
+	 * {@link SpecType}.
+	 * 
+	 * @return the {@link SpecType} of the inherited class.
 	 */
-	protected abstract void setSpecTypeWithAttributeOnFixture(ReqIF reqif,
-			AttributeDefinition ad);
+	protected abstract SpecType getSpecTypeInstance();
 
 } // SpecElementWithAttributesTest
