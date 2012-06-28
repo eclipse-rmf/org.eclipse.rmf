@@ -28,12 +28,18 @@ import org.eclipse.rmf.reqif10.ReqIF;
 
 /**
  * This class manages installed Presentations (and is therefore independent of
- * open ReqIF Files).
+ * open ReqIF Files). It is not meant to be instantiated and consists
+ * exclusively of static methods.
  */
 public class PresentationEditorManager {
 
 	public static final String PRESENTATION_EXTENSION_POINT_NAME = "org.eclipse.rmf.pror.reqif10.editor.presentation";
 	private static Map<Class<? extends ProrPresentationConfiguration>, PresentationService> presentationServiceRegistry;
+
+	/* Private default constructor, to ensure that this class is never instantiated. */
+	private PresentationEditorManager() {
+		throw new InstantiationError("This class is not designed to be instantiated.");
+	}
 
 	// // There is one entry per Plugin
 	// private static Set<PresentationData> presentationTypeRegistry;
