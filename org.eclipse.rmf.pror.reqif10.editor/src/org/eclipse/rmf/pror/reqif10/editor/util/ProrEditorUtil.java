@@ -18,7 +18,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorManager;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
@@ -111,7 +111,7 @@ public class ProrEditorUtil {
 									service = serv;
 							}
 						} else {
-							service = PresentationEditorManager
+							service = PresentationServiceManager
 									.getPresentationService(configuration);
 						}
 

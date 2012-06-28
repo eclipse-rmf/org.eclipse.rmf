@@ -31,13 +31,13 @@ import org.eclipse.rmf.reqif10.ReqIF;
  * open ReqIF Files). It is not meant to be instantiated and consists
  * exclusively of static methods.
  */
-public class PresentationEditorManager {
+public class PresentationServiceManager {
 
 	public static final String PRESENTATION_EXTENSION_POINT_NAME = "org.eclipse.rmf.pror.reqif10.editor.presentation";
 	private static Map<Class<? extends ProrPresentationConfiguration>, PresentationService> presentationServiceRegistry;
 
 	/* Private default constructor, to ensure that this class is never instantiated. */
-	private PresentationEditorManager() {
+	private PresentationServiceManager() {
 		throw new InstantiationError("This class is not designed to be instantiated.");
 	}
 
@@ -104,7 +104,7 @@ public class PresentationEditorManager {
 	 */
 	public static void notifiyOpenReqif(ReqIF reqif, EditingDomain domain) {
 
-		for (PresentationService service : PresentationEditorManager
+		for (PresentationService service : PresentationServiceManager
 				.getPresentationServiceMap().values()) {
 			service.openReqif(reqif, domain);
 		}
@@ -121,7 +121,7 @@ public class PresentationEditorManager {
 	 */
 	public static void notifiyCloseReqif(ReqIF reqif, EditingDomain domain) {
 
-		for (PresentationService service : PresentationEditorManager
+		for (PresentationService service : PresentationServiceManager
 				.getPresentationServiceMap().values()) {
 			service.closeReqif(reqif, domain);
 		}
@@ -134,7 +134,7 @@ public class PresentationEditorManager {
 		ProrPresentationConfiguration config = ConfigurationUtil
 				.getPresentationConfig(value, editingDomain);
 		if (config != null) {
-			service = PresentationEditorManager.getPresentationService(config);
+			service = PresentationServiceManager.getPresentationService(config);
 		}
 		return service;
 

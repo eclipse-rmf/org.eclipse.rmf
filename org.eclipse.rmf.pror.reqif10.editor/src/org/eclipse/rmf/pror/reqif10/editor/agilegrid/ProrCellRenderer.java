@@ -16,7 +16,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrAgileGridContentProvider.ProrRow;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorManager;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 import org.eclipse.rmf.reqif10.AttributeValue;
@@ -81,7 +81,7 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 		if (attrValue instanceof AttributeValueXHTML) {
 			renderer = xhtmlCellRenderer;
 		} else {
-			PresentationService service = PresentationEditorManager
+			PresentationService service = PresentationServiceManager
 					.getPresentationService(attrValue, editingDomain);
 			if (service != null)
 				renderer = service.getCellRenderer(attrValue);
