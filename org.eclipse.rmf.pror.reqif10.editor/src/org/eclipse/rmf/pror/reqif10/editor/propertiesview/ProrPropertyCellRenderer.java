@@ -50,7 +50,7 @@ public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 		// We render only the second column (attribute value)
 		if (col == 1) {
 
-			AttributeValue atrVal = this.contentProvider.getAttributeValue(row);
+			AttributeValue atrVal = this.contentProvider.getReqIfAttributeValue(row);
 
 			// Get the default row height
 			int initRowHeight = ((DefaultLayoutAdvisor) agileGrid
@@ -82,10 +82,10 @@ public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 										// the
 										// renderer
 					newRowHeight = renderer.doDrawCellContent(gc, rect,
-							this.contentProvider.getAttributeValue(row));
+							this.contentProvider.getReqIfAttributeValue(row));
 				} else { // Else use the default draw cell method
 					newRowHeight = doDrawCellContentDefault(gc, rect,
-							this.contentProvider.getAttributeValue(row));
+							this.contentProvider.getReqIfAttributeValue(row));
 				}
 
 			} else { // We have a EMF property
