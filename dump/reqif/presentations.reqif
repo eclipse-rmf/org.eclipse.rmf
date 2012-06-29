@@ -26,6 +26,11 @@
                 <DATATYPE-DEFINITION-STRING-REF>rmf-3eca2d2f-9dcf-429d-b9f5-4b4ff7b81f2f</DATATYPE-DEFINITION-STRING-REF>
               </TYPE>
             </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-77bd5a0f-ddfd-464d-bdfc-ed989e9d26df" LONG-NAME="Implementation Status">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-5ae236cc-664e-4041-8c9c-ffdd996fb759</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
           </SPEC-ATTRIBUTES>
         </SPEC-OBJECT-TYPE>
         <SPEC-OBJECT-TYPE IDENTIFIER="rmf-bbf83294-a973-4308-be12-cab82c0d0d29" LAST-CHANGE="2012-06-11T16:01:08.563+02:00" LONG-NAME="Headline Type">
@@ -37,11 +42,20 @@
             </ATTRIBUTE-DEFINITION-STRING>
           </SPEC-ATTRIBUTES>
         </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE IDENTIFIER="rmf-84d0c6a5-8e84-4920-8c10-0b653383b1ca" LONG-NAME="Specification Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-679b3c7f-fad7-4016-8156-2e2d18d582df" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-1fe85126-6dde-40cc-8987-b7a55af8ee29</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
       </SPEC-TYPES>
       <SPEC-OBJECTS>
         <SPEC-OBJECT IDENTIFIER="rmf-4bfe7a70-b512-4785-920c-537599048227">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Headline">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Current Situation">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-591d0fcf-e140-4a97-8c21-81c41d633703</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -58,9 +72,138 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3dbba3f0-a6bd-4748-87cd-4746fc4f2cca</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Start editing here. With LineWrap plugin! Some more Text!">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="While the presentation subsystem works, it is not very clean and contains a number of inconsistencies.  In the following, we'll describe how we would design it from scratch (if we could).">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-caa612e5-a3db-4092-8bbe-8a086c353878</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-77bd5a0f-ddfd-464d-bdfc-ed989e9d26df</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-79d9783b-c04c-4f4a-96d0-292b0cd48462</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-e993455a-b1c3-43fe-894e-ae005a44acf7">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Concepts">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-591d0fcf-e140-4a97-8c21-81c41d633703</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-bbf83294-a973-4308-be12-cab82c0d0d29</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-8720766f-b211-4d54-aff2-7af54628b328">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="For every Presentation, there is one class that manages it (across Projects and ReqIF models).  This is the PresentationService.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-caa612e5-a3db-4092-8bbe-8a086c353878</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-4">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3dbba3f0-a6bd-4748-87cd-4746fc4f2cca</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Implemented">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-77bd5a0f-ddfd-464d-bdfc-ed989e9d26df</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-79d9783b-c04c-4f4a-96d0-292b0cd48462</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-0a0b7e88-ff2f-4e25-89b8-3fd9f107a9f4">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The PresentationService is instantiated upon Eclipse Startup">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-caa612e5-a3db-4092-8bbe-8a086c353878</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-5">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3dbba3f0-a6bd-4748-87cd-4746fc4f2cca</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="lazy by PresentationManager.getPresentationServiceMap()">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-77bd5a0f-ddfd-464d-bdfc-ed989e9d26df</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-79d9783b-c04c-4f4a-96d0-292b0cd48462</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-fd80896b-1cc3-42c6-b081-dacf3479e6e0">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Currently, the PresentationService is notified upon opening and closing.  This does not make sense.  This should move to the Configuration Element">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-caa612e5-a3db-4092-8bbe-8a086c353878</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-6">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3dbba3f0-a6bd-4748-87cd-4746fc4f2cca</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-77bd5a0f-ddfd-464d-bdfc-ed989e9d26df</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-79d9783b-c04c-4f4a-96d0-292b0cd48462</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-9d2d73a0-b419-4916-8f6e-eddf6c27b145">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="PresentationService and -Manager">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-591d0fcf-e140-4a97-8c21-81c41d633703</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-bbf83294-a973-4308-be12-cab82c0d0d29</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-5bdf09ac-1673-485b-8db0-7dd639410970">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProrPresentationConfiguration and -Manager">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-591d0fcf-e140-4a97-8c21-81c41d633703</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-bbf83294-a973-4308-be12-cab82c0d0d29</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-4d94fa5d-e00c-4180-9c21-ce425015e1ee">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Upon creating a configuration object, it should get a chance to register with the ReqIF object.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-caa612e5-a3db-4092-8bbe-8a086c353878</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-7">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3dbba3f0-a6bd-4748-87cd-4746fc4f2cca</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-77bd5a0f-ddfd-464d-bdfc-ed989e9d26df</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -71,6 +214,16 @@
       </SPEC-OBJECTS>
       <SPECIFICATIONS>
         <SPECIFICATION IDENTIFIER="rmf-64f7ef16-ef94-4004-b267-cfc6c7d5f184" LONG-NAME="Specification Document">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Refactoring / Cleanup of Presentations">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-679b3c7f-fad7-4016-8156-2e2d18d582df</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>rmf-84d0c6a5-8e84-4920-8c10-0b653383b1ca</SPECIFICATION-TYPE-REF>
+          </TYPE>
           <CHILDREN>
             <SPEC-HIERARCHY IDENTIFIER="rmf-fae96bfa-f0f6-443e-8593-a6ab1db7a144" LAST-CHANGE="2012-06-11T16:01:22.466+02:00">
               <OBJECT>
@@ -81,6 +234,49 @@
                   <OBJECT>
                     <SPEC-OBJECT-REF>rmf-94b086b7-b6f9-4534-9b0e-500af1f9712f</SPEC-OBJECT-REF>
                   </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-9dfa4496-938d-40e4-b4bf-02060039a9eb">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-e993455a-b1c3-43fe-894e-ae005a44acf7</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-df373331-0fdd-465f-a2e8-222b1afe8436">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-9d2d73a0-b419-4916-8f6e-eddf6c27b145</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-1a19457c-6b4a-402c-8e88-fd3a16394023">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-8720766f-b211-4d54-aff2-7af54628b328</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN/>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-3ef0de5b-2742-4d95-98f1-ff9a7b28f965">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-0a0b7e88-ff2f-4e25-89b8-3fd9f107a9f4</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN/>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-75435f71-b1ee-4fc8-93ad-ac735164c4ad">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-fd80896b-1cc3-42c6-b081-dacf3479e6e0</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-3aeda872-b3a5-4f94-9034-61455a4ca394">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-5bdf09ac-1673-485b-8db0-7dd639410970</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-6fe796eb-1566-43db-bd15-6b779a6a682e">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-4d94fa5d-e00c-4180-9c21-ce425015e1ee</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
                 </SPEC-HIERARCHY>
               </CHILDREN>
             </SPEC-HIERARCHY>
@@ -95,8 +291,9 @@
         <configuration:specViewConfigurations>
           <configuration:ProrSpecViewConfiguration configuration:specification="rmf-64f7ef16-ef94-4004-b267-cfc6c7d5f184">
             <configuration:columns>
-              <configuration:Column configuration:label="ID"/>
-              <configuration:Column configuration:label="Description" configuration:width="282"/>
+              <configuration:Column configuration:label="ID" configuration:width="113"/>
+              <configuration:Column configuration:label="Description" configuration:width="383"/>
+              <configuration:Column configuration:label="Implementation Status" configuration:width="346"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column configuration:label="Lead Header Column" configuration:width="30"/>
@@ -117,7 +314,7 @@
             <configuration:presentationConfigurations>
               <linewrap:LinewrapConfiguration configuration:datatype="rmf-5ae236cc-664e-4041-8c9c-ffdd996fb759"/>
               <headline:HeadlineConfiguration configuration:datatype="rmf-1fe85126-6dde-40cc-8987-b7a55af8ee29"/>
-              <id:IdConfiguration configuration:datatype="rmf-3eca2d2f-9dcf-429d-b9f5-4b4ff7b81f2f" id:count="3"/>
+              <id:IdConfiguration configuration:datatype="rmf-3eca2d2f-9dcf-429d-b9f5-4b4ff7b81f2f" id:count="7" id:verticalAlign="Center"/>
             </configuration:presentationConfigurations>
           </configuration:ProrPresentationConfigurations>
         </configuration:presentationConfigurations>
