@@ -7,6 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Lukas Ladenberger - ProR GUI     
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 
@@ -64,10 +65,10 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 	public static String SPEC_RELATION_NAME = "Spec Relation";
 	
 	public ProrPropertyCellEditorProvider(AgileGrid agileGrid,
-			AdapterFactory adapterFactory, EditingDomain editingDomain) {
+			AdapterFactory adapterFactory, EditingDomain editingDomain,
+			ProrPropertyContentProvider contentProvider) {
 		super(agileGrid, adapterFactory, editingDomain);
-		contentProvider = (ProrPropertyContentProvider) agileGrid
-				.getContentProvider();
+		this.contentProvider = contentProvider;
 	}
 
 	@Override
@@ -149,7 +150,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 	 * from the nature of the structural feature.
 	 * 
 	 */
-	private CellEditor getNonAttributeCellEditor(final Object object,
+	CellEditor getNonAttributeCellEditor(final Object object,
 			final IItemPropertyDescriptor itemPropertyDescriptor) {
 
 		if (!itemPropertyDescriptor.canSetProperty(object)) {

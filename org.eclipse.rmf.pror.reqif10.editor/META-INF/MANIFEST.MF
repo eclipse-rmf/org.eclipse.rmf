@@ -10,6 +10,7 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.rmf.pror.reqif10.editor.agilegrid,
  org.eclipse.rmf.pror.reqif10.editor.presentation,
  org.eclipse.rmf.pror.reqif10.editor.presentation.service,
+ org.eclipse.rmf.pror.reqif10.editor.propertiesview,
  org.eclipse.rmf.pror.reqif10.editor.util
 Require-Bundle: org.eclipse.core.runtime;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,

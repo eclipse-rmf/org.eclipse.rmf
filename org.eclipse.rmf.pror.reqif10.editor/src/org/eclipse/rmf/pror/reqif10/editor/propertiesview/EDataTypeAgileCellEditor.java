@@ -6,7 +6,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- *     Lukas Ladenberger - initial API and implementation
+ *     Michael Jastram - initial API and implementation
+ *     Lukas Ladenberger - ProR GUI
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 
