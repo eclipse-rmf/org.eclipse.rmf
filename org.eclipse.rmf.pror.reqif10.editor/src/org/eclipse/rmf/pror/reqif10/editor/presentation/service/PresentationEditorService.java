@@ -9,6 +9,12 @@ import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
 
+/**
+ * This interface encapsulates those aspects of a {@link PresentationService} that have
+ * a GUI component.
+ * 
+ * @author jastram
+ */
 public interface PresentationEditorService {
 
 	/**
@@ -36,30 +42,6 @@ public interface PresentationEditorService {
 	 * Substitute the proper names in Factory and method.
 	 */
 	public ProrPresentationConfiguration getConfigurationInstance();
-
-	/**
-	 * This method is triggered when a new ReqIF is opened, giving the
-	 * Presentation a chance to interact, e.g. by registering adapters, etc.
-	 * <p>
-	 * 
-	 * Please note that this method may be called multiple times, if the
-	 * Presentation is associated with multiple {@link DatatypeDefinition}s.
-	 * 
-	 * TODO still true?
-	 */
-	public void openReqif(ReqIF reqif, EditingDomain domain);
-
-	/**
-	 * This method is triggered when a new ReqIF is closed, giving the
-	 * Presentation a chance to interact, e.g. by unregistering adapters, etc.
-	 * <p>
-	 * 
-	 * Please note that this method may be called multiple times, if the
-	 * Presentation is associated with multiple {@link DatatypeDefinition}s.
-	 * 
-	 * TODO still true?
-	 */
-	public void closeReqif(ReqIF reqif, EditingDomain domain);
 
 	/**
 	 * Returns an {@link IProrCellRenderer} appropriate for the

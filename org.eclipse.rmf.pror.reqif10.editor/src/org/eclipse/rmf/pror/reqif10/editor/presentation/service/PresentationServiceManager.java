@@ -21,8 +21,11 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10Editor;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIF;
 
@@ -34,6 +37,7 @@ import org.eclipse.rmf.reqif10.ReqIF;
 public class PresentationServiceManager {
 
 	public static final String PRESENTATION_EXTENSION_POINT_NAME = "org.eclipse.rmf.pror.reqif10.editor.presentation";
+
 	private static Map<Class<? extends ProrPresentationConfiguration>, PresentationService> presentationServiceRegistry;
 
 	/* Private default constructor, to ensure that this class is never instantiated. */
@@ -96,36 +100,30 @@ public class PresentationServiceManager {
 
 	/**
 	 * Upon opening a ReqIF File, this method notifies each
-	 * {@link PresentationService}.
-	 * 
-	 * TODO We call this when the Editor is opened, but there must be a better
-	 * way to do it (register a notifier somewhere...)
-	 * 
+	 * {@link ProrPresentationConfigurationItemProvider#registerReqIF(ReqIF, EditingDomain)}
 	 */
-	public static void notifiyOpenReqif(ReqIF reqif, EditingDomain domain) {
-
-		for (PresentationService service : PresentationServiceManager
-				.getPresentationServiceMap().values()) {
-			service.openReqif(reqif, domain);
+	public static void notifiyOpenReqif(ReqIF reqif, Reqif10Editor editor) {
+		for (Class<? extends ProrPresentationConfiguration> config : PresentationServiceManager
+				.getPresentationServiceMap().keySet()) {
+			ProrPresentationConfigurationItemProvider itemProvider = 
+					(ProrPresentationConfigurationItemProvider) ProrUtil
+					.getItemProvider(editor.getAdapterFactory(), config);
+			itemProvider.registerReqIF(reqif, editor.getEditingDomain());
 		}
-
 	}
 
 	/**
 	 * Upon closing a ReqIF File, this method notifies each
-	 * {@link PresentationService}.
-	 * 
-	 * TODO We call this when the Editor is closed, but there must be a better
-	 * way to do it (register a notifier somewhere...)
-	 * 
+	 * {@link ProrPresentationConfigurationItemProvider#unregisterReqIF(ReqIF, EditingDomain)}
 	 */
-	public static void notifiyCloseReqif(ReqIF reqif, EditingDomain domain) {
-
-		for (PresentationService service : PresentationServiceManager
-				.getPresentationServiceMap().values()) {
-			service.closeReqif(reqif, domain);
+	public static void notifiyCloseReqif(ReqIF reqif, Reqif10Editor editor) {
+		for (Class<? extends ProrPresentationConfiguration> config : PresentationServiceManager
+				.getPresentationServiceMap().keySet()) {
+			ProrPresentationConfigurationItemProvider itemProvider = 
+					(ProrPresentationConfigurationItemProvider) ProrUtil
+					.getItemProvider(editor.getAdapterFactory(), config);
+			itemProvider.unregisterReqIF(reqif, editor.getEditingDomain());
 		}
-
 	}
 
 	public static PresentationService getPresentationService(

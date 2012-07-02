@@ -1129,7 +1129,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		}
 		
 		// TODO there must be a better place?
-		PresentationServiceManager.notifiyOpenReqif(reqif, editingDomain);
+		PresentationServiceManager.notifiyOpenReqif(reqif, this);
 		return reqif;
 	}
 
@@ -1797,7 +1797,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		}
 
 		// TODO there must be a better place?
-		PresentationServiceManager.notifiyCloseReqif(reqif, editingDomain);
+		PresentationServiceManager.notifiyCloseReqif(reqif, this);
 
 		super.dispose();
 
