@@ -81,13 +81,13 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 
 		specObjectTypeAttributeDefinitionStringA1 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		specObjectTypeAttributeDefinitionStringA1.setIdentifier("ID_TC18xx_A1");
-		specObjectTypeAttributeDefinitionStringA1.setLongName("ID_TC18xx_A1");
+		specObjectTypeAttributeDefinitionStringA1.setLongName("A1");
 		specObjectTypeAttributeDefinitionStringA1.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObjectTypeAttributeDefinitionStringA1.setType(datatypeDefinitionString);
 
 		specObjectTypeAttributeDefinitionStringA2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		specObjectTypeAttributeDefinitionStringA2.setIdentifier("ID_TC18xx_A2");
-		specObjectTypeAttributeDefinitionStringA2.setLongName("ID_TC18xx_A2");
+		specObjectTypeAttributeDefinitionStringA2.setLongName("A2");
 		specObjectTypeAttributeDefinitionStringA2.setLastChange(toDate(LAST_CHANGE_STRING));
 		specObjectTypeAttributeDefinitionStringA2.setType(datatypeDefinitionString);
 
@@ -173,7 +173,7 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 		// Two Specifications
 		for (int i = 1; i <= 2; i++) {
 			Specification spec = ReqIF10Factory.eINSTANCE.createSpecification();
-			spec.setIdentifier("ID_TC1800_Specification" + i);
+			spec.setIdentifier("ID_TC18xx_Specification" + i);
 			spec.setType(specificationType);
 			spec.setLastChange(toDate(LAST_CHANGE_STRING));
 
