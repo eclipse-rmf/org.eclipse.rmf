@@ -17,7 +17,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 @SuppressWarnings("nls")
-public class TC1800HISExchangeProcessTests extends AbstractTestCase {
+public class TC18xxHISExchangeProcessTests extends AbstractTestCase {
 	static final String TC1800_FILENAME = getWorkingFileName(getReferenceDataFileName("TC1800", false));
 	static final String TC1801_FILENAME = getWorkingFileName(getReferenceDataFileName("TC1801", false));
 	static final String TC1802_FILENAME = getWorkingFileName(getReferenceDataFileName("TC1802", false));
@@ -25,8 +25,7 @@ public class TC1800HISExchangeProcessTests extends AbstractTestCase {
 
 	static ReqIF tc1800ReqIF = null;
 	static ReqIF tc1801ReqIF = null;
-
-	static ReqIF loadedReqIF = null;
+	static ReqIF tc1802ReqIF = null;
 
 	@BeforeClass
 	public static void setupOnce() throws Exception {
@@ -38,6 +37,8 @@ public class TC1800HISExchangeProcessTests extends AbstractTestCase {
 		tc1801ReqIF = new TC1801HISExchangeProcessModelBuilder(loadReqIFFile(TC1800_FILENAME)).getReqIF();
 		saveReqIFFile(tc1801ReqIF, TC1801_FILENAME);
 
+		tc1802ReqIF = new TC1802HISExchangeProcessModelBuilder(loadReqIFFile(TC1801_FILENAME)).getReqIF();
+		saveReqIFFile(tc1802ReqIF, TC1802_FILENAME);
 	}
 
 	@Test
