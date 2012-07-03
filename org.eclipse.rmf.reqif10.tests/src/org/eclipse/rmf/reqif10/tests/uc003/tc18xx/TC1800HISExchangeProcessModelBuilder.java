@@ -162,7 +162,7 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 		createBasicSpecObject(specObject07, "07", "no change", null);
 		createBasicSpecObject(specObject08, "08", "no change", null);
 		createBasicSpecObject(specObject09, "09", "no change", null);
-		createBasicSpecObject(specObject10, "10", "O10.A1 initial", "O3.A2 initial");
+		createBasicSpecObject(specObject10, "10", "O10.A1 initial", "O10.A2 initial");
 	}
 
 	@Override
@@ -179,7 +179,7 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 
 			attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 			attributeValueString.setDefinition(specificationTypeAttributeDefinitionStringName);
-			attributeValueString.setTheValue("Specification" + i);
+			attributeValueString.setTheValue("Spec" + i);
 			spec.getValues().add(attributeValueString);
 			getReqIF().getCoreContent().getSpecifications().add(spec);
 		}
