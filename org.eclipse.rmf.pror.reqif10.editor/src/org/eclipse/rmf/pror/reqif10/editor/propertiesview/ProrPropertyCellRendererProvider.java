@@ -7,6 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Lukas Ladenberger - ProR GUI     
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 
@@ -17,9 +18,15 @@ import org.agilemore.agilegrid.SWTResourceManager;
 import org.agilemore.agilegrid.renderers.TextCellRenderer;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertyContentProvider.ItemCategory;
 import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertyContentProvider.SortedItemPropertyDescriptor;
+import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Rectangle;
 
 public class ProrPropertyCellRendererProvider extends DefaultCellRendererProvider {
 
@@ -40,21 +47,82 @@ public class ProrPropertyCellRendererProvider extends DefaultCellRendererProvide
 	@Override
 	public ICellRenderer getCellRenderer(int row, int col) {
 
-		Object obj = ((ProrPropertyContentProvider) agileGrid
-				.getContentProvider()).getRowContent(row);
+		final ProrPropertyContentProvider contentProvider = (ProrPropertyContentProvider) agileGrid
+				.getContentProvider();
 
-		// If we have a category at this row, return the category cell renderer
+		// The obj could be an ItemCategory or SortenItemPropertyDescriptor
+		// instance
+		Object obj = contentProvider.getRowContent(row);
+
+		// If we have an ItemCategory at this row, return the category cell
+		// renderer
 		if (col <= 1 && obj instanceof ItemCategory) {
 			return this.categoryCellRenderer;
-			// else if we have an item property descriptor at this row, return
-			// the corresponding default cell renderer for attribute/value rows
 		} else if (col == 1 && obj instanceof SortedItemPropertyDescriptor) {
-			return this.attributeCellRenderer;
-			// else return the default agile grid cell renderer
-		} else {
-			return super.getCellRenderer(row, col);
+
+			// If we have a SortedItemPropertyDescriptor at this row,
+			// return the corresponding default cell renderer for
+			// attribute rows
+			AttributeValue attributeValue = ((ProrPropertyContentProvider) agileGrid
+					.getContentProvider()).getReqIfAttributeValue(row);
+			if (attributeValue != null) {
+				return this.attributeCellRenderer;
+			} else {
+
+				// else if we have a specific EMF attribute return the renderer
+				// for it
+				IItemLabelProvider labelProvider = contentProvider
+						.getItemLabelProvider(row);
+				if (labelProvider != null) {
+
+					Object itemPropertyValue = contentProvider
+							.getItemPropertyValue(row);
+
+					final String text = labelProvider
+							.getText(itemPropertyValue);
+					final Image image = getImageFromObject(labelProvider
+							.getImage(itemPropertyValue));
+
+					return new TextCellRenderer(agileGrid) {
+
+						@Override
+						protected void doDrawCellContent(GC gc, Rectangle rect,
+								int row, int col) {
+
+							// TODO: Check agile grid problem with third column
+							// We render only the second column (emf property
+							// value)
+							if (col == 1) {
+
+								if ((style & ICellRenderer.DRAW_VERTICAL) != 0) {
+									drawVerticalTextImage(gc, rect, text, null,
+											foreground, background);
+								} else {
+									int alignment = getAlignment();
+									drawTextImage(gc, text, alignment, image,
+											alignment, rect.x + 3, rect.y + 2,
+											rect.width - 6, rect.height - 4);
+								}
+
+							}
+
+						}
+
+					};
+
+				}
+				
+			}
+
 		}
+
+		// Else return the agile grid default cell renderer
+		return super.getCellRenderer(row, col);
 
 	}
 	
+	private Image getImageFromObject(Object object) {
+		return ExtendedImageRegistry.getInstance().getImage(object);
+	}
+
 }

@@ -10,9 +10,12 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.util;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
@@ -165,4 +168,15 @@ public class ProrEditorUtil {
 
 	}
 	
+	public static Command getAffectedObjectCommand(final Object element,
+			Command cmd) {
+		return new CommandWrapper(cmd) {
+			public java.util.Collection<?> getAffectedObjects() {
+				List<Object> list = new ArrayList<Object>();
+				list.add(element);
+				return list;
+			}
+		};
+	}
+
 }

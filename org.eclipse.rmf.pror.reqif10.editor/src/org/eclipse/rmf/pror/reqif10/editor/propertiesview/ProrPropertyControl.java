@@ -7,6 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Lukas Ladenberger - ProR GUI     
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 
@@ -36,7 +37,7 @@ public class ProrPropertyControl extends AgileGrid {
 				adapterFactory, editingDomain));
 		setLayoutAdvisor(new ProrPropertyLayoutAdvisor(this));
 		setCellEditorProvider(new ProrPropertyCellEditorProvider(this,
-				adapterFactory, editingDomain));
+				adapterFactory, editingDomain, this.contentProvider));
 		setRowResizeCursor(new Cursor(this.getDisplay(), SWT.CURSOR_ARROW));
 	}
 	
