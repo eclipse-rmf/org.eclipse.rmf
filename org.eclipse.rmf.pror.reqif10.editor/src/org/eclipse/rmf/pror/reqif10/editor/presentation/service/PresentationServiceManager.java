@@ -10,6 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.presentation.service;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +21,7 @@ import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
@@ -45,6 +47,7 @@ public class PresentationServiceManager {
 		throw new InstantiationError("This class is not designed to be instantiated.");
 	}
 
+
 	// // There is one entry per Plugin
 	// private static Set<PresentationData> presentationTypeRegistry;
 
@@ -55,39 +58,51 @@ public class PresentationServiceManager {
 	 * We use this method to initialize the presentation service map in the item
 	 * provider plugin.
 	 * 
-	 * @return A set of {@link PresentationService}s.
+	 * @return A an unmodifyable map of {@link ProrPresentationConfiguration}
+	 *         classes and {@link PresentationService}s.
 	 */
 	public static Map<Class<? extends ProrPresentationConfiguration>, PresentationService> getPresentationServiceMap() {
-		if (presentationServiceRegistry != null)
-			return presentationServiceRegistry;
+		if (presentationServiceRegistry == null) {
 
-		HashMap<Class<? extends ProrPresentationConfiguration>, PresentationService> tmpRegistry = new HashMap<Class<? extends ProrPresentationConfiguration>, PresentationService>();
+			HashMap<Class<? extends ProrPresentationConfiguration>, PresentationService> tmpRegistry = new HashMap<Class<? extends ProrPresentationConfiguration>, PresentationService>();
 
-		IExtensionRegistry registry = Platform.getExtensionRegistry();
-		IExtensionPoint extensionPoint = registry
-				.getExtensionPoint(PRESENTATION_EXTENSION_POINT_NAME);
-		IExtension[] extensions = extensionPoint.getExtensions();
-		for (IExtension extension : extensions) {
-			IConfigurationElement[] configElements = extension
-					.getConfigurationElements();
-			for (IConfigurationElement configElement : configElements) {
-				try {
-					PresentationService service = (PresentationService) configElement
-							.createExecutableExtension("service");
-					presentationServiceRegistry.put(
-							service.getConfigurationInterface(), service);
-					PresentationEditManager.addService(
-							service.getConfigurationInterface(), service);
-				} catch (CoreException e) {
-					e.printStackTrace();
-					// TODO Error Logging
+			IExtensionRegistry registry = Platform.getExtensionRegistry();
+			IExtensionPoint extensionPoint = registry
+					.getExtensionPoint(PRESENTATION_EXTENSION_POINT_NAME);
+			IExtension[] extensions = extensionPoint.getExtensions();
+			for (IExtension extension : extensions) {
+				IConfigurationElement[] configElements = extension
+						.getConfigurationElements();
+				for (IConfigurationElement configElement : configElements) {
+					try {
+						PresentationService service = (PresentationService) configElement
+								.createExecutableExtension("service");
+						tmpRegistry.put(
+								service.getConfigurationInterface(), service);
+						PresentationEditManager.addService(
+								service.getConfigurationInterface(), service);
+					} catch (CoreException e) {
+						MessageDialog
+								.openError(
+										null,
+										"Plugin Configuration Error",
+										"When initializing the installed plugins, something went wrong.  "
+												+ "You can continue working, but Presentations may not be activated:"
+												+ e.getMessage());
+						e.printStackTrace();
+					}
 				}
 			}
+			presentationServiceRegistry = Collections
+					.unmodifiableMap(tmpRegistry);
 		}
-		presentationServiceRegistry = tmpRegistry;
 		return presentationServiceRegistry;
 	}
 
+	/**
+	 * Returns the {@link PresentationService} for the given
+	 * {@link ProrPresentationConfiguration} instance, or null if none found.
+	 */
 	public static PresentationService getPresentationService(
 			ProrPresentationConfiguration configuration) {
 		for (Class<? extends ProrPresentationConfiguration> clazz : getPresentationServiceMap()
