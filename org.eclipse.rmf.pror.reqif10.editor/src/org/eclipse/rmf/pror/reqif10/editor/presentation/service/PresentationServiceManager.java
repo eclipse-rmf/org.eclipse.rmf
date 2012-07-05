@@ -61,7 +61,7 @@ public class PresentationServiceManager {
 		if (presentationServiceRegistry != null)
 			return presentationServiceRegistry;
 
-		presentationServiceRegistry = new HashMap<Class<? extends ProrPresentationConfiguration>, PresentationService>();
+		HashMap<Class<? extends ProrPresentationConfiguration>, PresentationService> tmpRegistry = new HashMap<Class<? extends ProrPresentationConfiguration>, PresentationService>();
 
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
 		IExtensionPoint extensionPoint = registry
@@ -84,6 +84,7 @@ public class PresentationServiceManager {
 				}
 			}
 		}
+		presentationServiceRegistry = tmpRegistry;
 		return presentationServiceRegistry;
 	}
 
