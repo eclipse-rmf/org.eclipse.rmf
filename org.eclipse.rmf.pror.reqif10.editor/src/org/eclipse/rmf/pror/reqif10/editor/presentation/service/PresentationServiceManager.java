@@ -119,10 +119,11 @@ public class PresentationServiceManager {
 	 * {@link ProrPresentationConfigurationItemProvider#registerReqIF(ReqIF, EditingDomain)}
 	 */
 	public static void notifiyOpenReqif(ReqIF reqif, Reqif10Editor editor) {
-		for (Class<? extends ProrPresentationConfiguration> config : PresentationServiceManager
-				.getPresentationServiceMap().keySet()) {
-			ProrPresentationConfigurationItemProvider itemProvider = 
-					(ProrPresentationConfigurationItemProvider) ProrUtil
+
+		for (ProrPresentationConfiguration config : ConfigurationUtil
+				.getPresentationConfigurations(reqif)
+				.getPresentationConfigurations()) {
+			ProrPresentationConfigurationItemProvider itemProvider = (ProrPresentationConfigurationItemProvider) ProrUtil
 					.getItemProvider(editor.getAdapterFactory(), config);
 			itemProvider.registerReqIF(reqif, editor.getEditingDomain());
 		}

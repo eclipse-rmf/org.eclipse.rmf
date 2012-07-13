@@ -36,8 +36,6 @@ import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
-import org.eclipse.rmf.reqif10.ReqIF10Package;
-import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecType;
@@ -109,7 +107,7 @@ public class ConfigurationUtil {
 			EditingDomain domain, ProrPresentationConfiguration configuration) {
 		List<DatatypeDefinition> datatypes = new ArrayList<DatatypeDefinition>();
 		ProrPresentationConfigurations configsElement = ConfigurationUtil
-				.getPresentationConfigurations(reqif, domain);
+				.getPresentationConfigurations(reqif);
 		if (configsElement == null)
 			return datatypes;
 		EList<ProrPresentationConfiguration> configs = configsElement
@@ -313,12 +311,11 @@ public class ConfigurationUtil {
 	 *         {@link ReqIf} and {@link EditingDomain}.
 	 */
 	public static ProrPresentationConfigurations getPresentationConfigurations(
-			ReqIF reqif, EditingDomain domain) {
-		ProrToolExtension uiExtension = ConfigurationUtil.getProrToolExtension(
-				reqif, domain);
-		ProrPresentationConfigurations configs = uiExtension
+			ReqIF reqif) {
+		ProrToolExtension uiExtension = ConfigurationUtil
+				.getProrToolExtension(reqif);
+		return uiExtension == null ? null : uiExtension
 				.getPresentationConfigurations();
-		return configs;
 	}
 
 }
