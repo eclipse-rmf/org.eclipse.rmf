@@ -73,7 +73,7 @@ public class ReqIFToolExtensionUtil {
 
 			// add as any wildcard
 			ExtendedMetaData extendedMetaData = new BasicExtendedMetaData();
-			EStructuralFeature toolExtensionFeature = extendedMetaData.demandFeature(toolExtension.eClass().getEPackage().getNsURI(), "root", true,
+			EStructuralFeature toolExtensionFeature = extendedMetaData.demandFeature(toolExtension.eClass().getEPackage().getNsURI(), "root", true, //$NON-NLS-1$
 					true);
 			reqIFToolExtension.eSet(toolExtensionFeature, toolExtension);
 		}
@@ -110,7 +110,7 @@ public class ReqIFToolExtensionUtil {
 				final boolean prepare;
 				if (null != reqIF && null != toolExtension) {
 					ExtendedMetaData extendedMetaData = new BasicExtendedMetaData();
-					toolExtensionFeature = extendedMetaData.demandFeature(toolExtension.eClass().getEPackage().getNsURI(), "root", true, true);
+					toolExtensionFeature = extendedMetaData.demandFeature(toolExtension.eClass().getEPackage().getNsURI(), "root", true, true); //$NON-NLS-1$
 					prepare = true;
 				} else {
 					prepare = false;
