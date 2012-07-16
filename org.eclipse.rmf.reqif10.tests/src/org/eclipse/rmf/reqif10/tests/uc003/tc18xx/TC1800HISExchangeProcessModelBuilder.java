@@ -3,13 +3,21 @@ package org.eclipse.rmf.reqif10.tests.uc003.tc18xx;
 import java.math.BigInteger;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
+import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.AttributeValueString;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.EmbeddedValue;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
@@ -18,8 +26,11 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
+import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.tests.util.CommonSystemAttributes;
 import org.eclipse.rmf.reqif10.tests.util.SimpleModelBuilder;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
 
 @SuppressWarnings("nls")
 public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder implements CommonSystemAttributes {
@@ -28,11 +39,12 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 
 	// datatypes
 	protected DatatypeDefinitionString datatypeDefinitionString;
+	protected DatatypeDefinitionXHTML datatypeDefinitionXhtml;
 	protected DatatypeDefinitionEnumeration datatypeDefinitionEnumeration;
 
 	// SpecObjectTypes
 	SpecObjectType specObjectType;
-	AttributeDefinitionString specObjectTypeAttributeDefinitionStringName;
+	AttributeDefinitionXHTML specObjectTypeAttributeDefinitionXhtmlName;
 	AttributeDefinitionString specObjectTypeAttributeDefinitionStringA1;
 	AttributeDefinitionString specObjectTypeAttributeDefinitionStringA2;
 	AttributeDefinitionEnumeration specObjectTypeAttributeDefinitionEnumerationE1;
@@ -72,8 +84,14 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 		datatypeDefinitionString.setLastChange(toDate(LAST_CHANGE_STRING_0));
 		datatypeDefinitionString.setMaxLength(new BigInteger("255"));
 
+		datatypeDefinitionXhtml = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionXHTML();
+		datatypeDefinitionXhtml.setIdentifier("ID_TC18xx_DatatypeDefinitionXhtml");
+		datatypeDefinitionXhtml.setLongName("TC18xx DatatypeDefinitionXhtml");
+		datatypeDefinitionXhtml.setLastChange(toDate(LAST_CHANGE_STRING_0));
+
 		EList<DatatypeDefinition> datatypes = getReqIF().getCoreContent().getDatatypes();
 		datatypes.add(datatypeDefinitionString);
+		datatypes.add(datatypeDefinitionXhtml);
 
 		one = ReqIF10Factory.eINSTANCE.createEnumValue();
 		one.setIdentifier("ID_TC18xx_EnumValue_one");
@@ -111,11 +129,11 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 		specObjectType.setLongName("TC18xx SpecObjectType");
 		specObjectType.setLastChange(toDate(LAST_CHANGE_STRING_0));
 
-		specObjectTypeAttributeDefinitionStringName = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
-		specObjectTypeAttributeDefinitionStringName.setIdentifier("ID_TC18xx_SpecObjectTypeAttributeDefinitionString_" + REQIF_NAME);
-		specObjectTypeAttributeDefinitionStringName.setLongName(REQIF_NAME);
-		specObjectTypeAttributeDefinitionStringName.setLastChange(toDate(LAST_CHANGE_STRING_0));
-		specObjectTypeAttributeDefinitionStringName.setType(datatypeDefinitionString);
+		specObjectTypeAttributeDefinitionXhtmlName = ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML();
+		specObjectTypeAttributeDefinitionXhtmlName.setIdentifier("ID_TC18xx_SpecObjectTypeAttributeDefinitionXhtml_" + REQIF_NAME);
+		specObjectTypeAttributeDefinitionXhtmlName.setLongName(REQIF_NAME);
+		specObjectTypeAttributeDefinitionXhtmlName.setLastChange(toDate(LAST_CHANGE_STRING_0));
+		specObjectTypeAttributeDefinitionXhtmlName.setType(datatypeDefinitionXhtml);
 
 		specObjectTypeAttributeDefinitionStringA1 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		specObjectTypeAttributeDefinitionStringA1.setIdentifier("ID_TC18xx_A1");
@@ -136,7 +154,7 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 		specObjectTypeAttributeDefinitionEnumerationE1.setType(datatypeDefinitionEnumeration);
 		specObjectTypeAttributeDefinitionEnumerationE1.setMultiValued(false);
 
-		specObjectType.getSpecAttributes().add(specObjectTypeAttributeDefinitionStringName);
+		specObjectType.getSpecAttributes().add(specObjectTypeAttributeDefinitionXhtmlName);
 		specObjectType.getSpecAttributes().add(specObjectTypeAttributeDefinitionStringA1);
 		specObjectType.getSpecAttributes().add(specObjectTypeAttributeDefinitionStringA2);
 		specObjectType.getSpecAttributes().add(specObjectTypeAttributeDefinitionEnumerationE1);
@@ -168,6 +186,7 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 	 */
 	private void createBasicSpecObject(SpecObject specObject, String objectId, String a1, String a2, EnumValue e1) throws Exception {
 		AttributeValueString attributeValueString;
+		AttributeValueXHTML attributeValueXhtml;
 		AttributeValueEnumeration attributeValueEnum;
 
 		specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
@@ -175,10 +194,10 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 		specObject.setLastChange(toDate(LAST_CHANGE_STRING_0));
 		specObject.setType(specObjectType);
 
-		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
-		attributeValueString.setDefinition(specObjectTypeAttributeDefinitionStringName);
-		attributeValueString.setTheValue("Obj-" + objectId);
-		specObject.getValues().add(attributeValueString);
+		attributeValueXhtml = ReqIF10Factory.eINSTANCE.createAttributeValueXHTML();
+		attributeValueXhtml.setDefinition(specObjectTypeAttributeDefinitionXhtmlName);
+		attributeValueXhtml.setTheValue(createXhtmlValue("Obj-" + objectId));
+		specObject.getValues().add(attributeValueXhtml);
 
 		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 		attributeValueString.setDefinition(specObjectTypeAttributeDefinitionStringA1);
@@ -197,6 +216,27 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
+	}
+
+	public static XhtmlContent createXhtmlValue(String value) {
+		XhtmlContent xhtmlContent = ReqIF10Factory.eINSTANCE.createXhtmlContent();
+		XhtmlPType p = XhtmlFactory.eINSTANCE.createXhtmlPType();
+		setMixedText(p, value);
+		xhtmlContent.setP(p);
+		return xhtmlContent;
+	}
+
+	private static void setMixedText(EObject eObject, String value) {
+		// get the mixed attribute
+		EAttribute mixedAttribute = null;
+		for (EAttribute eAttribute : eObject.eClass().getEAllAttributes()) {
+			if ("mixed".equals(eAttribute.getName()) && EcorePackage.eINSTANCE.getEFeatureMapEntry() == eAttribute.getEAttributeType()) {
+				mixedAttribute = eAttribute;
+				break;
+			}
+		}
+		FeatureMap featureMap = (FeatureMap) eObject.eGet(mixedAttribute);
+		featureMap.add(FeatureMapUtil.createTextEntry(value));
 	}
 
 	@Override

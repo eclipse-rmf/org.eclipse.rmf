@@ -7,8 +7,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
+import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.AttributeValueString;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
@@ -49,6 +51,7 @@ public class TC1801HISExchangeProcessModelBuilder {
 	private void createSpecObject04() throws Exception {
 		SpecObjectType specObjectType = (SpecObjectType) reqIF.getCoreContent().getSpecTypes().get(0);
 		AttributeValueString attributeValueString;
+		AttributeValueXHTML attributeValueXhtml;
 		AttributeValueEnumeration attributeValueEnum;
 
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
@@ -56,10 +59,10 @@ public class TC1801HISExchangeProcessModelBuilder {
 		specObject.setLastChange(toDate(LAST_CHANGE_STRING_1));
 		specObject.setType(specObjectType);
 
-		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
-		attributeValueString.setDefinition((AttributeDefinitionString) specObjectType.getSpecAttributes().get(0));
-		attributeValueString.setTheValue("Obj-04");
-		specObject.getValues().add(attributeValueString);
+		attributeValueXhtml = ReqIF10Factory.eINSTANCE.createAttributeValueXHTML();
+		attributeValueXhtml.setDefinition((AttributeDefinitionXHTML) specObjectType.getSpecAttributes().get(0));
+		attributeValueXhtml.setTheValue(TC1800HISExchangeProcessModelBuilder.createXhtmlValue("Obj-04"));
+		specObject.getValues().add(attributeValueXhtml);
 
 		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 		attributeValueString.setDefinition((AttributeDefinitionString) specObjectType.getSpecAttributes().get(1));

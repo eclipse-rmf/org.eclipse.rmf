@@ -16,15 +16,22 @@ import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.assertTrue;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMap.Entry;
 import org.eclipse.rmf.reqif10.AttributeValueString;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.tests.util.AbstractTestCase;
 import org.eclipse.rmf.reqif10.tests.util.CommonSystemAttributes;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -72,8 +79,21 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 	SpecObject getSpecObjectByName(ReqIF reqif, String name) {
 		SpecObject target = null;
 		for (SpecObject specObject : reqif.getCoreContent().getSpecObjects()) {
-			AttributeValueString value = (AttributeValueString) ReqIF10Util.getAttributeValueForLabel(specObject, REQIF_NAME);
-			if (name.equals(value.getTheValue())) {
+			AttributeValueXHTML value = (AttributeValueXHTML) ReqIF10Util.getAttributeValueForLabel(specObject, REQIF_NAME);
+			XhtmlContent content = value.getTheValue();
+			XhtmlPType p = content.getP();
+
+			EAttribute mixedAttribute = null;
+			for (EAttribute eAttribute : p.eClass().getEAllAttributes()) {
+				if ("mixed".equals(eAttribute.getName()) && EcorePackage.eINSTANCE.getEFeatureMapEntry() == eAttribute.getEAttributeType()) {
+					mixedAttribute = eAttribute;
+					break;
+				}
+			}
+			FeatureMap featureMap = (FeatureMap) p.eGet(mixedAttribute);
+			Entry entry = featureMap.get(0);
+
+			if (name.equals(entry.getValue())) {
 				if (target != null) {
 					throw new IllegalStateException("More than one element with name " + name);
 				}
