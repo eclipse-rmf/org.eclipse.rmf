@@ -14,15 +14,14 @@ package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.DefaultLayoutAdvisor;
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.AbstractProrCellRenderer;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrXhtmlCellRenderer;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
@@ -33,13 +32,12 @@ import org.eclipse.swt.graphics.Rectangle;
 public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 
 	private ProrPropertyContentProvider contentProvider;
-	private EditingDomain editingDomain;
 	private final ProrXhtmlCellRenderer xhtmlCellRenderer;
 	
-	public ProrPropertyCellRenderer(AgileGrid agileGrid, AdapterFactory adapterFactory, EditingDomain editingDomain) {
+	public ProrPropertyCellRenderer(AgileGrid agileGrid,
+			AdapterFactory adapterFactory) {
 		super(agileGrid, adapterFactory);
 		this.contentProvider = (ProrPropertyContentProvider) agileGrid.getContentProvider();
-		this.editingDomain = editingDomain;
 		this.xhtmlCellRenderer = new ProrXhtmlCellRenderer(agileGrid,
 				this.contentProvider);
 	}
@@ -68,7 +66,7 @@ public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 					// Try to get cell renderer from presentation extension
 					// point
 					ProrPresentationConfiguration config = ConfigurationUtil
-							.getPresentationConfig(atrVal, editingDomain);
+							.getPresentationConfig(atrVal);
 					if (config != null) {
 						PresentationService service = PresentationServiceManager
 								.getPresentationService(config);

@@ -36,7 +36,8 @@ import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
-public class IDPresentationService extends AbstractPresentationService implements PresentationService {
+public class IDPresentationService extends AbstractPresentationService
+		implements PresentationService {
 
 	private final IProrCellRenderer idLabelCellRenderer;
 	private final HashMap<IdConfiguration, EContentAdapter> adapters = new HashMap<IdConfiguration, EContentAdapter>();
@@ -44,6 +45,7 @@ public class IDPresentationService extends AbstractPresentationService implement
 	public IDPresentationService() {
 		idLabelCellRenderer = new IdLabelCellRenderer();
 	}
+
 	/**
 	 * Upon opening, attaches a Listener that sets the ID if the Datatype
 	 * matches.
@@ -54,10 +56,12 @@ public class IDPresentationService extends AbstractPresentationService implement
 		ensureAllConfigsHaveAdapters(reqif, domain);
 
 		// Make sure that IdConfig additions and removals are handled
-		
-		ProrPresentationConfigurations presentationConfigurations = getPresentationConfigurations(reqif, domain);
-		if (presentationConfigurations == null) return;
-		
+
+		ProrPresentationConfigurations presentationConfigurations = getPresentationConfigurations(
+				reqif, domain);
+		if (presentationConfigurations == null)
+			return;
+
 		presentationConfigurations.eAdapters().add(new AdapterImpl() {
 			@Override
 			public void notifyChanged(Notification msg) {
@@ -66,9 +70,11 @@ public class IDPresentationService extends AbstractPresentationService implement
 		});
 	}
 
-	private void ensureAllConfigsHaveAdapters(final ReqIF reqif, EditingDomain domain) {
+	private void ensureAllConfigsHaveAdapters(final ReqIF reqif,
+			EditingDomain domain) {
 		Set<IdConfiguration> configs = getConfigurationElements(reqif, domain);
-		if (configs == null) return;
+		if (configs == null)
+			return;
 
 		// Process all existing IdConfigurations
 		for (final IdConfiguration config : configs) {
@@ -124,11 +130,15 @@ public class IDPresentationService extends AbstractPresentationService implement
 	/**
 	 * Get the {@link IdConfiguration}s for the given ReqIF
 	 */
-	private Set<IdConfiguration> getConfigurationElements(ReqIF reqif, EditingDomain domain) {
+	private Set<IdConfiguration> getConfigurationElements(ReqIF reqif,
+			EditingDomain domain) {
 		HashSet<IdConfiguration> idConfigs = new HashSet<IdConfiguration>();
-		ProrPresentationConfigurations configsElement = getPresentationConfigurations(reqif, domain);
-		if (configsElement == null) return null;
-		EList<ProrPresentationConfiguration> configs = configsElement.getPresentationConfigurations();
+		ProrPresentationConfigurations configsElement = getPresentationConfigurations(
+				reqif, domain);
+		if (configsElement == null)
+			return null;
+		EList<ProrPresentationConfiguration> configs = configsElement
+				.getPresentationConfigurations();
 		for (ProrPresentationConfiguration config : configs) {
 			if (config instanceof IdConfiguration)
 				idConfigs.add((IdConfiguration) config);
@@ -136,11 +146,17 @@ public class IDPresentationService extends AbstractPresentationService implement
 		return idConfigs;
 	}
 
-	private ProrPresentationConfigurations getPresentationConfigurations(ReqIF reqif, EditingDomain domain) {
-		ProrToolExtension uiExtension = ConfigurationUtil.getProrToolExtension(reqif, domain);
-		ProrPresentationConfigurations configs = uiExtension
-				.getPresentationConfigurations();
-		return configs;
+	private ProrPresentationConfigurations getPresentationConfigurations(
+			ReqIF reqif, EditingDomain domain) {
+		ProrToolExtension uiExtension = ConfigurationUtil
+				.getProrToolExtension(reqif);
+		if (uiExtension == null) {
+			return null;
+		} else {
+			ProrPresentationConfigurations configs = uiExtension
+					.getPresentationConfigurations();
+			return configs;
+		}
 	}
 
 	@Override

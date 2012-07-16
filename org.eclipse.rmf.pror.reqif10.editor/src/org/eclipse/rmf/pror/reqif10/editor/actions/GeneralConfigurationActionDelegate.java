@@ -50,7 +50,7 @@ public class GeneralConfigurationActionDelegate implements
 		ReqIF reqif = (ReqIF) editor.getEditingDomain().getResourceSet()
 				.getResources().get(0).getContents().get(0);
 		ProrToolExtension uiToolExtension = ConfigurationUtil
-				.getProrToolExtension(reqif, editor.getEditingDomain());
+				.getOrCreateProrToolExtension(reqif, editor.getEditingDomain());
 
 		SubtreeDialog dialog = new SubtreeDialog(editor,
 				uiToolExtension.getGeneralConfiguration(),

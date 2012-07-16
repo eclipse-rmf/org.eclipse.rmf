@@ -23,6 +23,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10Editor;
@@ -42,11 +43,14 @@ public class PresentationServiceManager {
 
 	private static Map<Class<? extends ProrPresentationConfiguration>, PresentationService> presentationServiceRegistry;
 
-	/* Private default constructor, to ensure that this class is never instantiated. */
+	/*
+	 * Private default constructor, to ensure that this class is never
+	 * instantiated.
+	 */
 	private PresentationServiceManager() {
-		throw new InstantiationError("This class is not designed to be instantiated.");
+		throw new InstantiationError(
+				"This class is not designed to be instantiated.");
 	}
-
 
 	// // There is one entry per Plugin
 	// private static Set<PresentationData> presentationTypeRegistry;
@@ -77,8 +81,8 @@ public class PresentationServiceManager {
 					try {
 						PresentationService service = (PresentationService) configElement
 								.createExecutableExtension("service");
-						tmpRegistry.put(
-								service.getConfigurationInterface(), service);
+						tmpRegistry.put(service.getConfigurationInterface(),
+								service);
 						PresentationEditManager.addService(
 								service.getConfigurationInterface(), service);
 					} catch (CoreException e) {
@@ -120,8 +124,12 @@ public class PresentationServiceManager {
 	 */
 	public static void notifiyOpenReqif(ReqIF reqif, Reqif10Editor editor) {
 
-		for (ProrPresentationConfiguration config : ConfigurationUtil
-				.getPresentationConfigurations(reqif)
+		ProrPresentationConfigurations configs = ConfigurationUtil
+				.getPresentationConfigurations(reqif);
+		if (configs == null)
+			return;
+
+		for (ProrPresentationConfiguration config : configs
 				.getPresentationConfigurations()) {
 			ProrPresentationConfigurationItemProvider itemProvider = (ProrPresentationConfigurationItemProvider) ProrUtil
 					.getItemProvider(editor.getAdapterFactory(), config);
@@ -134,10 +142,14 @@ public class PresentationServiceManager {
 	 * {@link ProrPresentationConfigurationItemProvider#unregisterReqIF(ReqIF, EditingDomain)}
 	 */
 	public static void notifiyCloseReqif(ReqIF reqif, Reqif10Editor editor) {
-		for (Class<? extends ProrPresentationConfiguration> config : PresentationServiceManager
-				.getPresentationServiceMap().keySet()) {
-			ProrPresentationConfigurationItemProvider itemProvider = 
-					(ProrPresentationConfigurationItemProvider) ProrUtil
+		ProrPresentationConfigurations configs = ConfigurationUtil
+				.getPresentationConfigurations(reqif);
+		if (configs == null)
+			return;
+
+		for (ProrPresentationConfiguration config : configs
+				.getPresentationConfigurations()) {
+			ProrPresentationConfigurationItemProvider itemProvider = (ProrPresentationConfigurationItemProvider) ProrUtil
 					.getItemProvider(editor.getAdapterFactory(), config);
 			itemProvider.unregisterReqIF(reqif, editor.getEditingDomain());
 		}
@@ -147,7 +159,7 @@ public class PresentationServiceManager {
 			AttributeValue value, EditingDomain editingDomain) {
 		PresentationService service = null;
 		ProrPresentationConfiguration config = ConfigurationUtil
-				.getPresentationConfig(value, editingDomain);
+				.getPresentationConfig(value);
 		if (config != null) {
 			service = PresentationServiceManager.getPresentationService(config);
 		}

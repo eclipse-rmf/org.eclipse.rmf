@@ -40,8 +40,8 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.AbstractProrCellEditorProvider;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
@@ -109,7 +109,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 		if (attrValue != null) {
 
 			ProrPresentationConfiguration config = ConfigurationUtil
-					.getPresentationConfig(attrValue, editingDomain);
+					.getPresentationConfig(attrValue);
 			if (config != null) {
 				PresentationService service = PresentationServiceManager.getPresentationService(config);
 				if (service != null)

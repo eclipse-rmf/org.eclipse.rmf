@@ -34,7 +34,7 @@ public class ProrPropertyControl extends AgileGrid {
 		this.contentProvider = new ProrPropertyContentProvider(editingDomain, showAllProps);
 		setContentProvider(this.contentProvider);
 		setCellRendererProvider(new ProrPropertyCellRendererProvider(this,
-				adapterFactory, editingDomain));
+				adapterFactory));
 		setLayoutAdvisor(new ProrPropertyLayoutAdvisor(this));
 		setCellEditorProvider(new ProrPropertyCellEditorProvider(this,
 				adapterFactory, editingDomain, this.contentProvider));

@@ -100,7 +100,7 @@ public class PresentationConfigurationActionDelegate implements
 	 */
 	private ProrPresentationConfigurations getProrPresentationConfigurations() {
 		final ProrToolExtension ext = ConfigurationUtil
-				.getProrToolExtension(editor.getReqif(), editor.getEditingDomain());
+				.getOrCreateProrToolExtension(editor.getReqif(), editor.getEditingDomain());
 		
 		if (ext.getPresentationConfigurations() == null) {
 

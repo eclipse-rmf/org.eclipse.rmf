@@ -17,7 +17,6 @@ import org.agilemore.agilegrid.ICellRenderer;
 import org.agilemore.agilegrid.SWTResourceManager;
 import org.agilemore.agilegrid.renderers.TextCellRenderer;
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertyContentProvider.ItemCategory;
@@ -36,9 +35,11 @@ public class ProrPropertyCellRendererProvider extends DefaultCellRendererProvide
 	// The cell renderer for category rows
 	private final TextCellRenderer categoryCellRenderer;
 
-	public ProrPropertyCellRendererProvider(AgileGrid agileGrid, AdapterFactory adapterFactory, EditingDomain editingDomain) {
+	public ProrPropertyCellRendererProvider(AgileGrid agileGrid,
+			AdapterFactory adapterFactory) {
 		super(agileGrid);
-		this.attributeCellRenderer = new ProrPropertyCellRenderer(agileGrid, adapterFactory, editingDomain);
+		this.attributeCellRenderer = new ProrPropertyCellRenderer(agileGrid,
+				adapterFactory);
 		this.categoryCellRenderer = new TextCellRenderer(agileGrid, SWT.BOLD);
 		this.categoryCellRenderer.setDefaultBackground(SWTResourceManager
 				.getColor(SWT.COLOR_WIDGET_BACKGROUND));

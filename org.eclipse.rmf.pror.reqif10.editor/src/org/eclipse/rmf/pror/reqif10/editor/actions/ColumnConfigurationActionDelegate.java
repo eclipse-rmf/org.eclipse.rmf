@@ -66,7 +66,7 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 			Specification spec = ((ReqifSpecificationEditorInput) input)
 					.getSpec();
 			ProrToolExtension toolConfig = ConfigurationUtil
-					.getProrToolExtension(reqif, editor.getEditingDomain());
+					.getOrCreateProrToolExtension(reqif, editor.getEditingDomain());
 			EList<ProrSpecViewConfiguration> configs = toolConfig
 					.getSpecViewConfigurations();
 			for (final ProrSpecViewConfiguration config : configs) {
