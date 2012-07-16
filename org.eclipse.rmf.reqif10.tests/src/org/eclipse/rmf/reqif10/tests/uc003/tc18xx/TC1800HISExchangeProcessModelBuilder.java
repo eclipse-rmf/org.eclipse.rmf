@@ -10,6 +10,7 @@ import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
+import org.eclipse.rmf.reqif10.EmbeddedValue;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
@@ -77,10 +78,22 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 		one = ReqIF10Factory.eINSTANCE.createEnumValue();
 		one.setIdentifier("ID_TC18xx_EnumValue_one");
 		one.setLongName("one");
+		one.setLastChange(toDate(LAST_CHANGE_STRING_0));
+
+		EmbeddedValue oneEmbeddedValue = ReqIF10Factory.eINSTANCE.createEmbeddedValue();
+		oneEmbeddedValue.setKey(new BigInteger("1"));
+		oneEmbeddedValue.setOtherContent("one");
+		one.setProperties(oneEmbeddedValue);
 
 		two = ReqIF10Factory.eINSTANCE.createEnumValue();
 		two.setIdentifier("ID_TC18xx_EnumValue_two");
 		two.setLongName("two");
+		two.setLastChange(toDate(LAST_CHANGE_STRING_0));
+
+		EmbeddedValue twoEmbeddedValue = ReqIF10Factory.eINSTANCE.createEmbeddedValue();
+		twoEmbeddedValue.setKey(new BigInteger("2"));
+		twoEmbeddedValue.setOtherContent("two");
+		two.setProperties(twoEmbeddedValue);
 
 		datatypeDefinitionEnumeration = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionEnumeration();
 		datatypeDefinitionEnumeration.setIdentifier("ID_TC18xx_DatatypeDefinitionEnumeration");
@@ -121,6 +134,7 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 		specObjectTypeAttributeDefinitionEnumerationE1.setLongName("E1");
 		specObjectTypeAttributeDefinitionEnumerationE1.setLastChange(toDate(LAST_CHANGE_STRING_0));
 		specObjectTypeAttributeDefinitionEnumerationE1.setType(datatypeDefinitionEnumeration);
+		specObjectTypeAttributeDefinitionEnumerationE1.setMultiValued(false);
 
 		specObjectType.getSpecAttributes().add(specObjectTypeAttributeDefinitionStringName);
 		specObjectType.getSpecAttributes().add(specObjectTypeAttributeDefinitionStringA1);
