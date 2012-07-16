@@ -28,7 +28,6 @@ import org.eclipse.swt.graphics.Rectangle;
 
 public class ProrCellRenderer extends AbstractProrCellRenderer {
 
-	private final ProrAgileGridContentProvider contentProvider;
 	private final Image specHierarchyIcon;
 	private final Image specObjectIcon;
 	private final Image specRelationIcon;
@@ -43,24 +42,28 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 	 *             If the contentProvider associated with the agileGrid is not a
 	 *             {@link ProrAgileGridContentProvider}.
 	 */
-	public ProrCellRenderer(AgileGrid agileGrid, AdapterFactory adapterFactory, EditingDomain editingDomain ) {
+	public ProrCellRenderer(AgileGrid agileGrid, AdapterFactory adapterFactory,
+			EditingDomain editingDomain) {
 		super(agileGrid, adapterFactory);
-		this.contentProvider = (ProrAgileGridContentProvider) agileGrid
-				.getContentProvider();
 		this.editingDomain = editingDomain;
-		//FIXME: Remove these static dependencies
+		// FIXME: Remove these static dependencies
 		specObjectIcon = ExtendedImageRegistry.getInstance().getImage(
-				Reqif10EditPlugin.INSTANCE.getImage("full/obj16/SpecObject.png"));
+				Reqif10EditPlugin.INSTANCE
+						.getImage("full/obj16/SpecObject.png"));
 		specHierarchyIcon = ExtendedImageRegistry.getInstance().getImage(
-				Reqif10EditPlugin.INSTANCE.getImage("full/obj16/SpecHierarchy.png"));
-		specRelationIcon = ExtendedImageRegistry.getInstance()
-				.getImage(
-						Reqif10EditPlugin.INSTANCE
-								.getImage("full/obj16/SpecRelation.png"));
+				Reqif10EditPlugin.INSTANCE
+						.getImage("full/obj16/SpecHierarchy.png"));
+		specRelationIcon = ExtendedImageRegistry.getInstance().getImage(
+				Reqif10EditPlugin.INSTANCE
+						.getImage("full/obj16/SpecRelation.png"));
 	}
 
 	@Override
 	protected void doDrawCellContent(GC gc, Rectangle rect, int row, int col) {
+
+		ProrAgileGridContentProvider contentProvider = (ProrAgileGridContentProvider) agileGrid
+				.getContentProvider();
+
 		// draw text and image in the given area.
 		Object content = contentProvider.getContentAt(row, col);
 
@@ -93,6 +96,9 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 	 */
 	private Rectangle doIndenting(GC gc, Rectangle rect, int row) {
 
+		ProrAgileGridContentProvider contentProvider = (ProrAgileGridContentProvider) agileGrid
+				.getContentProvider();
+
 		ProrRow prorRow = contentProvider.getProrRow(row);
 
 		int offset = prorRow.level * 20;
@@ -109,6 +115,7 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 		rect = new Rectangle(rect.x + offset + 18, rect.y, rect.width - offset
 				- 18, rect.height);
 		return rect;
+
 	}
 
 	private void updateCellHeight(int row, int col, int height) {
@@ -117,6 +124,5 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 					row, col, height + 2);
 		}
 	}
-	
 	
 }
