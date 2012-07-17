@@ -3,10 +3,6 @@ package org.eclipse.rmf.reqif10.tests.uc003.tc18xx;
 import java.math.BigInteger;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
@@ -221,22 +217,9 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 	public static XhtmlContent createXhtmlValue(String value) {
 		XhtmlContent xhtmlContent = ReqIF10Factory.eINSTANCE.createXhtmlContent();
 		XhtmlPType p = XhtmlFactory.eINSTANCE.createXhtmlPType();
-		setMixedText(p, value);
+		p.getXhtmlInlineMix().add(FeatureMapUtil.createTextEntry(value));
 		xhtmlContent.setP(p);
 		return xhtmlContent;
-	}
-
-	private static void setMixedText(EObject eObject, String value) {
-		// get the mixed attribute
-		EAttribute mixedAttribute = null;
-		for (EAttribute eAttribute : eObject.eClass().getEAllAttributes()) {
-			if ("mixed".equals(eAttribute.getName()) && EcorePackage.eINSTANCE.getEFeatureMapEntry() == eAttribute.getEAttributeType()) {
-				mixedAttribute = eAttribute;
-				break;
-			}
-		}
-		FeatureMap featureMap = (FeatureMap) eObject.eGet(mixedAttribute);
-		featureMap.add(FeatureMapUtil.createTextEntry(value));
 	}
 
 	@Override
