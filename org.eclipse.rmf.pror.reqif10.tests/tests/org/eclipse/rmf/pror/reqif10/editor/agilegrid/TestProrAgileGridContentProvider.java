@@ -77,7 +77,8 @@ public class TestProrAgileGridContentProvider extends AbstractItemProviderTest {
 
 	@Test
 	public void testInitialCellValue() {
-		assertNull(contentProvider.getContentAt(0, 0));
+		assertEquals(specification.getChildren().get(0).getObject(),
+				contentProvider.getContentAt(0, 0));
 	}
 
 }
