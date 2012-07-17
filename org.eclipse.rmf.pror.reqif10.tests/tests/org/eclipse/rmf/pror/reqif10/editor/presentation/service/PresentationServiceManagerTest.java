@@ -63,6 +63,11 @@ public class PresentationServiceManagerTest {
 	@Test
 	public void testMissingPresentationService() {
 		ProrPresentationConfiguration config = new ProrPresentationConfigurationImpl() {
+			public void registerReqIF() {
+			}
+
+			public void unregisterReqIF() {
+			}
 		};
 
 		PresentationInterface service = PresentationServiceManager
