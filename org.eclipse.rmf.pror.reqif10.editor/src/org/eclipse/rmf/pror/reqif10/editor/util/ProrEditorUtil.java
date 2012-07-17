@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
@@ -82,7 +82,7 @@ public class ProrEditorUtil {
 	private static void printRecursive(StringBuilder html,
 			ProrSpecViewConfiguration config, int indent,
 			EList<SpecHierarchy> children, EditingDomain domain,
-			List<PresentationService> presentations) {
+			List<PresentationInterface> presentations) {
 		for (SpecHierarchy child : children) {
 			if (child.getObject() != null) {
 				SpecObject specObject = child.getObject();
@@ -105,10 +105,10 @@ public class ProrEditorUtil {
 
 					if (configuration != null) {
 						
-						PresentationService service = null;
+						PresentationInterface service = null;
 
 						if (presentations != null) {
-							for (PresentationService serv : presentations) {
+							for (PresentationInterface serv : presentations) {
 								if (serv.getConfigurationInterface()
 										.isInstance(configuration))
 									service = serv;
@@ -145,7 +145,7 @@ public class ProrEditorUtil {
 	}
 
 	public static String createHtmlContent(Specification spec,
-			EditingDomain domain, List<PresentationService> presentations) {
+			EditingDomain domain, List<PresentationInterface> presentations) {
 
 		ProrSpecViewConfiguration config = ConfigurationUtil
 				.getSpecViewConfiguration(spec, domain);

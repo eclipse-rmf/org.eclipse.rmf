@@ -25,7 +25,7 @@ import org.eclipse.rmf.pror.presentation.headline.HeadlinePackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.AbstractPresentationService;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
@@ -35,7 +35,7 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
 
 public class HeadlinePresentationService extends AbstractPresentationService
-		implements PresentationService {
+		implements PresentationInterface {
 
 	private HeadlineCellRenderer headlineCellRenderer;
 

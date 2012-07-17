@@ -27,7 +27,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.AbstractPresentationService;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdFactory;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
@@ -37,7 +37,7 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 public class IDPresentationService extends AbstractPresentationService
-		implements PresentationService {
+		implements PresentationInterface {
 
 	private final IProrCellRenderer idLabelCellRenderer;
 	private final HashMap<IdConfiguration, EContentAdapter> adapters = new HashMap<IdConfiguration, EContentAdapter>();

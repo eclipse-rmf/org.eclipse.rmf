@@ -20,15 +20,14 @@ import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10Editor;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
-import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIF;
 
@@ -41,7 +40,7 @@ public class PresentationServiceManager {
 
 	public static final String PRESENTATION_EXTENSION_POINT_NAME = "org.eclipse.rmf.pror.reqif10.editor.presentation";
 
-	private static Map<Class<? extends ProrPresentationConfiguration>, PresentationService> presentationServiceRegistry;
+	private static Map<Class<? extends ProrPresentationConfiguration>, PresentationInterface> presentationServiceRegistry;
 
 	/*
 	 * Private default constructor, to ensure that this class is never
@@ -56,19 +55,19 @@ public class PresentationServiceManager {
 	// private static Set<PresentationData> presentationTypeRegistry;
 
 	/**
-	 * Returns the cached {@link PresentationService} representing all installed
+	 * Returns the cached {@link PresentationInterface} representing all installed
 	 * Presentation Extensions.
 	 * 
 	 * We use this method to initialize the presentation service map in the item
 	 * provider plugin.
 	 * 
 	 * @return A an unmodifyable map of {@link ProrPresentationConfiguration}
-	 *         classes and {@link PresentationService}s.
+	 *         classes and {@link PresentationInterface}s.
 	 */
-	public static Map<Class<? extends ProrPresentationConfiguration>, PresentationService> getPresentationServiceMap() {
+	public static Map<Class<? extends ProrPresentationConfiguration>, PresentationInterface> getPresentationInterfaceMap() {
 		if (presentationServiceRegistry == null) {
 
-			HashMap<Class<? extends ProrPresentationConfiguration>, PresentationService> tmpRegistry = new HashMap<Class<? extends ProrPresentationConfiguration>, PresentationService>();
+			HashMap<Class<? extends ProrPresentationConfiguration>, PresentationInterface> tmpRegistry = new HashMap<Class<? extends ProrPresentationConfiguration>, PresentationInterface>();
 
 			IExtensionRegistry registry = Platform.getExtensionRegistry();
 			IExtensionPoint extensionPoint = registry
@@ -79,7 +78,7 @@ public class PresentationServiceManager {
 						.getConfigurationElements();
 				for (IConfigurationElement configElement : configElements) {
 					try {
-						PresentationService service = (PresentationService) configElement
+						PresentationInterface service = (PresentationInterface) configElement
 								.createExecutableExtension("service");
 						tmpRegistry.put(service.getConfigurationInterface(),
 								service);
@@ -104,15 +103,15 @@ public class PresentationServiceManager {
 	}
 
 	/**
-	 * Returns the {@link PresentationService} for the given
+	 * Returns the {@link PresentationInterface} for the given
 	 * {@link ProrPresentationConfiguration} instance, or null if none found.
 	 */
-	public static PresentationService getPresentationService(
+	public static PresentationInterface getPresentationService(
 			ProrPresentationConfiguration configuration) {
-		for (Class<? extends ProrPresentationConfiguration> clazz : getPresentationServiceMap()
+		for (Class<? extends ProrPresentationConfiguration> clazz : getPresentationInterfaceMap()
 				.keySet()) {
 			if (clazz.isInstance(configuration)) {
-				return getPresentationServiceMap().get(clazz);
+				return getPresentationInterfaceMap().get(clazz);
 			}
 		}
 		return null;
@@ -122,7 +121,8 @@ public class PresentationServiceManager {
 	 * Upon opening a ReqIF File, this method notifies each
 	 * {@link ProrPresentationConfigurationItemProvider#registerReqIF(ReqIF, EditingDomain)}
 	 */
-	public static void notifiyOpenReqif(ReqIF reqif, Reqif10Editor editor) {
+	public static void notifiyOpenReqif(ReqIF reqif,
+			AdapterFactory adapterFactory, EditingDomain editingDomain) {
 
 		ProrPresentationConfigurations configs = ConfigurationUtil
 				.getPresentationConfigurations(reqif);
@@ -131,9 +131,8 @@ public class PresentationServiceManager {
 
 		for (ProrPresentationConfiguration config : configs
 				.getPresentationConfigurations()) {
-			ProrPresentationConfigurationItemProvider itemProvider = (ProrPresentationConfigurationItemProvider) ProrUtil
-					.getItemProvider(editor.getAdapterFactory(), config);
-			itemProvider.registerReqIF(reqif, editor.getEditingDomain());
+			System.out.println("Registering: " + config);
+			config.registerReqIF();
 		}
 	}
 
@@ -141,7 +140,8 @@ public class PresentationServiceManager {
 	 * Upon closing a ReqIF File, this method notifies each
 	 * {@link ProrPresentationConfigurationItemProvider#unregisterReqIF(ReqIF, EditingDomain)}
 	 */
-	public static void notifiyCloseReqif(ReqIF reqif, Reqif10Editor editor) {
+	public static void notifiyCloseReqif(ReqIF reqif,
+			AdapterFactory adapterFactory, EditingDomain editingDomain) {
 		ProrPresentationConfigurations configs = ConfigurationUtil
 				.getPresentationConfigurations(reqif);
 		if (configs == null)
@@ -149,15 +149,14 @@ public class PresentationServiceManager {
 
 		for (ProrPresentationConfiguration config : configs
 				.getPresentationConfigurations()) {
-			ProrPresentationConfigurationItemProvider itemProvider = (ProrPresentationConfigurationItemProvider) ProrUtil
-					.getItemProvider(editor.getAdapterFactory(), config);
-			itemProvider.unregisterReqIF(reqif, editor.getEditingDomain());
+			System.out.println("Unregistering: " + config);
+			config.unregisterReqIF();
 		}
 	}
 
-	public static PresentationService getPresentationService(
+	public static PresentationInterface getPresentationService(
 			AttributeValue value, EditingDomain editingDomain) {
-		PresentationService service = null;
+		PresentationInterface service = null;
 		ProrPresentationConfiguration config = ConfigurationUtil
 				.getPresentationConfig(value);
 		if (config != null) {

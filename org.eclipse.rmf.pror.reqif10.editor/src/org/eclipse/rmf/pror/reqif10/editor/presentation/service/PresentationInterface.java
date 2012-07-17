@@ -13,7 +13,7 @@ package org.eclipse.rmf.pror.reqif10.editor.presentation.service;
 import java.util.Collection;
 
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditService;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditInterface;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
 
@@ -52,14 +52,14 @@ import org.eclipse.rmf.reqif10.ReqIF;
  * </ul>
  * <p>
  * 
- * Note that this interface simply aggregates {@link PresentationEditService}
- * and {@link PresentationEditorService}, which are separated as the reside in
+ * Note that this interface simply aggregates {@link PresentationEditInterface}
+ * and {@link PresentationEditorInterface}, which are separated as the reside in
  * two different plugins (the former does not require andy GUI libraries, the
  * later does).
  * 
  * @author jastram
  * 
  */
-public interface PresentationService extends PresentationEditorService,
-		PresentationEditService {
+public interface PresentationInterface extends PresentationEditorInterface,
+		PresentationEditInterface {
 }

@@ -7,7 +7,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 
-public interface PresentationEditService {
+public interface PresentationEditInterface {
 
 	/**
 	 * Will be called when the system can't handle a drag and drop operation by

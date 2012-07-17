@@ -27,7 +27,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10Editor;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.ReqIFToolExtension;
@@ -68,7 +68,7 @@ public class PresentationConfigurationActionDelegate implements
 	private IAction[] buildAddPresentationActions() {
 
 		Set<Class<? extends ProrPresentationConfiguration>> configs = PresentationServiceManager
-				.getPresentationServiceMap().keySet();
+				.getPresentationInterfaceMap().keySet();
 		IAction[] actions = new IAction[configs.size()];
 
 		int i = 0;
@@ -77,8 +77,8 @@ public class PresentationConfigurationActionDelegate implements
 			actions[i++] = new Action(ProrUtil.substractPrefixPostfix(config, "","ConfigurationImpl")) {
 				@Override
 				public void run() {
-					PresentationService service = PresentationServiceManager
-							.getPresentationServiceMap().get(config);
+					PresentationInterface service = PresentationServiceManager
+							.getPresentationInterfaceMap().get(config);
 					ProrPresentationConfiguration config = service
 							.getConfigurationInstance();
 					Command command = AddCommand

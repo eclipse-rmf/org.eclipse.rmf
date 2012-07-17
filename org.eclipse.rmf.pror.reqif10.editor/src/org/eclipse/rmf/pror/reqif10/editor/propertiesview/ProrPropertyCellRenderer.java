@@ -19,7 +19,7 @@ import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.AbstractProrCellRenderer;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
@@ -59,7 +59,7 @@ public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 				ProrPresentationConfiguration config = ConfigurationUtil
 						.getPresentationConfig(atrVal);
 				if (config != null) {
-					PresentationService service = PresentationServiceManager
+					PresentationInterface service = PresentationServiceManager
 							.getPresentationService(config);
 					if (service != null)
 						renderer = service.getCellRenderer(atrVal);

@@ -30,7 +30,7 @@ import org.eclipse.rmf.reqif10.ReqIF;
  * @author jastram
  * 
  */
-public abstract class AbstractPresentationService extends AdapterImpl implements PresentationService {
+public abstract class AbstractPresentationService extends AdapterImpl implements PresentationInterface {
 
 	/**
 	 * This map contains all open ReqIF models and their corresponding editing

@@ -16,7 +16,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrAgileGridContentProvider.ProrRow;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 import org.eclipse.rmf.reqif10.AttributeValue;
@@ -77,7 +77,7 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 		AttributeValue attrValue = contentProvider.getValueForColumn(
 				contentProvider.getProrRow(row).getSpecElement(), col);
 
-		PresentationService service = PresentationServiceManager
+		PresentationInterface service = PresentationServiceManager
 				.getPresentationService(attrValue, editingDomain);
 		if (service != null)
 			renderer = service.getCellRenderer(attrValue);

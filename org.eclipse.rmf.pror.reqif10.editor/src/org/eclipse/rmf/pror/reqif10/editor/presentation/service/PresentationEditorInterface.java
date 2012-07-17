@@ -9,12 +9,12 @@ import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 
 /**
- * This interface encapsulates those aspects of a {@link PresentationService} that have
+ * This interface encapsulates those aspects of a {@link PresentationInterface} that have
  * a GUI component.
  * 
  * @author jastram
  */
-public interface PresentationEditorService {
+public interface PresentationEditorInterface {
 
 	/**
 	 * Returns the {@link Class} for the subclass of

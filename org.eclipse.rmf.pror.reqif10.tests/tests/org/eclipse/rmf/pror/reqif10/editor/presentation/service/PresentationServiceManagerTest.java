@@ -24,21 +24,21 @@ public class PresentationServiceManagerTest {
 	 */
 	@Test
 	public void testGetPresentationServiceMapContent() {
-		Map<Class<? extends ProrPresentationConfiguration>, PresentationService> map = PresentationServiceManager
-				.getPresentationServiceMap();
+		Map<Class<? extends ProrPresentationConfiguration>, PresentationInterface> map = PresentationServiceManager
+				.getPresentationInterfaceMap();
 		Assert.assertEquals(3, map.size());
 	}
 
 	@Test(expected = UnsupportedOperationException.class)
 	public void testPresentationMapNotModifyable() {
-		PresentationServiceManager.getPresentationServiceMap().clear();
+		PresentationServiceManager.getPresentationInterfaceMap().clear();
 	}
 
 	@Test
 	public void testHeadlinePresentationService() {
 		HeadlineConfiguration config = HeadlineFactory.eINSTANCE
 				.createHeadlineConfiguration();
-		PresentationService service = PresentationServiceManager
+		PresentationInterface service = PresentationServiceManager
 				.getPresentationService(config);
 		Assert.assertTrue(service instanceof HeadlinePresentationService);
 	}
@@ -46,7 +46,7 @@ public class PresentationServiceManagerTest {
 	@Test
 	public void testIdPresentationService() {
 		IdConfiguration config = IdFactory.eINSTANCE.createIdConfiguration();
-		PresentationService service = PresentationServiceManager
+		PresentationInterface service = PresentationServiceManager
 				.getPresentationService(config);
 		Assert.assertTrue(service instanceof IDPresentationService);
 	}
@@ -55,7 +55,7 @@ public class PresentationServiceManagerTest {
 	public void testLinewrapPresentationService() {
 		LinewrapConfiguration config = LinewrapFactory.eINSTANCE
 				.createLinewrapConfiguration();
-		PresentationService service = PresentationServiceManager
+		PresentationInterface service = PresentationServiceManager
 				.getPresentationService(config);
 		Assert.assertTrue(service instanceof LinewrapPresentationService);
 	}
@@ -65,7 +65,7 @@ public class PresentationServiceManagerTest {
 		ProrPresentationConfiguration config = new ProrPresentationConfigurationImpl() {
 		};
 
-		PresentationService service = PresentationServiceManager
+		PresentationInterface service = PresentationServiceManager
 				.getPresentationService(config);
 		Assert.assertNull(service);
 	}

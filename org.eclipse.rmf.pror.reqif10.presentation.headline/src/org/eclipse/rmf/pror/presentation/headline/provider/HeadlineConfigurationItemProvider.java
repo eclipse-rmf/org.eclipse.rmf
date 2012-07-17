@@ -18,7 +18,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -31,7 +30,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.presentation.headline.HeadlineConfiguration;
 import org.eclipse.rmf.pror.presentation.headline.HeadlinePackage;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
-import org.eclipse.rmf.reqif10.ReqIF;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.pror.presentation.headline.HeadlineConfiguration} object.
@@ -162,20 +160,6 @@ public class HeadlineConfigurationItemProvider
 	@Override
 	public ResourceLocator getResourceLocator() {
 		return HeadlineEditPlugin.INSTANCE;
-	}
-
-	/**
-	 * Nothing to do upon opening
-	 */
-	@Override
-	public void registerReqIF(ReqIF reqif, EditingDomain domain) {
-	}
-
-	@Override
-	public void unregisterReqIF(ReqIF reqif, EditingDomain domain) {
-		/**
-		 * Nothing to do upon closing
-		 */
 	}
 
 }
