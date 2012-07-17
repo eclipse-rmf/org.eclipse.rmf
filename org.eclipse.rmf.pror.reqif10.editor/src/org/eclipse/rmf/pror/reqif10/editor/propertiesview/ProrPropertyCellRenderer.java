@@ -30,17 +30,12 @@ import org.eclipse.swt.graphics.Rectangle;
 
 public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 
-	private ProrPropertyContentProvider contentProvider;
 	private EditingDomain editingDomain;
 
-	// private final ProrXhtmlCellRenderer xhtmlCellRenderer;
-	
-	public ProrPropertyCellRenderer(AgileGrid agileGrid, AdapterFactory adapterFactory, EditingDomain editingDomain) {
+	public ProrPropertyCellRenderer(AgileGrid agileGrid,
+			AdapterFactory adapterFactory, EditingDomain editingDomain) {
 		super(agileGrid, adapterFactory);
-		this.contentProvider = (ProrPropertyContentProvider) agileGrid.getContentProvider();
 		this.editingDomain = editingDomain;
-		// this.xhtmlCellRenderer = new ProrXhtmlCellRenderer(agileGrid,
-		// this.contentProvider);
 	}
 	
 	@Override
@@ -50,8 +45,10 @@ public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 		// We render only the second column (attribute value)
 		if (col == 1) {
 
-			AttributeValue atrVal = this.contentProvider
-					.getReqIfAttributeValue(row);
+			ProrPropertyContentProvider contentProvider = (ProrPropertyContentProvider) agileGrid
+					.getContentProvider();
+
+			AttributeValue atrVal = contentProvider.getReqIfAttributeValue(row);
 
 			// Get the default row height
 			int initRowHeight = ((DefaultLayoutAdvisor) agileGrid
@@ -78,20 +75,20 @@ public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 										// the
 										// renderer
 					newRowHeight = renderer.doDrawCellContent(gc, rect,
-							this.contentProvider.getReqIfAttributeValue(row));
+							contentProvider.getReqIfAttributeValue(row));
 				} else { // Else use the default draw cell method
 					newRowHeight = doDrawCellContentDefault(gc, rect,
-							this.contentProvider.getReqIfAttributeValue(row));
+							contentProvider.getReqIfAttributeValue(row));
 				}
 
 			} else { // We have a EMF property
 
 				// Get the corresponding image from label item label provider
-				IItemLabelProvider labelProvider = this.contentProvider
+				IItemLabelProvider labelProvider = contentProvider
 						.getItemLabelProvider(row);
 
 				Image img = ExtendedImageRegistry.getInstance().getImage(
-						labelProvider.getImage(this.contentProvider
+						labelProvider.getImage(contentProvider
 								.getItemPropertyValue(row)));
 
 				// Get the content at row and col
