@@ -72,27 +72,6 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 */
 	@Override
 	public void doSetContentAt(int row, int col, Object newValue) {
-
-		// ProrRow prorRow = getProrRow(row);
-		// AttributeValue oldValue = getValueForColumn(prorRow.getSpecElement(),
-		// col);
-		// EStructuralFeature feature = null;
-		// if (oldValue instanceof AttributeValueSimple) {
-		// feature =
-		// ExchangeFilePackage.Literals.ATTRIBUTE_VALUE_SIMPLE__THE_VALUE;
-		// } else if (oldValue instanceof AttributeValueEnumeration) {
-		// feature =
-		// ExchangeFilePackage.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES;
-		// } else {
-		// throw new UnsupportedOperationException("Not yet supported: " +
-		// oldValue);
-		// }
-		//
-		// if (!newValue.equals(oldValue)) {
-		// Command cmd = SetCommand.create(editingDomain, oldValue, feature,
-		// newValue);
-		// editingDomain.getCommandStack().execute(cmd);
-		// }
 	}
 
 	/**

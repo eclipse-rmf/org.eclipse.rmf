@@ -10,8 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.agilegrid;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 import java.net.URISyntaxException;
 
@@ -38,7 +37,8 @@ public class TestProrAgileGridContentProvider extends AbstractItemProviderTest {
 	protected ReqIF reqif;
 
 	@Before
-	public void setup() throws URISyntaxException {
+	public void setupTestProrAgileGridContentProvider()
+			throws URISyntaxException {
 		reqif = this.getTestReqif("simple.reqif");
 		specification = reqif.getCoreContent().getSpecifications().get(0);
 
@@ -52,7 +52,7 @@ public class TestProrAgileGridContentProvider extends AbstractItemProviderTest {
 	}
 	
 	@After
-	public void teardownAbstractItemProviderTest() {
+	public void teardownTestProrAgileGridContentProvidert() {
 		reqif = null;
 		specification = null;
 		specViewConfig = null;

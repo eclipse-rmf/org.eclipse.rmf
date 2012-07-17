@@ -28,8 +28,8 @@ public class ProrPropertyControl extends AgileGrid {
 
 	public ProrPropertyControl(Composite parent, EditingDomain editingDomain,
 			AdapterFactory adapterFactory, boolean showAllProps) {
-		super(parent, SWT.V_SCROLL | SWT.H_SCROLL | SWTX.FILL_WITH_DUMMYCOL
-				| SWT.FLAT);
+		super(parent, SWT.V_SCROLL | SWT.H_SCROLL | SWTX.FILL_WITH_LASTCOL
+				| SWT.MULTI | SWT.DOUBLE_BUFFERED);
 		setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
 		this.contentProvider = new ProrPropertyContentProvider(editingDomain, showAllProps);
 		setContentProvider(this.contentProvider);

@@ -12,20 +12,26 @@
 package org.eclipse.rmf.reqif10.tests.uc003.tc18xx;
 
 import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.assertTrue;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMap.Entry;
 import org.eclipse.rmf.reqif10.AttributeValueString;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.tests.util.AbstractTestCase;
 import org.eclipse.rmf.reqif10.tests.util.CommonSystemAttributes;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -73,8 +79,21 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 	SpecObject getSpecObjectByName(ReqIF reqif, String name) {
 		SpecObject target = null;
 		for (SpecObject specObject : reqif.getCoreContent().getSpecObjects()) {
-			AttributeValueString value = (AttributeValueString) ReqIF10Util.getAttributeValueForLabel(specObject, REQIF_NAME);
-			if (name.equals(value.getTheValue())) {
+			AttributeValueXHTML value = (AttributeValueXHTML) ReqIF10Util.getAttributeValueForLabel(specObject, REQIF_NAME);
+			XhtmlContent content = value.getTheValue();
+			XhtmlPType p = content.getP();
+
+			EAttribute mixedAttribute = null;
+			for (EAttribute eAttribute : p.eClass().getEAllAttributes()) {
+				if ("mixed".equals(eAttribute.getName()) && EcorePackage.eINSTANCE.getEFeatureMapEntry() == eAttribute.getEAttributeType()) {
+					mixedAttribute = eAttribute;
+					break;
+				}
+			}
+			FeatureMap featureMap = (FeatureMap) p.eGet(mixedAttribute);
+			Entry entry = featureMap.get(0);
+
+			if (name.equals(entry.getValue())) {
 				if (target != null) {
 					throw new IllegalStateException("More than one element with name " + name);
 				}
@@ -87,7 +106,7 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 	/**
 	 * Returns true if the given {@link SpecObject} resides in the Spec with the given name.
 	 */
-	boolean findInSpec(String name, SpecObject specObject) {
+	SpecHierarchy findInSpec(String name, SpecObject specObject) {
 		// First, find the spec.
 		Specification spec = null;
 		for (Specification s : ReqIF10Util.getReqIF(specObject).getCoreContent().getSpecifications()) {
@@ -104,10 +123,10 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 		for (SpecHierarchy specHierarchy : spec.getChildren()) {
 			SpecObject so = specHierarchy.getObject();
 			if (EcoreUtil.equals(so, specObject)) {
-				return true;
+				return specHierarchy;
 			}
 		}
-		return false;
+		return null;
 	}
 
 	/**
@@ -131,34 +150,11 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 	}
 
 	@Test
-	public void testObj02() throws Exception {
-		SpecObject[] so = getObjectsByName("Obj-02");
-		// All change dates must be identical
-		assertNotNull(so[0].getLastChange());
-		assertEquals(so[0].getLastChange(), so[1].getLastChange());
-		assertEquals(so[1].getLastChange(), so[2].getLastChange());
-		assertEquals(so[2].getLastChange(), so[3].getLastChange());
-
-		// Check values
-		assertEquals("O2.A1 initial", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[0], "A1")));
-		assertEquals("O2.A2 initial", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[0], "A2")));
-
-		assertEquals("O2.A1 initial", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[1], "A1")));
-		assertEquals("O2.A2 once", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[1], "A2")));
-
-		assertEquals("O2.A1 once", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[2], "A1")));
-		assertEquals("O2.A2 once", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[2], "A2")));
-
-		assertEquals("O2.A1 once", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[3], "A1")));
-		assertEquals("O2.A2 twice", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[3], "A2")));
-	}
-
-	@Test
 	public void testObj03() throws Exception {
 		SpecObject[] so = getObjectsByName("Obj-03");
 
 		assertTrue(so[0].getLastChange().toGregorianCalendar().getTimeInMillis() < so[1].getLastChange().toGregorianCalendar().getTimeInMillis());
-		assertTrue(so[1].getLastChange().toGregorianCalendar().getTimeInMillis() == so[2].getLastChange().toGregorianCalendar().getTimeInMillis());
+		assertTrue(so[1].getLastChange().toGregorianCalendar().getTimeInMillis() < so[2].getLastChange().toGregorianCalendar().getTimeInMillis());
 		assertTrue(so[2].getLastChange().toGregorianCalendar().getTimeInMillis() < so[3].getLastChange().toGregorianCalendar().getTimeInMillis());
 
 		// Check values
@@ -195,12 +191,14 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 		assertNull(so[1]);
 		assertNull(so[2]);
 		assertEquals("no change", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[3], "A1")));
+		assertEquals("no change", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[3], "A2")));
 	}
 
 	@Test
 	public void testObj06() throws Exception {
 		SpecObject[] so = getObjectsByName("Obj-06");
 		assertEquals("no change", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[0], "A1")));
+		assertEquals("no change", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[0], "A2")));
 		assertNull(so[1]);
 		assertNull(so[2]);
 		assertNull(so[3]);
@@ -229,12 +227,16 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 				assertTrue("i=" + i + ", j=" + j, EcoreUtil.equals(so[i], so[j]));
 			}
 		}
-		assertTrue(findInSpec("Spec1", so[0]));
-		assertFalse(findInSpec("Spec2", so[0]));
+		SpecHierarchy sh0 = findInSpec("Spec1", so[0]);
+		assertNotNull(sh0);
+		assertNull(findInSpec("Spec2", so[0]));
 
 		for (int i = 1; i < 4; i++) {
-			assertFalse(findInSpec("Spec1", so[i]));
-			assertTrue(findInSpec("Spec2", so[i]));
+			assertNull(findInSpec("Spec1", so[i]));
+			SpecHierarchy shx = findInSpec("Spec2", so[i]);
+			assertNotNull(shx);
+			assertTrue(sh0.getLastChange().toGregorianCalendar().getTimeInMillis() < shx.getLastChange().toGregorianCalendar().getTimeInMillis());
+
 		}
 	}
 
@@ -249,36 +251,12 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 			}
 		}
 		for (int i = 0; i < 3; i++) {
-			assertTrue(findInSpec("Spec1", so[i]));
-			assertFalse(findInSpec("Spec2", so[i]));
+			assertNotNull(findInSpec("Spec1", so[i]));
+			assertNull(findInSpec("Spec2", so[i]));
 		}
 
-		assertFalse(findInSpec("Spec1", so[3]));
-		assertTrue(findInSpec("Spec2", so[3]));
+		assertNull(findInSpec("Spec1", so[3]));
+		assertNotNull(findInSpec("Spec2", so[3]));
 
 	}
-
-	@Test
-	public void testObj10() throws Exception {
-		SpecObject[] so = getObjectsByName("Obj-10");
-
-		assertTrue(so[0].getLastChange().toGregorianCalendar().getTimeInMillis() > so[1].getLastChange().toGregorianCalendar().getTimeInMillis());
-		assertTrue(so[1].getLastChange().toGregorianCalendar().getTimeInMillis() == so[2].getLastChange().toGregorianCalendar().getTimeInMillis());
-		assertTrue(so[2].getLastChange().toGregorianCalendar().getTimeInMillis() > so[3].getLastChange().toGregorianCalendar().getTimeInMillis());
-
-		// Check values
-		assertEquals("O10.A1 initial", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[0], "A1")));
-		assertEquals("O10.A2 initial", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[0], "A2")));
-
-		assertEquals("O10.A1 initial", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[1], "A1")));
-		assertEquals("O10.A2 once", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[1], "A2")));
-
-		assertEquals("O10.A1 once", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[2], "A1")));
-		assertEquals("O10.A2 once", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[2], "A2")));
-
-		assertEquals("O10.A1 once", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[3], "A1")));
-		assertEquals("O10.A2 twice", ReqIF10Util.getTheValue(ReqIF10Util.getAttributeValueForLabel(so[3], "A2")));
-
-	}
-
 }

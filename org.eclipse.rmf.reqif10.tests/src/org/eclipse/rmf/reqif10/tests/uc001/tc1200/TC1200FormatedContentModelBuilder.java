@@ -191,252 +191,298 @@ public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 
 		// level 1 / top level
 		// create fill XhtmlDivType in XhtmlContent.div at original value
-		description = "xhtml.p.type_the_original_value";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), true);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue(), xhtmlLevel1);
+		// description = "xhtml.p.type_the_original_value";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), true);
+		// specObject = createSpecObject(description,
+		// ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue(), xhtmlLevel1);
+
 		description = "xhtml.p.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), true);
+		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlPType(), false);
 		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		// create fill XhtmlDivType in XhtmlContent.div at original value
-		description = "xhtml.div.type_the_original_value";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), true);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue(), xhtmlLevel1);
-		description = "xhtml.div.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), true);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		// level 2
-		// objects that are contained on xhtml.p.type
-		createSpecObjectWithPXhtml("xhtml.br.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Br(), XhtmlPackage.eINSTANCE.getXhtmlBrType());
-		createSpecObjectWithPXhtml("xhtml.span.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Span(), XhtmlPackage.eINSTANCE.getXhtmlSpanType());
-		createSpecObjectWithPXhtml("xhtml.em.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Em(), XhtmlPackage.eINSTANCE.getXhtmlEmType());
-		createSpecObjectWithPXhtml("xhtml.strong.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Strong(), XhtmlPackage.eINSTANCE.getXhtmlStrongType());
-		createSpecObjectWithPXhtml("xhtml.dfn.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Dfn(), XhtmlPackage.eINSTANCE.getXhtmlDfnType());
-		createSpecObjectWithPXhtml("xhtml.code.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Code(), XhtmlPackage.eINSTANCE.getXhtmlCodeType());
-		createSpecObjectWithPXhtml("xhtml.samp.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Samp(), XhtmlPackage.eINSTANCE.getXhtmlSampType());
-		createSpecObjectWithPXhtml("xhtml.kbd.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Kbd(), XhtmlPackage.eINSTANCE.getXhtmlKbdType());
-		createSpecObjectWithPXhtml("xhtml.var.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Var(), XhtmlPackage.eINSTANCE.getXhtmlVarType());
-		createSpecObjectWithPXhtml("xhtml.cite.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Cite(), XhtmlPackage.eINSTANCE.getXhtmlCiteType());
-		createSpecObjectWithPXhtml("xhtml.abbr.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Abbr(), XhtmlPackage.eINSTANCE.getXhtmlAbbrType());
-		createSpecObjectWithPXhtml("xhtml.acronym.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Acronym(), XhtmlPackage.eINSTANCE.getXhtmlAcronymType());
-		createSpecObjectWithPXhtml("xhtml.q.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Q(), XhtmlPackage.eINSTANCE.getXhtmlQType());
-		createSpecObjectWithPXhtml("xhtml.inl.pres.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Tt(), XhtmlPackage.eINSTANCE.getXhtmlInlPresType());
-		createSpecObjectWithPXhtml("xhtml.a.type", XhtmlPackage.eINSTANCE.getXhtmlPType_A(), XhtmlPackage.eINSTANCE.getXhtmlAType());
-		createSpecObjectWithPXhtml("xhtml.object.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Object(), XhtmlPackage.eINSTANCE.getXhtmlObjectType());
-		createSpecObjectWithPXhtml("xhtml.edit.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Ins(), XhtmlPackage.eINSTANCE.getXhtmlEditType());
-
-		// first level objects that are contained in xhtml.div.type and are not already covered by xhtml.p.type
-		createSpecObjectWithDivXhtml("xhtml.h1.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H1(), XhtmlPackage.eINSTANCE.getXhtmlH1Type());
-		createSpecObjectWithDivXhtml("xhtml.h2.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H2(), XhtmlPackage.eINSTANCE.getXhtmlH2Type());
-		createSpecObjectWithDivXhtml("xhtml.h3.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H3(), XhtmlPackage.eINSTANCE.getXhtmlH3Type());
-		createSpecObjectWithDivXhtml("xhtml.h4.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H4(), XhtmlPackage.eINSTANCE.getXhtmlH4Type());
-		createSpecObjectWithDivXhtml("xhtml.h5.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H5(), XhtmlPackage.eINSTANCE.getXhtmlH5Type());
-		createSpecObjectWithDivXhtml("xhtml.h6.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H6(), XhtmlPackage.eINSTANCE.getXhtmlH6Type());
-		createSpecObjectWithDivXhtml("xhtml.ul.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Ul(), XhtmlPackage.eINSTANCE.getXhtmlUlType());
-		createSpecObjectWithDivXhtml("xhtml.ol.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Ol(), XhtmlPackage.eINSTANCE.getXhtmlOlType());
-		createSpecObjectWithDivXhtml("xhtml.dl.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Dl(), XhtmlPackage.eINSTANCE.getXhtmlDlType());
-		createSpecObjectWithDivXhtml("xhtml.pre.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Pre(), XhtmlPackage.eINSTANCE.getXhtmlPreType());
-		createSpecObjectWithDivXhtml("xhtml.blockquote.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Blockquote(),
-				XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType());
-		createSpecObjectWithDivXhtml("xhtml.address.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Address(),
-				XhtmlPackage.eINSTANCE.getXhtmlAddressType());
-		createSpecObjectWithDivXhtml("xhtml.hr.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Hr(), XhtmlPackage.eINSTANCE.getXhtmlHrType());
-		createSpecObjectWithDivXhtml("xhtml.table.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), XhtmlPackage.eINSTANCE.getXhtmlTableType());
-
-		// level 3
-		// xhtml.li.type
-		description = "xhtml.li.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlUlType(), false);
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Ul(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlLiType(), true);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlUlType_Li(), xhtmlLevel3);
-
-		// xhtml.dt.type
-		description = "xhtml.dt.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDlType(), false);
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Dl(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDtType(), true);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlDlType_Dt(), xhtmlLevel3);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDdType(), false);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlDlType_Dd(), xhtmlLevel3);
-
-		// xhtml.dd.type
-		description = "xhtml.dd.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDlType(), false);
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Dl(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDtType(), false);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlDlType_Dt(), xhtmlLevel3);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDdType(), true);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlDlType_Dd(), xhtmlLevel3);
-
-		// xhtml.caption.type
-		description = "xhtml.caption.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlCaptionType(), true);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Caption(), xhtmlLevel3);
-
-		// xhtml.thead.type
-		description = "xhtml.thead.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
-		((XhtmlTableType) xhtmlLevel2).getTr().clear();
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTheadType(), true);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Thead(), xhtmlLevel3);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTbodyType(), false);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tbody(), xhtmlLevel3);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTfootType(), false);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tfoot(), xhtmlLevel3);
-
-		// xhtml.col.type
-		description = "xhtml.col.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlColType(), true);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Col(), xhtmlLevel3);
-
-		// xhtml.colgroup.type
-		description = "xhtml.colgroup.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlColgroupType(), true);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Colgroup(), xhtmlLevel3);
-
-		// xhtml.tfoot.type
-		description = "xhtml.tfoot.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
-		((XhtmlTableType) xhtmlLevel2).getTr().clear();
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTheadType(), false);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Thead(), xhtmlLevel3);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTbodyType(), false);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tbody(), xhtmlLevel3);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTfootType(), true);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tfoot(), xhtmlLevel3);
-
-		// xhtml.tbody.type
-		description = "xhtml.tbody.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
-		((XhtmlTableType) xhtmlLevel2).getTr().clear();
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTheadType(), false);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Thead(), xhtmlLevel3);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTbodyType(), true);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tbody(), xhtmlLevel3);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTfootType(), false);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tfoot(), xhtmlLevel3);
-
-		// xhtml.tr.type
-		description = "xhtml.tr.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTrType(), true);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tr(), xhtmlLevel3);
-
-		// xhtml.param.type
-		description = "xhtml.param.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlObjectType(), false);
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Object(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlParamType(), true);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlObjectType_Param(), xhtmlLevel3);
-
-		// level 4
-		// xhtml.td.type
-		description = "xhtml.td.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTrType(), false);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tr(), xhtmlLevel3);
-
-		xhtmlLevel4 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTdType(), true);
-		setValue(xhtmlLevel3, XhtmlPackage.eINSTANCE.getXhtmlTrType_Td(), xhtmlLevel4);
-
-		// xhtml.th.type
-		description = "xhtml.th.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTrType(), false);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tr(), xhtmlLevel3);
-
-		xhtmlLevel4 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlThType(), true);
-		setValue(xhtmlLevel3, XhtmlPackage.eINSTANCE.getXhtmlTrType_Th(), xhtmlLevel4);
-
+		//
+		// // create fill XhtmlDivType in XhtmlContent.div at original value
+		// description = "xhtml.div.type_the_original_value";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), true);
+		// specObject = createSpecObject(description,
+		// ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheOriginalValue(), xhtmlLevel1);
+		// description = "xhtml.div.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), true);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// // level 2
+		// // objects that are contained on xhtml.p.type
+		// createSpecObjectWithPXhtml("xhtml.br.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Br(),
+		// XhtmlPackage.eINSTANCE.getXhtmlBrType());
+		// createSpecObjectWithPXhtml("xhtml.span.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Span(),
+		// XhtmlPackage.eINSTANCE.getXhtmlSpanType());
+		// createSpecObjectWithPXhtml("xhtml.em.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Em(),
+		// XhtmlPackage.eINSTANCE.getXhtmlEmType());
+		// createSpecObjectWithPXhtml("xhtml.strong.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Strong(),
+		// XhtmlPackage.eINSTANCE.getXhtmlStrongType());
+		// createSpecObjectWithPXhtml("xhtml.dfn.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Dfn(),
+		// XhtmlPackage.eINSTANCE.getXhtmlDfnType());
+		// createSpecObjectWithPXhtml("xhtml.code.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Code(),
+		// XhtmlPackage.eINSTANCE.getXhtmlCodeType());
+		// createSpecObjectWithPXhtml("xhtml.samp.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Samp(),
+		// XhtmlPackage.eINSTANCE.getXhtmlSampType());
+		// createSpecObjectWithPXhtml("xhtml.kbd.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Kbd(),
+		// XhtmlPackage.eINSTANCE.getXhtmlKbdType());
+		// createSpecObjectWithPXhtml("xhtml.var.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Var(),
+		// XhtmlPackage.eINSTANCE.getXhtmlVarType());
+		// createSpecObjectWithPXhtml("xhtml.cite.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Cite(),
+		// XhtmlPackage.eINSTANCE.getXhtmlCiteType());
+		// createSpecObjectWithPXhtml("xhtml.abbr.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Abbr(),
+		// XhtmlPackage.eINSTANCE.getXhtmlAbbrType());
+		// createSpecObjectWithPXhtml("xhtml.acronym.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Acronym(),
+		// XhtmlPackage.eINSTANCE.getXhtmlAcronymType());
+		// createSpecObjectWithPXhtml("xhtml.q.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Q(),
+		// XhtmlPackage.eINSTANCE.getXhtmlQType());
+		// createSpecObjectWithPXhtml("xhtml.inl.pres.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Tt(),
+		// XhtmlPackage.eINSTANCE.getXhtmlInlPresType());
+		// createSpecObjectWithPXhtml("xhtml.a.type", XhtmlPackage.eINSTANCE.getXhtmlPType_A(),
+		// XhtmlPackage.eINSTANCE.getXhtmlAType());
+		// createSpecObjectWithPXhtml("xhtml.object.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Object(),
+		// XhtmlPackage.eINSTANCE.getXhtmlObjectType());
+		// createSpecObjectWithPXhtml("xhtml.edit.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Ins(),
+		// XhtmlPackage.eINSTANCE.getXhtmlEditType());
+		//
+		// // first level objects that are contained in xhtml.div.type and are not already covered by xhtml.p.type
+		// createSpecObjectWithDivXhtml("xhtml.h1.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H1(),
+		// XhtmlPackage.eINSTANCE.getXhtmlH1Type());
+		// createSpecObjectWithDivXhtml("xhtml.h2.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H2(),
+		// XhtmlPackage.eINSTANCE.getXhtmlH2Type());
+		// createSpecObjectWithDivXhtml("xhtml.h3.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H3(),
+		// XhtmlPackage.eINSTANCE.getXhtmlH3Type());
+		// createSpecObjectWithDivXhtml("xhtml.h4.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H4(),
+		// XhtmlPackage.eINSTANCE.getXhtmlH4Type());
+		// createSpecObjectWithDivXhtml("xhtml.h5.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H5(),
+		// XhtmlPackage.eINSTANCE.getXhtmlH5Type());
+		// createSpecObjectWithDivXhtml("xhtml.h6.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_H6(),
+		// XhtmlPackage.eINSTANCE.getXhtmlH6Type());
+		// createSpecObjectWithDivXhtml("xhtml.ul.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Ul(),
+		// XhtmlPackage.eINSTANCE.getXhtmlUlType());
+		// createSpecObjectWithDivXhtml("xhtml.ol.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Ol(),
+		// XhtmlPackage.eINSTANCE.getXhtmlOlType());
+		// createSpecObjectWithDivXhtml("xhtml.dl.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Dl(),
+		// XhtmlPackage.eINSTANCE.getXhtmlDlType());
+		// createSpecObjectWithDivXhtml("xhtml.pre.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Pre(),
+		// XhtmlPackage.eINSTANCE.getXhtmlPreType());
+		// createSpecObjectWithDivXhtml("xhtml.blockquote.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Blockquote(),
+		// XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType());
+		// createSpecObjectWithDivXhtml("xhtml.address.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Address(),
+		// XhtmlPackage.eINSTANCE.getXhtmlAddressType());
+		// createSpecObjectWithDivXhtml("xhtml.hr.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Hr(),
+		// XhtmlPackage.eINSTANCE.getXhtmlHrType());
+		// createSpecObjectWithDivXhtml("xhtml.table.type", XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(),
+		// XhtmlPackage.eINSTANCE.getXhtmlTableType());
+		//
+		// // level 3
+		// // xhtml.li.type
+		// description = "xhtml.li.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlUlType(), false);
+		// setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Ul(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlLiType(), true);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlUlType_Li(), xhtmlLevel3);
+		//
+		// // xhtml.dt.type
+		// description = "xhtml.dt.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDlType(), false);
+		// setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Dl(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDtType(), true);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlDlType_Dt(), xhtmlLevel3);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDdType(), false);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlDlType_Dd(), xhtmlLevel3);
+		//
+		// // xhtml.dd.type
+		// description = "xhtml.dd.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDlType(), false);
+		// setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Dl(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDtType(), false);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlDlType_Dt(), xhtmlLevel3);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDdType(), true);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlDlType_Dd(), xhtmlLevel3);
+		//
+		// // xhtml.caption.type
+		// description = "xhtml.caption.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		// setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlCaptionType(), true);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Caption(), xhtmlLevel3);
+		//
+		// // xhtml.thead.type
+		// description = "xhtml.thead.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		// ((XhtmlTableType) xhtmlLevel2).getTr().clear();
+		// setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTheadType(), true);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Thead(), xhtmlLevel3);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTbodyType(), false);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tbody(), xhtmlLevel3);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTfootType(), false);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tfoot(), xhtmlLevel3);
+		//
+		// // xhtml.col.type
+		// description = "xhtml.col.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		// setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlColType(), true);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Col(), xhtmlLevel3);
+		//
+		// // xhtml.colgroup.type
+		// description = "xhtml.colgroup.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		// setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlColgroupType(), true);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Colgroup(), xhtmlLevel3);
+		//
+		// // xhtml.tfoot.type
+		// description = "xhtml.tfoot.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		// ((XhtmlTableType) xhtmlLevel2).getTr().clear();
+		// setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTheadType(), false);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Thead(), xhtmlLevel3);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTbodyType(), false);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tbody(), xhtmlLevel3);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTfootType(), true);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tfoot(), xhtmlLevel3);
+		//
+		// // xhtml.tbody.type
+		// description = "xhtml.tbody.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		// ((XhtmlTableType) xhtmlLevel2).getTr().clear();
+		// setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTheadType(), false);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Thead(), xhtmlLevel3);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTbodyType(), true);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tbody(), xhtmlLevel3);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTfootType(), false);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tfoot(), xhtmlLevel3);
+		//
+		// // xhtml.tr.type
+		// description = "xhtml.tr.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		// setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTrType(), true);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tr(), xhtmlLevel3);
+		//
+		// // xhtml.param.type
+		// description = "xhtml.param.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlObjectType(), false);
+		// setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Object(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlParamType(), true);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlObjectType_Param(), xhtmlLevel3);
+		//
+		// // level 4
+		// // xhtml.td.type
+		// description = "xhtml.td.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		// setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTrType(), false);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tr(), xhtmlLevel3);
+		//
+		// xhtmlLevel4 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTdType(), true);
+		// setValue(xhtmlLevel3, XhtmlPackage.eINSTANCE.getXhtmlTrType_Td(), xhtmlLevel4);
+		//
+		// // xhtml.th.type
+		// description = "xhtml.th.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTableType(), false);
+		// setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Table(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlTrType(), false);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tr(), xhtmlLevel3);
+		//
+		// xhtmlLevel4 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlThType(), true);
+		// setValue(xhtmlLevel3, XhtmlPackage.eINSTANCE.getXhtmlTrType_Th(), xhtmlLevel4);
+		//
 	}
 
 	private void createSpecObjectWithPXhtml(String description, EReference eReference, EClass targetType) throws Exception {
@@ -490,8 +536,8 @@ public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 
 	private EObject createXhtmlInstance(EClass eClass, boolean createAll) {
 		EObject eObject = EcoreUtil.create(eClass);
-		setAttributes(eObject, createAll);
-		setSubElements(eObject, createAll);
+		// setAttributes(eObject, createAll);
+		// setSubElements(eObject, createAll);
 		setMixedText(eObject, createAll);
 
 		return eObject;

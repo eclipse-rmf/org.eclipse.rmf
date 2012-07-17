@@ -42,6 +42,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.AbstractProrCellEditorProvider;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
+import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertyContentProvider.SortedItemPropertyDescriptor;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
@@ -85,11 +86,15 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 					.getPresentationService(attrValue, editingDomain);
 			return service == null ? true : service.canEdit();
 		} else {
-			IItemPropertyDescriptor descriptor = this.contentProvider
-					.getItemPropertyDescriptor(row).getItemPropertyDescriptor();
-			if (descriptor != null)
-				return descriptor.canSetProperty(this.contentProvider
-						.getElement());
+			SortedItemPropertyDescriptor itemPropertyDescriptor = this.contentProvider
+					.getItemPropertyDescriptor(row);
+			if (itemPropertyDescriptor != null) {
+				IItemPropertyDescriptor descriptor = itemPropertyDescriptor
+						.getItemPropertyDescriptor();
+				if (descriptor != null)
+					return descriptor.canSetProperty(this.contentProvider
+							.getElement());
+			}
 		}
 
 		return false;
