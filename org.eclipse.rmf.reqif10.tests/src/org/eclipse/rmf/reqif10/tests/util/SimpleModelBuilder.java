@@ -19,9 +19,13 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
+import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
 
 @SuppressWarnings("nls")
 public class SimpleModelBuilder extends ReqIFContentModelBuilder {
@@ -172,6 +176,14 @@ public class SimpleModelBuilder extends ReqIFContentModelBuilder {
 	public XMLGregorianCalendar toDate(String date) throws DatatypeConfigurationException {
 		XMLGregorianCalendar xmlGregoriaCalendar = (XMLGregorianCalendar) EcoreUtil.createFromString(XMLTypePackage.eINSTANCE.getDateTime(), date);
 		return xmlGregoriaCalendar;
+	}
+
+	public static XhtmlContent createXhtmlValue(String value) {
+		XhtmlContent xhtmlContent = ReqIF10Factory.eINSTANCE.createXhtmlContent();
+		XhtmlPType p = XhtmlFactory.eINSTANCE.createXhtmlPType();
+		p.getXhtmlInlineMix().add(FeatureMapUtil.createTextEntry(value));
+		xhtmlContent.setP(p);
+		return xhtmlContent;
 	}
 
 }

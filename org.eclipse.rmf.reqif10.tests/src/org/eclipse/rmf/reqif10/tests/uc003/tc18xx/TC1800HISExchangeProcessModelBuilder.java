@@ -3,7 +3,6 @@ package org.eclipse.rmf.reqif10.tests.uc003.tc18xx;
 import java.math.BigInteger;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
@@ -22,11 +21,8 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
-import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.tests.util.CommonSystemAttributes;
 import org.eclipse.rmf.reqif10.tests.util.SimpleModelBuilder;
-import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
-import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
 
 @SuppressWarnings("nls")
 public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder implements CommonSystemAttributes {
@@ -212,14 +208,6 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 
 		getReqIF().getCoreContent().getSpecObjects().add(specObject);
 
-	}
-
-	public static XhtmlContent createXhtmlValue(String value) {
-		XhtmlContent xhtmlContent = ReqIF10Factory.eINSTANCE.createXhtmlContent();
-		XhtmlPType p = XhtmlFactory.eINSTANCE.createXhtmlPType();
-		p.getXhtmlInlineMix().add(FeatureMapUtil.createTextEntry(value));
-		xhtmlContent.setP(p);
-		return xhtmlContent;
 	}
 
 	@Override
