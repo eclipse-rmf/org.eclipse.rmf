@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
-import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
 import org.w3c.dom.Document;
 
@@ -50,12 +49,12 @@ public class ReqIF10XhtmlUtil {
 	 */
 	public static EObject getXhtmlRootObject(XhtmlContent xhtmlContent) {
 		EObject root = null;
-		if (xhtmlContent.getDiv() != null) {
-			root = xhtmlContent.getDiv();
-		} else if (xhtmlContent.getP() != null) {
-			root = xhtmlContent.getP();
-		} else {
-			root = XhtmlFactory.eINSTANCE.createXhtmlDivType();
+		if (xhtmlContent != null) {
+			if (xhtmlContent.getDiv() != null) {
+				root = xhtmlContent.getDiv();
+			} else if (xhtmlContent.getP() != null) {
+				root = xhtmlContent.getP();
+			}
 		}
 		return root;
 	}
@@ -65,7 +64,7 @@ public class ReqIF10XhtmlUtil {
 	 * 
 	 * @param xhtmlContent
 	 *            , the ReqIF container that holds the xhtml content (See also: {@link XhtmlContent})
-	 * @return a {@link Document} object or null
+	 * @return a {@link Document} object or null if no root element exists in the xhtml content object
 	 */
 	public static Document getXhtmlDom(XhtmlContent xhtmlContent) {
 		EObject xhtmlRootObject = getXhtmlRootObject(xhtmlContent);
