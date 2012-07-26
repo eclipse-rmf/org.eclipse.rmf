@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
@@ -43,6 +44,7 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
@@ -142,7 +144,7 @@ public class SpecificationEditor extends EditorPart implements
 				reqifEditor.getAdapterFactory(), getEditingDomain(),
 				reqifActionBarContributor.getAgileCellEditorActionHandler());
 		prorAgileGridViewer.setInput(specification);
-		prorAgileGridViewer.setContextMenu(buildContextMenu());
+		buildContextMenu();
 	}
 
 	/**
@@ -270,6 +272,13 @@ public class SpecificationEditor extends EditorPart implements
 		contextMenu.add(new Separator("additions"));
 		contextMenu.setRemoveAllWhenShown(true);
 		contextMenu.addMenuListener(this);
+
+		Menu menu = contextMenu.createContextMenu(prorAgileGridViewer
+				.getControl());
+		prorAgileGridViewer.getControl().setMenu(menu);
+		getSite().registerContextMenu(contextMenu,
+				new UnwrappingSelectionProvider(prorAgileGridViewer));
+
 		return contextMenu;
 	}
 
