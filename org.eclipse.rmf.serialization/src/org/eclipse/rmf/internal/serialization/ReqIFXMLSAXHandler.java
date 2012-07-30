@@ -239,6 +239,9 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 		if (SerializationStrategy.TOOL_EXTENSION == serializationStrategy && level - 1 <= toolExtensionsLevel) {
 			// we finished reading tool extensions
 			serializationStrategy = SerializationStrategy.REQIF;
+			if (isFeatureExpected()) {
+				deferredFeatures.pop();
+			}
 		} else if (SerializationStrategy.REQIF == serializationStrategy || SerializationStrategy.TOOL_EXTENSION == serializationStrategy) {
 			if (isFeatureExpected()) {
 				deferredFeatures.pop();

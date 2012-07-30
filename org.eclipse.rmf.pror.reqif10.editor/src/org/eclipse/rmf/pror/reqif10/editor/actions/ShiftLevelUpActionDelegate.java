@@ -23,9 +23,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
-import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -43,7 +41,8 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 
 	private IStructuredSelection selection;
 	private IEditorPart editor;
-	private IWorkbenchWindow window;
+
+	// private IWorkbenchWindow window;
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
@@ -60,14 +59,14 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 				.getFirstElement();
 		if (specHierarchy.getObject() == null)
 			return;
-		SpecType type = specHierarchy.getObject().getType();
+		// SpecType type = specHierarchy.getObject().getType();
 	
 		if (!(editor instanceof SpecificationEditor))
 			return;
 		SpecificationEditor specificationEditor = (SpecificationEditor) editor;
 
-		Shell shell = window != null ? window.getShell() : editor.getSite()
-				.getShell();
+		// Shell shell = window != null ? window.getShell() : editor.getSite()
+		// .getShell();
 	
 		EObject eContainer = specHierarchy.eContainer();
 		System.out.println(eContainer);
@@ -129,7 +128,7 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 	 * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#init(org.eclipse.ui.IWorkbenchWindow)
 	 */
 	public void init(IWorkbenchWindow window) {
-		this.window = window;
+		// this.window = window;
 	}
 
 	/* (non-Javadoc)

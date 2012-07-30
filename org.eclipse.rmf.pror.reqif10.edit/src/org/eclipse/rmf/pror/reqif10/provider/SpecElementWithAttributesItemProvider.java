@@ -171,21 +171,31 @@ public abstract class SpecElementWithAttributesItemProvider extends
 	@Override
 	protected Command createSetCommand(EditingDomain domain, EObject owner,
 			EStructuralFeature feature, Object value, int index) {
+
 		if (feature == getSpecTypeFeature()) {
 			CompoundCommand cmd = new CompoundCommand();
-			
+
 			Collection<AttributeDefinition> specAttributes;
+
 			if (value instanceof SpecType) {
 				specAttributes = ((SpecType) value).getSpecAttributes();
 			} else {
 				specAttributes = Collections.emptyList();
 			}
-			
-			cmd.append(ProrUtil.createValueAdjustCommand(domain,
-					(SpecElementWithAttributes) owner,
-					specAttributes));
+
+			CompoundCommand createValueAdjustCommand = ProrUtil
+					.createValueAdjustCommand(domain,
+							(SpecElementWithAttributes) owner, specAttributes);
+
+			// We need to check if the adjust command is executable,
+			// since the next command (set command) would not be executed
+			// whenever it is disabled
+			if (createValueAdjustCommand.canExecute())
+				cmd.append(createValueAdjustCommand);
+
 			cmd.append(super.createSetCommand(domain, owner, feature, value,
 					index));
+
 			return cmd;
 		}
 		return super.createSetCommand(domain, owner, feature, value, index);

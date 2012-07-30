@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline" xmlns:linewrap="http://pror.org/presentation/linewrap">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="rmf-f07a5fce-e356-406f-b850-e3dd211009fd">
+      <CREATION-TIME>2012-06-14T10:05:43.404+02:00</CREATION-TIME>
+      <SOURCE-TOOL-ID>ProR (http://pror.org)</SOURCE-TOOL-ID>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="rmf-6e84c2ff-a34d-4ec6-8959-97bce86faa94" LONG-NAME="T_String32k" MAX-LENGTH="32000"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="rmf-8e4bc547-e681-48a6-91e9-0e84dced01ac" LONG-NAME="T_Headline"/>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-OBJECT-TYPE IDENTIFIER="rmf-cca02cb8-98c0-4379-9e0c-52a0fb2096d0" LONG-NAME="Use Case Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-66cae104-2cdd-4f0b-81fc-70342fee9d0c" LONG-NAME="Main Success Scenario">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-6e84c2ff-a34d-4ec6-8959-97bce86faa94</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-bc58624f-cde6-4d62-ab44-642660826958" LONG-NAME="Precondition">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-6e84c2ff-a34d-4ec6-8959-97bce86faa94</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-f9f1589c-46d4-4912-8573-a6e93b7971bb" LONG-NAME="Guarantee">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-6e84c2ff-a34d-4ec6-8959-97bce86faa94</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-40675d74-4b36-49bc-b35c-6551844671ed" LONG-NAME="Exceptions">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-6e84c2ff-a34d-4ec6-8959-97bce86faa94</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-2e08e4eb-aaae-4d9f-a95f-1ac76eea5b85" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-6e84c2ff-a34d-4ec6-8959-97bce86faa94</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-3a10f7c6-c7b5-4b51-883a-461f7d665ad8" LONG-NAME="Actors">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-6e84c2ff-a34d-4ec6-8959-97bce86faa94</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-bb3e79af-b0ef-43f4-814d-0367d9a62434" LONG-NAME="Variation">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-6e84c2ff-a34d-4ec6-8959-97bce86faa94</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="rmf-e9882cc9-b901-4e0d-90b1-56e526d52ee5" LONG-NAME="Headline Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-8ed42220-a549-4ac3-aa50-3c2bf6733e31" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-8e4bc547-e681-48a6-91e9-0e84dced01ac</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT IDENTIFIER="rmf-ee35c554-da55-445d-873f-34063af6149c">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="1. The user selects the model element in the outline view of the Event-B editor.&#xD;&#xA;&#xD;&#xA;2. The user drags the model element (target) and drops it to the corresponding artifact (source).&#xD;&#xA;&#xD;&#xA;3. ProR locates the proxy model element for the model element, or creates one if it does not exist yet.&#xD;&#xA;&#xD;&#xA;4. ProR creates a trace/link between the proxy model element and the artifact.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-66cae104-2cdd-4f0b-81fc-70342fee9d0c</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="At least one artifact and one model element exists.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bc58624f-cde6-4d62-ab44-642660826958</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="A proxy model element is created (if does not exist yet) and a trace between the artifact and the model element is established.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-f9f1589c-46d4-4912-8573-a6e93b7971bb</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Trace already exists. In this case nothing happens.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-40675d74-4b36-49bc-b35c-6551844671ed</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC DND CREATE TRACE">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2e08e4eb-aaae-4d9f-a95f-1ac76eea5b85</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User, ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3a10f7c6-c7b5-4b51-883a-461f7d665ad8</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bb3e79af-b0ef-43f4-814d-0367d9a62434</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-cca02cb8-98c0-4379-9e0c-52a0fb2096d0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-4bd7268c-cb3f-4f3e-be8a-9dea0b230753">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Drag and Drop">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-8ed42220-a549-4ac3-aa50-3c2bf6733e31</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-e9882cc9-b901-4e0d-90b1-56e526d52ee5</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-3f259a23-50ca-429f-8659-fb71854126d2">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC DND EDIT MODEL ELEMENT">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2e08e4eb-aaae-4d9f-a95f-1ac76eea5b85</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The proxy model element is updated.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-f9f1589c-46d4-4912-8573-a6e93b7971bb</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="1. The user edits a model element (i.e. an invariant).&#xD;&#xA;&#xD;&#xA;2. ProR updates the corresponding proxy model element upon save of the Event-B editor.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-66cae104-2cdd-4f0b-81fc-70342fee9d0c</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User, ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3a10f7c6-c7b5-4b51-883a-461f7d665ad8</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Note that ProR can only react to model changes if the ReqIF model is open, while the Event-B model is being edited.&#xD;&#xA;See: UC-DND-OPEN-REQIF-MODEL">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-40675d74-4b36-49bc-b35c-6551844671ed</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="- A corresponding proxy model element of the edited model element exists.&#xD;&#xA;&#xD;&#xA;- ProR is open.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bc58624f-cde6-4d62-ab44-642660826958</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bb3e79af-b0ef-43f4-814d-0367d9a62434</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-cca02cb8-98c0-4379-9e0c-52a0fb2096d0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-e9eb507b-74e7-4525-8340-0f29626d66f9">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC DND DELETE MODEL FILE">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2e08e4eb-aaae-4d9f-a95f-1ac76eea5b85</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-f9f1589c-46d4-4912-8573-a6e93b7971bb</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="1. The user deletes a model element.&#xD;&#xA;&#xD;&#xA;2. ProR marks the proxy model element as “missing”.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-66cae104-2cdd-4f0b-81fc-70342fee9d0c</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User, ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3a10f7c6-c7b5-4b51-883a-461f7d665ad8</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Note that ProR can only react to model changes if the ReqIF model is open, while the Event-B model is being edited.&#xD;&#xA;See: UC-DND-OPEN-REQIF-MODEL">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-40675d74-4b36-49bc-b35c-6551844671ed</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR is open">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bc58624f-cde6-4d62-ab44-642660826958</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user deletes a model file (i.e. machine or context file): In this case all linked model elements of the model file are marked as “missing”.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bb3e79af-b0ef-43f4-814d-0367d9a62434</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-cca02cb8-98c0-4379-9e0c-52a0fb2096d0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-d87c4902-c044-4fdd-bf3f-c5ff93f8ee70">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC RENAME MODEL FILE">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2e08e4eb-aaae-4d9f-a95f-1ac76eea5b85</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-f9f1589c-46d4-4912-8573-a6e93b7971bb</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="1. The user renames a model file (i.e. machine or context file).&#xD;&#xA;&#xD;&#xA;2. ProR updates the references of the proxy model elements.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-66cae104-2cdd-4f0b-81fc-70342fee9d0c</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bb3e79af-b0ef-43f4-814d-0367d9a62434</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User, ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3a10f7c6-c7b5-4b51-883a-461f7d665ad8</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Note that ProR can only react to model changes if the ReqIF model is open, while the Event-B model is being edited.&#xD;&#xA;See: UC-DND-OPEN-REQIF-MODEL">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-40675d74-4b36-49bc-b35c-6551844671ed</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bc58624f-cde6-4d62-ab44-642660826958</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-cca02cb8-98c0-4379-9e0c-52a0fb2096d0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-a2e6f0dc-1bd3-489f-9429-9f99639ae2fe">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC DND OPEN REQIF MODEL">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2e08e4eb-aaae-4d9f-a95f-1ac76eea5b85</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Changes in the model have been detected and acted upon.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-f9f1589c-46d4-4912-8573-a6e93b7971bb</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="1.  The user opens a ReqIF model.&#xD;&#xA;&#xD;&#xA;2. ProR detects changes made in the model.&#xD;&#xA;&#xD;&#xA;3. ProR updates the affected proxy model elements (See also: UC-DND-EDIT-MODEL-ELEMENT and UC-DND-DELETE-MODEL-FILE).&#xD;&#xA;&#xD;&#xA;4. ProR marks the proxy model elements which are not found in the Event-B model as “missing”. ">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-66cae104-2cdd-4f0b-81fc-70342fee9d0c</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bb3e79af-b0ef-43f4-814d-0367d9a62434</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User, ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3a10f7c6-c7b5-4b51-883a-461f7d665ad8</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-40675d74-4b36-49bc-b35c-6551844671ed</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The model files exists under the same names as referenced in the proxy model elements and the ProR editor is closed.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bc58624f-cde6-4d62-ab44-642660826958</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-cca02cb8-98c0-4379-9e0c-52a0fb2096d0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-f11905b4-9b9d-4367-a480-c979f74bdf15">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Color Highlighting">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-8ed42220-a549-4ac3-aa50-3c2bf6733e31</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-e9882cc9-b901-4e0d-90b1-56e526d52ee5</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-2180464e-da29-49b1-84be-7f0184c0b516">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC COLOR HIGHLIGHTING">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2e08e4eb-aaae-4d9f-a95f-1ac76eea5b85</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The model element names in the artifact attribute (i.e. description) are highlighted.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-f9f1589c-46d4-4912-8573-a6e93b7971bb</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="1. The user enters the name of a model element (in square brackets) in an artifact attribute (i.e. description).&#xD;&#xA;&#xD;&#xA;2. ProR highlights the model element name in the artifact attribute (i.e. description).&#xD;&#xA;&#xD;&#xA;Scenario # Renderer # Editor&#xD;&#xA;name not marked # black text # red underline&#xD;&#xA;marked &amp; exists # blue text # blue text&#xD;&#xA;marked &amp; does not exist # red text # red text">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-66cae104-2cdd-4f0b-81fc-70342fee9d0c</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bb3e79af-b0ef-43f4-814d-0367d9a62434</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User, ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3a10f7c6-c7b5-4b51-883a-461f7d665ad8</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Note that ProR can only react to artifact changes which are located outside of the ReqIF model, if the ReqIF model is open.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-40675d74-4b36-49bc-b35c-6551844671ed</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bc58624f-cde6-4d62-ab44-642660826958</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-cca02cb8-98c0-4379-9e0c-52a0fb2096d0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-8469226a-0968-4f9b-91b2-f17e65f8a737">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC COLOR RENAME MODEL ELEMENT">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2e08e4eb-aaae-4d9f-a95f-1ac76eea5b85</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The highlighted model element names are updated in the artifact attributes (i.e. description).">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-f9f1589c-46d4-4912-8573-a6e93b7971bb</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="1. The user renames a model element in the Event-B editor (i.e. a variable).&#xD;&#xA;&#xD;&#xA;2. ProR updates the highlighted model element names in the artifact attributes (i.e. description) upon save of the Event-B editor.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-66cae104-2cdd-4f0b-81fc-70342fee9d0c</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bb3e79af-b0ef-43f4-814d-0367d9a62434</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User, ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3a10f7c6-c7b5-4b51-883a-461f7d665ad8</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="- Note that ProR can only react to artifact changes which are located outside of the ReqIF model, if the ReqIF model is open.&#xD;&#xA;- We get a problem if a variable and constant have the same name.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-40675d74-4b36-49bc-b35c-6551844671ed</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bc58624f-cde6-4d62-ab44-642660826958</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-cca02cb8-98c0-4379-9e0c-52a0fb2096d0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-c1cb2a9c-4904-4f72-a30a-20c21947cd34">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Link Management">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-8ed42220-a549-4ac3-aa50-3c2bf6733e31</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-e9882cc9-b901-4e0d-90b1-56e526d52ee5</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-10bc1e76-e0d8-420f-913b-df9ed3908c68">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC LINK EDIT REQ">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2e08e4eb-aaae-4d9f-a95f-1ac76eea5b85</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The source or target status attribute of the corresponding traces are set to “changed”.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-f9f1589c-46d4-4912-8573-a6e93b7971bb</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="1. The user edits an artifact (i.e. a requirement).&#xD;&#xA;&#xD;&#xA;2. ProR sets the source or target status attribute of the trace(s) to “changed”.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-66cae104-2cdd-4f0b-81fc-70342fee9d0c</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="If the status attribute of the trace(s) are already set to “changed”, then this use case has no effect.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bb3e79af-b0ef-43f4-814d-0367d9a62434</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User, ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3a10f7c6-c7b5-4b51-883a-461f7d665ad8</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Note that ProR can only react to artifact changes which are located outside of the ReqIF model, if the ReqIF model is open.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-40675d74-4b36-49bc-b35c-6551844671ed</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="At least one trace between two artifacts exists.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bc58624f-cde6-4d62-ab44-642660826958</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-cca02cb8-98c0-4379-9e0c-52a0fb2096d0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-6f979c02-13e7-434a-82e7-febb96ec9bf0">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC WIZ PROJECT SETUP">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2e08e4eb-aaae-4d9f-a95f-1ac76eea5b85</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="A ReqIF model is created with the predefined Event-B specific ReqIF types and presentation configurations.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-f9f1589c-46d4-4912-8573-a6e93b7971bb</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="1. The user opens the Event-B ReqIF File wizard.&#xD;&#xA;&#xD;&#xA;2. The user enters a name for the ReqIF file.&#xD;&#xA;&#xD;&#xA;3. The user confirms his entries.&#xD;&#xA;&#xD;&#xA;4. ProR creates a new ReqIF file with the predefined Event-B specific ReqIF types and presentation configurations.&#xD;&#xA;&#xD;&#xA;5. ProR opens the created ReqIF model.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-66cae104-2cdd-4f0b-81fc-70342fee9d0c</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bb3e79af-b0ef-43f4-814d-0367d9a62434</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User, ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3a10f7c6-c7b5-4b51-883a-461f7d665ad8</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-40675d74-4b36-49bc-b35c-6551844671ed</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bc58624f-cde6-4d62-ab44-642660826958</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-cca02cb8-98c0-4379-9e0c-52a0fb2096d0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-3430872f-58d0-49af-99cb-14a1d3fe5cd7">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Phenomena">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-8ed42220-a549-4ac3-aa50-3c2bf6733e31</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-e9882cc9-b901-4e0d-90b1-56e526d52ee5</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-13f1bd63-ecc5-4c03-925f-8a8189c9ea22">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC PHEN CREATE">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2e08e4eb-aaae-4d9f-a95f-1ac76eea5b85</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-f9f1589c-46d4-4912-8573-a6e93b7971bb</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-66cae104-2cdd-4f0b-81fc-70342fee9d0c</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bb3e79af-b0ef-43f4-814d-0367d9a62434</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User, ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-3a10f7c6-c7b5-4b51-883a-461f7d665ad8</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-40675d74-4b36-49bc-b35c-6551844671ed</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-bc58624f-cde6-4d62-ab44-642660826958</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-cca02cb8-98c0-4379-9e0c-52a0fb2096d0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="rmf-9d961f81-1947-4841-b81d-2a826d30a288" LONG-NAME="Specification Document">
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-ccef87fc-97b6-423a-85a7-0ba8a29a2935">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-4bd7268c-cb3f-4f3e-be8a-9dea0b230753</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-902645cf-e7ba-42d6-8d68-123ef80bba22">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-ee35c554-da55-445d-873f-34063af6149c</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-8f48bb45-5791-432c-8a92-3ebfc1419b16">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-3f259a23-50ca-429f-8659-fb71854126d2</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-bc532aea-4ff0-4872-bd66-fa57bb509078">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-e9eb507b-74e7-4525-8340-0f29626d66f9</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-cc4afada-7644-42db-b065-1715a68b48b6">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-d87c4902-c044-4fdd-bf3f-c5ff93f8ee70</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-f5d482fe-a401-47c1-aef7-0812ebccd4b6">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-a2e6f0dc-1bd3-489f-9429-9f99639ae2fe</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-20905240-06a9-4cf5-86bf-124eb7b78d2d">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-f11905b4-9b9d-4367-a480-c979f74bdf15</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-e08e0986-3029-4063-8077-15f0c1e4835b">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-2180464e-da29-49b1-84be-7f0184c0b516</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-104229d6-03b1-4934-86bc-6e83edd8003e">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-8469226a-0968-4f9b-91b2-f17e65f8a737</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-8c189c49-fecf-4eea-ad82-709e6a14f9b8">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-c1cb2a9c-4904-4f72-a30a-20c21947cd34</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-f449c877-06c6-4873-8c41-5bf497c51b51">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-10bc1e76-e0d8-420f-913b-df9ed3908c68</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-eb4066e5-e149-4306-8926-ad46155661f7">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-6f979c02-13e7-434a-82e7-febb96ec9bf0</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-8bd95c9f-0fe9-459f-9b4d-df905ef2bf3e">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-3430872f-58d0-49af-99cb-14a1d3fe5cd7</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-a339e7cc-bd22-4108-8926-d194de1237c6">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-13f1bd63-ecc5-4c03-925f-8a8189c9ea22</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration configuration:specification="rmf-9d961f81-1947-4841-b81d-2a826d30a288">
+            <configuration:columns>
+              <configuration:Column configuration:label="ID" configuration:width="198"/>
+              <configuration:Column configuration:label="Actors" configuration:width="52"/>
+              <configuration:Column configuration:label="Precondition" configuration:width="102"/>
+              <configuration:Column configuration:label="Guarantee" configuration:width="108"/>
+              <configuration:Column configuration:label="Main Success Scenario" configuration:width="468"/>
+              <configuration:Column configuration:label="Variation" configuration:width="163"/>
+              <configuration:Column configuration:label="Exceptions" configuration:width="204"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column configuration:label="Lead Header Column" configuration:width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration>
+                <configuration:defaultLabel>Description</configuration:defaultLabel>
+              </configuration:LabelConfiguration>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+        <configuration:presentationConfigurations>
+          <configuration:ProrPresentationConfigurations>
+            <configuration:presentationConfigurations>
+              <linewrap:LinewrapConfiguration configuration:datatype="rmf-6e84c2ff-a34d-4ec6-8959-97bce86faa94"/>
+              <headline:HeadlineConfiguration configuration:datatype="rmf-8e4bc547-e681-48a6-91e9-0e84dced01ac"/>
+            </configuration:presentationConfigurations>
+          </configuration:ProrPresentationConfigurations>
+        </configuration:presentationConfigurations>
+      </configuration:ProrToolExtension>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>

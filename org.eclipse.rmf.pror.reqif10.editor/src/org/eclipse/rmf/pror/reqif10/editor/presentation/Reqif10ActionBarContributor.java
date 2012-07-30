@@ -140,10 +140,11 @@ public class Reqif10ActionBarContributor
 	protected Collection<IAction> createSiblingActions;
 
 	/**
-	 * This is the menu manager into which menu contribution items should be added for CreateSibling actions.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * This is the menu manager into which menu contribution items should be
+	 * added for CreateSibling actions. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	protected IMenuManager createSiblingMenuManager;
 
@@ -152,13 +153,10 @@ public class Reqif10ActionBarContributor
 	 * Assignments were out-commented to remove them from the menuManager
 	 * (IMenuManager) <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public Reqif10ActionBarContributor() {
 		super(ADDITIONS_LAST_STYLE);
-//		loadResourceAction = new LoadResourceAction();
-//		validateAction = new ValidateAction();
-//		controlAction = new ControlAction();
 	}
 
 	@Override

@@ -25,14 +25,12 @@ import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecificationsItemProvider;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.SpecificationType;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -74,15 +72,6 @@ public class SpecificationTest extends SpecElementWithAttributesTest {
 	@Override
 	protected Set<String> getStandardPropertyNames() {
 		return new HashSet<String>(Arrays.asList(STANDARD_PROPERTIES));
-	}
-
-	@Override
-	protected void setSpecTypeWithAttributeOnFixture(ReqIF reqif,
-			AttributeDefinition ad) {
-		SpecificationType type = ReqIF10Factory.eINSTANCE.createSpecificationType();
-		setViaCommand(type, ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad);
-		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, type);
-		setViaCommand(getFixture(), ReqIF10Package.Literals.SPECIFICATION__TYPE, type);
 	}
 
 	@Override
@@ -128,5 +117,9 @@ public class SpecificationTest extends SpecElementWithAttributesTest {
 		assertEquals(specObjectCount + 1, reqif.getCoreContent().getSpecObjects().size());
 	}
 
+	@Override
+	protected SpecType getSpecTypeInstance() {
+		return ReqIF10Factory.eINSTANCE.createSpecificationType();
+	}
 
 } //SpecificationTest

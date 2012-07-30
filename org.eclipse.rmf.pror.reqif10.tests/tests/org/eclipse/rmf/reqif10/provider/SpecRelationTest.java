@@ -20,13 +20,11 @@ import java.util.Set;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecRelationsItemProvider;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
-import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecRelation;
-import org.eclipse.rmf.reqif10.SpecRelationType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.junit.After;
 import org.junit.Before;
@@ -75,15 +73,6 @@ public class SpecRelationTest extends SpecElementWithAttributesTest {
 	}
 	
 	@Override
-	protected void setSpecTypeWithAttributeOnFixture(ReqIF reqif,
-			AttributeDefinition ad) {
-		SpecRelationType type = ReqIF10Factory.eINSTANCE.createSpecRelationType();
-		setViaCommand(type, ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad);
-		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, type);
-		setViaCommand(getFixture(), ReqIF10Package.Literals.SPEC_RELATION__TYPE, type);
-	}
-
-	@Override
 	protected void setFixtureType(SpecElementWithAttributes specElement,
 			SpecType specType) {
 		setViaCommand(specElement, ReqIF10Package.Literals.SPEC_RELATION__TYPE, specType);
@@ -98,6 +87,11 @@ public class SpecRelationTest extends SpecElementWithAttributesTest {
 		setViaCommand(reqif.getCoreContent(), ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS, getFixture());
 		ItemProviderAdapter ip = ProrUtil.getItemProvider(adapterFactory, getFixture());
 		assertTrue(ip.getParent(getFixture()) instanceof VirtualSpecRelationsItemProvider);
+	}
+
+	@Override
+	protected SpecType getSpecTypeInstance() {
+		return ReqIF10Factory.eINSTANCE.createSpecRelationType();
 	}
 
 } //SpecRelationTest

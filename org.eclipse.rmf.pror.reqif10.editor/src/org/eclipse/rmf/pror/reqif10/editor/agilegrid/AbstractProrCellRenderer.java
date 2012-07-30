@@ -17,18 +17,34 @@ import java.util.List;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.agilemore.agilegrid.AgileGrid;
+import org.agilemore.agilegrid.Cell;
+import org.agilemore.agilegrid.IContentProvider;
 import org.agilemore.agilegrid.SWTResourceManager;
 import org.agilemore.agilegrid.SWTX;
 import org.agilemore.agilegrid.renderers.TextCellRenderer;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.EnumValue;
+import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * @author Lukas Ladenberger
@@ -38,12 +54,26 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 
 	private final AdapterFactory adapterFactory;
 
+	private final Image IMG_WARN_FALSE = PlatformUI.getWorkbench()
+			.getSharedImages().getImage(ISharedImages.IMG_OBJS_INFO_TSK);
+
+	private final Image IMG_WARN_TRUE = PlatformUI.getWorkbench()
+			.getSharedImages().getImage(ISharedImages.IMG_OBJS_WARN_TSK);
+
+	private Shell xhtmlSimplifiedToolTip;
+
+	private boolean isXhtmlSimplifiedListenerInit = false;
+
+	private IContentProvider contentProvider;
+
 	/**
 	 * @param agileGrid
 	 */
-	public AbstractProrCellRenderer(AgileGrid agileGrid, AdapterFactory adapterFactory) {
+	public AbstractProrCellRenderer(AgileGrid agileGrid,
+			AdapterFactory adapterFactory) {
 		super(agileGrid);
 		this.adapterFactory = adapterFactory;
+		this.contentProvider = agileGrid.getContentProvider();
 	}
 	
 	public AbstractProrCellRenderer(AgileGrid agileGrid) {
@@ -58,9 +88,17 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 				XMLGregorianCalendar cal = (XMLGregorianCalendar) v;
 				Date date = cal.toGregorianCalendar().getTime();
 				stringValue = DateFormat.getDateInstance().format(date);
-				// } else if (v instanceof XhtmlContent) {
 			} else if (v instanceof List<?>) {
 				stringValue = convertListToString((List<?>) v);
+			} else if (v instanceof XhtmlContent && v != null) {
+				if (!isXhtmlSimplifiedListenerInit)
+					initXhtmlSimplifiedToolTipListener();
+				XhtmlContent xhtmlContent = (XhtmlContent) v;
+				AttributeValueXHTML atrXhtml = (AttributeValueXHTML) value;
+				stringValue = ProrXhtmlSimplifiedHelper
+						.xhtmlToSimplifiedString(xhtmlContent);
+				gc.drawImage(atrXhtml.isSimplified() ? IMG_WARN_TRUE
+						: IMG_WARN_FALSE, rect.x + rect.width - 20, rect.y + 5);
 			} else {
 				stringValue = v == null ? "" : v.toString();
 			}
@@ -150,6 +188,96 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 
 		// draw text and image in the given area.
 		doDrawCellContent(gc, rect, row, col);
+	}
+
+	/**
+	 * This method initializes the tool tip listener for keywords. TODO:
+	 * Messages should be more generic!
+	 */
+	private void initXhtmlSimplifiedToolTipListener() {
+
+		Listener l = new Listener() {
+			public void handleEvent(Event e) {
+				switch (e.type) {
+				case SWT.Dispose:
+				case SWT.KeyDown:
+				case SWT.MouseMove: {
+					if (xhtmlSimplifiedToolTip == null)
+						break;
+					xhtmlSimplifiedToolTip.dispose();
+					xhtmlSimplifiedToolTip = null;
+					break;
+				}
+				case SWT.MouseHover: {
+					Point mousePointer = new Point(e.x, e.y);
+					Cell cell = agileGrid.getCell(mousePointer.x,
+							mousePointer.y);
+					Rectangle cellRect = agileGrid.getCellRect(cell.row,
+							cell.column);
+					Rectangle rectNew = new Rectangle(cellRect.width
+							+ cellRect.x - 25, cellRect.y, 25, 25);
+					if (rectNew.contains(mousePointer)) {
+						if (xhtmlSimplifiedToolTip != null
+								&& !xhtmlSimplifiedToolTip.isDisposed())
+							xhtmlSimplifiedToolTip.dispose();
+
+						Point displayPointer = agileGrid
+								.toDisplay(mousePointer);
+
+						Object contentAt = contentProvider.getContentAt(
+								cell.row, cell.column);
+						if (contentAt instanceof AttributeValueXHTML) {
+
+							AttributeValueXHTML atrXhtml = (AttributeValueXHTML) contentAt;
+
+							String msg = "_UI_Reqif10XhtmlIsSimplifiedFalse";
+
+							if (atrXhtml.isSimplified())
+								msg = "_UI_Reqif10XhtmlIsSimplifiedTrue";
+
+							xhtmlSimplifiedToolTip = showTooltip(Display
+									.getDefault().getActiveShell(),
+									displayPointer.x + 10,
+									displayPointer.y + 10,
+									Reqif10EditorPlugin.INSTANCE.getString(msg));
+
+						}
+
+					}
+
+				}
+				}
+			}
+		};
+
+		agileGrid.addListener(SWT.Dispose, l);
+		agileGrid.addListener(SWT.KeyDown, l);
+		agileGrid.addListener(SWT.MouseMove, l);
+		agileGrid.addListener(SWT.MouseHover, l);
+
+		isXhtmlSimplifiedListenerInit = true;
+
+	}
+
+	private Shell showTooltip(Shell parent, int x, int y, String msg) {
+		Shell tooltip = new Shell(parent, SWT.TOOL | SWT.ON_TOP);
+		tooltip.setLayout(new GridLayout());
+
+		tooltip.setBackground(tooltip.getDisplay().getSystemColor(
+				SWT.COLOR_INFO_BACKGROUND));
+		tooltip.setBackgroundMode(SWT.INHERIT_FORCE);
+
+		Label lbContent = new Label(tooltip, SWT.NONE);
+		lbContent.setText(msg);
+
+		Point lbContentSize = lbContent.computeSize(SWT.DEFAULT, SWT.DEFAULT);
+
+		int width = lbContentSize.x + 10;
+		int height = lbContentSize.y + 10;
+
+		tooltip.setBounds(x, y, width, height);
+		tooltip.setVisible(true);
+		return tooltip;
 	}
 
 }

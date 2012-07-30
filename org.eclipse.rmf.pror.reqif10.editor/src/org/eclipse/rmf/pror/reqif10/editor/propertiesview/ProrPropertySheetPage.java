@@ -7,6 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Lukas Ladenberger - ProR GUI     
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 
@@ -180,11 +181,10 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 	}
 
 	private void update() {
-		if (allProperties == null) {
-			return;
+		if (allProperties != null && !allProperties.isDisposed()) {
+			allProperties.update();
+			standardProperties.update();
 		}
-		allProperties.update();
-		standardProperties.update();
 	}
 
 	/**

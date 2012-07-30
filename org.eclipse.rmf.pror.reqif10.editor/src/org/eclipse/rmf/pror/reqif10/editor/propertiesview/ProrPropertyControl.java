@@ -7,6 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Lukas Ladenberger - ProR GUI     
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 
@@ -27,8 +28,8 @@ public class ProrPropertyControl extends AgileGrid {
 
 	public ProrPropertyControl(Composite parent, EditingDomain editingDomain,
 			AdapterFactory adapterFactory, boolean showAllProps) {
-		super(parent, SWT.V_SCROLL | SWT.H_SCROLL | SWTX.FILL_WITH_DUMMYCOL
-				| SWT.FLAT);
+		super(parent, SWT.V_SCROLL | SWT.H_SCROLL | SWTX.FILL_WITH_LASTCOL
+				| SWT.MULTI | SWT.DOUBLE_BUFFERED);
 		setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
 		this.contentProvider = new ProrPropertyContentProvider(editingDomain, showAllProps);
 		setContentProvider(this.contentProvider);
@@ -36,7 +37,7 @@ public class ProrPropertyControl extends AgileGrid {
 				adapterFactory, editingDomain));
 		setLayoutAdvisor(new ProrPropertyLayoutAdvisor(this));
 		setCellEditorProvider(new ProrPropertyCellEditorProvider(this,
-				adapterFactory, editingDomain));
+				adapterFactory, editingDomain, this.contentProvider));
 		setRowResizeCursor(new Cursor(this.getDisplay(), SWT.CURSOR_ARROW));
 	}
 	
