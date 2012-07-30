@@ -12,12 +12,9 @@ package org.eclipse.rmf.pror.presentation.ui;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.editors.TextCellEditor;
-import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValueString;
-import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.TraverseEvent;
 
