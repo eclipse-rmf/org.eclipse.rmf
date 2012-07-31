@@ -65,8 +65,6 @@ All rights reserved.   This program and the accompanying materials are made avai
    </plugins>
 
    <features>
-      <feature id="org.eclipse.rmf.pror.reqif10.feature"/>
-      <feature id="org.eclipse.rmf.reqif10.feature"/>
       <feature id="org.eclipse.emf.ecore"/>
       <feature id="org.eclipse.emf.common"/>
       <feature id="org.eclipse.emf.edit"/>
