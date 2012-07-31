@@ -32,6 +32,15 @@
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-director-plugin</artifactId>
 				<version>${tycho-version}</version>
+				  <configuration>
+				    <additionalIUs>
+				      <additionalIU>org.eclipse.rmf.pror.reqif10.feature.group</additionalIU>
+				      <additionalIU>org.eclipse.rmf.reqif10.feature.group</additionalIU>
+				    </additionalIUs>
+				    <additionalRepositories>
+				      <additionalRepository>http://download.eclipse.org/rmf/updates/</additionalRepository>
+				    </additionalRepositories>
+				  </configuration> 
 				<executions>
 					<execution>
 						<id>materialize-products</id>
