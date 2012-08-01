@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>org.eclipse.rmf</groupId>
 		<artifactId>org.eclipse.rmf.releng</artifactId>
-		<version>0.3.1-SNAPSHOT</version>
+		<version>0.3.2-SNAPSHOT</version>
 		<relativePath>../org.eclipse.rmf.releng/pom.xml</relativePath>
 	</parent>
 	<groupId>org.eclipse.rmf.plugins</groupId>
 	<artifactId>org.eclipse.rmf.rif11.model.test</artifactId>
-	<version>0.3.1-SNAPSHOT</version>
+	<version>0.3.2-SNAPSHOT</version>
 	<packaging>eclipse-test-plugin</packaging>
 	<profiles>
 		<profile>
