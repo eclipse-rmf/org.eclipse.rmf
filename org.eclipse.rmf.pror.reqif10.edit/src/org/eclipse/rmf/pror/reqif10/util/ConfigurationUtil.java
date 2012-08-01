@@ -34,7 +34,9 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
+import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
@@ -202,7 +204,18 @@ public class ConfigurationUtil {
 
 					Object result = ReqIF10Util.getTheValue(value);
 					if (result != null) {
+
+						// If we have an enumeration attribute
+						if (value instanceof AttributeValueEnumeration
+								&& result instanceof EList) {
+							EList<?> list = (EList<?>) result;
+							if (!list.isEmpty())
+								return ((EnumValue) list.get(0)).getLongName();
+							else
+								return "";
+						}
 						return result.toString();
+
 					}
 				}
 			}
