@@ -41,7 +41,7 @@ public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 	public Identifiable getAffectedElement(int row, int col) {
 		ProrAgileGridContentProvider provider = (ProrAgileGridContentProvider) getAgileGrid()
 				.getContentProvider();
-		return (Identifiable) provider.getProrRow(row).element;
+		return (Identifiable) provider.getProrRow(row).getSpecElement();
 	}
 
 	@Override

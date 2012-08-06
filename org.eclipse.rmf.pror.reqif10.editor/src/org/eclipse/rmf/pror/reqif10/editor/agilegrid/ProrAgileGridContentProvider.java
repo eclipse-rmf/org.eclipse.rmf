@@ -47,19 +47,21 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * associated with the row. May return null.
 	 */
 	@Override
-	public Object doGetContentAt(int row, int col) throws IndexOutOfBoundsException {
+	public Object doGetContentAt(int row, int col)
+			throws IndexOutOfBoundsException {
 		if (row >= getRowCount())
 			throw new IndexOutOfBoundsException("Row does not exist: " + row);
-		SpecElementWithAttributes element = getProrRow(row)
-				.getSpecElement();
+		SpecElementWithAttributes element = getProrRow(row).getSpecElement();
 
 		if (col == specViewConfig.getColumns().size()) {
 			// For the Link column, we return the linked element.
 			return element instanceof SpecElementWithAttributes ? element
 					: null;
-		} else {
-			// For everything else, we return the AttributeValue.
+		} else if (col <= specViewConfig.getColumns().size()) {
+			// we return the AttributeValue.
 			return getValueForColumn(element, col);
+		} else {
+			throw new IndexOutOfBoundsException("Column does not exist: " + col);
 		}
 	}
 
@@ -120,51 +122,52 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * TODO Serious potential for performance tuning.
 	 */
 	ProrRow getProrRow(int row) {
-		return recurseSpecHierarchyForRow(0, row, 0, root.getChildren());
+		Object result = recurseSpecHierarchyForRow(0, row, 0, root.getChildren());
+		if (result instanceof ProrRow)
+			return (ProrRow) result;
+		else
+			throw new IndexOutOfBoundsException();
 	}
 
 	/**
-	 * Recurses over the given children.
 	 * 
 	 * @param current
-	 *            The current counter
-	 * 
-	 * @param children
-	 *            The {@link SpecHierarchy}s to traverse
-	 * 
-	 * @return The {@link SpecHierarchy} where row == current, or null if not
-	 *         found.
+	 * The current counter
+	 * @param elements
+	 * The {@link SpecHierarchy}s to traverse, 
+	 *            Can be SpecHierarchies or SpecRelations
+	 * @return either the {@link ProrRow} with the given row, or the new current
+	 *         row
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private ProrRow recurseSpecHierarchyForRow(int current, int row, int depth,
-			List elements) {
-		for (Object element : elements) {
+	private Object recurseSpecHierarchyForRow(int current, int row, int depth,
+			List<SpecHierarchy> elements) {
+		for (SpecHierarchy element : elements) {
 			if (current == row) {
-				return new ProrRow(element, row, depth);
+				// We found a SpecHierarchy, which is the correct row - return!
+				return ProrRow.createProrRow(element, row, depth);
 			}
-			current++;
-			if (element instanceof SpecHierarchy) {
-				List children = new ArrayList();
-				children.addAll(getSpecRelationsFor((SpecHierarchy) element));
-				children.addAll(((SpecHierarchy) element).getChildren());
-				ProrRow result = recurseSpecHierarchyForRow(current, row,
-						depth + 1,
-						children);
-				if (result.element != null) {
-					return result;
+			// We did not find the row, let's check SpecRealtions first
+			for (SpecRelation specRelation : getSpecRelationsFor(element)) {
+				if (++current == row) {
+					return ProrRow.createProrRow(specRelation, row, depth + 1);
 				}
-				current = result.row;
 			}
+			// We still did not find the row, let's check the children
+			Object result = recurseSpecHierarchyForRow(++current, row,
+					depth + 1, element.getChildren());
+			if (result instanceof ProrRow) {
+				return result;
+			}
+			current = (Integer) result;
 		}
-		return new ProrRow(null, current, depth);
+		return current;
 	}
 
 	/**
 	 * Returns the actual {@link AttributeValue} for the given Column and the
 	 * given {@link SpecElementWithUserDefinedAttributes}
 	 */
-	AttributeValue getValueForColumn(
-			SpecElementWithAttributes element, int col) {
+	AttributeValue getValueForColumn(SpecElementWithAttributes element, int col) {
 		// Knock-out criteria
 		if (element == null)
 			return null;
@@ -198,42 +201,6 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		return list;
 	}
 
-	/**
-	 * Represents the row of a table. A row holds either a SpecHierarchy or a
-	 * SpecRelation.
-	 */
-	class ProrRow {
-		final Object element;
-		final int level;
-		final int row;
-
-		/**
-		 * @ requires level >= 0 @
-		 * @ requires row >= 0 @
-		 */
-		public ProrRow(Object element, int row, int level) {
-			this.element = element;
-			this.row = row;
-			this.level = level;
-		}
-
-		public SpecElementWithAttributes getSpecElement() {
-			if (element instanceof SpecRelation)
-				return (SpecRelation) element;
-			return ((SpecHierarchy) element).getObject();
-		}
-
-		public SpecHierarchy getSpecHierarchy() {
-			return element instanceof SpecHierarchy ? (SpecHierarchy) element
-					: null;
-		}
-
-		@Override
-		public String toString() {
-			return "Row " + row + " Level " + level + ": " + element;
-		}
-	}
-
 	void updateElement(SpecElementWithAttributes element) {
 		recurseUpdateElement(0, element, root.getChildren());
 	}
@@ -262,7 +229,8 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 					refresh = true;
 				}
 			}
-			// Workaround: provide null for "old value" to force a recognition of
+			// Workaround: provide null for "old value" to force a recognition
+			// of
 			// the change.
 			if (refresh) {
 				firePropertyChange(IContentProvider.Content, row, 0, null,

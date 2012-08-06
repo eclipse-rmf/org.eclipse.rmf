@@ -14,7 +14,6 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrAgileGridContentProvider.ProrRow;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorManager;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
@@ -101,7 +100,7 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 
 		ProrRow prorRow = contentProvider.getProrRow(row);
 
-		int offset = prorRow.level * 20;
+		int offset = prorRow.getLevel() * 20;
 		Image icon;
 		if (prorRow.getSpecElement() instanceof SpecObject) {
 			icon = specObjectIcon;
