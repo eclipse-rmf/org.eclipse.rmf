@@ -110,12 +110,13 @@ public class ProrLayoutAdvisor extends DefaultLayoutAdvisor {
 	@Override
 	public String getLeftHeaderLabel(int row) {
 		StringBuffer sb = new StringBuffer();
-		SpecHierarchy specHierarchy = ((ProrAgileGridContentProvider) agileGrid
-				.getContentProvider()).getProrRow(row).getSpecHierarchy();
-
-		if (specHierarchy == null) {
-			return "";
+		
+		ProrRow prorRow = ((ProrAgileGridContentProvider) agileGrid
+				.getContentProvider()).getProrRow(row);
+		if (!(prorRow instanceof ProrRow.ProrRowSpecHierarchy)) {
+			return "";			
 		}
+		SpecHierarchy specHierarchy = ((ProrRow.ProrRowSpecHierarchy) prorRow).getSpecHierarchy();
 
 		while (specHierarchy.eContainer() instanceof SpecHierarchy) {
 			SpecHierarchy parent = (SpecHierarchy) specHierarchy.eContainer();
