@@ -42,7 +42,7 @@ public class TC1100UnformattedSystemAttributesAndSpecHierarchyModelBuilder exten
 
 	// SpecificationTypes
 	SpecificationType specificationType;
-	AttributeDefinitionString specificationTypeAttributeDefinitionStringName;
+	AttributeDefinitionXHTML specificationTypeAttributeDefinitionXhtmlName;
 	AttributeDefinitionString specificationTypeAttributeDefinitionStringForeignCreatedBy;
 	AttributeDefinitionString specificationTypeAttributeDefinitionStringForeignModifiedBy;
 	AttributeDefinitionDate specificationTypeAttributeDefinitionDateForeignCreatedOn;
@@ -139,11 +139,11 @@ public class TC1100UnformattedSystemAttributesAndSpecHierarchyModelBuilder exten
 		specificationType.setLongName("TC1100 SpecificationType");
 		specificationType.setLastChange(toDate(LAST_CHANGE_STRING));
 
-		specificationTypeAttributeDefinitionStringName = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
-		specificationTypeAttributeDefinitionStringName.setIdentifier("ID_TC1100_SpecificationTypeAttributeDefinitionString_" + REQIF_NAME);
-		specificationTypeAttributeDefinitionStringName.setLongName(REQIF_NAME);
-		specificationTypeAttributeDefinitionStringName.setLastChange(toDate(LAST_CHANGE_STRING));
-		specificationTypeAttributeDefinitionStringName.setType(datatypeDefinitionString);
+		specificationTypeAttributeDefinitionXhtmlName = ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML();
+		specificationTypeAttributeDefinitionXhtmlName.setIdentifier("ID_TC1100_SpecificationTypeAttributeDefinitionXHTML_" + REQIF_NAME);
+		specificationTypeAttributeDefinitionXhtmlName.setLongName(REQIF_NAME);
+		specificationTypeAttributeDefinitionXhtmlName.setLastChange(toDate(LAST_CHANGE_STRING));
+		specificationTypeAttributeDefinitionXhtmlName.setType(datatypeDefinitionXhtml);
 
 		specificationTypeAttributeDefinitionStringForeignCreatedBy = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		specificationTypeAttributeDefinitionStringForeignCreatedBy.setIdentifier("ID_TC1100_SpecificationTypeAttributeDefinitionString_"
@@ -166,7 +166,7 @@ public class TC1100UnformattedSystemAttributesAndSpecHierarchyModelBuilder exten
 		specificationTypeAttributeDefinitionStringForeignModifiedBy.setLastChange(toDate(LAST_CHANGE_STRING));
 		specificationTypeAttributeDefinitionStringForeignModifiedBy.setType(datatypeDefinitionString);
 
-		specificationType.getSpecAttributes().add(specificationTypeAttributeDefinitionStringName);
+		specificationType.getSpecAttributes().add(specificationTypeAttributeDefinitionXhtmlName);
 		specificationType.getSpecAttributes().add(specificationTypeAttributeDefinitionStringForeignCreatedBy);
 		specificationType.getSpecAttributes().add(specificationTypeAttributeDefinitionDateForeignCreatedOn);
 		specificationType.getSpecAttributes().add(specificationTypeAttributeDefinitionStringForeignModifiedBy);
@@ -356,12 +356,13 @@ public class TC1100UnformattedSystemAttributesAndSpecHierarchyModelBuilder exten
 
 		// set the specification attributes
 		AttributeValueString attributeValueString;
+		AttributeValueXHTML attributeValueXhtml;
 		AttributeValueDate attributeValueDate;
 
-		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
-		attributeValueString.setDefinition(specificationTypeAttributeDefinitionStringName);
-		attributeValueString.setTheValue("Specification1");
-		specification.getValues().add(attributeValueString);
+		attributeValueXhtml = ReqIF10Factory.eINSTANCE.createAttributeValueXHTML();
+		attributeValueXhtml.setDefinition(specificationTypeAttributeDefinitionXhtmlName);
+		attributeValueXhtml.setTheValue(createXhtmlValue("Specification1"));
+		specification.getValues().add(attributeValueXhtml);
 
 		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 		attributeValueString.setDefinition(specificationTypeAttributeDefinitionStringForeignCreatedBy);
