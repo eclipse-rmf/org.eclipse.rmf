@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EditorTests
 Bundle-SymbolicName: org.eclipse.rmf.pror.reqif10.editor.tests
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.3.2.qualifier
 Fragment-Host: org.eclipse.rmf.pror.reqif10.editor;bundle-version="0.3.2"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Require-Bundle: org.eclipse.rmf.pror.reqif10.tests;bundle-version="0.3.2"

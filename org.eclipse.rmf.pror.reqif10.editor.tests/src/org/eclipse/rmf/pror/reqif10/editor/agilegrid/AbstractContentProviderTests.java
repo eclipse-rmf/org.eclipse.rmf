@@ -14,7 +14,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.net.URISyntaxException;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
@@ -22,7 +21,6 @@ import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
-import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.junit.After;
@@ -41,7 +39,6 @@ public abstract class AbstractContentProviderTests extends AbstractItemProviderT
 	protected ProrSpecViewConfiguration specViewConfig;
 	protected ReqIF reqif;
 	protected SpecObject specObject;
-	protected EList<SpecRelation> specRelations;
 	protected SpecHierarchy specHierarchy;
 
 	@Before
