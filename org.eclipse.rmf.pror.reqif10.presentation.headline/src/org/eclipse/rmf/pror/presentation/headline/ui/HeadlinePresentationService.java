@@ -56,7 +56,7 @@ public class HeadlinePresentationService extends AbstractPresentationService
 			headlineCellRenderer = new HeadlineCellRenderer(ReqIF10Util
 					.getDatatypeDefinition(av).getIdentifier());
 			HeadlineConfiguration headlineConfiguration = (HeadlineConfiguration) ConfigurationUtil
-					.getPresentationConfig(av, null);
+					.getPresentationConfiguration(av);
 			headlineCellRenderer.setFontSize(headlineConfiguration.getSize());
 
 			// Register for notifications

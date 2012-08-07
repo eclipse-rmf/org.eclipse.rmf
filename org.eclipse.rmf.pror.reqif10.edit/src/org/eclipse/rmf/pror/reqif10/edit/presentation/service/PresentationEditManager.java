@@ -56,7 +56,7 @@ public class PresentationEditManager {
 		// See whether we have a custom label renderer
 		DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(value);
 		ProrPresentationConfiguration presentationConfiguration = ConfigurationUtil
-				.getConfiguration(dd);
+				.getPresentationConfiguration(dd);
 		if (presentationConfiguration != null) {
 			PresentationEditService service = PresentationEditManager
 					.getPresentationEditService(presentationConfiguration);

@@ -68,7 +68,7 @@ public class IdLabelCellRenderer implements IProrCellRenderer {
 		if (ad != null) {
 			DatatypeDefinitionString dd = ad.getType();
 			if (dd != null) {
-				ProrPresentationConfiguration config = ConfigurationUtil.getConfiguration(dd);
+				ProrPresentationConfiguration config = ConfigurationUtil.getPresentationConfiguration(dd);
 				if (config instanceof IdConfiguration) {
 					return ((IdConfiguration) config).getVerticalAlign();
 				}

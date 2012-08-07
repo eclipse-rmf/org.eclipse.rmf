@@ -55,7 +55,7 @@ public class IDPresentationService extends AbstractPresentationService implement
 
 		// Make sure that IdConfig additions and removals are handled
 		
-		ProrPresentationConfigurations presentationConfigurations = getPresentationConfigurations(reqif, domain);
+		ProrPresentationConfigurations presentationConfigurations = getPresentationConfigurations(reqif);
 		if (presentationConfigurations == null) return;
 		
 		presentationConfigurations.eAdapters().add(new AdapterImpl() {
@@ -67,7 +67,7 @@ public class IDPresentationService extends AbstractPresentationService implement
 	}
 
 	private void ensureAllConfigsHaveAdapters(final ReqIF reqif, EditingDomain domain) {
-		Set<IdConfiguration> configs = getConfigurationElements(reqif, domain);
+		Set<IdConfiguration> configs = getConfigurationElements(reqif);
 		if (configs == null) return;
 
 		// Process all existing IdConfigurations
@@ -124,9 +124,9 @@ public class IDPresentationService extends AbstractPresentationService implement
 	/**
 	 * Get the {@link IdConfiguration}s for the given ReqIF
 	 */
-	private Set<IdConfiguration> getConfigurationElements(ReqIF reqif, EditingDomain domain) {
+	private Set<IdConfiguration> getConfigurationElements(ReqIF reqif) {
 		HashSet<IdConfiguration> idConfigs = new HashSet<IdConfiguration>();
-		ProrPresentationConfigurations configsElement = getPresentationConfigurations(reqif, domain);
+		ProrPresentationConfigurations configsElement = getPresentationConfigurations(reqif);
 		if (configsElement == null) return null;
 		EList<ProrPresentationConfiguration> configs = configsElement.getPresentationConfigurations();
 		for (ProrPresentationConfiguration config : configs) {
@@ -136,11 +136,16 @@ public class IDPresentationService extends AbstractPresentationService implement
 		return idConfigs;
 	}
 
-	private ProrPresentationConfigurations getPresentationConfigurations(ReqIF reqif, EditingDomain domain) {
-		ProrToolExtension uiExtension = ConfigurationUtil.getProrToolExtension(reqif, domain);
-		ProrPresentationConfigurations configs = uiExtension
+	private ProrPresentationConfigurations getPresentationConfigurations(
+			ReqIF reqif) {
+		ProrToolExtension toolExtension = ConfigurationUtil
+				.getProrToolExtension(reqif);
+		if (toolExtension != null) {
+			ProrPresentationConfigurations configs = toolExtension
 				.getPresentationConfigurations();
 		return configs;
+		}
+		return null;
 	}
 
 	@Override

@@ -38,7 +38,8 @@ public class ProrPropertyCellRendererProvider extends DefaultCellRendererProvide
 
 	public ProrPropertyCellRendererProvider(AgileGrid agileGrid, AdapterFactory adapterFactory, EditingDomain editingDomain) {
 		super(agileGrid);
-		this.attributeCellRenderer = new ProrPropertyCellRenderer(agileGrid, adapterFactory, editingDomain);
+		this.attributeCellRenderer = new ProrPropertyCellRenderer(agileGrid,
+				adapterFactory);
 		this.categoryCellRenderer = new TextCellRenderer(agileGrid, SWT.BOLD);
 		this.categoryCellRenderer.setDefaultBackground(SWTResourceManager
 				.getColor(SWT.COLOR_WIDGET_BACKGROUND));

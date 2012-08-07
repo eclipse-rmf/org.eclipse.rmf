@@ -114,7 +114,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 		if (attrValue != null) {
 
 			ProrPresentationConfiguration config = ConfigurationUtil
-					.getPresentationConfig(attrValue, editingDomain);
+					.getPresentationConfiguration(attrValue);
 			if (config != null) {
 				PresentationService service = PresentationEditorManager.getPresentationService(config);
 				if (service != null)

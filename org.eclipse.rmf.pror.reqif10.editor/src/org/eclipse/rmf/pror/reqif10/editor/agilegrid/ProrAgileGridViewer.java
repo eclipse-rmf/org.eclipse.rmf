@@ -255,7 +255,7 @@ public class ProrAgileGridViewer extends Viewer {
 		unregisterSpecRelationListener();
 
 		this.specification = (Specification) input;
-		this.specViewConfig = ConfigurationUtil.getSpecViewConfiguration(
+		this.specViewConfig = ConfigurationUtil.createSpecViewConfiguration(
 				specification, editingDomain);
 		this.contentProvider = new ProrAgileGridContentProvider(specification,
 				specViewConfig);

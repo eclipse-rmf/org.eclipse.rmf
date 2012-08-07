@@ -81,7 +81,7 @@ public class ProrEditorUtil {
 
 	private static void printRecursive(StringBuilder html,
 			ProrSpecViewConfiguration config, int indent,
-			EList<SpecHierarchy> children, EditingDomain domain,
+			EList<SpecHierarchy> children,
 			List<PresentationService> presentations) {
 		for (SpecHierarchy child : children) {
 			if (child.getObject() != null) {
@@ -101,7 +101,7 @@ public class ProrEditorUtil {
 					DatatypeDefinition dd = ReqIF10Util
 							.getDatatypeDefinition(av);
 					ProrPresentationConfiguration configuration = ConfigurationUtil
-							.getConfiguration(dd, domain);
+							.getPresentationConfiguration(dd);
 
 					if (configuration != null) {
 						
@@ -135,7 +135,7 @@ public class ProrEditorUtil {
 				html.append("</tr>\n");
 			}
 			printRecursive(html, config, indent + 1, child.getChildren(),
-					domain, presentations);
+					presentations);
 		}
 	}
 
@@ -148,7 +148,7 @@ public class ProrEditorUtil {
 			EditingDomain domain, List<PresentationService> presentations) {
 
 		ProrSpecViewConfiguration config = ConfigurationUtil
-				.getSpecViewConfiguration(spec, domain);
+				.createSpecViewConfiguration(spec, domain);
 
 		StringBuilder html = new StringBuilder();
 
@@ -160,7 +160,7 @@ public class ProrEditorUtil {
 			html.append("<td><b>" + col.getLabel() + "</b></td>");
 		}
 		html.append("</tr>\n");
-		printRecursive(html, config, 0, spec.getChildren(), domain,
+		printRecursive(html, config, 0, spec.getChildren(),
 				presentations);
 		html.append("</table>");
 

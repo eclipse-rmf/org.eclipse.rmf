@@ -126,7 +126,7 @@ public class PresentationEditorManager {
 			AttributeValue value, EditingDomain editingDomain) {
 		PresentationService service = null;
 		ProrPresentationConfiguration config = ConfigurationUtil
-				.getPresentationConfig(value, editingDomain);
+				.getPresentationConfiguration(value);
 		if (config != null) {
 			service = PresentationEditorManager.getPresentationService(config);
 		}

@@ -37,7 +37,7 @@ public class ConfigUtilTest extends AbstractItemProviderTest {
 	public void testGetProrToolExtensionNothingThere() throws URISyntaxException {
 		ReqIF reqif = getTestReqif("simple.reqif");
 		assertEquals(0, reqif.getToolExtensions().size());
-		assertNotNull(ConfigurationUtil.getProrToolExtension(reqif, editingDomain));
+		assertNotNull(ConfigurationUtil.createProrToolExtension(reqif, editingDomain));
 		assertEquals(1, reqif.getToolExtensions().size());
 	}
 
@@ -48,7 +48,7 @@ public class ConfigUtilTest extends AbstractItemProviderTest {
 		commandStack.execute(ReqIFToolExtensionUtil.getAddToolExtensionCommand(reqif, extension));
 		assertEquals(1, reqif.getToolExtensions().size());
 		
-		ProrToolExtension retrieved = ConfigurationUtil.getProrToolExtension(reqif, editingDomain);
+		ProrToolExtension retrieved = ConfigurationUtil.createProrToolExtension(reqif, editingDomain);
 		assertEquals(1, reqif.getToolExtensions().size());
 		assertSame(extension, retrieved);
 	}
@@ -60,7 +60,7 @@ public class ConfigUtilTest extends AbstractItemProviderTest {
 		commandStack.execute(ReqIFToolExtensionUtil.getAddToolExtensionCommand(reqif, ePackage));
 		assertEquals(1, reqif.getToolExtensions().size());
 		
-		assertNotNull(ConfigurationUtil.getProrToolExtension(reqif, editingDomain));
+		assertNotNull(ConfigurationUtil.createProrToolExtension(reqif, editingDomain));
 		assertEquals(2, reqif.getToolExtensions().size());
 	}
 	
