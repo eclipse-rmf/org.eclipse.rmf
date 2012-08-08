@@ -21,8 +21,8 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorManager;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
@@ -82,7 +82,7 @@ public class ProrEditorUtil {
 	private static void printRecursive(StringBuilder html,
 			ProrSpecViewConfiguration config, int indent,
 			EList<SpecHierarchy> children,
-			List<PresentationService> presentations) {
+			List<PresentationInterface> presentations) {
 		for (SpecHierarchy child : children) {
 			if (child.getObject() != null) {
 				SpecObject specObject = child.getObject();
@@ -105,16 +105,16 @@ public class ProrEditorUtil {
 
 					if (configuration != null) {
 						
-						PresentationService service = null;
+						PresentationInterface service = null;
 
 						if (presentations != null) {
-							for (PresentationService serv : presentations) {
+							for (PresentationInterface serv : presentations) {
 								if (serv.getConfigurationInterface()
 										.isInstance(configuration))
 									service = serv;
 							}
 						} else {
-							service = PresentationEditorManager
+							service = PresentationServiceManager
 									.getPresentationService(configuration);
 						}
 
@@ -145,7 +145,7 @@ public class ProrEditorUtil {
 	}
 
 	public static String createHtmlContent(Specification spec,
-			EditingDomain domain, List<PresentationService> presentations) {
+			EditingDomain domain, List<PresentationInterface> presentations) {
 
 		ProrSpecViewConfiguration config = ConfigurationUtil
 				.createSpecViewConfiguration(spec, domain);

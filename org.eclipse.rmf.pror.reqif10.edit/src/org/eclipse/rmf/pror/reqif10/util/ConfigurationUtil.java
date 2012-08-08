@@ -46,7 +46,7 @@ import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
 
 public class ConfigurationUtil {
-	
+
 	public static final String DEFAULT_LEFT_HEADER_COLUMN_NAME = "Lead Header Column";
 	public static final int DEFAULT_LEFT_HEADER_COLUMN_WIDTH = 30;
 
@@ -107,15 +107,18 @@ public class ConfigurationUtil {
 	}
 
 	/**
-	 * Returns the {@link ProrToolExtension} associated with this
-	 * {@link ReqIF}.  If it doesn't exist yet, it is created.
+	 * Returns the {@link ProrToolExtension} associated with this {@link ReqIF}.
+	 * If it doesn't exist yet, it is created.
 	 * <p>
 	 */
 	public static ProrToolExtension createProrToolExtension(ReqIF reqif, EditingDomain domain) {
 		ProrToolExtension extension = getProrToolExtension(reqif);
-		if (extension != null) return extension;
+		if (extension != null)
+			return extension;
 		extension = ConfigurationFactory.eINSTANCE.createProrToolExtension();
-		domain.getCommandStack().execute(ReqIFToolExtensionUtil.getAddToolExtensionCommand(reqif, extension));		
+		domain.getCommandStack().execute(
+				ReqIFToolExtensionUtil.getAddToolExtensionCommand(reqif,
+						extension));
 		return extension;
 	}
 
@@ -151,15 +154,17 @@ public class ConfigurationUtil {
 	 */
 	public static String getSpecElementLabel(
 			SpecElementWithAttributes specElement) {
-		
-		List<String> labels = getDefaultLabels(ReqIF10Util.getReqIF(specElement));
+
+		List<String> labels = getDefaultLabels(ReqIF10Util
+				.getReqIF(specElement));
 
 		// Iterate over the list of labels requested
 		for (String label : labels) {
-			
+
 			for (AttributeValue value : specElement.getValues()) {
 				// TODO eventually should also work for non-simple attributes
-				AttributeDefinition ad = ReqIF10Util.getAttributeDefinition(value);
+				AttributeDefinition ad = ReqIF10Util
+						.getAttributeDefinition(value);
 				if (ad == null)
 					continue;
 
@@ -197,13 +202,13 @@ public class ConfigurationUtil {
 	 * 
 	 * @return always a list, sometimes empty.
 	 */
-	public static List<String> getDefaultLabels(
-			ReqIF reqif) {
+	public static List<String> getDefaultLabels(ReqIF reqif) {
 		ProrToolExtension extension = getProrToolExtension(reqif);
 		if (extension == null) {
 			return Collections.emptyList();
 		}
-		ProrGeneralConfiguration generalConfig = extension.getGeneralConfiguration();
+		ProrGeneralConfiguration generalConfig = extension
+				.getGeneralConfiguration();
 		if (generalConfig == null) {
 			return Collections.emptyList();
 		}
@@ -212,7 +217,7 @@ public class ConfigurationUtil {
 		if (labelConfig == null) {
 			return Collections.emptyList();
 		}
-		
+
 		return labelConfig.getDefaultLabel();
 	}
 
@@ -228,32 +233,35 @@ public class ConfigurationUtil {
 		EList<ProrSpecViewConfiguration> configs = extension
 				.getSpecViewConfigurations();
 		for (ProrSpecViewConfiguration config : configs) {
-			if (config.getSpecification() != null && config.getSpecification().equals(specification)) {
+			if (config.getSpecification() != null
+					&& config.getSpecification().equals(specification)) {
 				return config;
 			}
 		}
-	
+
 		// None found, let's build a new one that includes all attribute names.
 		ProrSpecViewConfiguration specViewConfig = ConfigurationFactory.eINSTANCE
 				.createProrSpecViewConfiguration();
 		specViewConfig.setSpecification(specification);
-		
+
 		// Collect all Types
 		final Set<SpecType> types = new HashSet<SpecType>();
 		ReqIF10Switch<SpecHierarchy> visitor = new ReqIF10Switch<SpecHierarchy>() {
 			@Override
 			public SpecHierarchy caseSpecHierarchy(SpecHierarchy specHierarchy) {
-				if (specHierarchy.getObject() != null && specHierarchy.getObject().getType() != null) {
+				if (specHierarchy.getObject() != null
+						&& specHierarchy.getObject().getType() != null) {
 					// Duplicates will disappear due to HashSet
 					types.add(specHierarchy.getObject().getType());
 				}
 				return specHierarchy;
 			}
 		};
-		for (Iterator<EObject> i = EcoreUtil.getAllContents(specification, true); i.hasNext();) {
+		for (Iterator<EObject> i = EcoreUtil
+				.getAllContents(specification, true); i.hasNext();) {
 			visitor.doSwitch(i.next());
 		}
-		
+
 		// Collect all names from the types
 		final Set<String> colnames = new HashSet<String>();
 		for (SpecType type : types) {
@@ -262,7 +270,7 @@ public class ConfigurationUtil {
 				colnames.add(ad.getLongName());
 			}
 		}
-		
+
 		// Build all Columns from the names
 		for (String colname : colnames) {
 			Column column = ConfigurationFactory.eINSTANCE.createColumn();
@@ -280,6 +288,25 @@ public class ConfigurationUtil {
 
 		return specViewConfig;
 
+	}
+
+	public static ProrPresentationConfiguration getPresentationConfig(
+			AttributeValue value) {
+		DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(value);
+		ProrPresentationConfiguration config = getPresentationConfiguration(dd);
+		return config;
+	}
+
+	/**
+	 * @return the {@link ProrPresentationConfigurations} for the given
+	 *         {@link ReqIf} and {@link EditingDomain}.
+	 */
+	public static ProrPresentationConfigurations getPresentationConfigurations(
+			ReqIF reqif) {
+		ProrToolExtension uiExtension = ConfigurationUtil
+				.getProrToolExtension(reqif);
+		return uiExtension == null ? null : uiExtension
+				.getPresentationConfigurations();
 	}
 
 }

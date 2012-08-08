@@ -23,22 +23,43 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIF;
 
-public abstract class AbstractPresentationService extends AdapterImpl implements PresentationService {
+/**
+ * This abstract class is provided to make life for Presentation creators
+ * easier. Just subclass it and modify where you see fit.
+ * 
+ * @author jastram
+ * 
+ */
+public abstract class AbstractPresentationService extends AdapterImpl implements PresentationInterface {
 
-	// This map contains all open ReqIF models and the corresponding editing
-	// domain. This map is needed for updating changed keywords.
+	/**
+	 * This map contains all open ReqIF models and their corresponding editing
+	 * domains.
+	 */
 	protected final Map<ReqIF, EditingDomain> openReqIfModels = new HashMap<ReqIF, EditingDomain>();
 
+	private Class<? extends ProrPresentationConfiguration> configInterface;
+	
 	public Class<? extends ProrPresentationConfiguration> getConfigurationInterface() {
-		return getConfigurationInstance().getClass();
+		if (configInterface == null) {
+			configInterface = getConfigurationInstance().getClass();
+		}
+		return configInterface;
 	}
 
+	/* Override, as indicated by the interface's Javadoc */
 	public abstract ProrPresentationConfiguration getConfigurationInstance();
 
+	/**
+	 * If you override this, make sure to still call this method via super.
+	 */
 	public void openReqif(ReqIF reqif, EditingDomain domain) {
 		openReqIfModels.put(reqif, domain);
 	}
 
+	/**
+	 * If you override this, make sure to still call this method via super.
+	 */
 	public void closeReqif(ReqIF reqif, EditingDomain domain) {
 		openReqIfModels.remove(reqif);
 	}

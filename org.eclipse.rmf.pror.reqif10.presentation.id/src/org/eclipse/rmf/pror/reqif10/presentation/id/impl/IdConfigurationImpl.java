@@ -276,4 +276,10 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 		return result.toString();
 	}
 
+	public void registerReqIF() {
+	}
+
+	public void unregisterReqIF() {
+	}
+
 } //IdConfigurationImpl

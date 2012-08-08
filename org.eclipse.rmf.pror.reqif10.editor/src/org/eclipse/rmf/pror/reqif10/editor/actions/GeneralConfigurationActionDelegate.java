@@ -58,7 +58,6 @@ public class GeneralConfigurationActionDelegate implements
 				.createProrToolExtension(reqif, editor.getEditingDomain());
 		ProrGeneralConfiguration generalConfig = createGeneralConfiguration(uiToolExtension);
 		createLabelConfiguration(generalConfig);
-
 		SubtreeDialog dialog = new SubtreeDialog(editor, generalConfig,
 				"General Configuration",
 				"org.eclipse.rmf.pror.reqif10.editor.generalConfiguration");

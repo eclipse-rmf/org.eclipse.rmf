@@ -36,7 +36,7 @@ import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProrPresentationConfigurationItemProvider
+public abstract class ProrPresentationConfigurationItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,

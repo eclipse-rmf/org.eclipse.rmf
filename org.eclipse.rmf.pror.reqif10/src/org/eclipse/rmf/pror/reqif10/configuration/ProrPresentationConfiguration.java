@@ -13,6 +13,7 @@ package org.eclipse.rmf.pror.reqif10.configuration;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
+import org.eclipse.rmf.reqif10.ReqIF;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,5 +57,21 @@ public interface ProrPresentationConfiguration extends EObject {
 	 * @generated
 	 */
 	void setDatatype(DatatypeDefinition value);
+
+	/**
+	 * This method is triggered when a this configuration element is added to a
+	 * {@link ReqIF} model, either because it is created and added, or because
+	 * the {@link ReqIF} was opened. This gives the Presentation a chance to
+	 * interact, e.g. by registering adapters, etc.
+	 */
+	public abstract void registerReqIF();
+
+	/**
+	 * This method is triggered when a this configuration element is removed
+	 * from a {@link ReqIF} model, either because it is got removed, or because
+	 * the {@link ReqIF} was closed. This gives the Presentation a chance to
+	 * interact, e.g. by unregistering adapters, etc.
+	 */
+	public abstract void unregisterReqIF();
 
 } // ProrPresentationConfiguration

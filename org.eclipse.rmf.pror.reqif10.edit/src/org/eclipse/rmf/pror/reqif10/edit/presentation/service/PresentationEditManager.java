@@ -11,7 +11,7 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 public class PresentationEditManager {
 
-	private static Map<Class<? extends ProrPresentationConfiguration>, PresentationEditService> presentationEditServiceRegistry;
+	private static Map<Class<? extends ProrPresentationConfiguration>, PresentationEditInterface> presentationEditServiceRegistry;
 
 	/**
 	 * Returns the cached {@link PresentationService} representing all installed
@@ -21,14 +21,13 @@ public class PresentationEditManager {
 	 * 
 	 *         FIXME: the map may not yet be populated
 	 */
-	public static Map<Class<? extends ProrPresentationConfiguration>, PresentationEditService> getPresentationEditServiceMap() {
+	public static Map<Class<? extends ProrPresentationConfiguration>, PresentationEditInterface> getPresentationEditServiceMap() {
 		if (presentationEditServiceRegistry == null)
-			presentationEditServiceRegistry = new HashMap<Class<? extends ProrPresentationConfiguration>, PresentationEditService>();
+			presentationEditServiceRegistry = new HashMap<Class<? extends ProrPresentationConfiguration>, PresentationEditInterface>();
 		return presentationEditServiceRegistry;
 	}
 
 	/**
-	 * 
 	 * This method is meant for exclusive use by the PresentationEditorManager
 	 * (editor plugin). Do not use otherwise!
 	 * 
@@ -37,11 +36,11 @@ public class PresentationEditManager {
 	 */
 	public static void addService(
 			Class<? extends ProrPresentationConfiguration> configurationInterface,
-			PresentationEditService service) {
+			PresentationEditInterface service) {
 		getPresentationEditServiceMap().put(configurationInterface, service);
 	}
 
-	public static PresentationEditService getPresentationEditService(
+	public static PresentationEditInterface getPresentationEditService(
 			ProrPresentationConfiguration configuration) {
 		for (Class<? extends ProrPresentationConfiguration> clazz : getPresentationEditServiceMap()
 				.keySet()) {
@@ -58,7 +57,7 @@ public class PresentationEditManager {
 		ProrPresentationConfiguration presentationConfiguration = ConfigurationUtil
 				.getPresentationConfiguration(dd);
 		if (presentationConfiguration != null) {
-			PresentationEditService service = PresentationEditManager
+			PresentationEditInterface service = PresentationEditManager
 					.getPresentationEditService(presentationConfiguration);
 			if (service != null) {
 				String customLabel = service.getLabel(value);

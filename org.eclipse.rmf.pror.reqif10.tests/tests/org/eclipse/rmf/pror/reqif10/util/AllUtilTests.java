@@ -16,7 +16,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 
 @RunWith(Suite.class)
-@SuiteClasses({ ConfigUtilTest.class })
+@SuiteClasses({ ConfigurationUtilTest.class })
 public class AllUtilTests {
 
 }

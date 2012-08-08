@@ -43,7 +43,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
-import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditService;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditInterface;
 import org.eclipse.rmf.pror.reqif10.provider.SpecElementWithAttributesItemProvider;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
@@ -386,9 +386,9 @@ public final class ProrUtil {
 			EditingDomain domain, Object owner, float location, int operations,
 			int operation, java.util.Collection<?> collection) {
 		// See whether a Presentation feels responsible.
-		Collection<PresentationEditService> services = PresentationEditManager
+		Collection<PresentationEditInterface> services = PresentationEditManager
 				.getPresentationEditServiceMap().values();
-		for (PresentationEditService service : services) {
+		for (PresentationEditInterface service : services) {
 			Command cmd = service.handleDragAndDrop(collection, owner, domain,
 					operation);
 			if (cmd != null) {

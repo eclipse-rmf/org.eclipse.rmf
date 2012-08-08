@@ -1,0 +1,23 @@
+Classes involved:
+
+
+PresentationService (AbstractPresentationService)
+- One instance per Presentation-Plugin
+- Consists of:
+  - PresentationEditorService (handles GUI stuff)
+  - PresentationEditService (handles ItemProvider stuff)
+
+PresentationEditorManager
+
+PresentationEditorService
+
+- Es gibt einen PresentationService pro installierter Presentation
+- Diese wird aktiviert mit oeffnen und schliessen vom ReqIF
+
+- Ein ReqIF model kann belibig viele PresentationConfiguration haben
+- Diese werden mit Erstellung / Loeschung aktiviert / deaktiviert
+
+==================================================================
+
+Specification
+- Presentations do not get activated, unless 

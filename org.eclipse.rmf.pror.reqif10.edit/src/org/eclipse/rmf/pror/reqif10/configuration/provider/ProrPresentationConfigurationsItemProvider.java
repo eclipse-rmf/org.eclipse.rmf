@@ -28,6 +28,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
 
@@ -121,8 +122,9 @@ public class ProrPresentationConfigurationsItemProvider
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
+	 * Handles calls to PresentationServiceManager
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
@@ -131,9 +133,24 @@ public class ProrPresentationConfigurationsItemProvider
 		switch (notification.getFeatureID(ProrPresentationConfigurations.class)) {
 			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				handlePresentationRegistration(notification);
 				return;
 		}
 		super.notifyChanged(notification);
+	}
+
+	private void handlePresentationRegistration(Notification notification) {
+		if (notification.getEventType() == Notification.ADD) {
+			ProrPresentationConfiguration config = (ProrPresentationConfiguration) notification
+					.getNewValue();
+			System.out.println("Registering: " + config);
+			config.registerReqIF();
+		} else if (notification.getEventType() == Notification.REMOVE) {
+			ProrPresentationConfiguration config = (ProrPresentationConfiguration) notification
+					.getOldValue();
+			System.out.println("Unregistering: " + config);
+			config.unregisterReqIF();
+		}
 	}
 
 	/**

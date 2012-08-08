@@ -45,4 +45,10 @@ public class LinewrapConfigurationImpl extends ProrPresentationConfigurationImpl
 		return LinewrapPackage.Literals.LINEWRAP_CONFIGURATION;
 	}
 
+	public void registerReqIF() {
+	}
+
+	public void unregisterReqIF() {
+	}
+
 } //LinewrapConfigurationImpl

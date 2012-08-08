@@ -94,7 +94,7 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ConfigurationItemProviderAdapterFactory;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorManager;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertySheetPage;
 import org.eclipse.rmf.pror.reqif10.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.provider.VirtualDatatypeDefinitionItemProvider;
@@ -1129,7 +1129,8 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		}
 		
 		// TODO there must be a better place?
-		PresentationEditorManager.notifiyOpenReqif(reqif, editingDomain);
+		PresentationServiceManager.notifiyOpenReqif(reqif, getAdapterFactory(),
+				getEditingDomain());
 		return reqif;
 	}
 
@@ -1797,7 +1798,8 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		}
 
 		// TODO there must be a better place?
-		PresentationEditorManager.notifiyCloseReqif(reqif, editingDomain);
+		PresentationServiceManager.notifiyCloseReqif(reqif,
+				getAdapterFactory(), getEditingDomain());
 
 		super.dispose();
 

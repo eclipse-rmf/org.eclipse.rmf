@@ -10,7 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.agilegrid;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.net.URISyntaxException;
 
@@ -42,7 +42,8 @@ public abstract class AbstractContentProviderTests extends AbstractItemProviderT
 	protected SpecHierarchy specHierarchy;
 
 	@Before
-	public void setup() throws URISyntaxException {
+	public void setupTestProrAgileGridContentProvider()
+			throws URISyntaxException {
 		reqif = this.getTestReqif("simple.reqif");
 		specification = reqif.getCoreContent().getSpecifications().get(0);
 		specObject = reqif.getCoreContent().getSpecObjects().get(0);
@@ -59,7 +60,7 @@ public abstract class AbstractContentProviderTests extends AbstractItemProviderT
 	}
 	
 	@After
-	public void teardownAbstractItemProviderTest() {
+	public void teardownTestProrAgileGridContentProvidert() {
 		reqif = null;
 		specification = null;
 		specViewConfig = null;
@@ -81,6 +82,11 @@ public abstract class AbstractContentProviderTests extends AbstractItemProviderT
 	public void testSpecViewConfigContent() {
 		assertEquals(0, specViewConfig.getColumns().size());
 	}
-	
+
+	@Test
+	public void testInitialCellValue() {
+		assertEquals(specification.getChildren().get(0).getObject(),
+				contentProvider.getContentAt(0, 0));
+	}
 
 }
