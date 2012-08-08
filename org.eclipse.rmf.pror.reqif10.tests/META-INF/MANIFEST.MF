@@ -19,3 +19,5 @@ Export-Package: org.eclipse.rmf.pror.reqif10.testdata,
  org.eclipse.rmf.pror.reqif10.testframework,
  org.eclipse.rmf.pror.reqif10.tests.util,
  org.eclipse.rmf.reqif10.configuration.tests
+Bundle-ClassPath: lib/mockito-all-1.8.4.jar,
+ .
