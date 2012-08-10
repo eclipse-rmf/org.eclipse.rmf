@@ -50,7 +50,6 @@ public class IDPresentationService extends AbstractPresentationService
 	 * Upon opening, attaches a Listener that sets the ID if the Datatype
 	 * matches.
 	 */
-	@Override
 	public void openReqif(final ReqIF reqif, final EditingDomain domain) {
 
 		ensureAllConfigsHaveAdapters(reqif, domain);

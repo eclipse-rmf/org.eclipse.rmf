@@ -19,24 +19,32 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a
+ * {@link org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations}
+ * object. <!-- begin-user-doc -->
+ * <p>
+ * This adapter is stateful, as it keeps track of an associated
+ * {@link EditingDomain}. This is necessary, as presentations may need to react
+ * to model changes by modifying the model. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ProrPresentationConfigurationsItemProvider
@@ -119,11 +127,11 @@ public class ProrPresentationConfigurationsItemProvider
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * Handles calls to PresentationServiceManager
-	 * <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to
+	 * update any cached children and by creating a viewer notification, which
+	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> Handles
+	 * calls to PresentationServiceManager <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -131,26 +139,13 @@ public class ProrPresentationConfigurationsItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ProrPresentationConfigurations.class)) {
-			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				handlePresentationRegistration(notification);
-				return;
+		case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), true, false));
+			handlePresentationRegistration(notification);
+			return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	private void handlePresentationRegistration(Notification notification) {
-		if (notification.getEventType() == Notification.ADD) {
-			ProrPresentationConfiguration config = (ProrPresentationConfiguration) notification
-					.getNewValue();
-			System.out.println("Registering: " + config);
-			config.registerReqIF();
-		} else if (notification.getEventType() == Notification.REMOVE) {
-			ProrPresentationConfiguration config = (ProrPresentationConfiguration) notification
-					.getOldValue();
-			System.out.println("Unregistering: " + config);
-			config.unregisterReqIF();
-		}
 	}
 
 	/**
@@ -174,6 +169,46 @@ public class ProrPresentationConfigurationsItemProvider
 	@Override
 	public ResourceLocator getResourceLocator() {
 		return Reqif10EditPlugin.INSTANCE;
+	}
+
+	private EditingDomain editingDomain;
+
+	/**
+	 * Allows setting the editing domain, as it is required for
+	 * {@link ProrPresentationConfiguration} to modify the model. This method
+	 * must be called only once.
+	 * <p>
+	 * This {@link ItemProvider} is stateful, therefore it is possible to have
+	 * multiple models open with multiple {@link EditingDomain}s.
+	 */
+	public void setEditingDomain(EditingDomain editingDomain) {
+		if (editingDomain == null) {
+			throw new NullPointerException();
+		} else if (this.editingDomain != null) {
+			throw new IllegalStateException("EditingDomain is already set: "
+					+ this.editingDomain);
+		}
+		this.editingDomain = editingDomain;
+	}
+
+	private void handlePresentationRegistration(Notification notification) {
+		if (editingDomain == null) {
+			throw new NullPointerException(
+					"Presentation registration, but editingDomain not yet set!");
+		}
+		if (notification.getEventType() == Notification.ADD) {
+			ProrPresentationConfiguration config = (ProrPresentationConfiguration) notification
+					.getNewValue();
+			System.out.println("Registering: " + config);
+			ProrUtil.getConfigItemProvider(config, getRootAdapterFactory())
+					.registerPresentationConfiguration(config, editingDomain);
+		} else if (notification.getEventType() == Notification.REMOVE) {
+			ProrPresentationConfiguration config = (ProrPresentationConfiguration) notification
+					.getOldValue();
+			System.out.println("Unregistering: " + config);
+			ProrUtil.getConfigItemProvider(config, getRootAdapterFactory())
+					.unregisterPresentationConfiguration(config);
+		}
 	}
 
 }

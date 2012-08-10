@@ -11,8 +11,6 @@
 package org.eclipse.rmf.pror.reqif10.editor.presentation.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.CellEditor;
@@ -21,7 +19,6 @@ import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.ReqIF;
 
 /**
  * This abstract class is provided to make life for Presentation creators
@@ -31,12 +28,6 @@ import org.eclipse.rmf.reqif10.ReqIF;
  * 
  */
 public abstract class AbstractPresentationService extends AdapterImpl implements PresentationInterface {
-
-	/**
-	 * This map contains all open ReqIF models and their corresponding editing
-	 * domains.
-	 */
-	protected final Map<ReqIF, EditingDomain> openReqIfModels = new HashMap<ReqIF, EditingDomain>();
 
 	private Class<? extends ProrPresentationConfiguration> configInterface;
 	
@@ -49,20 +40,6 @@ public abstract class AbstractPresentationService extends AdapterImpl implements
 
 	/* Override, as indicated by the interface's Javadoc */
 	public abstract ProrPresentationConfiguration getConfigurationInstance();
-
-	/**
-	 * If you override this, make sure to still call this method via super.
-	 */
-	public void openReqif(ReqIF reqif, EditingDomain domain) {
-		openReqIfModels.put(reqif, domain);
-	}
-
-	/**
-	 * If you override this, make sure to still call this method via super.
-	 */
-	public void closeReqif(ReqIF reqif, EditingDomain domain) {
-		openReqIfModels.remove(reqif);
-	}
 
 	public Command handleDragAndDrop(Collection<?> source, Object target,
 			EditingDomain editingDomain, int operation) {

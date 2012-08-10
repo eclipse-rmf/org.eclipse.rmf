@@ -10,6 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.presentation.headline.ui;
 
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,7 +26,6 @@ import org.eclipse.rmf.pror.presentation.headline.HeadlinePackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.AbstractPresentationService;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
@@ -34,10 +34,11 @@ import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
 
-public class HeadlinePresentationService extends AbstractPresentationService
-		implements PresentationInterface {
+public class HeadlinePresentationService extends AbstractPresentationService {
 
 	private HeadlineCellRenderer headlineCellRenderer;
+
+	private HashMap<HeadlineConfiguration, HeadlineCellRenderer> renderers = new HashMap<HeadlineConfiguration, HeadlineCellRenderer>();
 
 	@Override
 	public ProrPresentationConfiguration getConfigurationInstance() {
@@ -45,42 +46,52 @@ public class HeadlinePresentationService extends AbstractPresentationService
 	}
 
 	/**
-	 * TODO the bulk of this should go into the constructor of
-	 * {@link HeadlineCellRenderer}
+	 * Lazily creates the renderer and tracks them on a per-configuration basis.
 	 */
 	@Override
 	public IProrCellRenderer getCellRenderer(final AttributeValue av) {
-		if (headlineCellRenderer == null) {
-			if (ReqIF10Util.getDatatypeDefinition(av) == null)
-				return null;
-			headlineCellRenderer = new HeadlineCellRenderer(ReqIF10Util
-					.getDatatypeDefinition(av).getIdentifier());
-			HeadlineConfiguration headlineConfiguration = (HeadlineConfiguration) ConfigurationUtil
-					.getPresentationConfiguration(av);
-			headlineCellRenderer.setFontSize(headlineConfiguration.getSize());
 
-			// Register for notifications
-			headlineConfiguration.eAdapters().add(new AdapterImpl() {
-				@Override
-				public void notifyChanged(Notification msg) {
-					// React to size changes
-					switch (msg.getFeatureID(HeadlineConfiguration.class)) {
-					case HeadlinePackage.HEADLINE_CONFIGURATION__SIZE:
-						headlineCellRenderer.setFontSize(msg.getNewIntValue());
-						refreshUi(av);
-						break;
-					case HeadlinePackage.HEADLINE_CONFIGURATION__DATATYPE:
-						if (msg.getNewValue() != null)
-							headlineCellRenderer
-									.setDatatypeId(((DatatypeDefinition) msg
-											.getNewValue()).getIdentifier());
-						refreshUi(av);
-					default:
-						break;
-					}
-				}
-			});
+		HeadlineConfiguration config = (HeadlineConfiguration) ConfigurationUtil
+				.getPresentationConfiguration(av);
+
+		HeadlineCellRenderer renderer = renderers.get(config);
+		if (renderer == null) {
+			renderer = createRenderer(config);
+			renderers.put(config, renderer);
 		}
+		return renderer;
+	}
+
+
+	private HeadlineCellRenderer createRenderer(
+			final HeadlineConfiguration config) {
+		DatatypeDefinition dd = config.getDatatype();
+
+		headlineCellRenderer = new HeadlineCellRenderer(dd.getIdentifier());
+		headlineCellRenderer.setFontSize(config.getSize());
+
+		// Register for notifications
+		config.eAdapters().add(new AdapterImpl() {
+			@Override
+			public void notifyChanged(Notification msg) {
+				// React to size changes
+				switch (msg.getFeatureID(HeadlineConfiguration.class)) {
+				case HeadlinePackage.HEADLINE_CONFIGURATION__SIZE:
+					headlineCellRenderer.setFontSize(msg.getNewIntValue());
+					refreshUi(config.getDatatype());
+					break;
+				case HeadlinePackage.HEADLINE_CONFIGURATION__DATATYPE:
+					if (msg.getNewValue() != null)
+						headlineCellRenderer
+								.setDatatypeId(((DatatypeDefinition) msg
+										.getNewValue()).getIdentifier());
+					refreshUi(config.getDatatype());
+				default:
+					break;
+				}
+			}
+		});
+
 		return headlineCellRenderer;
 	}
 
@@ -91,12 +102,10 @@ public class HeadlinePresentationService extends AbstractPresentationService
 
 	/**
 	 * Called when the font size or {@link DatatypeDefinition} change.
-	 * 
-	 * @param av
 	 */
 	@SuppressWarnings("rawtypes")
-	private void refreshUi(AttributeValue av) {
-		if (ReqIF10Util.getDatatypeDefinition(av) == null)
+	private void refreshUi(DatatypeDefinition dd) {
+		if (dd == null)
 			return;
 		ReqIF10Switch visitor = new ReqIF10Switch() {
 			@Override
@@ -107,9 +116,8 @@ public class HeadlinePresentationService extends AbstractPresentationService
 				return super.caseSpecHierarchy(object);
 			}
 		};
-		EList<Specification> roots = ReqIF10Util
-				.getReqIF(ReqIF10Util.getDatatypeDefinition(av))
-				.getCoreContent().getSpecifications();
+		EList<Specification> roots = ReqIF10Util.getReqIF(dd).getCoreContent()
+				.getSpecifications();
 		for (Iterator i = EcoreUtil.getAllProperContents(roots, true); i
 				.hasNext();) {
 			visitor.doSwitch((EObject) i.next());

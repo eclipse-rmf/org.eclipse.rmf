@@ -26,8 +26,10 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
+import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationsItemProvider;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIF;
 
@@ -35,6 +37,9 @@ import org.eclipse.rmf.reqif10.ReqIF;
  * This class manages installed Presentations (and is therefore independent of
  * open ReqIF Files). It is not meant to be instantiated and consists
  * exclusively of static methods.
+ * <p>
+ * 
+ * 
  */
 public class PresentationServiceManager {
 
@@ -119,7 +124,7 @@ public class PresentationServiceManager {
 
 	/**
 	 * Upon opening a ReqIF File, this method notifies each
-	 * {@link ProrPresentationConfigurationItemProvider#registerReqIF(ReqIF, EditingDomain)}
+	 * {@link ProrPresentationConfigurationItemProvider#registerPresentationConfiguration(ReqIF, EditingDomain)}
 	 */
 	public static void notifiyOpenReqif(ReqIF reqif,
 			AdapterFactory adapterFactory, EditingDomain editingDomain) {
@@ -129,10 +134,13 @@ public class PresentationServiceManager {
 		if (configs == null)
 			return;
 
+		((ProrPresentationConfigurationsItemProvider) ProrUtil.getItemProvider(
+				adapterFactory, configs)).setEditingDomain(editingDomain);
+
 		for (ProrPresentationConfiguration config : configs
 				.getPresentationConfigurations()) {
-			System.out.println("Registering: " + config);
-			config.registerReqIF();
+			ProrUtil.getConfigItemProvider(config, adapterFactory)
+					.registerPresentationConfiguration(config, editingDomain);
 		}
 	}
 
@@ -150,7 +158,8 @@ public class PresentationServiceManager {
 		for (ProrPresentationConfiguration config : configs
 				.getPresentationConfigurations()) {
 			System.out.println("Unregistering: " + config);
-			config.unregisterReqIF();
+			ProrUtil.getConfigItemProvider(config, adapterFactory)
+					.unregisterPresentationConfiguration(config);
 		}
 	}
 

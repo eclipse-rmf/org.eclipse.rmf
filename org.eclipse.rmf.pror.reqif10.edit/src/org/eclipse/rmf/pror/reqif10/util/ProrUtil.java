@@ -42,6 +42,8 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditInterface;
 import org.eclipse.rmf.pror.reqif10.provider.SpecElementWithAttributesItemProvider;
@@ -714,6 +716,16 @@ public final class ProrUtil {
 			}
 			
 			return true;
+	}
+
+	/**
+	 * Retrieves the {@link ProrPresentationConfigurationItemProvider} for the
+	 * given {@link ProrPresentationConfiguration} element.
+	 */
+	public static ProrPresentationConfigurationItemProvider getConfigItemProvider(
+			ProrPresentationConfiguration config, AdapterFactory adapterFactory) {
+		ProrPresentationConfigurationItemProvider itemprovider = (ProrPresentationConfigurationItemProvider) getItemProvider(adapterFactory, config);
+		return itemprovider;
 	}
 
 }

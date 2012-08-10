@@ -77,7 +77,7 @@ public class IdLabelCellRenderer implements IProrCellRenderer {
 		return IdVerticalAlign.CENTER;
 	}
 
-	public String doDrawHtmlContent(Object value) {
+	public String doDrawHtmlContent(AttributeValue value) {
 		AttributeValueString av = (AttributeValueString) value;
 		return av.getTheValue();
 	}

@@ -18,6 +18,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -26,6 +27,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.rmf.pror.presentation.LinewrapEditPlugin;
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionSimple;
 
@@ -132,6 +134,18 @@ public class LinewrapConfigurationItemProvider
 	@Override
 	public ResourceLocator getResourceLocator() {
 		return LinewrapEditPlugin.INSTANCE;
+	}
+
+	@Override
+	public void registerPresentationConfiguration(ProrPresentationConfiguration config,
+			EditingDomain editingDomain) {
+		// No action required.
+
+	}
+
+	@Override
+	public void unregisterPresentationConfiguration(ProrPresentationConfiguration config) {
+		// No action required.
 	}
 
 }

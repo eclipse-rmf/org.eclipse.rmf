@@ -24,6 +24,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
+import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationsItemProvider;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10Editor;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
@@ -59,6 +60,26 @@ public class PresentationConfigurationActionDelegate implements
 	public void run(IAction action) {
 		if (editor == null)
 			return;
+
+		// Make sure the data structures exist
+		EditingDomain ed = editor.getEditingDomain();
+		ProrToolExtension toolExtension = ConfigurationUtil
+				.createProrToolExtension(editor.getReqif(), ed);
+		if (toolExtension.getPresentationConfigurations() == null) {
+			ProrPresentationConfigurations configs = ConfigurationFactory.eINSTANCE
+					.createProrPresentationConfigurations();
+			((ProrPresentationConfigurationsItemProvider) ProrUtil
+					.getItemProvider(editor.getAdapterFactory(), configs))
+					.setEditingDomain(ed);
+			ed.getCommandStack()
+					.execute(
+							SetCommand
+									.create(ed,
+											toolExtension,
+											ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS,
+											configs));
+		}
+
 		SubtreeDialog dialog = new SubtreeDialog(editor, getProrPresentationConfigurations(), "Presentation Configuration",
 				"org.eclipse.rmf.pror.reqif10.editor.presentationConfiguration");
 		dialog.setActions(buildAddPresentationActions(), true);

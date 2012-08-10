@@ -166,16 +166,4 @@ public class HeadlineConfigurationImpl extends ProrPresentationConfigurationImpl
 		return result.toString();
 	}
 
-	/**
-	 * Nothing to do upon opening
-	 */
-	public void registerReqIF() {
-	}
-
-	/**
-	 * Nothing to do upon closing
-	 */
-	public void unregisterReqIF() {
-	}
-
 } //HeadlineConfigurationImpl

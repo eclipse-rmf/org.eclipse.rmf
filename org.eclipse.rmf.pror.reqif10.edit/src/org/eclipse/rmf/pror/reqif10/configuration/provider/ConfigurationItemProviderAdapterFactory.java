@@ -20,6 +20,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.Disposable;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -55,6 +56,14 @@ public class ConfigurationItemProviderAdapterFactory extends ConfigurationAdapte
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
+
+	/**
+	 * This keeps track of all the item providers created, so that they can be {@link #dispose disposed}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Disposable disposable = new Disposable();
 
 	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
@@ -148,14 +157,6 @@ public class ConfigurationItemProviderAdapterFactory extends ConfigurationAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProrPresentationConfigurationsItemProvider prorPresentationConfigurationsItemProvider;
-
-	/**
 	 * This creates an adapter for a {@link org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -163,11 +164,7 @@ public class ConfigurationItemProviderAdapterFactory extends ConfigurationAdapte
 	 */
 	@Override
 	public Adapter createProrPresentationConfigurationsAdapter() {
-		if (prorPresentationConfigurationsItemProvider == null) {
-			prorPresentationConfigurationsItemProvider = new ProrPresentationConfigurationsItemProvider(this);
-		}
-
-		return prorPresentationConfigurationsItemProvider;
+		return new ProrPresentationConfigurationsItemProvider(this);
 	}
 
 	/**
@@ -275,6 +272,20 @@ public class ConfigurationItemProviderAdapterFactory extends ConfigurationAdapte
 	}
 
 	/**
+	 * Associates an adapter with a notifier via the base implementation, then records it to ensure it will be disposed.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected void associate(Adapter adapter, Notifier target) {
+		super.associate(adapter, target);
+		if (adapter != null) {
+			disposable.add(adapter);
+		}
+	}
+
+	/**
 	 * This adds a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -315,12 +326,7 @@ public class ConfigurationItemProviderAdapterFactory extends ConfigurationAdapte
 	 * @generated
 	 */
 	public void dispose() {
-		if (prorToolExtensionItemProvider != null) prorToolExtensionItemProvider.dispose();
-		if (prorSpecViewConfigurationItemProvider != null) prorSpecViewConfigurationItemProvider.dispose();
-		if (columnItemProvider != null) columnItemProvider.dispose();
-		if (prorPresentationConfigurationsItemProvider != null) prorPresentationConfigurationsItemProvider.dispose();
-		if (prorGeneralConfigurationItemProvider != null) prorGeneralConfigurationItemProvider.dispose();
-		if (labelConfigurationItemProvider != null) labelConfigurationItemProvider.dispose();
+		disposable.dispose();
 	}
 
 }
