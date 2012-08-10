@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationInterface;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
@@ -36,7 +36,9 @@ public class ProrEditorUtil {
 
 	private static String createHtmlHeader(Specification spec) {
 		StringBuilder sb = new StringBuilder();
-		String title = ConfigurationUtil.getSpecElementLabel(spec);
+		// String title = ConfigurationUtil.getSpecElementLabel(spec);
+		// FIXME
+		String title = "FIXME (Title)";
 
 		sb.append("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n");
 		sb.append("<html>\n");
@@ -91,7 +93,7 @@ public class ProrEditorUtil {
 				for (Column col : config.getColumns()) {
 					html.append("<td valign='top'>");
 
-					// Handle indenting TODO use something better than spaces.
+					// Handle indenting
 					if (first) {
 						html.append("<div style='margin-left: " + (indent * 20)
 								+ "px;'>");
@@ -118,9 +120,11 @@ public class ProrEditorUtil {
 									.getPresentationService(configuration);
 						}
 
+						// FIXME repair printing with custom renderers.
 						if (service != null)
-							html.append(service.getCellRenderer(av)
-									.doDrawHtmlContent(av));
+							html.append("<b>FIX RENDERING</b>");
+						// html.append(service.getCellRenderer(av)
+						// .doDrawHtmlContent(av));
 
 					} else {
 						html.append(getDefaultValue(av));

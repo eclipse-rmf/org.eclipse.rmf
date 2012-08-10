@@ -15,13 +15,14 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.DefaultLayoutAdvisor;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.AbstractProrCellRenderer;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
@@ -54,15 +55,16 @@ public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 			if (av != null) {
 
 				IProrCellRenderer renderer = null;
-				// Try to get cell renderer from presentation extension
-				// point
+				// Try to get cell renderer from presentation
 				ProrPresentationConfiguration config = ConfigurationUtil
 						.getPresentationConfiguration(av);
 				if (config != null) {
-					PresentationInterface service = PresentationServiceManager
-							.getPresentationService(config);
-					if (service != null)
-						renderer = service.getCellRenderer(av);
+					ItemProviderAdapter ip = ProrUtil.getItemProvider(
+							adapterFactory, config);
+					if (ip instanceof PresentationEditorInterface) {
+						renderer = ((PresentationEditorInterface) ip)
+								.getCellRenderer(av);
+					}
 				}
 
 				// Check if the have a renderer from presentation extension

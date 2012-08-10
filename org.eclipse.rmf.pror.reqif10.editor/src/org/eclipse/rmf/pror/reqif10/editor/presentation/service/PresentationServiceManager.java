@@ -27,7 +27,8 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationsItemProvider;
-import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationManager;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationInterface;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
@@ -87,7 +88,7 @@ public class PresentationServiceManager {
 								.createExecutableExtension("service");
 						tmpRegistry.put(service.getConfigurationInterface(),
 								service);
-						PresentationEditManager.addService(
+						PresentationManager.addService(
 								service.getConfigurationInterface(), service);
 					} catch (CoreException e) {
 						MessageDialog

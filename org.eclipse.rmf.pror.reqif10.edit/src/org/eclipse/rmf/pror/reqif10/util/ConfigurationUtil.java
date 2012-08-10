@@ -16,11 +16,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
@@ -30,7 +32,6 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
-import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
@@ -147,13 +148,38 @@ public class ConfigurationUtil {
 	}
 
 	/**
+	 * Retrieves all active {@link PresentationEditInterface} instances for the
+	 * given object (which assumes to be part of a ReqIF model). If none is
+	 * found, an empty set is returned.
+	 */
+	public static Set<PresentationEditInterface> getPresentationEditInterfaces(
+			Object obj, AdapterFactory adapterFactory) {
+		ReqIF reqif = ReqIF10Util.getReqIF(obj);
+		ProrPresentationConfigurations configs = getPresentationConfigurations(reqif);
+		if (configs != null) {
+			Set<PresentationEditInterface> result = new HashSet<PresentationEditInterface>();
+			for (ProrPresentationConfiguration config : configs
+					.getPresentationConfigurations()) {
+				ItemProviderAdapter ip = ProrUtil.getItemProvider(
+						adapterFactory, config);
+				if (ip instanceof PresentationEditInterface) {
+					result.add((PresentationEditInterface) ip);
+				}
+			}
+			return result;
+		}
+		return Collections.emptySet();
+	}
+
+	/**
 	 * Finds the best labels, according to what is set in the preferences.
 	 * 
 	 * @param specElement
+	 * @param adapterFactory
 	 * @return
 	 */
 	public static String getSpecElementLabel(
-			SpecElementWithAttributes specElement) {
+			SpecElementWithAttributes specElement, AdapterFactory adapterFactory) {
 
 		List<String> labels = getDefaultLabels(ReqIF10Util
 				.getReqIF(specElement));
@@ -162,18 +188,20 @@ public class ConfigurationUtil {
 		for (String label : labels) {
 
 			for (AttributeValue value : specElement.getValues()) {
-				// TODO eventually should also work for non-simple attributes
 				AttributeDefinition ad = ReqIF10Util
 						.getAttributeDefinition(value);
 				if (ad == null)
 					continue;
 
 				if (label.equals(ad.getLongName())) {
-
-					String customLabel = PresentationEditManager
-							.getCustomLabel(value);
-					if (customLabel != null) {
-						return customLabel;
+					ProrPresentationConfiguration config = getPresentationConfig(value);
+					ItemProviderAdapter ip = ProrUtil.getItemProvider(
+							adapterFactory, config);
+					if (ip instanceof PresentationEditInterface) {
+						String customLabel = ((PresentationEditInterface) ip)
+								.getLabel(value);
+						if (customLabel != null)
+							return customLabel;
 					}
 
 					Object result = ReqIF10Util.getTheValue(value);

@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.ui.EMFEditUIPlugin;
 import org.eclipse.emf.edit.ui.celleditor.FeatureEditorDialog;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
@@ -40,10 +41,10 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.AbstractProrCellEditorProvider;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.pror.reqif10.editor.propertiesview.ProrPropertyContentProvider.SortedItemPropertyDescriptor;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.swt.SWT;
@@ -80,11 +81,20 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 	@Override
 	public boolean canEdit(int row, int col) {
 
-		AttributeValue attrValue = getAttributeValue(row, col);
-		if (attrValue != null) {
-			PresentationInterface service = PresentationServiceManager
-					.getPresentationService(attrValue, editingDomain);
-			return service == null ? true : service.canEdit();
+		AttributeValue av = getAttributeValue(row, col);
+		if (av != null) {
+
+			// Ask Presentation
+			ProrPresentationConfiguration config = ConfigurationUtil
+					.getPresentationConfiguration(av);
+			if (config != null) {
+				ItemProviderAdapter ip = ProrUtil.getItemProvider(
+						adapterFactory, config);
+				if (ip instanceof PresentationEditorInterface) {
+					return ((PresentationEditorInterface) ip).canEdit();
+				}
+			}
+
 		} else {
 			SortedItemPropertyDescriptor itemPropertyDescriptor = this.contentProvider
 					.getItemPropertyDescriptor(row);
@@ -113,13 +123,17 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 		// when try to get the presentation service
 		if (attrValue != null) {
 
+			// Ask Presentation
 			ProrPresentationConfiguration config = ConfigurationUtil
 					.getPresentationConfiguration(attrValue);
 			if (config != null) {
-				PresentationInterface service = PresentationServiceManager.getPresentationService(config);
-				if (service != null)
-					cellEditor = service.getCellEditor(agileGrid,
-						editingDomain, attrValue, getAffectedElement(row, col));
+				ItemProviderAdapter ip = ProrUtil.getItemProvider(
+						adapterFactory, config);
+				if (ip instanceof PresentationEditorInterface) {
+					cellEditor = ((PresentationEditorInterface) ip)
+							.getCellEditor(agileGrid, editingDomain, attrValue,
+									getAffectedElement(row, col));
+				}
 			}
 
 			if (cellEditor == null)

@@ -33,10 +33,10 @@ import org.eclipse.rmf.pror.presentation.headline.util.HeadlineAdapterFactory;
 import org.eclipse.rmf.pror.presentation.linewrap.util.LinewrapAdapterFactory;
 import org.eclipse.rmf.pror.presentation.ui.LinewrapPresentationService;
 import org.eclipse.rmf.pror.reqif10.configuration.util.ConfigurationAdapterFactory;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationInterface;
 import org.eclipse.rmf.pror.reqif10.editor.util.ProrEditorUtil;
 import org.eclipse.rmf.pror.reqif10.presentation.id.util.IdAdapterFactory;
-import org.eclipse.rmf.pror.reqif10.presentation.ui.IDPresentationService;
+import org.eclipse.rmf.pror.reqif10.presentation.ui.IdPresentationService;
 import org.eclipse.rmf.pror.reqif10.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.pror.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.ReqIF;
@@ -102,7 +102,7 @@ public class GenerateHtml {
 									.add(new LinewrapPresentationService());
 							presentations
 									.add(new HeadlinePresentationService());
-							presentations.add(new IDPresentationService());
+							presentations.add(new IdPresentationService());
 
 							// String ext = fileName.substring(mid + 1,
 							// fileName.length());

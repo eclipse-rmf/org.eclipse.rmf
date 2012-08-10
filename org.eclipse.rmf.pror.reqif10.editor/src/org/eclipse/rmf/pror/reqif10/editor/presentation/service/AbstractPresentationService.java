@@ -12,13 +12,11 @@ package org.eclipse.rmf.pror.reqif10.editor.presentation.service;
 
 import java.util.Collection;
 
-import org.agilemore.agilegrid.AgileGrid;
-import org.agilemore.agilegrid.CellEditor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationInterface;
 
 /**
  * This abstract class is provided to make life for Presentation creators
@@ -44,23 +42,6 @@ public abstract class AbstractPresentationService extends AdapterImpl implements
 	public Command handleDragAndDrop(Collection<?> source, Object target,
 			EditingDomain editingDomain, int operation) {
 		return null;
-	}
-
-	public IProrCellRenderer getCellRenderer(AttributeValue av) {
-		return null;
-	}
-
-	public String getLabel(AttributeValue av) {
-		return null;
-	}
-
-	public CellEditor getCellEditor(AgileGrid agileGrid,
-			EditingDomain editingDomain, AttributeValue attrValue, Object affectedObject) {
-		return null;
-	}
-
-	public boolean canEdit() {
-		return false;
 	}
 
 }

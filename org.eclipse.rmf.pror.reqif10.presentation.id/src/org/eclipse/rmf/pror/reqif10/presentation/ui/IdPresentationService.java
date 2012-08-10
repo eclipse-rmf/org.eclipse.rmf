@@ -13,10 +13,8 @@ package org.eclipse.rmf.pror.reqif10.presentation.ui;
 
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.AbstractPresentationService;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdFactory;
 import org.eclipse.rmf.pror.reqif10.presentation.id.impl.IdConfigurationImpl;
-import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 
 /**
@@ -38,21 +36,11 @@ import org.eclipse.rmf.reqif10.AttributeValueString;
  */
 public class IdPresentationService extends AbstractPresentationService {
 
-	// Special renderer to align icon
-	private final IProrCellRenderer idLabelCellRenderer;
-
 	public IdPresentationService() {
-		idLabelCellRenderer = new IdLabelCellRenderer();
 	}
 
 	@Override
 	public ProrPresentationConfiguration getConfigurationInstance() {
 		return IdFactory.eINSTANCE.createIdConfiguration();
 	}
-
-	@Override
-	public IProrCellRenderer getCellRenderer(AttributeValue av) {
-		return idLabelCellRenderer;
-	}
-
 }

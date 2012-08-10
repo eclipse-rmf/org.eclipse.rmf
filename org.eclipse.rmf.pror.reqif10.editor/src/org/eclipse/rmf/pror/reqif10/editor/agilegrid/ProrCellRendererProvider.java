@@ -32,8 +32,8 @@ public class ProrCellRendererProvider extends DefaultCellRendererProvider {
 		leftHeadRenderer.setAlignment(ICellRenderer.ALIGN_HORIZONTAL_LEFT
 				| ICellRenderer.ALIGN_VERTICAL_CENTER);
 
-		prorLinkCellRenderer = new ProrLinkCellRenderer(
-				agileGrid);
+		prorLinkCellRenderer = new ProrLinkCellRenderer(agileGrid,
+				adapterFactory);
 	}
 
 	@Override

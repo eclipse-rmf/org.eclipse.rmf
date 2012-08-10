@@ -8,18 +8,18 @@
  * Contributors:
  *     Michael Jastram - initial API and implementation
  ******************************************************************************/
-package org.eclipse.rmf.pror.reqif10.editor.presentation.service;
+package org.eclipse.rmf.pror.reqif10.util;
 
 import java.util.Collection;
 
-import org.agilemore.agilegrid.AgileGrid;
-import org.agilemore.agilegrid.CellEditor;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.rmf.pror.reqif10.util.PresentationEditInterface;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
 
 /**
  * Interface that Presentation-Plugins must implement to provide relevant
@@ -57,39 +57,67 @@ import org.eclipse.rmf.reqif10.ReqIF;
  * <p>
  * 
  * Note that this interface simply aggregates {@link PresentationEditInterface}
- * and {@link PresentationEditorInterface}, which are separated as the reside in
+ * and {@link PresentationEditInterface}, which are separated as the reside in
  * two different plugins (the former does not require andy GUI libraries, the
  * later does).
  * 
  * @author jastram
  * 
  */
-public interface PresentationEditorInterface {
+public interface PresentationEditInterface {
 
 	/**
-	 * Returns an {@link IProrCellRenderer} appropriate for the
-	 * {@link DatatypeDefinition} associated with this configuration. May return
-	 * null (then the default renderer is used).
+	 * Will be called when the system can't handle a drag and drop operation by
+	 * default. Typically, source contains or target is a {@link SpecHierarchy}.
+	 * <p>
 	 * 
-	 * @return
+	 * Most presentations will return null here, unless they integrate with
+	 * another data model (e.g. Rodin-ProR-Integration).
+	 * <p>
+	 * 
+	 * @param source
+	 *            The drag source
+	 * @param target
+	 *            The drop target
+	 * @param editingDomain
+	 *            The {@link EditingDomain}, to manipulate the model
+	 * @param operation
+	 *            The relevant {@link DND} operation
+	 * @return the Command that will perform the drop operation if this
+	 *         Presentation will handle the request, otherwise null.
 	 */
-	IProrCellRenderer getCellRenderer(AttributeValue av);
+	public Command handleDragAndDrop(Collection<?> source, Object target,
+			EditingDomain editingDomain, int operation);
 
 	/**
-	 * Returns the {@link CellEditor} appropriate for the
-	 * {@link DatatypeDefinition} associated with this configuration. May return
-	 * null (then the default renderer is used).
+	 * Returns a label for the given AttributeValue.
 	 * 
 	 * @param av
-	 * 
 	 * @return
 	 */
-	CellEditor getCellEditor(AgileGrid agileGrid, EditingDomain editingDomain,
-			AttributeValue av, Object affectedObject);
+	String getLabel(AttributeValue av);
 
 	/**
 	 * Whether the managed {@link AttributeDefinition}s may be modified.
 	 */
 	boolean canEdit();
+
+	/**
+	 * This method is triggered when a this configuration element is added to a
+	 * {@link ReqIF} model, either because it is created and added, or because
+	 * the {@link ReqIF} was opened. This gives the Presentation a chance to
+	 * interact, e.g. by registering adapters, etc.
+	 */
+	void registerPresentationConfiguration(
+			ProrPresentationConfiguration config, EditingDomain editingDomain);
+
+	/**
+	 * This method is triggered when a this configuration element is removed
+	 * from a {@link ReqIF} model, either because it is got removed, or because
+	 * the {@link ReqIF} was closed. This gives the Presentation a chance to
+	 * interact, e.g. by unregistering adapters, etc.
+	 */
+	void unregisterPresentationConfiguration(
+			ProrPresentationConfiguration config);
 
 }

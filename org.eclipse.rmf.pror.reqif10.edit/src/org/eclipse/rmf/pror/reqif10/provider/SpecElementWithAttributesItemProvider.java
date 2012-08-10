@@ -129,7 +129,8 @@ public abstract class SpecElementWithAttributesItemProvider extends
 	public String getText(Object object) {
 		SpecElementWithAttributes specElement = (SpecElementWithAttributes) object;
 		
-		return ConfigurationUtil.getSpecElementLabel(specElement);
+		return ConfigurationUtil.getSpecElementLabel(specElement,
+				adapterFactory);
 	}
 
 	/**

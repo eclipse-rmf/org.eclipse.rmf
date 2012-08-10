@@ -10,9 +10,10 @@ import org.eclipse.rmf.pror.presentation.linewrap.LinewrapFactory;
 import org.eclipse.rmf.pror.presentation.ui.LinewrapPresentationService;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.impl.ProrPresentationConfigurationImpl;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationInterface;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdFactory;
-import org.eclipse.rmf.pror.reqif10.presentation.ui.IDPresentationService;
+import org.eclipse.rmf.pror.reqif10.presentation.ui.IdPresentationService;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -48,7 +49,7 @@ public class PresentationServiceManagerTest {
 		IdConfiguration config = IdFactory.eINSTANCE.createIdConfiguration();
 		PresentationInterface service = PresentationServiceManager
 				.getPresentationService(config);
-		Assert.assertTrue(service instanceof IDPresentationService);
+		Assert.assertTrue(service instanceof IdPresentationService);
 	}
 
 	@Test

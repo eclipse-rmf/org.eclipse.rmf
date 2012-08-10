@@ -40,6 +40,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdPackage;
+import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
@@ -234,7 +235,6 @@ public class IdConfigurationItemProvider
 	 * changes.
 	 * <ul>
 	 */
-	@Override
 	public void registerPresentationConfiguration(
 			final ProrPresentationConfiguration config,
 			final EditingDomain editingDomain) {
@@ -251,7 +251,6 @@ public class IdConfigurationItemProvider
 		});
 	}
 
-	@Override
 	public void unregisterPresentationConfiguration(
 			ProrPresentationConfiguration config) {
 		unregisterModelListener(config);
@@ -315,6 +314,24 @@ public class IdConfigurationItemProvider
 					.remove(contentAdapter);
 			contentAdapter = null;
 		}
+	}
+
+	public Command handleDragAndDrop(Collection<?> source, Object target,
+			EditingDomain editingDomain, int operation) {
+		// No drag and drop support
+		return null;
+	}
+
+	public String getLabel(AttributeValue av) {
+		// No custom label
+		return null;
+	}
+
+	/**
+	 * Don't allow editing.
+	 */
+	public boolean canEdit() {
+		return false;
 	}
 
 }

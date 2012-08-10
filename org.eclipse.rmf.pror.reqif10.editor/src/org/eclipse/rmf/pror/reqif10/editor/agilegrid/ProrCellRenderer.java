@@ -13,11 +13,14 @@ package org.eclipse.rmf.pror.reqif10.editor.agilegrid;
 import org.agilemore.agilegrid.AgileGrid;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationInterface;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
+import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
@@ -76,10 +79,17 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 		AttributeValue attrValue = contentProvider.getValueForColumn(
 				contentProvider.getProrRow(row).getSpecElement(), col);
 
-		PresentationInterface service = PresentationServiceManager
-				.getPresentationService(attrValue, editingDomain);
-		if (service != null)
-			renderer = service.getCellRenderer(attrValue);
+		// Consult the presentation
+		ProrPresentationConfiguration config = ConfigurationUtil
+				.getPresentationConfiguration(attrValue);
+		if (config != null) {
+			ItemProviderAdapter ip = ProrUtil.getItemProvider(adapterFactory,
+					config);
+			if (ip instanceof PresentationEditorInterface) {
+				renderer = ((PresentationEditorInterface) ip)
+						.getCellRenderer(attrValue);
+			}
+		}
 
 		if (renderer != null) {
 			rowHeight = renderer.doDrawCellContent(gc, rect, content);

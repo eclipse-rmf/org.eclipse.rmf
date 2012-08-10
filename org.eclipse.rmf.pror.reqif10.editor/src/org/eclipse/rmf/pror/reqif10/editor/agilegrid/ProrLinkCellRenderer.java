@@ -14,6 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.agilemore.agilegrid.AgileGrid;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10EditorPlugin;
@@ -35,8 +36,9 @@ public class ProrLinkCellRenderer extends AbstractProrCellRenderer {
 	private final Image specRelationConnectorIcon;
 
 
-	public ProrLinkCellRenderer(AgileGrid agileGrid) {
-		super(agileGrid);
+	public ProrLinkCellRenderer(AgileGrid agileGrid,
+			AdapterFactory adapterFactory) {
+		super(agileGrid, adapterFactory);
 		specRelationConnectorIcon = ExtendedImageRegistry
 				.getInstance()
 				.getImage(
@@ -50,7 +52,8 @@ public class ProrLinkCellRenderer extends AbstractProrCellRenderer {
 		if (content instanceof SpecRelation) {
 			SpecObject target = ((SpecRelation) content).getTarget();
 			if (target != null) {
-				String label = ConfigurationUtil.getSpecElementLabel(target);
+				String label = ConfigurationUtil.getSpecElementLabel(target,
+						adapterFactory);
 				drawTextImage(gc, label, alignment, null, alignment,
 						rect.x + 3, rect.y + 2, rect.width - 6, rect.height - 4);
 			}

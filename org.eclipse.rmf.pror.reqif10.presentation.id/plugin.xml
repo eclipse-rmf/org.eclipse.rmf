@@ -39,7 +39,7 @@ Contributors:
    <extension
          point="org.eclipse.rmf.pror.reqif10.editor.presentation">
       <presentation
-            service="org.eclipse.rmf.pror.reqif10.presentation.ui.IDPresentationService"
+            service="org.eclipse.rmf.pror.reqif10.presentation.ui.IdPresentationService"
             name="ID Generator">
       </presentation>
    </extension>

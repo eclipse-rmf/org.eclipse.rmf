@@ -15,6 +15,9 @@ package org.eclipse.rmf.pror.presentation.linewrap.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.agilemore.agilegrid.AgileGrid;
+import org.agilemore.agilegrid.CellEditor;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -27,9 +30,15 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.rmf.pror.presentation.LinewrapEditPlugin;
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapConfiguration;
+import org.eclipse.rmf.pror.presentation.ui.LinewrapCellEditor;
+import org.eclipse.rmf.pror.presentation.ui.LinewrapCellRenderer;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorInterface;
+import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionSimple;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.pror.presentation.linewrap.LinewrapConfiguration} object.
@@ -44,7 +53,8 @@ public class LinewrapConfigurationItemProvider
 		IStructuredItemContentProvider,
 		ITreeItemContentProvider,
 		IItemLabelProvider,
-		IItemPropertySource {
+		IItemPropertySource,
+		PresentationEditorInterface {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -136,16 +146,53 @@ public class LinewrapConfigurationItemProvider
 		return LinewrapEditPlugin.INSTANCE;
 	}
 
-	@Override
 	public void registerPresentationConfiguration(ProrPresentationConfiguration config,
 			EditingDomain editingDomain) {
 		// No action required.
 
 	}
 
-	@Override
 	public void unregisterPresentationConfiguration(ProrPresentationConfiguration config) {
 		// No action required.
+	}
+
+	private LinewrapCellRenderer linewrapCellRenderer;
+
+
+	public IProrCellRenderer getCellRenderer(AttributeValue av) {
+		if (linewrapCellRenderer == null) {
+			linewrapCellRenderer = new LinewrapCellRenderer();
+		}
+		return linewrapCellRenderer;
+	}
+
+	public String getLabel(AttributeValue av) {
+		Object value = ReqIF10Util.getTheValue(av);
+		if (value == null) {
+			return "";
+		}
+		String text = value.toString();
+		if (text.indexOf("\n") != -1) {
+			text = text.substring(0, text.indexOf("\n"));
+		}
+		if (text.length() > 15) {
+			text = text.substring(0, 13) + "...";
+		}
+		return text;
+	}
+
+	public CellEditor getCellEditor(AgileGrid agileGrid,
+			EditingDomain editingDomain, AttributeValue av, Object affectedObject) {
+		return new LinewrapCellEditor(agileGrid, editingDomain, affectedObject);
+	}
+
+	public boolean canEdit() {
+		return true;
+	}
+
+	public Command handleDragAndDrop(Collection<?> source, Object target,
+			EditingDomain editingDomain, int operation) {
+		return null;
 	}
 
 }

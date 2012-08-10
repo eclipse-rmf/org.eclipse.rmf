@@ -8,12 +8,12 @@
  * Contributors:
  *     Michael Jastram - initial API and implementation
  ******************************************************************************/
-package org.eclipse.rmf.pror.reqif10.editor.presentation.service;
+package org.eclipse.rmf.pror.reqif10.edit.presentation.service;
 
 import java.util.Collection;
 
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditInterface;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
 
@@ -53,13 +53,39 @@ import org.eclipse.rmf.reqif10.ReqIF;
  * <p>
  * 
  * Note that this interface simply aggregates {@link PresentationEditInterface}
- * and {@link PresentationEditorInterface}, which are separated as the reside in
+ * and {@link PresentationEditInterface}, which are separated as the reside in
  * two different plugins (the former does not require andy GUI libraries, the
  * later does).
  * 
  * @author jastram
  * 
  */
-public interface PresentationInterface extends PresentationEditorInterface,
-		PresentationEditInterface {
+public interface PresentationInterface {
+
+	/**
+	 * Returns a new instance of the {@link ProRPresentationConfiguration}. This
+	 * can be implemented simply by using the EMF-Factory as follows:
+	 * 
+	 * <pre>
+	 * return ####Factory.eINSTANCE.create####Configuration();
+	 * </pre>
+	 * 
+	 * Substitute the proper names in Factory and method.
+	 */
+	public ProrPresentationConfiguration getConfigurationInstance();
+
+	/**
+	 * Returns the {@link Class} for the subclass of
+	 * {@link ProRPresentationConfiguration} that is used to configure this
+	 * Presentation.
+	 * <p>
+	 * 
+	 * This can simply be implemented as:
+	 * 
+	 * <pre>
+	 * return IdConfiguration.class;
+	 * </pre>
+	 */
+	public Class<? extends ProrPresentationConfiguration> getConfigurationInterface();
+
 }
