@@ -367,17 +367,16 @@ public class SpecHierarchyItemProvider extends
 		for (Object obj : collection) {
 			if (obj instanceof SpecHierarchy) {
 				SpecHierarchy specHierarchy = (SpecHierarchy) obj;
-				
-				if (!ProrUtil.isValidDrop(specHierarchy, owner)){
+
+				if (!ProrUtil.isValidDrop(specHierarchy, owner)) {
 					return UnexecutableCommand.INSTANCE;
 				}
-								
+
 			}
 		}
-		
-		
-		Command cmd = ProrUtil.getPresentationHandleDragAndDropCommand(domain, owner, location,
- operations, operation, collection,
+
+		Command cmd = ProrUtil.getPresentationHandleDragAndDropCommand(domain,
+				owner, location, operations, operation, collection,
 				adapterFactory);
 		if (cmd != null)
 			return cmd;
