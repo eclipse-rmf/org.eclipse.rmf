@@ -56,7 +56,6 @@ import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
-import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
@@ -440,6 +439,13 @@ public class ProrAgileGridViewer extends Viewer {
 					if (row instanceof ProrRowSpecRelation
 							&& cell.column == specViewConfig.getColumns()
 									.size()) {
+						SpecRelation relation = (SpecRelation) row
+								.getSpecElement();
+						if (relation.getTarget() != null) {
+							items.add(relation.getTarget());
+						}
+					} else if (row instanceof ProrRowSpecRelation
+							&& cell.column < specViewConfig.getColumns().size()) {
 						items.add(row.getSpecElement());
 					} else if (row instanceof ProrRowSpecHierarchy) {
 						items.add(((ProrRowSpecHierarchy)row).getSpecHierarchy());
