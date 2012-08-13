@@ -613,8 +613,16 @@ public class ProrAgileGridViewer extends Viewer {
 					public void dragOver(DropTargetEvent e) {
 						Point pos = agileGrid.toControl(e.x, e.y);
 						Cell cell = agileGrid.getCell(pos.x, pos.y);
-						Object target = contentProvider.getProrRow(cell.row)
-								.getSpecElement();
+						ProrRow row = cell.row > 0 ? contentProvider
+								.getProrRow(cell.row) : null;
+						Object target = null;
+						if (row instanceof ProrRowSpecHierarchy) {
+							target = ((ProrRowSpecHierarchy) row)
+									.getSpecHierarchy();
+						} else if (row instanceof ProrRowSpecRelation) {
+							target = row.getSpecElement();
+						}
+
 						if (target instanceof SpecHierarchy) {
 							dragTarget = (SpecHierarchy) target;
 							float location = getLocation(e);
