@@ -10,11 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.presentation.service;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationInterface;
 
@@ -38,10 +34,5 @@ public abstract class AbstractPresentationService extends AdapterImpl implements
 
 	/* Override, as indicated by the interface's Javadoc */
 	public abstract ProrPresentationConfiguration getConfigurationInstance();
-
-	public Command handleDragAndDrop(Collection<?> source, Object target,
-			EditingDomain editingDomain, int operation) {
-		return null;
-	}
 
 }
