@@ -11,7 +11,10 @@
 
 package org.eclipse.rmf.pror.reqif10.provider;
 
-import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.*;
+import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS;
+import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN;
+import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT;
+import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_OBJECT__TYPE;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -367,17 +370,16 @@ public class SpecHierarchyItemProvider extends
 		for (Object obj : collection) {
 			if (obj instanceof SpecHierarchy) {
 				SpecHierarchy specHierarchy = (SpecHierarchy) obj;
-				
-				if (!ProrUtil.isValidDrop(specHierarchy, owner)){
+
+				if (!ProrUtil.isValidDrop(specHierarchy, owner)) {
 					return UnexecutableCommand.INSTANCE;
 				}
-								
+
 			}
 		}
-		
-		
-		Command cmd = ProrUtil.getPresentationHandleDragAndDropCommand(domain, owner, location,
- operations, operation, collection,
+
+		Command cmd = ProrUtil.getPresentationHandleDragAndDropCommand(domain,
+				owner, location, operations, operation, collection,
 				adapterFactory);
 		if (cmd != null)
 			return cmd;
