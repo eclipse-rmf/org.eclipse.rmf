@@ -380,7 +380,7 @@ public class SpecHierarchyItemProvider extends
 
 		Command cmd = ProrUtil.getPresentationHandleDragAndDropCommand(domain,
 				owner, location, operations, operation, collection,
-				adapterFactory);
+				getRootAdapterFactory());
 		if (cmd != null)
 			return cmd;
 
