@@ -48,6 +48,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlDlType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDtType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlLiType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlObjectType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlOlType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
@@ -225,7 +226,10 @@ public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 		createSpecObjectWithPXhtml("xhtml.q.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Q(), XhtmlPackage.eINSTANCE.getXhtmlQType());
 		createSpecObjectWithPXhtml("xhtml.inl.pres.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Tt(), XhtmlPackage.eINSTANCE.getXhtmlInlPresType());
 		createSpecObjectWithPXhtml("xhtml.a.type", XhtmlPackage.eINSTANCE.getXhtmlPType_A(), XhtmlPackage.eINSTANCE.getXhtmlAType());
-		createSpecObjectWithPXhtml("xhtml.object.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Object(), XhtmlPackage.eINSTANCE.getXhtmlObjectType());
+
+		// (mj) we omit object here, as it does not support styles and is tested later on extensively. See REQIF-17
+		// createSpecObjectWithPXhtml("xhtml.object.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Object(),
+		// XhtmlPackage.eINSTANCE.getXhtmlObjectType());
 		createSpecObjectWithPXhtml("xhtml.edit.type", XhtmlPackage.eINSTANCE.getXhtmlPType_Ins(), XhtmlPackage.eINSTANCE.getXhtmlEditType());
 
 		// first level objects that are contained in xhtml.div.type and are not already covered by xhtml.p.type
@@ -395,16 +399,18 @@ public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlTableType_Tr(), xhtmlLevel3);
 
 		// xhtml.param.type
-		description = "xhtml.param.type";
-		xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
-		specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(), xhtmlLevel1);
-		getReqIF().getCoreContent().getSpecObjects().add(specObject);
-
-		xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlObjectType(), false);
-		setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Object(), xhtmlLevel2);
-
-		xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlParamType(), true);
-		setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlObjectType_Param(), xhtmlLevel3);
+		// (mj) removed, due to REQIF-17
+		// description = "xhtml.param.type";
+		// xhtmlLevel1 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlDivType(), false);
+		// specObject = createSpecObject(description, ReqIF10Package.eINSTANCE.getAttributeValueXHTML_TheValue(),
+		// xhtmlLevel1);
+		// getReqIF().getCoreContent().getSpecObjects().add(specObject);
+		//
+		// xhtmlLevel2 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlObjectType(), false);
+		// // setValue(xhtmlLevel1, XhtmlPackage.eINSTANCE.getXhtmlDivType_Object(), xhtmlLevel2);
+		//
+		// xhtmlLevel3 = createXhtmlInstance(XhtmlPackage.eINSTANCE.getXhtmlParamType(), true);
+		// setValue(xhtmlLevel2, XhtmlPackage.eINSTANCE.getXhtmlObjectType_Param(), xhtmlLevel3);
 
 		// level 4
 		// xhtml.td.type
@@ -561,6 +567,10 @@ public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 			} else {
 				// create full set of sub elements
 				for (EReference eReference : eObject.eClass().getEAllContainments()) {
+					// (mj) Skip XhtmlObjectType
+					if (eReference.getEReferenceType().getName().equals("XhtmlObjectType")) {
+						continue;
+					}
 					EObject subEObject = createXhtmlInstance(eReference.getEReferenceType(), false);
 					setValue(eObject, eReference, subEObject);
 				}
@@ -623,6 +633,20 @@ public class TC1200FormatedContentModelBuilder extends SimpleModelBuilder {
 				setAttributes(col, false);
 				setMixedText(col, false);
 				((XhtmlColgroupType) eObject).getCol().add(col);
+			} else if (eObject instanceof XhtmlObjectType) {
+				throw new UnsupportedOperationException("Looks like there is an XhtmlObject Type in this ModelBuilder."
+						+ "However, we don't want to have any, as it this test is only meant for formatting, not object"
+						+ "embedding (see issue REQIF-17).");
+				// also, set the required object data.
+				// ((XhtmlObjectType) eObject).setData("diagram.pdf");
+				// ((XhtmlObjectType) eObject).setType("application/pdf");
+				//
+				// XhtmlObjectType obj = XhtmlFactory.eINSTANCE.createXhtmlObjectType();
+				// obj.setType("image/png");
+				// obj.setData("placeholder.png");
+				// setAttributes(obj, false);
+				// setMixedText(obj, false);
+				// ((XhtmlObjectType) eObject).getObject().add(obj);
 			}
 		}
 	}
