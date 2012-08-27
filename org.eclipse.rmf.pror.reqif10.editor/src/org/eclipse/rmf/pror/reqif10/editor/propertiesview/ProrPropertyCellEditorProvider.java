@@ -93,17 +93,18 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 				if (ip instanceof PresentationEditorInterface) {
 					return ((PresentationEditorInterface) ip).canEdit();
 				}
-			}
 
-		} else {
-			SortedItemPropertyDescriptor itemPropertyDescriptor = this.contentProvider
-					.getItemPropertyDescriptor(row);
-			if (itemPropertyDescriptor != null) {
-				IItemPropertyDescriptor descriptor = itemPropertyDescriptor
-						.getItemPropertyDescriptor();
-				if (descriptor != null)
-					return descriptor.canSetProperty(this.contentProvider
-							.getElement());
+			} else {
+				SortedItemPropertyDescriptor itemPropertyDescriptor = this.contentProvider
+						.getItemPropertyDescriptor(row);
+				if (itemPropertyDescriptor != null) {
+					IItemPropertyDescriptor descriptor = itemPropertyDescriptor
+							.getItemPropertyDescriptor();
+					if (descriptor != null) {
+						return descriptor.canSetProperty(this.contentProvider
+								.getElement());
+					}
+				}
 			}
 		}
 
