@@ -15,7 +15,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -41,6 +41,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
@@ -71,7 +72,7 @@ public abstract class AbstractTestCase {
 		// backup the registry
 		backupRegistry = new HashMap<String, Object>();
 		backupRegistry.putAll(EPackage.Registry.INSTANCE);
-		System.out.println("BeforeClass: Initial package registry: " + EPackage.Registry.INSTANCE.keySet());
+		// System.out.println("BeforeClass: Initial package registry: " + EPackage.Registry.INSTANCE.keySet());
 		EPackage.Registry.INSTANCE.clear();
 		EPackage.Registry.INSTANCE.put(ReqIF10Package.eNS_URI, ReqIF10Package.eINSTANCE);
 		EPackage.Registry.INSTANCE.put(XhtmlPackage.eNS_URI, XhtmlPackage.eINSTANCE);
@@ -83,7 +84,7 @@ public abstract class AbstractTestCase {
 
 		// TODO: me might be able to live without the last package
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
-		System.out.println("BeforeClass: reset to: " + EPackage.Registry.INSTANCE.keySet());
+		// System.out.println("BeforeClass: reset to: " + EPackage.Registry.INSTANCE.keySet());
 	}
 
 	@AfterClass
@@ -92,7 +93,7 @@ public abstract class AbstractTestCase {
 			EPackage.Registry.INSTANCE.clear();
 			EPackage.Registry.INSTANCE.putAll(backupRegistry);
 		}
-		System.out.println("AfterClass: reset to: " + EPackage.Registry.INSTANCE.keySet());
+		// System.out.println("AfterClass: reset to: " + EPackage.Registry.INSTANCE.keySet());
 	}
 
 	protected static String getWorkingDirectoryFileName() {
@@ -121,7 +122,7 @@ public abstract class AbstractTestCase {
 	}
 
 	protected static void saveReqIFFile(ReqIF reqif, String fileName) throws IOException {
-		ReqIFResourceSetImpl resourceSet = getReqIFResourceSet();
+		ResourceSetImpl resourceSet = getResourceSet();
 
 		URI emfURI = createEMFURI(fileName);
 		Resource resource = resourceSet.createResource(emfURI);
@@ -131,7 +132,7 @@ public abstract class AbstractTestCase {
 	}
 
 	protected static ReqIF loadReqIFFile(String fileName) throws IOException {
-		ReqIFResourceSetImpl resourceSet = getReqIFResourceSet();
+		ResourceSetImpl resourceSet = getResourceSet();
 
 		URI emfURI = createEMFURI(fileName);
 		XMLResource resource = (XMLResource) resourceSet.createResource(emfURI);
@@ -149,6 +150,13 @@ public abstract class AbstractTestCase {
 
 	private static ReqIFResourceSetImpl getReqIFResourceSet() {
 		ReqIFResourceSetImpl resourceSet = new ReqIFResourceSetImpl();
+
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new ReqIFResourceFactoryImpl());
+		return resourceSet;
+	}
+
+	private static ResourceSetImpl getResourceSet() {
+		ResourceSetImpl resourceSet = new ResourceSetImpl();
 
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new ReqIFResourceFactoryImpl());
 		return resourceSet;
@@ -231,7 +239,7 @@ public abstract class AbstractTestCase {
 		return stringBuffer.toString();
 	}
 
-	public static List<ReqIF> loadReqIFFromZip(String zipSourceFileName) throws IOException {
+	public static List<ReqIF> loadReqIFFromZip(String zipSourceFileName) throws IOException, URISyntaxException {
 		ZipFile zipSourceFile = new ZipFile(zipSourceFileName);
 		List<ReqIF> reqIFs = new ArrayList<ReqIF>();
 		Enumeration<? extends ZipEntry> zipFileEntries = zipSourceFile.entries();
@@ -243,13 +251,15 @@ public abstract class AbstractTestCase {
 			if (entry.isDirectory() || !entry.getName().endsWith(".reqif")) {
 				continue;
 			}
-			InputStream zipEntryInputStream;
-			zipEntryInputStream = zipSourceFile.getInputStream(entry);
 
-			Resource resource = new ReqIFResourceImpl();
-			resourceSet.getResources().add(resource);
+			File zipFile = new File(zipSourceFileName);
+			String absoluteZipFilePath = zipFile.getAbsolutePath();
 
-			resource.load(zipEntryInputStream, null);
+			URI uri = URI.createURI("archive:file:" + absoluteZipFilePath + "!/" + entry.getName());
+
+			Resource resource = resourceSet.createResource(uri);
+			resource.load(null);
+
 			List<EObject> rootObjects = resource.getContents();
 			if (0 < rootObjects.size()) {
 				reqIFs.add((ReqIF) rootObjects.get(0));

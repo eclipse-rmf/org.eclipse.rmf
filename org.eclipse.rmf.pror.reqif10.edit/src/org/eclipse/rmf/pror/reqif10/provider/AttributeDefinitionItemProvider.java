@@ -29,6 +29,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.SpecType;
 
 /**
  * This is the item provider adapter for a
@@ -89,12 +90,19 @@ public class AttributeDefinitionItemProvider extends
 	 */
 	@Override
 	public String getText(Object object) {
+
+		String parentName = "";
+
+		EObject parent = ((EObject) object).eContainer();
+		if (parent instanceof SpecType)
+			parentName = " : " + ((SpecType) parent).getLongName();
+
 		String typeName = ProrUtil.substractPrefixPostfix(object, "AttributeDefinition", "Impl");
 		String label = ((AttributeDefinition)object).getLongName();
 		label = label == null || label.length() == 0 ?
 			getString("_UI_Unnamed_Element") :
 			label;
-		return label + " (" + typeName + ")";
+		return label + " (" + typeName + ")" + parentName;
 	}
 	
 	/**

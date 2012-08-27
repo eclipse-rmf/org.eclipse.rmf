@@ -12,6 +12,7 @@ import org.eclipse.rmf.reqif10.tests.util.AbstractTestCase;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+@SuppressWarnings("nls")
 public class TC0004001ToolExtensionWithCustomRuntimeCreatedMetamodelTests extends AbstractTestCase {
 	static final String TEST_CASE_ID = "TC0004001";
 	static final String REFERENCE_DATA_FILENAME = getWorkingFileName(getReferenceDataFileName(TEST_CASE_ID, false));

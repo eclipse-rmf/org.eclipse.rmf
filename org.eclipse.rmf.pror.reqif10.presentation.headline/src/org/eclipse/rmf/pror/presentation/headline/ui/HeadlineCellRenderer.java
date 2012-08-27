@@ -45,7 +45,7 @@ public class HeadlineCellRenderer implements IProrCellRenderer {
 
 	public int doDrawCellContent(GC gc, Rectangle rect, Object value) {
 		AttributeValueSimple av = (AttributeValueSimple) value;
-		System.out.println("ReqIF: " + ReqIF10Util.getReqIF(av));
+		// System.out.println("ReqIF: " + ReqIF10Util.getReqIF(av));
 		String text = " ";
 		if (av != null && ReqIF10Util.getTheValue(av) != null) {
 			text = ReqIF10Util.getTheValue(av).toString();
@@ -61,8 +61,8 @@ public class HeadlineCellRenderer implements IProrCellRenderer {
 			fontSizeChanged = false;
 		}
 
-		System.out.println("fontsize = " + fontSize);
-		System.out.println("real font= " + font.getFontData()[0].height);
+		// System.out.println("fontsize = " + fontSize);
+		// System.out.println("real font= " + font.getFontData()[0].height);
 		gc.setFont(font);
 		gc.drawText(text, rect.x, rect.y);
 		return gc.textExtent(text).y;

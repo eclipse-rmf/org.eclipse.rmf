@@ -34,7 +34,7 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 	private static final int OUT_OF_XHTML = -1;
 
 	private SerializationStrategy serializationStrategy = SerializationStrategy.REQIF;
-	private String previousElement = "";
+	private String previousElement = ""; //$NON-NLS-1$
 	private int previousLevel = -1;;
 	int xhtmlLevel = OUT_OF_XHTML;
 	int toolExtensionsLevel = OUT_OF_XHTML;
@@ -105,7 +105,14 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 
 	@Override
 	protected void handleProxy(InternalEObject proxy, String uriLiteral) {
-		URI proxyURI = URI.createURI("#" + uriLiteral); //$NON-NLS-1$
+		URI resourceURI = xmlResource.getURI();
+		URI proxyURI;
+		if (null == resourceURI) {
+			// this only happens if the resource is e.g. loaded from a stream without assigning any URI
+			proxyURI = URI.createURI("#" + uriLiteral); //$NON-NLS-1$
+		} else {
+			proxyURI = resourceURI.appendFragment(uriLiteral);
+		}
 		proxy.eSetProxyURI(proxyURI);
 	}
 
@@ -132,7 +139,7 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 		// this happens if we find an element that is nested in ReqIFToolExtensions
 		if (null == deferredFeatures.peek()) {
 			deferredFeatures.pop();
-			EStructuralFeature feature = getFeature(peekObject, obj.eClass().getEPackage().getNsPrefix(), "root", true);
+			EStructuralFeature feature = getFeature(peekObject, obj.eClass().getEPackage().getNsPrefix(), "root", true); //$NON-NLS-1$
 			deferredFeatures.push(feature);
 		}
 
