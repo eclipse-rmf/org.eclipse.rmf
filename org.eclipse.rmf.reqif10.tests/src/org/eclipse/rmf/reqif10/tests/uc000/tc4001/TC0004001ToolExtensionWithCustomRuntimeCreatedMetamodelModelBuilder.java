@@ -12,6 +12,7 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.reqif10.tests.util.MinimalModelBuilder;
 
+@SuppressWarnings("nls")
 public class TC0004001ToolExtensionWithCustomRuntimeCreatedMetamodelModelBuilder extends MinimalModelBuilder {
 
 	EPackage metamodel;
@@ -35,6 +36,7 @@ public class TC0004001ToolExtensionWithCustomRuntimeCreatedMetamodelModelBuilder
 		createMetamodel();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void createToolExtensions() throws Exception {
 		ReqIF reqIF = getReqIF();
@@ -75,7 +77,7 @@ public class TC0004001ToolExtensionWithCustomRuntimeCreatedMetamodelModelBuilder
 		// do nothing with mmSingleUnsetDefaultValue
 
 		// mmSingleSetNotDefaultValue
-		EObject nodeWithReferences_1 = factory.create(mmNodeWithReferences);
+		// EObject nodeWithReferences_1 = factory.create(mmNodeWithReferences);
 		nodeWithReferences_root.eSet(mmSingleSetNotDefaultValue, null);
 
 		// do nothing for mmManyUnssetDefaultValue

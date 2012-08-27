@@ -10,6 +10,7 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.reqif10.tests.util.MinimalModelBuilder;
 
+@SuppressWarnings("nls")
 public class TC0004000ToolExtensionWithEcoreMetamodelModelBuilder extends MinimalModelBuilder {
 
 	public TC0004000ToolExtensionWithEcoreMetamodelModelBuilder() throws Exception {
