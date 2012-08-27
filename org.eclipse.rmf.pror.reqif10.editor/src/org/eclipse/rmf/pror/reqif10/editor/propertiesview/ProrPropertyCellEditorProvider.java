@@ -82,9 +82,11 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 	public boolean canEdit(int row, int col) {
 
 		AttributeValue av = getAttributeValue(row, col);
+
+		// If we have an attribute value, use default method in extended class
 		if (av != null) {
 
-			// Ask Presentation
+			// Consult the presentation
 			ProrPresentationConfiguration config = ConfigurationUtil
 					.getPresentationConfiguration(av);
 			if (config != null) {
@@ -93,22 +95,26 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 				if (ip instanceof PresentationEditorInterface) {
 					return ((PresentationEditorInterface) ip).canEdit();
 				}
+			}
 
-			} else {
-				SortedItemPropertyDescriptor itemPropertyDescriptor = this.contentProvider
-						.getItemPropertyDescriptor(row);
-				if (itemPropertyDescriptor != null) {
-					IItemPropertyDescriptor descriptor = itemPropertyDescriptor
-							.getItemPropertyDescriptor();
-					if (descriptor != null) {
-						return descriptor.canSetProperty(this.contentProvider
-								.getElement());
-					}
+		} else {
+
+			// Else we have an EMF specific attribute use the corresponding
+			// method of the item property descriptor
+			SortedItemPropertyDescriptor itemPropertyDescriptor = this.contentProvider
+					.getItemPropertyDescriptor(row);
+			if (itemPropertyDescriptor != null) {
+				IItemPropertyDescriptor descriptor = itemPropertyDescriptor
+						.getItemPropertyDescriptor();
+				if (descriptor != null) {
+					return descriptor.canSetProperty(this.contentProvider
+							.getElement());
 				}
 			}
+
 		}
 
-		return false;
+		return true;
 
 	}
 
