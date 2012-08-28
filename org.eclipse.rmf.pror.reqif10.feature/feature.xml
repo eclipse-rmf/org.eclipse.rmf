@@ -30,7 +30,7 @@ Contributors:
    </url>
 
    <requires>
-      <import feature="org.eclipse.rmf.reqif10.feature" version="0.3.2.qualifier" match="greaterOrEqual"/>
+      <import feature="org.eclipse.rmf.reqif10.feature" version="0.3.2" match="greaterOrEqual"/>
    </requires>
 
    <plugin
