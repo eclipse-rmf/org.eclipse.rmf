@@ -1,5 +1,5 @@
 instructions.configure=\
-addRepository(type:0,location:http${#58}//download.eclipse.org/rmf/updates);\
-addRepository(type:1,location:http${#58}//download.eclipse.org/rmf/updates);\
+addRepository(type:0,location:http${#58}//download.eclipse.org/rmf/product-updates);\
+addRepository(type:1,location:http${#58}//download.eclipse.org/rmf/product-updates);\
 addRepository(type:0,location:http${#58}//update.formalmind.com/essentials);\
 addRepository(type:1,location:http${#58}//update.formalmind.com/essentials);
