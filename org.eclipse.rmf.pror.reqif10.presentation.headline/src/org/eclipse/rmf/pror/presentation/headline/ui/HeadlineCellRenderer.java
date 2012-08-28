@@ -54,8 +54,6 @@ public class HeadlineCellRenderer implements IProrCellRenderer {
 		if (font == null || font.isDisposed() || fontSizeChanged) {
 			FontRegistry fr = JFaceResources.getFontRegistry();
 			FontData[] fontData = { new FontData("Arial", fontSize, SWT.BOLD) };
-			if (font != null)
-				font.dispose();
 			fr.put(fontHandle + this, fontData);
 			font = fr.get(fontHandle + this);
 			fontSizeChanged = false;
