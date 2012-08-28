@@ -26,6 +26,7 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.junit.Test;
@@ -105,6 +106,8 @@ public class ConfigurationUtilTest extends AbstractItemProviderTest {
 		ProrToolExtension toolExtension = ConfigurationFactory.eINSTANCE
 				.createProrToolExtension();
 		reqif.getToolExtensions().add(toolExtension);
+		setViaCommand(reqif, ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
+				toolExtension);
 		assertNull(ConfigurationUtil.getPresentationConfigurations(reqif));
 
 		ProrPresentationConfigurations configurations = ConfigurationFactory.eINSTANCE
