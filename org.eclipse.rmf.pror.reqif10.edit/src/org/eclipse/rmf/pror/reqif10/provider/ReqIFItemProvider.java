@@ -15,10 +15,15 @@ package org.eclipse.rmf.pror.reqif10.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.AbstractCommand;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -30,9 +35,11 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.ReqIF} object.
@@ -212,6 +219,45 @@ public class ReqIFItemProvider
 	@Override
 	public ResourceLocator getResourceLocator() {
 		return Reqif10EditPlugin.INSTANCE;
+	}
+
+	/**
+	 * Handle {@link ProrToolExtension} in a special way.
+	 */
+	@Override
+	protected Command createAddCommand(EditingDomain domain,
+			final EObject owner,
+			EStructuralFeature feature, Collection<?> collection, int index) {
+
+		if (feature == ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS) {
+			CompoundCommand compound = new CompoundCommand();
+			for (final Object obj : collection) {
+				Command cmd = new AbstractCommand() {
+					public void execute() {
+						ReqIFToolExtensionUtil.addToolExtension((ReqIF) owner,
+								(EObject) obj);
+					}
+
+					public void redo() {
+					}
+
+					@Override
+					public boolean canUndo() {
+						return false;
+					}
+
+					@Override
+					protected boolean prepare() {
+						return true;
+					}
+				};
+				compound.append(cmd);
+			}
+			return compound;
+		}
+
+		return super
+				.createAddCommand(domain, owner, feature, collection, index);
 	}
 
 }

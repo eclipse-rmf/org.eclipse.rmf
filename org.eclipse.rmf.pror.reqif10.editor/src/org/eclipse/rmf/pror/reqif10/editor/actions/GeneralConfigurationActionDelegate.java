@@ -22,7 +22,6 @@ import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10Editor;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
-import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
@@ -52,10 +51,9 @@ public class GeneralConfigurationActionDelegate implements
 	public void run(IAction action) {
 		if (editor == null)
 			return;
-		ReqIF reqif = (ReqIF) editor.getEditingDomain().getResourceSet()
-				.getResources().get(0).getContents().get(0);
 		ProrToolExtension uiToolExtension = ConfigurationUtil
-				.createProrToolExtension(reqif, editor.getEditingDomain());
+				.createProrToolExtension(editor.getReqif(),
+						editor.getEditingDomain());
 		ProrGeneralConfiguration generalConfig = createGeneralConfiguration(uiToolExtension);
 		createLabelConfiguration(generalConfig);
 		SubtreeDialog dialog = new SubtreeDialog(editor, generalConfig,
