@@ -215,7 +215,8 @@ public class ProrAgileGridViewer extends Viewer {
 		ProrRow.ProrRowSpecHierarchy prorRowSpecHierarchy = (ProrRow.ProrRowSpecHierarchy) contentProvider
 				.getProrRow(row);
 
-		while (prorRowSpecHierarchy.getSpecHierarchy() != newSpecHierarchy) {
+		while (prorRowSpecHierarchy.getSpecHierarchy() != newSpecHierarchy
+				&& row <= contentProvider.getRowCount()) {
 			row++;
 		}
 		agileGrid.editCell(row, activeCell.column);
