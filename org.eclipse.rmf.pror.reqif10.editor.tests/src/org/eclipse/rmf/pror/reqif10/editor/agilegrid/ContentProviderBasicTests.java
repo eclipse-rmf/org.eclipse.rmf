@@ -240,15 +240,15 @@ public class ContentProviderBasicTests extends AbstractContentProviderTests {
 		sh[3].setDesc("specH 3");
 		sh[4].setDesc("specH 4");
 
-		SpecObject specObjc = ReqIF10Factory.eINSTANCE.createSpecObject();
+		SpecObject specObj = ReqIF10Factory.eINSTANCE.createSpecObject();
 
 		specObject.setDesc("specObj 0");
-		specObjc.setDesc("specObj 1");
+		specObj.setDesc("specObj 1");
 
-		sh[1].setObject(specObjc);
-		sh[2].setObject(specObjc);
+		sh[1].setObject(specObj);
+		sh[2].setObject(specObj);
 
-		reqif.getCoreContent().getSpecObjects().add(specObjc);
+		reqif.getCoreContent().getSpecObjects().add(specObj);
 
 		specification.getChildren().add(sh[1]);
 		specification.getChildren().add(sh[2]);

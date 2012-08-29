@@ -96,6 +96,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 */
 	public void setShowSpecRelations(boolean status) {
 		this.showSpecRelations = status;
+		cache = null;
 	}
 
 	/**
@@ -142,10 +143,10 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 			List<SpecHierarchy> elements) {
 		for (SpecHierarchy element : elements) {
 			// We did not find the row, let's check SpecRealtions first
-			cache.add(current, ProrRow.createProrRow(element, current, depth));
+			getCache().add(current, ProrRow.createProrRow(element, current, depth));
 			for (SpecRelation specRelation : getSpecRelationsFor(element)) {
 				++current;
-				cache.add(current,
+				getCache().add(current,
 						ProrRow.createProrRow(specRelation, current, depth + 1));
 
 				// return ProrRow.createProrRow(specRelation, row, depth + 1);
