@@ -28,6 +28,7 @@ import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
+import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
 import org.junit.Test;
 
@@ -105,6 +106,36 @@ public class CachingTests extends AbstractContentProviderTests {
 		assertEquals(specObj, contentProvider.getContentAt(0, 0));
 	}
 
+	@Test
+	public void testSetShowSpecRelations() {
+		SpecObject specObj = ReqIF10Factory.eINSTANCE.createSpecObject();
+		SpecHierarchy specH1 = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
+		SpecHierarchy specH2 = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
+		SpecHierarchy specH3 = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
+		
+		specH1.setObject(specObject);
+		specH2.setObject(specObj);
+		specH3.setObject(specObject);
+		
+		SpecRelation specRelation = ReqIF10Factory.eINSTANCE.createSpecRelation();
+		
+		reqif.getCoreContent().getSpecObjects().add(specObj);
+		
+
+		specification.getChildren().add(specH1);
+		specification.getChildren().add(specH2);
+		specification.getChildren().add(specH3);
+		
+
+		specRelation.setSource(specObj);
+		specRelation.setTarget(specObject);
+		reqif.getCoreContent().getSpecRelations().add(specRelation);
+		
+		assertEquals(specH3.getObject(), contentProvider.getContentAt(3, 0));
+		contentProvider.setShowSpecRelations(true);
+		assertEquals(specRelation, contentProvider.getContentAt(3, 0));
+	}	
+	
 	
 	
 	private ReqIF createReqIF(int numRows) {
