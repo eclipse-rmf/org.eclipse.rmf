@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Name=ProR Requirements Engineering Tool
+Exec=opt/pror/rmf-pror
+Terminal=false
+Type=Application
+Categories=Development;
+Icon=opt/pror/rmf-pror/icon.xpm
