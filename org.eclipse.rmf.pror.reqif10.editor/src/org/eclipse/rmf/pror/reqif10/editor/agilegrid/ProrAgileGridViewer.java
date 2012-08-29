@@ -431,26 +431,29 @@ public class ProrAgileGridViewer extends Viewer {
 				for (Cell cell : cells) {
 					// Object item =
 					// contentProvider.getProrRow(cell.row).getElement();
-					ProrRow row = contentProvider
-							.getProrRow(cell.row);
+					if (cell.row > -1) {
+						ProrRow row = contentProvider.getProrRow(cell.row);
 
-					// If the item is a SpecRelation and the last column is
-					// selected, show the target instead.
-					if (row instanceof ProrRowSpecRelation
-							&& cell.column == specViewConfig.getColumns()
-									.size()) {
-						SpecRelation relation = (SpecRelation) row
-								.getSpecElement();
-						if (relation.getTarget() != null) {
-							items.add(relation.getTarget());
+						// If the item is a SpecRelation and the last column is
+						// selected, show the target instead.
+						if (row instanceof ProrRowSpecRelation
+								&& cell.column == specViewConfig.getColumns()
+										.size()) {
+							SpecRelation relation = (SpecRelation) row
+									.getSpecElement();
+							if (relation.getTarget() != null) {
+								items.add(relation.getTarget());
+							}
+						} else if (row instanceof ProrRowSpecRelation
+								&& cell.column < specViewConfig.getColumns()
+										.size()) {
+							items.add(row.getSpecElement());
+						} else if (row instanceof ProrRowSpecHierarchy) {
+							items.add(((ProrRowSpecHierarchy) row)
+									.getSpecHierarchy());
+						} else {
+							throw new IllegalArgumentException();
 						}
-					} else if (row instanceof ProrRowSpecRelation
-							&& cell.column < specViewConfig.getColumns().size()) {
-						items.add(row.getSpecElement());
-					} else if (row instanceof ProrRowSpecHierarchy) {
-						items.add(((ProrRowSpecHierarchy)row).getSpecHierarchy());
-					} else {
-						throw new IllegalArgumentException();
 					}
 				}
 				selection = new StructuredSelection(items);
@@ -518,7 +521,8 @@ public class ProrAgileGridViewer extends Viewer {
 
 			Object current;
 			if (prorRow instanceof ProrRow.ProrRowSpecHierarchy)
-				current = ((ProrRow.ProrRowSpecHierarchy) prorRow).getSpecHierarchy();
+				current = ((ProrRow.ProrRowSpecHierarchy) prorRow)
+						.getSpecHierarchy();
 			else
 				current = prorRow.getSpecElement();
 
