@@ -28,6 +28,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.command.DragAndDropFeedback;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -298,6 +300,21 @@ public class SpecHierarchyItemProvider extends
 
 	}
 
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+
+
+		Command createCommand = super.createCommand(object, domain, commandClass,
+				commandParameter);
+
+		// System.out.println(" ===> " + createCommand.getClass());
+
+		return createCommand;
+
+	}
+
 	/**
 	 * <p>
 	 * In addition to the regular functionality (creating a SpecHierarchy child
@@ -321,6 +338,7 @@ public class SpecHierarchyItemProvider extends
 	protected Command createCreateChildCommand(EditingDomain domain,
 			EObject owner, EStructuralFeature feature, Object value, int index,
 			Collection<?> collection) {
+
 		if (value instanceof SpecType) {
 			ReqIFContent content = ReqIF10Util.getReqIF(owner).getCoreContent();
 			SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
@@ -371,7 +389,8 @@ public class SpecHierarchyItemProvider extends
 			if (obj instanceof SpecHierarchy) {
 				SpecHierarchy specHierarchy = (SpecHierarchy) obj;
 
-				if (!ProrUtil.isValidDrop(specHierarchy, owner)) {
+				boolean validDrop = ProrUtil.isValidDrop(specHierarchy, owner);
+				if (!validDrop) {
 					return UnexecutableCommand.INSTANCE;
 				}
 
@@ -386,13 +405,34 @@ public class SpecHierarchyItemProvider extends
 
 		// Create a SpecRelation on Linking
 		if (operation == DragAndDropFeedback.DROP_LINK) {
-			return ProrUtil.createCreateSpecRelationsCommand(domain,
-					collection, owner);
+
+			// This is a bugfix for Bug 375519: We have to override the
+			// prepareDropLinOn method of the DragAndDropCommand, since we do
+			// not add SpecRelations as child of the owner. Instead we use the
+			// specific feature for SpecRelations.
+			DragAndDropCommand dragAndDropCommand = new DragAndDropCommand(
+					domain, owner, location, operations, operation, collection) {
+
+				@Override
+				protected boolean prepareDropLinkOn() {
+					dropCommand = ProrUtil.createCreateSpecRelationsCommand(
+							domain, collection, owner);
+					boolean result = dropCommand.canExecute();
+					return result;
+				}
+
+			};
+
+			return dragAndDropCommand;
+
 		}
 
 		// Otherwise default behavior
-		return super.createDragAndDropCommand(domain, owner, location,
+		Command createDragAndDropCommand = super.createDragAndDropCommand(domain, owner, location,
 				operations, operation, collection);
+
+		return createDragAndDropCommand;
+
 	}
 
 }

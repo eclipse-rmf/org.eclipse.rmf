@@ -611,6 +611,7 @@ public class ProrAgileGridViewer extends Viewer {
 
 					@Override
 					public void dragOver(DropTargetEvent e) {
+
 						Point pos = agileGrid.toControl(e.x, e.y);
 						Cell cell = agileGrid.getCell(pos.x, pos.y);
 						ProrRow row = cell.row > 0 ? contentProvider
@@ -642,6 +643,9 @@ public class ProrAgileGridViewer extends Viewer {
 							}
 							agileGrid.redraw();
 						}
+
+						super.dragOver(e);
+
 					}
 
 					@Override
