@@ -8,13 +8,18 @@
     testsDirectory="/org.eclipse.rmf.pror.reqif10.presentation.id.tests/tests" testSuiteClass=""
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
     editPluginID="org.eclipse.rmf.pror.reqif10.presentation.id" editorPluginID="org.eclipse.rmf.pror.reqif10.presentation.id.editor"
-    usedGenPackages="../../org.eclipse.rmf.pror.reqif10/model/reqif10.genmodel#//configuration ../../org.eclipse.rmf.pror.reqif10/model/reqif10.genmodel#//reqif10 ../../org.eclipse.rmf.pror.reqif10/model/reqif10.genmodel#//reqif10/datatypes">
+    usedGenPackages="../../org.eclipse.rmf.pror.reqif10/model/reqif10.genmodel#//configuration ../../org.eclipse.rmf.pror.reqif10/model/reqif10.genmodel#//reqif10 ../../org.eclipse.rmf.pror.reqif10/model/reqif10.genmodel#//xhtml platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace ../../org.eclipse.rmf.pror.reqif10/model/reqif10.genmodel#//datatypes">
   <foreignModel>ID.ecore</foreignModel>
   <genPackages prefix="Id" basePackage="org.eclipse.rmf.pror.reqif10.presentation"
       disposableProviderFactory="true" ecorePackage="ID.ecore#/">
-    <genClasses ecoreClass="ID.ecore#//IdConfiguration">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ID.ecore#//IdVerticalAlign">
+      <genEnumLiterals ecoreEnumLiteral="ID.ecore#//IdVerticalAlign/Top"/>
+      <genEnumLiterals ecoreEnumLiteral="ID.ecore#//IdVerticalAlign/Center"/>
+    </genEnums>
+    <genClasses provider="Stateful" ecoreClass="ID.ecore#//IdConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ID.ecore#//IdConfiguration/prefix"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ID.ecore#//IdConfiguration/count"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ID.ecore#//IdConfiguration/verticalAlign"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

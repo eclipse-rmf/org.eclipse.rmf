@@ -2,8 +2,7 @@
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.pror.reqif10/src"
-    modelPluginID="org.eclipse.rmf.pror.reqif10" templateDirectory="org.eclipse.rmf.pror.reqif10/model/templates"
-    dynamicTemplates="true" modelName="Configuration" editPluginClass="org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin"
+    modelPluginID="org.eclipse.rmf.pror.reqif10" modelName="Configuration" editPluginClass="org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
     usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
   <foreignModel>configuration.ecore</foreignModel>
@@ -23,7 +22,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Column/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Column/width"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="configuration.ecore#//ProrPresentationConfigurations">
+    <genClasses provider="Stateful" image="false" ecoreClass="configuration.ecore#//ProrPresentationConfigurations">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrPresentationConfigurations/presentationConfigurations"/>
     </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//ProrPresentationConfiguration">
@@ -80,8 +79,8 @@
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF/lang"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF/theHeader"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF/toolExtensions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF/coreContent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIF/toolExtensions"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFHeader">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ReqIFHeader/comment"/>

@@ -4,9 +4,12 @@ import java.math.BigInteger;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
+import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.AttributeValueString;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.RelationGroup;
 import org.eclipse.rmf.reqif10.RelationGroupType;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
@@ -26,6 +29,7 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 
 	// datatypes
 	DatatypeDefinitionString datatypeDefinitionString;
+	DatatypeDefinitionXHTML datatypeDefinitionXHTML;
 
 	// SpecObjectTypes
 	SpecObjectType specObjectType;
@@ -40,7 +44,7 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 
 	// SpecRelationTypes
 	SpecRelationType specRelationType;
-	AttributeDefinitionString attributeDefinitionStringForSpecRelation;
+	AttributeDefinitionXHTML attributeDefinitionXhtmlForSpecRelation;
 
 	// RelationGroupTypes
 	// TODO: why isn't it called SpecRelationGroupType?
@@ -61,15 +65,22 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 
 	@Override
 	public void createDatatypes() throws Exception {
+
 		datatypeDefinitionString = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString();
 		datatypeDefinitionString.setIdentifier("ID_TC1300_DatatypeDefinitionString");
-		datatypeDefinitionString.setLongName("ReqIF.Name");
+		datatypeDefinitionString.setLongName("TC1300 String");
 		datatypeDefinitionString.setLastChange(toDate(LAST_CHANGE_STRING));
 		datatypeDefinitionString.setMaxLength(new BigInteger("256"));
 
+		// datatypeDefinitionXHTML
+		datatypeDefinitionXHTML = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionXHTML();
+		datatypeDefinitionXHTML.setIdentifier("ID_TC1300_DatatypeDefinitionXHTML");
+		datatypeDefinitionXHTML.setLongName("TC1300 XHTML");
+		datatypeDefinitionXHTML.setLastChange(toDate(LAST_CHANGE_STRING));
+
 		EList<DatatypeDefinition> datatypes = getReqIF().getCoreContent().getDatatypes();
 		datatypes.add(datatypeDefinitionString);
-
+		datatypes.add(datatypeDefinitionXHTML);
 	}
 
 	@Override
@@ -179,7 +190,6 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 
 	@Override
 	public void createSpecRelations() throws Exception {
-		AttributeValueString attributeValueString;
 
 		specRelation = ReqIF10Factory.eINSTANCE.createSpecRelation();
 		specRelation.setIdentifier("ID_TC1300_SpecRelation");
@@ -189,10 +199,10 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 		specRelation.setSource(specObject1);
 		specRelation.setTarget(specObject2);
 
-		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
-		attributeValueString.setDefinition(attributeDefinitionStringForSpecRelation);
-		attributeValueString.setTheValue("TC 1300 SpecRelation");
-		specRelation.getValues().add(attributeValueString);
+		AttributeValueXHTML attributeValueXhtml = ReqIF10Factory.eINSTANCE.createAttributeValueXHTML();
+		attributeValueXhtml.setDefinition(attributeDefinitionXhtmlForSpecRelation);
+		attributeValueXhtml.setTheValue(createXhtmlValue("TC 1300 SpecRelation"));
+		specRelation.getValues().add(attributeValueXhtml);
 
 		getReqIF().getCoreContent().getSpecRelations().add(specRelation);
 	}
@@ -204,13 +214,13 @@ public class TC1300SpecRelationModelBuilder extends SimpleModelBuilder {
 		specRelationType.setLongName("TC 1300 SpecRelationType");
 		specRelationType.setLastChange(toDate(LAST_CHANGE_STRING));
 
-		attributeDefinitionStringForSpecRelation = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
-		attributeDefinitionStringForSpecRelation.setIdentifier("ID_TC1300_AttributeDefinitionString_SpecRelation");
-		attributeDefinitionStringForSpecRelation.setLongName("ReqIF.Name");
-		attributeDefinitionStringForSpecRelation.setLastChange(toDate(LAST_CHANGE_STRING));
-		attributeDefinitionStringForSpecRelation.setType(datatypeDefinitionString);
+		attributeDefinitionXhtmlForSpecRelation = ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML();
+		attributeDefinitionXhtmlForSpecRelation.setIdentifier("ID_TC1300_AttributeDefinitionString_SpecRelation");
+		attributeDefinitionXhtmlForSpecRelation.setLongName("ReqIF.Name");
+		attributeDefinitionXhtmlForSpecRelation.setLastChange(toDate(LAST_CHANGE_STRING));
+		attributeDefinitionXhtmlForSpecRelation.setType(datatypeDefinitionXHTML);
 
-		specRelationType.getSpecAttributes().add(attributeDefinitionStringForSpecRelation);
+		specRelationType.getSpecAttributes().add(attributeDefinitionXhtmlForSpecRelation);
 
 		getReqIF().getCoreContent().getSpecTypes().add(specRelationType);
 	}

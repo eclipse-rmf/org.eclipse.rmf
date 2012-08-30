@@ -13,12 +13,17 @@
 package org.eclipse.rmf.pror.reqif10.presentation.id.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.rmf.pror.reqif10.configuration.impl.ProrPresentationConfigurationImpl;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdPackage;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdVerticalAlign;
+import org.eclipse.rmf.reqif10.AttributeValueString;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -275,5 +280,73 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 		result.append(')');
 		return result.toString();
 	}
+
+	private EContentAdapter reqifAdapter;
+
+	/**
+	 * Two listeners must be registered:
+	 * <ul>
+	 * <li>An adapter on the {@link ReqIF}, reacting to relevant SpecObject
+	 * changes that require the creation of new IDs
+	 * <li>An adapter to the {@link IdConfiguration}, reacting to changes of its
+	 * attributes.
+	 * </ul>
+	 */
+	public void registerReqIF() {
+		reqifAdapter = buildReqifListener();
+		ReqIF10Util.getReqIF(this).getCoreContent().eAdapters()
+				.add(reqifAdapter);
+	}
+
+	public void unregisterReqIF() {
+		if (reqifAdapter != null) {
+			ReqIF10Util.getReqIF(this).getCoreContent().eAdapters()
+					.remove(reqifAdapter);
+		}
+	}
+
+	private EContentAdapter buildReqifListener() {
+		EContentAdapter adapter = new EContentAdapter() {
+			@Override
+			public void setTarget(Notifier target) {
+				super.setTarget(target);
+				if (target instanceof AttributeValueString) {
+					AttributeValueString value = (AttributeValueString) target;
+					if (value.getDefinition() != null
+							&& value.getDefinition().getType() != null
+							&& value.getDefinition().getType()
+									.equals(getDatatype())) {
+						if (value.getTheValue() == null
+								|| value.getTheValue().length() == 0) {
+							int newCount = getCount() + 1;
+							value.setTheValue(getPrefix() + newCount);
+							setCount(newCount);
+						}
+					}
+				}
+			}
+		};
+		return adapter;
+	}
+
+	// private EContentAdapter buildAdapter(final IdConfiguration config) {
+	// config.eAdapters().add(new AdapterImpl() {
+	// @Override
+	// public void notifyChanged(Notification msg) {
+	// if
+	// (ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATION__DATATYPE
+	// .equals(msg.getFeature())) {
+	// EContentAdapter adapter = adapters.get(config);
+	// if (adapter != null) {
+	// ReqIF reqif = ReqIF10Util.getReqIF(config);
+	// reqif.eAdapters().remove(adapter);
+	// adapter = buildAdapter(config);
+	// reqif.eAdapters().add(adapter);
+	// adapters.put(config, adapter);
+	// }
+	// }
+	// }
+	// });
+	// }
 
 } //IdConfigurationImpl

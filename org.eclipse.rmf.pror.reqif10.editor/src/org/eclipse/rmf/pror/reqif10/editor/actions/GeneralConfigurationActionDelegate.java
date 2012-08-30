@@ -10,14 +10,18 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.actions;
 
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.Reqif10Editor;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
-import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
@@ -47,15 +51,60 @@ public class GeneralConfigurationActionDelegate implements
 	public void run(IAction action) {
 		if (editor == null)
 			return;
-		ReqIF reqif = (ReqIF) editor.getEditingDomain().getResourceSet()
-				.getResources().get(0).getContents().get(0);
 		ProrToolExtension uiToolExtension = ConfigurationUtil
-				.getProrToolExtension(reqif, editor.getEditingDomain());
-
-		SubtreeDialog dialog = new SubtreeDialog(editor,
-				uiToolExtension.getGeneralConfiguration(),
-				"General Configuration", "org.eclipse.rmf.pror.reqif10.editor.generalConfiguration");
+				.createProrToolExtension(editor.getReqif(),
+						editor.getEditingDomain());
+		ProrGeneralConfiguration generalConfig = createGeneralConfiguration(uiToolExtension);
+		createLabelConfiguration(generalConfig);
+		SubtreeDialog dialog = new SubtreeDialog(editor, generalConfig,
+				"General Configuration",
+				"org.eclipse.rmf.pror.reqif10.editor.generalConfiguration");
 		dialog.open();
+	}
+
+	/**
+	 * Creates the {@link LabelConfiguration}, if necessary.
+	 */
+	private void createLabelConfiguration(ProrGeneralConfiguration generalConfig) {
+		if (generalConfig.getLabelConfiguration() != null) {
+			return;
+		}
+
+		LabelConfiguration labelConfig = ConfigurationFactory.eINSTANCE
+				.createLabelConfiguration();
+		editor.getEditingDomain()
+				.getCommandStack()
+				.execute(
+						SetCommand.create(
+								editor.getEditingDomain(),
+								generalConfig,
+								ConfigurationPackage.Literals.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION,
+								labelConfig));
+	}
+
+	/**
+	 * Creates the general configuration, if necessary.
+	 * 
+	 * @param uiToolExtension
+	 */
+	private ProrGeneralConfiguration createGeneralConfiguration(
+			ProrToolExtension uiToolExtension) {
+		if (uiToolExtension.getGeneralConfiguration() != null) {
+			return uiToolExtension.getGeneralConfiguration();
+		}
+
+		// Does not exist yet - create.
+		ProrGeneralConfiguration generalConfig = ConfigurationFactory.eINSTANCE
+				.createProrGeneralConfiguration();
+		editor.getEditingDomain()
+				.getCommandStack()
+				.execute(
+						SetCommand.create(
+								editor.getEditingDomain(),
+								uiToolExtension,
+								ConfigurationPackage.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION,
+								generalConfig));
+		return generalConfig;
 	}
 
 	public void selectionChanged(IAction action, ISelection selection) {

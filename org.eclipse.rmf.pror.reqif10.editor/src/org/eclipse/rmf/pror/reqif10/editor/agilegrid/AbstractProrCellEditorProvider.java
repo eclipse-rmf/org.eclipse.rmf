@@ -34,7 +34,7 @@ public abstract class AbstractProrCellEditorProvider extends
 		DefaultCellEditorProvider {
 
 	protected final EditingDomain editingDomain;
-	private AdapterFactory adapterFactory;
+	protected final AdapterFactory adapterFactory;
 
 	public AbstractProrCellEditorProvider(AgileGrid agileGrid,
 			AdapterFactory adapterFactory, EditingDomain editingDomain) {

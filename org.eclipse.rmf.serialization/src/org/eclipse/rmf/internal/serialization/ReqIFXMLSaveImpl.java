@@ -31,8 +31,6 @@ import org.eclipse.rmf.reqif10.XhtmlContent;
  * @author broerkens
  */
 public class ReqIFXMLSaveImpl extends XMLSaveImpl implements IReqIFSerializationConstants {
-	private static final String EMPTY_URI = ""; //$NON-NLS-1$
-
 	private SerializationStrategy serializationStrategy = SerializationStrategy.REQIF;
 
 	public ReqIFXMLSaveImpl(XMLHelper xmlHelper) {

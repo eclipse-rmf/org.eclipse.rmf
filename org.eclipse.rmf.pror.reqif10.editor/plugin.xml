@@ -232,5 +232,11 @@ Contributors:
           class="org.eclipse.rmf.pror.reqif10.editor.preferences.PreferenceInitializer">
     </initializer>
  </extension>
+ <extension
+       point="org.eclipse.ui.startup">
+    <startup
+          class="org.eclipse.rmf.pror.reqif10.editor.presentation.OpenFilesOnStartup">
+    </startup>
+ </extension>
 
 </plugin>

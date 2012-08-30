@@ -19,6 +19,7 @@ import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
@@ -117,7 +118,8 @@ public class SpecificationEditor extends EditorPart implements
 		
 		site.getActionBars().setGlobalActionHandler(
 				ActionFactory.PRINT.getId(),
-				new SpecificationWebPrintAction(specification, reqifEditor.getEditingDomain()));
+				new SpecificationWebPrintAction(specification, reqifEditor
+						.getEditingDomain(), reqifEditor.getAdapterFactory()));
 	}
 
 	/**
@@ -442,6 +444,10 @@ public class SpecificationEditor extends EditorPart implements
 
 	public Reqif10ActionBarContributor getReqifActionBarContributor() {
 		return reqifActionBarContributor;
+	}
+
+	public AdapterFactory getAdapterFactory() {
+		return reqifEditor.getAdapterFactory();
 	}
 
 }

@@ -36,6 +36,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
+import org.eclipse.rmf.reqif10.Identifiable;
+import org.eclipse.rmf.reqif10.RelationGroup;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecObject;
@@ -43,11 +45,15 @@ import org.eclipse.rmf.reqif10.SpecType;
 
 /**
  * This is the item provider adapter for a
- * {@link org.eclipse.rmf.reqif10.SpecElementWithAttributes} object.
- * <!-- begin-user-doc -->
- * Made class abstract, as we want to make common behavior available
- * through concrete implementations.
- * <!-- end-user-doc -->
+ * {@link org.eclipse.rmf.reqif10.SpecElementWithAttributes} object. <!--
+ * begin-user-doc --> Made class abstract, as we want to make common behavior
+ * available through concrete implementations.
+ * <p>
+ * 
+ * There are a few places where via instancof it is checked whether objects are
+ * {@link SpecElementWithAttributes}. This is due to a bug in the ReqIF schema,
+ * where {@link RelationGroup} does not inherit from
+ * {@link SpecElementWithAttributes}. <!-- end-user-doc -->
  * 
  * @generated NOT
  */
@@ -83,9 +89,11 @@ public abstract class SpecElementWithAttributesItemProvider extends
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		itemPropertyDescriptors = null;
 		super.getPropertyDescriptors(object);
-		ProrUtil.addAttributePropertyDescriptor(
-				(SpecElementWithAttributes) object, this,
-				itemPropertyDescriptors);
+		if (object instanceof SpecElementWithAttributes) {
+			ProrUtil.addAttributePropertyDescriptor(
+					(SpecElementWithAttributes) object, this,
+					itemPropertyDescriptors);
+		}
 		return itemPropertyDescriptors;
 	}
 
@@ -96,7 +104,8 @@ public abstract class SpecElementWithAttributesItemProvider extends
 	 * {@link SpecObject} to present properties like "Identifiable" in the
 	 * Category "Spec Object", instead of "Identifiable".
 	 */
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object, final String categoryForStandardProps) {
+	protected List<IItemPropertyDescriptor> getPropertyDescriptors(
+			Object object, final String categoryForStandardProps) {
 		itemPropertyDescriptors = null;
 		super.getPropertyDescriptors(object);
 
@@ -111,9 +120,11 @@ public abstract class SpecElementWithAttributesItemProvider extends
 		}
 		itemPropertyDescriptors = newDescriptors;
 
-		ProrUtil.addAttributePropertyDescriptor(
-				(SpecElementWithAttributes) object, this,
-				itemPropertyDescriptors);
+		if (object instanceof SpecElementWithAttributes) {
+			ProrUtil.addAttributePropertyDescriptor(
+					(SpecElementWithAttributes) object, this,
+					itemPropertyDescriptors);
+		}
 		return itemPropertyDescriptors;
 	}
 
@@ -127,9 +138,16 @@ public abstract class SpecElementWithAttributesItemProvider extends
 	 */
 	@Override
 	public String getText(Object object) {
-		SpecElementWithAttributes specElement = (SpecElementWithAttributes) object;
-		
-		return ConfigurationUtil.getSpecElementLabel(specElement);
+		if (object instanceof SpecElementWithAttributes) {
+			SpecElementWithAttributes specElement = (SpecElementWithAttributes) object;
+
+			return ConfigurationUtil.getSpecElementLabel(specElement,
+					adapterFactory);
+		} else if (object instanceof Identifiable) {
+			return ((Identifiable) object).getIdentifier();
+		} else {
+		return super.getText(object);
+		}
 	}
 
 	/**
@@ -183,15 +201,18 @@ public abstract class SpecElementWithAttributesItemProvider extends
 				specAttributes = Collections.emptyList();
 			}
 
-			CompoundCommand createValueAdjustCommand = ProrUtil
-					.createValueAdjustCommand(domain,
-							(SpecElementWithAttributes) owner, specAttributes);
+			if (owner instanceof SpecElementWithAttributes) {
+				CompoundCommand createValueAdjustCommand = ProrUtil
+						.createValueAdjustCommand(domain,
+								(SpecElementWithAttributes) owner,
+								specAttributes);
 
-			// We need to check if the adjust command is executable,
-			// since the next command (set command) would not be executed
-			// whenever it is disabled
-			if (createValueAdjustCommand.canExecute())
-				cmd.append(createValueAdjustCommand);
+				// We need to check if the adjust command is executable,
+				// since the next command (set command) would not be executed
+				// whenever it is disabled
+				if (createValueAdjustCommand.canExecute())
+					cmd.append(createValueAdjustCommand);
+			}
 
 			cmd.append(super.createSetCommand(domain, owner, feature, value,
 					index));
@@ -216,12 +237,18 @@ public abstract class SpecElementWithAttributesItemProvider extends
 				SpecType specType = (SpecType) value;
 				CompoundCommand cmd = new CompoundCommand();
 
-				Collection<AttributeDefinition> specAttributes = specType.getSpecAttributes();
+				Collection<AttributeDefinition> specAttributes = specType
+						.getSpecAttributes();
 
-				CompoundCommand adjustValuesCommand = ProrUtil.createValueAdjustCommand(domain,
-						(SpecElementWithAttributes) owner, specAttributes);
-				if (!adjustValuesCommand.isEmpty()) {
-					cmd.append(adjustValuesCommand);
+				if (owner instanceof SpecElementWithAttributes) {
+					CompoundCommand adjustValuesCommand = ProrUtil
+							.createValueAdjustCommand(domain,
+									(SpecElementWithAttributes) owner,
+									specAttributes);
+
+					if (!adjustValuesCommand.isEmpty()) {
+						cmd.append(adjustValuesCommand);
+					}
 				}
 				cmd.append(super.createSetCommand(domain, owner, feature,
 						specType, index));
@@ -231,6 +258,7 @@ public abstract class SpecElementWithAttributesItemProvider extends
 		return super
 				.createAddCommand(domain, owner, feature, collection, index);
 	}
+
 	/**
 	 * Simply returns the appropriate feature from {@link ReqIF10Package.Literals}.
 	 */

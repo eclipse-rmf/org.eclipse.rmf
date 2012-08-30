@@ -66,7 +66,7 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 			Specification spec = ((ReqifSpecificationEditorInput) input)
 					.getSpec();
 			ProrToolExtension toolConfig = ConfigurationUtil
-					.getProrToolExtension(reqif, editor.getEditingDomain());
+					.createProrToolExtension(reqif, editor.getEditingDomain());
 			EList<ProrSpecViewConfiguration> configs = toolConfig
 					.getSpecViewConfigurations();
 			for (final ProrSpecViewConfiguration config : configs) {
@@ -87,12 +87,11 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 	private void launchColumnDialog(final ProrSpecViewConfiguration config) {
 		SubtreeDialog dialog = new SubtreeDialog(editor.getReqifEditor(),
 				config, "Configure columns for "
-						+ ConfigurationUtil.getSpecElementLabel(config
-								.getSpecification()),
+						+ ConfigurationUtil.getSpecElementLabel(
+								config.getSpecification(),
+								editor.getAdapterFactory()),
 				"org.eclipse.rmf.pror.reqif10.editor.columnConfiguration");
-		dialog.setActions(
-				new IAction[] { buildAddColumnAction(config) },
-				false);
+		dialog.setActions(new IAction[] { buildAddColumnAction(config) }, false);
 		dialog.open();
 		return;
 	}

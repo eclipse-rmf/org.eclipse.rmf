@@ -42,8 +42,8 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditManager;
-import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationEditService;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.pror.reqif10.provider.SpecElementWithAttributesItemProvider;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
@@ -379,17 +379,20 @@ public final class ProrUtil {
 	}
 
 	/**
+	 * @param adapterFactory
 	 * @return the handle drag and drop command from presentation plugin or null
 	 *         if no plugin can handle the operation.
 	 */
 	public static Command getPresentationHandleDragAndDropCommand(
 			EditingDomain domain, Object owner, float location, int operations,
-			int operation, java.util.Collection<?> collection) {
+			int operation, java.util.Collection<?> collection,
+			AdapterFactory adapterFactory) {
 		// See whether a Presentation feels responsible.
-		Collection<PresentationEditService> services = PresentationEditManager
-				.getPresentationEditServiceMap().values();
-		for (PresentationEditService service : services) {
-			Command cmd = service.handleDragAndDrop(collection, owner, domain,
+		Set<PresentationEditInterface> ips = ConfigurationUtil
+				.getPresentationEditInterfaces(owner, adapterFactory);
+
+		for (PresentationEditInterface ip : ips) {
+			Command cmd = ip.handleDragAndDrop(collection, owner, domain,
 					operation);
 			if (cmd != null) {
 				return cmd;
@@ -714,6 +717,16 @@ public final class ProrUtil {
 			}
 			
 			return true;
+	}
+
+	/**
+	 * Retrieves the {@link ProrPresentationConfigurationItemProvider} for the
+	 * given {@link ProrPresentationConfiguration} element.
+	 */
+	public static ProrPresentationConfigurationItemProvider getConfigItemProvider(
+			ProrPresentationConfiguration config, AdapterFactory adapterFactory) {
+		ProrPresentationConfigurationItemProvider itemprovider = (ProrPresentationConfigurationItemProvider) getItemProvider(adapterFactory, config);
+		return itemprovider;
 	}
 
 }

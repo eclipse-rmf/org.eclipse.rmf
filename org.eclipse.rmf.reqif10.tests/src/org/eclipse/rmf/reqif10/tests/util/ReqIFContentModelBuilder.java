@@ -11,12 +11,10 @@
  */
 package org.eclipse.rmf.reqif10.tests.util;
 
-import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 
 public class ReqIFContentModelBuilder extends MinimalModelBuilder {
-	private ReqIF reqIF;
 
 	public ReqIFContentModelBuilder() throws Exception {
 		super();

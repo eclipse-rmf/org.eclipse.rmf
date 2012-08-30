@@ -5,6 +5,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
+import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
+import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecObject;
@@ -38,6 +40,10 @@ public class TC1802HISExchangeProcessModelBuilder {
 		AttributeValueString value = (AttributeValueString) ReqIF10Util.getAttributeValueForLabel(specObject, "A1");
 		value.setTheValue("O3.A1 once");
 		specObject.setLastChange(toDate(LAST_CHANGE_STRING_2));
+
+		AttributeDefinitionEnumeration enumeration = (AttributeDefinitionEnumeration) specObject.getType().getSpecAttributes().get(3);
+		AttributeValueEnumeration valueEnum = (AttributeValueEnumeration) ReqIF10Util.getAttributeValueForLabel(specObject, "E1");
+		valueEnum.getValues().set(0, enumeration.getType().getSpecifiedValues().get(1));
 	}
 
 	public ReqIF getReqIF() {

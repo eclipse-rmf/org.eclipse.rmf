@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.rmf.pror.reqif10.feature"
       label="RMF ProR Feature (Incubation)"
-      version="0.3.2.qualifier"
+      version="0.4.0.qualifier"
       provider-name="Eclipse Modeling Project"
       plugin="org.eclipse.rmf.pror.reqif10">
 
@@ -29,12 +29,8 @@ Contributors:
       <discovery label="RMF at Eclipse.org" url="http://eclipse.org/rmf"/>
    </url>
 
-   <includes
-         id="org.eclipse.rmf.reqif10.feature"
-         version="0.0.0"/>
-
    <requires>
-      <import feature="org.eclipse.rmf.reqif10.feature" version="0.3.2.qualifier"/>
+      <import feature="org.eclipse.rmf.reqif10.feature" version="0.4.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin

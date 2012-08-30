@@ -52,7 +52,7 @@ import org.eclipse.ui.PlatformUI;
  */
 public class AbstractProrCellRenderer extends TextCellRenderer {
 
-	private final AdapterFactory adapterFactory;
+	protected final AdapterFactory adapterFactory;
 
 	private final Image IMG_WARN_FALSE = PlatformUI.getWorkbench()
 			.getSharedImages().getImage(ISharedImages.IMG_OBJS_INFO_TSK);

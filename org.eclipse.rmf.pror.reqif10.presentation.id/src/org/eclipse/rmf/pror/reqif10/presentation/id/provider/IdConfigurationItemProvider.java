@@ -16,9 +16,16 @@ package org.eclipse.rmf.pror.reqif10.presentation.id.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,9 +35,15 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdPackage;
+import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.AttributeValueString;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration} object.
@@ -209,6 +222,116 @@ public class IdConfigurationItemProvider
 	@Override
 	public ResourceLocator getResourceLocator() {
 		return IDEditPlugin.INSTANCE;
+	}
+
+	// Listener to be attached to the ReqIF
+	private EContentAdapter contentAdapter;
+
+	/**
+	 * We do two things:
+	 * <ul>
+	 * <li>Register an adapter with the model to set IDs as needed
+	 * <li>Register an adapter with the config element to react to config value
+	 * changes.
+	 * <ul>
+	 */
+	public void registerPresentationConfiguration(
+			final ProrPresentationConfiguration config,
+			final EditingDomain editingDomain) {
+		registerModelListener((IdConfiguration) config, editingDomain);
+
+		config.eAdapters().add(new AdapterImpl() {
+			public void notifyChanged(Notification notification) {
+				if (notification.getFeature() == ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATION__DATATYPE) {
+					unregisterModelListener(config);
+					registerModelListener((IdConfiguration) config,
+							editingDomain);
+				}
+			}
+		});
+	}
+
+	public void unregisterPresentationConfiguration(
+			ProrPresentationConfiguration config) {
+		unregisterModelListener(config);
+	}
+
+	private void registerModelListener(final IdConfiguration config,
+			final EditingDomain editingDomain) {
+		if (contentAdapter != null) {
+			throw new IllegalStateException(
+					"Cannot register IDConfigAdapter without unregistering first!");
+		}
+		contentAdapter = new EContentAdapter() {
+			@Override
+			public void setTarget(final Notifier target) {
+				super.setTarget(target);
+				if (target instanceof AttributeValueString) {
+					AttributeValueString value = (AttributeValueString) target;
+					if (value.getDefinition() != null
+							&& value.getDefinition().getType() != null
+							&& value.getDefinition().getType()
+									.equals(config.getDatatype())) {
+						if (value.getTheValue() == null
+								|| value.getTheValue().length() == 0) {
+							int newCount = config.getCount() + 1;
+
+							String label = "Assigning ID " + config.getPrefix()
+									+ newCount;
+
+							// Catch undo
+							Command redoCommand = editingDomain
+									.getCommandStack().getRedoCommand();
+							if (redoCommand != null
+									&& label.equals(redoCommand.getLabel())) {
+								System.out.println("Detected Undo - skip "
+										+ label);
+								return;
+							}
+							CompoundCommand cmd = new CompoundCommand(
+									label);
+							cmd.append(SetCommand
+									.create(editingDomain,
+											value,
+											ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
+											config.getPrefix() + newCount));
+							cmd.append(SetCommand.create(editingDomain, config,
+									IdPackage.Literals.ID_CONFIGURATION__COUNT,
+									newCount));
+							editingDomain.getCommandStack().execute(cmd);
+						}
+					}
+				}
+			}
+		};
+		ReqIF10Util.getReqIF(config).getCoreContent().eAdapters()
+				.add(contentAdapter);
+	}
+
+	private void unregisterModelListener(ProrPresentationConfiguration config) {
+		if (contentAdapter != null) {
+			ReqIF10Util.getReqIF(config).getCoreContent().eAdapters()
+					.remove(contentAdapter);
+			contentAdapter = null;
+		}
+	}
+
+	public Command handleDragAndDrop(Collection<?> source, Object target,
+			EditingDomain editingDomain, int operation) {
+		// No drag and drop support
+		return null;
+	}
+
+	public String getLabel(AttributeValue av) {
+		// No custom label
+		return null;
+	}
+
+	/**
+	 * Don't allow editing.
+	 */
+	public boolean canEdit() {
+		return false;
 	}
 
 }

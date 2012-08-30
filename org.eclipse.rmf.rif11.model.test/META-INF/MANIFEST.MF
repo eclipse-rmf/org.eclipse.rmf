@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.rmf.rif11.model.test
-Bundle-Version: 0.3.2.qualifier
+Bundle-Version: 0.4.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.rmf.rif11.model;bundle-version="0.1.0",
  org.eclipse.rmf.rif11.xsd.model;bundle-version="0.1.0",

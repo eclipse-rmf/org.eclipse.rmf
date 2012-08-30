@@ -68,7 +68,7 @@ public class IdLabelCellRenderer implements IProrCellRenderer {
 		if (ad != null) {
 			DatatypeDefinitionString dd = ad.getType();
 			if (dd != null) {
-				ProrPresentationConfiguration config = ConfigurationUtil.getConfiguration(dd);
+				ProrPresentationConfiguration config = ConfigurationUtil.getPresentationConfiguration(dd);
 				if (config instanceof IdConfiguration) {
 					return ((IdConfiguration) config).getVerticalAlign();
 				}
@@ -77,7 +77,7 @@ public class IdLabelCellRenderer implements IProrCellRenderer {
 		return IdVerticalAlign.CENTER;
 	}
 
-	public String doDrawHtmlContent(Object value) {
+	public String doDrawHtmlContent(AttributeValue value) {
 		AttributeValueString av = (AttributeValueString) value;
 		return av.getTheValue();
 	}

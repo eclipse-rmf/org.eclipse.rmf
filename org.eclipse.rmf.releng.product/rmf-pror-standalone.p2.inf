@@ -1,11 +1,5 @@
-requires.1.namespace = org.eclipse.equinox.p2.iu
-requires.1.name = org.eclipse.rmf.pror.reqif10.feature.feature.group
-requires.1.range = [0.3.2, 0.5.0)
-
-requires.2.namespace = org.eclipse.equinox.p2.iu
-requires.2.name = org.eclipse.rmf.reqif10.feature.feature.group
-requires.2.range = [0.3.2, 0.5.0)
-
 instructions.configure=\
-addRepository(type:0,location:http${#58}//download.eclipse.org/rmf/updates);\
-addRepository(type:1,location:http${#58}//download.eclipse.org/rmf/updates);
+addRepository(type:0,location:http${#58}//download.eclipse.org/rmf/product-updates);\
+addRepository(type:1,location:http${#58}//download.eclipse.org/rmf/product-updates);\
+addRepository(type:0,location:http${#58}//update.formalmind.com/essentials);\
+addRepository(type:1,location:http${#58}//update.formalmind.com/essentials);

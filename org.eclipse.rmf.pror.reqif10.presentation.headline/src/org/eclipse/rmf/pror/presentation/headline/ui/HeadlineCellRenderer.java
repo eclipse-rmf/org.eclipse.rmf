@@ -13,6 +13,7 @@ package org.eclipse.rmf.pror.presentation.headline.ui;
 import org.eclipse.jface.resource.FontRegistry;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
+import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueSimple;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.swt.SWT;
@@ -23,29 +24,23 @@ import org.eclipse.swt.graphics.Rectangle;
 
 public class HeadlineCellRenderer implements IProrCellRenderer {
 
-	private String PROR_HEADLINE_FONT = "pror_headline_font-";
+	private String fontHandle = "pror_headline_font-";
 	private Font font;
 	private int fontSize;
 	private boolean fontSizeChanged = false;
 
 	public HeadlineCellRenderer(String identifier) {
-		this.PROR_HEADLINE_FONT = "pror_headline_font-" + identifier;
+		this.fontHandle = "pror_headline_font-" + identifier;
 	}
 
 	public void setDatatypeId(String identifier) {
-		this.PROR_HEADLINE_FONT = "pror_headline_font-" + identifier;
+		this.fontHandle = "pror_headline_font-" + identifier;
 		setFontSize(fontSize);
-
 	}
 
 	public void setFontSize(final int fontSize) {
 		this.fontSize = fontSize;
 		this.fontSizeChanged = true;
-		// TODO: commented out, since maven java invoke can not handle UI
-		// PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
-		// public void run() {
-		// }
-		// });
 	}
 
 	public int doDrawCellContent(GC gc, Rectangle rect, Object value) {
@@ -55,13 +50,11 @@ public class HeadlineCellRenderer implements IProrCellRenderer {
 			text = ReqIF10Util.getTheValue(av).toString();
 		}
 
-		if (font == null || fontSizeChanged) {
+		if (font == null || font.isDisposed() || fontSizeChanged) {
 			FontRegistry fr = JFaceResources.getFontRegistry();
 			FontData[] fontData = { new FontData("Arial", fontSize, SWT.BOLD) };
-			if (font != null)
-				font.dispose();
-			fr.put(PROR_HEADLINE_FONT, fontData);
-			font = fr.get(PROR_HEADLINE_FONT);
+			fr.put(fontHandle + this, fontData);
+			font = fr.get(fontHandle + this);
 			fontSizeChanged = false;
 		}
 
@@ -70,7 +63,7 @@ public class HeadlineCellRenderer implements IProrCellRenderer {
 		return gc.textExtent(text).y;
 	}
 
-	public String doDrawHtmlContent(Object value) {
+	public String doDrawHtmlContent(AttributeValue value) {
 		AttributeValueSimple av = (AttributeValueSimple) value;
 		return "<div style='font-size: " + fontSize
 				+ "pt; font-weight: bold; padding-top: 4pt;'>"

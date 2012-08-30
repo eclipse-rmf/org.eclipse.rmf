@@ -10,10 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.util;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.*;
 
 import java.net.URISyntaxException;
 import java.util.List;
@@ -24,20 +21,23 @@ import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
+import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.junit.Test;
 
-public class ConfigUtilTest extends AbstractItemProviderTest {
+public class ConfigurationUtilTest extends AbstractItemProviderTest {
 	
 	@Test
 	public void testGetProrToolExtensionNothingThere() throws URISyntaxException {
 		ReqIF reqif = getTestReqif("simple.reqif");
 		assertEquals(0, reqif.getToolExtensions().size());
-		assertNotNull(ConfigurationUtil.getProrToolExtension(reqif, editingDomain));
+		assertNotNull(ConfigurationUtil.createProrToolExtension(reqif, editingDomain));
 		assertEquals(1, reqif.getToolExtensions().size());
 	}
 
@@ -48,7 +48,7 @@ public class ConfigUtilTest extends AbstractItemProviderTest {
 		commandStack.execute(ReqIFToolExtensionUtil.getAddToolExtensionCommand(reqif, extension));
 		assertEquals(1, reqif.getToolExtensions().size());
 		
-		ProrToolExtension retrieved = ConfigurationUtil.getProrToolExtension(reqif, editingDomain);
+		ProrToolExtension retrieved = ConfigurationUtil.createProrToolExtension(reqif, editingDomain);
 		assertEquals(1, reqif.getToolExtensions().size());
 		assertSame(extension, retrieved);
 	}
@@ -60,7 +60,7 @@ public class ConfigUtilTest extends AbstractItemProviderTest {
 		commandStack.execute(ReqIFToolExtensionUtil.getAddToolExtensionCommand(reqif, ePackage));
 		assertEquals(1, reqif.getToolExtensions().size());
 		
-		assertNotNull(ConfigurationUtil.getProrToolExtension(reqif, editingDomain));
+		assertNotNull(ConfigurationUtil.createProrToolExtension(reqif, editingDomain));
 		assertEquals(2, reqif.getToolExtensions().size());
 	}
 	
@@ -91,6 +91,29 @@ public class ConfigUtilTest extends AbstractItemProviderTest {
 				.getSpecifications().get(0);
 		Column leftHeaderColumn = ConfigurationUtil.getLeftHeaderColumn(specification, editingDomain);
 		assertNotNull(leftHeaderColumn);
+	}
+
+	/**
+	 * Adds stepwise the hierarchy until there actually is a
+	 * {@link ProrPresentationConfigurations} element. At no point must be there
+	 * an exception.
+	 */
+	@Test
+	public void testGetPresentationConfigurations() {
+		ReqIF reqif = ReqIF10Factory.eINSTANCE.createReqIF();
+		assertNull(ConfigurationUtil.getPresentationConfigurations(reqif));
+
+		ProrToolExtension toolExtension = ConfigurationFactory.eINSTANCE
+				.createProrToolExtension();
+		reqif.getToolExtensions().add(toolExtension);
+		setViaCommand(reqif, ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
+				toolExtension);
+		assertNull(ConfigurationUtil.getPresentationConfigurations(reqif));
+
+		ProrPresentationConfigurations configurations = ConfigurationFactory.eINSTANCE
+				.createProrPresentationConfigurations();
+		toolExtension.setPresentationConfigurations(configurations);
+		assertNotNull(ConfigurationUtil.getPresentationConfigurations(reqif));
 	}
 
 }

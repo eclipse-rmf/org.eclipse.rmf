@@ -28,22 +28,28 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
+import org.eclipse.rmf.pror.reqif10.util.PresentationEditInterface;
 
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
- * @generated
+ * This is the item provider adapter for a
+ * {@link org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration}
+ * object. <!-- begin-user-doc --> This class also implements
+ * {@link PresentationEditInterface} that serves as a hook into the Presentation
+ * Framework. To provide services with respect to the editor, also implement
+ * PresentationEditorInterface. <!-- end-user-doc -->
+ * 
+ * @generated NOT
  */
-public class ProrPresentationConfigurationItemProvider
+public abstract class ProrPresentationConfigurationItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
 		ITreeItemContentProvider,
 		IItemLabelProvider,
-		IItemPropertySource {
+		IItemPropertySource,
+		PresentationEditInterface {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -143,5 +149,4 @@ public class ProrPresentationConfigurationItemProvider
 	public ResourceLocator getResourceLocator() {
 		return Reqif10EditPlugin.INSTANCE;
 	}
-
 }

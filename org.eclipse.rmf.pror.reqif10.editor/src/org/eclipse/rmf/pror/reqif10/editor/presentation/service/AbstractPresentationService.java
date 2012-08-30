@@ -10,59 +10,29 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.presentation.service;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.agilemore.agilegrid.AgileGrid;
-import org.agilemore.agilegrid.CellEditor;
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationInterface;
 
-public abstract class AbstractPresentationService extends AdapterImpl implements PresentationService {
+/**
+ * This abstract class is provided to make life for Presentation creators
+ * easier. Just subclass it and modify where you see fit.
+ * 
+ * @author jastram
+ * 
+ */
+public abstract class AbstractPresentationService extends AdapterImpl implements PresentationInterface {
 
-	// This map contains all open ReqIF models and the corresponding editing
-	// domain. This map is needed for updating changed keywords.
-	protected final Map<ReqIF, EditingDomain> openReqIfModels = new HashMap<ReqIF, EditingDomain>();
-
+	private Class<? extends ProrPresentationConfiguration> configInterface;
+	
 	public Class<? extends ProrPresentationConfiguration> getConfigurationInterface() {
-		return getConfigurationInstance().getClass();
+		if (configInterface == null) {
+			configInterface = getConfigurationInstance().getClass();
+		}
+		return configInterface;
 	}
 
+	/* Override, as indicated by the interface's Javadoc */
 	public abstract ProrPresentationConfiguration getConfigurationInstance();
-
-	public void openReqif(ReqIF reqif, EditingDomain domain) {
-		openReqIfModels.put(reqif, domain);
-	}
-
-	public void closeReqif(ReqIF reqif, EditingDomain domain) {
-		openReqIfModels.remove(reqif);
-	}
-
-	public Command handleDragAndDrop(Collection<?> source, Object target,
-			EditingDomain editingDomain, int operation) {
-		return null;
-	}
-
-	public IProrCellRenderer getCellRenderer(AttributeValue av) {
-		return null;
-	}
-
-	public String getLabel(AttributeValue av) {
-		return null;
-	}
-
-	public CellEditor getCellEditor(AgileGrid agileGrid,
-			EditingDomain editingDomain, AttributeValue attrValue, Object affectedObject) {
-		return null;
-	}
-
-	public boolean canEdit() {
-		return false;
-	}
 
 }

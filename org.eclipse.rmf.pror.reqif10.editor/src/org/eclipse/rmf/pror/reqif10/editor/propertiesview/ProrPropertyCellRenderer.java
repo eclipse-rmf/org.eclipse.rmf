@@ -14,15 +14,15 @@ package org.eclipse.rmf.pror.reqif10.editor.propertiesview;
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.DefaultLayoutAdvisor;
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.AbstractProrCellRenderer;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorManager;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationService;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
@@ -30,12 +30,9 @@ import org.eclipse.swt.graphics.Rectangle;
 
 public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 
-	private EditingDomain editingDomain;
-
 	public ProrPropertyCellRenderer(AgileGrid agileGrid,
-			AdapterFactory adapterFactory, EditingDomain editingDomain) {
+			AdapterFactory adapterFactory) {
 		super(agileGrid, adapterFactory);
-		this.editingDomain = editingDomain;
 	}
 	
 	@Override
@@ -48,25 +45,26 @@ public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 			ProrPropertyContentProvider contentProvider = (ProrPropertyContentProvider) agileGrid
 					.getContentProvider();
 
-			AttributeValue atrVal = contentProvider.getReqIfAttributeValue(row);
+			AttributeValue av = contentProvider.getReqIfAttributeValue(row);
 
 			// Get the default row height
 			int initRowHeight = ((DefaultLayoutAdvisor) agileGrid
 					.getLayoutAdvisor()).getInitialRowHeight(row);
 			int newRowHeight = initRowHeight;
 
-			if (atrVal != null) {
+			if (av != null) {
 
 				IProrCellRenderer renderer = null;
-				// Try to get cell renderer from presentation extension
-				// point
+				// Try to get cell renderer from presentation
 				ProrPresentationConfiguration config = ConfigurationUtil
-						.getPresentationConfig(atrVal, editingDomain);
+						.getPresentationConfiguration(av);
 				if (config != null) {
-					PresentationService service = PresentationEditorManager
-							.getPresentationService(config);
-					if (service != null)
-						renderer = service.getCellRenderer(atrVal);
+					ItemProviderAdapter ip = ProrUtil.getItemProvider(
+							adapterFactory, config);
+					if (ip instanceof PresentationEditorInterface) {
+						renderer = ((PresentationEditorInterface) ip)
+								.getCellRenderer(av);
+					}
 				}
 
 				// Check if the have a renderer from presentation extension

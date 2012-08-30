@@ -12,11 +12,12 @@ package org.eclipse.rmf.pror.reqif10.editor.agilegrid;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 
 import org.agilemore.agilegrid.AbstractContentProvider;
 import org.agilemore.agilegrid.IContentProvider;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIF;
@@ -33,13 +34,22 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 
 	private final Specification root;
 	private final ProrSpecViewConfiguration specViewConfig;
+	private ArrayList<ProrRow> cache = null;
 
 	private boolean showSpecRelations;
 
-	public ProrAgileGridContentProvider(Specification specHierarchyRoot,
+	public ProrAgileGridContentProvider(Specification specification,
 			ProrSpecViewConfiguration specViewConfig) {
-		this.root = specHierarchyRoot;
+		this.root = specification;
 		this.specViewConfig = specViewConfig;
+
+		specification.eAdapters().add(new EContentAdapter() {
+			@Override
+			public void notifyChanged(Notification notification) {
+				super.notifyChanged(notification);
+				cache = null;
+			}
+		});
 	}
 
 	/**
@@ -47,19 +57,23 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * associated with the row. May return null.
 	 */
 	@Override
-	public Object doGetContentAt(int row, int col) throws IndexOutOfBoundsException {
-		if (row >= getRowCount())
+	public Object doGetContentAt(int row, int col)
+			throws IndexOutOfBoundsException {
+		if (row >= getCache().size()) {
 			throw new IndexOutOfBoundsException("Row does not exist: " + row);
-		SpecElementWithAttributes element = getProrRow(row)
-				.getSpecElement();
+		}
+
+		SpecElementWithAttributes element = getCache().get(row).getSpecElement();
 
 		if (col == specViewConfig.getColumns().size()) {
 			// For the Link column, we return the linked element.
 			return element instanceof SpecElementWithAttributes ? element
 					: null;
-		} else {
-			// For everything else, we return the AttributeValue.
+		} else if (col <= specViewConfig.getColumns().size()) {
+			// we return the AttributeValue.
 			return getValueForColumn(element, col);
+		} else {
+			throw new IndexOutOfBoundsException("Column does not exist: " + col);
 		}
 	}
 
@@ -72,27 +86,6 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 */
 	@Override
 	public void doSetContentAt(int row, int col, Object newValue) {
-
-		// ProrRow prorRow = getProrRow(row);
-		// AttributeValue oldValue = getValueForColumn(prorRow.getSpecElement(),
-		// col);
-		// EStructuralFeature feature = null;
-		// if (oldValue instanceof AttributeValueSimple) {
-		// feature =
-		// ExchangeFilePackage.Literals.ATTRIBUTE_VALUE_SIMPLE__THE_VALUE;
-		// } else if (oldValue instanceof AttributeValueEnumeration) {
-		// feature =
-		// ExchangeFilePackage.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES;
-		// } else {
-		// throw new UnsupportedOperationException("Not yet supported: " +
-		// oldValue);
-		// }
-		//
-		// if (!newValue.equals(oldValue)) {
-		// Command cmd = SetCommand.create(editingDomain, oldValue, feature,
-		// newValue);
-		// editingDomain.getCommandStack().execute(cmd);
-		// }
 	}
 
 	/**
@@ -102,6 +95,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 */
 	public void setShowSpecRelations(boolean status) {
 		this.showSpecRelations = status;
+		cache = null;
 	}
 
 	/**
@@ -120,51 +114,59 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * TODO Serious potential for performance tuning.
 	 */
 	ProrRow getProrRow(int row) {
-		return recurseSpecHierarchyForRow(0, row, 0, root.getChildren());
+		return getCache().get(row);
+	}
+
+	
+	
+	private ArrayList<ProrRow> getCache() {
+		ArrayList<ProrRow> tmpCache = null;
+		if (cache == null) {
+			tmpCache = new ArrayList<ProrRow>();
+			recurseSpecHierarchyForRow(0, 0, root.getChildren(), tmpCache);
+			cache = tmpCache ;
+		}
+		return cache;
 	}
 
 	/**
-	 * Recurses over the given children.
 	 * 
 	 * @param current
 	 *            The current counter
-	 * 
-	 * @param children
-	 *            The {@link SpecHierarchy}s to traverse
-	 * 
-	 * @return The {@link SpecHierarchy} where row == current, or null if not
-	 *         found.
+	 * @param elements
+	 *            The {@link SpecHierarchy}s to traverse, Can be SpecHierarchies
+	 *            or SpecRelations
+	 * @param tmpCache 
+	 * @return either the {@link ProrRow} with the given row, or the new current
+	 *         row
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private ProrRow recurseSpecHierarchyForRow(int current, int row, int depth,
-			List elements) {
-		for (Object element : elements) {
-			if (current == row) {
-				return new ProrRow(element, row, depth);
+	private int recurseSpecHierarchyForRow(int current, int depth,
+			List<SpecHierarchy> elements, ArrayList<ProrRow> tmpCache) {
+		for (SpecHierarchy element : elements) {
+			// We did not find the row, let's check SpecRealtions first
+			tmpCache.add(current, ProrRow.createProrRow(element, current, depth));
+			for (SpecRelation specRelation : getSpecRelationsFor(element)) {
+				++current;
+				tmpCache.add(current,
+						ProrRow.createProrRow(specRelation, current, depth + 1));
+
+				// return ProrRow.createProrRow(specRelation, row, depth + 1);
+
 			}
-			current++;
-			if (element instanceof SpecHierarchy) {
-				List children = new ArrayList();
-				children.addAll(getSpecRelationsFor((SpecHierarchy) element));
-				children.addAll(((SpecHierarchy) element).getChildren());
-				ProrRow result = recurseSpecHierarchyForRow(current, row,
-						depth + 1,
-						children);
-				if (result.element != null) {
-					return result;
-				}
-				current = result.row;
-			}
+			// We still did not find the row, let's check the children
+
+			int result = recurseSpecHierarchyForRow(++current, depth + 1,
+					element.getChildren(), tmpCache);
+			current = result;
 		}
-		return new ProrRow(null, current, depth);
+		return current;
 	}
 
 	/**
 	 * Returns the actual {@link AttributeValue} for the given Column and the
 	 * given {@link SpecElementWithUserDefinedAttributes}
 	 */
-	AttributeValue getValueForColumn(
-			SpecElementWithAttributes element, int col) {
+	AttributeValue getValueForColumn(SpecElementWithAttributes element, int col) {
 		// Knock-out criteria
 		if (element == null)
 			return null;
@@ -198,42 +200,6 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		return list;
 	}
 
-	/**
-	 * Represents the row of a table. A row holds either a SpecHierarchy or a
-	 * SpecRelation.
-	 */
-	class ProrRow {
-		final Object element;
-		final int level;
-		final int row;
-
-		/**
-		 * @ requires level >= 0 @
-		 * @ requires row >= 0 @
-		 */
-		public ProrRow(Object element, int row, int level) {
-			this.element = element;
-			this.row = row;
-			this.level = level;
-		}
-
-		public SpecElementWithAttributes getSpecElement() {
-			if (element instanceof SpecRelation)
-				return (SpecRelation) element;
-			return ((SpecHierarchy) element).getObject();
-		}
-
-		public SpecHierarchy getSpecHierarchy() {
-			return element instanceof SpecHierarchy ? (SpecHierarchy) element
-					: null;
-		}
-
-		@Override
-		public String toString() {
-			return "Row " + row + " Level " + level + ": " + element;
-		}
-	}
-
 	void updateElement(SpecElementWithAttributes element) {
 		recurseUpdateElement(0, element, root.getChildren());
 	}
@@ -262,7 +228,8 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 					refresh = true;
 				}
 			}
-			// Workaround: provide null for "old value" to force a recognition of
+			// Workaround: provide null for "old value" to force a recognition
+			// of
 			// the change.
 			if (refresh) {
 				firePropertyChange(IContentProvider.Content, row, 0, null,
@@ -275,19 +242,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	}
 
 	public int getRowCount() {
-		HashSet<SpecHierarchy> set = new HashSet<SpecHierarchy>(
-				root.getChildren());
-		int count = 0;
-		while (!set.isEmpty()) {
-			SpecHierarchy specHierarchy = set.iterator().next();
-			count++;
-			set.remove(specHierarchy);
-			set.addAll(specHierarchy.getChildren());
-			if (showSpecRelations) {
-				count += getSpecRelationsFor(specHierarchy).size();
-			}
-		}
-		return count;
+		return getCache().size();
 	}
 
 }

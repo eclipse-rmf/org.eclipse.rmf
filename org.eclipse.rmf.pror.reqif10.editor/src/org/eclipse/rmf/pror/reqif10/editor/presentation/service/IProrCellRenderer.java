@@ -10,6 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.editor.presentation.service;
 
+import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Rectangle;
 
@@ -35,6 +36,6 @@ public interface IProrCellRenderer {
 	 * 
 	 * @return the HTML representing the value.
 	 */
-	String doDrawHtmlContent(Object value);
+	String doDrawHtmlContent(AttributeValue value);
 
 }
