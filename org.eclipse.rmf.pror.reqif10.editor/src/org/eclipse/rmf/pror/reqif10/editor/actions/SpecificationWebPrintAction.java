@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -30,12 +31,15 @@ public class SpecificationWebPrintAction extends Action {
 
 	private final Specification spec;
 	private EditingDomain editingDomain;
+	private AdapterFactory adapterFactory;
 
 	/**
 	 */
-	public SpecificationWebPrintAction(Specification spec, EditingDomain editingDomain) {
+	public SpecificationWebPrintAction(Specification spec,
+			EditingDomain editingDomain, AdapterFactory adapterFactory) {
 		this.spec = spec;
 		this.editingDomain = editingDomain;
+		this.adapterFactory = adapterFactory;
 	}
 
 	@Override
@@ -47,7 +51,8 @@ public class SpecificationWebPrintAction extends Action {
 			folder = new File(folder.getAbsolutePath() + "/");
 			folder.mkdir();
 
-			String createHtmlContent = ProrEditorUtil.createHtmlContent(spec,editingDomain);
+			String createHtmlContent = ProrEditorUtil.createHtmlContent(spec,
+					editingDomain, adapterFactory);
 
 			File htmlFile = new File(folder, "pror.html");
 			FileWriter writer = new FileWriter(htmlFile);

@@ -16,14 +16,16 @@ import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.pror.reqif10.configuration.Column;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationInterface;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationServiceManager;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
+import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
+import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.EnumValue;
@@ -34,11 +36,11 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 public class ProrEditorUtil {
 
-	private static String createHtmlHeader(Specification spec) {
+	private static String createHtmlHeader(Specification spec,
+			AdapterFactory adapterFactory) {
 		StringBuilder sb = new StringBuilder();
-		// String title = ConfigurationUtil.getSpecElementLabel(spec);
-		// FIXME
-		String title = "FIXME (Title)";
+		String title = ConfigurationUtil.getSpecElementLabel(spec,
+				adapterFactory);
 
 		sb.append("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n");
 		sb.append("<html>\n");
@@ -84,7 +86,7 @@ public class ProrEditorUtil {
 	private static void printRecursive(StringBuilder html,
 			ProrSpecViewConfiguration config, int indent,
 			EList<SpecHierarchy> children,
-			List<PresentationInterface> presentations) {
+			AdapterFactory adapterFactory) {
 		for (SpecHierarchy child : children) {
 			if (child.getObject() != null) {
 				SpecObject specObject = child.getObject();
@@ -105,26 +107,21 @@ public class ProrEditorUtil {
 					ProrPresentationConfiguration configuration = ConfigurationUtil
 							.getPresentationConfiguration(dd);
 
-					if (configuration != null) {
-						
-						PresentationInterface service = null;
+					Object itemProvider = ProrUtil.getItemProvider(
+							adapterFactory, configuration);
 
-						if (presentations != null) {
-							for (PresentationInterface serv : presentations) {
-								if (serv.getConfigurationInterface()
-										.isInstance(configuration))
-									service = serv;
+					if (itemProvider instanceof PresentationEditorInterface) {
+						PresentationEditorInterface presentationEditor = (PresentationEditorInterface) itemProvider;
+						IProrCellRenderer renderer = presentationEditor
+								.getCellRenderer(av);
+						if (renderer != null) {
+							String content = renderer.doDrawHtmlContent(av);
+							if (content != null) {
+								html.append(content);
+							} else {
+								html.append(getDefaultValue(av));
 							}
-						} else {
-							service = PresentationServiceManager
-									.getPresentationService(configuration);
 						}
-
-						// FIXME repair printing with custom renderers.
-						if (service != null)
-							html.append("<b>FIX RENDERING</b>");
-						// html.append(service.getCellRenderer(av)
-						// .doDrawHtmlContent(av));
 
 					} else {
 						html.append(getDefaultValue(av));
@@ -139,17 +136,12 @@ public class ProrEditorUtil {
 				html.append("</tr>\n");
 			}
 			printRecursive(html, config, indent + 1, child.getChildren(),
-					presentations);
+					adapterFactory);
 		}
 	}
 
 	public static String createHtmlContent(Specification spec,
-			EditingDomain domain) {
-		return createHtmlContent(spec, domain, null);
-	}
-
-	public static String createHtmlContent(Specification spec,
-			EditingDomain domain, List<PresentationInterface> presentations) {
+			EditingDomain domain, AdapterFactory adapterFactory) {
 
 		ProrSpecViewConfiguration config = ConfigurationUtil
 				.createSpecViewConfiguration(spec, domain);
@@ -157,7 +149,7 @@ public class ProrEditorUtil {
 		StringBuilder html = new StringBuilder();
 
 		// Draw the header
-		html.append(ProrEditorUtil.createHtmlHeader(spec));
+		html.append(ProrEditorUtil.createHtmlHeader(spec, adapterFactory));
 		html.append("<table><tr>");
 		EList<Column> cols = config.getColumns();
 		for (Column col : cols) {
@@ -165,13 +157,13 @@ public class ProrEditorUtil {
 		}
 		html.append("</tr>\n");
 		printRecursive(html, config, 0, spec.getChildren(),
-				presentations);
+				adapterFactory);
 		html.append("</table>");
 
 		return html.toString();
 
 	}
-	
+
 	public static Command getAffectedObjectCommand(final Object element,
 			Command cmd) {
 		return new CommandWrapper(cmd) {
