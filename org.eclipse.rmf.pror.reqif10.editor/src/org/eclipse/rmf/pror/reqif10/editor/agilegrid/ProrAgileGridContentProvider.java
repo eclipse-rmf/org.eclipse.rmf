@@ -48,7 +48,6 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 			public void notifyChanged(Notification notification) {
 				super.notifyChanged(notification);
 				cache = null;
-				System.out.println("cache flushed" + notification);
 			}
 		});
 	}
@@ -121,10 +120,11 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	
 	
 	private ArrayList<ProrRow> getCache() {
+		ArrayList<ProrRow> tmpCache = null;
 		if (cache == null) {
-			cache = new ArrayList<ProrRow>();
-
-			recurseSpecHierarchyForRow(0, 0, root.getChildren());
+			tmpCache = new ArrayList<ProrRow>();
+			recurseSpecHierarchyForRow(0, 0, root.getChildren(), tmpCache);
+			cache = tmpCache ;
 		}
 		return cache;
 	}
@@ -136,17 +136,18 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * @param elements
 	 *            The {@link SpecHierarchy}s to traverse, Can be SpecHierarchies
 	 *            or SpecRelations
+	 * @param tmpCache 
 	 * @return either the {@link ProrRow} with the given row, or the new current
 	 *         row
 	 */
 	private int recurseSpecHierarchyForRow(int current, int depth,
-			List<SpecHierarchy> elements) {
+			List<SpecHierarchy> elements, ArrayList<ProrRow> tmpCache) {
 		for (SpecHierarchy element : elements) {
 			// We did not find the row, let's check SpecRealtions first
-			getCache().add(current, ProrRow.createProrRow(element, current, depth));
+			tmpCache.add(current, ProrRow.createProrRow(element, current, depth));
 			for (SpecRelation specRelation : getSpecRelationsFor(element)) {
 				++current;
-				getCache().add(current,
+				tmpCache.add(current,
 						ProrRow.createProrRow(specRelation, current, depth + 1));
 
 				// return ProrRow.createProrRow(specRelation, row, depth + 1);
@@ -155,7 +156,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 			// We still did not find the row, let's check the children
 
 			int result = recurseSpecHierarchyForRow(++current, depth + 1,
-					element.getChildren());
+					element.getChildren(), tmpCache);
 			current = result;
 		}
 		return current;
