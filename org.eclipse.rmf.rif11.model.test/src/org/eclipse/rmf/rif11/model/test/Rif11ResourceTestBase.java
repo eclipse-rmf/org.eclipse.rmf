@@ -20,13 +20,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.compare.diff.metamodel.AttributeChange;
 import org.eclipse.emf.compare.diff.metamodel.DiffElement;
 import org.eclipse.emf.compare.diff.metamodel.DiffModel;
-import org.eclipse.emf.compare.diff.metamodel.ReferenceOrderChange;
+import org.eclipse.emf.compare.diff.metamodel.ReferenceChange;
 import org.eclipse.emf.compare.diff.service.DiffService;
 import org.eclipse.emf.compare.match.MatchOptions;
 import org.eclipse.emf.compare.match.metamodel.MatchModel;
 import org.eclipse.emf.compare.match.service.MatchService;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -37,7 +39,6 @@ import org.junit.Before;
 import org.eclipse.rmf.rif11.resource.Rif11ResourceFactoryImpl;
 import org.eclipse.rmf.rif11.xsd.DocumentRoot;
 import org.eclipse.rmf.rif11.xsd.RifPackage;
-import org.eclipse.rmf.rif11.xsd.impl.DocumentRootImpl;
 import org.eclipse.rmf.rif11.xsd.util.RifResourceFactoryImpl;
 
 public class Rif11ResourceTestBase {
@@ -88,20 +89,22 @@ public class Rif11ResourceTestBase {
 	public void compareModels(String filename1, String filename2) {
 
 		Resource rifXSDResourceInput = rifXSDResourceSet.getResource(
-				URI.createFileURI(new File(filename1).getAbsolutePath()), true);
+				URI.createURI(filename1, true),true);
+				//URI.createFileURI(new File(filename1).getAbsolutePath()), true);
 
 		Resource rifXSDResourceOutput = rifXSDResourceSet.getResource(
-				URI.createFileURI(new File(filename2).getAbsolutePath()), true);
+				URI.createURI(filename2, true),true);
+				//URI.createFileURI(new File(filename2).getAbsolutePath()), true);
 
 		try {
-
+			EObject outputRoot = rifXSDResourceOutput.getContents().get(0);			
+			EObject inputRoot = rifXSDResourceInput.getContents().get(0);
+			
 			MatchModel match = MatchService.doMatch(
-					(DocumentRootImpl) rifXSDResourceOutput.getContents()
-							.get(0), rifXSDResourceInput.getContents().get(0),
+					outputRoot, inputRoot,
 					(Map<String, Object>) new HashMap<String, Object>().put(
 							MatchOptions.OPTION_IGNORE_XMI_ID, Boolean.TRUE));
 			DiffModel diff = DiffService.doDiff(match, false);
-
 			ArrayList<DiffElement> differences = null;
 
 			if (!diff.getDifferences().isEmpty()) {
@@ -112,14 +115,15 @@ public class Rif11ResourceTestBase {
 			Assert.assertTrue((differences != null ? differences.size() : "")
 					+ " Difference(s) found between loaded and saved models",
 					differences == null || differences.isEmpty());
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
+			e.printStackTrace(System.out);
 			fail(e.getMessage());
-		}
+		} 
 	}
 
 	protected void printAllDifferences(DiffModel diff) {
 		for (DiffElement diffElement : diff.getDifferences()){
-			System.out.println(diffElement);
+			System.out.println(diffElement.getClass().getName() + ": " + diffElement);
 		}
 	}
 	
@@ -129,8 +133,10 @@ public class Rif11ResourceTestBase {
 
 		for (DiffElement diffElement : diff.getDifferences()) {
 
-			if (!(diffElement instanceof ReferenceOrderChange && ((ReferenceOrderChange) diffElement)
-					.getLeftElement() instanceof DocumentRoot)) {
+			if (! ((diffElement instanceof AttributeChange) && 
+					((AttributeChange) diffElement).getLeftElement().eContainer() instanceof DocumentRoot) &&
+				! ((diffElement instanceof ReferenceChange) && 
+					((ReferenceChange) diffElement).getLeftElement() instanceof DocumentRoot)	) {
 				differences.add(diffElement);
 			}
 		}
