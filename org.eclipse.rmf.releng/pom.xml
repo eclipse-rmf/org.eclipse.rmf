@@ -107,56 +107,6 @@
 	</build>
 	<profiles>
 		<profile>
-			<id>INDIGO_3_7_1.target</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>target-platform-configuration</artifactId>
-						<version>${tycho-version}</version>
-						<configuration>
-							<!-- add target file content to target platform -->
-							<target>
-								<artifact>
-									<groupId>org.eclipse.rmf</groupId>
-									<artifactId>org.eclipse.rmf.target</artifactId>
-									<version>0.4.0-SNAPSHOT</version>
-									<classifier>INDIGO_3_7_1</classifier>
-								</artifact>
-							</target>
-							<environments>
-								<environment>
-									<os>linux</os>
-									<ws>gtk</ws>
-									<arch>x86</arch>
-								</environment>
-								<environment>
-									<os>linux</os>
-									<ws>gtk</ws>
-									<arch>x86_64</arch>
-								</environment>
-								<environment>
-									<os>win32</os>
-									<ws>win32</ws>
-									<arch>x86</arch>
-								</environment>
-								<environment>
-									<os>win32</os>
-									<ws>win32</ws>
-									<arch>x86_64</arch>
-								</environment>
-								<environment>
-									<os>macosx</os>
-									<ws>cocoa</ws>
-									<arch>x86_64</arch>
-								</environment>
-							</environments>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-				<profile>
 			<id>INDIGO_3_7_2.target</id>
 			<build>
 				<plugins>
@@ -206,7 +156,56 @@
 				</plugins>
 			</build>
 		</profile>
-		
+		<profile>
+			<id>JUNO_4_2_0.target</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- add target file content to target platform -->
+							<target>
+								<artifact>
+									<groupId>org.eclipse.rmf</groupId>
+									<artifactId>org.eclipse.rmf.target</artifactId>
+									<version>0.4.0-SNAPSHOT</version>
+									<classifier>JUNO_4_2_0</classifier>
+								</artifact>
+							</target>
+							<environments>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>		
 	</profiles>
 
 	<pluginRepositories>
