@@ -29,6 +29,11 @@
                 <DATATYPE-DEFINITION-STRING-REF>rmf-b2fdc05d-1cf8-42aa-bbd5-78f664726c95</DATATYPE-DEFINITION-STRING-REF>
               </TYPE>
             </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-e5e960e9-1194-4402-8b03-7ce3dd699c0b" LONG-NAME="Expected">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-b2fdc05d-1cf8-42aa-bbd5-78f664726c95</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
             <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-c34db4fe-b265-4878-9eb9-8d2b346f45e9" LONG-NAME="Note">
               <TYPE>
                 <DATATYPE-DEFINITION-STRING-REF>rmf-b2fdc05d-1cf8-42aa-bbd5-78f664726c95</DATATYPE-DEFINITION-STRING-REF>
@@ -45,7 +50,7 @@
           <SPEC-ATTRIBUTES>
             <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-a5eae5b7-674a-4045-b0ad-dcec218ed833" LONG-NAME="Description">
               <TYPE>
-                <DATATYPE-DEFINITION-STRING-REF>rmf-b2fdc05d-1cf8-42aa-bbd5-78f664726c95</DATATYPE-DEFINITION-STRING-REF>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-6ae5da0f-4ee8-4159-98f5-d6bde49c6fb0</DATATYPE-DEFINITION-STRING-REF>
               </TYPE>
             </ATTRIBUTE-DEFINITION-STRING>
           </SPEC-ATTRIBUTES>
@@ -87,6 +92,11 @@
                 <ATTRIBUTE-DEFINITION-ENUMERATION-REF>rmf-de873a9a-eb74-4f97-bcd8-1a90e72d44ed</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-ENUMERATION>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-e5e960e9-1194-4402-8b03-7ce3dd699c0b</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-27e7042d-1f4d-4dd2-a9ad-dbe13895c09e</SPEC-OBJECT-TYPE-REF>
@@ -109,6 +119,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c34db4fe-b265-4878-9eb9-8d2b346f45e9</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-e5e960e9-1194-4402-8b03-7ce3dd699c0b</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-27e7042d-1f4d-4dd2-a9ad-dbe13895c09e</SPEC-OBJECT-TYPE-REF>
@@ -129,6 +144,11 @@
             <ATTRIBUTE-VALUE-STRING>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c34db4fe-b265-4878-9eb9-8d2b346f45e9</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-e5e960e9-1194-4402-8b03-7ce3dd699c0b</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -244,6 +264,126 @@
             <SPEC-OBJECT-TYPE-REF>rmf-7a80cefb-37a2-4543-a681-03b8a463e595</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-ab234edf-ffb6-45f1-b0ae-8e9ffd756e05">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="GUI-Tests">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-39360a38-9f59-4b2f-8944-eb247d3d11d3</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7a80cefb-37a2-4543-a681-03b8a463e595</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-14bf905a-e540-4da5-aec7-4b1dc333311f">
+          <VALUES>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>rmf-de873a9a-eb74-4f97-bcd8-1a90e72d44ed</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Perform Drag &amp; Drop">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c8c315ae-71d8-45f0-a177-0f77ea5204fa</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c34db4fe-b265-4878-9eb9-8d2b346f45e9</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Elements should be moved.  Depending on drop position, they should be inserted as siblings or children.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-e5e960e9-1194-4402-8b03-7ce3dd699c0b</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-27e7042d-1f4d-4dd2-a9ad-dbe13895c09e</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-83004e1b-5a56-48e6-aa3b-eccae8d00a1d">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-e5e960e9-1194-4402-8b03-7ce3dd699c0b</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>rmf-de873a9a-eb74-4f97-bcd8-1a90e72d44ed</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Create link with drag and drop">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c8c315ae-71d8-45f0-a177-0f77ea5204fa</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c34db4fe-b265-4878-9eb9-8d2b346f45e9</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-27e7042d-1f4d-4dd2-a9ad-dbe13895c09e</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-03d57581-48a4-46bb-b62c-9dadc88fe232">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-e5e960e9-1194-4402-8b03-7ce3dd699c0b</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>rmf-de873a9a-eb74-4f97-bcd8-1a90e72d44ed</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Set a type, the values should be update">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c8c315ae-71d8-45f0-a177-0f77ea5204fa</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c34db4fe-b265-4878-9eb9-8d2b346f45e9</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-27e7042d-1f4d-4dd2-a9ad-dbe13895c09e</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-7303f47b-0320-4350-9f8d-8e74165c0566">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Try printing, using a spec that uses the Headline Configuration (like this one)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c8c315ae-71d8-45f0-a177-0f77ea5204fa</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Check in particular the formatting of the headlines.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-e5e960e9-1194-4402-8b03-7ce3dd699c0b</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c34db4fe-b265-4878-9eb9-8d2b346f45e9</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>rmf-de873a9a-eb74-4f97-bcd8-1a90e72d44ed</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-27e7042d-1f4d-4dd2-a9ad-dbe13895c09e</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
       </SPEC-OBJECTS>
       <SPECIFICATIONS>
         <SPECIFICATION IDENTIFIER="rmf-b76ce2dc-9eb5-4750-bf44-28f034647045" LONG-NAME="Specification Document">
@@ -322,6 +462,33 @@
                 </SPEC-HIERARCHY>
               </CHILDREN>
             </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-ddb8b28d-5092-4459-b8a5-55dcc08994f6">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-ab234edf-ffb6-45f1-b0ae-8e9ffd756e05</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-ffdbec07-c88e-40fb-b68f-576f47f2d04c">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-14bf905a-e540-4da5-aec7-4b1dc333311f</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-d3bdcf23-ae42-4a37-9594-55e126e7d430">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-83004e1b-5a56-48e6-aa3b-eccae8d00a1d</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-5d393584-7563-4da6-83c3-3e93e062c7c0">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-03d57581-48a4-46bb-b62c-9dadc88fe232</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-281b4826-553a-4471-aa03-4300fe971d90">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-7303f47b-0320-4350-9f8d-8e74165c0566</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
           </CHILDREN>
         </SPECIFICATION>
       </SPECIFICATIONS>
@@ -333,8 +500,9 @@
         <configuration:specViewConfigurations>
           <configuration:ProrSpecViewConfiguration configuration:specification="rmf-b76ce2dc-9eb5-4750-bf44-28f034647045">
             <configuration:columns>
-              <configuration:Column configuration:label="Description" configuration:width="416"/>
-              <configuration:Column configuration:label="0.4.0"/>
+              <configuration:Column configuration:label="Description" configuration:width="331"/>
+              <configuration:Column configuration:label="Expected" configuration:width="350"/>
+              <configuration:Column configuration:label="0.4.0" configuration:width="50"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column configuration:label="Lead Header Column" configuration:width="30"/>
