@@ -28,9 +28,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
-import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.DragAndDropCommand;
-import org.eclipse.emf.edit.command.DragAndDropFeedback;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -300,21 +298,6 @@ public class SpecHierarchyItemProvider extends
 
 	}
 
-	@Override
-	public Command createCommand(Object object, EditingDomain domain,
-			Class<? extends Command> commandClass,
-			CommandParameter commandParameter) {
-
-
-		Command createCommand = super.createCommand(object, domain, commandClass,
-				commandParameter);
-
-		// System.out.println(" ===> " + createCommand.getClass());
-
-		return createCommand;
-
-	}
-
 	/**
 	 * <p>
 	 * In addition to the regular functionality (creating a SpecHierarchy child
@@ -403,35 +386,24 @@ public class SpecHierarchyItemProvider extends
 		if (cmd != null)
 			return cmd;
 
-		// Create a SpecRelation on Linking
-		if (operation == DragAndDropFeedback.DROP_LINK) {
+		// This is a bugfix for Bug 375519: We have to override the
+		// prepareDropLinOn method of the DragAndDropCommand, since we do
+		// not add SpecRelations as child of the owner. Instead we use the
+		// specific feature for SpecRelations.
+		DragAndDropCommand dragAndDropCommand = new DragAndDropCommand(domain,
+				owner, location, operations, operation, collection) {
 
-			// This is a bugfix for Bug 375519: We have to override the
-			// prepareDropLinOn method of the DragAndDropCommand, since we do
-			// not add SpecRelations as child of the owner. Instead we use the
-			// specific feature for SpecRelations.
-			DragAndDropCommand dragAndDropCommand = new DragAndDropCommand(
-					domain, owner, location, operations, operation, collection) {
+			@Override
+			protected boolean prepareDropLinkOn() {
+				dropCommand = ProrUtil.createCreateSpecRelationsCommand(domain,
+						collection, owner);
+				boolean result = dropCommand.canExecute();
+				return result;
+			}
 
-				@Override
-				protected boolean prepareDropLinkOn() {
-					dropCommand = ProrUtil.createCreateSpecRelationsCommand(
-							domain, collection, owner);
-					boolean result = dropCommand.canExecute();
-					return result;
-				}
+		};
 
-			};
-
-			return dragAndDropCommand;
-
-		}
-
-		// Otherwise default behavior
-		Command createDragAndDropCommand = super.createDragAndDropCommand(domain, owner, location,
-				operations, operation, collection);
-
-		return createDragAndDropCommand;
+		return dragAndDropCommand;
 
 	}
 
