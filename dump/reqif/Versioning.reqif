@@ -653,7 +653,139 @@
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-db4dd29b-3887-4e42-ac7c-56174f4b5576">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="TODO">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-5d437425-7b8f-48d6-a8b9-4aa8fe333725</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-18783e02-ba04-46ba-92ce-b30e9fa753d1</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-b8284feb-2f0d-4b7b-8e2d-2f9f737b2167">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-30">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="This is a list of tasks for the end of octobre (the first tasks are to be prioritized)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-91f99fd4-0b90-4200-8aa3-e74f322cc1ed">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-31">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Adapt the match engine of EMF Compare (for instance that the engine compares the IDs of specific ReqIF elements)&#xD;&#xA;&#xD;&#xA;Furthermore ... &#xD;&#xA;- We should try to ignore the ordering of specobjects (when changed)&#xD;&#xA;- We should ignore the las modified date attribute (when changed)&#xD;&#xA;&#xD;&#xA;In addition, we should create a catalogue of items with irrelevant differences and acceptable differences">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-ca92c5b1-c006-4cb1-83d6-92d75ea2cc59">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-32">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Remove dialog that always popups then comparing two ReqIF files (nerved)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-621e3cd7-814e-472a-bd07-765fcc5913d0">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-33">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Adapt icons in item providers --> Take icons from the original ProR plugin (org.eclipse.rmf.pror.reqif10.edit)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-d3fe4819-e327-4f92-bb7d-717cfc4dc81a">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-34">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Implement save, open, close use cases (automatic syncronization with repository). This task includes to create a clean interface for the different version management systems.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-b3a70308-694e-4f43-92a9-79766893a914">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-35">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Support diff of external files in compare/diff view">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-e1107e09-2c46-492c-a335-1656108b1ba2">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-36">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Implement three-way-mergin of subversion generated conflicts">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
       </SPEC-OBJECTS>
+      <SPEC-RELATIONS/>
       <SPECIFICATIONS>
         <SPECIFICATION IDENTIFIER="rmf-e962d7df-ab45-41f4-bcf5-135df1f714e2" LONG-NAME="Specification Document">
           <VALUES>
@@ -884,6 +1016,65 @@
             </SPEC-HIERARCHY>
           </CHILDREN>
         </SPECIFICATION>
+        <SPECIFICATION IDENTIFIER="rmf-18a7243e-f39d-4356-a155-76ead45e4a45">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Todo">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-191af3ef-35c1-470c-a5f6-a9e9beb7be89</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>rmf-b1be7c4f-1b05-43c4-bab1-40cd861a9401</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-107be20d-aa9c-4c8f-912a-0adb8cb3c7ba">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-db4dd29b-3887-4e42-ac7c-56174f4b5576</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-01eecc13-28db-42a4-b49f-80d2bd597cea">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-b8284feb-2f0d-4b7b-8e2d-2f9f737b2167</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-3efe36cb-68fe-44db-9beb-19a87317c077">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-91f99fd4-0b90-4200-8aa3-e74f322cc1ed</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-e3842061-2b2b-4154-8c80-da22b8111877">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-ca92c5b1-c006-4cb1-83d6-92d75ea2cc59</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-24774d15-5f4e-4bc8-bf55-00673dda18b8">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-d3fe4819-e327-4f92-bb7d-717cfc4dc81a</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-f7779e82-7700-4e33-9c06-0a9fa8c08319">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-b3a70308-694e-4f43-92a9-79766893a914</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-fc2e8078-ccb8-4028-95eb-b9970e570921">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-621e3cd7-814e-472a-bd07-765fcc5913d0</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN/>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-a42bc6b6-916a-4490-9943-741d2c57a479">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-e1107e09-2c46-492c-a335-1656108b1ba2</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
       </SPECIFICATIONS>
     </REQ-IF-CONTENT>
   </CORE-CONTENT>
@@ -898,6 +1089,15 @@
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column configuration:label="Lead Header Column" configuration:width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+          <configuration:ProrSpecViewConfiguration configuration:specification="rmf-18a7243e-f39d-4356-a155-76ead45e4a45">
+            <configuration:columns>
+              <configuration:Column configuration:label="ID" configuration:width="117"/>
+              <configuration:Column configuration:label="Description" configuration:width="499"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column configuration:label="Lead Header Column" configuration:width="111"/>
             </configuration:leftHeaderColumn>
           </configuration:ProrSpecViewConfiguration>
         </configuration:specViewConfigurations>
@@ -915,7 +1115,7 @@
             <configuration:presentationConfigurations>
               <linewrap:LinewrapConfiguration configuration:datatype="rmf-b5fbda6b-a81e-43c6-b68d-d0e14222c412"/>
               <headline:HeadlineConfiguration configuration:datatype="rmf-9600ed23-4190-494f-a6a2-fa6a674695b5"/>
-              <id:IdConfiguration configuration:datatype="rmf-72cfe6b6-3701-42e2-82fa-46b9dd2d9f6d" id:count="29"/>
+              <id:IdConfiguration configuration:datatype="rmf-72cfe6b6-3701-42e2-82fa-46b9dd2d9f6d" id:count="36"/>
             </configuration:presentationConfigurations>
           </configuration:ProrPresentationConfigurations>
         </configuration:presentationConfigurations>
