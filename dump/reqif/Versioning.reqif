@@ -30,6 +30,11 @@
                 <DATATYPE-DEFINITION-STRING-REF>rmf-b5fbda6b-a81e-43c6-b68d-d0e14222c412</DATATYPE-DEFINITION-STRING-REF>
               </TYPE>
             </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-d3660490-efd6-4714-afe7-214683c484ec" LONG-NAME="Done">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-b5fbda6b-a81e-43c6-b68d-d0e14222c412</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
           </SPEC-ATTRIBUTES>
         </SPEC-OBJECT-TYPE>
         <SPECIFICATION-TYPE IDENTIFIER="rmf-b1be7c4f-1b05-43c4-bab1-40cd861a9401" LONG-NAME="Specification Type">
@@ -62,6 +67,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-1">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -105,6 +115,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -134,6 +149,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -149,6 +169,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-4">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -168,6 +193,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -183,6 +213,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-6">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -202,6 +237,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -219,6 +259,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -234,6 +279,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-9">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -265,6 +315,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Done">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -280,6 +335,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-11">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Done">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -299,6 +359,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Done">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -316,6 +381,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -331,6 +401,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-14">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -362,6 +437,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -377,6 +457,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-16">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -408,6 +493,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -415,7 +505,7 @@
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-fd9179e1-85a4-485e-bb66-2e6ee2c7ad80">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="(1) Perform a pull upon save">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="(1) Perform a pull/update upon save">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -423,6 +513,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-18">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -442,6 +537,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -457,6 +557,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-20">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -488,6 +593,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Done">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -503,6 +613,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-22">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Done">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -534,6 +649,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -549,6 +669,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-24">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -568,6 +693,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -583,6 +713,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-26">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -614,6 +749,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -631,6 +771,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -646,6 +791,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-29">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -677,6 +827,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -692,6 +847,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="Adapt the match engine of EMF Compare (for instance that the engine compares the IDs of specific ReqIF elements)&#xD;&#xA;&#xD;&#xA;Furthermore ... &#xD;&#xA;- We should try to ignore the ordering of specobjects (when changed)&#xD;&#xA;- We should ignore the las modified date attribute (when changed)&#xD;&#xA;&#xD;&#xA;In addition, we should create a catalogue of items with irrelevant differences and acceptable differences">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -711,6 +871,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -726,6 +891,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="Adapt icons in item providers --> Take icons from the original ProR plugin (org.eclipse.rmf.pror.reqif10.edit)">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -745,6 +915,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -762,6 +937,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -777,6 +957,99 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="Implement three-way-mergin of subversion generated conflicts">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-87821982-73c2-4c91-a1eb-abe14924e2c0">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question: What commit message should be used, or should the user have the option to enter a custom commit message?">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-37">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-7191d122-1cfd-4f95-bee6-81ed0183e19a">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question: Should we show a message which informs the user which projets were updated anyway (although the user marked the update mechanism as default)?">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-38">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-c3328dd7-39e7-4410-9ce8-8cae49279902">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user has the possibility to change this property via the properties of the project afterwards.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-39">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Done">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-604f8324-6e1f-401a-80d6-d4ac0b1188a4">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question: Save action in the specification editor (reqif files). What is with external files which are related to the reqif project?">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-40">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -895,17 +1168,30 @@
                   <OBJECT>
                     <SPEC-OBJECT-REF>rmf-10633465-1fc5-4232-99dc-9d9e58a79e57</SPEC-OBJECT-REF>
                   </OBJECT>
+                  <CHILDREN/>
                 </SPEC-HIERARCHY>
                 <SPEC-HIERARCHY IDENTIFIER="rmf-285b554b-edac-4aa1-9606-ee57452479a7">
                   <OBJECT>
                     <SPEC-OBJECT-REF>rmf-1c09a823-de3c-4220-a45f-3c352b33b502</SPEC-OBJECT-REF>
                   </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-cdbb6b65-0481-4c90-a70d-fddb6ba55346">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-7191d122-1cfd-4f95-bee6-81ed0183e19a</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
                 </SPEC-HIERARCHY>
                 <SPEC-HIERARCHY IDENTIFIER="rmf-d72bb9b9-f82a-4585-8a17-b2ec72950255">
                   <OBJECT>
                     <SPEC-OBJECT-REF>rmf-97758112-e5ea-423d-9e1a-d9fa261daf72</SPEC-OBJECT-REF>
                   </OBJECT>
                   <CHILDREN/>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-f2d2850b-f316-4b42-b361-6ad42162514f">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-c3328dd7-39e7-4410-9ce8-8cae49279902</SPEC-OBJECT-REF>
+                  </OBJECT>
                 </SPEC-HIERARCHY>
               </CHILDREN>
             </SPEC-HIERARCHY>
@@ -940,6 +1226,13 @@
                   <OBJECT>
                     <SPEC-OBJECT-REF>rmf-7d581392-bcf5-4adf-b464-de14f06705ee</SPEC-OBJECT-REF>
                   </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-f24f7b9d-530c-4788-b291-cff9663490af">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-604f8324-6e1f-401a-80d6-d4ac0b1188a4</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
                 </SPEC-HIERARCHY>
                 <SPEC-HIERARCHY IDENTIFIER="rmf-9c2156d5-ca49-4c3e-b9bf-f9ec410dcba1">
                   <OBJECT>
@@ -950,6 +1243,13 @@
                   <OBJECT>
                     <SPEC-OBJECT-REF>rmf-ea10b1ff-3469-4ddc-8603-f87b59add854</SPEC-OBJECT-REF>
                   </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-4b68cbc1-863c-4bcf-8725-d7cc78c756ad">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-87821982-73c2-4c91-a1eb-abe14924e2c0</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
                 </SPEC-HIERARCHY>
                 <SPEC-HIERARCHY IDENTIFIER="rmf-5463f100-d6af-4059-98fb-2e6ac8654cb6">
                   <OBJECT>
@@ -1084,8 +1384,9 @@
         <configuration:specViewConfigurations>
           <configuration:ProrSpecViewConfiguration configuration:specification="rmf-e962d7df-ab45-41f4-bcf5-135df1f714e2">
             <configuration:columns>
-              <configuration:Column configuration:label="ID" configuration:width="140"/>
-              <configuration:Column configuration:label="Description" configuration:width="744"/>
+              <configuration:Column configuration:label="ID" configuration:width="120"/>
+              <configuration:Column configuration:label="Description" configuration:width="694"/>
+              <configuration:Column configuration:label="Done"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column configuration:label="Lead Header Column" configuration:width="30"/>
@@ -1115,7 +1416,7 @@
             <configuration:presentationConfigurations>
               <linewrap:LinewrapConfiguration configuration:datatype="rmf-b5fbda6b-a81e-43c6-b68d-d0e14222c412"/>
               <headline:HeadlineConfiguration configuration:datatype="rmf-9600ed23-4190-494f-a6a2-fa6a674695b5"/>
-              <id:IdConfiguration configuration:datatype="rmf-72cfe6b6-3701-42e2-82fa-46b9dd2d9f6d" id:count="36"/>
+              <id:IdConfiguration configuration:datatype="rmf-72cfe6b6-3701-42e2-82fa-46b9dd2d9f6d" id:count="40"/>
             </configuration:presentationConfigurations>
           </configuration:ProrPresentationConfigurations>
         </configuration:presentationConfigurations>
