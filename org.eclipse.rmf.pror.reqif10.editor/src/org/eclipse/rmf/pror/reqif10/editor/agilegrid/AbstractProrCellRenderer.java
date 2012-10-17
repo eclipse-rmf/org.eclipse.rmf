@@ -75,7 +75,7 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		this.adapterFactory = adapterFactory;
 		this.contentProvider = agileGrid.getContentProvider();
 	}
-	
+
 	public AbstractProrCellRenderer(AgileGrid agileGrid) {
 		this(agileGrid, null);
 	}
@@ -118,7 +118,8 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		StringBuffer sb = new StringBuffer();
 		for (Object object : list) {
 			if (object instanceof EnumValue) {
-				ItemProviderAdapter itemProvider = ProrUtil.getItemProvider(adapterFactory, object);
+				ItemProviderAdapter itemProvider = ProrUtil.getItemProvider(
+						adapterFactory, object);
 				sb.append(itemProvider.getText(object));
 
 			} else {
@@ -132,19 +133,20 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		return stringValue;
 	}
 
-	// Workaround: Upon closing a UIEditor and reopening a new one, the color got
+	// Workaround: Upon closing a UIEditor and reopening a new one, the color
+	// got
 	// disposed. No idea why. This is a workaround.
 	protected void initialColor(int row, int col) {
 		if (agileGrid.isCellSelected(row, col)) {
 			background = SWTResourceManager.getColor(223, 227, 237);
 		}
 	}
-	
+
 	@Override
 	protected void drawGridLines(GC gc, Rectangle rect, int row, int col) {
 		Color vBorderColor = COLOR_LINE_LIGHTGRAY;
 		Color hBorderColor = COLOR_LINE_LIGHTGRAY;
-		
+
 		if (agileGrid instanceof ProrAgileGrid) {
 			ProrAgileGrid grid = (ProrAgileGrid) agileGrid;
 			if (grid.dndHoverCell != null
@@ -153,7 +155,7 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 				hBorderColor = COLOR_LINE_DARKGRAY;
 			}
 		}
-		
+
 		if ((style & INDICATION_SELECTION_ROW) != 0) {
 			vBorderColor = COLOR_BGROWSELECTION;
 			hBorderColor = COLOR_BGROWSELECTION;
@@ -166,9 +168,10 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 
 		drawDefaultCellLine(gc, rect, vBorderColor, hBorderColor);
 	}
-	
+
 	@Override
 	protected void drawCellContent(GC gc, Rectangle rect, int row, int col) {
+
 		this.foreground = this.getDefaultForeground();
 		this.background = this.getDefaultBackground();
 
