@@ -35,6 +35,11 @@
                 <DATATYPE-DEFINITION-STRING-REF>rmf-b5fbda6b-a81e-43c6-b68d-d0e14222c412</DATATYPE-DEFINITION-STRING-REF>
               </TYPE>
             </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46" LONG-NAME="Actors">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-b5fbda6b-a81e-43c6-b68d-d0e14222c412</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
           </SPEC-ATTRIBUTES>
         </SPEC-OBJECT-TYPE>
         <SPECIFICATION-TYPE IDENTIFIER="rmf-b1be7c4f-1b05-43c4-bab1-40cd861a9401" LONG-NAME="Specification Type">
@@ -72,6 +77,11 @@
             <ATTRIBUTE-VALUE-STRING>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -120,6 +130,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -154,6 +169,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -176,6 +196,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -193,9 +218,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
-            <ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -220,6 +250,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -240,6 +275,11 @@
             <ATTRIBUTE-VALUE-STRING>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -264,6 +304,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -286,6 +331,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -293,7 +343,7 @@
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-638957c2-2ff3-40af-8528-6aa5eff7cf77">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Use Case: Opening a project">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Use Case: Opening a project / Launching ProR">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-5d437425-7b8f-48d6-a8b9-4aa8fe333725</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -305,7 +355,7 @@
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-9b797ba7-a80e-4155-8fbd-4d940ba5bd81">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Upon opening a project, users are asked whether the local files should be updated from the repository first.">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user opens a project. Open a project means ...">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -315,9 +365,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Done">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -327,7 +382,7 @@
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-10633465-1fc5-4232-99dc-9d9e58a79e57">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Users have the option to answer yes/no, and to mark that as the default, in which case the question will not be posed any more for that project.">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR gives the user the the option to answer yes/no, and to mark that as the default, in which case the question will not be posed any more for that project.">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -340,6 +395,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="Done">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -364,6 +424,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -371,7 +436,7 @@
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-97758112-e5ea-423d-9e1a-d9fa261daf72">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="If a merge conflict happens: Inform the user.  The Project View will show the conflict information, and users will have to take action to resolve the conflict.">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="If a merge conflict happens: ProR informs the user. The Project View will show the conflict information, and users will have to take action to resolve the conflict.">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -386,6 +451,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -393,7 +463,7 @@
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-722c3394-599b-43b0-ac3e-7bb509f6b785">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Upon closing a project, if local changes exist: users are asked whether the local changes should be committed to the repository.">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user closes a project. Closing a project means ...">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -408,6 +478,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -415,7 +490,7 @@
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-1560e970-9ce2-4e6a-a83e-6c83dbfcfd2e">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Use Case: Closing a project">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Use Case: Closing a project / Closing ProR">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-5d437425-7b8f-48d6-a8b9-4aa8fe333725</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -442,6 +517,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -449,7 +529,7 @@
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-ae91c3d5-9c8d-480b-8a32-9a4d295c7a5c">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Before doing the push, the system will perform a pull, which may result in a merge conflict.  In that case, the user is informed and given the option to close the project anyway, or to cancel, so that the conflicts can be resolved.">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Before doing the push, the system will perform a pull, which may result in a merge conflict.  In that case, ProR informs the user and gives the option to close the project anyway, or to cancel, so that the conflicts can be resolved.">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -464,6 +544,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -471,7 +556,7 @@
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-eb67a0c1-6b82-43b1-9f80-58c863976fc9">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Use Case: Save Actions">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Use Case: Save Actions (Deprecated!?)">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-5d437425-7b8f-48d6-a8b9-4aa8fe333725</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -498,6 +583,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -518,6 +608,11 @@
             <ATTRIBUTE-VALUE-STRING>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -542,6 +637,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -549,7 +649,7 @@
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-ac8343ff-de66-4ab5-ba11-13ac7164b1dd">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="(3) Automatically add (the command &quot;add&quot; of the specific version management system in order to add the change to the next commit) new files (reqif files as well as external files like word, excel documents, etc.)  in the project into the repository.  This option is checked by default and can be disabled.">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR adds automatically (the command &quot;add&quot; of the specific version management system in order to add the change to the next commit) new files (reqif files as well as external files like word, excel documents, etc.)  in the project into the repository. ">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -562,6 +662,11 @@
             <ATTRIBUTE-VALUE-STRING>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -598,6 +703,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -618,6 +728,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="Done">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -654,6 +769,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -674,6 +794,11 @@
             <ATTRIBUTE-VALUE-STRING>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -698,6 +823,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -718,6 +848,11 @@
             <ATTRIBUTE-VALUE-STRING>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -754,6 +889,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -776,6 +916,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -796,6 +941,11 @@
             <ATTRIBUTE-VALUE-STRING>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -832,6 +982,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -852,6 +1007,11 @@
             <ATTRIBUTE-VALUE-STRING>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -876,6 +1036,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -896,6 +1061,11 @@
             <ATTRIBUTE-VALUE-STRING>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -920,6 +1090,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -940,6 +1115,11 @@
             <ATTRIBUTE-VALUE-STRING>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -964,6 +1144,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -986,6 +1171,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
@@ -993,7 +1183,7 @@
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-7191d122-1cfd-4f95-bee6-81ed0183e19a">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question: Should we show a message which informs the user which projets were updated anyway (although the user marked the update mechanism as default)?">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question: Should we show a message which informs the user which projects were updated anyway (although the user marked the update mechanism as default)?">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -1003,31 +1193,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question (!)">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
-          </VALUES>
-          <TYPE>
-            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
-          </TYPE>
-        </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="rmf-c3328dd7-39e7-4410-9ce8-8cae49279902">
-          <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user has the possibility to change this property via the properties of the project afterwards.">
+            <ATTRIBUTE-VALUE-STRING>
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
-              </DEFINITION>
-            </ATTRIBUTE-VALUE-STRING>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-39">
-              <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
-              </DEFINITION>
-            </ATTRIBUTE-VALUE-STRING>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Done">
-              <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -1050,6 +1223,602 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="Question">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-83bebf20-f29f-4e29-a79a-7f731ce89a6f">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Done">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="(1) The user launchs ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-41">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-ed063871-2079-402f-b691-a836f05d343c">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="(2) The user opens manually a project via right clickt -> Open Project (as a consequence the project must be closed before!)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-42">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-3d76a307-6334-4b82-b95a-76c897bd4146">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="(1) The user closes ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-43">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-3a3ed445-66f4-4ef9-91f5-cbfdb68f0bad">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="(2) The user closes manually a project via right clickt -> Close Project (as a consequence the project must be opened before!)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-44">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-597217d9-dabf-4b16-bf62-4e4d84b4c59e">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="If multiple projects are being closed at the same time (for instance, upon closing ProR), the question is posed for every project.  We should consider aggregating these requests into one UI.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-46">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-faf271d4-f47c-4b7f-9b47-3ec68fc23930">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Use Case: Add Files to Project">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-5d437425-7b8f-48d6-a8b9-4aa8fe333725</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-18783e02-ba04-46ba-92ce-b30e9fa753d1</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-92f12d1a-d475-40f9-8299-a44659fab0d8">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user adds a new file to the project. Adding a new file means ...">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-48">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-b359cb8e-b073-410f-bd4a-c54c6ee98718">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="(1) The user adds a new external file (for instance a word file, image file, etc.) to the project">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-49">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-d12b4951-ab4e-4b3f-b453-a4cba7f11caf">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="(2) The user creates a new ReqIF File in the project">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-50">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-647f3e3e-6d42-496f-9532-54f01b7a25fb">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Done">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR asks the user whether the local files should be updated from the repository first">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-51">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-ac745057-a507-4ce2-92ad-15c6394f7df6">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="If local changes exist: ProR asks the user whether the local changes should be committed to the repository.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-54">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-73276d4b-77bd-4522-9ee8-ce6254ee33b8">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Use Case: Closing a ReqIF file">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-5d437425-7b8f-48d6-a8b9-4aa8fe333725</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-18783e02-ba04-46ba-92ce-b30e9fa753d1</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-8d9c835c-045f-4604-8a37-adc4d5bc763b">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-55">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user closes a ReqIF File. Closing means, that the user closes the Specification Editor.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-f2e428bb-effe-40ce-a8d4-0a83f6d8bbaf">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-56">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR check whether the ReqIF model was changed by the user.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-e4011fc6-4de4-45ba-83d4-5a24448cc0ba">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-57">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="If local changes exist: ProR asks the user whether the local changes should be committed to the repository. In this case the whole project which includes the affected ReqIF file will be commited.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-90cd1cbc-7936-4184-bfb1-5e00e742f0ab">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-58">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Before doing the commit, the system will perform an update, which may result in a merge conflict.  In that case, ProR informs the user.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-ca2f3f39-a63a-4218-bcd1-5fa549dbfe43">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-59">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="If multiple ReqIF files are being closed at the same time (for instance, via the action &quot;Close all&quot;), the question is posed for every project which includes the affected ReqIF file. If for instance two files of the same project are closed at the same time, the question is only posed one time for the project. We should consider aggregating these requests into one UI.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-a9d06119-ec50-424c-88f1-3689491d15e7">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-60">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question (!)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question: What commit message should be used, or should the user have the option to enter a custom commit message?">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-b0490b50-064e-47c4-9cfd-d7c5542cb417">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-61">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user has always the option to change this setting via the project properties (right click on project -> Properties)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-a255285e-0299-4ee8-b369-ae7b7cfbead7">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-62">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Done">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user has every time the option to change this setting via the project properties (right click on project -> Properties)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-b6b57166-c31b-4b99-9960-1d62771e108f">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-63">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user has always the option to change this setting via the project properties (right click on project -> Properties)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-f979e6ee-410f-4064-9917-057edea63d89">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-64">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question (!)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Question: What commit message should be used, or should the user have the option to enter a custom commit message?">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a28bfb09-054d-4675-945a-4506334f0210</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-82d198ff-264b-4d8c-8565-216cea7ee96f">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-65">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7184244-b774-406b-b944-1028d4f2ebdf</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d3660490-efd6-4714-afe7-214683c484ec</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user has always the option to change this setting via the project properties (right click on project -> Properties)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-beadba58-b941-4275-847a-858fe9775249</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-c4c3e5e3-b543-4865-b6f2-0c423b88ed46</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -1163,22 +1932,40 @@
                   <OBJECT>
                     <SPEC-OBJECT-REF>rmf-9b797ba7-a80e-4155-8fbd-4d940ba5bd81</SPEC-OBJECT-REF>
                   </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-03f4c7f6-bda7-44dd-bd39-0b0904e50678">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-83bebf20-f29f-4e29-a79a-7f731ce89a6f</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-2418d536-c412-43e2-9e60-8e6999c551c9">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-ed063871-2079-402f-b691-a836f05d343c</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-b33fafdc-62d2-4746-b115-d39c70d12efc">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-647f3e3e-6d42-496f-9532-54f01b7a25fb</SPEC-OBJECT-REF>
+                  </OBJECT>
                 </SPEC-HIERARCHY>
                 <SPEC-HIERARCHY IDENTIFIER="rmf-8627a5ff-7529-4114-8494-767de895b3b7">
                   <OBJECT>
                     <SPEC-OBJECT-REF>rmf-10633465-1fc5-4232-99dc-9d9e58a79e57</SPEC-OBJECT-REF>
                   </OBJECT>
-                  <CHILDREN/>
-                </SPEC-HIERARCHY>
-                <SPEC-HIERARCHY IDENTIFIER="rmf-285b554b-edac-4aa1-9606-ee57452479a7">
-                  <OBJECT>
-                    <SPEC-OBJECT-REF>rmf-1c09a823-de3c-4220-a45f-3c352b33b502</SPEC-OBJECT-REF>
-                  </OBJECT>
                   <CHILDREN>
-                    <SPEC-HIERARCHY IDENTIFIER="rmf-cdbb6b65-0481-4c90-a70d-fddb6ba55346">
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-285b554b-edac-4aa1-9606-ee57452479a7">
                       <OBJECT>
-                        <SPEC-OBJECT-REF>rmf-7191d122-1cfd-4f95-bee6-81ed0183e19a</SPEC-OBJECT-REF>
+                        <SPEC-OBJECT-REF>rmf-1c09a823-de3c-4220-a45f-3c352b33b502</SPEC-OBJECT-REF>
                       </OBJECT>
+                      <CHILDREN>
+                        <SPEC-HIERARCHY IDENTIFIER="rmf-cdbb6b65-0481-4c90-a70d-fddb6ba55346">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>rmf-7191d122-1cfd-4f95-bee6-81ed0183e19a</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                      </CHILDREN>
                     </SPEC-HIERARCHY>
                   </CHILDREN>
                 </SPEC-HIERARCHY>
@@ -1188,9 +1975,9 @@
                   </OBJECT>
                   <CHILDREN/>
                 </SPEC-HIERARCHY>
-                <SPEC-HIERARCHY IDENTIFIER="rmf-f2d2850b-f316-4b42-b361-6ad42162514f">
+                <SPEC-HIERARCHY IDENTIFIER="rmf-cb658f85-1893-428a-a98b-a50d2f52eedb">
                   <OBJECT>
-                    <SPEC-OBJECT-REF>rmf-c3328dd7-39e7-4410-9ce8-8cae49279902</SPEC-OBJECT-REF>
+                    <SPEC-OBJECT-REF>rmf-a255285e-0299-4ee8-b369-ae7b7cfbead7</SPEC-OBJECT-REF>
                   </OBJECT>
                 </SPEC-HIERARCHY>
               </CHILDREN>
@@ -1204,57 +1991,130 @@
                   <OBJECT>
                     <SPEC-OBJECT-REF>rmf-722c3394-599b-43b0-ac3e-7bb509f6b785</SPEC-OBJECT-REF>
                   </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-5003f123-56f2-43f9-8bea-88ab34d0d75d">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-3d76a307-6334-4b82-b95a-76c897bd4146</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-5dc1c264-6eed-4dd2-855c-f78e3fece2d6">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-3a3ed445-66f4-4ef9-91f5-cbfdb68f0bad</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
                 </SPEC-HIERARCHY>
-                <SPEC-HIERARCHY IDENTIFIER="rmf-7efb7f32-5c7f-45dc-aa0f-be90973edc06">
+                <SPEC-HIERARCHY IDENTIFIER="rmf-4d8816f0-a080-4830-b18a-5b8ec1c91274">
                   <OBJECT>
-                    <SPEC-OBJECT-REF>rmf-40b5b744-8536-4055-8069-e7770454d97c</SPEC-OBJECT-REF>
+                    <SPEC-OBJECT-REF>rmf-ac745057-a507-4ce2-92ad-15c6394f7df6</SPEC-OBJECT-REF>
                   </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-7efb7f32-5c7f-45dc-aa0f-be90973edc06">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-40b5b744-8536-4055-8069-e7770454d97c</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-fe5f6d0e-07b2-4433-83d9-50169d1171bf">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-597217d9-dabf-4b16-bf62-4e4d84b4c59e</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-4e9b42e7-7ef3-4f7a-9b1d-09fa6cebc48c">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-f979e6ee-410f-4064-9917-057edea63d89</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
                 </SPEC-HIERARCHY>
                 <SPEC-HIERARCHY IDENTIFIER="rmf-c94c3adc-0c27-4153-b943-5aeb320747ba">
                   <OBJECT>
                     <SPEC-OBJECT-REF>rmf-ae91c3d5-9c8d-480b-8a32-9a4d295c7a5c</SPEC-OBJECT-REF>
                   </OBJECT>
                 </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-120bfbcf-a666-4427-8c79-71c26ae4d4b3">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-b0490b50-064e-47c4-9cfd-d7c5542cb417</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
               </CHILDREN>
             </SPEC-HIERARCHY>
-            <SPEC-HIERARCHY IDENTIFIER="rmf-b8cb5b61-161b-4738-8a8f-2f1b06a26a79">
+            <SPEC-HIERARCHY IDENTIFIER="rmf-da5b08f3-49db-447b-9664-d379c0891528">
               <OBJECT>
-                <SPEC-OBJECT-REF>rmf-eb67a0c1-6b82-43b1-9f80-58c863976fc9</SPEC-OBJECT-REF>
+                <SPEC-OBJECT-REF>rmf-73276d4b-77bd-4522-9ee8-ce6254ee33b8</SPEC-OBJECT-REF>
               </OBJECT>
               <CHILDREN>
-                <SPEC-HIERARCHY IDENTIFIER="rmf-03566082-2973-41d1-85ac-30dc693f21fd">
+                <SPEC-HIERARCHY IDENTIFIER="rmf-73a5b032-88af-4f2b-845d-5636083ec33b">
                   <OBJECT>
-                    <SPEC-OBJECT-REF>rmf-7d581392-bcf5-4adf-b464-de14f06705ee</SPEC-OBJECT-REF>
+                    <SPEC-OBJECT-REF>rmf-8d9c835c-045f-4604-8a37-adc4d5bc763b</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-70c37d61-5683-4747-b97a-d0ef35583133">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-f2e428bb-effe-40ce-a8d4-0a83f6d8bbaf</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-7db92966-efca-4746-bf7a-f6aaa8024eca">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-e4011fc6-4de4-45ba-83d4-5a24448cc0ba</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-db56a2cb-101d-4cb5-93d7-5dd06fe52114">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-ca2f3f39-a63a-4218-bcd1-5fa549dbfe43</SPEC-OBJECT-REF>
                   </OBJECT>
                   <CHILDREN>
-                    <SPEC-HIERARCHY IDENTIFIER="rmf-f24f7b9d-530c-4788-b291-cff9663490af">
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-25832b42-f77f-451c-af65-9689f97c6c40">
                       <OBJECT>
-                        <SPEC-OBJECT-REF>rmf-604f8324-6e1f-401a-80d6-d4ac0b1188a4</SPEC-OBJECT-REF>
+                        <SPEC-OBJECT-REF>rmf-a9d06119-ec50-424c-88f1-3689491d15e7</SPEC-OBJECT-REF>
                       </OBJECT>
                     </SPEC-HIERARCHY>
                   </CHILDREN>
                 </SPEC-HIERARCHY>
-                <SPEC-HIERARCHY IDENTIFIER="rmf-9c2156d5-ca49-4c3e-b9bf-f9ec410dcba1">
+                <SPEC-HIERARCHY IDENTIFIER="rmf-5402b2b1-216f-4017-8754-50f1eba35ac6">
                   <OBJECT>
-                    <SPEC-OBJECT-REF>rmf-fd9179e1-85a4-485e-bb66-2e6ee2c7ad80</SPEC-OBJECT-REF>
+                    <SPEC-OBJECT-REF>rmf-90cd1cbc-7936-4184-bfb1-5e00e742f0ab</SPEC-OBJECT-REF>
                   </OBJECT>
                 </SPEC-HIERARCHY>
-                <SPEC-HIERARCHY IDENTIFIER="rmf-db07d888-c058-4fc4-8a98-4a0c950d3553">
+                <SPEC-HIERARCHY IDENTIFIER="rmf-8f857448-8d81-46eb-8e18-fae72c5c5ceb">
                   <OBJECT>
-                    <SPEC-OBJECT-REF>rmf-ea10b1ff-3469-4ddc-8603-f87b59add854</SPEC-OBJECT-REF>
+                    <SPEC-OBJECT-REF>rmf-b6b57166-c31b-4b99-9960-1d62771e108f</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-7c2f56b9-b45f-4187-9df6-481280c2b886">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-faf271d4-f47c-4b7f-9b47-3ec68fc23930</SPEC-OBJECT-REF>
                   </OBJECT>
                   <CHILDREN>
-                    <SPEC-HIERARCHY IDENTIFIER="rmf-4b68cbc1-863c-4bcf-8725-d7cc78c756ad">
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-831b63ff-4204-4d3d-8b53-ea72a0c02d55">
                       <OBJECT>
-                        <SPEC-OBJECT-REF>rmf-87821982-73c2-4c91-a1eb-abe14924e2c0</SPEC-OBJECT-REF>
+                        <SPEC-OBJECT-REF>rmf-92f12d1a-d475-40f9-8299-a44659fab0d8</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN>
+                        <SPEC-HIERARCHY IDENTIFIER="rmf-79184c04-87ed-44fb-a012-eacc9e74049a">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>rmf-b359cb8e-b073-410f-bd4a-c54c6ee98718</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="rmf-35b3f875-141a-4c4c-ae42-0f8450b4571e">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>rmf-d12b4951-ab4e-4b3f-b453-a4cba7f11caf</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                      </CHILDREN>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-5463f100-d6af-4059-98fb-2e6ac8654cb6">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-ac8343ff-de66-4ab5-ba11-13ac7164b1dd</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-44fa192a-cf30-40c0-a923-a20f8aa537e2">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-82d198ff-264b-4d8c-8565-216cea7ee96f</SPEC-OBJECT-REF>
                       </OBJECT>
                     </SPEC-HIERARCHY>
                   </CHILDREN>
-                </SPEC-HIERARCHY>
-                <SPEC-HIERARCHY IDENTIFIER="rmf-5463f100-d6af-4059-98fb-2e6ac8654cb6">
-                  <OBJECT>
-                    <SPEC-OBJECT-REF>rmf-ac8343ff-de66-4ab5-ba11-13ac7164b1dd</SPEC-OBJECT-REF>
-                  </OBJECT>
                 </SPEC-HIERARCHY>
               </CHILDREN>
             </SPEC-HIERARCHY>
@@ -1311,6 +2171,42 @@
                   <OBJECT>
                     <SPEC-OBJECT-REF>rmf-9d0f04c0-af39-4ff8-9c39-ebe4d9181ce3</SPEC-OBJECT-REF>
                   </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-b8cb5b61-161b-4738-8a8f-2f1b06a26a79">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-eb67a0c1-6b82-43b1-9f80-58c863976fc9</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-03566082-2973-41d1-85ac-30dc693f21fd">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-7d581392-bcf5-4adf-b464-de14f06705ee</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-f24f7b9d-530c-4788-b291-cff9663490af">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-604f8324-6e1f-401a-80d6-d4ac0b1188a4</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-9c2156d5-ca49-4c3e-b9bf-f9ec410dcba1">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-fd9179e1-85a4-485e-bb66-2e6ee2c7ad80</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-db07d888-c058-4fc4-8a98-4a0c950d3553">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-ea10b1ff-3469-4ddc-8603-f87b59add854</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-4b68cbc1-863c-4bcf-8725-d7cc78c756ad">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-87821982-73c2-4c91-a1eb-abe14924e2c0</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
                 </SPEC-HIERARCHY>
               </CHILDREN>
             </SPEC-HIERARCHY>
@@ -1384,9 +2280,10 @@
         <configuration:specViewConfigurations>
           <configuration:ProrSpecViewConfiguration configuration:specification="rmf-e962d7df-ab45-41f4-bcf5-135df1f714e2">
             <configuration:columns>
-              <configuration:Column configuration:label="ID" configuration:width="120"/>
-              <configuration:Column configuration:label="Description" configuration:width="694"/>
-              <configuration:Column configuration:label="Done"/>
+              <configuration:Column configuration:label="ID" configuration:width="147"/>
+              <configuration:Column configuration:label="Actors"/>
+              <configuration:Column configuration:label="Description" configuration:width="776"/>
+              <configuration:Column configuration:label="Done" configuration:width="67"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column configuration:label="Lead Header Column" configuration:width="30"/>
@@ -1394,11 +2291,11 @@
           </configuration:ProrSpecViewConfiguration>
           <configuration:ProrSpecViewConfiguration configuration:specification="rmf-18a7243e-f39d-4356-a155-76ead45e4a45">
             <configuration:columns>
-              <configuration:Column configuration:label="ID" configuration:width="117"/>
+              <configuration:Column configuration:label="ID" configuration:width="138"/>
               <configuration:Column configuration:label="Description" configuration:width="499"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
-              <configuration:Column configuration:label="Lead Header Column" configuration:width="111"/>
+              <configuration:Column configuration:label="Lead Header Column" configuration:width="57"/>
             </configuration:leftHeaderColumn>
           </configuration:ProrSpecViewConfiguration>
         </configuration:specViewConfigurations>
@@ -1416,7 +2313,7 @@
             <configuration:presentationConfigurations>
               <linewrap:LinewrapConfiguration configuration:datatype="rmf-b5fbda6b-a81e-43c6-b68d-d0e14222c412"/>
               <headline:HeadlineConfiguration configuration:datatype="rmf-9600ed23-4190-494f-a6a2-fa6a674695b5"/>
-              <id:IdConfiguration configuration:datatype="rmf-72cfe6b6-3701-42e2-82fa-46b9dd2d9f6d" id:count="40"/>
+              <id:IdConfiguration configuration:datatype="rmf-72cfe6b6-3701-42e2-82fa-46b9dd2d9f6d" id:count="65"/>
             </configuration:presentationConfigurations>
           </configuration:ProrPresentationConfigurations>
         </configuration:presentationConfigurations>
