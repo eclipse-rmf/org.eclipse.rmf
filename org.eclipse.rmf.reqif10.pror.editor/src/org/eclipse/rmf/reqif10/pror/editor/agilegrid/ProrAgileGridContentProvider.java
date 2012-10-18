@@ -95,7 +95,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 */
 	public void setShowSpecRelations(boolean status) {
 		this.showSpecRelations = status;
-		cache = null;
+		flushCache();
 	}
 
 	/**
@@ -117,7 +117,9 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		return getCache().get(row);
 	}
 
-	
+	private void flushCache(){
+		cache = null;
+	}
 	
 	private ArrayList<ProrRow> getCache() {
 		ArrayList<ProrRow> tmpCache = null;
@@ -202,6 +204,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 
 	void updateElement(SpecElementWithAttributes element) {
 		recurseUpdateElement(0, element, root.getChildren());
+		flushCache();
 	}
 
 	/**
