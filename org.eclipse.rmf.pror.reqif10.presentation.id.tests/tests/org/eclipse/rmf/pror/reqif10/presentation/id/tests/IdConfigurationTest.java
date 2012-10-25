@@ -11,9 +11,9 @@
 
 package org.eclipse.rmf.pror.reqif10.presentation.id.tests;
 
-import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
-import org.eclipse.rmf.pror.reqif10.presentation.id.IdFactory;
 import org.eclipse.rmf.reqif10.configuration.tests.ProrPresentationConfigurationTest;
+import org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration;
+import org.eclipse.rmf.reqif10.pror.presentation.id.IdFactory;
 import org.junit.After;
 import org.junit.Before;
 

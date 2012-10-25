@@ -5,4 +5,4 @@ Bundle-SymbolicName: org.eclipse.rmf.reqif10.pror.editor.tests
 Bundle-Version: 0.3.2.qualifier
 Fragment-Host: org.eclipse.rmf.reqif10.pror.editor;bundle-version="0.3.2"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Require-Bundle: org.eclipse.rmf.pror.reqif10.tests;bundle-version="0.3.2"
+Require-Bundle: org.eclipse.rmf.reqif10.pror.tests;bundle-version="0.3.2"

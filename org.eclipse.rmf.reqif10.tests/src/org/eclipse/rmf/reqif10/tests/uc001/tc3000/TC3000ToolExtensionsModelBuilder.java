@@ -14,8 +14,6 @@ package org.eclipse.rmf.reqif10.tests.uc001.tc3000;
 import java.math.BigInteger;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.rmf.pror.presentation.headline.HeadlineConfiguration;
-import org.eclipse.rmf.pror.presentation.headline.HeadlineFactory;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
@@ -33,6 +31,8 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
+import org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineConfiguration;
+import org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineFactory;
 import org.eclipse.rmf.reqif10.tests.util.SimpleModelBuilder;
 
 @SuppressWarnings("nls")
