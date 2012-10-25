@@ -9,7 +9,7 @@
  * Contributors:
  *     Lukas Ladenberger - initial API and implementation
  ******************************************************************************/
-package org.eclipse.rmf.pror.reqif10.genhtml;
+package org.eclipse.rmf.reqif10.pror.genhtml;
 
 import java.io.BufferedWriter;
 import java.io.File;

@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.eclipse.rmf.pror.reqif10.genhtml
+Bundle-SymbolicName: org.eclipse.rmf.reqif10.pror.genhtml
 Bundle-Localization: plugin
 Bundle-Version: 0.4.0.qualifier
-Bundle-Activator: org.eclipse.rmf.pror.reqif10.genhtml.Activator
+Bundle-Activator: org.eclipse.rmf.reqif10.pror.genhtml.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.rmf.reqif10;bundle-version="0.4.0",
  org.eclipse.rmf.serialization;bundle-version="0.4.0",

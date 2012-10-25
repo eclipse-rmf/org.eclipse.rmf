@@ -9,7 +9,7 @@
  * Contributors:
  *     Michael Jastram - initial API and implementation
  ******************************************************************************/
-package org.eclipse.rmf.pror.reqif10.genhtml;
+package org.eclipse.rmf.reqif10.pror.genhtml;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
