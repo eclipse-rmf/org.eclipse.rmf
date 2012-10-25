@@ -2,10 +2,10 @@ package org.eclipse.rmf.reqif10.pror.editor.presentation.service;
 
 import java.util.Map;
 
-import org.eclipse.rmf.pror.presentation.linewrap.LinewrapConfiguration;
-import org.eclipse.rmf.pror.presentation.linewrap.LinewrapFactory;
-import org.eclipse.rmf.pror.presentation.ui.LinewrapPresentationService;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationInterface;
+import org.eclipse.rmf.pror.reqif10.presentation.linewrap.LinewrapConfiguration;
+import org.eclipse.rmf.pror.reqif10.presentation.linewrap.LinewrapFactory;
+import org.eclipse.rmf.pror.reqif10.presentation.ui.LinewrapPresentationService;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.impl.ProrPresentationConfigurationImpl;
 import org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineConfiguration;
