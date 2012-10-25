@@ -37,7 +37,7 @@ Contributors:
             genModel="model/Headline.genmodel"/>
    </extension>
  <extension
-         point="org.eclipse.rmf.pror.reqif10.editor.presentation">
+         point="org.eclipse.rmf.reqif10.pror.editor.presentation">
       <presentation
             name="Headline"
             service="org.eclipse.rmf.pror.presentation.headline.ui.HeadlinePresentationService">

@@ -12,9 +12,9 @@ package org.eclipse.rmf.pror.presentation.ui;
 
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapFactory;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationInterface;
-import org.eclipse.rmf.pror.reqif10.editor.presentation.service.AbstractPresentationService;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.service.AbstractPresentationService;
 
 /**
  * A very basic Presentation that handles {@link DatatypeDefinitionString}s and
