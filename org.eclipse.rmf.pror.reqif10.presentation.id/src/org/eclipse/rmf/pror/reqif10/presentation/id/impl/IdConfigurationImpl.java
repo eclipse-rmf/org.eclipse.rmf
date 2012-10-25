@@ -17,13 +17,13 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.eclipse.rmf.pror.reqif10.configuration.impl.ProrPresentationConfigurationImpl;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdPackage;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdVerticalAlign;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.pror.configuration.impl.ProrPresentationConfigurationImpl;
 
 /**
  * <!-- begin-user-doc -->

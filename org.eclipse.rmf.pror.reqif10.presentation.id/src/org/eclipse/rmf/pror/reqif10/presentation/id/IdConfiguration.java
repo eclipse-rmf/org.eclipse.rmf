@@ -12,7 +12,7 @@
 
 package org.eclipse.rmf.pror.reqif10.presentation.id;
 
-import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 
 
 /**

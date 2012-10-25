@@ -18,12 +18,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.rmf.pror.presentation.headline.HeadlineConfiguration;
 import org.eclipse.rmf.pror.presentation.headline.HeadlineFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.LabelConfiguration;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrGeneralConfiguration;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.AlternativeID;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
@@ -48,6 +42,12 @@ import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
 import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
+import org.eclipse.rmf.reqif10.pror.configuration.LabelConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrGeneralConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.tests.util.SimpleModelBuilder;
 
 @SuppressWarnings("nls")

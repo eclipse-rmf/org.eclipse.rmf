@@ -14,7 +14,7 @@ package org.eclipse.rmf.pror.presentation.headline;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 
 /**
  * <!-- begin-user-doc -->

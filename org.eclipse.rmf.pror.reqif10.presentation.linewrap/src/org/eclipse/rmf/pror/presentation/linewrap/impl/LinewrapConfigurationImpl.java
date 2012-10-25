@@ -14,7 +14,7 @@ package org.eclipse.rmf.pror.presentation.linewrap.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapConfiguration;
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapPackage;
-import org.eclipse.rmf.pror.reqif10.configuration.impl.ProrPresentationConfigurationImpl;
+import org.eclipse.rmf.reqif10.pror.configuration.impl.ProrPresentationConfigurationImpl;
 
 /**
  * <!-- begin-user-doc -->

@@ -15,9 +15,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.math.BigInteger;
 
-import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValueString;
@@ -30,6 +27,9 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.pror.configuration.Column;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.junit.Test;
 
 /**

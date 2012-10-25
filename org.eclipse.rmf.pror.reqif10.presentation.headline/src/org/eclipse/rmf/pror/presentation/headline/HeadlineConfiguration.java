@@ -11,7 +11,7 @@
 
 package org.eclipse.rmf.pror.presentation.headline;
 
-import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 
 
 /**

@@ -11,8 +11,8 @@
 package org.eclipse.rmf.pror.reqif10.editor.presentation.service;
 
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationInterface;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 
 /**
  * This abstract class is provided to make life for Presentation creators

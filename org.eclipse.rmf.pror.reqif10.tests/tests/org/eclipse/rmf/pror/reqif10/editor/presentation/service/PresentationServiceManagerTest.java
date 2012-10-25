@@ -8,12 +8,12 @@ import org.eclipse.rmf.pror.presentation.headline.ui.HeadlinePresentationService
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapConfiguration;
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapFactory;
 import org.eclipse.rmf.pror.presentation.ui.LinewrapPresentationService;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.pror.reqif10.configuration.impl.ProrPresentationConfigurationImpl;
 import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationInterface;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdConfiguration;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdFactory;
 import org.eclipse.rmf.pror.reqif10.presentation.ui.IdPresentationService;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.impl.ProrPresentationConfigurationImpl;
 import org.junit.Assert;
 import org.junit.Test;
 

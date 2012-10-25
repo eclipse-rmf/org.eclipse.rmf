@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.rmf.pror.presentation.headline.HeadlineConfiguration;
 import org.eclipse.rmf.pror.presentation.headline.HeadlineFactory;
 import org.eclipse.rmf.pror.presentation.headline.HeadlinePackage;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 
 /**
  * <!-- begin-user-doc -->

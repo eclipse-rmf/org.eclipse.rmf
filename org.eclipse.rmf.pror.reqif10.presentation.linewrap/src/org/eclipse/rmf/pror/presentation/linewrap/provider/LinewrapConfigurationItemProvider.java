@@ -32,13 +32,13 @@ import org.eclipse.rmf.pror.presentation.LinewrapEditPlugin;
 import org.eclipse.rmf.pror.presentation.linewrap.LinewrapConfiguration;
 import org.eclipse.rmf.pror.presentation.ui.LinewrapCellEditor;
 import org.eclipse.rmf.pror.presentation.ui.LinewrapCellRenderer;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.pror.reqif10.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionSimple;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.provider.ProrPresentationConfigurationItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.pror.presentation.linewrap.LinewrapConfiguration} object.

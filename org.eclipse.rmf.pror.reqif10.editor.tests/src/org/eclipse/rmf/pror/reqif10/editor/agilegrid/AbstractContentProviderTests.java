@@ -14,15 +14,15 @@ import static org.junit.Assert.*;
 
 import java.net.URISyntaxException;
 
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrToolExtension;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

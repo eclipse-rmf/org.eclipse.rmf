@@ -11,9 +11,9 @@
 
 package org.eclipse.rmf.reqif10.configuration.tests;
 
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
 import org.junit.After;
 import org.junit.Before;
 

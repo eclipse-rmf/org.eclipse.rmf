@@ -11,8 +11,8 @@
 package org.eclipse.rmf.pror.presentation.headline.ui;
 
 import org.eclipse.rmf.pror.presentation.headline.HeadlineFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.AbstractPresentationService;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 
 public class HeadlinePresentationService extends AbstractPresentationService {
 

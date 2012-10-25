@@ -14,15 +14,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
 import org.eclipse.rmf.pror.reqif10.editor.agilegrid.ProrRow.ProrRowSpecHierarchy;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
+import org.eclipse.rmf.reqif10.pror.configuration.Column;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.junit.Test;
 
 /**

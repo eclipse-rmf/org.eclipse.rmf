@@ -13,9 +13,9 @@ package org.eclipse.rmf.pror.reqif10.edit.presentation.service;
 import java.util.Collection;
 
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 
 /**
  * Interface that Presentation-Plugins must implement to provide relevant

@@ -16,11 +16,11 @@ import static org.junit.Assert.assertTrue;
 
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.rmf.pror.reqif10.configuration.Column;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationFactory;
-import org.eclipse.rmf.pror.reqif10.configuration.ConfigurationPackage;
-import org.eclipse.rmf.pror.reqif10.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.pror.reqif10.testframework.AbstractItemProviderTest;
+import org.eclipse.rmf.reqif10.pror.configuration.Column;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -29,7 +29,7 @@ Contributors:
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
       <factory
-            class="org.eclipse.rmf.pror.reqif10.configuration.provider.ConfigurationItemProviderAdapterFactory"
+            class="org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory"
             uri="http://eclipse.org/rmf/pror/toolextensions/1.0"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -44,7 +44,7 @@ TODO reactivate!
    <extension
          point="org.eclipse.rmf.reqif10.resource.reqiftoolextension">
       <reqiftoolextension
-            class="org.eclipse.rmf.pror.reqif10.configuration.impl.ProrToolExtensionImpl">
+            class="org.eclipse.rmf.reqif10.pror.configuration.impl.ProrToolExtensionImpl">
       </reqiftoolextension>
    </extension>
 -->

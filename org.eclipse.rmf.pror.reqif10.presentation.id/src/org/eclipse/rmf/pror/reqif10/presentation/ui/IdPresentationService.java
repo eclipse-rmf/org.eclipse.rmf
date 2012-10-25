@@ -11,11 +11,11 @@
  ******************************************************************************/
 package org.eclipse.rmf.pror.reqif10.presentation.ui;
 
-import org.eclipse.rmf.pror.reqif10.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.pror.reqif10.editor.presentation.service.AbstractPresentationService;
 import org.eclipse.rmf.pror.reqif10.presentation.id.IdFactory;
 import org.eclipse.rmf.pror.reqif10.presentation.id.impl.IdConfigurationImpl;
 import org.eclipse.rmf.reqif10.AttributeValueString;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 
 /**
  * A presentation to automatically assign human-readable IDs of the form
