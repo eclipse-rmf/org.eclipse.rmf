@@ -619,7 +619,7 @@ public class ProrAgileGridViewer extends Viewer {
 
 						Point pos = agileGrid.toControl(e.x, e.y);
 						Cell cell = agileGrid.getCell(pos.x, pos.y);
-						ProrRow row = cell.row > 0 ? contentProvider
+						ProrRow row = cell.row >= 0 ? contentProvider
 								.getProrRow(cell.row) : null;
 						Object target = null;
 						if (row instanceof ProrRowSpecHierarchy) {
