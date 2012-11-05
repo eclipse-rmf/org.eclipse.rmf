@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.pror.reqif10/src"
-    modelPluginID="org.eclipse.rmf.pror.reqif10" modelName="Configuration" editPluginClass="org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.reqif10.pror/src"
+    modelPluginID="org.eclipse.rmf.reqif10.pror" modelName="Configuration" editPluginClass="org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
     usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
   <foreignModel>configuration.ecore</foreignModel>
-  <genPackages prefix="Configuration" basePackage="org.eclipse.rmf.pror.reqif10" resource="XML"
+  <genPackages prefix="Configuration" basePackage="org.eclipse.rmf.reqif10.pror" resource="XML"
       disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
     <genClasses image="false" ecoreClass="configuration.ecore#//ProrToolExtension">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrToolExtension/specViewConfigurations"/>

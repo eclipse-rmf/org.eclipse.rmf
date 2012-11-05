@@ -59,7 +59,7 @@ Contributors:
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.rmf.pror.reqif10.presentation.headline.source"
+         id="org.eclipse.rmf.reqif10.pror.presentation.headline.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -73,7 +73,7 @@ Contributors:
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.rmf.pror.reqif10.presentation.linewrap.source"
+         id="org.eclipse.rmf.reqif10.pror.presentation.linewrap.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
