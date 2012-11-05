@@ -15,7 +15,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.math.BigInteger;
 
-import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
@@ -32,6 +31,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridContentProvider;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow;
+import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.junit.Test;
 
 /**

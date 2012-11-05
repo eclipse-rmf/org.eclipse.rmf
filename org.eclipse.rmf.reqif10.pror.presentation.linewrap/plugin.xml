@@ -21,7 +21,7 @@ Contributors:
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://pror.org/presentation/linewrap"
-            class="org.eclipse.rmf.pror.reqif10.presentation.linewrap.provider.LinewrapItemProviderAdapterFactory"
+            class="org.eclipse.rmf.reqif10.pror.presentation.linewrap.provider.LinewrapItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -33,13 +33,13 @@ Contributors:
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://pror.org/presentation/linewrap"
-            class="org.eclipse.rmf.pror.reqif10.presentation.linewrap.LinewrapPackage"
+            class="org.eclipse.rmf.reqif10.pror.presentation.linewrap.LinewrapPackage"
             genModel="model/linewrap.genmodel"/>
    </extension>
    <extension
          point="org.eclipse.rmf.reqif10.pror.editor.presentation">
       <presentation
-            service="org.eclipse.rmf.pror.reqif10.presentation.ui.LinewrapPresentationService"
+            service="org.eclipse.rmf.reqif10.pror.presentation.ui.LinewrapPresentationService"
             name="Linwrapping Cell Label and Editor">
       </presentation>
    </extension>

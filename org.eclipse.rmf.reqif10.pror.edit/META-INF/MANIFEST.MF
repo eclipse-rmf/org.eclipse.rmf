@@ -4,15 +4,15 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.rmf.reqif10.pror.edit;singleton:=true
 Bundle-Version: 0.4.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin$Implementation
+Bundle-Activator: org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.rmf.reqif10.pror.configuration.provider,
- org.eclipse.rmf.pror.reqif10.edit.presentation.service,
- org.eclipse.rmf.pror.reqif10.provider,
- org.eclipse.rmf.pror.reqif10.util,
- org.eclipse.rmf.pror.reqif10.xhtml.provider
+ org.eclipse.rmf.reqif10.pror.edit.presentation.service,
+ org.eclipse.rmf.reqif10.pror.provider,
+ org.eclipse.rmf.reqif10.pror.util,
+ org.eclipse.rmf.reqif10.pror.xhtml.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit;visibility:=reexport,
  org.eclipse.emf.ecore;visibility:=reexport,

@@ -17,7 +17,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcoreFactory;
-import org.eclipse.rmf.pror.reqif10.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
@@ -30,6 +29,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
+import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.junit.Test;
 
 public class ConfigurationUtilTest extends AbstractItemProviderTest {

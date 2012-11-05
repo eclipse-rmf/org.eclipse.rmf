@@ -2,18 +2,18 @@ package org.eclipse.rmf.reqif10.pror.editor.presentation.service;
 
 import java.util.Map;
 
-import org.eclipse.rmf.pror.reqif10.edit.presentation.service.PresentationInterface;
-import org.eclipse.rmf.pror.reqif10.presentation.linewrap.LinewrapConfiguration;
-import org.eclipse.rmf.pror.reqif10.presentation.linewrap.LinewrapFactory;
-import org.eclipse.rmf.pror.reqif10.presentation.ui.LinewrapPresentationService;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.impl.ProrPresentationConfigurationImpl;
+import org.eclipse.rmf.reqif10.pror.edit.presentation.service.PresentationInterface;
 import org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineConfiguration;
 import org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineFactory;
 import org.eclipse.rmf.reqif10.pror.presentation.headline.ui.HeadlinePresentationService;
 import org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration;
 import org.eclipse.rmf.reqif10.pror.presentation.id.IdFactory;
+import org.eclipse.rmf.reqif10.pror.presentation.linewrap.LinewrapConfiguration;
+import org.eclipse.rmf.reqif10.pror.presentation.linewrap.LinewrapFactory;
 import org.eclipse.rmf.reqif10.pror.presentation.ui.IdPresentationService;
+import org.eclipse.rmf.reqif10.pror.presentation.ui.LinewrapPresentationService;
 import org.junit.Assert;
 import org.junit.Test;
 

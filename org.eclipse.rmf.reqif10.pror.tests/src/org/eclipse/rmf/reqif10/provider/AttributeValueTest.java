@@ -14,11 +14,11 @@ import static org.junit.Assert.assertEquals;
 
 import java.net.URISyntaxException;
 
-import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
+import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.junit.Test;
 
 /**

@@ -37,13 +37,13 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.pror.editor.actions.SpecificationWebPrintAction;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGrid;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridViewer;
+import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IEditorInput;
@@ -64,7 +64,7 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 public class SpecificationEditor extends EditorPart implements
 		IEditingDomainProvider, IMenuListener, ISelectionProvider {
 
-	public static final String EDITOR_ID = "org.eclipse.rmf.pror.reqif10.SpecificationEditor";
+	public static final String EDITOR_ID = "org.eclipse.rmf.reqif10.pror.SpecificationEditor";
 
 	/**
 	 * The {@link Specification} associated with this Editor.

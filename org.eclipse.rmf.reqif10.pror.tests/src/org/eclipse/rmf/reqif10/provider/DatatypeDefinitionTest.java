@@ -15,11 +15,11 @@ import static org.junit.Assert.assertTrue;
 import java.net.URISyntaxException;
 
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.rmf.pror.reqif10.provider.VirtualDatatypeDefinitionItemProvider;
-import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.pror.provider.VirtualDatatypeDefinitionItemProvider;
+import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.junit.Test;
 
 /**

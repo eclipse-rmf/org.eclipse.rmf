@@ -15,11 +15,11 @@ import java.math.BigInteger;
 
 import junit.framework.Assert;
 
-import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.EmbeddedValue;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

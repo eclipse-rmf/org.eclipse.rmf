@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.rmf.pror.reqif10.feature"
+      id="org.eclipse.rmf.reqif10.pror.feature"
       label="RMF ProR Feature (Incubation)"
       version="0.4.0.qualifier"
       provider-name="Eclipse Modeling Project"
-      plugin="org.eclipse.rmf.pror.reqif10">
+      plugin="org.eclipse.rmf.reqif10.pror">
 
    <description url="http://www.example.com/description">
       The ProR GUI for ReqIF 1.0.1.
@@ -34,14 +34,14 @@ Contributors:
    </requires>
 
    <plugin
-         id="org.eclipse.rmf.pror.reqif10"
+         id="org.eclipse.rmf.reqif10.pror"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.rmf.pror.reqif10.edit"
+         id="org.eclipse.rmf.reqif10.pror.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -55,7 +55,7 @@ Contributors:
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.rmf.pror.reqif10.presentation.headline"
+         id="org.eclipse.rmf.reqif10.pror.presentation.headline"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -69,7 +69,7 @@ Contributors:
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.rmf.pror.reqif10.presentation.linewrap"
+         id="org.eclipse.rmf.reqif10.pror.presentation.linewrap"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -83,7 +83,7 @@ Contributors:
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.rmf.pror.reqif10.help.ui"
+         id="org.eclipse.rmf.reqif10.pror.help.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -15,14 +15,14 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
-import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecObjectItemProvider;
-import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecRelationGroupItemProvider;
-import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecRelationsItemProvider;
-import org.eclipse.rmf.pror.reqif10.provider.VirtualSpecificationsItemProvider;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
+import org.eclipse.rmf.reqif10.pror.provider.VirtualSpecObjectItemProvider;
+import org.eclipse.rmf.reqif10.pror.provider.VirtualSpecRelationGroupItemProvider;
+import org.eclipse.rmf.reqif10.pror.provider.VirtualSpecRelationsItemProvider;
+import org.eclipse.rmf.reqif10.pror.provider.VirtualSpecificationsItemProvider;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 

@@ -13,7 +13,7 @@ package org.eclipse.rmf.reqif10.pror.presentation.id.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
+import org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin;
 
 /**
  * This is the central singleton for the ID edit plugin.

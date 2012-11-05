@@ -12,8 +12,8 @@ package org.eclipse.rmf.reqif10.pror.editor.presentation;
 
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
 

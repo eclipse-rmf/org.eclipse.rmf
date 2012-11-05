@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.rmf.pror.reqif10.sdk.feature"
+      id="org.eclipse.rmf.reqif10.pror.sdk.feature"
       label="RMF ProR SDK Feature (Incubation)"
       version="0.4.0.qualifier"
       provider-name="Eclipse Modeling Project"
-      plugin="org.eclipse.rmf.pror.reqif10">
+      plugin="org.eclipse.rmf.reqif10.pror">
 
    <description url="http://www.example.com/description">
       The ProR GUI for ReqIF 1.0.1.
@@ -30,7 +30,7 @@ Contributors:
    </url>
 
    <includes
-         id="org.eclipse.rmf.pror.reqif10.feature"
+         id="org.eclipse.rmf.reqif10.pror.feature"
          version="0.0.0"/>
 
    <requires>
@@ -38,14 +38,14 @@ Contributors:
    </requires>
 
    <plugin
-         id="org.eclipse.rmf.pror.reqif10.source"
+         id="org.eclipse.rmf.reqif10.pror.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.rmf.pror.reqif10.edit.source"
+         id="org.eclipse.rmf.reqif10.pror.edit.source"
          download-size="0"
          install-size="0"
          version="0.0.0"

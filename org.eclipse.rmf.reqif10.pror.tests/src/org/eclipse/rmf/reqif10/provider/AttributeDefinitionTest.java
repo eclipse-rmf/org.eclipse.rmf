@@ -17,13 +17,13 @@ import static org.junit.Assert.assertTrue;
 import java.net.URISyntaxException;
 
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.rmf.pror.reqif10.util.ProrUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecType;
+import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

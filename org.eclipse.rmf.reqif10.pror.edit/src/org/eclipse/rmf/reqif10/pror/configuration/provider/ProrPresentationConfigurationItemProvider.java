@@ -26,9 +26,9 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.rmf.pror.reqif10.provider.Reqif10EditPlugin;
-import org.eclipse.rmf.pror.reqif10.util.PresentationEditInterface;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
+import org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin;
+import org.eclipse.rmf.reqif10.pror.util.PresentationEditInterface;
 
 
 /**
