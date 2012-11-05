@@ -16,14 +16,15 @@ import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.assertTrue;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap.Entry;
-import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
@@ -77,8 +78,20 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 	 * an {@link IllegalStateException} when more than one is found. 
 	 */
 	SpecObject getSpecObjectByName(ReqIF reqif, String name) {
-		SpecObject target = null;
-		for (SpecObject specObject : reqif.getCoreContent().getSpecObjects()) {
+		return (SpecObject) getSpecElementByName(reqif.getCoreContent().getSpecObjects(), name);
+	}
+
+	/**
+	 * Looks for the given {@link Specification} by {@link CommonSystemAttributes#REQIF_NAME}.  Returns null if none is found, and throws
+	 * an {@link IllegalStateException} when more than one is found. 
+	 */
+	Specification getSpecificationByName(ReqIF reqif, String name) {
+		return (Specification) getSpecElementByName(reqif.getCoreContent().getSpecifications(), name);
+	}
+
+	private SpecElementWithAttributes getSpecElementByName(EList<? extends SpecElementWithAttributes> list, String name) {
+		SpecElementWithAttributes target = null;
+		for (SpecElementWithAttributes specObject : list) {
 			AttributeValueXHTML value = (AttributeValueXHTML) ReqIF10Util.getAttributeValueForLabel(specObject, REQIF_NAME);
 			XhtmlContent content = value.getTheValue();
 			XhtmlPType p = content.getP();
@@ -107,15 +120,7 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 	 * Returns true if the given {@link SpecObject} resides in the Spec with the given name.
 	 */
 	SpecHierarchy findInSpec(String name, SpecObject specObject) {
-		// First, find the spec.
-		Specification spec = null;
-		for (Specification s : ReqIF10Util.getReqIF(specObject).getCoreContent().getSpecifications()) {
-			AttributeValueString value = (AttributeValueString) ReqIF10Util.getAttributeValueForLabel(s, REQIF_NAME);
-			if (name.equals(value.getTheValue())) {
-				spec = s;
-				break;
-			}
-		}
+		Specification spec = getSpecificationByName(ReqIF10Util.getReqIF(specObject), name);
 		if (spec == null) {
 			throw new NullPointerException("Spec does not exist: " + name);
 		}

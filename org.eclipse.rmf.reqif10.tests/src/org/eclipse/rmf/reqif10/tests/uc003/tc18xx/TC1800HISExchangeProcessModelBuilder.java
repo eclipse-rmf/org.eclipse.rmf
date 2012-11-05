@@ -47,7 +47,7 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 
 	// SpecificationTypes
 	SpecificationType specificationType;
-	AttributeDefinitionString specificationTypeAttributeDefinitionStringName;
+	AttributeDefinitionXHTML specificationTypeAttributeDefinitionStringName;
 
 	// SpecObjects
 	SpecObject specObject01;
@@ -162,11 +162,11 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 		specificationType.setLongName("TC18xx SpecificationType");
 		specificationType.setLastChange(toDate(LAST_CHANGE_STRING_0));
 
-		specificationTypeAttributeDefinitionStringName = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
-		specificationTypeAttributeDefinitionStringName.setIdentifier("ID_TC18xx_SpecificationTypeAttributeDefinitionString_" + REQIF_NAME);
+		specificationTypeAttributeDefinitionStringName = ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML();
+		specificationTypeAttributeDefinitionStringName.setIdentifier("ID_TC18xx_SpecificationTypeAttributeDefinitionXHTML_" + REQIF_NAME);
 		specificationTypeAttributeDefinitionStringName.setLongName(REQIF_NAME);
 		specificationTypeAttributeDefinitionStringName.setLastChange(toDate(LAST_CHANGE_STRING_0));
-		specificationTypeAttributeDefinitionStringName.setType(datatypeDefinitionString);
+		specificationTypeAttributeDefinitionStringName.setType(datatypeDefinitionXhtml);
 
 		specificationType.getSpecAttributes().add(specificationTypeAttributeDefinitionStringName);
 
@@ -225,7 +225,7 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 	@Override
 	public void createSpecifications() throws Exception {
 		// set the specification attributes
-		AttributeValueString attributeValueString;
+		AttributeValueXHTML attributeValueXhtml;
 
 		// Two Specifications
 		for (int i = 1; i <= 2; i++) {
@@ -234,10 +234,11 @@ public class TC1800HISExchangeProcessModelBuilder extends SimpleModelBuilder imp
 			spec.setType(specificationType);
 			spec.setLastChange(toDate(LAST_CHANGE_STRING_0));
 
-			attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
-			attributeValueString.setDefinition(specificationTypeAttributeDefinitionStringName);
-			attributeValueString.setTheValue("Spec" + i);
-			spec.getValues().add(attributeValueString);
+			attributeValueXhtml = ReqIF10Factory.eINSTANCE.createAttributeValueXHTML();
+			attributeValueXhtml.setDefinition(specificationTypeAttributeDefinitionStringName);
+			attributeValueXhtml.setTheValue(createXhtmlValue("Spec" + i));
+			spec.getValues().add(attributeValueXhtml);
+
 			getReqIF().getCoreContent().getSpecifications().add(spec);
 		}
 
