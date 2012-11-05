@@ -33,7 +33,7 @@ import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.Identifiable} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.Identifiable} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

@@ -32,7 +32,7 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.ReqIFHeader} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.ReqIFHeader} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

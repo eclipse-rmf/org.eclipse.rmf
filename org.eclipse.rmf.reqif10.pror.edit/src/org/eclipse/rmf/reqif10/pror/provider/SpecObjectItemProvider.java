@@ -46,7 +46,7 @@ import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.SpecObject} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.SpecObject} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

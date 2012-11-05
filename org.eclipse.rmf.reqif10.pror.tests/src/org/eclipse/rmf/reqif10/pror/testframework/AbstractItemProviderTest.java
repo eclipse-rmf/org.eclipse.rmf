@@ -39,7 +39,6 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.pror.configuration.util.ConfigurationAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.testdata.TestData;
-import org.eclipse.rmf.reqif10.pror.xhtml.provider.XhtmlItemProviderAdapterFactory;
 import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
 import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.junit.After;
@@ -99,7 +98,6 @@ abstract public class AbstractItemProviderTest {
 		adapterFactory.addAdapterFactory(new ConfigurationAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReqIF10ItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new XhtmlItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 

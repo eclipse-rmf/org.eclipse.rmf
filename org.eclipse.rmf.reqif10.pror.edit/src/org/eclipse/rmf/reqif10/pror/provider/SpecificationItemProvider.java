@@ -49,7 +49,7 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.Specification} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.Specification} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

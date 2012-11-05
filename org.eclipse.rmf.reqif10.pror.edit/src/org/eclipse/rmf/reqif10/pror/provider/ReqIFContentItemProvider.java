@@ -38,7 +38,7 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.ReqIFContent} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.ReqIFContent} object.
  * <!-- begin-user-doc -->
  * <p>This ItemProvider is special, as it contains only virutal children that group
  * the "real" children into more useful groups. To achieve this, we apply the

@@ -79,7 +79,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeValueXHTML} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeValueXHTML} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -87,7 +87,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeValueXHTMLItemProvider attributeValueXHTMLItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeValueXHTML}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueXHTML}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -102,7 +102,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionXHTML} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeDefinitionXHTML} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -110,7 +110,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeDefinitionXHTMLItemProvider attributeDefinitionXHTMLItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionXHTML}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionXHTML}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -125,7 +125,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.ReqIFContent} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.ReqIFContent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -133,7 +133,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected ReqIFContentItemProvider reqIFContentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.ReqIFContent}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.ReqIFContent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -148,7 +148,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.ReqIF} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.ReqIF} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -156,7 +156,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected ReqIFItemProvider reqIFItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.ReqIF}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.ReqIF}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -171,7 +171,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.ReqIFHeader} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.ReqIFHeader} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -179,7 +179,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected ReqIFHeaderItemProvider reqIFHeaderItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.ReqIFHeader}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.ReqIFHeader}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -194,7 +194,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.ReqIFToolExtension} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.ReqIFToolExtension} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -202,7 +202,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected ReqIFToolExtensionItemProvider reqIFToolExtensionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.ReqIFToolExtension}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.ReqIFToolExtension}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -217,7 +217,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.SpecObject} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.SpecObject} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -225,7 +225,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected SpecObjectItemProvider specObjectItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.SpecObject}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.SpecObject}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -240,7 +240,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.SpecObjectType} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.SpecObjectType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -248,7 +248,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected SpecObjectTypeItemProvider specObjectTypeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.SpecObjectType}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.SpecObjectType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -263,7 +263,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.Specification} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.Specification} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -271,7 +271,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected SpecificationItemProvider specificationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.Specification}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.Specification}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -286,7 +286,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.SpecificationType} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.SpecificationType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -294,7 +294,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected SpecificationTypeItemProvider specificationTypeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.SpecificationType}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.SpecificationType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -309,7 +309,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.SpecHierarchy} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.SpecHierarchy} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -317,7 +317,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected SpecHierarchyItemProvider specHierarchyItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.SpecHierarchy}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.SpecHierarchy}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -332,7 +332,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.SpecRelation} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.SpecRelation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -340,7 +340,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected SpecRelationItemProvider specRelationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.SpecRelation}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.SpecRelation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -355,7 +355,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.SpecRelationType} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.SpecRelationType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -363,7 +363,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected SpecRelationTypeItemProvider specRelationTypeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.SpecRelationType}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.SpecRelationType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -378,7 +378,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.RelationGroup} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.RelationGroup} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -386,7 +386,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected RelationGroupItemProvider relationGroupItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.RelationGroup}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.RelationGroup}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -401,7 +401,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.RelationGroupType} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.RelationGroupType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -409,7 +409,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected RelationGroupTypeItemProvider relationGroupTypeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.RelationGroupType}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.RelationGroupType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -424,7 +424,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionXHTML} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -432,7 +432,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected DatatypeDefinitionXHTMLItemProvider datatypeDefinitionXHTMLItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionXHTML}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -447,7 +447,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AlternativeID} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AlternativeID} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -455,7 +455,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AlternativeIDItemProvider alternativeIDItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AlternativeID}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AlternativeID}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -470,7 +470,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionBoolean} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeDefinitionBoolean} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -478,7 +478,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeDefinitionBooleanItemProvider attributeDefinitionBooleanItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionBoolean}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionBoolean}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -493,7 +493,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionBoolean} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.DatatypeDefinitionBoolean} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -501,7 +501,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected DatatypeDefinitionBooleanItemProvider datatypeDefinitionBooleanItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionBoolean}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinitionBoolean}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -516,7 +516,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeValueBoolean} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeValueBoolean} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -524,7 +524,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeValueBooleanItemProvider attributeValueBooleanItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeValueBoolean}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueBoolean}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -539,7 +539,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionDate} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeDefinitionDate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -547,7 +547,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeDefinitionDateItemProvider attributeDefinitionDateItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionDate}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionDate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -562,7 +562,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionDate} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.DatatypeDefinitionDate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -570,7 +570,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected DatatypeDefinitionDateItemProvider datatypeDefinitionDateItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionDate}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinitionDate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -585,7 +585,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeValueDate} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeValueDate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -593,7 +593,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeValueDateItemProvider attributeValueDateItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeValueDate}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueDate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -608,7 +608,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionEnumeration} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -616,7 +616,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeDefinitionEnumerationItemProvider attributeDefinitionEnumerationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionEnumeration}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -631,7 +631,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionEnumeration} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -639,7 +639,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected DatatypeDefinitionEnumerationItemProvider datatypeDefinitionEnumerationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionEnumeration}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -654,7 +654,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.EnumValue} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.EnumValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -662,7 +662,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected EnumValueItemProvider enumValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.EnumValue}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.EnumValue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -677,7 +677,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.EmbeddedValue} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.EmbeddedValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -685,7 +685,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected EmbeddedValueItemProvider embeddedValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.EmbeddedValue}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.EmbeddedValue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -700,7 +700,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeValueEnumeration} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeValueEnumeration} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -708,7 +708,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeValueEnumerationItemProvider attributeValueEnumerationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeValueEnumeration}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueEnumeration}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -723,7 +723,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionInteger} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeDefinitionInteger} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -731,7 +731,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeDefinitionIntegerItemProvider attributeDefinitionIntegerItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionInteger}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionInteger}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -746,7 +746,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionInteger} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.DatatypeDefinitionInteger} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -754,7 +754,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected DatatypeDefinitionIntegerItemProvider datatypeDefinitionIntegerItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionInteger}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinitionInteger}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -769,7 +769,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeValueInteger} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeValueInteger} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -777,7 +777,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeValueIntegerItemProvider attributeValueIntegerItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeValueInteger}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueInteger}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -792,7 +792,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionReal} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeDefinitionReal} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -800,7 +800,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeDefinitionRealItemProvider attributeDefinitionRealItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionReal}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionReal}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -815,7 +815,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionReal} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -823,7 +823,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected DatatypeDefinitionRealItemProvider datatypeDefinitionRealItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionReal}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -838,7 +838,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeValueReal} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeValueReal} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -846,7 +846,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeValueRealItemProvider attributeValueRealItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeValueReal}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueReal}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -861,7 +861,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionString} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeDefinitionString} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -869,7 +869,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeDefinitionStringItemProvider attributeDefinitionStringItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeDefinitionString}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionString}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -884,7 +884,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionString} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.DatatypeDefinitionString} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -892,7 +892,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected DatatypeDefinitionStringItemProvider datatypeDefinitionStringItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinitionString}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinitionString}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -907,7 +907,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.AttributeValueString} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeValueString} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -915,7 +915,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected AttributeValueStringItemProvider attributeValueStringItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.AttributeValueString}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueString}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -930,7 +930,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.XhtmlContent} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.XhtmlContent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -938,7 +938,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	protected XhtmlContentItemProvider xhtmlContentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.XhtmlContent}.
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.XhtmlContent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

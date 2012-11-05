@@ -35,7 +35,6 @@ import org.eclipse.rmf.reqif10.pror.presentation.headline.util.HeadlineAdapterFa
 import org.eclipse.rmf.reqif10.pror.presentation.id.util.IdAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.presentation.linewrap.util.LinewrapAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
-import org.eclipse.rmf.reqif10.pror.xhtml.provider.XhtmlItemProviderAdapterFactory;
 import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
 import org.eclipse.rmf.serialization.ReqIFResourceImpl;
 import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
@@ -61,7 +60,10 @@ public class GenerateHtml {
 		adapterFactory.addAdapterFactory(new ConfigurationAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReqIF10ItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new XhtmlItemProviderAdapterFactory());
+		// FIXME (mj) I would prefer not to generate these - does it work
+		// without?
+		// adapterFactory.addAdapterFactory(new
+		// XhtmlItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 

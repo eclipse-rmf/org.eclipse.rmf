@@ -54,7 +54,7 @@ import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.SpecHierarchy} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.SpecHierarchy} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

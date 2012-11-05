@@ -28,7 +28,7 @@ import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.DatatypeDefinition} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

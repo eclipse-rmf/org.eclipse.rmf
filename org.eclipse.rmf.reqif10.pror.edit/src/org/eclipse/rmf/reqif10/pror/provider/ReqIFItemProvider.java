@@ -42,7 +42,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.ReqIF} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.ReqIF} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -116,8 +116,8 @@ public class ReqIFItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ReqIF10Package.Literals.REQ_IF__THE_HEADER);
-			childrenFeatures.add(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS);
 			childrenFeatures.add(ReqIF10Package.Literals.REQ_IF__CORE_CONTENT);
+			childrenFeatures.add(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS);
 		}
 		return childrenFeatures;
 	}
@@ -170,8 +170,8 @@ public class ReqIFItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ReqIF10Package.REQ_IF__THE_HEADER:
-			case ReqIF10Package.REQ_IF__TOOL_EXTENSIONS:
 			case ReqIF10Package.REQ_IF__CORE_CONTENT:
+			case ReqIF10Package.REQ_IF__TOOL_EXTENSIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -196,6 +196,11 @@ public class ReqIFItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF__CORE_CONTENT,
+				 ReqIF10Factory.eINSTANCE.createReqIFContent()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
 				 ReqIF10Factory.eINSTANCE.createReqIFToolExtension()));
 
@@ -203,11 +208,6 @@ public class ReqIFItemProvider
 			(createChildParameter
 				(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
 				 ConfigurationFactory.eINSTANCE.createProrToolExtension()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF__CORE_CONTENT,
-				 ReqIF10Factory.eINSTANCE.createReqIFContent()));
 	}
 
 	/**

@@ -32,7 +32,7 @@ import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.SpecRelation} object.
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.SpecRelation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

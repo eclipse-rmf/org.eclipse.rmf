@@ -37,14 +37,12 @@ import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations}
- * object. <!-- begin-user-doc -->
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations} object.
+ * <!-- begin-user-doc -->
  * <p>
  * This adapter is stateful, as it keeps track of an associated
  * {@link EditingDomain}. This is necessary, as presentations may need to react
  * to model changes by modifying the model. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ProrPresentationConfigurationsItemProvider
