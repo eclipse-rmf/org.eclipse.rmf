@@ -123,6 +123,16 @@ public class AttributeDefinitionXHTMLItemProvider
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean shouldComposeCreationImage() {
+		return true;
+	}
+
+	/**
 	 * This returns AttributeDefinitionXHTML.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

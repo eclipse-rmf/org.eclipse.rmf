@@ -196,6 +196,16 @@ public class IdentifiableItemProvider
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean shouldComposeCreationImage() {
+		return true;
+	}
+
+	/**
 	 * Missing image to prevent {@link NullPointerException} when accidentally building a command.
 	 */
 	@Override

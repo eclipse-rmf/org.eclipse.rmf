@@ -107,6 +107,16 @@ public class SpecObjectItemProvider
 			(new ItemPropertyDescriptorDecorator(object, descriptor));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean shouldComposeCreationImage() {
+		return true;
+	}
+
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/SpecObject.png"));
