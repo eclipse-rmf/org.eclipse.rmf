@@ -32,13 +32,10 @@ import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecType;
 
 /**
- * This class contains various static helper methods for working with ReqIf data
- * objects. Amongst others, we solve a number of issues that would be better
- * served proper OOP (e.g. {@link #getTheValue(AttributeValue)}. However, we
- * decided not to touch the generated code. We decided to use reflection over
- * long if-then-else blocks to
+ * This class contains various static helper methods for working with ReqIf data objects. Amongst others, we solve a
+ * number of issues that would be better served proper OOP (e.g. {@link #getTheValue(AttributeValue)}. However, we
+ * decided not to touch the generated code. We decided to use reflection over long if-then-else blocks to
  * <p>
- * 
  * This class is not intended to be instantiated.
  * 
  * @author jastram
@@ -49,57 +46,52 @@ public class ReqIF10Util {
 	 * This class is not designed to be instantiated.
 	 */
 	private ReqIF10Util() {
-		throw new InstantiationError("This class is not designed to be instantiated.");
+		throw new InstantiationError("This class is not designed to be instantiated."); //$NON-NLS-1$
 	}
 
 	/**
-	 * Returns the root ReqIF object for the corresponding EObject or null if
-	 * none exists. This method simply traverses the object tree to the root -
-	 * there may be more efficient ways for finding the root ReqIF.
+	 * Returns the root ReqIF object for the corresponding EObject or null if none exists. This method simply traverses
+	 * the object tree to the root - there may be more efficient ways for finding the root ReqIF.
 	 * 
 	 * @return the root {@link ReqIF} object or null if none found.
 	 */
 	public static ReqIF getReqIF(Object obj) {
 		// TODO: replace and test by EcoreUtil.getRootContainer();
-		if (!(obj instanceof EObject))
+		if (!(obj instanceof EObject)) {
 			return null;
-		while (((EObject) obj).eContainer() != null)
+		}
+		while (((EObject) obj).eContainer() != null) {
 			obj = ((EObject) obj).eContainer();
-		if (obj instanceof ReqIF)
+		}
+		if (obj instanceof ReqIF) {
 			return (ReqIF) obj;
+		}
 		return null;
 	}
 
 	/**
-	 * Retrieves the Value from the given AttributeValue. We would prefer to
-	 * have an abstract getTheValue() method on AttributeValue, but EMF doesn't
-	 * support this. Thus, each subclass of AttributeValue has its own
-	 * getTheValue() method. This convenience method returns the value.
+	 * Retrieves the Value from the given AttributeValue. We would prefer to have an abstract getTheValue() method on
+	 * AttributeValue, but EMF doesn't support this. Thus, each subclass of AttributeValue has its own getTheValue()
+	 * method. This convenience method returns the value.
 	 */
 	public static Object getTheValue(AttributeValue attributeValue) {
 		if (attributeValue instanceof AttributeValueBoolean) {
-			return ((AttributeValueBoolean)attributeValue).isTheValue();
-		} else if (attributeValue instanceof AttributeValueSimple
-				|| attributeValue instanceof AttributeValueXHTML) {
-			return reflectiveGet(attributeValue, "getTheValue");
+			return ((AttributeValueBoolean) attributeValue).isTheValue();
+		} else if (attributeValue instanceof AttributeValueSimple || attributeValue instanceof AttributeValueXHTML) {
+			return reflectiveGet(attributeValue, "getTheValue"); //$NON-NLS-1$
 		} else if (attributeValue instanceof AttributeValueEnumeration) {
-			return reflectiveGet(attributeValue, "getValues");
+			return reflectiveGet(attributeValue, "getValues"); //$NON-NLS-1$
 		} else {
-			throw new IllegalArgumentException("Can't get value from "
-					+ attributeValue);
+			throw new IllegalArgumentException("Can't get value from " + attributeValue); //$NON-NLS-1$
 		}
 	}
 
 	/**
-	 * Retrieves the value for the given {@link AttributeValue} from the
-	 * {@link SpecElementWithAttributes}.
+	 * Retrieves the value for the given {@link AttributeValue} from the {@link SpecElementWithAttributes}.
 	 */
-	public static AttributeValue getAttributeValue(
-			SpecElementWithAttributes specElement,
-			AttributeDefinition attributeDefinition) {
+	public static AttributeValue getAttributeValue(SpecElementWithAttributes specElement, AttributeDefinition attributeDefinition) {
 		for (AttributeValue value : specElement.getValues()) {
-			AttributeDefinition definition = (AttributeDefinition) reflectiveGet(
-					value, "getDefinition");
+			AttributeDefinition definition = (AttributeDefinition) reflectiveGet(value, "getDefinition"); //$NON-NLS-1$
 			if (attributeDefinition.equals(definition)) {
 				return value;
 			}
@@ -108,16 +100,16 @@ public class ReqIF10Util {
 	}
 
 	/**
-	 * Finds the {@link AttributeValue} for the given
-	 * {@link SpecElementWithUserDefinedAttributes}. May return null.
+	 * Finds the {@link AttributeValue} for the given {@link SpecElementWithUserDefinedAttributes}. May return null.
 	 */
-	public static AttributeValue getAttributeValueForLabel(
-			SpecElementWithAttributes element, String label) {
-		if (label == null)
+	public static AttributeValue getAttributeValueForLabel(SpecElementWithAttributes element, String label) {
+		if (label == null) {
 			return null;
+		}
 		for (AttributeValue value : element.getValues()) {
-			if (value == null)
+			if (value == null) {
 				continue;
+			}
 			AttributeDefinition ad = getAttributeDefinition(value);
 			if (ad != null && label.equals(ad.getLongName())) {
 				return value;
@@ -127,30 +119,24 @@ public class ReqIF10Util {
 	}
 
 	/**
-	 * Returns the AttributeDefinition for a given value (Would be so much
-	 * easier with inheritance).
+	 * Returns the AttributeDefinition for a given value (Would be so much easier with inheritance).
 	 */
-	public static AttributeDefinition getAttributeDefinition(
-			AttributeValue value) {
-		return (AttributeDefinition) reflectiveGet(value, "getDefinition");
+	public static AttributeDefinition getAttributeDefinition(AttributeValue value) {
+		return (AttributeDefinition) reflectiveGet(value, "getDefinition"); //$NON-NLS-1$
 	}
 
 	/**
-	 * Returns the {@link DatatypeDefinition} for the given
-	 * {@link AttributeDefinition} (Would be so much easier with inheritance).
+	 * Returns the {@link DatatypeDefinition} for the given {@link AttributeDefinition} (Would be so much easier with
+	 * inheritance).
 	 */
-	public static DatatypeDefinition getDatatypeDefinition(
-			AttributeDefinition attributeDefinition) {
-		return (DatatypeDefinition) reflectiveGet(attributeDefinition,
-				"getType");
+	public static DatatypeDefinition getDatatypeDefinition(AttributeDefinition attributeDefinition) {
+		return (DatatypeDefinition) reflectiveGet(attributeDefinition, "getType"); //$NON-NLS-1$
 	}
 
 	/**
-	 * Returns the {@link DatatypeDefinition} for the given
-	 * {@link AttributeValue}.
+	 * Returns the {@link DatatypeDefinition} for the given {@link AttributeValue}.
 	 * 
-	 * @return the corresponding {@link DatatypeDefinition} or null if it cannot
-	 *         be determined.
+	 * @return the corresponding {@link DatatypeDefinition} or null if it cannot be determined.
 	 */
 	public static DatatypeDefinition getDatatypeDefinition(AttributeValue value) {
 		if (value == null) {
@@ -164,21 +150,17 @@ public class ReqIF10Util {
 	}
 
 	public static SpecType getSpecType(SpecElementWithAttributes specElement) {
-		return (SpecType) reflectiveGet(specElement, "getType");
+		return (SpecType) reflectiveGet(specElement, "getType"); //$NON-NLS-1$
 	}
 
 	public static SpecType getSpecType(AttributeDefinition ad) {
 		return (SpecType) ad.eContainer();
 	}
 
-
 	/**
-	 * Helper method that reflectively executes methods. The annoying thing with
-	 * ReqIF is, that many classes share a method (e.g. getType()) that returns
-	 * the same supertype, but due to the model generation, there isn't a shared
-	 * method in the superclass.
-	 * 
-	 * If there is a problem, the resulting {@link Exception} is wrapped into a
+	 * Helper method that reflectively executes methods. The annoying thing with ReqIF is, that many classes share a
+	 * method (e.g. getType()) that returns the same supertype, but due to the model generation, there isn't a shared
+	 * method in the superclass. If there is a problem, the resulting {@link Exception} is wrapped into a
 	 * {@link RuntimeException}.
 	 * 
 	 * @param object
@@ -188,8 +170,7 @@ public class ReqIF10Util {
 	 */
 	public static Object reflectiveGet(Object object, String methodName) {
 		try {
-			Method method = object.getClass().getMethod(methodName,
-					(Class<?>[]) null);
+			Method method = object.getClass().getMethod(methodName, (Class<?>[]) null);
 			return method.invoke(object, (Object[]) null);
 		} catch (SecurityException e) {
 			throw new RuntimeException(e);
@@ -205,32 +186,30 @@ public class ReqIF10Util {
 	}
 
 	/**
-	 * Returns the "the value" feature for the given attributeValue. For
-	 * instance, for an {@link AttributeValueString} it returns
-	 * {@link Reqif10Package.Literals#ATTRIBUTE_VALUE_STRING__THE_VALUE}. The
-	 * one exception is {@link AttributeValueEnumeration}, where the feature
-	 * name is "values", rather than "the value".
+	 * Returns the "the value" feature for the given attributeValue. For instance, for an {@link AttributeValueString}
+	 * it returns {@link Reqif10Package.Literals#ATTRIBUTE_VALUE_STRING__THE_VALUE}. The one exception is
+	 * {@link AttributeValueEnumeration}, where the feature name is "values", rather than "the value".
 	 * 
-	 * @throws IllegalArgumentException for unknown {@link AttributeValue}s.
+	 * @throws IllegalArgumentException
+	 *             for unknown {@link AttributeValue}s.
 	 */
 	public static EStructuralFeature getTheValueFeature(AttributeValue attributeValue) {
 		if (attributeValue instanceof AttributeValueBoolean) {
 			return ReqIF10Package.Literals.ATTRIBUTE_VALUE_BOOLEAN__THE_VALUE;
 		} else if (attributeValue instanceof AttributeValueDate) {
-			return  ReqIF10Package.Literals.ATTRIBUTE_VALUE_DATE__THE_VALUE;
+			return ReqIF10Package.Literals.ATTRIBUTE_VALUE_DATE__THE_VALUE;
 		} else if (attributeValue instanceof AttributeValueInteger) {
-			return  ReqIF10Package.Literals.ATTRIBUTE_VALUE_INTEGER__THE_VALUE;
+			return ReqIF10Package.Literals.ATTRIBUTE_VALUE_INTEGER__THE_VALUE;
 		} else if (attributeValue instanceof AttributeValueReal) {
-			return  ReqIF10Package.Literals.ATTRIBUTE_VALUE_REAL__THE_VALUE;
+			return ReqIF10Package.Literals.ATTRIBUTE_VALUE_REAL__THE_VALUE;
 		} else if (attributeValue instanceof AttributeValueString) {
-			return  ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE;
+			return ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE;
 		} else if (attributeValue instanceof AttributeValueXHTML) {
-			return  ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE;
+			return ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE;
 		} else if (attributeValue instanceof AttributeValueEnumeration) {
-			return  ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES;		
+			return ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES;
 		} else {
-			throw new IllegalArgumentException("Unknown AttributeValue: "
-					+ attributeValue);
+			throw new IllegalArgumentException("Unknown AttributeValue: " + attributeValue); //$NON-NLS-1$
 		}
 	}
 
