@@ -17,8 +17,12 @@ import org.agilemore.agilegrid.EditorActivationEvent;
 import org.agilemore.agilegrid.ICellNavigationStrategy;
 import org.agilemore.agilegrid.ILayoutAdvisor;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MenuDetectEvent;
+import org.eclipse.swt.events.MenuDetectListener;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
 
 /**
  * We override the default implementation to slightly change the behavior when
@@ -39,20 +43,25 @@ public class ProrAgileGrid extends AgileGrid {
 	public ProrAgileGrid(Composite parent, int style) {
 		super(parent, style);
 		setCellNavigationStrategy(cyclingCellNavigationStrategy);
+		
 		// By default, the selection doesn't change if we right-click an
 		// unselected cell. But that's what we want.
-		// TODO This doesn't work, and therefore enableing this code is deceiving.
-//		addMenuDetectListener(new MenuDetectListener() {
-//
-//			@Override
-//			public void menuDetected(MenuDetectEvent e) {
-//				Point pos = toControl(e.x, e.y);
-//				Cell clickedCell = getCell(pos.x, pos.y);
-//				if (!isCellSelected(clickedCell.row, clickedCell.column)) {
-//					selectCells(new Cell[] { clickedCell });
-//				}
-//			}
-//		});
+		
+		// TODO This sets the selection to the one single cell on which the 
+		// event occurred. Maybe we want to change this in the future to allow
+		// invoking actions on multiple elements.
+		// At this time invoking actions on multiple elements do not work
+		// see Bug https://bugs.eclipse.org/bugs/show_bug.cgi?id=393347 
+	
+		addMenuDetectListener(new MenuDetectListener() {
+
+			public void menuDetected(MenuDetectEvent e) {
+				Point pos = toControl(e.x, e.y);
+				Cell clickedCell = getCell(pos.x, pos.y);
+				clearSelection();
+				focusCell(clickedCell, true);
+			}
+		});
 	}
 
 	/**
