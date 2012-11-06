@@ -427,6 +427,9 @@ public class ProrAgileGridViewer extends Viewer {
 		// SpecHierarchies
 		selectionChangedistener = new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
+				if (settingSelection){
+					return;
+				}
 				Set<Cell> cells = event.getNewSelections();
 				List<Object> items = new ArrayList<Object>();
 				for (Cell cell : cells) {
