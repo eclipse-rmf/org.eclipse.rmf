@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    Michael Jastram - initial API and implementation
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://eclipse.org/rmf/pror/toolextensions/1.0"
+            class="org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage"
+            genModel="model/reqif10.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="org.eclipse.rmf.reqif10.pror.intro">
+      </intro>
+      <introProductBinding
+            introId="org.eclipse.rmf.reqif10.pror.intro"
+            productId="org.eclipse.rmf.reqif10.pror.product">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            content="introContent.xml"
+            id="org.eclipse.rmf.reqif10.pror.introConfigId"
+            introId="org.eclipse.rmf.reqif10.pror.intro">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx"
+                  style="content/shared.css">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.ui.ide.workbench"
+            name="RMF ProR Standalone">
+         <property
+               name="windowImages"
+               value="platform:/plugin/org.eclipse.rmf.reqif10.pror.editor/icons/full/prorIcon/prorIcon16.png,platform:/plugin/org.eclipse.rmf.reqif10.pror.editor/icons/full/prorIcon/prorIcon32.png,platform:/plugin/org.eclipse.rmf.reqif10.pror.editor/icons/full/prorIcon/prorIcon48.png,platform:/plugin/org.eclipse.rmf.reqif10.pror.editor/icons/full/prorIcon/prorIcon64.png,platform:/plugin/org.eclipse.rmf.reqif10.pror.editor/icons/full/prorIcon/prorIcon128.png">
+         </property>
+         <property
+               name="aboutImage"
+               value="pror-about.png">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="0C3C68">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="0,261,500,15">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="10,280,480,20">
+         </property>
+         <property
+               name="appName"
+               value="RMF ProR Standalone">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+         <property
+               name="aboutText"
+               value="ProR - Requirements Management Platform&#x0A;&#x0A;part of the &#x0A;&#x0A;Eclipse Requirements Management Framework (RMF)&#x0A;&#x0A;Version: (Incubation Submission)&#x0A;&#x0A;(c) Copyright Formal Mind GmbH, itemis AG and others 2011.  All rights reserved.&#x0A;Visit http://eclipse.org/rmf">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

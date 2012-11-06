@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.rmf.reqif10.pror.sdk.feature"
+      label="RMF ProR SDK Feature (Incubation)"
+      version="0.4.0.qualifier"
+      provider-name="Eclipse Modeling Project"
+      plugin="org.eclipse.rmf.reqif10.pror">
+
+   <description url="http://www.example.com/description">
+      The ProR GUI for ReqIF 1.0.1.
+   </description>
+
+   <copyright url="http://www.formalmind.com">
+      Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    Michael Jastram - initial API and implementation
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <discovery label="RMF at Eclipse.org" url="http://eclipse.org/rmf"/>
+   </url>
+
+   <includes
+         id="org.eclipse.rmf.reqif10.pror.feature"
+         version="0.0.0"/>
+
+   <requires>
+      <import feature="org.eclipse.rmf.reqif10.sdk.feature" version="0.4.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.pror.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.pror.edit.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.pror.editor.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.pror.presentation.headline.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.pror.presentation.id.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.pror.presentation.linewrap.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
