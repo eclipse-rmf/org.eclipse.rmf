@@ -47,19 +47,17 @@ public class ProrAgileGrid extends AgileGrid {
 		// By default, the selection doesn't change if we right-click an
 		// unselected cell. But that's what we want.
 		
-		// TODO This sets the selection to the one single cell on which the 
-		// event occurred. Maybe we want to change this in the future to allow
-		// invoking actions on multiple elements.
-		// At this time invoking actions on multiple elements do not work
-		// see Bug https://bugs.eclipse.org/bugs/show_bug.cgi?id=393347 
-	
 		addMenuDetectListener(new MenuDetectListener() {
 
 			public void menuDetected(MenuDetectEvent e) {
 				Point pos = toControl(e.x, e.y);
 				Cell clickedCell = getCell(pos.x, pos.y);
-				clearSelection();
-				focusCell(clickedCell, true);
+				if (!isCellSelected(clickedCell.row, clickedCell.column)){
+					clearSelection();
+					focusCell(clickedCell, true);
+				}else{
+					focusCell(clickedCell, false);
+				}
 			}
 		});
 	}
