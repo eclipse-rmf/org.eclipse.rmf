@@ -34,7 +34,7 @@ public class ProrXhtmlSimplifiedHelper {
 	/**
 	 * This static method returns the XML representation as string.
 	 */
-	private static String generateXMLString(EObject eobject) throws IOException {
+	public static String generateXMLString(EObject eobject) throws IOException {
 		StringWriter sw = new StringWriter();
 		Map<Object, Object> options = new HashMap<Object, Object>();
 		options.put(XMLResource.OPTION_ROOT_OBJECTS,

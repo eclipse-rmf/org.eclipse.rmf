@@ -10,6 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.util;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -25,10 +26,13 @@ import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
@@ -76,6 +80,17 @@ public class ProrEditorUtil {
 				if (i.hasNext()) {
 					textValue += ", ";
 				}
+			}
+		} else if (value instanceof XhtmlContent) {
+			textValue = ProrXhtmlSimplifiedHelper
+					.xhtmlToSimplifiedString((XhtmlContent) value);
+			try {
+				String xhtmlString = ReqIF10XhtmlUtil
+						.getXhtmlString((XhtmlContent) value);
+				xhtmlString = xhtmlString.replace("<xhtml:", "<");
+				xhtmlString = xhtmlString.replace("</xhtml:", "</");
+				textValue = xhtmlString;
+			} catch (IOException e) {
 			}
 		} else {
 			textValue = value.toString();
