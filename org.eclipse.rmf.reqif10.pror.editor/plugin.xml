@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    Michael Jastram - initial API and implementation
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.rmf.pror.category"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            category="org.eclipse.rmf.pror.category"
+            class="org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10ModelWizard"
+            descriptionImage="icons/full/prorIcon/prorIcon64.png"
+            finalPerspective="org.eclipse.rmf.pror.ProrPerspective"
+            icon="icons/full/obj16/ReqIf.png"
+            id="org.eclipse.rmf.reqif10.presentation.Reqif10ModelWizardID"
+            name="%_UI_Reqif10ModelWizard_label"
+            preferredPerspectives="org.eclipse.rmf.pror.ProrPerspective">
+         <description>%_UI_Reqif10ModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor"
+            contributorClass="org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10ActionBarContributor"
+            default="true"
+            extensions="reqif"
+            icon="icons/full/obj16/ReqIf.png"
+            id="org.eclipse.rmf.reqif10.presentation.Reqif10EditorID"
+            name="%_UI_Reqif10Editor_label">
+      </editor>
+      <editor
+            class="org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor"
+            contributorClass="org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10ActionBarContributor"
+            default="true"
+            icon="icons/full/obj16/Specification.png"
+            id="org.eclipse.rmf.reqif10.pror.SpecificationEditor"
+            name="Specification Editor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="org.eclipse.rmf.reqif10.presentation.Reqif10EditorIDContribution"
+            targetID="org.eclipse.rmf.reqif10.presentation.Reqif10EditorID">
+         <action
+               class="org.eclipse.rmf.reqif10.pror.editor.actions.PresentationConfigurationActionDelegate"
+               icon="icons/full/obj16/ReqIFToolExtension.png"
+               id="org.eclipse.rmf.reqif10.pror.editor.ProRConfiguration"
+               label="%_Action_Presentation_Config"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.reqif10.pror.editor.actions.DatatypeConfigurationActionDelegate"
+               icon="icons/full/obj16/SpecType.png"
+               id="org.eclipse.rmf.reqif10.pror.editor.DatatypeConfiguration"
+               label="%_Action_Datatype_Config"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.reqif10.pror.editor.actions.GeneralConfigurationActionDelegate"
+               icon="icons/full/obj16/ProRGeneralConfiguration.png"
+               id="org.eclipse.rmf.reqif10.pror.editor.GeneralConfiguration"
+               label="%_Action_General_Config"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.reqif10.pror.editor.actions.WebsiteActionDelegate"
+               icon="icons/full/prorIcon/prorIcon16.png"
+               id="org.eclipse.rmf.reqif10.pror.editor.WebsiteConfiguration"
+               label="%_Action_Website"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+      </editorContribution>
+      <editorContribution
+            id="org.eclipse.rmf.reqif10.pror.SpecificationEditorContribution"
+            targetID="org.eclipse.rmf.reqif10.pror.SpecificationEditor">
+         <action
+               class="org.eclipse.rmf.reqif10.pror.editor.actions.AddTestObjectsActionDelegate"
+               icon="icons/full/obj16/Debug.png"
+               id="org.eclipse.rmf.reqif10.pror.editor.AddTestElements"
+               label="Add Test Elements"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.reqif10.pror.editor.actions.ToggleSpecRelationsActionDelegate"
+               icon="icons/full/obj16/SpecRelation.png"
+               id="org.eclipse.rmf.reqif10.pror.editor.toggleSpecRelations"
+               label="%_Action_Toggle_Links"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               state="false"
+               style="toggle"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.reqif10.pror.editor.actions.ColumnConfigurationActionDelegate"
+               icon="icons/full/obj16/Column.png"
+               id="org.eclipse.rmf.reqif10.pror.editor.ColumnConfiguration"
+               label="%_Action_Column_Config"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.reqif10.pror.editor.actions.PresentationConfigurationActionDelegate"
+               icon="icons/full/obj16/ReqIFToolExtension.png"
+               id="org.eclipse.rmf.reqif10.pror.editor.ProRConfiguration"
+               label="%_Action_Presentation_Config"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.reqif10.pror.editor.actions.DatatypeConfigurationActionDelegate"
+               icon="icons/full/obj16/SpecType.png"
+               id="org.eclipse.rmf.reqif10.pror.editor.DatatypeConfiguration"
+               label="%_Action_Datatype_Config"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.reqif10.pror.editor.actions.GeneralConfigurationActionDelegate"
+               icon="icons/full/obj16/ProRGeneralConfiguration.png"
+               id="org.eclipse.rmf.reqif10.pror.editor.GeneralConfiguration"
+               label="%_Action_General_Config"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.reqif10.pror.editor.actions.WebsiteActionDelegate"
+               icon="icons/full/prorIcon/prorIcon16.png"
+               id="org.eclipse.rmf.reqif10.pror.editor.WebsiteConfiguration"
+               label="%_Action_Website"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.reqif10.pror.editor.actions.ShiftLevelDownActionDelegate"
+               icon="icons/full/obj16/ShiftDown.png"
+               id="org.eclipse.rmf.reqif10.pror.editor.ShiftLevelDown"
+               label="Shift Level Down"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.rmf.reqif10.pror.editor.actions.ShiftLevelUpActionDelegate"
+               icon="icons/full/obj16/ShiftUp.png"
+               id="org.eclipse.rmf.reqif10.pror.editor.ShiftLevelUp"
+               label="Shift Level Up"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+      </editorContribution>
+   </extension>
+   <extension point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.eclipse.rmf.reqif10.pror.editor.presentation.ProrPerspective"
+            icon="icons/full/prorIcon/prorIcon16.png"
+            id="org.eclipse.rmf.pror.ProrPerspective"
+            name="%_UI_Perspective_label">
+      </perspective>
+   </extension>
+
+ <extension-point id="presentation" name="Renderer and Editor for ReqIF Datatypes" schema="schema/presentation.exsd"/>
+ <extension
+       point="org.eclipse.ui.perspectiveExtensions">
+    <perspectiveExtension
+          targetID="*">
+       <newWizardShortcut
+             id="org.eclipse.rmf.reqif10.presentation.Reqif10ModelWizardID">
+       </newWizardShortcut>
+    </perspectiveExtension>
+ </extension>
+ <extension
+       point="org.eclipse.emf.ecore.extension_parser">
+    <parser
+          class="org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl"
+          type="reqif">
+    </parser>
+ </extension>
+ <extension
+       point="org.eclipse.ui.navigator.navigatorContent">
+    <commonWizard
+          type="new"
+          wizardId="org.eclipse.rmf.reqif10.presentation.Reqif10ModelWizardID">
+       <enablement></enablement>
+    </commonWizard>
+ </extension>
+ <extension
+       point="org.eclipse.ui.preferencePages">
+    <page
+          class="org.eclipse.rmf.reqif10.pror.editor.preferences.ProRPreferencePage"
+          id="org.eclipse.rmf.reqif10.pror.editor.preferencePage"
+          name="ProR">
+    </page>
+ </extension>
+ <extension
+       point="org.eclipse.core.runtime.preferences">
+    <initializer
+          class="org.eclipse.rmf.reqif10.pror.editor.preferences.PreferenceInitializer">
+    </initializer>
+ </extension>
+ <extension
+       point="org.eclipse.ui.startup">
+    <startup
+          class="org.eclipse.rmf.reqif10.pror.editor.presentation.OpenFilesOnStartup">
+    </startup>
+ </extension>
+
+</plugin>

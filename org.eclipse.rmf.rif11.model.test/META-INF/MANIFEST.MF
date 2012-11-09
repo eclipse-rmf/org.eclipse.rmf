@@ -2,16 +2,17 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.rmf.rif11.model.test
-Bundle-Version: 0.4.0.qualifier
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.rmf.rif11.model;bundle-version="0.1.0",
- org.eclipse.rmf.rif11.xsd.model;bundle-version="0.1.0",
- org.eclipse.rmf.rif11.resource;bundle-version="0.1.0",
+Bundle-Version: 0.5.0.qualifier
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.rmf.rif11.model,
+ org.eclipse.rmf.rif11.xsd.model,
+ org.eclipse.rmf.rif11.resource,
  org.junit,
- org.eclipse.emf.ecore;bundle-version="2.6.1",
- org.eclipse.emf.ecore.xmi;bundle-version="2.5.0",
- org.eclipse.emf.compare;bundle-version="1.1.2",
- org.eclipse.emf.compare.diff;bundle-version="1.1.2",
- org.eclipse.emf.compare.match;bundle-version="1.1.2"
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.emf.compare,
+ org.eclipse.emf.compare.diff,
+ org.eclipse.emf.compare.match
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: %providerName

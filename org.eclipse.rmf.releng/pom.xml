@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.eclipse.rmf</groupId>
 	<artifactId>org.eclipse.rmf.releng</artifactId>
-	<version>0.4.0-SNAPSHOT</version>
+	<version>0.5.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- this is the parent POM from which all modules inherit common settings -->
@@ -107,56 +107,6 @@
 	</build>
 	<profiles>
 		<profile>
-			<id>INDIGO_3_7_1.target</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>target-platform-configuration</artifactId>
-						<version>${tycho-version}</version>
-						<configuration>
-							<!-- add target file content to target platform -->
-							<target>
-								<artifact>
-									<groupId>org.eclipse.rmf</groupId>
-									<artifactId>org.eclipse.rmf.target</artifactId>
-									<version>0.4.0-SNAPSHOT</version>
-									<classifier>INDIGO_3_7_1</classifier>
-								</artifact>
-							</target>
-							<environments>
-								<environment>
-									<os>linux</os>
-									<ws>gtk</ws>
-									<arch>x86</arch>
-								</environment>
-								<environment>
-									<os>linux</os>
-									<ws>gtk</ws>
-									<arch>x86_64</arch>
-								</environment>
-								<environment>
-									<os>win32</os>
-									<ws>win32</ws>
-									<arch>x86</arch>
-								</environment>
-								<environment>
-									<os>win32</os>
-									<ws>win32</ws>
-									<arch>x86_64</arch>
-								</environment>
-								<environment>
-									<os>macosx</os>
-									<ws>cocoa</ws>
-									<arch>x86_64</arch>
-								</environment>
-							</environments>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-				<profile>
 			<id>INDIGO_3_7_2.target</id>
 			<build>
 				<plugins>
@@ -170,7 +120,7 @@
 								<artifact>
 									<groupId>org.eclipse.rmf</groupId>
 									<artifactId>org.eclipse.rmf.target</artifactId>
-									<version>0.4.0-SNAPSHOT</version>
+									<version>0.5.0-SNAPSHOT</version>
 									<classifier>INDIGO_3_7_2</classifier>
 								</artifact>
 							</target>
@@ -206,7 +156,56 @@
 				</plugins>
 			</build>
 		</profile>
-		
+		<profile>
+			<id>JUNO_4_2_0.target</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- add target file content to target platform -->
+							<target>
+								<artifact>
+									<groupId>org.eclipse.rmf</groupId>
+									<artifactId>org.eclipse.rmf.target</artifactId>
+									<version>0.5.0-SNAPSHOT</version>
+									<classifier>JUNO_4_2_0</classifier>
+								</artifact>
+							</target>
+							<environments>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>		
 	</profiles>
 
 	<pluginRepositories>
@@ -232,19 +231,19 @@
 		<module>../org.eclipse.rmf.reqif10.tests.feature</module>
 		
 		<!-- ReqIF UI ProR -->		
-		<module>../org.eclipse.rmf.pror.reqif10</module>
-		<module>../org.eclipse.rmf.pror.reqif10.edit</module>
-		<module>../org.eclipse.rmf.pror.reqif10.editor</module>
-		<module>../org.eclipse.rmf.pror.reqif10.presentation.headline</module>
-		<module>../org.eclipse.rmf.pror.reqif10.presentation.id</module>
-		<module>../org.eclipse.rmf.pror.reqif10.presentation.linewrap</module>
-		<module>../org.eclipse.rmf.pror.reqif10.help.ui</module>
-		<module>../org.eclipse.rmf.pror.reqif10.genhtml</module>
-		<module>../org.eclipse.rmf.pror.reqif10.feature</module>
-		<module>../org.eclipse.rmf.pror.reqif10.sdk.feature</module>
+		<module>../org.eclipse.rmf.reqif10.pror</module>
+		<module>../org.eclipse.rmf.reqif10.pror.edit</module>
+		<module>../org.eclipse.rmf.reqif10.pror.editor</module>
+		<module>../org.eclipse.rmf.reqif10.pror.presentation.headline</module>
+		<module>../org.eclipse.rmf.reqif10.pror.presentation.id</module>
+		<module>../org.eclipse.rmf.reqif10.pror.presentation.linewrap</module>
+		<module>../org.eclipse.rmf.reqif10.pror.help.ui</module>
+		<module>../org.eclipse.rmf.reqif10.pror.genhtml</module>
+		<module>../org.eclipse.rmf.reqif10.pror.feature</module>
+		<module>../org.eclipse.rmf.reqif10.pror.sdk.feature</module>
 			
-        <module>../org.eclipse.rmf.pror.reqif10.tests</module>
-        <!-- <module>../org.eclipse.rmf.pror.reqif10.presentation.id.tests</module> -->
+        <module>../org.eclipse.rmf.reqif10.pror.tests</module>
+        <!-- <module>../org.eclipse.rmf.reqif10.pror.presentation.id.tests</module> -->
 		
 
 		

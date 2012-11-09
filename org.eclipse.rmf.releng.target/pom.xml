@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.eclipse.rmf</groupId>
 		<artifactId>org.eclipse.rmf.releng</artifactId>
-		<version>0.4.0-SNAPSHOT</version>
+		<version>0.5.0-SNAPSHOT</version>
 		<relativePath>../org.eclipse.rmf.releng/pom.xml</relativePath>
 	</parent>
 	<artifactId>org.eclipse.rmf.target</artifactId>
@@ -40,6 +40,38 @@
 											<file>INDIGO_3_7_2.target</file>
 											<type>target</type>
 											<classifier>INDIGO_3_7_2</classifier>
+										</artifact>
+									</artifacts>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>JUNO_4_2_0.target</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<version>${build-helper-version}</version>
+						<executions>
+							<!-- make target file available for incremental builds -->
+							<execution>
+								<id>attach-artifacts</id>
+								<phase>package</phase>
+								<goals>
+									<goal>attach-artifact</goal>
+								</goals>
+								<configuration>
+									<artifacts>
+										<artifact>
+											<!-- note: the file name must be ${classifier}.target -->
+											<file>JUNO_4_2_0".target</file>
+											<type>target</type>
+											<classifier>JUNO_4_2_0</classifier>
 										</artifact>
 									</artifacts>
 								</configuration>
