@@ -99,18 +99,34 @@ public class ReqifMainForm {
 
 	private void createSpecSection() {
 
-		Section specSection = createSection(Section.EXPANDED
+		final Section specSection = createSection(Section.EXPANDED
 				| Section.DESCRIPTION);
 		specSection.setText(getString("_UI_ReqifForm_Specifications"));
 		specSection.setDescription(getString("_UI_ReqifForm_DblClickSpecifications"));
 
 		Composite client = toolkit.createComposite(specSection);
-		final ListViewer list = new ListViewer(client, SWT.SINGLE | SWT.BORDER);
+		final ListViewer list = new ListViewer(client, SWT.SINGLE | SWT.BORDER){
+			
+			@Override
+			public void update(Object element, String[] properties) {
+				super.update(element, properties);
+				specSection.layout();
+			}
+			
+			@Override
+			public void update(Object[] elements, String[] properties) {
+				super.update(elements, properties);
+				specSection.layout();
+			}
+			
+		};		
+		
 		list.addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
 				if (!event.getSelection().isEmpty()) {
 					reqifEditor.setSelection(event.getSelection());
 				}
+				//specSection.layout();
 			}
 		});
 
