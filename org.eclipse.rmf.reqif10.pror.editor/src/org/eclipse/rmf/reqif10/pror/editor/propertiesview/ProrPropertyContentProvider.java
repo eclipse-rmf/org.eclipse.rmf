@@ -162,6 +162,16 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 		// We don't need this method, cause an automatic refresh of the agile
 		// grid after editing a cell
 	}
+	
+	public void setContentAt(int row, int col, Object newValue) {
+		super.setContentAt(row, col, newValue);
+		
+		// Fix of 378041:
+		// needed to inform ProrPropertyControl of property change.
+		// firePropertyChange is never called from AbstractContentProvider.setContentAt(..)
+		// because oldValue is equal to newValue (value already updated somewhere else?)
+		super.firePropertyChange("", null, null);
+	}
 
 	/**
 	 * Sets the current selected specification element and fetches the

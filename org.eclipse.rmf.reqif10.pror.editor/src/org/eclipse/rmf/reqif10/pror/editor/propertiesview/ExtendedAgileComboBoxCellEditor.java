@@ -23,14 +23,19 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.rmf.reqif10.pror.editor.util.ProrEditorUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.widgets.Control;
 
-public class ExtendedAgileComboBoxCellEditor extends ComboBoxCellEditor {
+public class ExtendedAgileComboBoxCellEditor extends ComboBoxCellEditor implements SelectionListener {
 
 	protected List<?> originalList;
 
 	protected List<?> list;
 
 	protected boolean sorted;
+	
+	protected CCombo combo;
 
 	private EditingDomain editingDomain;
 
@@ -80,5 +85,22 @@ public class ExtendedAgileComboBoxCellEditor extends ComboBoxCellEditor {
 		super.doSetValue(itemPropertyDescriptor.getLabelProvider(value)
 				.getText(value));
 	}
+	
+	public void widgetDefaultSelected(SelectionEvent e) {
+		super.applyEditorValueAndDeactivate();
+	}
+
+	// when value is selected from drop down apply value directly
+	public void widgetSelected(SelectionEvent e) {
+		selection = combo.getSelectionIndex();
+		applyEditorValueAndDeactivate();
+	}
+	
+	protected Control createControl(AgileGrid agileGrid) {
+		combo = (CCombo) super.createControl(agileGrid);
+		combo.addSelectionListener(this);
+
+		return combo;
+	}	
 
 }

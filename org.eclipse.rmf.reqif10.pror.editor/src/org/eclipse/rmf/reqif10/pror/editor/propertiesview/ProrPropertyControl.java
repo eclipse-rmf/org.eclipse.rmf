@@ -22,9 +22,14 @@ import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 
-public class ProrPropertyControl extends AgileGrid {
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class ProrPropertyControl extends AgileGrid implements PropertyChangeListener {
 
 	private ProrPropertyContentProvider contentProvider;
+	
+	private Object object;
 
 	public ProrPropertyControl(Composite parent, EditingDomain editingDomain,
 			AdapterFactory adapterFactory, boolean showAllProps) {
@@ -39,6 +44,10 @@ public class ProrPropertyControl extends AgileGrid {
 		setCellEditorProvider(new ProrPropertyCellEditorProvider(this,
 				adapterFactory, editingDomain, this.contentProvider));
 		setRowResizeCursor(new Cursor(this.getDisplay(), SWT.CURSOR_ARROW));
+				
+		// listen to property changes in content
+		// Fix of 378041
+		contentProvider.addPropertyChangeListener(this);
 	}
 	
 	void setSelection(ISelection selection) {
@@ -47,12 +56,24 @@ public class ProrPropertyControl extends AgileGrid {
 			if (sel.size() == 1) {
 				Object obj = sel.getFirstElement();
 				contentProvider.setContent(obj);
+				object = obj;
+
 				redraw();
 				return;
 			}
 		}
 		contentProvider.setContent(null);
 		redraw();
+	}
+
+	// Fix of 378041
+	// listen to property changes in content
+	// reload Content and redraw on change event
+	public void propertyChange(PropertyChangeEvent event) {
+		if (event.getPropertyName().equals("")) {
+			contentProvider.setContent(object);
+			super.redraw();
+		}
 	}
 
 }
