@@ -460,6 +460,15 @@ public class ProrAgileGridViewer extends Viewer {
 						}
 					}
 				}
+
+				// If there are no items, it either means that (1) The user
+				// explicitly unselected everything, or (2) The user clicked in
+				// the empty space below the rows. In case of (2), we would like
+				// the Specification to be the current selection.
+				if (items.size() == 0) {
+					items.add(getInput());
+				}
+
 				selection = new StructuredSelection(items);
 				ProrAgileGridViewer.this
 						.fireSelectionChanged(new org.eclipse.jface.viewers.SelectionChangedEvent(
