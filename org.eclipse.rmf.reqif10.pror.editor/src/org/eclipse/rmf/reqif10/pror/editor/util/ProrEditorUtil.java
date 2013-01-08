@@ -43,8 +43,7 @@ public class ProrEditorUtil {
 	private static String createHtmlHeader(Specification spec,
 			AdapterFactory adapterFactory) {
 		StringBuilder sb = new StringBuilder();
-		String title = ConfigurationUtil.getSpecElementLabel(spec,
-				adapterFactory);
+		String title = ConfigurationUtil.getSpecElementLabel(spec);
 
 		sb.append("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n");
 		sb.append("<html>\n");
