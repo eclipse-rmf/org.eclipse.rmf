@@ -631,6 +631,13 @@ public class ProrAgileGridViewer extends Viewer {
 
 						Point pos = agileGrid.toControl(e.x, e.y);
 						Cell cell = agileGrid.getCell(pos.x, pos.y);
+
+						// No target if dragged over empty space.
+						if (cell.equals(Cell.NULLCELL)) {
+							dragTarget = null;
+							super.dragOver(e);
+							return;
+						}
 						ProrRow row = cell.row >= 0 ? contentProvider
 								.getProrRow(cell.row) : null;
 						Object target = null;
