@@ -391,6 +391,9 @@ public class ProrAgileGridViewer extends Viewer {
 						contentProvider.updateElement(specRelation.getTarget());
 					}
 					if (contentProvider.getShowSpecRelations()) {
+						// By setting the flag again, the cash is cleared,
+						// triggering a redraw.
+						contentProvider.setShowSpecRelations(true);
 						updateRowCount();
 					}
 					refresh();
