@@ -87,19 +87,17 @@ public class ExtendedAgileComboBoxCellEditor extends ComboBoxCellEditor implemen
 	}
 	
 	public void widgetDefaultSelected(SelectionEvent e) {
-		super.applyEditorValueAndDeactivate();
+		// No action required.
 	}
 
 	// when value is selected from drop down apply value directly
 	public void widgetSelected(SelectionEvent e) {
 		selection = combo.getSelectionIndex();
-		applyEditorValueAndDeactivate();
 	}
 	
 	protected Control createControl(AgileGrid agileGrid) {
 		combo = (CCombo) super.createControl(agileGrid);
 		combo.addSelectionListener(this);
-
 		return combo;
 	}	
 
