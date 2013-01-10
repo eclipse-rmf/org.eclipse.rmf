@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.6"?>
-
-<target includeMode="feature" name="INDIGO_3_7_2" sequenceNumber="57">
+<?pde version="3.6"?><target includeMode="feature" name="INDIGO_3_7_2" sequenceNumber="58">
 <locations>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.agilemore.agilegrid.feature.feature.group" version="1.3.0"/>
-<unit id="org.agilemore.agilegrid.source.feature.feature.group" version="1.3.0"/>
-<repository location="http://agilegrid.sourceforge.net/agilegrid/updatesite-rmf/"/>
-</location>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.7.2.v20120130-0943"/>
 <unit id="org.eclipse.equinox.sdk.feature.group" version="3.7.1.R37x_v20110907-7M7W8i8eNV4WsRkue-4Vq4J6pCyW"/>
@@ -22,6 +15,10 @@
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.compare.sdk.feature.group" version="1.3.1.v20120605-0748"/>
 <repository location="http://download.eclipse.org/modeling/emf/compare/updates/releases/1.3"/>
+</location>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.agilemore.agilegrid.feature.feature.group" version="1.3.1"/>
+<repository location="http://agilegrid.sourceforge.net/agilegrid/updatesite-rmf/"/>
 </location>
 </locations>
 </target>
