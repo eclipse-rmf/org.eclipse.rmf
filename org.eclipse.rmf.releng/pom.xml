@@ -234,6 +234,7 @@
 		<module>../org.eclipse.rmf.reqif10.pror</module>
 		<module>../org.eclipse.rmf.reqif10.pror.edit</module>
 		<module>../org.eclipse.rmf.reqif10.pror.editor</module>
+		<module>../org.eclipse.rmf.reqif10.pror.editor.tests</module>
 		<module>../org.eclipse.rmf.reqif10.pror.presentation.headline</module>
 		<module>../org.eclipse.rmf.reqif10.pror.presentation.id</module>
 		<module>../org.eclipse.rmf.reqif10.pror.presentation.linewrap</module>

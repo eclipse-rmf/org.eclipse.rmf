@@ -44,47 +44,42 @@ public class CachingTests extends AbstractContentProviderTests {
 
 	@Test
 	public void testPerformance() {
+		int milliNano  = 100000;
 		int row = 100000;
-		long startTime = System.currentTimeMillis();
+		long startTime = System.nanoTime();
 		createReqIF(row);
-		long endTime = System.currentTimeMillis();
+		long endTime = System.nanoTime();
 
 		long duration = endTime - startTime;
-		System.out.println("Duration for createReqIF(" + row + "): " + duration + " ms");
+		System.out.println("Duration for createReqIF(" + row + "): " + duration / milliNano + "ms");
 
-//		no caching
-//		Duration for createReqIF(100000): 1617 ms
-//		Duration for getContentAt(9999): 180 ms
-//		simple caching
-//		Duration for createReqIF(100000): 1581 ms
-//		First call: Duration for getContentAt(99999): 186 ms
-//		Second call: Duration for getContentAt(99999): 0 ms
-		
+
 	}
 
 	@Test
 	public void testPerformanceCP() {
+		int milliNano  = 100000;
 		int row = 100000;
 		ReqIF reqif = createReqIF(row);
 		Specification spec = reqif.getCoreContent().getSpecifications().get(0);
 		ProrAgileGridContentProvider cp = new ProrAgileGridContentProvider(
 				spec, ConfigurationUtil.createSpecViewConfiguration(spec,
 						editingDomain));
-		long startTime = System.currentTimeMillis();
+		long startTime = System.nanoTime();
 		cp.getContentAt((row - 1), 0);
-		long endTime = System.currentTimeMillis();
+		long endTime = System.nanoTime();
 
 		long duration = endTime - startTime;
 		System.out.println("First call: Duration for getContentAt(" + (row - 1) + "): "
-				+ duration + " ms");
+				+ duration/milliNano + " ms");
 		
-		startTime = System.currentTimeMillis();
+		startTime = System.nanoTime();
 		cp.getContentAt((row - 1), 0);
-		endTime = System.currentTimeMillis();
+		endTime = System.nanoTime();
 
 		duration = endTime - startTime;
 		System.out.println("Second call: Duration for getContentAt(" + (row - 1) + "): "
-				+ duration + " ms");
+				+ duration/milliNano + " ms");
 	}
 
 	@Test
