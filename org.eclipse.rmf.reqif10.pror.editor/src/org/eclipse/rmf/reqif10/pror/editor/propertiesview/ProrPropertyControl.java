@@ -11,6 +11,9 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.propertiesview;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.SWTX;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -22,9 +25,12 @@ import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-
+/**
+ * This control wraps an actual AgileGrid that displays the properties of the
+ * current selection. It is instantiated twice, once for all and ones for those
+ * properties relevant to users (via showAllProps).
+ * 
+ */
 public class ProrPropertyControl extends AgileGrid implements PropertyChangeListener {
 
 	private ProrPropertyContentProvider contentProvider;
@@ -39,7 +45,7 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 		this.contentProvider = new ProrPropertyContentProvider(editingDomain, showAllProps);
 		setContentProvider(this.contentProvider);
 		setCellRendererProvider(new ProrPropertyCellRendererProvider(this,
-				adapterFactory));
+				adapterFactory, contentProvider));
 		setLayoutAdvisor(new ProrPropertyLayoutAdvisor(this));
 		setCellEditorProvider(new ProrPropertyCellEditorProvider(this,
 				adapterFactory, editingDomain, this.contentProvider));

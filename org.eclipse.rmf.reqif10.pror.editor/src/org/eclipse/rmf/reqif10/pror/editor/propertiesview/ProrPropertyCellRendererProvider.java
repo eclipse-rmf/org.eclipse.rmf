@@ -35,9 +35,13 @@ public class ProrPropertyCellRendererProvider extends DefaultCellRendererProvide
 	// The cell renderer for category rows
 	private final TextCellRenderer categoryCellRenderer;
 
+	private ProrPropertyContentProvider contentProvider;
+
 	public ProrPropertyCellRendererProvider(AgileGrid agileGrid,
-			AdapterFactory adapterFactory) {
+			AdapterFactory adapterFactory,
+			ProrPropertyContentProvider contentProvider) {
 		super(agileGrid);
+		this.contentProvider = contentProvider;
 		this.attributeCellRenderer = new ProrPropertyCellRenderer(agileGrid,
 				adapterFactory);
 		this.categoryCellRenderer = new TextCellRenderer(agileGrid, SWT.BOLD);
@@ -47,9 +51,6 @@ public class ProrPropertyCellRendererProvider extends DefaultCellRendererProvide
 
 	@Override
 	public ICellRenderer getCellRenderer(int row, int col) {
-
-		final ProrPropertyContentProvider contentProvider = (ProrPropertyContentProvider) agileGrid
-				.getContentProvider();
 
 		// The obj could be an ItemCategory or SortenItemPropertyDescriptor
 		// instance
