@@ -197,8 +197,8 @@ public class ConfigurationUtil {
 				if (label.equals(ad.getLongName())) {
 					ProrPresentationConfiguration config = getPresentationConfig(value);
 
-					ItemProviderAdapter ip = ProrUtil.getConfigItemProvider(
-							config, adapterFactory);
+					ItemProviderAdapter ip = ProrUtil.getItemProvider(
+							adapterFactory, config);
 					if (ip instanceof PresentationEditInterface) {
 						String customLabel = ((PresentationEditInterface) ip)
 								.getLabel(value);
