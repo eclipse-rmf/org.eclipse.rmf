@@ -18,15 +18,26 @@ import org.agilemore.agilegrid.SWTResourceManager;
 import org.agilemore.agilegrid.renderers.TextCellRenderer;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.ItemCategory;
-import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.SortedItemPropertyDescriptor;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider2.Category;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider2.Descriptor;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider2.PropertyRow;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.Rectangle;
 
+/**
+ * Serves the correct {@link ICellRenderer} for the Properties View. There are
+ * fundamentally three cases:
+ * <ul>
+ * <li>Category - A renderer that spans two cells and is bold with gray
+ * background
+ * <li>Label - Standard Text
+ * <li>Value - Delegates to the proper ProR renderer if it is a ProR Property,
+ * otherwise {@link SimpleTextCellRenderer}.
+ * <ul>
+ */
 public class ProrPropertyCellRendererProvider extends DefaultCellRendererProvider {
 
 	// The default cell renderer for attribute/value rows
@@ -35,11 +46,14 @@ public class ProrPropertyCellRendererProvider extends DefaultCellRendererProvide
 	// The cell renderer for category rows
 	private final TextCellRenderer categoryCellRenderer;
 
-	private ProrPropertyContentProvider contentProvider;
+	// Plain renderer to show text
+	private final SimpleTextCellRenderer defaultAttributeRenderer;
+
+	private ProrPropertyContentProvider2 contentProvider;
 
 	public ProrPropertyCellRendererProvider(AgileGrid agileGrid,
 			AdapterFactory adapterFactory,
-			ProrPropertyContentProvider contentProvider) {
+			ProrPropertyContentProvider2 contentProvider) {
 		super(agileGrid);
 		this.contentProvider = contentProvider;
 		this.attributeCellRenderer = new ProrPropertyCellRenderer(agileGrid,
@@ -47,84 +61,61 @@ public class ProrPropertyCellRendererProvider extends DefaultCellRendererProvide
 		this.categoryCellRenderer = new TextCellRenderer(agileGrid, SWT.BOLD);
 		this.categoryCellRenderer.setDefaultBackground(SWTResourceManager
 				.getColor(SWT.COLOR_WIDGET_BACKGROUND));
+		this.defaultAttributeRenderer = new SimpleTextCellRenderer(agileGrid);
 	}
 
 	@Override
 	public ICellRenderer getCellRenderer(int row, int col) {
+		PropertyRow propertyRow = (PropertyRow) contentProvider
+				.getRowContent(row);
 
-		// The obj could be an ItemCategory or SortenItemPropertyDescriptor
-		// instance
-		Object obj = contentProvider.getRowContent(row);
-
-		// If we have an ItemCategory at this row, return the category cell
-		// renderer
-		if (col <= 1 && obj instanceof ItemCategory) {
+		if (propertyRow instanceof Category) {
 			return this.categoryCellRenderer;
-		} else if (col == 1 && obj instanceof SortedItemPropertyDescriptor) {
-
-			// If we have a SortedItemPropertyDescriptor at this row,
-			// return the corresponding default cell renderer for
-			// attribute rows
-			AttributeValue attributeValue = ((ProrPropertyContentProvider) agileGrid
-					.getContentProvider()).getReqIfAttributeValue(row);
-			if (attributeValue != null) {
-				return this.attributeCellRenderer;
+		} else if (propertyRow instanceof Descriptor) {
+			Descriptor descriptor = (Descriptor) propertyRow;
+			if (col == 0) {
+				return super.getCellRenderer(row, col);
+			} else if (descriptor.isRMFSpecific()) {
+				return attributeCellRenderer;
 			} else {
-
-				// else if we have a specific EMF attribute return the renderer
-				// for it
-				IItemLabelProvider labelProvider = contentProvider
-						.getItemLabelProvider(row);
-				if (labelProvider != null) {
-
-					Object itemPropertyValue = contentProvider
-							.getItemPropertyValue(row);
-
-					final String text = labelProvider
-							.getText(itemPropertyValue);
-					final Image image = getImageFromObject(labelProvider
-							.getImage(itemPropertyValue));
-
-					return new TextCellRenderer(agileGrid) {
-
-						@Override
-						protected void doDrawCellContent(GC gc, Rectangle rect,
-								int row, int col) {
-
-							// TODO: Check agile grid problem with third column
-							// We render only the second column (emf property
-							// value)
-							if (col == 1) {
-
-								if ((style & ICellRenderer.DRAW_VERTICAL) != 0) {
-									drawVerticalTextImage(gc, rect, text, null,
-											foreground, background);
-								} else {
-									int alignment = getAlignment();
-									drawTextImage(gc, text, alignment, image,
-											alignment, rect.x + 3, rect.y + 2,
-											rect.width - 6, rect.height - 4);
-								}
-
-							}
-
-						}
-
-					};
-
-				}
-				
+				return defaultAttributeRenderer;
 			}
-
+		} else {
+			throw new IllegalArgumentException("Unexpected: " + propertyRow);
 		}
-
-		// Else return the agile grid default cell renderer
-		return super.getCellRenderer(row, col);
-
 	}
 	
-	private Image getImageFromObject(Object object) {
-		return ExtendedImageRegistry.getInstance().getImage(object);
-	}
+	/**
+	 * A simple TextCellRenderer that is used if no other renderer is available.
+	 * It only renders if the content is a {@link Descriptor}.
+	 */
+	private class SimpleTextCellRenderer extends TextCellRenderer {
 
+		public SimpleTextCellRenderer(AgileGrid agileGrid) {
+			super(agileGrid);
+		}
+
+		@Override
+		protected void doDrawCellContent(GC gc,
+				org.eclipse.swt.graphics.Rectangle rect, int row, int col) {
+
+			PropertyRow propertyRow = (PropertyRow) contentProvider
+					.getRowContent(row);
+			if (!(propertyRow instanceof Descriptor))
+				return;
+
+			IItemPropertyDescriptor propertyDescriptor = ((Descriptor) propertyRow)
+					.getItemPropertyDescriptor();
+			Object propertyValue = propertyDescriptor
+					.getPropertyValue(contentProvider.getElement());
+			IItemLabelProvider labelProvider = propertyDescriptor
+					.getLabelProvider(propertyValue);
+			Image image = ExtendedImageRegistry.getInstance().getImage(
+					labelProvider.getImage(propertyValue));
+
+			drawTextImage(gc, " " + propertyRow.toString(), alignment, image,
+					alignment, rect.x + 2, rect.y + 1, rect.width - 1,
+					rect.height - 1);
+		}
+	}
 }

@@ -14,6 +14,7 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.AttributeValueString;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.TraverseEvent;
@@ -23,11 +24,14 @@ public class LinewrapCellEditor extends TextCellEditor {
 	private final EditingDomain editingDomain;
 	private AttributeValueString attributeValue;
 	private Object affectedObject;
+	private SpecElementWithAttributes parent;
 
-	public LinewrapCellEditor(AgileGrid agileGrid, EditingDomain editingDomain, Object affectedObject) {
+	public LinewrapCellEditor(AgileGrid agileGrid, EditingDomain editingDomain,
+			SpecElementWithAttributes parent, Object affectedObject) {
 		super(agileGrid, SWT.WRAP);
 		this.editingDomain = editingDomain;
 		this.affectedObject = affectedObject;
+		this.parent = parent;
 	}
 
 	/**
@@ -48,7 +52,8 @@ public class LinewrapCellEditor extends TextCellEditor {
 			return attributeValue;
 		}
 
-		ProrUtil.setTheValue(attributeValue, text.getText(), affectedObject,
+		ProrUtil.setTheValue(attributeValue, text.getText(), parent,
+				affectedObject,
 				editingDomain);
 
 		return attributeValue;

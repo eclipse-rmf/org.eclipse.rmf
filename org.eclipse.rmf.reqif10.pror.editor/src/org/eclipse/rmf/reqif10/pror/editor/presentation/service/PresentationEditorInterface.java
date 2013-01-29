@@ -19,6 +19,7 @@ import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.pror.util.PresentationEditInterface;
 
 /**
@@ -85,7 +86,8 @@ public interface PresentationEditorInterface {
 	 * @return
 	 */
 	CellEditor getCellEditor(AgileGrid agileGrid, EditingDomain editingDomain,
-			AttributeValue av, Object affectedObject);
+			AttributeValue av, SpecElementWithAttributes parent,
+			Object affectedObject);
 
 	/**
 	 * Whether the managed {@link AttributeDefinition}s may be modified.

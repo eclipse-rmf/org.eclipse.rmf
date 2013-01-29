@@ -30,10 +30,13 @@ import org.eclipse.swt.widgets.Display;
  * current selection. It is instantiated twice, once for all and ones for those
  * properties relevant to users (via showAllProps).
  * 
+ * @author Lukas Ladenberger
+ * @author Michael Jastram
+ * 
  */
 public class ProrPropertyControl extends AgileGrid implements PropertyChangeListener {
 
-	private ProrPropertyContentProvider contentProvider;
+	private ProrPropertyContentProvider2 contentProvider;
 	
 	private Object object;
 
@@ -42,7 +45,8 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 		super(parent, SWT.V_SCROLL | SWT.H_SCROLL | SWTX.FILL_WITH_LASTCOL
 				| SWT.MULTI | SWT.DOUBLE_BUFFERED);
 		setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
-		this.contentProvider = new ProrPropertyContentProvider(editingDomain, showAllProps);
+		this.contentProvider = new ProrPropertyContentProvider2(adapterFactory,
+				showAllProps);
 		setContentProvider(this.contentProvider);
 		setCellRendererProvider(new ProrPropertyCellRendererProvider(this,
 				adapterFactory, contentProvider));

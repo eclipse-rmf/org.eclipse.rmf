@@ -28,8 +28,15 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionReal;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
+/**
+ * Foundation for AgileGrid Cell Editors for ProR. Used in the Specification
+ * Editor and the Property View.
+ * 
+ * @author jastram
+ */
 public abstract class AbstractProrCellEditorProvider extends
 		DefaultCellEditorProvider {
 
@@ -45,13 +52,15 @@ public abstract class AbstractProrCellEditorProvider extends
 
 	// TODO Not pretty, not readable
 	/**
-	 * This methods returns the default cell editor for an attribute value
+	 * This methods returns the default cell editor for an attribute value. Note
+	 * that it does not set the value!
 	 * 
 	 * @param value
 	 * @param affectedObject
 	 * @return the default cell editor for the attribute value
 	 */
 	protected CellEditor getDefaultCellEditor(AttributeValue value,
+			Object parent,
 			Object affectedObject) {
 		DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(value);
 		if (dd == null) {
@@ -65,23 +74,27 @@ public abstract class AbstractProrCellEditorProvider extends
 			return new ProrCheckboxCellEditor(agileGrid, editingDomain);
 		} else if (dd instanceof DatatypeDefinitionDate) {
 			return new ProrDateCellEditor(agileGrid, editingDomain,
+					(SpecElementWithAttributes) parent,
 					affectedObject);
 		} else if (dd instanceof DatatypeDefinitionInteger) {
 			DatatypeDefinitionInteger ddi = (DatatypeDefinitionInteger) dd;
 			ProrIntegerCellEditor integerCellEditor = new ProrIntegerCellEditor(
-					agileGrid, editingDomain, affectedObject);
+					agileGrid, (SpecElementWithAttributes) parent,
+					editingDomain, affectedObject);
 			integerCellEditor.setRange(ddi.getMin(), ddi.getMax());
 			return integerCellEditor;
 		} else if (dd instanceof DatatypeDefinitionReal) {
 			DatatypeDefinitionReal ddr = (DatatypeDefinitionReal) dd;
 			ProrRealCellEditor realCellEditor = new ProrRealCellEditor(
-					agileGrid, editingDomain, affectedObject);
+					agileGrid, editingDomain,
+					(SpecElementWithAttributes) parent, affectedObject);
 			realCellEditor.setRange(ddr.getMin(), ddr.getMax());
 			return realCellEditor;
 		} else if (dd instanceof DatatypeDefinitionString) {
 			DatatypeDefinitionString dds = (DatatypeDefinitionString) dd;
 			ProrStringCellEditor stringCellEditor = new ProrStringCellEditor(
-					agileGrid, editingDomain, affectedObject);
+					agileGrid, editingDomain,
+					(SpecElementWithAttributes) parent, affectedObject);
 			stringCellEditor.setMaxLength(dds.getMaxLength() != null ? dds
 					.getMaxLength() : new BigInteger(Integer.MAX_VALUE + ""));
 			return stringCellEditor;

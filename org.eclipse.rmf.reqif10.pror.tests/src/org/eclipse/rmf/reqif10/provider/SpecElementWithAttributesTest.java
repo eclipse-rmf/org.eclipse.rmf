@@ -11,9 +11,7 @@
 
 package org.eclipse.rmf.reqif10.provider;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.*;
 
 import java.net.URISyntaxException;
 import java.util.Collection;
@@ -27,6 +25,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
@@ -342,6 +341,31 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES, type);
 		setFixtureType(getFixture(), type);
 		return type;
+	}
+
+	/**
+	 * SpecType and AttributeValues can be out of sync (which is bad). If they
+	 * are, what matters? Answer: The type. This is what we test here.
+	 * 
+	 * @throws URISyntaxException
+	 */
+	@Test
+	public void testThatSpecTypeMattersForPropertyValues()
+			throws URISyntaxException {
+		ReqIF reqif = getTestReqif("simple.reqif");
+		setSpecTypeWithoutAttributeOnFixture(reqif);
+
+		// Add a Value that should not be reported via Properties
+		AttributeValueString value = ReqIF10Factory.eINSTANCE
+				.createAttributeValueString();
+		value.setDefinition((AttributeDefinitionString) reqif.getCoreContent()
+				.getSpecTypes().get(0).getSpecAttributes().get(0));
+		 getFixture().getValues().add(value);
+		ItemProviderAdapter provider = getItemProvider(getFixture());
+		List<IItemPropertyDescriptor> descriptors = provider
+				.getPropertyDescriptors(getFixture());
+		// There are 5 standard
+		assertEquals(5, descriptors.size());
 	}
 
 	/**

@@ -15,14 +15,15 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.Cell;
 import org.agilemore.agilegrid.DefaultLayoutAdvisor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider2.Category;
 
 public class ProrPropertyLayoutAdvisor extends DefaultLayoutAdvisor {
 
-	private ProrPropertyContentProvider contentProvider;
+	private ProrPropertyContentProvider2 contentProvider;
 
 	public ProrPropertyLayoutAdvisor(AgileGrid agileGrid) {
 		super(agileGrid);
-		this.contentProvider = (ProrPropertyContentProvider) agileGrid
+		this.contentProvider = (ProrPropertyContentProvider2) agileGrid
 				.getContentProvider();
 	}
 
@@ -51,10 +52,10 @@ public class ProrPropertyLayoutAdvisor extends DefaultLayoutAdvisor {
 
 	@Override
 	public Cell mergeInto(int row, int col) {
-		if (col == 1) {
-			Object obj = ((ProrPropertyContentProvider) this.agileGrid
+		if (col == 1 && row >= 0) {
+			Object obj = ((ProrPropertyContentProvider2) this.agileGrid
 					.getContentProvider()).getRowContent(row);
-			if (obj instanceof String) { // Category
+			if (obj instanceof Category) { // Category
 				return new Cell(agileGrid, row, 0);
 			}
 		}

@@ -112,45 +112,50 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 */
 	@Override
 	public Object doGetContentAt(int row, int col) {
+		System.out.println(row + ", " + col);
 
-		if (object != null) {
+		if (object == null) {
+			return null;
+		}
 
-			int size = this.rows.size();
+		int size = this.rows.size();
 
-			if (row > size - 1 || col > 1)
-				return null;
+		if (row > size - 1 || col > 1)
+			return null;
 
-			Object element = this.rows.get(row);
+		Object element = this.rows.get(row);
 
-			switch (col) {
-			case 0:
-				if (element instanceof ItemCategory) { // Category Name
-					return ((ItemCategory) element).getCategoryName();
-				} else if (element instanceof SortedItemPropertyDescriptor) { // Attribute
-					SortedItemPropertyDescriptor descriptor = (SortedItemPropertyDescriptor) element;
-					if (descriptor.getItemPropertyDescriptor() != null) {
-						return descriptor.getItemPropertyDescriptor()
-								.getDisplayName(object);
-					}
+		switch (col) {
+		case 0:
+			if (element instanceof ItemCategory) { // Category Name
+				return ((ItemCategory) element).getCategoryName();
+			} else if (element instanceof SortedItemPropertyDescriptor) { // Attribute
+				SortedItemPropertyDescriptor descriptor = (SortedItemPropertyDescriptor) element;
+				if (descriptor.getItemPropertyDescriptor() != null) {
+					return descriptor.getItemPropertyDescriptor()
+							.getDisplayName(object);
 				}
-			case 1:
-				if (element instanceof SortedItemPropertyDescriptor) {
-					// If we have a ReqIF attribute value return it
-					AttributeValue atrValue = getReqIfAttributeValue((SortedItemPropertyDescriptor) element);
-					if (atrValue != null) {
-						return atrValue;
-					} else {
-						// else if we have a specific EMF attribute return the
-						// EMF attribute value
-						PropertyValueWrapper wrapper = (PropertyValueWrapper) getItemPropertyValue(row);
-						if (wrapper != null)
-							return wrapper.getEditableValue(object);
-					}
-				}
-			default:
-				break;
 			}
-
+		case 1:
+			System.out.println("col 2: " + element);
+			if (element instanceof SortedItemPropertyDescriptor) {
+				// If we have a ReqIF attribute value return it
+				SortedItemPropertyDescriptor descriptor = (SortedItemPropertyDescriptor) element;
+				System.out.println(descriptor.itemPropertyDescriptor
+						.getFeature(object));
+				AttributeValue value = getReqIfAttributeValue(descriptor);
+				if (value != null) {
+					return value;
+				} else {
+					// else if we have a specific EMF attribute return the
+					// EMF attribute value
+					PropertyValueWrapper wrapper = (PropertyValueWrapper) getItemPropertyValue(row);
+					if (wrapper != null)
+						return wrapper.getEditableValue(object);
+				}
+			}
+		default:
+			break;
 		}
 
 		return null;
@@ -341,15 +346,17 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 
 	private AttributeValue getReqIfAttributeValue(
 			SortedItemPropertyDescriptor descriptor) {
-		SpecElementWithAttributes sepcAtr = null;
+		SpecElementWithAttributes specElement = null;
 		if (this.object instanceof SpecElementWithAttributes) {
-			sepcAtr = (SpecElementWithAttributes) this.object;
+			specElement = (SpecElementWithAttributes) this.object;
 		} else if (this.object instanceof SpecHierarchy) {
-			sepcAtr = ((SpecHierarchy) this.object).getObject();
+			specElement = ((SpecHierarchy) this.object).getObject();
 		}
-		if (sepcAtr != null && descriptor.getItemPropertyDescriptor() != null) {
-			return ReqIF10Util.getAttributeValueForLabel(sepcAtr, descriptor
-					.getItemPropertyDescriptor().getDisplayName(sepcAtr));
+		if (specElement != null && descriptor.getItemPropertyDescriptor() != null) {
+			return ReqIF10Util.getAttributeValueForLabel(
+					specElement,
+					descriptor.getItemPropertyDescriptor().getDisplayName(
+							specElement));
 		}
 		return null;
 	}

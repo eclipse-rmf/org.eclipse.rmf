@@ -53,7 +53,10 @@ import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
  * There are a few places where via instancof it is checked whether objects are
  * {@link SpecElementWithAttributes}. This is due to a bug in the ReqIF schema,
  * where {@link RelationGroup} does not inherit from
- * {@link SpecElementWithAttributes}. <!-- end-user-doc -->
+ * {@link SpecElementWithAttributes}.
+ * <p>
+ * 
+ * <!-- end-user-doc -->
  * 
  * @generated NOT
  */
