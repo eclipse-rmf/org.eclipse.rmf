@@ -528,6 +528,7 @@ public class ProrAgileGridViewer extends Viewer {
 		if (settingSelection)
 			return;
 		settingSelection = true;
+		this.selection = (IStructuredSelection) selection;
 
 		Set<Cell> cells = new HashSet<Cell>();
 		for (int row = 0; row < contentProvider.getRowCount(); row++) {
@@ -576,6 +577,9 @@ public class ProrAgileGridViewer extends Viewer {
 				agileGrid.focusCell(cellArray[0]);
 			}
 			agileGrid.selectCells(cellArray);
+			org.eclipse.jface.viewers.SelectionChangedEvent event = new org.eclipse.jface.viewers.SelectionChangedEvent(
+					this, selection);
+			fireSelectionChanged(event);
 		}
 
 		// Notify all Listeners
