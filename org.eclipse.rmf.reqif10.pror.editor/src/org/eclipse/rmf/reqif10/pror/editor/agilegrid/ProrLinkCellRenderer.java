@@ -52,7 +52,8 @@ public class ProrLinkCellRenderer extends AbstractProrCellRenderer {
 		if (content instanceof SpecRelation) {
 			SpecObject target = ((SpecRelation) content).getTarget();
 			if (target != null) {
-				String label = ConfigurationUtil.getSpecElementLabel(target);
+				String label = ConfigurationUtil.getSpecElementLabel(target,
+						adapterFactory);
 				drawTextImage(gc, label, alignment, null, alignment,
 						rect.x + 3, rect.y + 2, rect.width - 6, rect.height - 4);
 			}

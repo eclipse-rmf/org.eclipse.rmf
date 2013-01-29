@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
@@ -45,16 +44,12 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
-import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
 
 public class ConfigurationUtil {
 
 	public static final String DEFAULT_LEFT_HEADER_COLUMN_NAME = "Lead Header Column";
 	public static final int DEFAULT_LEFT_HEADER_COLUMN_WIDTH = 30;
-
-	// Lazily instantiated
-	private static ComposedAdapterFactory CONFIG_FACTORY;
 
 	/**
 	 * @return The Configuration element for the given
@@ -181,10 +176,11 @@ public class ConfigurationUtil {
 	 * 
 	 * @param specElement
 	 * @param adapterFactory
+	 * @param adapterFactory
 	 * @return
 	 */
 	public static String getSpecElementLabel(
-			SpecElementWithAttributes specElement) {
+			SpecElementWithAttributes specElement, AdapterFactory adapterFactory) {
 
 		List<String> labels = getDefaultLabels(ReqIF10Util
 				.getReqIF(specElement));
@@ -201,16 +197,8 @@ public class ConfigurationUtil {
 				if (label.equals(ad.getLongName())) {
 					ProrPresentationConfiguration config = getPresentationConfig(value);
 
-					// The provided adapterFactory may not find the
-					// ItemProvider.
-					if (CONFIG_FACTORY == null) {
-						CONFIG_FACTORY = new ComposedAdapterFactory(
-								ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-						CONFIG_FACTORY
-								.addAdapterFactory(new ConfigurationItemProviderAdapterFactory());
-					}
 					ItemProviderAdapter ip = ProrUtil.getItemProvider(
-							CONFIG_FACTORY, config);
+							adapterFactory, config);
 					if (ip instanceof PresentationEditInterface) {
 						String customLabel = ((PresentationEditInterface) ip)
 								.getLabel(value);

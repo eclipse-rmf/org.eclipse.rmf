@@ -144,7 +144,8 @@ public abstract class SpecElementWithAttributesItemProvider extends
 		if (object instanceof SpecElementWithAttributes) {
 			SpecElementWithAttributes specElement = (SpecElementWithAttributes) object;
 
-			return ConfigurationUtil.getSpecElementLabel(specElement);
+			return ConfigurationUtil.getSpecElementLabel(specElement,
+					adapterFactory);
 		} else if (object instanceof Identifiable) {
 			return ((Identifiable) object).getIdentifier();
 		} else {
