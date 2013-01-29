@@ -45,8 +45,8 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.AbstractProrCellEditorProvider;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
-import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider2.Descriptor;
-import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider2.PropertyRow;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.Descriptor;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.PropertyRow;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.swt.SWT;
@@ -62,11 +62,11 @@ import org.eclipse.swt.widgets.Shell;
  */
 public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvider {
 
-	private final ProrPropertyContentProvider2 contentProvider;
+	private final ProrPropertyContentProvider contentProvider;
 	
 	public ProrPropertyCellEditorProvider(AgileGrid agileGrid,
 			AdapterFactory adapterFactory, EditingDomain editingDomain,
-			ProrPropertyContentProvider2 contentProvider) {
+			ProrPropertyContentProvider contentProvider) {
 		super(agileGrid, adapterFactory, editingDomain);
 		this.contentProvider = contentProvider;
 	}
@@ -167,7 +167,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 			
 				if (categoryName != null
 						&& categoryName
-								.equals(ProrPropertyContentProvider2.SPEC_OBJECT_NAME)) {
+								.equals(ProrPropertyContentProvider.SPEC_OBJECT_NAME)) {
 				if (this.contentProvider.getElement() instanceof SpecHierarchy)
 					selectedElement = ((SpecHierarchy) this.contentProvider.getElement())
 							.getObject();

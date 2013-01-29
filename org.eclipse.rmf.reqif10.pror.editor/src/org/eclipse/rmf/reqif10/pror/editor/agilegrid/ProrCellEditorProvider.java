@@ -40,7 +40,7 @@ public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 	protected AttributeValue getAttributeValue(int row, int col) {
 		SpecElementWithAttributes specElement = contentProvider.getProrRow(row)
 				.getSpecElement();
-		return contentProvider.getValueForColumn(specElement, col);
+		return contentProvider.getValueForColumn(specElement, row, col);
 	}
 
 	@Override

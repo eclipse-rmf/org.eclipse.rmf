@@ -39,6 +39,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
@@ -258,6 +259,7 @@ public class HeadlineConfigurationItemProvider
 
 	public CellEditor getCellEditor(AgileGrid agileGrid,
 			EditingDomain editingDomain, AttributeValue av,
+			SpecElementWithAttributes parent,
 			Object affectedObject) {
 		// No custom cell editor
 		return null;

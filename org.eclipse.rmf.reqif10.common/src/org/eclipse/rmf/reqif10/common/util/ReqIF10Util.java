@@ -16,6 +16,13 @@ import java.lang.reflect.Method;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
+import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
+import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
+import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
+import org.eclipse.rmf.reqif10.AttributeDefinitionInteger;
+import org.eclipse.rmf.reqif10.AttributeDefinitionReal;
+import org.eclipse.rmf.reqif10.AttributeDefinitionString;
+import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueBoolean;
 import org.eclipse.rmf.reqif10.AttributeValueDate;
@@ -27,6 +34,7 @@ import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecType;
@@ -100,22 +108,43 @@ public class ReqIF10Util {
 	}
 
 	/**
-	 * Finds the {@link AttributeValue} for the given {@link SpecElementWithUserDefinedAttributes}. May return null.
+	 * Finds the {@link AttributeValue} for the given {@link SpecElementWithUserDefinedAttributes}. If it does not exist
+	 * yet, it is created (but not attached to the specElement. If an attributeDefinition with the label does not exist,
+	 * null is returned.
 	 */
 	public static AttributeValue getAttributeValueForLabel(SpecElementWithAttributes element, String label) {
 		if (label == null) {
 			return null;
 		}
-		for (AttributeValue value : element.getValues()) {
-			if (value == null) {
-				continue;
+
+		// find the AttributeDefinition for the label
+		SpecType type = ReqIF10Util.getSpecType(element);
+		if (type == null) {
+			return null;
+		}
+
+		AttributeDefinition attrDef = null;
+		for (AttributeDefinition ad : type.getSpecAttributes()) {
+			if (label.equals(ad.getLongName())) {
+				attrDef = ad;
+				break;
 			}
+		}
+
+		if (attrDef == null) {
+			return null;
+		}
+
+		// Is there already a value with this AttributeDefinition?
+		for (AttributeValue value : element.getValues()) {
 			AttributeDefinition ad = getAttributeDefinition(value);
-			if (ad != null && label.equals(ad.getLongName())) {
+			if (attrDef.equals(ad)) {
 				return value;
 			}
 		}
-		return null;
+
+		// No: Create a new AttributeDefinition
+		return createAttributeValue(attrDef);
 	}
 
 	/**
@@ -210,6 +239,77 @@ public class ReqIF10Util {
 			return ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES;
 		} else {
 			throw new IllegalArgumentException("Unknown AttributeValue: " + attributeValue); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * Returns an empty value of the correct type for the given {@link AttributeDefinition} (Would be so much easier
+	 * with inheritance). Note that we do not use the command stack here.
+	 * <p>
+	 * TODO There must be a better way (reflection?)
+	 */
+	public static AttributeValue createAttributeValue(AttributeDefinition attributeDefinition) {
+		if (attributeDefinition == null) {
+			return null;
+		} else if (attributeDefinition instanceof AttributeDefinitionBoolean) {
+			AttributeValueBoolean value = ReqIF10Factory.eINSTANCE.createAttributeValueBoolean();
+			value.setDefinition((AttributeDefinitionBoolean) attributeDefinition);
+			AttributeValueBoolean defaultValue = ((AttributeDefinitionBoolean) attributeDefinition).getDefaultValue();
+			if (defaultValue != null) {
+				value.setTheValue(defaultValue.isTheValue());
+			}
+			return value;
+		} else if (attributeDefinition instanceof AttributeDefinitionDate) {
+			AttributeValueDate value = ReqIF10Factory.eINSTANCE.createAttributeValueDate();
+			value.setDefinition((AttributeDefinitionDate) attributeDefinition);
+			AttributeValueDate defaultValue = ((AttributeDefinitionDate) attributeDefinition).getDefaultValue();
+			if (defaultValue != null) {
+				value.setTheValue(defaultValue.getTheValue());
+			}
+			return value;
+		} else if (attributeDefinition instanceof AttributeDefinitionInteger) {
+			AttributeValueInteger value = ReqIF10Factory.eINSTANCE.createAttributeValueInteger();
+			value.setDefinition((AttributeDefinitionInteger) attributeDefinition);
+			AttributeValueInteger defaultValue = ((AttributeDefinitionInteger) attributeDefinition).getDefaultValue();
+			if (defaultValue != null) {
+				value.setTheValue(defaultValue.getTheValue());
+			}
+			return value;
+		} else if (attributeDefinition instanceof AttributeDefinitionReal) {
+			AttributeValueReal value = ReqIF10Factory.eINSTANCE.createAttributeValueReal();
+			value.setDefinition((AttributeDefinitionReal) attributeDefinition);
+			AttributeValueReal defaultValue = ((AttributeDefinitionReal) attributeDefinition).getDefaultValue();
+			if (defaultValue != null) {
+				value.setTheValue(defaultValue.getTheValue());
+			}
+			return value;
+		} else if (attributeDefinition instanceof AttributeDefinitionString) {
+			AttributeValueString value = ReqIF10Factory.eINSTANCE.createAttributeValueString();
+			value.setDefinition((AttributeDefinitionString) attributeDefinition);
+
+			AttributeValueString defaultValue = ((AttributeDefinitionString) attributeDefinition).getDefaultValue();
+			if (defaultValue != null) {
+				value.setTheValue(defaultValue.getTheValue());
+			}
+			return value;
+		} else if (attributeDefinition instanceof AttributeDefinitionXHTML) {
+			AttributeValueXHTML value = ReqIF10Factory.eINSTANCE.createAttributeValueXHTML();
+			value.setDefinition((AttributeDefinitionXHTML) attributeDefinition);
+			AttributeValueXHTML defaultValue = ((AttributeDefinitionXHTML) attributeDefinition).getDefaultValue();
+			if (defaultValue != null) {
+				value.setTheValue(defaultValue.getTheValue());
+			}
+			return value;
+		} else if (attributeDefinition instanceof AttributeDefinitionEnumeration) {
+			AttributeValueEnumeration value = ReqIF10Factory.eINSTANCE.createAttributeValueEnumeration();
+			value.setDefinition((AttributeDefinitionEnumeration) attributeDefinition);
+			AttributeValueEnumeration defaultValue = ((AttributeDefinitionEnumeration) attributeDefinition).getDefaultValue();
+			if (defaultValue != null) {
+				value.getValues().addAll(defaultValue.getValues());
+			}
+			return value;
+		} else {
+			throw new IllegalArgumentException("Type not supported: " + attributeDefinition);
 		}
 	}
 

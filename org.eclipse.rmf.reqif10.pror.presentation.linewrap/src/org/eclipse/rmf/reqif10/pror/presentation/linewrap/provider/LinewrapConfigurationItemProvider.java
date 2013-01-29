@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionSimple;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ProrPresentationConfigurationItemProvider;
@@ -182,8 +183,10 @@ public class LinewrapConfigurationItemProvider
 	}
 
 	public CellEditor getCellEditor(AgileGrid agileGrid,
-			EditingDomain editingDomain, AttributeValue av, Object affectedObject) {
-		return new LinewrapCellEditor(agileGrid, editingDomain, affectedObject);
+			EditingDomain editingDomain, AttributeValue av,
+			SpecElementWithAttributes parent, Object affectedObject) {
+		return new LinewrapCellEditor(agileGrid, editingDomain, parent,
+				affectedObject);
 	}
 
 	public boolean canEdit() {

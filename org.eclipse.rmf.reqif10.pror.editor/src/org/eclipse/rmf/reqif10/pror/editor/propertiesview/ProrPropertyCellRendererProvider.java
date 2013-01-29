@@ -20,9 +20,9 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider2.Category;
-import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider2.Descriptor;
-import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider2.PropertyRow;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.Category;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.Descriptor;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.PropertyRow;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
@@ -49,11 +49,11 @@ public class ProrPropertyCellRendererProvider extends DefaultCellRendererProvide
 	// Plain renderer to show text
 	private final SimpleTextCellRenderer defaultAttributeRenderer;
 
-	private ProrPropertyContentProvider2 contentProvider;
+	private ProrPropertyContentProvider contentProvider;
 
 	public ProrPropertyCellRendererProvider(AgileGrid agileGrid,
 			AdapterFactory adapterFactory,
-			ProrPropertyContentProvider2 contentProvider) {
+			ProrPropertyContentProvider contentProvider) {
 		super(agileGrid);
 		this.contentProvider = contentProvider;
 		this.attributeCellRenderer = new ProrPropertyCellRenderer(agileGrid,

@@ -1,39 +1,27 @@
-/*******************************************************************************
- * Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *     Michael Jastram - initial API and implementation
- *     Lukas Ladenberger - ProR GUI     
- ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.propertiesview;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.agilemore.agilegrid.AbstractContentProvider;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor.PropertyValueWrapper;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
-import org.eclipse.rmf.reqif10.SpecObject;
-import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
 /**
- * 
- * The agile grid content provider for the properties view.
+ * The agile grid content provider for the properties view. Internally, it
+ * manages a List of PropertyRows. These represent Categories and Descriptors
+ * (for AttributeValues and EMF Values)
  * 
  * @author Lukas Ladenberger
  * @author Michael Jastram
@@ -41,420 +29,287 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
  */
 public class ProrPropertyContentProvider extends AbstractContentProvider {
 
-	private AdapterFactoryEditingDomain editingDomain;
-
-	// The current selected specification element
-	private Object object;
-
-	// This is only a help HashMap for storing temporarily the item categories
-	private HashMap<String, ItemCategory> customCategories;
-
+	// Special categories that should be ordered differently
 	public static String SPEC_HIERARCHY_NAME = "Spec Hierarchy";
 	public static String SPEC_OBJECT_NAME = "Spec Object";
 	public static String SPEC_RELATION_NAME = "Spec Relation";
+	public static String SPECIFICATION_NAME = "Specification";
+	public static String RELATION_GROUP_NAME = "Relation Group";
 
-	private static HashSet<AdvancedProp> ADVANCED_PROPS;
+	// Only access via getRows(), to ensure it's not null.
+	private List<PropertyRow> rows;
 
-	private ItemCategory specHierarchyItemCategory = new ItemCategory(
-			SPEC_HIERARCHY_NAME);
-	private ItemCategory specObjectItemCategory = new ItemCategory(
-			SPEC_OBJECT_NAME);
-	private ItemCategory specRelationItemCategory = new ItemCategory(
-			SPEC_RELATION_NAME);
+	// The Object whose properties are shown.
+	private Object content;
 
-	// HashMap for storing the row with the corresponding object
-	private HashMap<Integer, Object> rows;
-
+	// Whether to show all properties or not
 	private boolean showAllProps;
 
-	public static String DEFAULT_CATEGORY_NAME = "Misc";
+	private AdapterFactory adapterFactory;
 
-	static {
-		ADVANCED_PROPS = new HashSet<ProrPropertyContentProvider.AdvancedProp>();
-		ADVANCED_PROPS.add(new AdvancedProp("Specification", "identifier"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Object", "identifier"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "identifier"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Relation", "identifier"));
-		ADVANCED_PROPS.add(new AdvancedProp("Specification", "longName"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Object", "longName"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "longName"));
-		ADVANCED_PROPS.add(new AdvancedProp("Relation", "longName"));
-		ADVANCED_PROPS.add(new AdvancedProp("Specification", "lastChange"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Object", "lastChange"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "lastChange"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Relation", "lastChange"));
-		ADVANCED_PROPS.add(new AdvancedProp("Specification", "desc"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Object", "desc"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "desc"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Relation", "desc"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "tableInternal"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "object"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "editableAtts"));
-		ADVANCED_PROPS.add(new AdvancedProp("Spec Hierarchy", "editable"));
-
-		ADVANCED_PROPS.add(new AdvancedProp(null, "desc"));
-		ADVANCED_PROPS.add(new AdvancedProp(null, "identifier"));
-		ADVANCED_PROPS.add(new AdvancedProp(null, "lastChange"));
-		ADVANCED_PROPS.add(new AdvancedProp(null, "editable"));
-	}
-
-	public ProrPropertyContentProvider(EditingDomain editingDomain,
+	public ProrPropertyContentProvider(AdapterFactory adapterFactory,
 			boolean showAllProps) {
-		this.editingDomain = (AdapterFactoryEditingDomain) editingDomain;
-		this.customCategories = new HashMap<String, ItemCategory>();
-		this.rows = new HashMap<Integer, Object>();
+		this.adapterFactory = adapterFactory;
 		this.showAllProps = showAllProps;
 	}
 
-	/**
-	 * This method is responsible for displaying the right content at the given
-	 * row and col.
-	 */
 	@Override
 	public Object doGetContentAt(int row, int col) {
-		System.out.println(row + ", " + col);
+		return getRows().get(row).getContent(col);
+	}
 
-		if (object == null) {
-			return null;
-		}
-
-		int size = this.rows.size();
-
-		if (row > size - 1 || col > 1)
-			return null;
-
-		Object element = this.rows.get(row);
-
-		switch (col) {
-		case 0:
-			if (element instanceof ItemCategory) { // Category Name
-				return ((ItemCategory) element).getCategoryName();
-			} else if (element instanceof SortedItemPropertyDescriptor) { // Attribute
-				SortedItemPropertyDescriptor descriptor = (SortedItemPropertyDescriptor) element;
-				if (descriptor.getItemPropertyDescriptor() != null) {
-					return descriptor.getItemPropertyDescriptor()
-							.getDisplayName(object);
-				}
-			}
-		case 1:
-			System.out.println("col 2: " + element);
-			if (element instanceof SortedItemPropertyDescriptor) {
-				// If we have a ReqIF attribute value return it
-				SortedItemPropertyDescriptor descriptor = (SortedItemPropertyDescriptor) element;
-				System.out.println(descriptor.itemPropertyDescriptor
-						.getFeature(object));
-				AttributeValue value = getReqIfAttributeValue(descriptor);
-				if (value != null) {
-					return value;
-				} else {
-					// else if we have a specific EMF attribute return the
-					// EMF attribute value
-					PropertyValueWrapper wrapper = (PropertyValueWrapper) getItemPropertyValue(row);
-					if (wrapper != null)
-						return wrapper.getEditableValue(object);
-				}
-			}
-		default:
-			break;
-		}
-
-		return null;
-
+	/**
+	 * This is the object for which this contentProvider manges the properties.
+	 * It is either a {@link SpecElementWithAttributes} or a
+	 * {@link SpecHierarchy}.
+	 */
+	Object getElement() {
+		return content;
 	}
 
 	@Override
-	public void doSetContentAt(int row, int col, Object newValue) {
+	public void doSetContentAt(int row, int col, Object value) {
 		// We don't need this method, cause an automatic refresh of the agile
 		// grid after editing a cell
-	}
-	
-	public void setContentAt(int row, int col, Object newValue) {
-		super.setContentAt(row, col, newValue);
-		
 		// Fix of 378041:
 		// needed to inform ProrPropertyControl of property change.
-		// firePropertyChange is never called from AbstractContentProvider.setContentAt(..)
-		// because oldValue is equal to newValue (value already updated somewhere else?)
+		// firePropertyChange is never called from
+		// AbstractContentProvider.setContentAt(..)
+		// because oldValue is equal to newValue (value already updated
+		// somewhere else?)
 		super.firePropertyChange("", null, null);
 	}
 
-	/**
-	 * Sets the current selected specification element and fetches the
-	 * corresponding {@link IItemPropertyDescriptor} and builds up the structure
-	 * to be displayed.
-	 * 
-	 * @param object
-	 *            the selected specification element
-	 */
-	protected void setContent(Object obj) {
-
-		this.object = obj;
-
-		this.customCategories.clear();
-		this.specHierarchyItemCategory.getDescriptors().clear();
-		this.specObjectItemCategory.getDescriptors().clear();
-		this.specRelationItemCategory.getDescriptors().clear();
-		this.rows.clear();
-
-		if (object != null) {
-
-			// Get the item property source
-			IItemPropertySource itemPropertySource = (IItemPropertySource) this.editingDomain
-					.getAdapterFactory().adapt(object,
-							IItemPropertySource.class);
-
-			// Get the list of item property descriptors
-			List<IItemPropertyDescriptor> descriptorList = itemPropertySource
-					.getPropertyDescriptors(object);
-
-			// Iterate over the item property descriptors and collect the needed
-			// data
-			for (IItemPropertyDescriptor descriptor : descriptorList) {
-
-				if (!showAllProps && !isStandard(descriptor))
-					continue;
-
-				String categoryName = descriptor.getCategory(object);
-
-				if (categoryName == null)
-					categoryName = DEFAULT_CATEGORY_NAME;
-
-				ItemCategory customCategory;
-
-				if (categoryName.equals(SPEC_HIERARCHY_NAME)) {
-					specHierarchyItemCategory.addDescriptor(descriptor, object);
-				} else if (categoryName.equals(SPEC_OBJECT_NAME)) {
-					specObjectItemCategory.addDescriptor(descriptor, object);
-				} else if (categoryName.equals(SPEC_RELATION_NAME)) {
-					specRelationItemCategory.addDescriptor(descriptor, object);
-				} else {
-					if (!this.customCategories.containsKey(categoryName)) {
-						customCategory = new ItemCategory(categoryName);
-						customCategory.addDescriptor(descriptor, object);
-						this.customCategories.put(categoryName, customCategory);
-					} else {
-						customCategory = this.customCategories
-								.get(categoryName);
-						customCategory.addDescriptor(descriptor, object);
-					}
-				}
-
-			}
-
-			for (ItemCategory cat : customCategories.values())
-				addItemCategory(cat);
-			addItemCategory(specObjectItemCategory);
-			addItemCategory(specHierarchyItemCategory);
-			addItemCategory(specRelationItemCategory);
-
-		}
-
+	public PropertyRow getRowContent(int row) {
+		return getRows().get(row);
 	}
 
-	/**
-	 * If {@link #showAllProps} is false, only standard descriptors are
-	 * considered.
-	 */
-	private boolean isStandard(IItemPropertyDescriptor descriptor) {
-		return !ADVANCED_PROPS.contains(new AdvancedProp(descriptor
-				.getCategory(object), descriptor.getId(object)));
-	}
-
-	private void addItemCategory(ItemCategory cat) {
-		if (cat.getDescriptors().size() == 0)
-			return;
-		int size = this.rows.size();
-		this.rows.put(size, cat);
-		size = size + 1;
-		Collections.sort(cat.getDescriptors());
-		for (SortedItemPropertyDescriptor des : cat.getDescriptors()) {
-			this.rows.put(size, des);
-			size = size + 1;
-		}
-	}
-
-	/**
-	 * Returns the current selected specification element. This could be i.e. an
-	 * instance of {@link SpecObject}, {@link SpecRelation} or
-	 * {@link SpecHierarchyRoot}.
-	 * 
-	 * @return an instance of the current selected specification element.
-	 */
-	public Object getElement() {
-		return this.object;
-	}
-
-	/**
-	 * Returns the {@link SortedItemPropertyDescriptor} of the row's object.
-	 * 
-	 * @param row
-	 * @return an instance of {@link SortedItemPropertyDescriptor}
-	 */
-	public SortedItemPropertyDescriptor getItemPropertyDescriptor(int row) {
-		if (this.object != null) {
-			Object obj = this.rows.get(row);
-			if (obj instanceof SortedItemPropertyDescriptor) {
-				return (SortedItemPropertyDescriptor) obj;
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Returns the {@link IItemLabelProvider} of the row's object.
-	 * 
-	 * @param row
-	 * @return an instance of {@link IItemLabelProvider}
-	 */
 	public IItemLabelProvider getItemLabelProvider(int row) {
-		IItemPropertyDescriptor itemPropertyDescriptor = getItemPropertyDescriptor(
-				row).getItemPropertyDescriptor();
-		if (itemPropertyDescriptor != null)
-			return itemPropertyDescriptor.getLabelProvider(this.object);
+		// TODO Auto-generated method stub
 		return null;
 	}
 
-	/**
-	 * Returns the property value (EMF specific) of the row's object.
-	 * 
-	 * @param row
-	 * @return the property value
-	 */
-	public Object getItemPropertyValue(int row) {
-		return getItemPropertyDescriptor(row).getItemPropertyDescriptor()
-				.getPropertyValue(this.object);
-	}
-
-	public Object getRowContent(int row) {
-		return this.rows.get(row);
-	}
-
-	/**
-	 * Returns the {@link AttributeValue} of the row's object or null if no
-	 * {@link AttributeValue} exists.
-	 * 
-	 * @param row
-	 * @return an instance of {@link AttributeValue} or null
-	 */
-	public AttributeValue getReqIfAttributeValue(int row) {
-		Object obj = this.rows.get(row);
-		if (obj instanceof SortedItemPropertyDescriptor) {
-			return getReqIfAttributeValue((SortedItemPropertyDescriptor) obj);
-		}
-		return null;
-	}
-
-	private AttributeValue getReqIfAttributeValue(
-			SortedItemPropertyDescriptor descriptor) {
-		SpecElementWithAttributes specElement = null;
-		if (this.object instanceof SpecElementWithAttributes) {
-			specElement = (SpecElementWithAttributes) this.object;
-		} else if (this.object instanceof SpecHierarchy) {
-			specElement = ((SpecHierarchy) this.object).getObject();
-		}
-		if (specElement != null && descriptor.getItemPropertyDescriptor() != null) {
-			return ReqIF10Util.getAttributeValueForLabel(
-					specElement,
-					descriptor.getItemPropertyDescriptor().getDisplayName(
-							specElement));
-		}
-		return null;
+	public void setContent(Object content) {
+		this.content = content;
+		rows = null;
 	}
 
 	public int getRowCount() {
-		return this.rows.size();
+		return getRows().size();
 	}
 
 	/**
-	 * Helper class for storing category with corresponding
-	 * {@link SortedItemPropertyDescriptor}'s.
+	 * Lazily builds a list of {@link PropertyRow}s, representing either
+	 * {@link Category}s or {@link PropertyRow}s. These are properly ordered.
+	 * 
+	 * @return
 	 */
-	class ItemCategory {
+	private List<PropertyRow> getRows() {
+		// Use cached version if it exists.
+		if (rows != null)
+			return rows;
+		
+		// We get the provider, which may be null.
+		rows = new ArrayList<PropertyRow>();
+		ItemProviderAdapter provider = ProrUtil.getItemProvider(adapterFactory,
+				content);
+		if (provider == null)
+			return rows;
 
-		private String categoryName;
-		private ArrayList<SortedItemPropertyDescriptor> descriptors;
+		// To ensure ordering by category and then alphabetically, we build a
+		// map of sets.
+		// As Descriptors are Comparable, they are properly ordered.
+		TreeMap<String, TreeSet<Descriptor>> categoryMap = new TreeMap<String, TreeSet<Descriptor>>();
+		for (IItemPropertyDescriptor prop : provider
+				.getPropertyDescriptors(content)) {
 
-		public ItemCategory(String categoryName) {
-			this.categoryName = categoryName;
-			this.descriptors = new ArrayList<SortedItemPropertyDescriptor>();
+			if (!showAllProps && isAdvancedProperty(prop))
+				continue;
+
+			String categoryName = prop.getCategory(content);
+			if (categoryName == null) {
+				categoryName = "Misc";
+			}
+			TreeSet<Descriptor> categorySet = categoryMap.get(categoryName);
+			if (categorySet == null) {
+				categorySet = new TreeSet<Descriptor>();
+				categoryMap.put(categoryName, categorySet);
+			}
+			categorySet.add(new Descriptor(prop));
 		}
 
-		public void setCategoryName(String categoryName) {
-			this.categoryName = categoryName;
+		// To ensure user-relevant ordering, we add the following categories in
+		// this order...
+		addCategoryAndRemoveFromMap(categoryMap, SPEC_OBJECT_NAME);
+		addCategoryAndRemoveFromMap(categoryMap, SPEC_RELATION_NAME);
+		addCategoryAndRemoveFromMap(categoryMap, SPEC_HIERARCHY_NAME);
+		addCategoryAndRemoveFromMap(categoryMap, SPECIFICATION_NAME);
+		addCategoryAndRemoveFromMap(categoryMap, RELATION_GROUP_NAME);
+
+		// ... and insert all other categories before.
+		for (String categoryName : categoryMap.keySet()) {
+			rows.add(0, new Category(categoryName));
+			rows.addAll(1, categoryMap.get(categoryName));
 		}
 
-		public String getCategoryName() {
-			return categoryName;
-		}
+		return rows;
+	}
 
-		public ArrayList<SortedItemPropertyDescriptor> getDescriptors() {
-			return descriptors;
+	private void addCategoryAndRemoveFromMap(
+			TreeMap<String, TreeSet<Descriptor>> categoryMap,
+			String categoryName) {
+		if (categoryMap.containsKey(categoryName)) {
+			rows.add(new Category(categoryName));
+			rows.addAll(categoryMap.get(categoryName));
+			categoryMap.remove(categoryName);
 		}
-
-		public void addDescriptor(IItemPropertyDescriptor descriptor,
-				Object specElement) {
-			this.descriptors.add(new SortedItemPropertyDescriptor(descriptor,
-					specElement));
-		}
-
 	}
 
 	/**
-	 * HelpercClass for sorting the {@link IItemPropertyDescriptor}s in the
-	 * categories.
+	 * Return true if this is one of the special properties that should only be
+	 * shown on the advanced property panel.
+	 * 
+	 * @param prop
 	 */
-	class SortedItemPropertyDescriptor implements
-			Comparable<SortedItemPropertyDescriptor> {
-
-		private IItemPropertyDescriptor itemPropertyDescriptor;
-		private Object specElement;
-
-		public SortedItemPropertyDescriptor(
-				IItemPropertyDescriptor itemPropertyDescriptor, Object element) {
-			this.itemPropertyDescriptor = itemPropertyDescriptor;
-			this.specElement = element;
+	private boolean isAdvancedProperty(IItemPropertyDescriptor prop) {
+		String name = prop.getId(content);
+		String category = prop.getCategory(content);
+		
+		// Special case: Datatype Dialog
+		if (category == null && "identifier".equals(name)
+				|| "desc".equals(name) || "lastChange".equals(name)) {
+			return true;
 		}
 
-		public int compareTo(SortedItemPropertyDescriptor o) {
-			return itemPropertyDescriptor.getDisplayName(specElement).compareTo(
-					o.itemPropertyDescriptor.getDisplayName(o.specElement));
+		// Only hide properties that belong to the standard categories
+		if (!(SPEC_HIERARCHY_NAME.equals(category)
+				|| SPEC_RELATION_NAME.equals(category)
+				|| SPEC_OBJECT_NAME.equals(category)
+				|| SPECIFICATION_NAME.equals(category) || RELATION_GROUP_NAME
+					.equals(category))) {
+			return false;
 		}
-
-		public IItemPropertyDescriptor getItemPropertyDescriptor() {
-			return itemPropertyDescriptor;
+		
+		// These are the attributes that shall be hidden.
+		if ("identifier".equals(name) || "desc".equals(name)
+				|| "lastChange".equals(name) || "editable".equals(name)
+				|| "longName".equals(name) || "tableInternal".equals(name)
+				|| "object".equals(name) || "editableAtts".equals(name)) {
+			return true;
 		}
-
-		public Object getSpecElement() {
-			return this.specElement;
-		}
-
+		return false;
 	}
 
-	private static class AdvancedProp {
-		private String category;
-		private String name;
+	/**
+	 * Three implementations of this interface are provided to represent the
+	 * rows of the Property View.
+	 */
+	interface PropertyRow extends Comparable<PropertyRow> {
+		Object getContent(int column);
+	}
 
-		AdvancedProp(String category, String name) {
-			if (category == null)
-				category = DEFAULT_CATEGORY_NAME;
-			if (name == null)
-				throw new NullPointerException();
-			this.category = category;
+	/**
+	 * Rows representing a Category
+	 */
+	class Category implements PropertyRow {
+		String name;
+
+		public Category(String name) {
 			this.name = name;
 		}
 
+		public Object getContent(int column) {
+			return column == 0 ? name : null;
+		}
+
+		public int compareTo(PropertyRow that) {
+			return name.compareTo(((Category) that).name);
+		}
+
 		@Override
-		public boolean equals(Object obj) {
-			if (!(obj instanceof AdvancedProp))
+		public boolean equals(Object that) {
+			if (!(that instanceof Category))
 				return false;
-			AdvancedProp that = (AdvancedProp) obj;
-			return category.equals(that.category) && name.equals(that.name);
+			return compareTo((PropertyRow) that) == 0;
 		}
 
 		@Override
 		public int hashCode() {
-			return category.hashCode() + name.hashCode();
+			return name.hashCode();
 		}
 	}
 
+	/**
+	 * Rows representing an {@link IItemPropertyDescriptor}. This can one that
+	 * is RMF-Specific or EMF-Specific.
+	 */
+	class Descriptor implements PropertyRow {
+		IItemPropertyDescriptor descriptor;
+		AttributeValue attributeValue;
+
+		public Descriptor(IItemPropertyDescriptor descriptor) {
+			this.descriptor = descriptor;
+		}
+
+		public IItemPropertyDescriptor getItemPropertyDescriptor() {
+			return descriptor;
+		}
+
+		public boolean isRMFSpecific() {
+			return descriptor.getFeature(content) == ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES;
+		}
+
+		public Object getContent(int column) {
+			return column == 0 ? descriptor.getDisplayName(content)
+					: descriptor.getPropertyValue(content);
+		}
+
+		public int compareTo(PropertyRow that) {
+			return descriptor.getDisplayName(content).compareTo(
+					((Descriptor) that).descriptor.getDisplayName(content));
+		}
+
+		@Override
+		public String toString() {
+			PropertyValueWrapper propertyValueWrapper = (PropertyValueWrapper) descriptor
+					.getPropertyValue(content);
+			return propertyValueWrapper == null ? ""
+					: propertyValueWrapper.getText(content);
+
+		}
+
+		@Override
+		public boolean equals(Object that) {
+			if (!(that instanceof Descriptor))
+				return false;
+			return compareTo((Descriptor) that) == 0;
+		}
+
+		@Override
+		public int hashCode() {
+			return descriptor.hashCode();
+		}
+
+		/**
+		 * It is quite possible that the AttributeValue does not exist yet. In
+		 * that case, a new AttributeValue is created and returned, but not
+		 * connected to the parent object (i.e. EObject#eContainer() returns
+		 * null).
+		 */
+		public AttributeValue getAttributeValue() {
+			if (!isRMFSpecific())
+				return null;
+
+			// Find the SpecElement
+			SpecElementWithAttributes specElement = null;
+			if (content instanceof SpecElementWithAttributes) {
+				specElement = (SpecElementWithAttributes) content;
+			} else if (content instanceof SpecHierarchy) {
+				specElement = ((SpecHierarchy) content).getObject();
+			}
+
+			return ReqIF10Util.getAttributeValueForLabel(
+					specElement, descriptor.getDisplayName(specElement));
+		}
+	}
 }

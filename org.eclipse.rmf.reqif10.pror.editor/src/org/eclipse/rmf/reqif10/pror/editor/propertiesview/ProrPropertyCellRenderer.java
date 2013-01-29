@@ -20,8 +20,8 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.AbstractProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
-import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider2.Descriptor;
-import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider2.PropertyRow;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.Descriptor;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.PropertyRow;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.swt.graphics.GC;
@@ -43,7 +43,7 @@ public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 	@Override
 	protected void doDrawCellContent(GC gc, Rectangle rect, int row, int col) {
 
-		ProrPropertyContentProvider2 contentProvider = (ProrPropertyContentProvider2) agileGrid
+		ProrPropertyContentProvider contentProvider = (ProrPropertyContentProvider) agileGrid
 				.getContentProvider();
 		PropertyRow propertyRow = contentProvider.getRowContent(row);
 		if (!(propertyRow instanceof Descriptor))

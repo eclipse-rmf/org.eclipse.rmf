@@ -25,6 +25,7 @@ import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Control;
@@ -35,12 +36,16 @@ public class ProrEnumerationSingleValueCellEditor extends CellEditor {
 	private ArrayList<EnumValue> itemList;
 	private final EditingDomain editingDomain;
 	private AttributeValueEnumeration attributeValue;
+	private SpecElementWithAttributes parent;
 
 	public ProrEnumerationSingleValueCellEditor(AgileGrid agileGrid,
-			DatatypeDefinitionEnumeration dde, EditingDomain editingDomain, AdapterFactory adapterFactory) {
+			DatatypeDefinitionEnumeration dde,
+			SpecElementWithAttributes parent, EditingDomain editingDomain,
+			AdapterFactory adapterFactory) {
 		super(agileGrid);
 		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
+		this.parent = parent;
 
 		Combo combo = (Combo) getControl();
 		String[] items = populateItemList(dde);
@@ -77,7 +82,22 @@ public class ProrEnumerationSingleValueCellEditor extends CellEditor {
 	@Override
 	protected Object doGetValue() {
 		int selectedIndex = ((Combo) getControl()).getSelectionIndex();
-		CompoundCommand cmd = new CompoundCommand("Set Enumeration");
+		CompoundCommand cmd = new CompoundCommand("Set Enumeration") {
+			public java.util.Collection<?> getAffectedObjects() {
+				List<? super Object> list = new ArrayList<Object>();
+				list.add(parent);
+				return list;
+			};
+		};
+
+		if (attributeValue.eContainer() == null) {
+			cmd.append(AddCommand
+					.create(editingDomain,
+							parent,
+							ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+							attributeValue));
+		}
+
 		cmd.append(RemoveCommand
 				.create(
 				editingDomain,
@@ -93,6 +113,7 @@ public class ProrEnumerationSingleValueCellEditor extends CellEditor {
 					ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES,
 					itemList.get(selectedIndex)));
 		}
+
 		editingDomain.getCommandStack().execute(cmd);
 		return attributeValue;
 	}

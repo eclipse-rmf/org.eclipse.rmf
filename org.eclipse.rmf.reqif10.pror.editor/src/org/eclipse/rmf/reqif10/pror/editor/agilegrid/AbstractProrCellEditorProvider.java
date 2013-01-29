@@ -29,6 +29,7 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionReal;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 /**
@@ -70,16 +71,19 @@ public abstract class AbstractProrCellEditorProvider extends
 			return null;
 		}
 
+		// Parent may be SpecHierarchy or SpecElement, but we need SpecElement.
+		SpecElementWithAttributes specElement = parent instanceof SpecHierarchy ? ((SpecHierarchy) parent)
+				.getObject() : ((SpecElementWithAttributes) parent);
 		if (dd instanceof DatatypeDefinitionBoolean) {
 			return new ProrCheckboxCellEditor(agileGrid, editingDomain);
 		} else if (dd instanceof DatatypeDefinitionDate) {
 			return new ProrDateCellEditor(agileGrid, editingDomain,
-					(SpecElementWithAttributes) parent,
+					(SpecElementWithAttributes) specElement,
 					affectedObject);
 		} else if (dd instanceof DatatypeDefinitionInteger) {
 			DatatypeDefinitionInteger ddi = (DatatypeDefinitionInteger) dd;
 			ProrIntegerCellEditor integerCellEditor = new ProrIntegerCellEditor(
-					agileGrid, (SpecElementWithAttributes) parent,
+					agileGrid, (SpecElementWithAttributes) specElement,
 					editingDomain, affectedObject);
 			integerCellEditor.setRange(ddi.getMin(), ddi.getMax());
 			return integerCellEditor;
@@ -87,14 +91,14 @@ public abstract class AbstractProrCellEditorProvider extends
 			DatatypeDefinitionReal ddr = (DatatypeDefinitionReal) dd;
 			ProrRealCellEditor realCellEditor = new ProrRealCellEditor(
 					agileGrid, editingDomain,
-					(SpecElementWithAttributes) parent, affectedObject);
+					(SpecElementWithAttributes) specElement, affectedObject);
 			realCellEditor.setRange(ddr.getMin(), ddr.getMax());
 			return realCellEditor;
 		} else if (dd instanceof DatatypeDefinitionString) {
 			DatatypeDefinitionString dds = (DatatypeDefinitionString) dd;
 			ProrStringCellEditor stringCellEditor = new ProrStringCellEditor(
 					agileGrid, editingDomain,
-					(SpecElementWithAttributes) parent, affectedObject);
+					(SpecElementWithAttributes) specElement, affectedObject);
 			stringCellEditor.setMaxLength(dds.getMaxLength() != null ? dds
 					.getMaxLength() : new BigInteger(Integer.MAX_VALUE + ""));
 			return stringCellEditor;
@@ -104,9 +108,11 @@ public abstract class AbstractProrCellEditorProvider extends
 					.getAttributeDefinition(value)).isMultiValued();
 			if (multiValued == null || multiValued.booleanValue() == false) {
 				return new ProrEnumerationSingleValueCellEditor(agileGrid, dde,
+						specElement,
 						editingDomain, adapterFactory);
 			} else {
 				return new ProrEnumerationMultiValueCellEditor(agileGrid, dde,
+						specElement,
 						editingDomain, adapterFactory);
 			}
 		} else if (dd instanceof DatatypeDefinitionXHTML) {

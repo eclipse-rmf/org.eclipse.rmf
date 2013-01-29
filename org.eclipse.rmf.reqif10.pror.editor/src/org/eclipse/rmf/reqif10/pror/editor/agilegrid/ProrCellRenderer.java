@@ -77,7 +77,7 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 		int rowHeight;
 		IProrCellRenderer renderer = null;
 		AttributeValue attrValue = contentProvider.getValueForColumn(
-				contentProvider.getProrRow(row).getSpecElement(), col);
+				contentProvider.getProrRow(row).getSpecElement(), row, col);
 
 		// Consult the presentation
 		ProrPresentationConfiguration config = ConfigurationUtil

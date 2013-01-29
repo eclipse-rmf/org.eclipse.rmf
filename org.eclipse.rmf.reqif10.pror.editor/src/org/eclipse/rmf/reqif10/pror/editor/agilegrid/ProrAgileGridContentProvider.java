@@ -71,7 +71,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 					: null;
 		} else if (col <= specViewConfig.getColumns().size()) {
 			// we return the AttributeValue.
-			return getValueForColumn(element, col);
+			return getValueForColumn(element, row, col);
 		} else {
 			throw new IndexOutOfBoundsException("Column does not exist: " + col);
 		}
@@ -168,7 +168,8 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * Returns the actual {@link AttributeValue} for the given Column and the
 	 * given {@link SpecElementWithUserDefinedAttributes}
 	 */
-	AttributeValue getValueForColumn(SpecElementWithAttributes element, int col) {
+	AttributeValue getValueForColumn(SpecElementWithAttributes element,
+			int row, int col) {
 		// Knock-out criteria
 		if (element == null)
 			return null;
@@ -177,7 +178,8 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 
 		String label = specViewConfig.getColumns().get(col).getLabel();
 
-		return ReqIF10Util.getAttributeValueForLabel(element, label);
+		return ReqIF10Util.getAttributeValueForLabel(element,
+				label);
 	}
 
 	/**

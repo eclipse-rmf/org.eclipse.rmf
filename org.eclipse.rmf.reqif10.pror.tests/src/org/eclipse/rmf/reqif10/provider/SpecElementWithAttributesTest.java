@@ -107,8 +107,9 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 	}
 
 	/**
-	 * Upon setting of a type, the SpecElement's values must reflect the type's
-	 * values. Also, a notification regarding the appearance must be generated.
+	 * Upon setting of a type, the SpecElement's values will not reflect the
+	 * type's values. Also, a notification regarding the appearance must be
+	 * generated.
 	 * <p>
 	 * 
 	 * @throws URISyntaxException
@@ -127,13 +128,11 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 		SpecType type = ReqIF10Util.getSpecType(ad);
 
 		assertSame(type, ReqIF10Util.getSpecType(getFixture()));
-		assertEquals(1, getFixture().getValues().size());
+		assertEquals(0, getFixture().getValues().size());
 
-		// 1.: ADD Reference to new Value(s)
-		// 2.: SET Reference to Type
-		assertEquals(2, notifications.size());
+		// 1.: SET Reference to Type
+		assertEquals(1, notifications.size());
 		assertEquals(getFixture(), notifications.get(0).getNotifier());
-		assertEquals(getFixture(), notifications.get(1).getNotifier());
 	}
 
 	/**
@@ -179,9 +178,8 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 				.createAttributeDefinitionString();
 		this.setViaCommand(type,
 				ReqIF10Package.Literals.SPEC_TYPE__SPEC_ATTRIBUTES, ad2);
-		// First Notification: Value changed
-		// Second Notification: Type changed
-		assertEquals(2, this.notifications.size());
+		// First Notification: Type changed
+		assertEquals(1, this.notifications.size());
 	}
 
 	@Test
@@ -294,6 +292,8 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 				.createAttributeDefinitionString();
 		ad.setLongName("Description");
 		setSpecTypeWithAttributeOnFixture(reqif, ad);
+		AttributeValue av = ReqIF10Util.createAttributeValue(ad);
+		getFixture().getValues().add(av);
 		assertEquals(1, getFixture().getValues().size());
 		setFixtureType(getFixture(), null);
 		assertNull(ReqIF10Util.getSpecType(getFixture()));
@@ -354,6 +354,9 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 			throws URISyntaxException {
 		ReqIF reqif = getTestReqif("simple.reqif");
 		setSpecTypeWithoutAttributeOnFixture(reqif);
+		ItemProviderAdapter provider = getItemProvider(getFixture());
+
+		int oldCount = provider.getPropertyDescriptors(getFixture()).size();
 
 		// Add a Value that should not be reported via Properties
 		AttributeValueString value = ReqIF10Factory.eINSTANCE
@@ -361,11 +364,10 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 		value.setDefinition((AttributeDefinitionString) reqif.getCoreContent()
 				.getSpecTypes().get(0).getSpecAttributes().get(0));
 		 getFixture().getValues().add(value);
-		ItemProviderAdapter provider = getItemProvider(getFixture());
 		List<IItemPropertyDescriptor> descriptors = provider
 				.getPropertyDescriptors(getFixture());
 		// There are 5 standard
-		assertEquals(5, descriptors.size());
+		assertEquals(oldCount, descriptors.size());
 	}
 
 	/**

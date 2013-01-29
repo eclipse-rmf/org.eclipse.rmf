@@ -36,7 +36,7 @@ import org.eclipse.swt.widgets.Display;
  */
 public class ProrPropertyControl extends AgileGrid implements PropertyChangeListener {
 
-	private ProrPropertyContentProvider2 contentProvider;
+	private ProrPropertyContentProvider contentProvider;
 	
 	private Object object;
 
@@ -45,7 +45,7 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 		super(parent, SWT.V_SCROLL | SWT.H_SCROLL | SWTX.FILL_WITH_LASTCOL
 				| SWT.MULTI | SWT.DOUBLE_BUFFERED);
 		setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
-		this.contentProvider = new ProrPropertyContentProvider2(adapterFactory,
+		this.contentProvider = new ProrPropertyContentProvider(adapterFactory,
 				showAllProps);
 		setContentProvider(this.contentProvider);
 		setCellRendererProvider(new ProrPropertyCellRendererProvider(this,
@@ -67,7 +67,6 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 				Object obj = sel.getFirstElement();
 				contentProvider.setContent(obj);
 				object = obj;
-
 				redraw();
 				return;
 			}
@@ -82,7 +81,7 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 	public void propertyChange(PropertyChangeEvent event) {
 		if (event.getPropertyName().equals("")) {
 			contentProvider.setContent(object);
-			super.redraw();
+			redraw();
 		}
 	}
 

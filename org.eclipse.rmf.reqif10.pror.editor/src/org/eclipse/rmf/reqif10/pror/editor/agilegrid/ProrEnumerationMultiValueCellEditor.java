@@ -24,6 +24,7 @@ import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
@@ -49,13 +50,17 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 	 */
 	private AttributeValueEnumeration attributeValue;
 	private final EditingDomain editingDomain;
+	private SpecElementWithAttributes parent;
 
 	public ProrEnumerationMultiValueCellEditor(AgileGrid agileGrid,
-			DatatypeDefinitionEnumeration dde, EditingDomain editingDomain, AdapterFactory adapterFactory) {
+			DatatypeDefinitionEnumeration dde,
+			SpecElementWithAttributes parent, EditingDomain editingDomain,
+			AdapterFactory adapterFactory) {
 		super(agileGrid);
 		this.dde = dde;
 		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
+		this.parent = parent;
 		populateItemList(dde);
 	}
 
@@ -104,7 +109,21 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 	protected Object doGetValue() {
 		ArrayList<EnumValue> current = new ArrayList<EnumValue>(
 				attributeValue.getValues());
-		CompoundCommand cmd = new CompoundCommand("Updating Enumeration");
+		CompoundCommand cmd = new CompoundCommand("Set Enumeration") {
+			public java.util.Collection<?> getAffectedObjects() {
+				ArrayList<? super Object> list = new ArrayList<Object>();
+				list.add(parent);
+				return list;
+			};
+		};
+
+		if (attributeValue.eContainer() == null) {
+			cmd.append(AddCommand
+					.create(editingDomain,
+							parent,
+							ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+							attributeValue));
+		}
 
 		for (int index : list.getSelectionIndices()) {
 			EnumValue item = itemList.get(index);

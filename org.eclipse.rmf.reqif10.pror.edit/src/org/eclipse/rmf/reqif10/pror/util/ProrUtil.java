@@ -41,24 +41,9 @@ import org.eclipse.emf.edit.provider.ComposedImage;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
-import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
-import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
-import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
-import org.eclipse.rmf.reqif10.AttributeDefinitionInteger;
-import org.eclipse.rmf.reqif10.AttributeDefinitionReal;
-import org.eclipse.rmf.reqif10.AttributeDefinitionString;
-import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.AttributeValueBoolean;
-import org.eclipse.rmf.reqif10.AttributeValueDate;
-import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
-import org.eclipse.rmf.reqif10.AttributeValueInteger;
-import org.eclipse.rmf.reqif10.AttributeValueReal;
-import org.eclipse.rmf.reqif10.AttributeValueString;
-import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
@@ -134,71 +119,6 @@ public final class ProrUtil {
 			itemPropertyDescriptors.add(descriptor);
 
 		}
-	}
-
-	//
-	// private static ItemPropertyDescriptorDecorator
-	// buildAttributeValueItemPropertyDescriptor(
-	// final SpecElementWithAttributes specElement,
-	// AttributeDefinition definition, final String label) {
-	//
-	//
-	// return new ItemPropertyDescriptorDecorator(specElement, descriptor) {
-	// @Override
-	// public String getCategory(Object thisObject) {
-	// SpecType specType = ReqIF10Util.getSpecType(specElement);
-	// if (specType != null) {
-	// if (specType.getLongName() == null) {
-	// return "<UNNAMED TYPE>";
-	// } else {
-	// return specType.getLongName();
-	// }
-	// }
-	// return "<NO CATEGORY>";
-	// }
-	//
-	// @Override
-	// public String getDisplayName(Object thisObject) {
-	// return label;
-	// }
-	//
-	// @Override
-	// public String getId(Object thisObject) {
-	// return label;
-	// }
-	// };
-	// }
-
-	private static ItemPropertyDescriptorDecorator buildAttributeValueItemPropertyDescriptorOrig(
-			final SpecElementWithAttributes specElement, AttributeValue value,
-			IItemPropertyDescriptor descriptor, final String label) {
-		if (label == null) {
-			throw new NullPointerException("Label must not be null");
-		}
-		return new ItemPropertyDescriptorDecorator(value, descriptor) {
-			@Override
-			public String getCategory(Object thisObject) {
-				SpecType specType = ReqIF10Util.getSpecType(specElement);
-				if (specType != null) {
-					if (specType.getLongName() == null) {
-						return "<UNNAMED TYPE>";
-					} else {
-						return specType.getLongName();
-					}
-				}
-				return "<NO CATEGORY>";
-			}
-
-			@Override
-			public String getDisplayName(Object thisObject) {
-				return label;
-			}
-
-			@Override
-			public String getId(Object thisObject) {
-				return label;
-			}
-		};
 	}
 
 	/**
@@ -515,94 +435,6 @@ public final class ProrUtil {
 	}
 
 	/**
-	 * Returns an empty value of the correct type for the given
-	 * {@link AttributeDefinition} (Would be so much easier with inheritance).
-	 * Note that we do not use the command stack here.
-	 * <p>
-	 * TODO There must be a better way (reflection?)
-	 */
-	public static AttributeValue createAttributeValue(
-			AttributeDefinition attributeDefinition) {
-		if (attributeDefinition == null) {
-			return null;
-		} else if (attributeDefinition instanceof AttributeDefinitionBoolean) {
-			AttributeValueBoolean value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueBoolean();
-			value.setDefinition((AttributeDefinitionBoolean) attributeDefinition);
-			AttributeValueBoolean defaultValue = ((AttributeDefinitionBoolean) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.setTheValue(defaultValue.isTheValue());
-			}
-			return value;
-		} else if (attributeDefinition instanceof AttributeDefinitionDate) {
-			AttributeValueDate value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueDate();
-			value.setDefinition((AttributeDefinitionDate) attributeDefinition);
-			AttributeValueDate defaultValue = ((AttributeDefinitionDate) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.setTheValue(defaultValue.getTheValue());
-			}
-			return value;
-		} else if (attributeDefinition instanceof AttributeDefinitionInteger) {
-			AttributeValueInteger value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueInteger();
-			value.setDefinition((AttributeDefinitionInteger) attributeDefinition);
-			AttributeValueInteger defaultValue = ((AttributeDefinitionInteger) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.setTheValue(defaultValue.getTheValue());
-			}
-			return value;
-		} else if (attributeDefinition instanceof AttributeDefinitionReal) {
-			AttributeValueReal value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueReal();
-			value.setDefinition((AttributeDefinitionReal) attributeDefinition);
-			AttributeValueReal defaultValue = ((AttributeDefinitionReal) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.setTheValue(defaultValue.getTheValue());
-			}
-			return value;
-		} else if (attributeDefinition instanceof AttributeDefinitionString) {
-			AttributeValueString value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueString();
-			value.setDefinition((AttributeDefinitionString) attributeDefinition);
-
-			AttributeValueString defaultValue = ((AttributeDefinitionString) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.setTheValue(defaultValue.getTheValue());
-			}
-			return value;
-		} else if (attributeDefinition instanceof AttributeDefinitionXHTML) {
-			AttributeValueXHTML value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueXHTML();
-			value.setDefinition((AttributeDefinitionXHTML) attributeDefinition);
-			AttributeValueXHTML defaultValue = ((AttributeDefinitionXHTML) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.setTheValue(defaultValue.getTheValue());
-			}
-			return value;
-		} else if (attributeDefinition instanceof AttributeDefinitionEnumeration) {
-			AttributeValueEnumeration value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueEnumeration();
-			value.setDefinition((AttributeDefinitionEnumeration) attributeDefinition);
-			AttributeValueEnumeration defaultValue = ((AttributeDefinitionEnumeration) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.getValues().addAll(defaultValue.getValues());
-			}
-			return value;
-		} else {
-			throw new IllegalArgumentException("Type not supported: "
-					+ attributeDefinition);
-		}
-	}
-
-	/**
 	 * Builds a command that creates new {@link SpecRelation}s between the given
 	 * sources and target. Both, source and target can be {@link SpecObject}s
 	 * and {@link SpecHierarchy}s.
@@ -718,7 +550,8 @@ public final class ProrUtil {
 
 				// The attribute is missing: Let's add it; but we can only add
 				// it, if a type is set.
-				AttributeValue value = createAttributeValue(attrDefFromNewType);
+				AttributeValue value = ReqIF10Util
+						.createAttributeValue(attrDefFromNewType);
 
 				if (value != null) {
 					specObject.getValues().add(value);
