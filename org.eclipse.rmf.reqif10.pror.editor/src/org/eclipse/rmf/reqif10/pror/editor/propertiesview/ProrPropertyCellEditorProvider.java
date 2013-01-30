@@ -124,6 +124,18 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 
 		// Get the correct celleditor
 		PropertyRow propertyRow = contentProvider.getRowContent(row);
+
+		SpecElementWithAttributes specElement;
+		if (contentProvider.getElement() instanceof SpecHierarchy) {
+			specElement = ((SpecHierarchy) contentProvider.getElement())
+					.getObject();
+		} else if (contentProvider.getElement() instanceof SpecElementWithAttributes) {
+			specElement = (SpecElementWithAttributes) contentProvider
+					.getElement();
+		} else {
+			specElement = null;
+		}
+
 		AttributeValue attrValue = getAttributeValue(row, col);
 
 		CellEditor cellEditor = null;
@@ -141,9 +153,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 				if (ip instanceof PresentationEditorInterface) {
 					cellEditor = ((PresentationEditorInterface) ip)
 							.getCellEditor(agileGrid, editingDomain, attrValue,
-									(SpecElementWithAttributes) contentProvider
-											.getElement(),
-									getAffectedElement(row, col));
+									specElement, getAffectedElement(row, col));
 				}
 			}
 

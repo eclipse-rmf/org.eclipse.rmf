@@ -140,6 +140,7 @@ public class PresentationServiceManager {
 
 		for (ProrPresentationConfiguration config : configs
 				.getPresentationConfigurations()) {
+			System.out.println("Registering: " + config);
 			ProrUtil.getConfigItemProvider(config, adapterFactory)
 					.registerPresentationConfiguration(config, editingDomain);
 		}

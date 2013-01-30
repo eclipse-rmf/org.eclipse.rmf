@@ -81,6 +81,8 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	}
 
 	public PropertyRow getRowContent(int row) {
+		if (row >= getRowCount())
+			return null;
 		return getRows().get(row);
 	}
 
