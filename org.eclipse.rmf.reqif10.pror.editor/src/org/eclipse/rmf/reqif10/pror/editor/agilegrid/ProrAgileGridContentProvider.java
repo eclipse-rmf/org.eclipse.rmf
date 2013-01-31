@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.agilemore.agilegrid.AbstractContentProvider;
+import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.IContentProvider;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.util.EContentAdapter;
@@ -29,6 +30,8 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 
 /**
+ * This ContentProvider manages a {@link Specification}, to be displayed in an
+ * {@link AgileGrid}.
  */
 public class ProrAgileGridContentProvider extends AbstractContentProvider {
 
@@ -43,11 +46,20 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		this.root = specification;
 		this.specViewConfig = specViewConfig;
 
+		// TODO We want to be more nuanced.
 		specification.eAdapters().add(new EContentAdapter() {
 			@Override
 			public void notifyChanged(Notification notification) {
 				super.notifyChanged(notification);
-				cache = null;
+				if (notification.getEventType() == Notification.ADD
+						|| notification.getEventType() == Notification.ADD_MANY
+						|| notification.getEventType() == Notification.MOVE
+						|| notification.getEventType() == Notification.REMOVE
+						|| notification.getEventType() == Notification.REMOVE_MANY
+						|| notification.getEventType() == Notification.SET
+						|| notification.getEventType() == Notification.UNSET) {
+					flushCache();
+				}
 			}
 		});
 	}
@@ -121,12 +133,16 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		cache = null;
 	}
 	
+	/**
+	 * Uses a Job to provider feedback to the user.
+	 * 
+	 * @return
+	 */
 	private ArrayList<ProrRow> getCache() {
-		ArrayList<ProrRow> tmpCache = null;
 		if (cache == null) {
-			tmpCache = new ArrayList<ProrRow>();
+			ArrayList<ProrRow> tmpCache = new ArrayList<ProrRow>();
 			recurseSpecHierarchyForRow(0, 0, root.getChildren(), tmpCache);
-			cache = tmpCache ;
+			cache = tmpCache;
 		}
 		return cache;
 	}
@@ -145,17 +161,14 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	private int recurseSpecHierarchyForRow(int current, int depth,
 			List<SpecHierarchy> elements, ArrayList<ProrRow> tmpCache) {
 		for (SpecHierarchy element : elements) {
-			// We did not find the row, let's check SpecRealtions first
-			tmpCache.add(current, ProrRow.createProrRow(element, current, depth));
+
+			tmpCache.add(current,
+					ProrRow.createProrRow(element, current, depth));
 			for (SpecRelation specRelation : getSpecRelationsFor(element)) {
 				++current;
 				tmpCache.add(current,
 						ProrRow.createProrRow(specRelation, current, depth + 1));
-
-				// return ProrRow.createProrRow(specRelation, row, depth + 1);
-
 			}
-			// We still did not find the row, let's check the children
 
 			int result = recurseSpecHierarchyForRow(++current, depth + 1,
 					element.getChildren(), tmpCache);

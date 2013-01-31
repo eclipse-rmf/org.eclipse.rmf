@@ -518,6 +518,13 @@ public class ProrAgileGridViewer extends Viewer {
 	 * row, not column. Thus, if something is already selected in a certain row
 	 * and the row is supposed to stay selected, then we'll leave the selection
 	 * as is.
+	 * <p>
+	 * 
+	 * Further, we are only interested in SpecHierarchies and
+	 * {@link SpecRelation}s. We tried to be smart by accepting SpecObjects as
+	 * well (thereby selecting those SpecHierarchies linked to the SpecObject,
+	 * but this is too expensive on large Specifications.
+	 * <p>
 	 */
 	@Override
 	public void setSelection(ISelection selection, boolean reveal) {
@@ -542,10 +549,7 @@ public class ProrAgileGridViewer extends Viewer {
 				current = prorRow.getSpecElement();
 
 			for (Object item : ((IStructuredSelection) selection).toList()) {
-				if (item.equals(current)
-						|| ((current instanceof SpecHierarchy)
-								&& ((SpecHierarchy) current).getObject() != null && ((SpecHierarchy) current)
-								.getObject().equals(item))) {
+				if (item.equals(current)) {
 					boolean added = false;
 					for (int col = 0; col < agileGrid.getLayoutAdvisor()
 							.getColumnCount(); col++) {
@@ -584,7 +588,6 @@ public class ProrAgileGridViewer extends Viewer {
 
 		// Notify all Listeners
 		settingSelection = false;
-
 	}
 
 	/**

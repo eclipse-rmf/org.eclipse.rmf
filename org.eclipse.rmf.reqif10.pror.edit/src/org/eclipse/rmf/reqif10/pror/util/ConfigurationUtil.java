@@ -287,9 +287,13 @@ public class ConfigurationUtil {
 				return specHierarchy;
 			}
 		};
+		int counter = 0;
 		for (Iterator<EObject> i = EcoreUtil
 				.getAllContents(specification, true); i.hasNext();) {
 			visitor.doSwitch(i.next());
+			// we only explore the first 100 elements for performance.
+			if (counter++ == 100)
+				break;
 		}
 
 		// Collect all names from the types
