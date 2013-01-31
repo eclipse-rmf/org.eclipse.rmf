@@ -56,7 +56,7 @@ import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineConfiguration} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * @generated
+ * @generated NOT
  */
 public class HeadlineConfigurationItemProvider
 	extends ProrPresentationConfigurationItemProvider
