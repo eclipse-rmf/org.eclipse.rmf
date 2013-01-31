@@ -20,6 +20,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.AbstractProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.Descriptor;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.PropertyRow;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
@@ -70,6 +71,12 @@ public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 					renderer = ((PresentationEditorInterface) ip)
 							.getCellRenderer(av);
 				}
+			}
+
+			// See whether there is a default renderer
+			if (renderer == null) {
+				renderer = PresentationServiceManager.getDefaultCellRenderer(
+						av, adapterFactory);
 			}
 
 			// Check if the have a renderer from presentation extension

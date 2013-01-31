@@ -13,8 +13,17 @@ package org.eclipse.rmf.reqif10.pror.editor.preferences;
 /**
  * @author Lukas Ladenberger
  */
-public class PreferenceConstants {
+public final class PreferenceConstants {
+
 
 	public static String P_STOP_IS_SIMPLIFIED_WARNING = "stop_is_simplified_warning";
-
+	
+	// Constants for default presentations
+	public static String P_DEFAULT_PRESENTATION_STRING = "default_presentation_string";
+	public static String P_DEFAULT_PRESENTATION_XHTML = "default_presentation_xhtml";
+	public static final String P_DEFAULT_PRESENTATION_BOOLEAN = "default_presentation_boolean";
+	public static final String P_DEFAULT_PRESENTATION_DATE = "date";
+	public static final String P_DEFAULT_PRESENTATION_ENUMERATION = "default_presentation_enumeration";
+	public static final String P_DEFAULT_PRESENTATION_INTEGER = "default_presentation_integer";
+	public static final String P_DEFAULT_PRESENTATION_REAL = "default_presentation_real";
 }

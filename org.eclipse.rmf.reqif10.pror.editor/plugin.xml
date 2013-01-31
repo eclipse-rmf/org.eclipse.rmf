@@ -225,6 +225,12 @@ Contributors:
           id="org.eclipse.rmf.reqif10.pror.editor.preferencePage"
           name="ProR">
     </page>
+    <page
+          category="org.eclipse.rmf.reqif10.pror.editor.preferencePage"
+          class="org.eclipse.rmf.reqif10.pror.editor.preferences.ProrDefaultPresentationPage"
+          id="org.eclipse.rmf.reqif10.pror.editor.page1"
+          name="Default Presentations">
+    </page>
  </extension>
  <extension
        point="org.eclipse.core.runtime.preferences">
