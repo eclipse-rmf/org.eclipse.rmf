@@ -7,14 +7,15 @@
  * 
  * Contributors:
  *     Lukas Ladenberger - initial API and implementation
+ *     Michael Jastram - addition for default presentation
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.preferences;
 
 /**
  * @author Lukas Ladenberger
+ * @author Michael Jastram
  */
 public final class PreferenceConstants {
-
 
 	public static String P_STOP_IS_SIMPLIFIED_WARNING = "stop_is_simplified_warning";
 	

@@ -308,5 +308,4 @@ public class PresentationServiceManager {
 		else
 			throw new IllegalArgumentException("Not yet covered: " + dd);
 	}
-
 }
