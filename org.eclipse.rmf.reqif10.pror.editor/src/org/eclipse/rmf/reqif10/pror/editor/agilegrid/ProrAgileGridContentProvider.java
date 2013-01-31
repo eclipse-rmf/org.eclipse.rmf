@@ -207,9 +207,14 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 			return Collections.emptyList();
 		}
 		SpecObject source = specHierarchy.getObject();
-		ReqIF rif = ReqIF10Util.getReqIF(source);
+		ReqIF reqif = ReqIF10Util.getReqIF(source);
+
+		// Can happen if source is detached from the reqif model (e.g. just
+		// being deleted)
+		if (reqif == null)
+			return Collections.emptyList();
 		List<SpecRelation> list = new ArrayList<SpecRelation>();
-		for (SpecRelation relation : rif.getCoreContent().getSpecRelations()) {
+		for (SpecRelation relation : reqif.getCoreContent().getSpecRelations()) {
 			if (source.equals(relation.getSource())) {
 				list.add(relation);
 			}
