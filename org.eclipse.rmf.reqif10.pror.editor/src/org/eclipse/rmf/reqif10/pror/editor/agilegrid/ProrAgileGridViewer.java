@@ -24,6 +24,10 @@ import org.agilemore.agilegrid.ICellResizeListener;
 import org.agilemore.agilegrid.ISelectionChangedListener;
 import org.agilemore.agilegrid.SWTX;
 import org.agilemore.agilegrid.SelectionChangedEvent;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.Adapter;
@@ -273,6 +277,38 @@ public class ProrAgileGridViewer extends Viewer {
 		registerSelectionChangedListener();
 		registerSpecHierarchyListener();
 		registerSpecRelationListener();
+		resolveSpecObjectReferences();
+	}
+
+	/**
+	 * Turns out that it takes a lot of time to resolve the references from
+	 * SpecHierarchy to Specification. This is usually done on demand. This is
+	 * fine, but prevents fast scrolling the first time. Therefore, we do this
+	 * as a background job.
+	 */
+	private void resolveSpecObjectReferences() {
+		Job job = new Job("Resolving SpecObject References") {
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+				HashSet<SpecHierarchy> specHierarchies = new HashSet<SpecHierarchy>();
+				specHierarchies.addAll(specification.getChildren());
+				monitor.beginTask("Resolving SpecObject References",
+						contentProvider.getRowCount());
+				while (!specHierarchies.isEmpty()) {
+					SpecHierarchy specHierarchy = specHierarchies.iterator()
+							.next();
+					specHierarchies.remove(specHierarchy);
+					specHierarchies.addAll(specHierarchy.getChildren());
+
+					// This actually resolves the reference
+					specHierarchy.getObject();
+					monitor.worked(1);
+				}
+				monitor.done();
+				return Status.OK_STATUS;
+			}
+		};
+		job.schedule();
 	}
 
 	/**
