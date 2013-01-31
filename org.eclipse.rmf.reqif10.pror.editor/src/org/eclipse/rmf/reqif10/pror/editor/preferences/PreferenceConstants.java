@@ -13,8 +13,12 @@ package org.eclipse.rmf.reqif10.pror.editor.preferences;
 /**
  * @author Lukas Ladenberger
  */
-public class PreferenceConstants {
+public final class PreferenceConstants {
 
 	public static String P_STOP_IS_SIMPLIFIED_WARNING = "stop_is_simplified_warning";
+	
+	// Constants for default presentations
+	public static String P_DEFAULT_PRESENTATION_STRING = "default_presentation_string";
+	public static String P_DEFAULT_PRESENTATION_XHTML = "default_presentation_xhtml";
 
 }

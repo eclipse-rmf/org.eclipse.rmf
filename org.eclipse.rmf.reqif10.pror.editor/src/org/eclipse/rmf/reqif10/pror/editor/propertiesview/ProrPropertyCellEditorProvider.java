@@ -45,6 +45,7 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.AbstractProrCellEditorProvider;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.Descriptor;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.PropertyRow;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
@@ -155,6 +156,13 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 							.getCellEditor(agileGrid, editingDomain, attrValue,
 									specElement, getAffectedElement(row, col));
 				}
+			}
+
+			// See whether there is a default editor
+			if (cellEditor == null) {
+				cellEditor = PresentationServiceManager.getDefaultCellEditor(
+						agileGrid, editingDomain, adapterFactory, attrValue,
+						specElement, getAffectedElement(row, col));
 			}
 
 			if (cellEditor == null)

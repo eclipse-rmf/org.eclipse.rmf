@@ -10,12 +10,13 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.preferences;
 
-import org.eclipse.core.runtime.preferences.*;
-import org.eclipse.jface.preference.*;
+import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
 
 /**
  * @author Lukas Ladenberger
+ * @author Michael Jastram
  */
 public class PreferenceInitializer extends AbstractPreferenceInitializer {
 

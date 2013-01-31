@@ -14,6 +14,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.agilemore.agilegrid.AgileGrid;
+import org.agilemore.agilegrid.CellEditor;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtension;
@@ -22,15 +24,23 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.DatatypeDefinition;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ProrPresentationConfigurationsItemProvider;
 import org.eclipse.rmf.reqif10.pror.edit.presentation.service.PresentationInterface;
 import org.eclipse.rmf.reqif10.pror.edit.presentation.service.PresentationManager;
+import org.eclipse.rmf.reqif10.pror.editor.preferences.PreferenceConstants;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
@@ -175,6 +185,100 @@ public class PresentationServiceManager {
 		}
 		return service;
 
+	}
+
+	/**
+	 * This map caches the Default-Renderers. If a Datattype does not have a
+	 * default, there is still an entry in the map to null. This way we know
+	 * whether we already looked up a default. This map may be flushed, which is
+	 * done when the user changes preference settings.
+	 */
+	private final static Map<DatatypeDefinition, PresentationEditorInterface> defaultRenderers = new HashMap<DatatypeDefinition, PresentationEditorInterface>();
+
+	/**
+	 * Clears the cache of default renderers. The cache will be rebuild on
+	 * demand.
+	 */
+	public static void clearDefaultRenderers() {
+		defaultRenderers.clear();
+	}
+
+	/**
+	 * Returns a default renderer for the AttributeValue's Datatype, if there is
+	 * one, otherwise null.
+	 * 
+	 * @param adapterFactory
+	 */
+	public static IProrCellRenderer getDefaultCellRenderer(
+			AttributeValue attrValue, AdapterFactory adapterFactory) {
+		DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(attrValue);
+		if (dd == null)
+			return null;
+
+		// We do this to prevent repeated lookups if a dd has no default
+		// renderer.
+		ensureDefaultEntry(dd, adapterFactory);
+		PresentationEditorInterface presentationEditor = defaultRenderers
+				.get(dd);
+		return presentationEditor == null ? null : presentationEditor
+				.getCellRenderer(attrValue);
+	}
+
+	public static CellEditor getDefaultCellEditor(AgileGrid agileGrid,
+			EditingDomain editingDomain, AdapterFactory adapterFactory,
+			AttributeValue attrValue, SpecElementWithAttributes specElement,
+			Object affectedObject) {
+		DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(attrValue);
+		if (dd == null)
+			return null;
+
+		// We do this to prevent repeated lookups if a dd has no default
+		// renderer.
+		ensureDefaultEntry(dd, adapterFactory);
+		PresentationEditorInterface presentationEditor = defaultRenderers
+				.get(dd);
+		return presentationEditor == null ? null : presentationEditor
+				.getCellEditor(agileGrid, editingDomain, attrValue,
+						specElement, affectedObject);
+	}
+
+	/**
+	 * Ensures that there is an entry for the given {@link DatatypeDefinition}
+	 * in the cache of default Handlers.
+	 */
+	private static void ensureDefaultEntry(DatatypeDefinition dd,
+			AdapterFactory adapterFactory) {
+		if (defaultRenderers.containsKey(dd)) {
+			return;
+		}
+
+		IPreferenceStore store = Reqif10EditorPlugin.getPlugin()
+				.getPreferenceStore();
+		if (dd instanceof DatatypeDefinitionString) {
+			String clazz = store
+					.getString(PreferenceConstants.P_DEFAULT_PRESENTATION_STRING);
+			if (clazz == null || clazz.equals(""))
+				return;
+			Map<Class<? extends ProrPresentationConfiguration>, PresentationInterface> presentationMap = PresentationServiceManager
+					.getPresentationInterfaceMap();
+			for (@SuppressWarnings("rawtypes")
+			Class key : presentationMap.keySet()) {
+				if (clazz.equals(key.getCanonicalName())) {
+					PresentationInterface p = presentationMap.get(key);
+					ProrPresentationConfiguration config = p
+							.getConfigurationInstance();
+					config.setDatatype(dd);
+					ItemProviderAdapter provider = ProrUtil.getItemProvider(
+							adapterFactory, config);
+					if (provider instanceof PresentationEditorInterface) {
+						defaultRenderers.put(dd,
+								(PresentationEditorInterface) provider);
+					} else {
+						defaultRenderers.put(dd, null);
+					}
+				}
+			}
+		}
 	}
 
 }
