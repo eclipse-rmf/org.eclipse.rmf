@@ -34,10 +34,12 @@ public class ProrDefaultPresentationPage extends FieldEditorPreferencePage
 	private String[][] getEntryNamesAndValues() {
 		Map<Class<? extends ProrPresentationConfiguration>, PresentationInterface> presentationMap = PresentationServiceManager
 				.getPresentationInterfaceMap();
-		String[][] result = new String[presentationMap.size() + 1][2];
+		String[][] result = new String[presentationMap.size() + 2][2];
 		result[0][0] = "None";
 		result[0][1] = "";
-		int i = 1;
+		result[1][0] = "Use Build-in";
+		result[1][1] = "";
+		int i = 2;
 		for (@SuppressWarnings("rawtypes")
 		Class key : presentationMap.keySet()) {
 			result[i][0] = key.getSimpleName();
