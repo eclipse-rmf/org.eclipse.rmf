@@ -126,6 +126,10 @@ public class ReqIFResourceImpl extends XMLResourceImpl {
 
 		loadOptions.put(XMLResource.OPTION_XML_OPTIONS, xmlOptions);
 
+		// Sets the map used to cache the EObject identified by the value of its ID feature.
+		// TODO: This is related to https://git.eclipse.org/r/#/c/8251/ and should be reviewed by Mark.
+		setIntrinsicIDToEObjectMap(new HashMap<String, EObject>());
+
 	}
 
 }
