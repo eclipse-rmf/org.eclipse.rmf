@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor.PropertyValueWrapper;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.ui.EMFEditUIPlugin;
 import org.eclipse.emf.edit.ui.celleditor.FeatureEditorDialog;
@@ -74,7 +75,21 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 
 	@Override
 	public Object getValue(int row, int col) {
-		return getAttributeValue(row, col);
+		PropertyRow propertyRow = contentProvider.getRowContent(row);
+		if (propertyRow instanceof Descriptor) {
+			Descriptor descriptor = ((Descriptor) propertyRow);
+			if (descriptor.isRMFSpecific()) {
+				return descriptor.getAttributeValue();
+			} else {
+				Object target = contentProvider.getElement();
+				PropertyValueWrapper propertyValueWrapper = (PropertyValueWrapper) descriptor
+						.getItemPropertyDescriptor().getPropertyValue(target);
+				Object content = descriptor.getContent(col);
+				return propertyValueWrapper.getEditableValue(content);
+			}
+		} else {
+			return propertyRow.getContent(col);
+		}
 	}
 
 	@Override
