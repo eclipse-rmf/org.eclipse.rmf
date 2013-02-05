@@ -82,10 +82,11 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 				return descriptor.getAttributeValue();
 			} else {
 				Object target = contentProvider.getElement();
-				PropertyValueWrapper propertyValueWrapper = (PropertyValueWrapper) descriptor
+				PropertyValueWrapper wrapper = (PropertyValueWrapper) descriptor
 						.getItemPropertyDescriptor().getPropertyValue(target);
 				Object content = descriptor.getContent(col);
-				return propertyValueWrapper.getEditableValue(content);
+				return wrapper == null ? null : wrapper
+						.getEditableValue(content);
 			}
 		} else {
 			return propertyRow.getContent(col);
