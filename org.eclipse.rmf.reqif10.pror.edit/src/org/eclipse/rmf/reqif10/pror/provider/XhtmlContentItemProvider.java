@@ -15,7 +15,10 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -124,15 +127,28 @@ public class XhtmlContentItemProvider
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * This handles model notifications by calling {@link #updateChildren} to
+	 * update any cached children and by creating a viewer notification, which
+	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc -->Ensure
+	 * that the parent is notified on change to update the UI<!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		// Find the specElement
+		InternalEObject parent = (InternalEObject) ((EObject) notification
+				.getNotifier()).eContainer();
+		if (parent != null) {
+			parent.eNotify(new ENotificationImpl(
+					parent,
+					ENotificationImpl.SET,
+					ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+					notification.getNotifier(), notification.getNotifier()));
+		}
 
 		switch (notification.getFeatureID(XhtmlContent.class)) {
 			case ReqIF10Package.XHTML_CONTENT__P:

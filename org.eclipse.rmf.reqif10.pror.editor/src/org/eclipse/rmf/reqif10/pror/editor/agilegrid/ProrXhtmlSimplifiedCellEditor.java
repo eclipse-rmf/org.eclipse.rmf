@@ -25,6 +25,7 @@ import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.pror.editor.preferences.PreferenceConstants;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
+import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
@@ -106,8 +107,6 @@ public class ProrXhtmlSimplifiedCellEditor extends ProrCellEditor {
 				origTheValue, ReqIF10Package.Literals.XHTML_CONTENT__P, null);
 		compoundCommand.append(setTheValueCmd);
 		compoundCommand.append(removePCmd);
-
-		System.out.println("executing: " + compoundCommand.canExecute());
 		editingDomain.getCommandStack().execute(compoundCommand);
 
 		return attributeValue;

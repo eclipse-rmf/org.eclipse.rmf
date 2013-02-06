@@ -28,6 +28,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF;
@@ -35,6 +36,7 @@ import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
@@ -219,6 +221,14 @@ public class ConfigurationUtil {
 								return ((EnumValue) list.get(0)).getLongName();
 							else
 								return "";
+						} else if (value instanceof AttributeValueXHTML
+								&& result instanceof XhtmlContent) {
+							XhtmlContent content = (XhtmlContent) result;
+							String text = ProrXhtmlSimplifiedHelper
+									.xhtmlToSimplifiedString(content);
+							if (text.length() > 20)
+								text = text.substring(0, 17) + "...";
+							return text;
 						}
 						return result.toString();
 

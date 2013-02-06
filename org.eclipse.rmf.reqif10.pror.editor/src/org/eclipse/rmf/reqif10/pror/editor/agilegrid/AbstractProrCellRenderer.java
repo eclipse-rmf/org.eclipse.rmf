@@ -31,6 +31,7 @@ import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
+import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
