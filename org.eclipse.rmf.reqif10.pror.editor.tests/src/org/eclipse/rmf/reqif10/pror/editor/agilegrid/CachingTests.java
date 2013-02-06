@@ -12,9 +12,21 @@
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.math.BigInteger;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
 
+import org.eclipse.core.internal.runtime.PrintStackUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
@@ -41,52 +53,108 @@ import org.junit.Test;
  */
 public class CachingTests extends AbstractContentProviderTests {
 
-
 	@Test
 	public void testPerformance() {
+		int milliNano = 100000;
 		int row = 100000;
-		long startTime = System.currentTimeMillis();
-		createReqIF(row);
-		long endTime = System.currentTimeMillis();
-
-		long duration = endTime - startTime;
-		System.out.println("Duration for createReqIF(" + row + "): " + duration + " ms");
-
-//		no caching
-//		Duration for createReqIF(100000): 1617 ms
-//		Duration for getContentAt(9999): 180 ms
-//		simple caching
-//		Duration for createReqIF(100000): 1581 ms
-//		First call: Duration for getContentAt(99999): 186 ms
-//		Second call: Duration for getContentAt(99999): 0 ms
-		
-	}
-
-	@Test
-	public void testPerformanceCP() {
-		int row = 100000;
+		long startTime = System.nanoTime();
 		ReqIF reqif = createReqIF(row);
+		long endTime = System.nanoTime();
+
+		long createDuration = endTime - startTime;
+
 		Specification spec = reqif.getCoreContent().getSpecifications().get(0);
 		ProrAgileGridContentProvider cp = new ProrAgileGridContentProvider(
 				spec, ConfigurationUtil.createSpecViewConfiguration(spec,
 						editingDomain));
-		long startTime = System.currentTimeMillis();
+		startTime = System.nanoTime();
 		cp.getContentAt((row - 1), 0);
-		long endTime = System.currentTimeMillis();
+		endTime = System.nanoTime();
+		long fstCallDuration = endTime - startTime;
 
-		long duration = endTime - startTime;
-		System.out.println("First call: Duration for getContentAt(" + (row - 1) + "): "
-				+ duration + " ms");
+		startTime = System.nanoTime();
+		cp.getContentAt(row - 1, 0);
+		endTime = System.nanoTime();
+		long sndCallDuration = endTime - startTime;
 		
-		startTime = System.currentTimeMillis();
-		cp.getContentAt((row - 1), 0);
-		endTime = System.currentTimeMillis();
+		// using the fibonacci call to validate the meaningfulness of the performance test
+		startTime = System.nanoTime();
+		fibonacci(40);
+		endTime = System.nanoTime();
+		long fibDuration = endTime - startTime;
 
-		duration = endTime - startTime;
-		System.out.println("Second call: Duration for getContentAt(" + (row - 1) + "): "
-				+ duration + " ms");
+		Date date = new Date(System.currentTimeMillis());
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.getTime();
+
+		PrintWriter pw = null;
+		BufferedReader br = null;
+		try {
+			pw = new PrintWriter(
+					"stats.txt");
+			String sUrl = "https://hudson.eclipse.org/hudson/job/rmf-nightly/lastSuccessfulBuild/artifact/performance-data/stats.txt";
+			if (urlExists(sUrl))
+
+			{
+			URL url = new URL(sUrl);
+			
+			br = new BufferedReader(new InputStreamReader(
+					url.openStream()));
+
+			String line;
+			while ((line = br.readLine()) != null) {
+				pw.print(line);
+				pw.println();
+				
+			}}
+			pw.print(cal.getTime() +"; ");
+			pw.print(createDuration / milliNano +"; ");
+			pw.print(fstCallDuration / milliNano + "; ");
+			pw.print(sndCallDuration / milliNano + "; ");
+			pw.print(fibDuration / milliNano);
+
+			pw.close();
+			
+		} catch (IOException e) {
+			fail(e.getMessage());
+		}
+		finally{
+			if (br != null)
+				try {
+					br.close();
+				} catch (IOException e) {
+					fail(e.getMessage());
+				}
+			if (pw != null)
+				pw.close();
+		}
+
 	}
 
+	private int fibonacci(int num){
+		 	if (num < 2)
+		 		return num;
+		 	else
+		 		return (fibonacci(num - 2) + fibonacci(num - 1));
+	}
+	
+	private static boolean urlExists(String URLName){
+	    try {
+	      HttpURLConnection.setFollowRedirects(false);
+
+	      HttpURLConnection con =
+	         (HttpURLConnection) new URL(URLName).openConnection();
+	      con.setRequestMethod("HEAD");
+	      return (con.getResponseCode() == HttpURLConnection.HTTP_OK);
+	    }
+	    catch (Exception e) {
+	       e.printStackTrace();
+	       return false;
+	    }
+	  }
+
+	
 	@Test
 	public void testAssignSpecHierarchy() {
 		SpecHierarchy specH = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
@@ -114,32 +182,29 @@ public class CachingTests extends AbstractContentProviderTests {
 		SpecHierarchy specH1 = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
 		SpecHierarchy specH2 = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
 		SpecHierarchy specH3 = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
-		
+
 		specH1.setObject(specObject);
 		specH2.setObject(specObj);
 		specH3.setObject(specObject);
-		
-		SpecRelation specRelation = ReqIF10Factory.eINSTANCE.createSpecRelation();
-		
+
+		SpecRelation specRelation = ReqIF10Factory.eINSTANCE
+				.createSpecRelation();
+
 		reqif.getCoreContent().getSpecObjects().add(specObj);
-		
 
 		specification.getChildren().add(specH1);
 		specification.getChildren().add(specH2);
 		specification.getChildren().add(specH3);
-		
 
 		specRelation.setSource(specObj);
 		specRelation.setTarget(specObject);
 		reqif.getCoreContent().getSpecRelations().add(specRelation);
-		
+
 		assertEquals(specH3.getObject(), contentProvider.getContentAt(3, 0));
 		contentProvider.setShowSpecRelations(true);
 		assertEquals(specRelation, contentProvider.getContentAt(3, 0));
-	}	
-	
-	
-	
+	}
+
 	private ReqIF createReqIF(int numRows) {
 
 		ReqIF root = ReqIF10Factory.eINSTANCE.createReqIF();
