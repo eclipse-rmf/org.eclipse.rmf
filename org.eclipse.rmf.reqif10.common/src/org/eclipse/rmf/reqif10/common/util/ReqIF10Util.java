@@ -12,6 +12,8 @@ package org.eclipse.rmf.reqif10.common.util;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -33,6 +35,7 @@ import org.eclipse.rmf.reqif10.AttributeValueSimple;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
+import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
@@ -95,6 +98,24 @@ public class ReqIF10Util {
 	}
 
 	/**
+	 * Reflectively sets the value. The value must not be null, as it is used to infer the class.
+	 * 
+	 * @param attributeValue
+	 */
+	@SuppressWarnings("unchecked")
+	// for AttributeValueEnumeration
+	public static void setTheValue(AttributeValue attributeValue, Object value) {
+		if (attributeValue instanceof AttributeValueSimple || attributeValue instanceof AttributeValueXHTML) {
+			reflectiveSet(attributeValue, value, "setTheValue"); //$NON-NLS-1$
+		} else if (attributeValue instanceof AttributeValueEnumeration) {
+			((AttributeValueEnumeration) attributeValue).getValues().clear();
+			((AttributeValueEnumeration) attributeValue).getValues().addAll((Collection<? extends EnumValue>) value);
+		} else {
+			throw new IllegalArgumentException("Can't get value from " + attributeValue); //$NON-NLS-1$
+		}
+	}
+
+	/**
 	 * Retrieves the value for the given {@link AttributeValue} from the {@link SpecElementWithAttributes}.
 	 */
 	public static AttributeValue getAttributeValue(SpecElementWithAttributes specElement, AttributeDefinition attributeDefinition) {
@@ -111,6 +132,8 @@ public class ReqIF10Util {
 	 * Finds the {@link AttributeValue} for the given {@link SpecElementWithUserDefinedAttributes}. If it does not exist
 	 * yet, it is created (but not attached to the specElement. If an attributeDefinition with the label does not exist,
 	 * null is returned.
+	 * <p>
+	 * If a default value is available, it is set as well.
 	 */
 	public static AttributeValue getAttributeValueForLabel(SpecElementWithAttributes element, String label) {
 		if (label == null) {
@@ -144,7 +167,15 @@ public class ReqIF10Util {
 		}
 
 		// No: Create a new AttributeDefinition
-		return createAttributeValue(attrDef);
+		AttributeValue av = createAttributeValue(attrDef);
+		AttributeValue defaultValue = (AttributeValue) ReqIF10Util.reflectiveGet(attrDef, "getDefaultValue"); //$NON-NLS-1$
+		if (defaultValue != null) {
+			Object v = ReqIF10Util.getTheValue(defaultValue);
+			if (v != null) {
+				ReqIF10Util.setTheValue(av, v);
+			}
+		}
+		return av;
 	}
 
 	/**
@@ -201,6 +232,29 @@ public class ReqIF10Util {
 		try {
 			Method method = object.getClass().getMethod(methodName, (Class<?>[]) null);
 			return method.invoke(object, (Object[]) null);
+		} catch (SecurityException e) {
+			throw new RuntimeException(e);
+		} catch (NoSuchMethodException e) {
+			throw new RuntimeException(e);
+		} catch (IllegalArgumentException e) {
+			throw new RuntimeException(e);
+		} catch (IllegalAccessException e) {
+			throw new RuntimeException(e);
+		} catch (InvocationTargetException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public static void reflectiveSet(Object object, Object value, String methodName) {
+		try {
+			Class<?>[] args = new Class<?>[1];
+			if (value instanceof List) {
+				args[0] = List.class;
+			} else {
+				args[0] = value.getClass();
+			}
+			Method method = object.getClass().getMethod(methodName, args);
+			method.invoke(object, value);
 		} catch (SecurityException e) {
 			throw new RuntimeException(e);
 		} catch (NoSuchMethodException e) {
@@ -309,7 +363,7 @@ public class ReqIF10Util {
 			}
 			return value;
 		} else {
-			throw new IllegalArgumentException("Type not supported: " + attributeDefinition);
+			throw new IllegalArgumentException("Type not supported: " + attributeDefinition); //$NON-NLS-1$
 		}
 	}
 

@@ -126,6 +126,12 @@ public class XhtmlContentItemProvider
 		return getString("_UI_XhtmlContent_type");
 	}
 
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/XhtmlContent.png"));
+	}
+
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to
 	 * update any cached children and by creating a viewer notification, which
