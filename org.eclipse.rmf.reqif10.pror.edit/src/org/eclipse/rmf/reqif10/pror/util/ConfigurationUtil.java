@@ -226,6 +226,13 @@ public class ConfigurationUtil {
 							XhtmlContent content = (XhtmlContent) result;
 							String text = ProrXhtmlSimplifiedHelper
 									.xhtmlToSimplifiedString(content);
+
+							// Ignore empty XHTML
+							if (text.trim().length() == 0) {
+								continue;
+							}
+
+							// Shorten long XHTML
 							if (text.length() > 20)
 								text = text.substring(0, 17) + "...";
 							return text;
@@ -393,6 +400,9 @@ public class ConfigurationUtil {
 		labelConfig.getDefaultLabel().add("ReqIF.ChapterName");
 		labelConfig.getDefaultLabel().add("ReqIF.Name");
 		labelConfig.getDefaultLabel().add("ReqIF.Text");
+		labelConfig.getDefaultLabel().add("ID");
+		labelConfig.getDefaultLabel().add("Name");
+		labelConfig.getDefaultLabel().add("Description");
 
 		editingDomain.getCommandStack().execute(cmd);
 	}
