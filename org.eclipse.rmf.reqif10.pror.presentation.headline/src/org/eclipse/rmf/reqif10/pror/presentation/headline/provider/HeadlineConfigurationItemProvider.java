@@ -289,4 +289,11 @@ public class HeadlineConfigurationItemProvider
 		}
 	}
 
+	/**
+	 * Does not make sense as default.
+	 */
+	public Class<? extends DatatypeDefinition> suggestAsDefault() {
+		return null;
+	}
+
 }

@@ -29,7 +29,9 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionSimple;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
@@ -198,4 +200,10 @@ public class LinewrapConfigurationItemProvider
 		return null;
 	}
 
+	/**
+	 * Use as default for Strings
+	 */
+	public Class<? extends DatatypeDefinition> suggestAsDefault() {
+		return DatatypeDefinitionString.class;
+	}
 }

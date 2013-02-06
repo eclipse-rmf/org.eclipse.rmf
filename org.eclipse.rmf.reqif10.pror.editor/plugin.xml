@@ -243,6 +243,8 @@ Contributors:
     <startup
           class="org.eclipse.rmf.reqif10.pror.editor.presentation.OpenFilesOnStartup">
     </startup>
+    <startup
+          class="org.eclipse.rmf.reqif10.pror.editor.presentation.CheckDefaultPresentations"></startup>
  </extension>
 
 </plugin>

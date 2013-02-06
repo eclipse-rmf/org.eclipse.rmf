@@ -94,4 +94,21 @@ public interface PresentationEditorInterface {
 	 */
 	boolean canEdit();
 
+	/**
+	 * If this method returns a non-null value, it is matched against the ReqIF
+	 * data types. If there is no default for the given type yet, it is
+	 * installed as the default. If there is already a default, ProR asks the
+	 * user whether the current default should be replaced.
+	 * <p>
+	 * 
+	 * A default makes sense for Presentations that improve rendering. For
+	 * instance, a renderer for XHTML can replace the default renderer, which
+	 * has no rich text capabilities.
+	 * <p>
+	 * 
+	 * Note that the user cannot configure a default!
+	 * <p>
+	 */
+	Class<? extends DatatypeDefinition> suggestAsDefault();
+
 }

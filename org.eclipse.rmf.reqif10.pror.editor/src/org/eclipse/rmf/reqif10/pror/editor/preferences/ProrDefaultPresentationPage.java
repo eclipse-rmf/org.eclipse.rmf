@@ -8,6 +8,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.edit.presentation.service.PresentationInterface;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServiceManager;
+import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
@@ -38,11 +39,12 @@ public class ProrDefaultPresentationPage extends FieldEditorPreferencePage
 		result[0][0] = "None";
 		result[0][1] = "";
 		result[1][0] = "Use Build-in";
-		result[1][1] = "";
+		result[1][1] = PreferenceConstants.P_DEFAULT_PRESENTATION_BUILD_IN;
 		int i = 2;
 		for (@SuppressWarnings("rawtypes")
 		Class key : presentationMap.keySet()) {
-			result[i][0] = key.getSimpleName();
+			result[i][0] = ProrUtil.substractPrefixPostfix(key,
+					"", "ConfigurationImpl");
 			result[i][1] = key.getCanonicalName();
 			i++;
 		}

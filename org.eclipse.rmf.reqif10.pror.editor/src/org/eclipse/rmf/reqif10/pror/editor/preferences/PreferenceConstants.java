@@ -11,6 +11,14 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.preferences;
 
+import org.eclipse.rmf.reqif10.DatatypeDefinitionBoolean;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionDate;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionReal;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML;
+
 /**
  * @author Lukas Ladenberger
  * @author Michael Jastram
@@ -21,11 +29,18 @@ public final class PreferenceConstants {
 	
 	// Constants for default presentations
 	public static final String P_DEFAULT_PRESENTATION_BUILD_IN = "default_presentation_build_in";
-	public static final String P_DEFAULT_PRESENTATION_STRING = "default_presentation_string";
-	public static final String P_DEFAULT_PRESENTATION_XHTML = "default_presentation_xhtml";
-	public static final String P_DEFAULT_PRESENTATION_BOOLEAN = "default_presentation_boolean";
-	public static final String P_DEFAULT_PRESENTATION_DATE = "date";
-	public static final String P_DEFAULT_PRESENTATION_ENUMERATION = "default_presentation_enumeration";
-	public static final String P_DEFAULT_PRESENTATION_INTEGER = "default_presentation_integer";
-	public static final String P_DEFAULT_PRESENTATION_REAL = "default_presentation_real";
+	public static final String P_DEFAULT_PRESENTATION_STRING = DatatypeDefinitionString.class
+			.getSimpleName();
+	public static final String P_DEFAULT_PRESENTATION_XHTML = DatatypeDefinitionXHTML.class
+			.getSimpleName();
+	public static final String P_DEFAULT_PRESENTATION_BOOLEAN = DatatypeDefinitionBoolean.class
+			.getSimpleName();
+	public static final String P_DEFAULT_PRESENTATION_DATE = DatatypeDefinitionDate.class
+			.getSimpleName();
+	public static final String P_DEFAULT_PRESENTATION_ENUMERATION = DatatypeDefinitionEnumeration.class
+			.getSimpleName();
+	public static final String P_DEFAULT_PRESENTATION_INTEGER = DatatypeDefinitionInteger.class
+			.getSimpleName();
+	public static final String P_DEFAULT_PRESENTATION_REAL = DatatypeDefinitionReal.class
+			.getSimpleName();
 }
