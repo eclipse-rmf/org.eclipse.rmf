@@ -75,7 +75,8 @@ public abstract class AbstractProrCellEditorProvider extends
 		SpecElementWithAttributes specElement = parent instanceof SpecHierarchy ? ((SpecHierarchy) parent)
 				.getObject() : ((SpecElementWithAttributes) parent);
 		if (dd instanceof DatatypeDefinitionBoolean) {
-			return new ProrCheckboxCellEditor(agileGrid, editingDomain);
+			return new ProrCheckboxCellEditor(agileGrid, editingDomain,
+					specElement);
 		} else if (dd instanceof DatatypeDefinitionDate) {
 			return new ProrDateCellEditor(agileGrid, editingDomain,
 					(SpecElementWithAttributes) specElement,
