@@ -58,10 +58,10 @@ public class ProrDateCellEditor extends ProrCellEditor {
 			ProrUtil.setTheValue(attributeValue, value, parent, affectedObject,
 					editingDomain);
 		} catch (ParseException e) {
-			e.toString();
+			e.printStackTrace();
 			// No action necessary, we simply restore the old value.
 		} catch (DatatypeConfigurationException e) {
-			e.toString();
+			e.printStackTrace();
 			// No action necessary, we simply restore the old value.
 		}
 		return attributeValue;
