@@ -117,7 +117,7 @@ public abstract class AbstractProrCellEditorProvider extends
 			}
 		} else if (dd instanceof DatatypeDefinitionXHTML) {
 			ProrXhtmlSimplifiedCellEditor stringCellEditor = new ProrXhtmlSimplifiedCellEditor(
-					agileGrid, editingDomain, affectedObject);
+					agileGrid, editingDomain, specElement, affectedObject);
 			return stringCellEditor;
 		}
 		throw new IllegalArgumentException("No editor for: " + value);
