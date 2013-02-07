@@ -39,6 +39,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
@@ -55,7 +56,7 @@ import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineConfiguration} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * @generated
+ * @generated NOT
  */
 public class HeadlineConfigurationItemProvider
 	extends ProrPresentationConfigurationItemProvider
@@ -258,6 +259,7 @@ public class HeadlineConfigurationItemProvider
 
 	public CellEditor getCellEditor(AgileGrid agileGrid,
 			EditingDomain editingDomain, AttributeValue av,
+			SpecElementWithAttributes parent,
 			Object affectedObject) {
 		// No custom cell editor
 		return null;
@@ -285,6 +287,13 @@ public class HeadlineConfigurationItemProvider
 				.hasNext();) {
 			visitor.doSwitch((EObject) i.next());
 		}
+	}
+
+	/**
+	 * Does not make sense as default.
+	 */
+	public Class<? extends DatatypeDefinition> suggestAsDefault() {
+		return null;
 	}
 
 }

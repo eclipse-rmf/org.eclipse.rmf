@@ -10,55 +10,33 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.edit.presentation.service;
 
-import java.util.Collection;
-
-import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.rmf.reqif10.DatatypeDefinition;
-import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.emf.edit.provider.ItemProvider;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.reqif10.pror.util.PresentationEditInterface;
 
 /**
  * Interface that Presentation-Plugins must implement to provide relevant
- * information to the System. The application will instantiate exactly one
- * PresentationService per Presentation Plugin.
+ * information to the System.
  * <p>
  * 
- * For your convenience, you can extend {@link AbstractPresentationService},
- * which provides default implementations for most methods.
+ * The JavaDoc provides examples on how to implement the few methods of this
+ * interface.
  * <p>
  * 
- * Upon opening a ReqIF document, {@link #openReqif(ReqIF)} is called which
- * allows the Presentation to do stuff (e.g. check the model, hook in listeners,
- * etc.).
+ * The bulk of the presentation information is accessed via
+ * {@link PresentationEditInterface}, which should be implemented by the
+ * {@link ItemProvider} of the {@link ProrPresentationConfiguration} element.
  * <p>
  * 
- * Each {@link ReqIF} may contain any number of configuration elements that are
- * typically associated with {@link DatatypeDefinition}s. This class acts as a
- * factory for those through {@link #getConfigurationInstance()}.
+ * <b>IMPORTANT:</b> The ItemProvider must be generated as "Stateful". This will
+ * result in one provider instance per configuration element.
  * <p>
  * 
- * Presentations may support Drag & Drop (into the ReqIF Model). The system will
- * ask all Presentations to handle drag & drop until it finds one that returns
- * true on {@link #handleDragAndDrop(Collection, Object, EditingDomain)}.
+ * Optionally, the ItemProvider may implment PresentationEditorInterface (in the
+ * editor plugin), allowing the Presentation to provide GUI functionality.
  * <p>
- * 
- * The service provides some stateless information about the Presentation,
- * specifically:
- * <ul>
- * <li> {@link #getConfigurationInterface()} returns the Interface for the class
- * that holds the configuration of this Presentation.
- * <li> {@link #isReadOnly()} indicates whether the control for rendering should
- * allow editing as well.
- * </ul>
- * <p>
- * 
- * Note that this interface simply aggregates {@link PresentationEditInterface}
- * and {@link PresentationEditInterface}, which are separated as the reside in
- * two different plugins (the former does not require andy GUI libraries, the
- * later does).
  * 
  * @author jastram
- * 
  */
 public interface PresentationInterface {
 

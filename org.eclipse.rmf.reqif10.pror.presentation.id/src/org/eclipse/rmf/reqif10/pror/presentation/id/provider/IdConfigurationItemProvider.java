@@ -24,6 +24,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -35,9 +36,14 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.rmf.reqif10.AttributeDefinition;
+import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
+import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
@@ -263,49 +269,74 @@ public class IdConfigurationItemProvider
 					"Cannot register IDConfigAdapter without unregistering first!");
 		}
 		contentAdapter = new EContentAdapter() {
+
+			/**
+			 * Action has to be taken when the SpecType changes
+			 */
+			@Override
+			public void notifyChanged(Notification notification) {
+				super.notifyChanged(notification);
+				if (notification.getNotifier() instanceof SpecElementWithAttributes) {
+					updateSpecElementIfNecessary(config,
+							(SpecElementWithAttributes) notification
+									.getNotifier(), editingDomain);
+				}
+			}
+
 			@Override
 			public void setTarget(final Notifier target) {
 				super.setTarget(target);
-				if (target instanceof AttributeValueString) {
-					AttributeValueString value = (AttributeValueString) target;
-					if (value.getDefinition() != null
-							&& value.getDefinition().getType() != null
-							&& value.getDefinition().getType()
-									.equals(config.getDatatype())) {
-						if (value.getTheValue() == null
-								|| value.getTheValue().length() == 0) {
-							int newCount = config.getCount() + 1;
-
-							String label = "Assigning ID " + config.getPrefix()
-									+ newCount;
-
-							// Catch undo
-							Command redoCommand = editingDomain
-									.getCommandStack().getRedoCommand();
-							if (redoCommand != null
-									&& label.equals(redoCommand.getLabel())) {
-								System.out.println("Detected Undo - skip "
-										+ label);
-								return;
-							}
-							CompoundCommand cmd = new CompoundCommand(
-									label);
-							cmd.append(SetCommand
-									.create(editingDomain,
-											value,
-											ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
-											config.getPrefix() + newCount));
-							cmd.append(SetCommand.create(editingDomain, config,
-									IdPackage.Literals.ID_CONFIGURATION__COUNT,
-									newCount));
-							editingDomain.getCommandStack().execute(cmd);
-						}
-					}
+				if (target instanceof SpecElementWithAttributes) {
+					updateSpecElementIfNecessary(config,
+							(SpecElementWithAttributes) target, editingDomain);
 				}
 			}
 		};
 		ReqIF10Util.getReqIF(config).getCoreContent().eAdapters()
 				.add(contentAdapter);
+	}
+
+	protected void updateSpecElementIfNecessary(IdConfiguration config,
+			SpecElementWithAttributes target, EditingDomain editingDomain) {
+		SpecElementWithAttributes specElement = (SpecElementWithAttributes) target;
+
+		// 1. Find out whether there is a matching AttributeDefinition
+		SpecType type = ReqIF10Util.getSpecType(specElement);
+		if (type == null)
+			return;
+
+		AttributeDefinitionString attrDef = null;
+		for (AttributeDefinition ad : type.getSpecAttributes()) {
+			DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(ad);
+			if (config.getDatatype().equals(dd)) {
+				attrDef = (AttributeDefinitionString) ad;
+				break;
+			}
+		}
+
+		// 2. No: Nothing to do, otherwise find Find out whether
+		// there is already a value
+		if (attrDef == null)
+			return;
+		AttributeValueString value = (AttributeValueString) ReqIF10Util
+				.getAttributeValue(specElement, attrDef);
+
+		// 3. Yes: Nothing to do, otherwise proceed
+		if (value != null)
+			return;
+		value = (AttributeValueString) ReqIF10Util
+				.createAttributeValue(attrDef);
+		int newCount = config.getCount() + 1;
+		value.setTheValue(config.getPrefix() + newCount);
+
+		String label = "Assigning ID " + config.getPrefix() + newCount;
+		CompoundCommand cmd = new CompoundCommand(label);
+		cmd.append(SetCommand.create(editingDomain, config,
+				IdPackage.Literals.ID_CONFIGURATION__COUNT, newCount));
+		cmd.append(AddCommand.create(editingDomain, specElement,
+				ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+				value));
+		editingDomain.getCommandStack().execute(cmd);
 	}
 
 	private void unregisterModelListener(ProrPresentationConfiguration config) {

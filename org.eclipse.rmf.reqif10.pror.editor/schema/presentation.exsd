@@ -62,7 +62,7 @@
                   The Factory for creating LabelProviders and EditorSupport for this Presentation.
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationService"/>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.rmf.reqif10.pror.edit.presentation.service.PresentationInterface"/>
                </appInfo>
             </annotation>
          </attribute>

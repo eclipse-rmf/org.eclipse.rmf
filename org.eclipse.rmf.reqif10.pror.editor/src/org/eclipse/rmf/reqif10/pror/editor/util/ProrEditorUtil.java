@@ -32,11 +32,11 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
+import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
 
 public class ProrEditorUtil {
 

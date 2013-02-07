@@ -40,24 +40,10 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedImage;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
-import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
-import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
-import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
-import org.eclipse.rmf.reqif10.AttributeDefinitionInteger;
-import org.eclipse.rmf.reqif10.AttributeDefinitionReal;
-import org.eclipse.rmf.reqif10.AttributeDefinitionString;
-import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.AttributeValueBoolean;
-import org.eclipse.rmf.reqif10.AttributeValueDate;
-import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
-import org.eclipse.rmf.reqif10.AttributeValueInteger;
-import org.eclipse.rmf.reqif10.AttributeValueReal;
-import org.eclipse.rmf.reqif10.AttributeValueString;
-import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
@@ -101,71 +87,38 @@ public final class ProrUtil {
 	 * {@link SpecObject}, {@link SpecRelation}, {@link Specification} and
 	 * SpecGroup.
 	 * <p>
-	 * 
-	 * TODO We assume that the AttributeValues have been created. This is a
-	 * valid assumption within ProR, as setting the {@link SpecType}s creates
-	 * the {@link AttributeValue}s. The actual values may still be null. But
-	 * this assumption may not hold for externally generated ReqIF files.
-	 * 
-	 * @param object
+	 * As a notable piece of information, the AttributeDefinition's ID is kept
+	 * in the descriptor's "description" field.
 	 */
 	public static void addAttributePropertyDescriptor(
 			final SpecElementWithAttributes specElement,
 			ItemProviderAdapter provider,
 			List<IItemPropertyDescriptor> itemPropertyDescriptors) {
 
-		for (AttributeValue value : specElement.getValues()) {
-			ItemProviderAdapter valueProvider = getItemProvider(
-					provider.getAdapterFactory(), value);
+		SpecType type = ReqIF10Util.getSpecType(specElement);
 
-			IItemPropertyDescriptor descriptor = valueProvider
-					.getPropertyDescriptor(value,
-							ReqIF10Util.getTheValueFeature(value));
-			AttributeDefinition definition = ReqIF10Util
-					.getAttributeDefinition(value);
+		// No type - no additional descriptors
+		if (type == null)
+			return;
 
-			if (definition == null)
-				continue;
-
+		// Add one descriptor per definition
+		for (AttributeDefinition definition : type.getSpecAttributes()) {
 			final String label = definition.getLongName() != null ? definition
 					.getLongName() : "UNNAMED (" + definition.getIdentifier()
 					+ ")";
-			itemPropertyDescriptors
-					.add(buildAttributeValueItemPropertyDescriptor(specElement,
-							value, descriptor, label));
+			final String category = type.getLongName() != null ? type
+					.getLongName() : "<UNNAMED TYPE>";
+
+			IItemPropertyDescriptor descriptor = new ItemPropertyDescriptor(
+					provider.getAdapterFactory(),
+					label, // DisplayName
+					definition.getIdentifier(), // Description
+					ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+					true, category);
+
+			itemPropertyDescriptors.add(descriptor);
+
 		}
-	}
-
-	private static ItemPropertyDescriptorDecorator buildAttributeValueItemPropertyDescriptor(
-			final SpecElementWithAttributes specElement, AttributeValue value,
-			IItemPropertyDescriptor descriptor, final String label) {
-		if (label == null) {
-			throw new NullPointerException("Label must not be null");
-		}
-		return new ItemPropertyDescriptorDecorator(value, descriptor) {
-			@Override
-			public String getCategory(Object thisObject) {
-				SpecType specType = ReqIF10Util.getSpecType(specElement);
-				if (specType != null) {
-					if (specType.getLongName() == null) {
-						return "<UNNAMED TYPE>";
-					} else {
-						return specType.getLongName();
-					}
-				}
-				return "<NO CATEGORY>";
-			}
-
-			@Override
-			public String getDisplayName(Object thisObject) {
-				return label;
-			}
-
-			@Override
-			public String getId(Object thisObject) {
-				return label;
-			}
-		};
 	}
 
 	/**
@@ -185,13 +138,31 @@ public final class ProrUtil {
 	 * exists to work around the lack of inheritance in the
 	 * {@link AttributeValue} setValue() infrastructure. In addition, it takes a
 	 * {@link SpecHierarchy} as an argument that is being used as the affected
-	 * object.
+	 * object. And last, the value may not be connected to its parent, in which
+	 * case this method takes care of that as well.
 	 */
 	public static void setTheValue(final AttributeValue av, Object value,
+			SpecElementWithAttributes parent,
 			final Object affectedObject, EditingDomain ed) {
+
+		// The Command that sets the value
 		EStructuralFeature feature = ReqIF10Util.getTheValueFeature(av);
 		Command cmd = SetCommand.create(ed, av, feature, value);
 
+		// If necessary, create a command to attach the value to its parent
+		if (av.eContainer() == null) {
+			Command setValueCmd = cmd;
+			Command addValueToParentCmd = AddCommand
+					.create(ed,
+							parent,
+							ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+							av);
+			cmd = new CompoundCommand();
+			((CompoundCommand) cmd).append(addValueToParentCmd);
+			((CompoundCommand) cmd).append(setValueCmd);
+		}
+
+		// Wrap it all, to get the correct affected objects.
 		Command cmd2 = new CommandWrapper(cmd) {
 			@SuppressWarnings({ "unchecked", "rawtypes" })
 			@Override
@@ -215,11 +186,12 @@ public final class ProrUtil {
 	 * @return true if the value was set, otherwise false.
 	 */
 	public static boolean setTheValue(SpecObject specObject,
-			DatatypeDefinition definition, Object value, EditingDomain ed) {
+			DatatypeDefinition definition, Object value,
+			SpecElementWithAttributes parent, EditingDomain ed) {
 		EList<AttributeValue> list = specObject.getValues();
 		for (AttributeValue av : list) {
 			if (definition.equals(ReqIF10Util.getDatatypeDefinition(av))) {
-				ProrUtil.setTheValue(av, value, specObject, ed);
+				ProrUtil.setTheValue(av, value, parent, specObject, ed);
 				return true;
 			}
 		}
@@ -412,15 +384,21 @@ public final class ProrUtil {
 	 * and values via the CommandStack.
 	 * <p>
 	 * 
+	 * BEHAVIOR: This command removes all non-matching values, but does not
+	 * create new values. Therefore it may remove values, but never add values.
+	 * <p>
+	 * 
 	 * WATCH OUT: This method may return a command that is empty, which in turn
 	 * isn't executable by default.
+	 * <p>
 	 * 
 	 * @return The Command that updates the Values
 	 */
 	public static CompoundCommand createValueAdjustCommand(
 			EditingDomain domain, SpecElementWithAttributes specElement,
 			Collection<AttributeDefinition> definitions) {
-		// First make sure all required values exist
+
+		// Find values that are not needed any more.
 		HashSet<AttributeValue> existingObsoleteValues = new HashSet<AttributeValue>(
 				specElement.getValues());
 
@@ -428,7 +406,7 @@ public final class ProrUtil {
 		Set<AttributeDefinition> newDefs = new HashSet<AttributeDefinition>(
 				definitions);
 
-		// A CompoundCommand for adding and removing values
+		// A CompoundCommand for removing values
 		CompoundCommand cmd = new CompoundCommand(
 				"Updating Type (and associated Values)");
 
@@ -444,16 +422,6 @@ public final class ProrUtil {
 					continue outer;
 				}
 			}
-
-			// The attribute is missing: Let's add it
-			AttributeValue value = createAttributeValue(newDef);
-			if (value != null) {
-				cmd.append(AddCommand
-						.create(domain,
-								specElement,
-								ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
-								value));
-			}
 		}
 		// If there are any values left, we need to remove them
 		for (AttributeValue value : existingObsoleteValues) {
@@ -464,94 +432,6 @@ public final class ProrUtil {
 							value));
 		}
 		return cmd;
-	}
-
-	/**
-	 * Returns an empty value of the correct type for the given
-	 * {@link AttributeDefinition} (Would be so much easier with inheritance).
-	 * Note that we do not use the command stack here.
-	 * <p>
-	 * TODO There must be a better way (reflection?)
-	 */
-	private static AttributeValue createAttributeValue(
-			AttributeDefinition attributeDefinition) {
-		if (attributeDefinition == null) {
-			return null;
-		} else if (attributeDefinition instanceof AttributeDefinitionBoolean) {
-			AttributeValueBoolean value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueBoolean();
-			value.setDefinition((AttributeDefinitionBoolean) attributeDefinition);
-			AttributeValueBoolean defaultValue = ((AttributeDefinitionBoolean) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.setTheValue(defaultValue.isTheValue());
-			}
-			return value;
-		} else if (attributeDefinition instanceof AttributeDefinitionDate) {
-			AttributeValueDate value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueDate();
-			value.setDefinition((AttributeDefinitionDate) attributeDefinition);
-			AttributeValueDate defaultValue = ((AttributeDefinitionDate) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.setTheValue(defaultValue.getTheValue());
-			}
-			return value;
-		} else if (attributeDefinition instanceof AttributeDefinitionInteger) {
-			AttributeValueInteger value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueInteger();
-			value.setDefinition((AttributeDefinitionInteger) attributeDefinition);
-			AttributeValueInteger defaultValue = ((AttributeDefinitionInteger) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.setTheValue(defaultValue.getTheValue());
-			}
-			return value;
-		} else if (attributeDefinition instanceof AttributeDefinitionReal) {
-			AttributeValueReal value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueReal();
-			value.setDefinition((AttributeDefinitionReal) attributeDefinition);
-			AttributeValueReal defaultValue = ((AttributeDefinitionReal) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.setTheValue(defaultValue.getTheValue());
-			}
-			return value;
-		} else if (attributeDefinition instanceof AttributeDefinitionString) {
-			AttributeValueString value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueString();
-			value.setDefinition((AttributeDefinitionString) attributeDefinition);
-
-			AttributeValueString defaultValue = ((AttributeDefinitionString) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.setTheValue(defaultValue.getTheValue());
-			}
-			return value;
-		} else if (attributeDefinition instanceof AttributeDefinitionXHTML) {
-			AttributeValueXHTML value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueXHTML();
-			value.setDefinition((AttributeDefinitionXHTML) attributeDefinition);
-			AttributeValueXHTML defaultValue = ((AttributeDefinitionXHTML) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.setTheValue(defaultValue.getTheValue());
-			}
-			return value;
-		} else if (attributeDefinition instanceof AttributeDefinitionEnumeration) {
-			AttributeValueEnumeration value = ReqIF10Factory.eINSTANCE
-					.createAttributeValueEnumeration();
-			value.setDefinition((AttributeDefinitionEnumeration) attributeDefinition);
-			AttributeValueEnumeration defaultValue = ((AttributeDefinitionEnumeration) attributeDefinition)
-					.getDefaultValue();
-			if (defaultValue != null) {
-				value.getValues().addAll(defaultValue.getValues());
-			}
-			return value;
-		} else {
-			throw new IllegalArgumentException("Type not supported: "
-					+ attributeDefinition);
-		}
 	}
 
 	/**
@@ -670,7 +550,8 @@ public final class ProrUtil {
 
 				// The attribute is missing: Let's add it; but we can only add
 				// it, if a type is set.
-				AttributeValue value = createAttributeValue(attrDefFromNewType);
+				AttributeValue value = ReqIF10Util
+						.createAttributeValue(attrDefFromNewType);
 
 				if (value != null) {
 					specObject.getValues().add(value);

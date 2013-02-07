@@ -24,6 +24,10 @@ import org.agilemore.agilegrid.ICellResizeListener;
 import org.agilemore.agilegrid.ISelectionChangedListener;
 import org.agilemore.agilegrid.SWTX;
 import org.agilemore.agilegrid.SelectionChangedEvent;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.Adapter;
@@ -273,6 +277,38 @@ public class ProrAgileGridViewer extends Viewer {
 		registerSelectionChangedListener();
 		registerSpecHierarchyListener();
 		registerSpecRelationListener();
+		resolveSpecObjectReferences();
+	}
+
+	/**
+	 * Turns out that it takes a lot of time to resolve the references from
+	 * SpecHierarchy to Specification. This is usually done on demand. This is
+	 * fine, but prevents fast scrolling the first time. Therefore, we do this
+	 * as a background job.
+	 */
+	private void resolveSpecObjectReferences() {
+		Job job = new Job("Resolving SpecObject References") {
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+				HashSet<SpecHierarchy> specHierarchies = new HashSet<SpecHierarchy>();
+				specHierarchies.addAll(specification.getChildren());
+				monitor.beginTask("Resolving SpecObject References",
+						contentProvider.getRowCount());
+				while (!specHierarchies.isEmpty()) {
+					SpecHierarchy specHierarchy = specHierarchies.iterator()
+							.next();
+					specHierarchies.remove(specHierarchy);
+					specHierarchies.addAll(specHierarchy.getChildren());
+
+					// This actually resolves the reference
+					specHierarchy.getObject();
+					monitor.worked(1);
+				}
+				monitor.done();
+				return Status.OK_STATUS;
+			}
+		};
+		job.schedule();
 	}
 
 	/**
@@ -391,6 +427,9 @@ public class ProrAgileGridViewer extends Viewer {
 						contentProvider.updateElement(specRelation.getTarget());
 					}
 					if (contentProvider.getShowSpecRelations()) {
+						// By setting the flag again, the cash is cleared,
+						// triggering a redraw.
+						contentProvider.setShowSpecRelations(true);
 						updateRowCount();
 					}
 					refresh();
@@ -433,8 +472,6 @@ public class ProrAgileGridViewer extends Viewer {
 				Set<Cell> cells = event.getNewSelections();
 				List<Object> items = new ArrayList<Object>();
 				for (Cell cell : cells) {
-					// Object item =
-					// contentProvider.getProrRow(cell.row).getElement();
 					if (cell.row > -1) {
 						ProrRow row = contentProvider.getProrRow(cell.row);
 
@@ -460,6 +497,15 @@ public class ProrAgileGridViewer extends Viewer {
 						}
 					}
 				}
+
+				// If there are no items, it either means that (1) The user
+				// explicitly unselected everything, or (2) The user clicked in
+				// the empty space below the rows. In case of (2), we would like
+				// the Specification to be the current selection.
+				if (items.size() == 0) {
+					items.add(getInput());
+				}
+
 				selection = new StructuredSelection(items);
 				ProrAgileGridViewer.this
 						.fireSelectionChanged(new org.eclipse.jface.viewers.SelectionChangedEvent(
@@ -508,6 +554,13 @@ public class ProrAgileGridViewer extends Viewer {
 	 * row, not column. Thus, if something is already selected in a certain row
 	 * and the row is supposed to stay selected, then we'll leave the selection
 	 * as is.
+	 * <p>
+	 * 
+	 * Further, we are only interested in SpecHierarchies and
+	 * {@link SpecRelation}s. We tried to be smart by accepting SpecObjects as
+	 * well (thereby selecting those SpecHierarchies linked to the SpecObject,
+	 * but this is too expensive on large Specifications.
+	 * <p>
 	 */
 	@Override
 	public void setSelection(ISelection selection, boolean reveal) {
@@ -518,6 +571,7 @@ public class ProrAgileGridViewer extends Viewer {
 		if (settingSelection)
 			return;
 		settingSelection = true;
+		this.selection = (IStructuredSelection) selection;
 
 		Set<Cell> cells = new HashSet<Cell>();
 		for (int row = 0; row < contentProvider.getRowCount(); row++) {
@@ -531,10 +585,7 @@ public class ProrAgileGridViewer extends Viewer {
 				current = prorRow.getSpecElement();
 
 			for (Object item : ((IStructuredSelection) selection).toList()) {
-				if (item.equals(current)
-						|| ((current instanceof SpecHierarchy)
-								&& ((SpecHierarchy) current).getObject() != null && ((SpecHierarchy) current)
-								.getObject().equals(item))) {
+				if (item.equals(current)) {
 					boolean added = false;
 					for (int col = 0; col < agileGrid.getLayoutAdvisor()
 							.getColumnCount(); col++) {
@@ -566,11 +617,13 @@ public class ProrAgileGridViewer extends Viewer {
 				agileGrid.focusCell(cellArray[0]);
 			}
 			agileGrid.selectCells(cellArray);
+			org.eclipse.jface.viewers.SelectionChangedEvent event = new org.eclipse.jface.viewers.SelectionChangedEvent(
+					this, selection);
+			fireSelectionChanged(event);
 		}
 
 		// Notify all Listeners
 		settingSelection = false;
-
 	}
 
 	/**
@@ -607,11 +660,37 @@ public class ProrAgileGridViewer extends Viewer {
 		addDropSupport(dndOperations, transfers,
 				new EditingDomainViewerDropAdapter(editingDomain, this) {
 
+					// store if previously hovered over a SpecHirarchy
+					protected boolean prevTargetIsSpecHierarchy;
+					protected SpecHierarchy prevTarget;
+					protected float prevLocation;
+
 					/**
 					 * By using an AgileGrid instead of a StructuredViewer, item
 					 * will always be null. Thus, we store the dragTarget when
 					 * dragOver is called.
 					 */
+					@Override
+					public void dragEnter(DropTargetEvent event) {
+						prevTargetIsSpecHierarchy = false;
+						prevTarget = null;
+						prevLocation = -1.0F;
+						super.dragEnter(event);
+					}
+
+					@Override
+					public void dragLeave(DropTargetEvent event) {
+						// clean up highlighting on leave and don't set
+						// dragTarget to null (still needed)
+						if (prevTargetIsSpecHierarchy) {
+							agileGrid.dndHoverCell = null;
+							// dragTarget = null;
+							agileGrid.redraw();
+							prevTargetIsSpecHierarchy = false;
+						}
+						super.dragLeave(event);
+					}
+
 					@Override
 					protected Object extractDropTarget(Widget item) {
 						return dragTarget;
@@ -619,9 +698,15 @@ public class ProrAgileGridViewer extends Viewer {
 
 					@Override
 					public void dragOver(DropTargetEvent e) {
-
 						Point pos = agileGrid.toControl(e.x, e.y);
 						Cell cell = agileGrid.getCell(pos.x, pos.y);
+
+						// No target if dragged over empty space.
+						if (cell.equals(Cell.NULLCELL)) {
+							dragTarget = null;
+							super.dragOver(e);
+							return;
+						}
 						ProrRow row = cell.row >= 0 ? contentProvider
 								.getProrRow(cell.row) : null;
 						Object target = null;
@@ -635,21 +720,43 @@ public class ProrAgileGridViewer extends Viewer {
 						if (target instanceof SpecHierarchy) {
 							dragTarget = (SpecHierarchy) target;
 							float location = getLocation(e);
-							if (location == 0.5) {
-								agileGrid.dndHoverCell = cell;
-								agileGrid.dndHoverDropMode = ProrAgileGrid.DND_DROP_AS_CHILD;
+
+							// prevent flickering: redraw only if something
+							// changed
+							if ((location != prevLocation)
+									|| (dragTarget != prevTarget)) {
+								if (location == 0.5) {
+									agileGrid.dndHoverCell = cell;
+									agileGrid.dndHoverDropMode = ProrAgileGrid.DND_DROP_AS_CHILD;
+								}
+								if (location == 0.0) {
+									Cell prevCell = agileGrid.getNeighbor(cell,
+											AgileGrid.ABOVE, true);
+									agileGrid.dndHoverCell = prevCell;
+									agileGrid.dndHoverDropMode = ProrAgileGrid.DND_DROP_AS_SIBLING;
+								}
+								if (location == 1.0) {
+									agileGrid.dndHoverCell = cell;
+									agileGrid.dndHoverDropMode = ProrAgileGrid.DND_DROP_AS_SIBLING;
+								}
+								agileGrid.redraw();
 							}
-							if (location == 0.0) {
-								Cell prevCell = agileGrid.getNeighbor(cell,
-										AgileGrid.ABOVE, true);
-								agileGrid.dndHoverCell = prevCell;
-								agileGrid.dndHoverDropMode = ProrAgileGrid.DND_DROP_AS_SIBLING;
+
+							prevTargetIsSpecHierarchy = true;
+							prevTarget = dragTarget;
+							prevLocation = location;
+
+						} else {
+							// if previously hovered over a SpecHirarchy: redraw
+							// agileGrid
+							// once more to Reset highlighting and set
+							// dragTarget to null
+							if (prevTargetIsSpecHierarchy) {
+								agileGrid.dndHoverCell = null;
+								dragTarget = null;
+								agileGrid.redraw();
+								prevTargetIsSpecHierarchy = false;
 							}
-							if (location == 1.0) {
-								agileGrid.dndHoverCell = cell;
-								agileGrid.dndHoverDropMode = ProrAgileGrid.DND_DROP_AS_SIBLING;
-							}
-							agileGrid.redraw();
 						}
 
 						super.dragOver(e);

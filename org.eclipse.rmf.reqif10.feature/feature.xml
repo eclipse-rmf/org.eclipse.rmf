@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.rmf.reqif10.feature"
       label="RMF ReqIf 1.0 Feature (Incubation)"
-      version="0.5.0.qualifier"
+      version="0.6.0.qualifier"
       provider-name="Eclipse Modeling Project"
       plugin="org.eclipse.rmf.reqif10">
 

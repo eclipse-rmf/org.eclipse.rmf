@@ -21,6 +21,7 @@ import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
@@ -33,7 +34,6 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 	private final Image specHierarchyIcon;
 	private final Image specObjectIcon;
 	private final Image specRelationIcon;
-	private EditingDomain editingDomain;
 
 	/**
 	 * Create a ProRCellRenderer. Note that the associated ContentProvider must
@@ -47,7 +47,6 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 	public ProrCellRenderer(AgileGrid agileGrid, AdapterFactory adapterFactory,
 			EditingDomain editingDomain) {
 		super(agileGrid, adapterFactory);
-		this.editingDomain = editingDomain;
 		// FIXME: Remove these static dependencies
 		specObjectIcon = ExtendedImageRegistry.getInstance().getImage(
 				Reqif10EditPlugin.INSTANCE
@@ -77,7 +76,7 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 		int rowHeight;
 		IProrCellRenderer renderer = null;
 		AttributeValue attrValue = contentProvider.getValueForColumn(
-				contentProvider.getProrRow(row).getSpecElement(), col);
+				contentProvider.getProrRow(row).getSpecElement(), row, col);
 
 		// Consult the presentation
 		ProrPresentationConfiguration config = ConfigurationUtil
@@ -89,6 +88,12 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 				renderer = ((PresentationEditorInterface) ip)
 						.getCellRenderer(attrValue);
 			}
+		}
+
+		// See whether there is a default renderer
+		if (renderer == null) {
+			renderer = PresentationServiceManager.getDefaultCellRenderer(
+					attrValue, adapterFactory);
 		}
 
 		if (renderer != null) {

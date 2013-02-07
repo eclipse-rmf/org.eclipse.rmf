@@ -17,8 +17,10 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
@@ -37,7 +39,9 @@ public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 
 	@Override
 	protected AttributeValue getAttributeValue(int row, int col) {
-		return contentProvider.getValueForColumn(contentProvider.getProrRow(row).getSpecElement(), col);
+		SpecElementWithAttributes specElement = contentProvider.getProrRow(row)
+				.getSpecElement();
+		return contentProvider.getValueForColumn(specElement, row, col);
 	}
 
 	@Override
@@ -49,6 +53,8 @@ public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 
 	@Override
 	public CellEditor getCellEditor(int row, int col, Object hint) {
+		SpecElementWithAttributes specElement = contentProvider.getProrRow(row)
+				.getSpecElement();
 		
 		CellEditor cellEditor = null;		
 		AttributeValue av = getAttributeValue(row, col);
@@ -61,13 +67,21 @@ public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 					config);
 			if (ip instanceof PresentationEditorInterface) {
 				cellEditor = ((PresentationEditorInterface) ip).getCellEditor(
-						agileGrid, editingDomain, av,
+						agileGrid, editingDomain, av, specElement,
 						getAffectedElement(row, col));
 			}
 		}
 		
+		// See whether there is a default editor
 		if (cellEditor == null) {
-			cellEditor = getDefaultCellEditor(av, getAffectedElement(row, col));
+			cellEditor = PresentationServiceManager.getDefaultCellEditor(
+					agileGrid, editingDomain, adapterFactory, av, specElement,
+					getAffectedElement(row, col));
+		}
+
+		if (cellEditor == null) {
+			cellEditor = getDefaultCellEditor(av, specElement,
+					getAffectedElement(row, col));
 		}
 
 		if (cellEditor != null)

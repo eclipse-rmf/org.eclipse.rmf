@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.reqif10.pror.presentation.headline.*;
 import org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineConfiguration;
 import org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlinePackage;
 

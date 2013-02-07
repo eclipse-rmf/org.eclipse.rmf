@@ -15,6 +15,7 @@ import java.math.BigInteger;
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.ICellEditorValidator;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
 public class ProrIntegerCellEditor extends ProrCellEditor {
@@ -23,8 +24,9 @@ public class ProrIntegerCellEditor extends ProrCellEditor {
 	private BigInteger max;
 
 	public ProrIntegerCellEditor(AgileGrid agileGrid,
+			SpecElementWithAttributes parent,
 			EditingDomain editingDomain, Object affectedObject) {
-		super(agileGrid, editingDomain, affectedObject);
+		super(agileGrid, editingDomain, parent, affectedObject);
 		this.setValidator(new ICellEditorValidator() {
 			public String isValid(Object value) {
 				if (!(value instanceof String)) {
@@ -48,7 +50,7 @@ public class ProrIntegerCellEditor extends ProrCellEditor {
 	protected Object doGetValue() {
 		try {
 			BigInteger value = new BigInteger(text.getText());
-			ProrUtil.setTheValue(attributeValue, value, affectedObject,
+			ProrUtil.setTheValue(attributeValue, value, parent, affectedObject,
 					editingDomain);
 		} catch (NumberFormatException e) {
 			// No action necessary, we simply restore the old value.

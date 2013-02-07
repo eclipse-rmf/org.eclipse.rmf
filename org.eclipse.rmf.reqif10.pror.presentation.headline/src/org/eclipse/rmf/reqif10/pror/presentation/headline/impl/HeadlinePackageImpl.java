@@ -21,6 +21,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineConfiguration;
 import org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineFactory;
 import org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlinePackage;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,6 +86,7 @@ public class HeadlinePackageImpl extends EPackageImpl implements HeadlinePackage
 		// Initialize simple dependencies
 		ConfigurationPackage.eINSTANCE.eClass();
 		ReqIF10Package.eINSTANCE.eClass();
+		XhtmlPackage.eINSTANCE.eClass();
 		DatatypesPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -176,14 +178,14 @@ public class HeadlinePackageImpl extends EPackageImpl implements HeadlinePackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ConfigurationPackage theConfigPackage = (ConfigurationPackage)EPackage.Registry.INSTANCE.getEPackage(ConfigurationPackage.eNS_URI);
+		ConfigurationPackage theConfigurationPackage = (ConfigurationPackage)EPackage.Registry.INSTANCE.getEPackage(ConfigurationPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		headlineConfigurationEClass.getESuperTypes().add(theConfigPackage.getProrPresentationConfiguration());
+		headlineConfigurationEClass.getESuperTypes().add(theConfigurationPackage.getProrPresentationConfiguration());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(headlineConfigurationEClass, HeadlineConfiguration.class, "HeadlineConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

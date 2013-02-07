@@ -46,13 +46,11 @@ import org.eclipse.ui.part.Page;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 
 /**
- * 
  * This is a custom/modified property sheet page in order to use agile grid to
  * display the content/properties.
  * 
  * @author Lukas Ladenberger
  * @author Michael Jastram
- * 
  */
 public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 
