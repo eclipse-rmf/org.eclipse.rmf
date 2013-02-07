@@ -11,6 +11,9 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.propertiesview;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.SWTX;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -22,9 +25,15 @@ import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-
+/**
+ * This control wraps an actual AgileGrid that displays the properties of the
+ * current selection. It is instantiated twice, once for all and ones for those
+ * properties relevant to users (via showAllProps).
+ * 
+ * @author Lukas Ladenberger
+ * @author Michael Jastram
+ * 
+ */
 public class ProrPropertyControl extends AgileGrid implements PropertyChangeListener {
 
 	private ProrPropertyContentProvider contentProvider;
@@ -36,10 +45,11 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 		super(parent, SWT.V_SCROLL | SWT.H_SCROLL | SWTX.FILL_WITH_LASTCOL
 				| SWT.MULTI | SWT.DOUBLE_BUFFERED);
 		setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
-		this.contentProvider = new ProrPropertyContentProvider(editingDomain, showAllProps);
+		this.contentProvider = new ProrPropertyContentProvider(adapterFactory,
+				showAllProps);
 		setContentProvider(this.contentProvider);
 		setCellRendererProvider(new ProrPropertyCellRendererProvider(this,
-				adapterFactory));
+				adapterFactory, contentProvider));
 		setLayoutAdvisor(new ProrPropertyLayoutAdvisor(this));
 		setCellEditorProvider(new ProrPropertyCellEditorProvider(this,
 				adapterFactory, editingDomain, this.contentProvider));
@@ -57,7 +67,6 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 				Object obj = sel.getFirstElement();
 				contentProvider.setContent(obj);
 				object = obj;
-
 				redraw();
 				return;
 			}
@@ -72,7 +81,7 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 	public void propertyChange(PropertyChangeEvent event) {
 		if (event.getPropertyName().equals("")) {
 			contentProvider.setContent(object);
-			super.redraw();
+			redraw();
 		}
 	}
 

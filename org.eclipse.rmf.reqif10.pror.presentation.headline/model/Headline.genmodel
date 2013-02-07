@@ -9,11 +9,11 @@
     testSuiteClass="org.eclipse.rmf.reqif10.pror.presentation.headline.tests.HeadlineAllTests"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
     editPluginID="org.eclipse.rmf.reqif10.pror.presentation.headline" editorPluginID="org.eclipse.rmf.reqif10.pror.presentation.headline.editor"
-    usedGenPackages="../../org.eclipse.rmf.reqif10.pror/model/reqif10.genmodel#//configuration ../../org.eclipse.rmf.reqif10.pror/model/reqif10.genmodel#//reqif10 ../../org.eclipse.rmf.reqif10.pror/model/reqif10.genmodel#//reqif10/datatypes">
+    usedGenPackages="../../org.eclipse.rmf.reqif10.pror/model/reqif10.genmodel#//configuration ../../org.eclipse.rmf.reqif10.pror/model/reqif10.genmodel#//reqif10 ../../org.eclipse.rmf.reqif10.pror/model/reqif10.genmodel#//xhtml platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace ../../org.eclipse.rmf.reqif10.pror/model/reqif10.genmodel#//datatypes">
   <foreignModel>Headline.ecore</foreignModel>
-  <genPackages prefix="Headline" basePackage="org.eclipse.rmf.pror.presentation" disposableProviderFactory="true"
-      ecorePackage="Headline.ecore#/">
-    <genClasses ecoreClass="Headline.ecore#//HeadlineConfiguration">
+  <genPackages prefix="Headline" basePackage="org.eclipse.rmf.reqif10.pror.presentation"
+      disposableProviderFactory="true" ecorePackage="Headline.ecore#/">
+    <genClasses provider="Stateful" ecoreClass="Headline.ecore#//HeadlineConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Headline.ecore#//HeadlineConfiguration/size"/>
     </genClasses>
   </genPackages>

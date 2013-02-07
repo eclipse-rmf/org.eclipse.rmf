@@ -18,7 +18,6 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({ CachingTests.class, ContentProviderBasicTests.class, ProrRowTests.class})
 public class AllCachingTests {
-	
 
 
 }

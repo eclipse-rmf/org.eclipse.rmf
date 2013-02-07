@@ -11,21 +11,21 @@
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
 import org.agilemore.agilegrid.AgileGrid;
-import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.XhtmlContent;
-import org.eclipse.rmf.reqif10.impl.AttributeValueXHTMLImpl;
 import org.eclipse.rmf.reqif10.pror.editor.preferences.PreferenceConstants;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
+import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
@@ -33,15 +33,15 @@ import org.eclipse.swt.widgets.Display;
 /**
  * @author Lukas Ladenberger
  */
-public class ProrXhtmlSimplifiedCellEditor extends TextCellEditor {
+public class ProrXhtmlSimplifiedCellEditor extends ProrCellEditor {
 	
-	private final EditingDomain editingDomain;
 	private AttributeValueXHTML attributeValue;
 
 	public ProrXhtmlSimplifiedCellEditor(AgileGrid agileGrid,
-			EditingDomain editingDomain, Object affectedObject) {
-		super(agileGrid, SWT.WRAP);
-		this.editingDomain = editingDomain;
+			EditingDomain editingDomain, SpecElementWithAttributes parent,
+			Object affectedObject) {
+		super(agileGrid, editingDomain, parent, SWT.WRAP);
+		this.parent = parent;
 	}
 
 	@Override
@@ -52,6 +52,16 @@ public class ProrXhtmlSimplifiedCellEditor extends TextCellEditor {
 		XhtmlContent origTheValue = attributeValue.getTheValue();
 
 		CompoundCommand compoundCommand = new CompoundCommand();
+
+		// Set parent if necessary
+		if (attributeValue.eContainer() == null) {
+			compoundCommand
+					.append(AddCommand
+							.create(editingDomain,
+									parent,
+									ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+									attributeValue));
+		}
 
 		if (!attributeValue.isSimplified()) {
 
@@ -97,7 +107,6 @@ public class ProrXhtmlSimplifiedCellEditor extends TextCellEditor {
 				origTheValue, ReqIF10Package.Literals.XHTML_CONTENT__P, null);
 		compoundCommand.append(setTheValueCmd);
 		compoundCommand.append(removePCmd);
-
 		editingDomain.getCommandStack().execute(compoundCommand);
 
 		return attributeValue;
@@ -107,10 +116,9 @@ public class ProrXhtmlSimplifiedCellEditor extends TextCellEditor {
 	@Override
 	protected void doSetValue(Object value) {
 		this.attributeValue = null;
-		if (value instanceof AttributeValue) {
+		if (value instanceof AttributeValueXHTML) {
 			attributeValue = (AttributeValueXHTML) value;
-			AttributeValueXHTMLImpl attributeValueXHTMLImpl = (AttributeValueXHTMLImpl) value;
-			XhtmlContent xhtmlContent = attributeValueXHTMLImpl.getTheValue();
+			XhtmlContent xhtmlContent = attributeValue.getTheValue();
 			if (xhtmlContent == null) {
 				xhtmlContent = ReqIF10Factory.eINSTANCE.createXhtmlContent();
 				Command setTheOriginalValueCmd = SetCommand

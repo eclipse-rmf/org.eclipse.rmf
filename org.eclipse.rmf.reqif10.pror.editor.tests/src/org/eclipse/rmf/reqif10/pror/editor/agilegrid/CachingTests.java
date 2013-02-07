@@ -204,7 +204,7 @@ public class CachingTests extends AbstractContentProviderTests {
 		contentProvider.setShowSpecRelations(true);
 		assertEquals(specRelation, contentProvider.getContentAt(3, 0));
 	}
-
+  
 	private ReqIF createReqIF(int numRows) {
 
 		ReqIF root = ReqIF10Factory.eINSTANCE.createReqIF();

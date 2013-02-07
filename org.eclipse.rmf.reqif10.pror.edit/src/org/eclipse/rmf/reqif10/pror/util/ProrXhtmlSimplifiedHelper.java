@@ -8,7 +8,7 @@
  * Contributors:
  *     Lukas Ladenberger - initial API and implementation
  ******************************************************************************/
-package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
+package org.eclipse.rmf.reqif10.pror.util;
 
 import java.io.IOException;
 import java.io.StringWriter;

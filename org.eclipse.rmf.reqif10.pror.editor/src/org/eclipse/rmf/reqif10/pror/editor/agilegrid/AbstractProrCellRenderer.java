@@ -25,12 +25,14 @@ import org.agilemore.agilegrid.renderers.TextCellRenderer;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.AttributeValueBoolean;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
+import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
@@ -99,6 +101,13 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 						.xhtmlToSimplifiedString(xhtmlContent);
 				gc.drawImage(atrXhtml.isSimplified() ? IMG_WARN_TRUE
 						: IMG_WARN_FALSE, rect.x + rect.width - 20, rect.y + 5);
+			} else if (value instanceof AttributeValueBoolean) {
+				if (((AttributeValue) value).eContainer() == null) {
+					stringValue = "";
+				} else {
+					stringValue = (Boolean) v ? "\u2612" : "\u2610";
+				}
+
 			} else {
 				stringValue = v == null ? "" : v.toString();
 			}

@@ -24,6 +24,10 @@ import org.agilemore.agilegrid.ICellResizeListener;
 import org.agilemore.agilegrid.ISelectionChangedListener;
 import org.agilemore.agilegrid.SWTX;
 import org.agilemore.agilegrid.SelectionChangedEvent;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.Adapter;
@@ -273,6 +277,38 @@ public class ProrAgileGridViewer extends Viewer {
 		registerSelectionChangedListener();
 		registerSpecHierarchyListener();
 		registerSpecRelationListener();
+		resolveSpecObjectReferences();
+	}
+
+	/**
+	 * Turns out that it takes a lot of time to resolve the references from
+	 * SpecHierarchy to Specification. This is usually done on demand. This is
+	 * fine, but prevents fast scrolling the first time. Therefore, we do this
+	 * as a background job.
+	 */
+	private void resolveSpecObjectReferences() {
+		Job job = new Job("Resolving SpecObject References") {
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+				HashSet<SpecHierarchy> specHierarchies = new HashSet<SpecHierarchy>();
+				specHierarchies.addAll(specification.getChildren());
+				monitor.beginTask("Resolving SpecObject References",
+						contentProvider.getRowCount());
+				while (!specHierarchies.isEmpty()) {
+					SpecHierarchy specHierarchy = specHierarchies.iterator()
+							.next();
+					specHierarchies.remove(specHierarchy);
+					specHierarchies.addAll(specHierarchy.getChildren());
+
+					// This actually resolves the reference
+					specHierarchy.getObject();
+					monitor.worked(1);
+				}
+				monitor.done();
+				return Status.OK_STATUS;
+			}
+		};
+		job.schedule();
 	}
 
 	/**
@@ -518,6 +554,13 @@ public class ProrAgileGridViewer extends Viewer {
 	 * row, not column. Thus, if something is already selected in a certain row
 	 * and the row is supposed to stay selected, then we'll leave the selection
 	 * as is.
+	 * <p>
+	 * 
+	 * Further, we are only interested in SpecHierarchies and
+	 * {@link SpecRelation}s. We tried to be smart by accepting SpecObjects as
+	 * well (thereby selecting those SpecHierarchies linked to the SpecObject,
+	 * but this is too expensive on large Specifications.
+	 * <p>
 	 */
 	@Override
 	public void setSelection(ISelection selection, boolean reveal) {
@@ -528,6 +571,7 @@ public class ProrAgileGridViewer extends Viewer {
 		if (settingSelection)
 			return;
 		settingSelection = true;
+		this.selection = (IStructuredSelection) selection;
 
 		Set<Cell> cells = new HashSet<Cell>();
 		for (int row = 0; row < contentProvider.getRowCount(); row++) {
@@ -541,10 +585,7 @@ public class ProrAgileGridViewer extends Viewer {
 				current = prorRow.getSpecElement();
 
 			for (Object item : ((IStructuredSelection) selection).toList()) {
-				if (item.equals(current)
-						|| ((current instanceof SpecHierarchy)
-								&& ((SpecHierarchy) current).getObject() != null && ((SpecHierarchy) current)
-								.getObject().equals(item))) {
+				if (item.equals(current)) {
 					boolean added = false;
 					for (int col = 0; col < agileGrid.getLayoutAdvisor()
 							.getColumnCount(); col++) {
@@ -576,11 +617,13 @@ public class ProrAgileGridViewer extends Viewer {
 				agileGrid.focusCell(cellArray[0]);
 			}
 			agileGrid.selectCells(cellArray);
+			org.eclipse.jface.viewers.SelectionChangedEvent event = new org.eclipse.jface.viewers.SelectionChangedEvent(
+					this, selection);
+			fireSelectionChanged(event);
 		}
 
 		// Notify all Listeners
 		settingSelection = false;
-
 	}
 
 	/**

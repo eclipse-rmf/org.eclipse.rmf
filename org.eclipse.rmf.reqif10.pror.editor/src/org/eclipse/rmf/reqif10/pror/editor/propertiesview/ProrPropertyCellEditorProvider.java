@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor.PropertyValueWrapper;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.ui.EMFEditUIPlugin;
 import org.eclipse.emf.edit.ui.celleditor.FeatureEditorDialog;
@@ -40,11 +41,14 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.AbstractProrCellEditorProvider;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
-import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.SortedItemPropertyDescriptor;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServiceManager;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.Descriptor;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.PropertyRow;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.swt.SWT;
@@ -62,10 +66,6 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 
 	private final ProrPropertyContentProvider contentProvider;
 	
-	public static String SPEC_HIERARCHY_NAME = "Spec Hierarchy";
-	public static String SPEC_OBJECT_NAME = "Spec Object";
-	public static String SPEC_RELATION_NAME = "Spec Relation";
-	
 	public ProrPropertyCellEditorProvider(AgileGrid agileGrid,
 			AdapterFactory adapterFactory, EditingDomain editingDomain,
 			ProrPropertyContentProvider contentProvider) {
@@ -74,8 +74,32 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 	}
 
 	@Override
+	public Object getValue(int row, int col) {
+		PropertyRow propertyRow = contentProvider.getRowContent(row);
+		if (propertyRow instanceof Descriptor) {
+			Descriptor descriptor = ((Descriptor) propertyRow);
+			if (descriptor.isRMFSpecific()) {
+				return descriptor.getAttributeValue();
+			} else {
+				Object target = contentProvider.getElement();
+				PropertyValueWrapper wrapper = (PropertyValueWrapper) descriptor
+						.getItemPropertyDescriptor().getPropertyValue(target);
+				Object content = descriptor.getContent(col);
+				return wrapper == null ? null : wrapper
+						.getEditableValue(content);
+			}
+		} else {
+			return propertyRow.getContent(col);
+		}
+	}
+
+	@Override
 	protected AttributeValue getAttributeValue(int row, int col) {
-		return contentProvider.getReqIfAttributeValue(row);
+		PropertyRow propertyRow = contentProvider.getRowContent(row);
+		if (propertyRow instanceof Descriptor) {
+			return ((Descriptor) propertyRow).getAttributeValue();
+		}
+		return null;
 	}
 	
 	@Override
@@ -101,17 +125,11 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 
 			// Else we have an EMF specific attribute use the corresponding
 			// method of the item property descriptor
-			SortedItemPropertyDescriptor itemPropertyDescriptor = this.contentProvider
-					.getItemPropertyDescriptor(row);
-			if (itemPropertyDescriptor != null) {
-				IItemPropertyDescriptor descriptor = itemPropertyDescriptor
-						.getItemPropertyDescriptor();
-				if (descriptor != null) {
-					return descriptor.canSetProperty(this.contentProvider
-							.getElement());
-				}
+			PropertyRow propertyRow = contentProvider.getRowContent(row);
+			if (propertyRow instanceof Descriptor) {
+				return ((Descriptor) propertyRow).getItemPropertyDescriptor()
+						.canSetProperty(contentProvider.getElement());
 			}
-
 		}
 
 		return true;
@@ -122,6 +140,19 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 	public CellEditor getCellEditor(int row, int col, Object hint) {
 
 		// Get the correct celleditor
+		PropertyRow propertyRow = contentProvider.getRowContent(row);
+
+		SpecElementWithAttributes specElement;
+		if (contentProvider.getElement() instanceof SpecHierarchy) {
+			specElement = ((SpecHierarchy) contentProvider.getElement())
+					.getObject();
+		} else if (contentProvider.getElement() instanceof SpecElementWithAttributes) {
+			specElement = (SpecElementWithAttributes) contentProvider
+					.getElement();
+		} else {
+			specElement = null;
+		}
+
 		AttributeValue attrValue = getAttributeValue(row, col);
 
 		CellEditor cellEditor = null;
@@ -139,31 +170,45 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 				if (ip instanceof PresentationEditorInterface) {
 					cellEditor = ((PresentationEditorInterface) ip)
 							.getCellEditor(agileGrid, editingDomain, attrValue,
-									getAffectedElement(row, col));
+									specElement, getAffectedElement(row, col));
 				}
+			}
+
+			// See whether there is a default editor
+			if (cellEditor == null) {
+				cellEditor = PresentationServiceManager.getDefaultCellEditor(
+						agileGrid, editingDomain, adapterFactory, attrValue,
+						specElement, getAffectedElement(row, col));
 			}
 
 			if (cellEditor == null)
 				cellEditor = getDefaultCellEditor(attrValue,
+						contentProvider.getElement(),
 						getAffectedElement(row, col));
 
 		} else { // If the attribute is an EMF attribute (no attribute value
 					// exists) return a default celleditor
 
-			final IItemPropertyDescriptor descriptor = this.contentProvider
-					.getItemPropertyDescriptor(row).getItemPropertyDescriptor();
+			if (propertyRow instanceof Descriptor) {
+				Descriptor rowDescriptor = (Descriptor) propertyRow;
+
+				final IItemPropertyDescriptor descriptor = rowDescriptor
+						.getItemPropertyDescriptor();
 			
-			String categoryName = descriptor.getCategory(this.contentProvider.getElement());
-			Object selectedElement = this.contentProvider.getElement();
+				String categoryName = descriptor.getCategory(contentProvider
+						.getElement());
+				Object selectedElement = contentProvider.getElement();
 			
-			if (categoryName != null && categoryName.equals(SPEC_OBJECT_NAME)) {
+				if (categoryName != null
+						&& categoryName
+								.equals(ProrPropertyContentProvider.SPEC_OBJECT_NAME)) {
 				if (this.contentProvider.getElement() instanceof SpecHierarchy)
 					selectedElement = ((SpecHierarchy) this.contentProvider.getElement())
 							.getObject();
 			}
 			
 			cellEditor = getNonAttributeCellEditor(selectedElement, descriptor);
-				
+			}
 		}
 		return cellEditor;
 		

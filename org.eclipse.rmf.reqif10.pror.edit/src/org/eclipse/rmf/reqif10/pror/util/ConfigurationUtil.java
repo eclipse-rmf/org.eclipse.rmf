@@ -16,17 +16,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF;
@@ -34,6 +36,7 @@ import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
@@ -45,16 +48,12 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
-import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.util.ReqIF10Switch;
 
 public class ConfigurationUtil {
 
 	public static final String DEFAULT_LEFT_HEADER_COLUMN_NAME = "Lead Header Column";
 	public static final int DEFAULT_LEFT_HEADER_COLUMN_WIDTH = 30;
-
-	// Lazily instantiated
-	private static ComposedAdapterFactory CONFIG_FACTORY;
 
 	/**
 	 * @return The Configuration element for the given
@@ -181,10 +180,11 @@ public class ConfigurationUtil {
 	 * 
 	 * @param specElement
 	 * @param adapterFactory
+	 * @param adapterFactory
 	 * @return
 	 */
 	public static String getSpecElementLabel(
-			SpecElementWithAttributes specElement) {
+			SpecElementWithAttributes specElement, AdapterFactory adapterFactory) {
 
 		List<String> labels = getDefaultLabels(ReqIF10Util
 				.getReqIF(specElement));
@@ -201,16 +201,8 @@ public class ConfigurationUtil {
 				if (label.equals(ad.getLongName())) {
 					ProrPresentationConfiguration config = getPresentationConfig(value);
 
-					// The provided adapterFactory may not find the
-					// ItemProvider.
-					if (CONFIG_FACTORY == null) {
-						CONFIG_FACTORY = new ComposedAdapterFactory(
-								ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-						CONFIG_FACTORY
-								.addAdapterFactory(new ConfigurationItemProviderAdapterFactory());
-					}
 					ItemProviderAdapter ip = ProrUtil.getItemProvider(
-							CONFIG_FACTORY, config);
+							adapterFactory, config);
 					if (ip instanceof PresentationEditInterface) {
 						String customLabel = ((PresentationEditInterface) ip)
 								.getLabel(value);
@@ -229,6 +221,21 @@ public class ConfigurationUtil {
 								return ((EnumValue) list.get(0)).getLongName();
 							else
 								return "";
+						} else if (value instanceof AttributeValueXHTML
+								&& result instanceof XhtmlContent) {
+							XhtmlContent content = (XhtmlContent) result;
+							String text = ProrXhtmlSimplifiedHelper
+									.xhtmlToSimplifiedString(content);
+
+							// Ignore empty XHTML
+							if (text.trim().length() == 0) {
+								continue;
+							}
+
+							// Shorten long XHTML
+							if (text.length() > 20)
+								text = text.substring(0, 17) + "...";
+							return text;
 						}
 						return result.toString();
 
@@ -299,9 +306,13 @@ public class ConfigurationUtil {
 				return specHierarchy;
 			}
 		};
+		int counter = 0;
 		for (Iterator<EObject> i = EcoreUtil
 				.getAllContents(specification, true); i.hasNext();) {
 			visitor.doSwitch(i.next());
+			// we only explore the first 100 elements for performance.
+			if (counter++ == 100)
+				break;
 		}
 
 		// Collect all names from the types
@@ -349,6 +360,51 @@ public class ConfigurationUtil {
 				.getProrToolExtension(reqif);
 		return uiExtension == null ? null : uiExtension
 				.getPresentationConfigurations();
+	}
+
+	/**
+	 * If a ReqIF has no labels yet, this method configures some smart defaults.
+	 */
+	public static void setDefaultLabelsIfNecessary(
+			AdapterFactory adapterFactory, EditingDomain editingDomain,
+			ReqIF reqif) {
+		CompoundCommand cmd = new CompoundCommand();
+
+		ProrToolExtension extension = createProrToolExtension(reqif,
+				editingDomain);
+		ProrGeneralConfiguration generalConfig = extension
+				.getGeneralConfiguration();
+		if (generalConfig == null) {
+			generalConfig = ConfigurationFactory.eINSTANCE
+					.createProrGeneralConfiguration();
+			cmd.append(SetCommand
+					.create(editingDomain,
+							extension,
+							ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION,
+							generalConfig));
+		}
+		LabelConfiguration labelConfig = generalConfig.getLabelConfiguration();
+		if (labelConfig == null) {
+			labelConfig = ConfigurationFactory.eINSTANCE
+					.createLabelConfiguration();
+			cmd.append(SetCommand
+					.create(editingDomain,
+							generalConfig,
+							ConfigurationPackage.Literals.PROR_GENERAL_CONFIGURATION__LABEL_CONFIGURATION,
+							labelConfig));
+		} else {
+			// If there is already a label configuration, we leave it alone.
+			return;
+		}
+		labelConfig.getDefaultLabel().add("ReqIF.ChapterNumber");
+		labelConfig.getDefaultLabel().add("ReqIF.ChapterName");
+		labelConfig.getDefaultLabel().add("ReqIF.Name");
+		labelConfig.getDefaultLabel().add("ReqIF.Text");
+		labelConfig.getDefaultLabel().add("ID");
+		labelConfig.getDefaultLabel().add("Name");
+		labelConfig.getDefaultLabel().add("Description");
+
+		editingDomain.getCommandStack().execute(cmd);
 	}
 
 }
