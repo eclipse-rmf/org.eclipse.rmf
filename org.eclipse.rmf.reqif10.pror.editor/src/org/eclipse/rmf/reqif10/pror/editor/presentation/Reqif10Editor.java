@@ -13,6 +13,7 @@ package org.eclipse.rmf.reqif10.pror.editor.presentation;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -79,6 +80,7 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
@@ -605,10 +607,8 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 
 	/**
 	 * Updates the problems indication with the information described in the
-	 * specified diagnostic. 
-	 * <!-- begin-user-doc -->
-	 * Provides a better error text.
-	 * <!-- end-user-doc -->
+	 * specified diagnostic. <!-- begin-user-doc --> Provides a better error
+	 * text. <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
@@ -634,15 +634,15 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 			} else if (diagnostic.getSeverity() != Diagnostic.OK) {
 				ProblemEditorPart problemEditorPart = new ProblemEditorPart();
 				problemEditorPart
-				.setTextProvider(new ProblemEditorPart.TextProvider() {
-					@Override
+						.setTextProvider(new ProblemEditorPart.TextProvider() {
+							@Override
 							public String getMessage(Diagnostic rootDiagnostic) {
 								return rootDiagnostic.getSeverity() == Diagnostic.OK ? getString("_UI_NoProblems_message")
 										: rootDiagnostic.getMessage() != null ? rootDiagnostic
 												.getMessage()
 												: getString("_UI_DefaultProblem_message");
 							}
-				});
+						});
 
 				problemEditorPart.setDiagnostic(diagnostic);
 				problemEditorPart.setMarkerHelper(markerHelper);
@@ -718,7 +718,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		// executed.
 		//
 		// FIXME (mj) this got diabled for now, due to Bug 381494
-//		TimestampedCommandStack commandStack = new TimestampedCommandStack();
+		// TimestampedCommandStack commandStack = new TimestampedCommandStack();
 		BasicCommandStack commandStack = new BasicCommandStack();
 
 		// Add a listener to set the most recent command's affected objects to
@@ -752,8 +752,8 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
 				commandStack, new ReqIFResourceSetImpl());
 		// FIXME (mj) this got diabled for now, due to Bug 381494
-//		System.out.println("XXX");
-//		commandStack.setEditingDomain(editingDomain);
+		// System.out.println("XXX");
+		// commandStack.setEditingDomain(editingDomain);
 	}
 
 	/**
@@ -1039,7 +1039,26 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 	 */
 	@Override
 	public void createPages() {
-		createModel();
+		ProgressMonitorDialog monitorDialog = new ProgressMonitorDialog(
+				getSite().getShell());
+		try {
+			monitorDialog.run(false, false, new IRunnableWithProgress() {
+				public void run(IProgressMonitor monitor)
+						throws InvocationTargetException, InterruptedException {
+					editingDomain
+							.getResourceSet()
+							.getLoadOptions()
+							.put(ReqIFResourceSetImpl.PROGRESS_MONITOR, monitor);
+					createModel();
+					monitor.done();
+				}
+			});
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 		reqif = openReqif();
 
 		// Only creates the other pages if there is something that can be
@@ -1112,20 +1131,21 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 													.getString("_UI_Reqif10XhtmlRestoreIsSimplified"));
 							askedToRestore = true;
 						}
-						
-						if(restoreSimplifiedValues) {
+
+						if (restoreSimplifiedValues) {
 							// Restore value
-							XhtmlContent theOriginalValue = atrXhtml.getTheOriginalValue();							
+							XhtmlContent theOriginalValue = atrXhtml
+									.getTheOriginalValue();
 							atrXhtml.setTheValue(theOriginalValue);
 							atrXhtml.setTheOriginalValue(null);
 							atrXhtml.setSimplified(false);
 						}
-						
+
 					}
 				}
 			}
 		}
-		
+
 		// TODO there must be a better place?
 		PresentationServiceManager.notifiyOpenReqif(reqif, getAdapterFactory(),
 				getEditingDomain());

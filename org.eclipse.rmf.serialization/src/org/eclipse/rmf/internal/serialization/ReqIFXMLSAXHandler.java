@@ -10,8 +10,14 @@
  */
 package org.eclipse.rmf.internal.serialization;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.LineNumberReader;
 import java.util.Map;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
@@ -19,6 +25,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.resource.URIConverter;
+import org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.emf.ecore.xmi.FeatureNotFoundException;
 import org.eclipse.emf.ecore.xmi.PackageNotFoundException;
@@ -27,6 +35,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.SAXXMLHandler;
 import org.eclipse.emf.ecore.xmi.impl.XMLHandler;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -41,10 +50,20 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 
 	protected XMLHandler.MyStack<EStructuralFeature> deferredFeatures = new MyStack<EStructuralFeature>();
 
+	// Used for the monitor
+	private int monitorCurrentLine = 0;
+	private String monitorCurrentPrefix;
+
 	protected int level = 0;
 
 	public ReqIFXMLSAXHandler(XMLResource xmiResource, XMLHelper helper, Map<?, ?> options) {
 		super(xmiResource, helper, options);
+
+		IProgressMonitor monitor = getMonitor();
+		if (monitor != null) {
+			int lines = countLines(xmiResource);
+			monitor.beginTask("Reading " + xmiResource, lines); //$NON-NLS-1$
+		}
 	}
 
 	@Override
@@ -56,6 +75,16 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+		IProgressMonitor monitor = getMonitor();
+		if (monitor != null) {
+			int line = getLineNumber();
+			int progress = line - monitorCurrentLine;
+			if (progress > 0) {
+				monitor.worked(progress);
+			}
+			monitorCurrentLine = line;
+		}
+
 		previousLevel = level;
 		level++;
 		super.startElement(uri, localName, qName, attributes);
@@ -342,5 +371,57 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 				}
 			}
 		}
+	}
+
+	/**
+	 * Overridden to update the monitor.
+	 */
+	@Override
+	protected EFactory getFactoryForPrefix(String prefix) {
+		IProgressMonitor monitor = getMonitor();
+		if (monitor != null && prefix != null && !prefix.equals(monitorCurrentPrefix)) {
+			monitor.setTaskName("Processing namespace: " + helper.getURI(prefix) + "..."); //$NON-NLS-1$ //$NON-NLS-2$
+			monitorCurrentPrefix = prefix;
+		}
+		return super.getFactoryForPrefix(prefix);
+	}
+
+	/**
+	 * Attempts to get an IProgressMonitor from the ResourceSet-Options, stored in
+	 * {@link ReqIFResourceSetImpl#PROGRESS_MONITOR}.
+	 * 
+	 * @return the monitor or null, if none.
+	 */
+	private IProgressMonitor getMonitor() {
+		Object monitor = resourceSet.getLoadOptions().get(ReqIFResourceSetImpl.PROGRESS_MONITOR);
+		if (monitor instanceof IProgressMonitor) {
+			return (IProgressMonitor) monitor;
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * Counts the number of lines in the given resource, as line count is the only useful metric provided by the SAX
+	 * parser. This method is fast, so counting the lines beforehand should not slow things down.
+	 * <p>
+	 * If there is a problem, the method returns {@link IProgressMonitor#UNKNOWN}.
+	 */
+	private int countLines(XMLResource xmiResource) {
+		int lines = IProgressMonitor.UNKNOWN;
+		try {
+			URIConverter converter = new ExtensibleURIConverterImpl();
+			InputStream is = converter.createInputStream(xmiResource.getURI());
+			LineNumberReader lnr = new LineNumberReader(new InputStreamReader(is));
+			lnr.skip(Long.MAX_VALUE);
+			lines = lnr.getLineNumber();
+			lnr.close();
+			is.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return lines;
 	}
 }
