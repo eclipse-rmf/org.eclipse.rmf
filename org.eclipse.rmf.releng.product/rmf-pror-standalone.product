@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="RMF ProR Standalone" uid="org.eclipse.rmf.reqif10.pror.product" id="org.eclipse.rmf.reqif10.pror.product" application="org.eclipse.ui.ide.workbench" version="0.6.0" useFeatures="true" includeLaunchers="true">
+<product name="RMF ProR Standalone" uid="org.eclipse.rmf.reqif10.pror.product" id="org.eclipse.rmf.reqif10.pror.product" application="org.eclipse.ui.ide.workbench" version="0.6.1.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.eclipse.rmf.reqif10.pror/pror-about.png"/>
@@ -34,21 +34,20 @@ Visit http://eclipse.org/rmf
       startupMessageRect="10,280,480,20"
       startupForegroundColor="0C3C68" />
    <launcher name="rmf-pror">
-      <linux icon="/org.eclipse.rmf.reqif10.pror.editor/icons/full/prorIcon/prorIcon128.xpm"/>
-      <macosx icon="/org.eclipse.rmf.reqif10.pror.editor/icons/full/prorIcon/prorIcon128.icns"/>
+      <linux icon="/icons/prorIcon/prorIcon128.xpm"/>
+      <macosx icon="/icons/prorIcon/prorIcon128.icns"/>
       <solaris/>
-      <win useIco="false">
+      <win useIco="true">
+         <ico path="/icons/prorIcon/prorIcon.ico"/>
          <bmp
-            winSmallHigh="/org.eclipse.rmf.reqif10.pror.editor/icons/full/prorIcon/prorIcon16.bmp"
-            winSmallLow="/org.eclipse.rmf.reqif10.pror.editor/icons/full/prorIcon/prorIcon16-8.bmp"
-            winMediumHigh="/org.eclipse.rmf.reqif10.pror.editor/icons/full/prorIcon/prorIcon32.bmp"
-            winMediumLow="/org.eclipse.rmf.reqif10.pror.editor/icons/full/prorIcon/prorIcon32-8.bmp"
-            winLargeHigh="/org.eclipse.rmf.reqif10.pror.editor/icons/full/prorIcon/prorIcon48.bmp"
-            winLargeLow="/org.eclipse.rmf.reqif10.pror.editor/icons/full/prorIcon/prorIcon48-8.bmp"/>
+            winSmallHigh="/icons/prorIcon/prorIcon16.bmp"
+            winSmallLow="/icons/prorIcon/prorIcon16-8.bmp"
+            winMediumHigh="/icons/prorIcon/prorIcon32.bmp"
+            winMediumLow="/icons/prorIcon/prorIcon32-8.bmp"
+            winLargeHigh="/icons/prorIcon/prorIcon48.bmp"
+            winLargeLow="/icons/prorIcon/prorIcon48-8.bmp"/>
       </win>
    </launcher>
-
-   <intro introId="org.eclipse.rmf.reqif10.pror.intro"/>
 
    <vm>
    </vm>

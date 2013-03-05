@@ -19,8 +19,6 @@ import org.eclipse.swt.graphics.Rectangle;
 
 public class LinewrapCellRenderer implements IProrCellRenderer {
 
-	public static final String NEWLINE = System.getProperty("line.separator");
-
 	public int doDrawCellContent(GC gc, Rectangle rect, Object value) {
 		String text = getText(value, gc, rect.width);
 		gc.drawText(text, rect.x + 1, rect.y + 1);
@@ -54,7 +52,7 @@ public class LinewrapCellRenderer implements IProrCellRenderer {
 		for (String par : pars) {
 			// Empty paragraph
 			if (par.length() == 0) {
-				sb.append(NEWLINE);
+				sb.append("\n");
 				continue;
 			}
 
@@ -83,13 +81,13 @@ public class LinewrapCellRenderer implements IProrCellRenderer {
 				// We have a valid length. Add it and shrink par
 				line = par.substring(0, lastValidPos);
 				par = par.substring(lastValidPos, par.length()).trim();
-				sb.append(line + NEWLINE);
+				sb.append(line + "\n");
 			}
 		}
 
 		// Remove the extra trailing LF
 		if (sb.length() > 0)
-			sb.deleteCharAt(sb.length() - NEWLINE.length());
+			sb.deleteCharAt(sb.length() - 1);
 
 		return sb.toString();
 	}

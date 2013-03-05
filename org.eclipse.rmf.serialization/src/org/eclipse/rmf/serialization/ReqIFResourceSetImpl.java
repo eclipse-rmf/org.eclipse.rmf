@@ -10,12 +10,19 @@
  */
 package org.eclipse.rmf.serialization;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 public class ReqIFResourceSetImpl extends ResourceSetImpl {
+
+	/**
+	 * Tools that need to follow the progress may store an {@link IProgressMonitor} in {@link #getLoadOptions()}, using
+	 * this constant as the key.
+	 */
+	public static final String PROGRESS_MONITOR = "PROGRESS_MONITOR"; //$NON-NLS-1$
 
 	@Override
 	/**
