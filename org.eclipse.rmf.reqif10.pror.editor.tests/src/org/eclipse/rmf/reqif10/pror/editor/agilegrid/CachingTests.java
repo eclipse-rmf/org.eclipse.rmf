@@ -15,7 +15,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -77,7 +76,6 @@ public class CachingTests extends AbstractContentProviderTests {
 		String httpURL = "http://cobra.cs.uni-duesseldorf.de:8000/result/add/";
 
 		StringBuilder query = new StringBuilder();
-		DataOutputStream output = null;
 
 		try {
 			query.append("commitid=").append(
@@ -100,7 +98,9 @@ public class CachingTests extends AbstractContentProviderTests {
 			OutputStreamWriter wr = null;
 			try {
 				
+				System.out.println("TRY TO OPEN CONNECTION");
 				con = (HttpURLConnection) myurl.openConnection();
+				System.out.println("CONNECTION ESTABLISHED");
 				con.setDoOutput(true);
 				con.setRequestMethod("POST");
 				con.connect();
@@ -120,7 +120,7 @@ public class CachingTests extends AbstractContentProviderTests {
 				}
 			}
 		} catch (IOException e) {
-			fail(e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
