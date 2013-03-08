@@ -70,6 +70,7 @@ public class CachingTests extends AbstractContentProviderTests {
 	}
 
 	private void sendData(String commitId, String benchmark, long value) {
+
 		if (commitId == null)
 			return;
 
@@ -77,7 +78,14 @@ public class CachingTests extends AbstractContentProviderTests {
 
 		StringBuilder query = new StringBuilder();
 
+		HttpURLConnection con = null;
+		OutputStreamWriter wr = null;
+		BufferedReader rr = null;
+
 		try {
+
+			URL myurl = new URL(httpURL);
+
 			query.append("commitid=").append(
 					URLEncoder.encode(commitId, "UTF-8"));
 			query.append("&branch=").append(
@@ -93,47 +101,44 @@ public class CachingTests extends AbstractContentProviderTests {
 			query.append("&result_value=").append(
 					URLEncoder.encode("" + value, "UTF-8"));
 
-			URL myurl = new URL(httpURL);
-			HttpURLConnection con = null;
-			OutputStreamWriter wr = null;
-			try {
-				
-				System.out.println("TRY TO OPEN CONNECTION");
-				con = (HttpURLConnection) myurl.openConnection();
-				System.out.println("CONNECTION ESTABLISHED");
-				con.setDoOutput(true);
-				con.setRequestMethod("POST");
-				con.setRequestProperty("Content-Type",
-						"application/x-www-form-urlencoded");
-				con.setRequestProperty("Content-Length",
-						String.valueOf(query.toString().length()));
-				con.connect();
-		
-				wr = new OutputStreamWriter(con.getOutputStream());
-				wr.write(query.toString());
-				wr.flush();
-							
-				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(con.getInputStream()));
+			System.out.println("TRY TO OPEN CONNECTION");
+			con = (HttpURLConnection) myurl.openConnection();
+			System.out.println("CONNECTION ESTABLISHED");
+			con.setDoOutput(true);
+			con.setRequestMethod("POST");
+			con.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded");
+			con.setRequestProperty("Content-Length",
+					String.valueOf(query.toString().length()));
+			con.connect();
 
-				for (String line; (line = reader.readLine()) != null;) {
-					System.out.println(line);
-				}
-				
-			} finally {
-				if (wr != null)
-					wr.close();
-				if (con != null) {
-					System.out.println("Query String: " + query.toString());
-//					System.out.println("Responresponse Code: "
-//							+ con.getResponseCode() + " ===> "
-//							+ con.getResponseMessage());
-					con.disconnect();
-				}
+			wr = new OutputStreamWriter(con.getOutputStream());
+			wr.write(query.toString());
+			wr.flush();
+
+			System.out.println("Query String: " + query.toString());
+
+			rr = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+			for (String line; (line = rr.readLine()) != null;) {
+				System.out.println(line);
 			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if (wr != null)
+					wr.close();
+				if (rr != null)
+					rr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			if (con != null)
+				con.disconnect();
 		}
+
 	}
 
 	@Test
