@@ -56,34 +56,29 @@
 					<argLine>${test.vmargs}</argLine>
 				</configuration>
 			</plugin>
-			
-			
-<plugin>
-	<artifactId>maven-antrun-plugin</artifactId>
-	<version>${antrun-version}</version>
-	<executions>
-		<execution>
-			<phase>generate-sources</phase>
-			<configuration>
-				<tasks>
-					<target name="commit-id">
-						<exec executable="git" output="bin/commit-id">
-							<arg value="rev-parse" />
-							<arg value="HEAD" />
-						</exec>
-					</target>
-				</tasks>
-			</configuration>
-			<goals>
-				<goal>run</goal>
-			</goals>
-		</execution>
-	</executions>
-</plugin>
-			
-			
-			
-			
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>${antrun-version}</version>
+				<executions>
+					<execution>
+						<id>generate-commit-id</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<mkdir dir="${project.build.outputDirectory}"/>
+								<touch file = "${project.build.outputDirectory}/commit-id" /> 
+								<exec executable="git" output="${project.build.outputDirectory}/commit-id">
+									<arg value="rev-parse" />
+									<arg value="HEAD" />
+								</exec>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
