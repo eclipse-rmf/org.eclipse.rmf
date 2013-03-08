@@ -52,10 +52,10 @@ import org.junit.Test;
  */
 public class CachingTests extends AbstractContentProviderTests {
 
-	private long getCpuTime( ) {
-	    ThreadMXBean bean = ManagementFactory.getThreadMXBean( );
-	    return bean.isCurrentThreadCpuTimeSupported( ) ?
-	        bean.getCurrentThreadCpuTime( ): 0L ;
+	private long getCpuTime() {
+		ThreadMXBean bean = ManagementFactory.getThreadMXBean();
+		return bean.isCurrentThreadCpuTimeSupported() ? bean
+				.getCurrentThreadCpuTime() : 0L;
 	}
 
 	private String getGitRepositoryState() {
@@ -70,79 +70,83 @@ public class CachingTests extends AbstractContentProviderTests {
 		}
 		return null;
 	}
-	
-	
+
 	private void sendData(String commitId, String benchmark, long value) {
 		if (commitId == null)
 			return;
-		
+
 		String httpURL = "http://cobra.cs.uni-duesseldorf.de:8000/result/add/";
 
 		StringBuilder query = new StringBuilder();
 		DataOutputStream output = null;
-	
-		try{
-		query.append("commitid=").append(URLEncoder.encode(commitId, "UTF-8"));
-		query.append("&branch=").append(URLEncoder.encode("default", "UTF-8"));
-		query.append("&project=").append(URLEncoder.encode("ProR", "UTF-8"));
-		query.append("&executable=").append(URLEncoder.encode("ProR", "UTF-8"));
-		query.append("&benchmark=").append(URLEncoder.encode(benchmark, "UTF-8"));
-		query.append("&environment=").append(URLEncoder.encode("Eclipse", "UTF-8"));
-		query.append("&result_value=").append(URLEncoder.encode(""+value, "UTF-8"));
 
-		URL myurl = new URL(httpURL);
 		try {
-			
-		HttpURLConnection con = (HttpURLConnection) myurl.openConnection();
-		con.setDoOutput(true);
-		output = new DataOutputStream(con.getOutputStream());
-		 
-		System.out.println(query.toString());
-			output.writeBytes(query.toString());
-		}
-		finally{
-			output.close();
-		}}
-		 catch (IOException e) {
-			 fail(e.getMessage());
+			query.append("commitid=").append(
+					URLEncoder.encode(commitId, "UTF-8"));
+			query.append("&branch=").append(
+					URLEncoder.encode("default", "UTF-8"));
+			query.append("&project=")
+					.append(URLEncoder.encode("ProR", "UTF-8"));
+			query.append("&executable=").append(
+					URLEncoder.encode("ProR", "UTF-8"));
+			query.append("&benchmark=").append(
+					URLEncoder.encode(benchmark, "UTF-8"));
+			query.append("&environment=").append(
+					URLEncoder.encode("Eclipse", "UTF-8"));
+			query.append("&result_value=").append(
+					URLEncoder.encode("" + value, "UTF-8"));
+
+			URL myurl = new URL(httpURL);
+			try {
+				HttpURLConnection con = (HttpURLConnection) myurl
+						.openConnection();
+				con.setDoOutput(true);
+				output = new DataOutputStream(con.getOutputStream());
+				System.out.println(query.toString());
+				output.writeBytes(query.toString());
+			} finally {
+				output.close();
 			}
+		} catch (IOException e) {
+			fail(e.getMessage());
+		}
 	}
-	
+
 	@Test
 	public void testPerfCreateReqIF() {
 		int milliNano = 100000;
 		int row = 100000;
 		String benchmark = "Create_ReqIF";
 		String commitId = getGitRepositoryState();
-		
+
 		long startTime = getCpuTime();
 		createReqIF(row);
 		long endTime = getCpuTime();
-		
+
 		long cpuDuration = (endTime - startTime) / milliNano;
 		sendData(commitId, benchmark, cpuDuration);
 	}
-	
+
 	@Test
-	public void testPerfCall(){
+	public void testPerfCall() {
 		int milliNano = 100000;
 		int row = 100000;
 		String benchmark = "First_call";
 		ReqIF reqif = createReqIF(row);
 		String commitId = getGitRepositoryState();
-	
+
 		Specification spec = reqif.getCoreContent().getSpecifications().get(0);
 		ProrAgileGridContentProvider cp = new ProrAgileGridContentProvider(
 				spec, ConfigurationUtil.createSpecViewConfiguration(spec,
 						editingDomain));
-		
+
 		long starTime = getCpuTime();
 		cp.getContentAt((row - 1), 0);
 		long endTime = getCpuTime();
-		long duration = (endTime - starTime) / milliNano ;
+		long duration = (endTime - starTime) / milliNano;
 		sendData(commitId, benchmark, duration);
-		
-		//Second call
+
+		// Second call
 		benchmark = "Second_call";
 		starTime = getCpuTime();
 		cp.getContentAt((row - 1), 0);
@@ -151,7 +155,6 @@ public class CachingTests extends AbstractContentProviderTests {
 		sendData(commitId, benchmark, duration);
 	}
 
-	
 	@Test
 	public void testAssignSpecHierarchy() {
 		SpecHierarchy specH = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
@@ -201,7 +204,7 @@ public class CachingTests extends AbstractContentProviderTests {
 		contentProvider.setShowSpecRelations(true);
 		assertEquals(specRelation, contentProvider.getContentAt(3, 0));
 	}
-  
+
 	private ReqIF createReqIF(int numRows) {
 
 		ReqIF root = ReqIF10Factory.eINSTANCE.createReqIF();
