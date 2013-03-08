@@ -105,7 +105,8 @@ public class CachingTests extends AbstractContentProviderTests {
 				System.out.println(query.toString());
 				output.writeBytes(query.toString());
 			} finally {
-				output.close();
+				if(output != null)
+					output.close();
 			}
 		} catch (IOException e) {
 			fail(e.getMessage());
