@@ -19,6 +19,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadMXBean;
 import java.math.BigInteger;
@@ -40,8 +41,6 @@ import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridContentProvider;
-import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.junit.Test;
 
@@ -97,16 +96,28 @@ public class CachingTests extends AbstractContentProviderTests {
 					URLEncoder.encode("" + value, "UTF-8"));
 
 			URL myurl = new URL(httpURL);
+			HttpURLConnection con = null;
+			OutputStreamWriter wr = null;
 			try {
-				HttpURLConnection con = (HttpURLConnection) myurl
-						.openConnection();
+				
+				con = (HttpURLConnection) myurl.openConnection();
 				con.setDoOutput(true);
-				output = new DataOutputStream(con.getOutputStream());
-				System.out.println(query.toString());
-				output.writeBytes(query.toString());
+				con.setRequestMethod("POST");
+				con.connect();
+		
+				wr = new OutputStreamWriter(con.getOutputStream());
+				wr.write(query.toString());
+				wr.flush();
+								
 			} finally {
-				if(output != null)
-					output.close();
+				if (wr != null)
+					wr.close();
+				if (con != null) {
+					System.out.println(query.toString());
+					System.out.println(con.getResponseCode() + " ===> "
+							+ con.getResponseMessage());
+					con.disconnect();
+				}
 			}
 		} catch (IOException e) {
 			fail(e.getMessage());
