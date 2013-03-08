@@ -15,18 +15,17 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadMXBean;
 import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Calendar;
-import java.util.Date;
+import java.net.URLEncoder;
 
-import org.eclipse.core.internal.runtime.PrintStackUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
@@ -53,106 +52,104 @@ import org.junit.Test;
  */
 public class CachingTests extends AbstractContentProviderTests {
 
+	private long getCpuTime( ) {
+	    ThreadMXBean bean = ManagementFactory.getThreadMXBean( );
+	    return bean.isCurrentThreadCpuTimeSupported( ) ?
+	        bean.getCurrentThreadCpuTime( ): 0L ;
+	}
+
+	private String getGitRepositoryState() {
+		try {
+			InputStream s = CachingTests.class
+					.getResourceAsStream("/commit-id");
+			BufferedReader in = new BufferedReader(new InputStreamReader(s));
+			return in.readLine();
+		} catch (IOException e) {
+			System.out.println("Could not get commit-id");
+			fail(e.getMessage());
+		}
+		return null;
+	}
+	
+	
+	private void sendData(String commitId, String benchmark, long value) {
+		if (commitId == null)
+			return;
+		
+		String httpURL = "http://cobra.cs.uni-duesseldorf.de:8000/result/add/";
+
+		StringBuilder query = new StringBuilder();
+		DataOutputStream output = null;
+	
+		try{
+		query.append("commitid=").append(URLEncoder.encode(commitId, "UTF-8"));
+		query.append("&branch=").append(URLEncoder.encode("default", "UTF-8"));
+		query.append("&project=").append(URLEncoder.encode("ProR", "UTF-8"));
+		query.append("&executable=").append(URLEncoder.encode("ProR", "UTF-8"));
+		query.append("&benchmark=").append(URLEncoder.encode(benchmark, "UTF-8"));
+		query.append("&environment=").append(URLEncoder.encode("Eclipse", "UTF-8"));
+		query.append("&result_value=").append(URLEncoder.encode(""+value, "UTF-8"));
+
+		URL myurl = new URL(httpURL);
+		try {
+			
+		HttpURLConnection con = (HttpURLConnection) myurl.openConnection();
+		con.setDoOutput(true);
+		output = new DataOutputStream(con.getOutputStream());
+		 
+		System.out.println(query.toString());
+			output.writeBytes(query.toString());
+		}
+		finally{
+			output.close();
+		}}
+		 catch (IOException e) {
+			 fail(e.getMessage());
+			}
+	}
+	
 	@Test
-	public void testPerformance() {
+	public void testPerfCreateReqIF() {
 		int milliNano = 100000;
 		int row = 100000;
-		long startTime = System.nanoTime();
+		String benchmark = "Create_ReqIF";
+		String commitId = getGitRepositoryState();
+		
+		long startTime = getCpuTime();
+		createReqIF(row);
+		long endTime = getCpuTime();
+		
+		long cpuDuration = (endTime - startTime) / milliNano;
+		sendData(commitId, benchmark, cpuDuration);
+	}
+	
+	@Test
+	public void testPerfCall(){
+		int milliNano = 100000;
+		int row = 100000;
+		String benchmark = "First_call";
 		ReqIF reqif = createReqIF(row);
-		long endTime = System.nanoTime();
-
-		long createDuration = endTime - startTime;
-
+		String commitId = getGitRepositoryState();
+	
 		Specification spec = reqif.getCoreContent().getSpecifications().get(0);
 		ProrAgileGridContentProvider cp = new ProrAgileGridContentProvider(
 				spec, ConfigurationUtil.createSpecViewConfiguration(spec,
 						editingDomain));
-		startTime = System.nanoTime();
-		cp.getContentAt((row - 1), 0);
-		endTime = System.nanoTime();
-		long fstCallDuration = endTime - startTime;
-
-		startTime = System.nanoTime();
-		cp.getContentAt(row - 1, 0);
-		endTime = System.nanoTime();
-		long sndCallDuration = endTime - startTime;
 		
-		// using the fibonacci call to validate the meaningfulness of the performance test
-		startTime = System.nanoTime();
-		fibonacci(40);
-		endTime = System.nanoTime();
-		long fibDuration = endTime - startTime;
-
-		Date date = new Date(System.currentTimeMillis());
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(date);
-		cal.getTime();
-
-		PrintWriter pw = null;
-		BufferedReader br = null;
-		try {
-			pw = new PrintWriter(
-					"stats.txt");
-			String sUrl = "https://hudson.eclipse.org/hudson/job/rmf-nightly/lastSuccessfulBuild/artifact/performance-data/stats.txt";
-			if (urlExists(sUrl))
-
-			{
-			URL url = new URL(sUrl);
-			
-			br = new BufferedReader(new InputStreamReader(
-					url.openStream()));
-
-			String line;
-			while ((line = br.readLine()) != null) {
-				pw.print(line);
-				pw.println();
-				
-			}}
-			pw.print(cal.getTime() +"; ");
-			pw.print(createDuration / milliNano +"; ");
-			pw.print(fstCallDuration / milliNano + "; ");
-			pw.print(sndCallDuration / milliNano + "; ");
-			pw.print(fibDuration / milliNano);
-
-			pw.close();
-			
-		} catch (IOException e) {
-			fail(e.getMessage());
-		}
-		finally{
-			if (br != null)
-				try {
-					br.close();
-				} catch (IOException e) {
-					fail(e.getMessage());
-				}
-			if (pw != null)
-				pw.close();
-		}
-
+		long starTime = getCpuTime();
+		cp.getContentAt((row - 1), 0);
+		long endTime = getCpuTime();
+		long duration = (endTime - starTime) / milliNano ;
+		sendData(commitId, benchmark, duration);
+		
+		//Second call
+		benchmark = "Second_call";
+		starTime = getCpuTime();
+		cp.getContentAt((row - 1), 0);
+		endTime = getCpuTime();
+		duration = (endTime - starTime) / milliNano;
+		sendData(commitId, benchmark, duration);
 	}
-
-	private int fibonacci(int num){
-		 	if (num < 2)
-		 		return num;
-		 	else
-		 		return (fibonacci(num - 2) + fibonacci(num - 1));
-	}
-	
-	private static boolean urlExists(String URLName){
-	    try {
-	      HttpURLConnection.setFollowRedirects(false);
-
-	      HttpURLConnection con =
-	         (HttpURLConnection) new URL(URLName).openConnection();
-	      con.setRequestMethod("HEAD");
-	      return (con.getResponseCode() == HttpURLConnection.HTTP_OK);
-	    }
-	    catch (Exception e) {
-	       e.printStackTrace();
-	       return false;
-	    }
-	  }
 
 	
 	@Test
