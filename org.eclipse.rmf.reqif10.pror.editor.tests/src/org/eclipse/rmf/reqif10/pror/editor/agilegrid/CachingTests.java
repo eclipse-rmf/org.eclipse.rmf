@@ -103,19 +103,31 @@ public class CachingTests extends AbstractContentProviderTests {
 				System.out.println("CONNECTION ESTABLISHED");
 				con.setDoOutput(true);
 				con.setRequestMethod("POST");
+				con.setRequestProperty("Content-Type",
+						"application/x-www-form-urlencoded");
+				con.setRequestProperty("Content-Length",
+						String.valueOf(query.toString().length()));
 				con.connect();
 		
 				wr = new OutputStreamWriter(con.getOutputStream());
 				wr.write(query.toString());
 				wr.flush();
-								
+							
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(con.getInputStream()));
+
+				for (String line; (line = reader.readLine()) != null;) {
+					System.out.println(line);
+				}
+				
 			} finally {
 				if (wr != null)
 					wr.close();
 				if (con != null) {
-					System.out.println(query.toString());
-					System.out.println(con.getResponseCode() + " ===> "
-							+ con.getResponseMessage());
+					System.out.println("Query String: " + query.toString());
+//					System.out.println("Responresponse Code: "
+//							+ con.getResponseCode() + " ===> "
+//							+ con.getResponseMessage());
 					con.disconnect();
 				}
 			}
