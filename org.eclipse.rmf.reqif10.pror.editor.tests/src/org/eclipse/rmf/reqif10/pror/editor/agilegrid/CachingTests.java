@@ -40,8 +40,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -51,39 +50,10 @@ import org.junit.Test;
  */
 public class CachingTests extends AbstractContentProviderTests {
 
-	private final String httpURL = "http://cobra.cs.uni-duesseldorf.de:8000/result/add/";
-	private HttpURLConnection con = null;
-	
-	@Before
-	public void setup() {
-
-		try {
-
-			System.setProperty("http.proxyHost", "proxy.eclipse.org");
-			System.setProperty("http.proxyPort", "9898");
-
-			URL myurl = new URL(httpURL);
-			con = null;
-
-			System.out.println("TRY TO OPEN CONNECTION");
-			con = (HttpURLConnection) myurl.openConnection();
-			System.out.println("CONNECTION ESTABLISHED");
-			con.setDoOutput(true);
-			con.setRequestMethod("POST");
-			con.setRequestProperty("Content-Type",
-					"application/x-www-form-urlencoded");
-			con.connect();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	@After
-	public void cleanup() {
-		if (con != null)
-			con.disconnect();
+	@BeforeClass
+	public static void setup() {
+		System.setProperty("http.proxyHost", "proxy.eclipse.org");
+		System.setProperty("http.proxyPort", "9898");
 	}
 	
 	private long getCpuTime() {
@@ -101,7 +71,8 @@ public class CachingTests extends AbstractContentProviderTests {
 				return in.readLine();
 			}
 		} catch (IOException e) {
-			System.out.println("Could not get commit-id");
+			System.out
+					.println("## PERFORMANCE TEST ### Could not get commit-id");
 		}
 		return null;
 	}
@@ -111,12 +82,17 @@ public class CachingTests extends AbstractContentProviderTests {
 		if (commitId == null)
 			return;
 
+		String httpURL = "http://cobra.cs.uni-duesseldorf.de:8000/result/add/";
+
 		StringBuilder query = new StringBuilder();
 
+		HttpURLConnection con = null;
 		OutputStreamWriter wr = null;
 		BufferedReader rr = null;
 
 		try {
+
+			URL myurl = new URL(httpURL);
 
 			query.append("commitid=").append(
 					URLEncoder.encode(commitId, "UTF-8"));
@@ -132,17 +108,31 @@ public class CachingTests extends AbstractContentProviderTests {
 					URLEncoder.encode("Eclipse", "UTF-8"));
 			query.append("&result_value=").append(
 					URLEncoder.encode("" + value, "UTF-8"));
+			
+			System.out
+					.println("## PERFORMANCE TEST ### TRY TO OPEN CONNECTION");
+			con = (HttpURLConnection) myurl.openConnection();
+			System.out
+					.println("## PERFORMANCE TEST ### CONNECTION ESTABLISHED");
+			con.setDoOutput(true);
+			con.setRequestMethod("POST");
+			con.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded");
+			con.setRequestProperty("Content-Length",
+					String.valueOf(query.toString().length()));
+			con.connect();
 
 			wr = new OutputStreamWriter(con.getOutputStream());
 			wr.write(query.toString());
 			wr.flush();
 
-			System.out.println("Query String: " + query.toString());
+			System.out.println("## PERFORMANCE TEST ### Query String: "
+					+ query.toString());
 
 			rr = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
 			for (String line; (line = rr.readLine()) != null;) {
-				System.out.println(line);
+				System.out.println("## PERFORMANCE TEST ### " + line);
 			}
 
 		} catch (IOException e) {
@@ -156,6 +146,8 @@ public class CachingTests extends AbstractContentProviderTests {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			if (con != null)
+				con.disconnect();
 		}
 
 	}
