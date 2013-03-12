@@ -50,7 +50,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>JUNO_4_2_0.target</id>
+			<id>JUNO_4_2_2.target</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -69,9 +69,9 @@
 									<artifacts>
 										<artifact>
 											<!-- note: the file name must be ${classifier}.target -->
-											<file>JUNO_4_2_0".target</file>
+											<file>JUNO_4_2_2.target</file>
 											<type>target</type>
-											<classifier>JUNO_4_2_0</classifier>
+											<classifier>JUNO_4_2_2</classifier>
 										</artifact>
 									</artifacts>
 								</configuration>

@@ -16,6 +16,17 @@
 
 	<build>
 		<plugins>
+		   <!-- TODO: enforce build with Java 1.5 
+		   <plugin>
+              <groupId>org.sonatype.tycho</groupId>
+              <artifactId>maven-osgi-compiler-plugin</artifactId>
+              <version>${tycho-version}</version>
+              <configuration>
+                 <source>1.5</source>
+                 <target>1.5</target>
+              </configuration>
+            </plugin>
+            -->
 			<plugin>
 				<!-- enable tycho build extension -->
 				<groupId>org.eclipse.tycho</groupId>
@@ -157,7 +168,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>JUNO_4_2_0.target</id>
+			<id>JUNO_4_2_2.target</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -171,7 +182,7 @@
 									<groupId>org.eclipse.rmf</groupId>
 									<artifactId>org.eclipse.rmf.target</artifactId>
 									<version>0.6.1-SNAPSHOT</version>
-									<classifier>JUNO_4_2_0</classifier>
+									<classifier>JUNO_4_2_2</classifier>
 								</artifact>
 							</target>
 							<environments>
