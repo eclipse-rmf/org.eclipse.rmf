@@ -16,6 +16,8 @@ package org.eclipse.rmf.reqif10.pror.presentation.id.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.agilemore.agilegrid.AgileGrid;
+import org.agilemore.agilegrid.CellEditor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -48,8 +50,11 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ProrPresentationConfigurationItemProvider;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration;
 import org.eclipse.rmf.reqif10.pror.presentation.id.IdPackage;
+import org.eclipse.rmf.reqif10.pror.presentation.ui.IdLabelCellRenderer;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration} object.
@@ -64,7 +69,8 @@ public class IdConfigurationItemProvider
 		IStructuredItemContentProvider,
 		ITreeItemContentProvider,
 		IItemLabelProvider,
-		IItemPropertySource {
+		IItemPropertySource,
+		PresentationEditorInterface {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -363,6 +369,34 @@ public class IdConfigurationItemProvider
 	 */
 	public boolean canEdit() {
 		return false;
+	}
+	
+	IProrCellRenderer renderer = null;
+
+	/**
+	 * Use special renderer.
+	 */
+	public IProrCellRenderer getCellRenderer(AttributeValue av) {
+		if (renderer == null) {
+			renderer = new IdLabelCellRenderer();
+		}
+		return renderer;
+	}
+
+	/**
+	 * No special {@link CellEditor}.
+	 */
+	public CellEditor getCellEditor(AgileGrid agileGrid,
+			EditingDomain editingDomain, AttributeValue av,
+			SpecElementWithAttributes parent, Object affectedObject) {
+		return null;
+	}
+
+	/**
+	 * Not suggested as default.
+	 */
+	public Class<? extends DatatypeDefinition> suggestAsDefault() {
+		return null;
 	}
 
 }
