@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline" xmlns:id="http://pror.org/presentation/id">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="rmf-22e36b3c-ea6b-4ff7-b9f9-eb5bd1886d9f">
+      <COMMENT>Created by: lukas</COMMENT>
+      <CREATION-TIME>2013-04-16T08:53:23.156+02:00</CREATION-TIME>
+      <REQ-IF-TOOL-ID>ProR (http://pror.org)</REQ-IF-TOOL-ID>
+      <REQ-IF-VERSION>1.0.1</REQ-IF-VERSION>
+      <SOURCE-TOOL-ID>ProR (http://pror.org)</SOURCE-TOOL-ID>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="rmf-ae7d95bd-32b6-4858-88a4-87df56e922e4" LONG-NAME="T_String32k" MAX-LENGTH="32000"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="rmf-f4ba935b-4191-4de5-bd29-c0934f740942" LONG-NAME="T_ID"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="rmf-66b97261-0e01-47d6-a919-8dcd134cd0cd" LONG-NAME="T_HEAD"/>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-OBJECT-TYPE IDENTIFIER="rmf-7b762117-1a92-4905-983c-95b0b686418b" LONG-NAME="Requirement Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-ae7d95bd-32b6-4858-88a4-87df56e922e4</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-6aa1530d-9b25-4708-a983-2252a5c59c97" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-f4ba935b-4191-4de5-bd29-c0934f740942</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE IDENTIFIER="rmf-4288addc-512f-475b-8990-66addd73d37c" LONG-NAME="Specification Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-17b7af18-b381-4f44-9aad-43699255f213" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-ae7d95bd-32b6-4858-88a4-87df56e922e4</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="rmf-89852b01-b2e5-4686-8b91-ed7389b9f3ba" LONG-NAME="Headline">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-5f9a9a5e-825c-4efa-a621-908704c840f2" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-66b97261-0e01-47d6-a919-8dcd134cd0cd</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="rmf-74081550-1f54-4000-a281-1f34c4f2909b" LONG-NAME="Approach">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-573f43f2-090b-4bc6-88e0-b932fa91799f" LONG-NAME="Name">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-ae7d95bd-32b6-4858-88a4-87df56e922e4</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-dd5b534c-f90a-4584-acb1-96206041bb35" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-ae7d95bd-32b6-4858-88a4-87df56e922e4</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-2bbb2367-fcb2-4252-93af-11536916516a" LONG-NAME="Pros">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-ae7d95bd-32b6-4858-88a4-87df56e922e4</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-d85ad90a-b7f1-4386-92f7-d3c3fd206ea5" LONG-NAME="Cons">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-ae7d95bd-32b6-4858-88a4-87df56e922e4</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT IDENTIFIER="rmf-8e456930-3928-4883-8d8e-07e78f2813d0">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The goal is to develop an approach for the ProR Essentials documentation. In the first step we gather the requirements and in the second step we evalutate possible approaches. We identify we pros and cons of the several approaches and face them to the requirements.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="GOAL">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-09abae22-4ffd-4149-9027-a01b0e2b7a65">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-1">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The documentation shall be hosted online">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-c3e62451-a82f-4aed-a61d-a876c62dc36b">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-2">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The documentation shall be provided as an Eclipse Help Plugin">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-f16d1dd3-4354-4ae3-8b61-67f0fe7d3957">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Requirements">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-5f9a9a5e-825c-4efa-a621-908704c840f2</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-89852b01-b2e5-4686-8b91-ed7389b9f3ba</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-cca06d24-8f29-4ede-9946-ff00b6003f6d">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Rodin Handbook Approach">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-573f43f2-090b-4bc6-88e0-b932fa91799f</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The Rodin Handbook is maintained in latex. A Jenkins job generates a HTML Browsable document, an Eclipse Help Plugin and a PDF Document.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-dd5b534c-f90a-4584-acb1-96206041bb35</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="- Many available formats: PDF, Eclipse Help Plugin, HTML">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2bbb2367-fcb2-4252-93af-11536916516a</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="- Cumbsersome to edit and maintain">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d85ad90a-b7f1-4386-92f7-d3c3fd206ea5</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-74081550-1f54-4000-a281-1f34c4f2909b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-f499a830-0892-4290-aa8f-7fa19a443f74">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Drupal Approach">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-573f43f2-090b-4bc6-88e0-b932fa91799f</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Drupal is the software used by our Formal Mind Website. Drupal is modular and can be extended , i.e. for documentation purposes.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-dd5b534c-f90a-4584-acb1-96206041bb35</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="- Needs to implement an approach for automatically generating an Eclipse Help Plugin&#xA;- Mixing Tool stuff with company information">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d85ad90a-b7f1-4386-92f7-d3c3fd206ea5</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="- Direct reference to Formal Mind Webpage/Company">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2bbb2367-fcb2-4252-93af-11536916516a</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-74081550-1f54-4000-a281-1f34c4f2909b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-981d0443-817b-4a3b-9693-bee8d7e6d648">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Redmine Approach">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-573f43f2-090b-4bc6-88e0-b932fa91799f</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Redmine is our Formal Mind Bug Tracker. ">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-dd5b534c-f90a-4584-acb1-96206041bb35</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="- A hierachical structure with the several ProR Essentials projects already exists&#xA;- Modules, like a Wiki module already exsits">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2bbb2367-fcb2-4252-93af-11536916516a</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="- Mixing developing stuff with user content&#xA;- An industrial/normal user can be confused of such things like &quot;bugs&quot; etc., if we use this documentation/project site for commercial reasons">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d85ad90a-b7f1-4386-92f7-d3c3fd206ea5</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-74081550-1f54-4000-a281-1f34c4f2909b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-8fe100f0-4a86-4a4e-97f3-1944585b013f">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Wiki Approach">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-573f43f2-090b-4bc6-88e0-b932fa91799f</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Create a new Wiki Page especially for the ProR Essentials Project">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-dd5b534c-f90a-4584-acb1-96206041bb35</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="- Easy to create automatically an Eclipse Help Plugin&#xA;- Direct editing on website&#xA;- Consistency: Currently we have a Wiki Website for the ProB Tool and the BMotion Studio Tool">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2bbb2367-fcb2-4252-93af-11536916516a</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="- No consistent design. Mabye we need to adapt the design of the three wiki pages (ProB, BMS, ProR Essentials)&#xA;  --> Need to check if we can use the Formal Mind design for fir purpose (check license)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-d85ad90a-b7f1-4386-92f7-d3c3fd206ea5</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-74081550-1f54-4000-a281-1f34c4f2909b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-ad547267-097d-47ed-a1b5-068712d328ad">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-3">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Consider to use the online hosted documentation as Project Website (e.g. for commercial purposes and also for the correct audience)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-e9b5dd75-60a7-456c-a7ce-8f90baf1b716">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Specification">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-5f9a9a5e-825c-4efa-a621-908704c840f2</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-89852b01-b2e5-4686-8b91-ed7389b9f3ba</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-1bb958fb-2e0e-441f-807a-8d9745629961">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-4">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Idea">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-17c1b02b-7204-47ac-9c79-f3cc4ae71927">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-5">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Distinguish between user documentation and developer documentation. There are two different target audience!">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-3f99387a-596e-4a9e-9b29-391fcdede8b5">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-6">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The Wiki approach">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-8ca8cb04-8fb3-420b-bb1f-20e5180b0740">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-7">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="We maintain three different Wiki pages: ProB, BMotion Studio and ProR Essentials">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-0a403ced-7ce7-4ecc-8b22-43d4ddf81e9b">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-8">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="We should keep the design/layout of the three websites consistent. I propose to use the design/layout of the Formal Mind webpage.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-29a3e953-a654-4399-87d3-c36b92889b78">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-9">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="For ProB and BMotion Studio wiki websites already exsits, we only need to create a new one for the ProR Essentials Project.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-6041eac5-fb74-460c-a0ab-7ba273831f61">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-10">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The design/layout of the ProB and BMS wiki site needs to be adapted.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-b867ac8f-8b8f-4df7-b8ae-33e3cbb752e9">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-11">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Implementation">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-83a8d56d-0da9-4ea7-83c5-78d9e5aad2ce">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-12">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Step 1: Create a new Wikipage for the ProR Essentials Project">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-3604368e-2ad2-47da-9ffa-f0c769b8b209">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-13">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Step 2: Adapt the Formal Mind Design to the Wiki Page">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-bb25be57-7229-48c6-9cad-3a306a73c46d">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-14">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Create subdomains like: prob.formalmind.com, bms.formalmind.com, pror.formalmind.com and link them to the different wiki pages">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-11759d33-57e6-4ddc-a831-3f9701215d9d">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-15">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Step 3: Create a suitable structure for the documentation/site">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-501842ba-8e6d-45d6-a4c4-e973bc0dd29f">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-16">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Step 4: Migrate current content (FM Blog, Event-B Wiki to the new site)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-a735433e-4ad1-459f-97dc-56d62d85129a">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-17">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Step 5: Create a jenkins job in order to create automatically the different Eclipse Help Plugins for the different sub projects (diff, versioning, rodin integration)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-7953fc11-c19a-4f25-b4bb-f2778d3f1ce2">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-18">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6aa1530d-9b25-4708-a983-2252a5c59c97</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="We need one Eclipse Help Plugin for each project like Diff Tool, Versioning, Rodin Integration">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7eb28e4-1cec-406a-9f4e-ca8095a57794</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-7b762117-1a92-4905-983c-95b0b686418b</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPEC-RELATIONS>
+        <SPEC-RELATION IDENTIFIER="rmf-f974329c-0680-48c8-8773-27b3948d90d1">
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-8fe100f0-4a86-4a4e-97f3-1944585b013f</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>rmf-3f99387a-596e-4a9e-9b29-391fcdede8b5</SPEC-OBJECT-REF>
+          </SOURCE>
+        </SPEC-RELATION>
+      </SPEC-RELATIONS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="rmf-ddb92073-2a82-4fcc-8751-8e217297518a" LONG-NAME="Specification Document">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Requirements Document">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-17b7af18-b381-4f44-9aad-43699255f213</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>rmf-4288addc-512f-475b-8990-66addd73d37c</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-58a1ed94-a818-4556-824e-77d822a5aa88">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-8e456930-3928-4883-8d8e-07e78f2813d0</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-6069ec68-a495-4ecd-94d2-211b843ccafb">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-f16d1dd3-4354-4ae3-8b61-67f0fe7d3957</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-e13428e5-8edd-472d-924f-2a51867e9540">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-09abae22-4ffd-4149-9027-a01b0e2b7a65</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-3309c4e2-f736-4284-b654-531770e64230">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-c3e62451-a82f-4aed-a61d-a876c62dc36b</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-07aa510d-2cf3-4794-bd04-1a8962c2baef">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-7953fc11-c19a-4f25-b4bb-f2778d3f1ce2</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-67288921-6bcc-4b6f-8136-aabb095345a1">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-ad547267-097d-47ed-a1b5-068712d328ad</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN/>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-e16536fd-e10c-4686-bae5-6dffb444bd9e">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-17c1b02b-7204-47ac-9c79-f3cc4ae71927</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-5086849d-b19b-4aa6-9ae6-c3a9b1ac37bd">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-e9b5dd75-60a7-456c-a7ce-8f90baf1b716</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-5fcd324f-12b3-4147-bd96-4ea142bbeae0">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-1bb958fb-2e0e-441f-807a-8d9745629961</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-3665d586-3903-43b1-a4d1-c0a543ebdddc">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-3f99387a-596e-4a9e-9b29-391fcdede8b5</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN>
+                        <SPEC-HIERARCHY IDENTIFIER="rmf-6f35581d-103e-44af-bb72-ddbd22d97d08">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>rmf-8ca8cb04-8fb3-420b-bb1f-20e5180b0740</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="rmf-525ac73a-3026-48a4-aa4c-ac24b5fc4ae2">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>rmf-29a3e953-a654-4399-87d3-c36b92889b78</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="rmf-f599375a-6e46-4a1d-9cc6-0c977b040e46">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>rmf-0a403ced-7ce7-4ecc-8b22-43d4ddf81e9b</SPEC-OBJECT-REF>
+                          </OBJECT>
+                          <CHILDREN>
+                            <SPEC-HIERARCHY IDENTIFIER="rmf-b7be0e8b-c1a8-428c-b718-a4d6832037bf">
+                              <OBJECT>
+                                <SPEC-OBJECT-REF>rmf-6041eac5-fb74-460c-a0ab-7ba273831f61</SPEC-OBJECT-REF>
+                              </OBJECT>
+                            </SPEC-HIERARCHY>
+                          </CHILDREN>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="rmf-2a5a790d-81b1-4e91-8d45-963fb1d18553">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>rmf-bb25be57-7229-48c6-9cad-3a306a73c46d</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                      </CHILDREN>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-33d0f5a7-eac8-4a79-b36b-dd790f3ca40a">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-b867ac8f-8b8f-4df7-b8ae-33e3cbb752e9</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-45d80666-0c09-4e94-904b-d3c236f6fe3f">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-83a8d56d-0da9-4ea7-83c5-78d9e5aad2ce</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-0cbfbf36-e76f-4bad-a7f1-f37ad91a28fe">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-3604368e-2ad2-47da-9ffa-f0c769b8b209</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-90cb19cf-9499-4a00-88fb-ae1879ce701d">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-11759d33-57e6-4ddc-a831-3f9701215d9d</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-82a02976-5503-4162-bfd1-8c73baa52fb4">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-501842ba-8e6d-45d6-a4c4-e973bc0dd29f</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-942087a1-221e-4369-9dcf-5bf43d82e53a">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-a735433e-4ad1-459f-97dc-56d62d85129a</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+        <SPECIFICATION IDENTIFIER="rmf-06fca5be-8982-4482-a18f-c16c32ba9814">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Approach Evaluation">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-17b7af18-b381-4f44-9aad-43699255f213</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>rmf-4288addc-512f-475b-8990-66addd73d37c</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-330a3018-3639-43af-ad46-0c8c7a4ac408">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-cca06d24-8f29-4ede-9946-ff00b6003f6d</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-a005146d-b4b5-4f69-85a4-f77a3083f046">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-f499a830-0892-4290-aa8f-7fa19a443f74</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-7e4070ca-b036-47af-bc27-a8a006a9b957">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-981d0443-817b-4a3b-9693-bee8d7e6d648</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-8ade3019-2650-4b3c-8b94-5a3fde885c48">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-8fe100f0-4a86-4a4e-97f3-1944585b013f</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration configuration:specification="rmf-ddb92073-2a82-4fcc-8751-8e217297518a">
+            <configuration:columns>
+              <configuration:Column configuration:label="ID" configuration:width="145"/>
+              <configuration:Column configuration:label="Description" configuration:width="585"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column configuration:label="Lead Header Column" configuration:width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+          <configuration:ProrSpecViewConfiguration configuration:specification="rmf-06fca5be-8982-4482-a18f-c16c32ba9814">
+            <configuration:columns>
+              <configuration:Column configuration:label="Name" configuration:width="153"/>
+              <configuration:Column configuration:label="Description" configuration:width="286"/>
+              <configuration:Column configuration:label="Pros" configuration:width="351"/>
+              <configuration:Column configuration:label="Cons" configuration:width="274"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column configuration:label="Lead Header Column" configuration:width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration>
+                <configuration:defaultLabel>Description</configuration:defaultLabel>
+              </configuration:LabelConfiguration>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+        <configuration:presentationConfigurations>
+          <configuration:ProrPresentationConfigurations>
+            <configuration:presentationConfigurations>
+              <id:IdConfiguration configuration:datatype="rmf-f4ba935b-4191-4de5-bd29-c0934f740942" id:count="18"/>
+              <headline:HeadlineConfiguration configuration:datatype="rmf-66b97261-0e01-47d6-a919-8dcd134cd0cd"/>
+            </configuration:presentationConfigurations>
+          </configuration:ProrPresentationConfigurations>
+        </configuration:presentationConfigurations>
+      </configuration:ProrToolExtension>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>
