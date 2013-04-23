@@ -304,6 +304,11 @@ public class IdConfigurationItemProvider
 
 	protected void updateSpecElementIfNecessary(IdConfiguration config,
 			SpecElementWithAttributes target, EditingDomain editingDomain) {
+		
+		if (config.getDatatype() == null) {
+			return;
+		}
+
 		SpecElementWithAttributes specElement = (SpecElementWithAttributes) target;
 
 		// 1. Find out whether there is a matching AttributeDefinition
