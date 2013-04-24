@@ -26,6 +26,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin;
 import org.eclipse.rmf.reqif10.pror.util.PresentationEditInterface;
@@ -125,6 +126,9 @@ public abstract class ProrPresentationConfigurationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
+		
+		// Update the label
+		fireNotifyChanged(new ViewerNotification(notification));
 	}
 
 	/**
