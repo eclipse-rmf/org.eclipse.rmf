@@ -14,11 +14,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
@@ -377,12 +377,11 @@ public class ReqIF10Util {
 	 * <p>
 	 * All (real) children are processed as well.
 	 */
-	public static void ensureIdIsUnique(ResourceImpl resource, Identifiable identifiable) {
+	public static void ensureIdIsUnique(Resource resource, Identifiable identifiable) {
 		if (resource == null) {
 			return;
 		}
-		Set<String> ids = resource.getIntrinsicIDToEObjectMap().keySet();
-		if (identifiable.getIdentifier() == null || ids.contains(identifiable.getIdentifier())) {
+		if (identifiable.getIdentifier() == null || resource.getEObject(identifiable.getIdentifier()) != null) {
 			identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$
 		}
 

@@ -26,7 +26,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -294,7 +293,7 @@ public class SpecificationItemProvider
 		// Ensure that the ID is unique if it's a copy operation.
 		for (Object object : collection) {
 			if (object instanceof Identifiable)
-				ReqIF10Util.ensureIdIsUnique((ResourceImpl) owner.eResource(),
+				ReqIF10Util.ensureIdIsUnique(owner.eResource(),
 						(Identifiable) object);
 		}
 

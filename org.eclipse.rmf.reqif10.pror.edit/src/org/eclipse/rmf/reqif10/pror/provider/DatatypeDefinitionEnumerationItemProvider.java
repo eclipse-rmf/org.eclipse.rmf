@@ -177,7 +177,7 @@ public class DatatypeDefinitionEnumerationItemProvider
 		// Ensure that the ID is unique if it's a copy operation.
 		for (Object object : collection) {
 			if (object instanceof Identifiable)
-				ReqIF10Util.ensureIdIsUnique((ResourceImpl) owner.eResource(),
+				ReqIF10Util.ensureIdIsUnique(owner.eResource(),
 						(Identifiable) object);
 		}
 
@@ -193,7 +193,7 @@ public class DatatypeDefinitionEnumerationItemProvider
 		if (owner instanceof EObject && operation == DragAndDropFeedback.DROP_COPY) {
 			for (Object object : collection) {
 				if (object instanceof Identifiable)
-					ReqIF10Util.ensureIdIsUnique((ResourceImpl) ((EObject)owner).eResource(),
+					ReqIF10Util.ensureIdIsUnique(((EObject)owner).eResource(),
 							(Identifiable) object);
 			}
 		}
