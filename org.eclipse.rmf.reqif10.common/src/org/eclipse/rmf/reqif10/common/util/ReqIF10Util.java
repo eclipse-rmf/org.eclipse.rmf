@@ -14,9 +14,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
@@ -36,6 +39,7 @@ import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.EnumValue;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
@@ -367,4 +371,14 @@ public class ReqIF10Util {
 		}
 	}
 
+	/**
+	 * Ensures that the {@link Identifiable}'s ID is unique, with respect to the given {@link ResourceImpl}. This method
+	 * is not using a command, assuming that the {@link Identifiable} is not yet attached to the model.
+	 */
+	public static void ensureIdIsUnique(ResourceImpl resource, Identifiable identifiable) {
+		Set<String> ids = resource.getIntrinsicIDToEObjectMap().keySet();
+		if (identifiable.getIdentifier() == null || ids.contains(identifiable.getIdentifier())) {
+			identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$
+		}
+	}
 }
