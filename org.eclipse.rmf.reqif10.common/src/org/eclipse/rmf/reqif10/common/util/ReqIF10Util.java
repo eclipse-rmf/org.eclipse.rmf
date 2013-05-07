@@ -374,11 +374,20 @@ public class ReqIF10Util {
 	/**
 	 * Ensures that the {@link Identifiable}'s ID is unique, with respect to the given {@link ResourceImpl}. This method
 	 * is not using a command, assuming that the {@link Identifiable} is not yet attached to the model.
+	 * <p>
+	 * All (real) children are processed as well.
 	 */
 	public static void ensureIdIsUnique(ResourceImpl resource, Identifiable identifiable) {
 		Set<String> ids = resource.getIntrinsicIDToEObjectMap().keySet();
 		if (identifiable.getIdentifier() == null || ids.contains(identifiable.getIdentifier())) {
 			identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$
+		}
+
+		// Also process the children
+		for (EObject obj : identifiable.eContents()) {
+			if (obj instanceof Identifiable) {
+				ensureIdIsUnique(resource, (Identifiable) obj);
+			}
 		}
 	}
 }
