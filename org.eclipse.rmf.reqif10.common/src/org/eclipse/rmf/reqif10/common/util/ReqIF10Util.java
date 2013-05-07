@@ -378,6 +378,9 @@ public class ReqIF10Util {
 	 * All (real) children are processed as well.
 	 */
 	public static void ensureIdIsUnique(ResourceImpl resource, Identifiable identifiable) {
+		if (resource == null) {
+			return;
+		}
 		Set<String> ids = resource.getIntrinsicIDToEObjectMap().keySet();
 		if (identifiable.getIdentifier() == null || ids.contains(identifiable.getIdentifier())) {
 			identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$

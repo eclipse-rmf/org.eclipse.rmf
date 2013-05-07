@@ -27,6 +27,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.command.SetCommand;
@@ -42,6 +43,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
@@ -414,7 +416,23 @@ public class SpecHierarchyItemProvider extends
 		};
 
 		return dragAndDropCommand;
+	}
+	
+	/**
+	 * Ensures that added items have a unique ID
+	 */
+	@Override
+	protected Command createAddCommand(EditingDomain domain, EObject owner,
+			EStructuralFeature feature, Collection<?> collection, int index) {
+		
+		// Ensure that the ID is unique if it's a copy operation.
+		for (Object object : collection) {
+			if (object instanceof Identifiable)
+				ReqIF10Util.ensureIdIsUnique((ResourceImpl) owner.eResource(),
+						(Identifiable) object);
+		}
 
+		return super.createAddCommand(domain, owner, feature, collection, index);
 	}
 
 }
