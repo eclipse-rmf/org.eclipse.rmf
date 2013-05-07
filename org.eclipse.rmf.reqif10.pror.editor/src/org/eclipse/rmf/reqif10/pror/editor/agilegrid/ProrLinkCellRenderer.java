@@ -85,7 +85,7 @@ public class ProrLinkCellRenderer extends AbstractProrCellRenderer {
 		ReqIF reqif = ReqIF10Util.getReqIF(specElement);
 		incoming = new HashSet<SpecRelation>();
 		outgoing = new HashSet<SpecRelation>();
-		if (specElement == null)
+		if (specElement == null || reqif == null)
 			return;
 		EList<SpecRelation> relations = reqif.getCoreContent()
 				.getSpecRelations();
