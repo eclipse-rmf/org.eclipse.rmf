@@ -19,9 +19,12 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.ReqifSpecificationEditorInput;
 import org.eclipse.rmf.reqif10.pror.editor.util.ProrEditorUtil;
 import org.eclipse.swt.program.Program;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * @author jastram
@@ -29,21 +32,26 @@ import org.eclipse.swt.widgets.Display;
  */
 public class SpecificationWebPrintAction extends Action {
 
-	private final Specification spec;
 	private EditingDomain editingDomain;
 	private AdapterFactory adapterFactory;
 
 	/**
 	 */
-	public SpecificationWebPrintAction(Specification spec,
+	public SpecificationWebPrintAction(
 			EditingDomain editingDomain, AdapterFactory adapterFactory) {
-		this.spec = spec;
 		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
 	}
 
 	@Override
 	public void run() {
+		// Find the active editor
+		IEditorInput input = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor().getEditorInput();
+		if (! (input instanceof ReqifSpecificationEditorInput)) {
+			return;
+		}
+		
+		Specification spec = ((ReqifSpecificationEditorInput)input).getSpec();
 		
 		try {
 			File folder = File.createTempFile("pror-", "");
