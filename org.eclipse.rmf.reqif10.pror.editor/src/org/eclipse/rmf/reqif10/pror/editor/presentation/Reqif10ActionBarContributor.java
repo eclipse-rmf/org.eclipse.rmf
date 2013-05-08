@@ -13,13 +13,18 @@ package org.eclipse.rmf.reqif10.pror.editor.presentation;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -31,12 +36,22 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.action.SubContributionItem;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
+import org.eclipse.rmf.reqif10.SpecObject;
+import org.eclipse.rmf.reqif10.SpecRelation;
+import org.eclipse.rmf.reqif10.SpecRelationType;
+import org.eclipse.rmf.reqif10.SpecType;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.AgileCellEditorActionHandler;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorPart;
@@ -69,6 +84,18 @@ public class Reqif10ActionBarContributor
 
 	private AgileCellEditorActionHandler agileCellEditorActionHandler;
 	
+
+	/**
+	 * List of all SpecObjects (directly or indirectly via SpecHierarchy) in the
+	 * current selection.
+	 */
+	private List<SpecObject> linkSelection = new ArrayList<SpecObject>();
+	
+	/**
+	 * SpecObjects for which linking has been initiated.
+	 */
+	private List<SpecObject> linkSource = new ArrayList<SpecObject>();
+
 	/**
 	 * This action opens the Properties view.
 	 * <!-- begin-user-doc -->
@@ -281,8 +308,9 @@ public class Reqif10ActionBarContributor
 	 * handling {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by querying for the children and siblings
 	 * that can be added to the selected object and updating the menus accordingly.
 	 * <!-- begin-user-doc -->
+	 * Added selection management for the linking process
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void selectionChanged(SelectionChangedEvent event) {
 		// Remove any menu items for old selection.
@@ -321,6 +349,28 @@ public class Reqif10ActionBarContributor
 		if (createSiblingMenuManager != null) {
 			populateManager(createSiblingMenuManager, createSiblingActions, null);
 			createSiblingMenuManager.update(true);
+		}
+		
+		// Stores the selection that is needed for link management.
+		saveLinkingSelection(selection);
+	}
+
+	/**
+	 * Updates linkSelection by extracting all directly or indirectly contained
+	 * {@link SpecObject}s.
+	 */
+	private void saveLinkingSelection(ISelection selection) {
+		linkSelection.clear();
+		if (selection instanceof IStructuredSelection) {
+			Iterator<?> iterator = ((IStructuredSelection)selection).iterator();
+			while (iterator.hasNext()) {
+				Object obj = iterator.next();
+				if (obj instanceof SpecObject) linkSelection.add((SpecObject) obj);
+				if (obj instanceof SpecHierarchy) {
+					SpecObject specObject = ((SpecHierarchy)obj).getObject();
+					if (obj != null) linkSelection.add(specObject);
+				}
+			}
 		}
 	}
 
@@ -414,7 +464,7 @@ public class Reqif10ActionBarContributor
 	 * This populates the pop-up menu before it appears.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
@@ -428,7 +478,114 @@ public class Reqif10ActionBarContributor
 		submenuManager = new MenuManager(Reqif10EditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		populateManager(submenuManager, createSiblingActions, null);
 		menuManager.insertBefore("edit", submenuManager);
+		
+		// New Code for Link Management
+		buildLinkMenuEntries(menuManager);
+
+}
+
+	/**
+	 * Extends the context menu for link management. It is only active if the
+	 * current selection contains at least one {@link SpecObject} or one
+	 * {@link SpecHierarchy}.<p>
+	 * 
+	 * There is always an action "Initiate Linking" which saves the current selection as a starting point.<p>
+	 * 
+	 * If a selection has been initiated, there are two additional entries "link to" and "link from" that complete the link
+	 * process with the previously initiated selection.
+	 * 
+	 * @param menuManager
+	 */
+	private void buildLinkMenuEntries(IMenuManager menuManager) {
+		if (linkSelection.isEmpty()) return;
+		
+		MenuManager submenuManager;
+		menuManager.insertAfter("edit", new Separator());
+
+		ImageDescriptor toIcon = ExtendedImageRegistry.INSTANCE.getImageDescriptor(Reqif10EditorPlugin.INSTANCE.getImage(
+				"full/obj16/SpecRelationTo.png"));
+		ImageDescriptor fromIcon = ExtendedImageRegistry.INSTANCE.getImageDescriptor(Reqif10EditorPlugin.INSTANCE.getImage(
+				"full/obj16/SpecRelationFrom.png"));
+
+		if (!linkSource.isEmpty()) {
+			submenuManager = new MenuManager(
+					Reqif10EditorPlugin.INSTANCE
+							.getString("_Action_Complete_Linking_From", new String[] { linkSource.size() + "" }),
+					fromIcon, "_Action_Complete_Linking_From");
+			populateLinkMenu(submenuManager, linkSelection, linkSource);
+			menuManager.insertAfter("edit", submenuManager);
+
+			submenuManager = new MenuManager(
+					Reqif10EditorPlugin.INSTANCE
+							.getString("_Action_Complete_Linking_To", new String[] { linkSource.size() + "" }),
+					toIcon, "_Action_Complete_Linking_To");
+			populateLinkMenu(submenuManager, linkSource, linkSelection);
+			menuManager.insertAfter("edit", submenuManager);
+		}
+		IAction action = new Action(
+				Reqif10EditorPlugin.INSTANCE
+						.getString("_Action_Initiate_Linking", new String[] { linkSelection.size() + "" })) {
+			@Override
+			public void run() {
+				linkSource.clear();
+				linkSource.addAll(linkSelection);
+			}
+		};
+		menuManager.insertAfter("edit", action);
 	}
+		
+	private void populateLinkMenu(IContributionManager manager, List<SpecObject> source, List<SpecObject> target) {
+		final EditingDomain domain = ((IEditingDomainProvider)activeEditorPart).getEditingDomain();
+		ReqIFContent coreContent = ReqIF10Util.getReqIF(linkSource.get(0)).getCoreContent();
+		
+		manager.add(createLinkCommand(source, target, domain,
+				coreContent, null));
+		
+		for (SpecType type : coreContent.getSpecTypes()) {
+			if (type instanceof SpecRelationType) {
+				manager.add(createLinkCommand(source, target, domain,
+						coreContent, (SpecRelationType) type));
+			}
+		}
+	}
+
+	/**
+	 * Builds a command that creates the links between source and target, using type.
+	 */
+	private IAction createLinkCommand(List<SpecObject> source,
+			List<SpecObject> target, final EditingDomain domain,
+			ReqIFContent coreContent, SpecRelationType type) {
+		String label;
+		if (type == null) {
+			label = Reqif10EditorPlugin.INSTANCE
+					.getString("_Action_SpecRelation_Untyped");
+		} else {
+			String typeName = type.getLongName();
+			if (typeName == null)
+				typeName = type.getIdentifier();
+			label = Reqif10EditorPlugin.INSTANCE
+					.getString("_Action_SpecRelation_Typed", new String[] { typeName });
+		}
+		final CompoundCommand cmd = new CompoundCommand(label);
+		for (SpecObject sourceObject : source) {
+			for (SpecObject targetObject : target) {
+				SpecRelation specRelation = ReqIF10Factory.eINSTANCE.createSpecRelation();
+				specRelation.setSource(sourceObject);
+				specRelation.setTarget(targetObject);
+				specRelation.setType(type);
+				cmd.append(AddCommand.create(domain, coreContent,
+						ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS,
+						specRelation));
+			}
+		}
+		return new Action(label) {
+			@Override
+			public void run() {
+				domain.getCommandStack().execute(cmd);
+			}
+		};
+	}
+
 
 	/**
 	 * This inserts global actions before the "additions-end" separator.

@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>org.eclipse.rmf</groupId>
 		<artifactId>org.eclipse.rmf.releng</artifactId>
-		<version>0.6.1-SNAPSHOT</version>
+		<version>0.7.0-SNAPSHOT</version>
 		<relativePath>../org.eclipse.rmf.releng/pom.xml</relativePath>
 	</parent>
 	<groupId>org.eclipse.rmf.plugins</groupId>
 	<artifactId>org.eclipse.rmf.reqif10.pror.editor.tests</artifactId>
-	<version>0.6.1-SNAPSHOT</version>
+	<version>0.7.0-SNAPSHOT</version>
 	<properties>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	</properties>
@@ -55,6 +55,29 @@
 					<useUIThread>false</useUIThread>
 					<argLine>${test.vmargs}</argLine>
 				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>${antrun-version}</version>
+				<executions>
+					<execution>
+						<id>generate-commit-id</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<mkdir dir="${project.build.outputDirectory}"/>
+								<touch file = "${project.build.outputDirectory}/commit-id" /> 
+								<exec executable="git" output="${project.build.outputDirectory}/commit-id">
+									<arg value="rev-parse" />
+									<arg value="HEAD" />
+								</exec>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

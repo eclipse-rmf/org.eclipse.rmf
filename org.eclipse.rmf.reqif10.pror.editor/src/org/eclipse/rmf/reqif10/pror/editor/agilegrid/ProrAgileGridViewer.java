@@ -204,7 +204,7 @@ public class ProrAgileGridViewer extends Viewer {
 				.getReqIF(specHierarchy).getCoreContent(),
 				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
 				newSpecObject, ReqIF10Package.Literals.SPEC_OBJECT__TYPE,
-				specHierarchy.getObject().getType(), -1, -1, editingDomain,
+				specHierarchy.getObject().getType(), -1, 0, editingDomain,
 				adapterFactory);
 
 		cmd.append(AddCommand.create(editingDomain, specHierarchy.eContainer(),

@@ -11,14 +11,24 @@
 package org.eclipse.rmf.reqif10.pror.presentation.ui;
 
 import org.agilemore.agilegrid.AgileGrid;
+import org.agilemore.agilegrid.CellEditor;
 import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.TraverseEvent;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Text;
 
+/**
+ * A better {@link CellEditor} for plain text.
+ * 
+ * @author jastram
+ */
 public class LinewrapCellEditor extends TextCellEditor {
 
 	private final EditingDomain editingDomain;
@@ -32,6 +42,29 @@ public class LinewrapCellEditor extends TextCellEditor {
 		this.editingDomain = editingDomain;
 		this.affectedObject = affectedObject;
 		this.parent = parent;
+	}
+
+	/**
+	 * Registers a listener that updates the editor size when text overflows
+	 * into the next line, providing more space to edit.
+	 */
+	@Override
+	protected Control createControl(final AgileGrid agileGrid) {
+		final Text text = (Text) super.createControl(agileGrid);
+		text.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent e) {
+				if (text == null || text.isDisposed())
+					return;
+				int width = text.getSize().x;
+				int height = text.computeSize(width, SWT.DEFAULT).y;
+				if (height > text.getSize().y) {
+					if (cell != null) {
+						text.setSize(width, height);
+					}
+				}
+			}
+		});
+		return text;
 	}
 
 	/**
@@ -53,8 +86,7 @@ public class LinewrapCellEditor extends TextCellEditor {
 		}
 
 		ProrUtil.setTheValue(attributeValue, text.getText(), parent,
-				affectedObject,
-				editingDomain);
+				affectedObject, editingDomain);
 
 		return attributeValue;
 	}

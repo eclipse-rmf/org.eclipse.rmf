@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.eclipse.rmf</groupId>
 	<artifactId>org.eclipse.rmf.releng</artifactId>
-	<version>0.6.1-SNAPSHOT</version>
+	<version>0.7.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- this is the parent POM from which all modules inherit common settings -->
@@ -16,6 +16,17 @@
 
 	<build>
 		<plugins>
+		   <!-- TODO: enforce build with Java 1.5 
+		   <plugin>
+              <groupId>org.sonatype.tycho</groupId>
+              <artifactId>maven-osgi-compiler-plugin</artifactId>
+              <version>${tycho-version}</version>
+              <configuration>
+                 <source>1.5</source>
+                 <target>1.5</target>
+              </configuration>
+            </plugin>
+            -->
 			<plugin>
 				<!-- enable tycho build extension -->
 				<groupId>org.eclipse.tycho</groupId>
@@ -120,7 +131,7 @@
 								<artifact>
 									<groupId>org.eclipse.rmf</groupId>
 									<artifactId>org.eclipse.rmf.target</artifactId>
-									<version>0.6.1-SNAPSHOT</version>
+									<version>0.7.0-SNAPSHOT</version>
 									<classifier>INDIGO_3_7_2</classifier>
 								</artifact>
 							</target>
@@ -157,7 +168,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>JUNO_4_2_0.target</id>
+			<id>JUNO_4_2_2.target</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -170,8 +181,8 @@
 								<artifact>
 									<groupId>org.eclipse.rmf</groupId>
 									<artifactId>org.eclipse.rmf.target</artifactId>
-									<version>0.6.1-SNAPSHOT</version>
-									<classifier>JUNO_4_2_0</classifier>
+									<version>0.7.0-SNAPSHOT</version>
+									<classifier>JUNO_4_2_2</classifier>
 								</artifact>
 							</target>
 							<environments>

@@ -286,7 +286,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected ReqIFHeaderImpl() {
 		super();
 		// FIXME (mj) Hard-coded ID-Generation, until we have an extension point for ID generators
-		setIdentifier("rmf-" + UUID.randomUUID().toString());
+		setIdentifier("rmf-" + UUID.randomUUID());
 
 	}
 

@@ -30,7 +30,9 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIFContent;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 /**
  * Taken from the EMF-Book. This is the basis for a virtual node object for
@@ -82,13 +84,24 @@ public abstract class TransientReqIFItemProvider extends ItemProviderAdapter
 				owner);
 	}
 
+	/**
+	 * Modified to ensure that we don't end up with duplicate IDs.
+	 */
 	@Override
 	protected Command createAddCommand(EditingDomain domain, EObject owner,
 			EStructuralFeature feature, Collection<?> collection, int index) {
+		
+		// Ensure that the ID is unique if it's a copy operation.
+		for (Object object : collection) {
+			if (object instanceof Identifiable)
+				ReqIF10Util.ensureIdIsUnique(owner.eResource(),
+						(Identifiable) object);
+		}
+
 		return createWrappedCommand(super.createAddCommand(domain, owner,
 				feature, collection, index), owner);
-	}	
-	
+	}
+
 	protected Command createWrappedCommand(Command command, final EObject owner) {
 		return new CommandWrapper(command) {
 			@Override

@@ -27,14 +27,8 @@ import org.eclipse.swt.graphics.Rectangle;
 
 public class IdLabelCellRenderer implements IProrCellRenderer {
 
-	IdConfiguration config;
-
 	public IdLabelCellRenderer() {
 		
-	}
-
-	public IdLabelCellRenderer(IdConfiguration config) {
-		this.config = config;
 	}
 
  	public int doDrawCellContent(GC gc, Rectangle rect, Object value) {

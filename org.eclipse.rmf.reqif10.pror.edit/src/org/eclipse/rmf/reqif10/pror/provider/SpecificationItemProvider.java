@@ -37,6 +37,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
@@ -280,6 +281,23 @@ public class SpecificationItemProvider
 				.getItemProvider(adapterFactory, content);
 		return reqifProvider != null ? reqifProvider
 				.getVirtualSpecifications(content) : null;
+	}
+	
+	/**
+	 * Ensures that added items have a unique ID
+	 */
+	@Override
+	protected Command createAddCommand(EditingDomain domain, EObject owner,
+			EStructuralFeature feature, Collection<?> collection, int index) {
+		
+		// Ensure that the ID is unique if it's a copy operation.
+		for (Object object : collection) {
+			if (object instanceof Identifiable)
+				ReqIF10Util.ensureIdIsUnique(owner.eResource(),
+						(Identifiable) object);
+		}
+
+		return super.createAddCommand(domain, owner, feature, collection, index);
 	}
 
 }

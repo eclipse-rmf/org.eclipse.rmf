@@ -14,9 +14,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
@@ -36,6 +39,7 @@ import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.EnumValue;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
@@ -367,4 +371,25 @@ public class ReqIF10Util {
 		}
 	}
 
+	/**
+	 * Ensures that the {@link Identifiable}'s ID is unique, with respect to the given {@link ResourceImpl}. This method
+	 * is not using a command, assuming that the {@link Identifiable} is not yet attached to the model.
+	 * <p>
+	 * All (real) children are processed as well.
+	 */
+	public static void ensureIdIsUnique(Resource resource, Identifiable identifiable) {
+		if (resource == null) {
+			return;
+		}
+		if (identifiable.getIdentifier() == null || resource.getEObject(identifiable.getIdentifier()) != null) {
+			identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$
+		}
+
+		// Also process the children
+		for (EObject obj : identifiable.eContents()) {
+			if (obj instanceof Identifiable) {
+				ensureIdIsUnique(resource, (Identifiable) obj);
+			}
+		}
+	}
 }

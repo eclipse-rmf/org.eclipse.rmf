@@ -189,7 +189,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	protected IdentifiableImpl() {
 		super();
 		// FIXME (mj) Hard-coded ID-Generation, until we have an extension point for ID generators
-		setIdentifier("rmf-" + UUID.randomUUID().toString());
+		setIdentifier("rmf-" + UUID.randomUUID());
 	}
 
 	/**

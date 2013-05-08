@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.reqif10.pror/src"
-    creationIcons="false" modelPluginID="org.eclipse.rmf.reqif10.pror" modelName="Configuration"
-    editPluginClass="org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="6.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.reqif10.pror/src" creationIcons="false"
+    modelPluginID="org.eclipse.rmf.reqif10.pror" modelName="Configuration" editPluginClass="org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
   <foreignModel>configuration.ecore</foreignModel>
   <genPackages prefix="Configuration" basePackage="org.eclipse.rmf.reqif10.pror" resource="XML"
       disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
@@ -26,7 +25,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrPresentationConfigurations/presentationConfigurations"/>
     </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//ProrPresentationConfiguration">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrPresentationConfiguration/datatype"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrPresentationConfiguration/datatype"/>
     </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//ProrGeneralConfiguration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrGeneralConfiguration/labelConfiguration"/>

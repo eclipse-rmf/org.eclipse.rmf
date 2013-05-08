@@ -15,15 +15,22 @@ package org.eclipse.rmf.reqif10.pror.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.edit.command.DragAndDropFeedback;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.rmf.reqif10.SpecificationType;
+import org.eclipse.rmf.reqif10.Identifiable;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.SpecificationType} object.
@@ -108,6 +115,40 @@ public class SpecificationTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+	
+	/**
+	 * Ensures that added items have a unique ID
+	 */
+	@Override
+	protected Command createAddCommand(EditingDomain domain, EObject owner,
+			EStructuralFeature feature, Collection<?> collection, int index) {
+		
+		// Ensure that the ID is unique if it's a copy operation.
+		for (Object object : collection) {
+			if (object instanceof Identifiable)
+				ReqIF10Util.ensureIdIsUnique(owner.eResource(),
+						(Identifiable) object);
+		}
+
+		return super.createAddCommand(domain, owner, feature, collection, index);
+	}
+
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain,
+			Object owner, float location, int operations, int operation,
+			Collection<?> collection) {
+		
+		// Ensure that the ID is unique if it's a copy operation.
+		if (owner instanceof EObject && operation == DragAndDropFeedback.DROP_COPY) {
+			for (Object object : collection) {
+				if (object instanceof Identifiable)
+					ReqIF10Util.ensureIdIsUnique(((EObject)owner).eResource(),
+							(Identifiable) object);
+			}
+		}
+		return super.createDragAndDropCommand(domain, owner, location, operations,
+				operation, collection);
 	}
 
 }

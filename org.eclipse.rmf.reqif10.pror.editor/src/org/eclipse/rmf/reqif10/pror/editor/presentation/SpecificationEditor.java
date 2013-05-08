@@ -118,8 +118,8 @@ public class SpecificationEditor extends EditorPart implements
 		
 		site.getActionBars().setGlobalActionHandler(
 				ActionFactory.PRINT.getId(),
-				new SpecificationWebPrintAction(specification, reqifEditor
-						.getEditingDomain(), reqifEditor.getAdapterFactory()));
+				new SpecificationWebPrintAction(reqifEditor.getEditingDomain(),
+						reqifEditor.getAdapterFactory()));
 	}
 
 	/**
