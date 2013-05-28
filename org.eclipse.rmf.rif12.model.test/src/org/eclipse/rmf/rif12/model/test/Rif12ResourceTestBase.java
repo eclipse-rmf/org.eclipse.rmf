@@ -113,7 +113,7 @@ public class Rif12ResourceTestBase {
 
 			if (!diff.getDifferences().isEmpty()) {
 				differences = getValidDifferences(diff);
-				printAllDifferences(differences);
+				printDifferences(differences);
 			}
 			
 			Assert.assertTrue((differences != null ? differences.size() : "")
@@ -124,7 +124,7 @@ public class Rif12ResourceTestBase {
 		}
 	}
 
-	protected void printAllDifferences(List<DiffElement> diffElements) {
+	protected void printDifferences(List<DiffElement> diffElements) {
 		for (DiffElement diffElement : diffElements){
 			System.out.println(diffElement);
 		}
