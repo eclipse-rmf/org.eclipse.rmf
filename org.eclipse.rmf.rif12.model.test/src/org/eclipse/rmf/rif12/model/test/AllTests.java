@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 
 @RunWith(Suite.class)
-@SuiteClasses({ ProrExportTest.class})
+@SuiteClasses({ ReferenceDataTests.class})
 public class AllTests {
 	
 
