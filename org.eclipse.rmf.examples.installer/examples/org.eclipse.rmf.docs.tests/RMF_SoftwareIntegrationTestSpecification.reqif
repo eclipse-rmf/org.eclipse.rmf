@@ -51,7 +51,7 @@
       <SPECIFICATIONS>
         <SPECIFICATION IDENTIFIER="rmf-2e9c6cdf-3caf-4cc5-b234-5c8fcfb3c57a" LONG-NAME="Specification Document">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Requirements Document">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Software Integration Test Specification">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b57f651f-0ec7-46e9-988a-a241db7681e9</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>

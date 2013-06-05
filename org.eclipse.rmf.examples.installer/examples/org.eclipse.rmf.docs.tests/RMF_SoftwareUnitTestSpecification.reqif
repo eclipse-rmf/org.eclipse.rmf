@@ -51,7 +51,7 @@
       <SPECIFICATIONS>
         <SPECIFICATION IDENTIFIER="rmf-1554af0d-6da3-4ebc-9ef5-841a87f3a50e" LONG-NAME="Specification Document">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="Unit Test Specification">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Software Unit Test Specification">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-460ea4e1-bf18-4a24-a3d2-9836b08e4620</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
