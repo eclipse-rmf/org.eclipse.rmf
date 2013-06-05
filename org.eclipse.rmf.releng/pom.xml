@@ -256,7 +256,11 @@
 			
         <module>../org.eclipse.rmf.reqif10.pror.tests</module>
         <!-- <module>../org.eclipse.rmf.reqif10.pror.presentation.id.tests</module> -->
-		
+        
+        
+        <!-- RMF Examples Plugins -->
+		<module>../org.eclipse.rmf.examples.installer</module>
+		<module>../org.eclipse.rmf.examples.feature</module>
 
 		
 		<!-- legacy plugins -->
