@@ -11,10 +11,15 @@
  */
 package org.eclipse.rmf.reqif10.tests.util;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.Reader;
 import java.net.URISyntaxException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -56,6 +61,8 @@ import org.eclipse.rmf.serialization.ReqIFResourceImpl;
 import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.w3c.dom.ls.LSInput;
+import org.w3c.dom.ls.LSResourceResolver;
 
 @SuppressWarnings("nls")
 public abstract class AbstractTestCase {
@@ -64,6 +71,98 @@ public abstract class AbstractTestCase {
 
 	static final DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 	static final DateFormat timeFormat = new SimpleDateFormat("HHmm");
+
+	public class Input implements LSInput {
+
+		private String publicId;
+
+		private String systemId;
+
+		public String getPublicId() {
+			return publicId;
+		}
+
+		public void setPublicId(String publicId) {
+			this.publicId = publicId;
+		}
+
+		public String getBaseURI() {
+			return null;
+		}
+
+		public InputStream getByteStream() {
+			return null;
+		}
+
+		public boolean getCertifiedText() {
+			return false;
+		}
+
+		public Reader getCharacterStream() {
+			return null;
+		}
+
+		public String getEncoding() {
+			return null;
+		}
+
+		public String getStringData() {
+			synchronized (inputStream) {
+				try {
+					byte[] input = new byte[inputStream.available()];
+					inputStream.read(input);
+					String contents = new String(input);
+					return contents;
+				} catch (IOException e) {
+					e.printStackTrace();
+					System.out.println("Exception " + e);
+					return null;
+				}
+			}
+		}
+
+		public void setBaseURI(String baseURI) {
+		}
+
+		public void setByteStream(InputStream byteStream) {
+		}
+
+		public void setCertifiedText(boolean certifiedText) {
+		}
+
+		public void setCharacterStream(Reader characterStream) {
+		}
+
+		public void setEncoding(String encoding) {
+		}
+
+		public void setStringData(String stringData) {
+		}
+
+		public String getSystemId() {
+			return systemId;
+		}
+
+		public void setSystemId(String systemId) {
+			this.systemId = systemId;
+		}
+
+		public BufferedInputStream getInputStream() {
+			return inputStream;
+		}
+
+		public void setInputStream(BufferedInputStream inputStream) {
+			this.inputStream = inputStream;
+		}
+
+		private BufferedInputStream inputStream;
+
+		public Input(String publicId, String sysId, InputStream input) {
+			this.publicId = publicId;
+			systemId = sysId;
+			inputStream = new BufferedInputStream(input);
+		}
+	}
 
 	@BeforeClass
 	public static void setupOnce() throws Exception {
@@ -105,20 +204,48 @@ public abstract class AbstractTestCase {
 	}
 
 	protected void validateAgainstSchema(String filename) throws Exception {
-		File schemaFolder = new File("schema");
+		final String schemaFolderName = "../org.eclipse.rmf.reqif10/schema/";
+		File schemaFolder = new File(schemaFolderName);
 
-		if (schemaFolder.exists() && schemaFolder.isDirectory()) {
+		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource("../org.eclipse.rmf.reqif10/schema/reqif.xsd") };
+		Source instanceDocument = new StreamSource(filename);
 
-			StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource("schema/reqif.xsd") };
-			Source instanceDocument = new StreamSource(filename);
+		// the resolver is required to map the schema references to the reqif sub schema files to the local locations
+		LSResourceResolver resolver = new LSResourceResolver() {
 
-			SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-			Schema s = sf.newSchema(schemaDocuments);
-			Validator v = s.newValidator();
-			v.validate(instanceDocument);
-		} else {
-			System.err.println("Could not find schema folder. Schema validation is turned off!!! ");
-		}
+			public LSInput resolveResource(String type, String namespaceURI, String publicId, String systemId, String baseURI) {
+
+				String schemaFileName;
+				if (null != systemId) {
+					int slashIndex = systemId.lastIndexOf("/");
+					if (-1 == slashIndex) {
+						schemaFileName = systemId;
+					} else if (slashIndex == systemId.length() + 1) {
+						schemaFileName = null;
+					} else {
+						schemaFileName = systemId.substring(slashIndex);
+					}
+				} else {
+					schemaFileName = null;
+				}
+
+				InputStream inputStream;
+				try {
+					inputStream = new FileInputStream(schemaFolderName + schemaFileName);
+				} catch (FileNotFoundException ex) {
+					return null;
+				}
+
+				return new Input(publicId, systemId, inputStream);
+			}
+		};
+
+		SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+		sf.setResourceResolver(resolver);
+		Schema s = sf.newSchema(schemaDocuments);
+		Validator v = s.newValidator();
+		v.validate(instanceDocument);
+
 	}
 
 	protected static void saveReqIFFile(ReqIF reqif, String fileName) throws IOException {
@@ -132,11 +259,19 @@ public abstract class AbstractTestCase {
 	}
 
 	protected static ReqIF loadReqIFFile(String fileName) throws IOException {
-		ResourceSetImpl resourceSet = getResourceSet();
+		return loadReqIFFile(fileName, false);
+	}
+
+	protected static ReqIF loadReqIFFile(String fileName, boolean validateOnLoad) throws IOException {
+		ResourceSetImpl resourceSet = getReqIFResourceSet();
 
 		URI emfURI = createEMFURI(fileName);
-		XMLResource resource = (XMLResource) resourceSet.createResource(emfURI);
-
+		ReqIFResourceImpl resource = (ReqIFResourceImpl) resourceSet.createResource(emfURI);
+		if (validateOnLoad) {
+			resource.enableSchemaValidation = true;
+			resource.initDefaultOptions();
+			resource.enableSchemaValidation = false;
+		}
 		resource.load(null);
 
 		EList<EObject> rootObjects = resource.getContents();
