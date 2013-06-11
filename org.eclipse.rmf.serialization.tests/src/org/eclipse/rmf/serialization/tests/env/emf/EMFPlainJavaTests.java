@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.apache.xerces.impl.Constants;
 import org.eclipse.emf.common.util.URI;
@@ -28,6 +27,8 @@ import org.eclipse.emf.ecore.xmi.impl.XMLOptionsImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceFactoryImpl;
 import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
+import org.eclipse.emf.ecore.xml.type.impl.AnyTypeImpl;
+import org.eclipse.emf.ecore.xml.type.impl.XMLTypeDocumentRootImpl;
 import org.eclipse.rmf.serialization.tests.env.emf.myreqif.CORECONTENTType;
 import org.eclipse.rmf.serialization.tests.env.emf.myreqif.DocumentRoot;
 import org.eclipse.rmf.serialization.tests.env.emf.myreqif.MyreqifPackage;
@@ -48,24 +49,13 @@ public class EMFPlainJavaTests {
 
 	@BeforeClass
 	public static void backupPackageRegistry() {
-		System.out.println("before class");
 		backupRegistry = new HashMap<String, Object>();
 		backupRegistry.putAll(EPackage.Registry.INSTANCE);
-		for (Entry<String, Object> entry : EPackage.Registry.INSTANCE.entrySet()) {
-			System.out.println(entry.toString());
-		}
-
 	}
 
 	@Before
 	public void beforeTestCase() {
 		EPackage.Registry.INSTANCE.clear();
-
-		System.out.println("before test");
-		for (Entry<String, Object> entry : EPackage.Registry.INSTANCE.entrySet()) {
-			System.out.println(entry.toString());
-		}
-
 	}
 
 	@AfterClass
@@ -181,12 +171,32 @@ public class EMFPlainJavaTests {
 		Resource resource = resourceSet.createResource(emfURI);
 		HashMap<String, Object> options = new HashMap<String, Object>();
 		enableNewMethods(options);
-		options.put(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
+		XMLOptions xmlOptions = new XMLOptionsImpl();
+		xmlOptions.setProcessAnyXML(true);
+		options.put(XMLResource.OPTION_XML_OPTIONS, xmlOptions);
+
 		resource.load(options);
 
 		// validate data
 		assertEquals(1, resource.getContents().size());
 		EObject root = resource.getContents().get(0);
+
+		assertTrue(root instanceof XMLTypeDocumentRootImpl);
+		XMLTypeDocumentRootImpl documentRoot = (XMLTypeDocumentRootImpl) root;
+		org.eclipse.emf.ecore.util.FeatureMap.Entry reqIFEntry = documentRoot.getMixed().get(0);
+		assertEquals("REQ-IF", reqIFEntry.getEStructuralFeature().getName()); //$NON-NLS-1$
+
+		Object reqifObject = reqIFEntry.getValue();
+		assertTrue(reqifObject instanceof AnyTypeImpl);
+		AnyTypeImpl reqif = (AnyTypeImpl) reqifObject;
+		org.eclipse.emf.ecore.util.FeatureMap.Entry coreContentEntry = reqif.getAny().get(0);
+		assertEquals("CORE-CONTENT", coreContentEntry.getEStructuralFeature().getName()); //$NON-NLS-1$
+
+		Object coreContentObject = coreContentEntry.getValue();
+		assertTrue(coreContentObject instanceof AnyTypeImpl);
+		AnyTypeImpl coreContent = (AnyTypeImpl) coreContentObject;
+		org.eclipse.emf.ecore.util.FeatureMap.Entry reqifCoreContentEntry = coreContent.getAny().get(0);
+		assertEquals("REQ-IF-CONTENT", reqifCoreContentEntry.getEStructuralFeature().getName()); //$NON-NLS-1$
 
 		validateLoadErrors(resource);
 
