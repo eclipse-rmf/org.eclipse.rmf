@@ -240,6 +240,7 @@
 		
 		<module>../org.eclipse.rmf.reqif10.tests</module> 
 		<module>../org.eclipse.rmf.reqif10.tests.feature</module>
+		<module>../org.eclipse.rmf.serialization.tests</module>
 		
 		<!-- ReqIF UI ProR -->		
 		<module>../org.eclipse.rmf.reqif10.pror</module>

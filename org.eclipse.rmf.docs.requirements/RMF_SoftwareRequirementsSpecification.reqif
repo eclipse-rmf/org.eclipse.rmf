@@ -1096,6 +1096,23 @@
             <SPEC-OBJECT-TYPE-REF>rmf-3e0b6fad-930b-4d9e-92fd-b84619282414</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-0ad4019b-2034-4689-92bd-c869fe23d120">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="sws_2">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b029ab42-aeb9-420e-ba50-95038d07b56d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="No warnings in code">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-0b23aa34-c242-41a0-9157-6062df61ff98</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-e7aa3d46-6556-45bd-969b-d7534fa97ad1</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
       </SPEC-OBJECTS>
       <SPECIFICATIONS>
         <SPECIFICATION IDENTIFIER="rmf-d1e0c2eb-4e9a-4b8a-bdf0-069b011d480e" LONG-NAME="Specification Document">
@@ -1400,6 +1417,11 @@
                     <SPEC-OBJECT-REF>rmf-09a634a7-59ef-4c87-aeaa-12856f46bbf0</SPEC-OBJECT-REF>
                   </OBJECT>
                 </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-85f9f6df-0d60-42fc-ac4d-d5a4a02da77f">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-0ad4019b-2034-4689-92bd-c869fe23d120</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
               </CHILDREN>
             </SPEC-HIERARCHY>
             <SPEC-HIERARCHY IDENTIFIER="rmf-8cfb33c4-4a0d-4463-8192-f00587611754">
@@ -1456,7 +1478,7 @@
           <configuration:ProrPresentationConfigurations>
             <configuration:presentationConfigurations>
               <headline:HeadlineConfiguration configuration:datatype="rmf-95898f85-f196-475f-8d35-f8db9d9e2dd0"/>
-              <id:IdConfiguration configuration:datatype="rmf-1d2c140f-97e9-4d11-9554-63b2bee2dc3c" id:prefix="sws_" id:count="1"/>
+              <id:IdConfiguration configuration:datatype="rmf-1d2c140f-97e9-4d11-9554-63b2bee2dc3c" id:prefix="sws_" id:count="2"/>
             </configuration:presentationConfigurations>
           </configuration:ProrPresentationConfigurations>
         </configuration:presentationConfigurations>
