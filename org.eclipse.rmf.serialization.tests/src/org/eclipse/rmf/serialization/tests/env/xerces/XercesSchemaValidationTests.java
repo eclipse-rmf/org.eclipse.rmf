@@ -83,7 +83,7 @@ public class XercesSchemaValidationTests {
 			v.validate(instanceDocument);
 			assertTrue(false);
 		} catch (SAXException ex) {
-			assertTrue(ex.getMessage().contains("cvc-complex-type.2.4.a: Invalid content was found starting with element 'CORE-CONTENT'"));
+			assertTrue(ex.getMessage().contains("cvc-complex-type.2.4.a:"));
 		} catch (IOException ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -183,7 +183,7 @@ public class XercesSchemaValidationTests {
 			v.validate(instanceDocument);
 
 		} catch (SAXException ex) {
-			assertTrue(ex.getMessage().contains("cvc-elt.4.2: Cannot resolve 'aType' to a type definition for element 'ext:myExtension'"));
+			assertTrue(ex.getMessage().contains("cvc-elt.4.2:"));
 		} catch (IOException ex) {
 			assertTrue(false);
 		}

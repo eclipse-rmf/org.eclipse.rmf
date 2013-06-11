@@ -78,8 +78,7 @@ public class EMFDeserializationWithSchemaValidationTests {
 		try {
 			resource.load(options);
 		} catch (IOException ioe) {
-			assertTrue(ioe.getMessage(),
-					ioe.getMessage().contains("cvc-complex-type.2.4.a: Invalid content was found starting with element 'CORE-CONTENT'"));
+			assertTrue(ioe.getMessage(), ioe.getMessage().contains("cvc-complex-type.2.4.a:"));
 		}
 
 		// validate data
