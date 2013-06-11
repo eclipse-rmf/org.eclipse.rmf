@@ -697,6 +697,15 @@ public interface MyreqifFactory extends EFactory {
 	REQIFHEADER createREQIFHEADER();
 
 	/**
+	 * Returns a new object of class '<em>REQIFTOOLEXTENSION</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>REQIFTOOLEXTENSION</em>'.
+	 * @generated
+	 */
+	REQIFTOOLEXTENSION createREQIFTOOLEXTENSION();
+
+	/**
 	 * Returns a new object of class '<em>SOURCESPECIFICATION Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

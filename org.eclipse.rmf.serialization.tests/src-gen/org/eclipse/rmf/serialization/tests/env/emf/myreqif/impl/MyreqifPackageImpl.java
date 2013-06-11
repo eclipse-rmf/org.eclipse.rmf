@@ -630,6 +630,13 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass reqiftoolextensionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass sourcespecificationTypeEClass = null;
 
 	/**
@@ -911,13 +918,6 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 	 * @generated
 	 */
 	private EDataType localrefEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType reqiftoolextensionEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -4838,8 +4838,8 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTOOLEXTENSIONSType_REQIFTOOLEXTENSION() {
-		return (EAttribute)toolextensionsTypeEClass.getEStructuralFeatures().get(1);
+	public EReference getTOOLEXTENSIONSType_REQIFTOOLEXTENSION() {
+		return (EReference)toolextensionsTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5333,8 +5333,17 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getREQIFTOOLEXTENSION() {
-		return reqiftoolextensionEDataType;
+	public EClass getREQIFTOOLEXTENSION() {
+		return reqiftoolextensionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getREQIFTOOLEXTENSION_Any() {
+		return (EAttribute)reqiftoolextensionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5745,6 +5754,9 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 		createEAttribute(reqifheaderEClass, REQIFHEADER__TITLE);
 		createEAttribute(reqifheaderEClass, REQIFHEADER__IDENTIFIER);
 
+		reqiftoolextensionEClass = createEClass(REQIFTOOLEXTENSION);
+		createEAttribute(reqiftoolextensionEClass, REQIFTOOLEXTENSION__ANY);
+
 		sourcespecificationTypeEClass = createEClass(SOURCESPECIFICATION_TYPE);
 		createEAttribute(sourcespecificationTypeEClass, SOURCESPECIFICATION_TYPE__SPECIFICATIONREF);
 
@@ -5899,7 +5911,7 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 
 		toolextensionsTypeEClass = createEClass(TOOLEXTENSIONS_TYPE);
 		createEAttribute(toolextensionsTypeEClass, TOOLEXTENSIONS_TYPE__GROUP);
-		createEAttribute(toolextensionsTypeEClass, TOOLEXTENSIONS_TYPE__REQIFTOOLEXTENSION);
+		createEReference(toolextensionsTypeEClass, TOOLEXTENSIONS_TYPE__REQIFTOOLEXTENSION);
 
 		typeTypeEClass = createEClass(TYPE_TYPE);
 		createEAttribute(typeTypeEClass, TYPE_TYPE__RELATIONGROUPTYPEREF);
@@ -5971,7 +5983,6 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 		// Create data types
 		globalrefEDataType = createEDataType(GLOBALREF);
 		localrefEDataType = createEDataType(LOCALREF);
-		reqiftoolextensionEDataType = createEDataType(REQIFTOOLEXTENSION);
 		xhtmlcontentEDataType = createEDataType(XHTMLCONTENT);
 	}
 
@@ -6379,6 +6390,9 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 		initEAttribute(getREQIFHEADER_TITLE(), theXMLTypePackage.getString(), "tITLE", null, 1, 1, org.eclipse.rmf.serialization.tests.env.emf.myreqif.REQIFHEADER.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getREQIFHEADER_IDENTIFIER(), theXMLTypePackage.getID(), "iDENTIFIER", null, 1, 1, org.eclipse.rmf.serialization.tests.env.emf.myreqif.REQIFHEADER.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(reqiftoolextensionEClass, org.eclipse.rmf.serialization.tests.env.emf.myreqif.REQIFTOOLEXTENSION.class, "REQIFTOOLEXTENSION", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getREQIFTOOLEXTENSION_Any(), ecorePackage.getEFeatureMapEntry(), "any", null, 0, -1, org.eclipse.rmf.serialization.tests.env.emf.myreqif.REQIFTOOLEXTENSION.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(sourcespecificationTypeEClass, SOURCESPECIFICATIONType.class, "SOURCESPECIFICATIONType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSOURCESPECIFICATIONType_SPECIFICATIONREF(), this.getGLOBALREF(), "sPECIFICATIONREF", null, 0, 1, SOURCESPECIFICATIONType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -6533,7 +6547,7 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 
 		initEClass(toolextensionsTypeEClass, TOOLEXTENSIONSType.class, "TOOLEXTENSIONSType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTOOLEXTENSIONSType_Group(), ecorePackage.getEFeatureMapEntry(), "group", null, 0, -1, TOOLEXTENSIONSType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTOOLEXTENSIONSType_REQIFTOOLEXTENSION(), this.getREQIFTOOLEXTENSION(), "rEQIFTOOLEXTENSION", null, 0, -1, TOOLEXTENSIONSType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getTOOLEXTENSIONSType_REQIFTOOLEXTENSION(), this.getREQIFTOOLEXTENSION(), null, "rEQIFTOOLEXTENSION", null, 0, -1, TOOLEXTENSIONSType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeTypeEClass, TYPEType.class, "TYPEType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTYPEType_RELATIONGROUPTYPEREF(), this.getLOCALREF(), "rELATIONGROUPTYPEREF", null, 0, 1, TYPEType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6605,7 +6619,6 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 		// Initialize data types
 		initEDataType(globalrefEDataType, String.class, "GLOBALREF", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(localrefEDataType, String.class, "LOCALREF", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(reqiftoolextensionEDataType, String.class, "REQIFTOOLEXTENSION", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(xhtmlcontentEDataType, String.class, "XHTMLCONTENT", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
@@ -8849,11 +8862,20 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 			 "name", "IDENTIFIER"
 		   });		
 		addAnnotation
-		  (reqiftoolextensionEDataType, 
+		  (reqiftoolextensionEClass, 
 		   source, 
 		   new String[] {
 			 "name", "REQ-IF-TOOL-EXTENSION",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string"
+			 "kind", "elementOnly"
+		   });		
+		addAnnotation
+		  (getREQIFTOOLEXTENSION_Any(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "wildcards", "##other",
+			 "name", ":0",
+			 "processing", "lax"
 		   });		
 		addAnnotation
 		  (sourcespecificationTypeEClass, 

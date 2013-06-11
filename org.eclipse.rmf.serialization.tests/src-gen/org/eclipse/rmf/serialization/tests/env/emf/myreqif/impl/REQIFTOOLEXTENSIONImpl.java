@@ -2,11 +2,7 @@
  */
 package org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -19,39 +15,37 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.rmf.serialization.tests.env.emf.myreqif.MyreqifPackage;
 import org.eclipse.rmf.serialization.tests.env.emf.myreqif.REQIFTOOLEXTENSION;
-import org.eclipse.rmf.serialization.tests.env.emf.myreqif.TOOLEXTENSIONSType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>TOOLEXTENSIONS Type</b></em>'.
+ * An implementation of the model object '<em><b>REQIFTOOLEXTENSION</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TOOLEXTENSIONSTypeImpl#getGroup <em>Group</em>}</li>
- *   <li>{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TOOLEXTENSIONSTypeImpl#getREQIFTOOLEXTENSION <em>REQIFTOOLEXTENSION</em>}</li>
+ *   <li>{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.REQIFTOOLEXTENSIONImpl#getAny <em>Any</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class TOOLEXTENSIONSTypeImpl extends EObjectImpl implements TOOLEXTENSIONSType {
+public class REQIFTOOLEXTENSIONImpl extends EObjectImpl implements REQIFTOOLEXTENSION {
 	/**
-	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
+	 * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGroup()
+	 * @see #getAny()
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap group;
+	protected FeatureMap any;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TOOLEXTENSIONSTypeImpl() {
+	protected REQIFTOOLEXTENSIONImpl() {
 		super();
 	}
 
@@ -62,7 +56,7 @@ public class TOOLEXTENSIONSTypeImpl extends EObjectImpl implements TOOLEXTENSION
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MyreqifPackage.Literals.TOOLEXTENSIONS_TYPE;
+		return MyreqifPackage.Literals.REQIFTOOLEXTENSION;
 	}
 
 	/**
@@ -70,20 +64,11 @@ public class TOOLEXTENSIONSTypeImpl extends EObjectImpl implements TOOLEXTENSION
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getGroup() {
-		if (group == null) {
-			group = new BasicFeatureMap(this, MyreqifPackage.TOOLEXTENSIONS_TYPE__GROUP);
+	public FeatureMap getAny() {
+		if (any == null) {
+			any = new BasicFeatureMap(this, MyreqifPackage.REQIFTOOLEXTENSION__ANY);
 		}
-		return group;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<REQIFTOOLEXTENSION> getREQIFTOOLEXTENSION() {
-		return getGroup().list(MyreqifPackage.Literals.TOOLEXTENSIONS_TYPE__REQIFTOOLEXTENSION);
+		return any;
 	}
 
 	/**
@@ -94,10 +79,8 @@ public class TOOLEXTENSIONSTypeImpl extends EObjectImpl implements TOOLEXTENSION
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MyreqifPackage.TOOLEXTENSIONS_TYPE__GROUP:
-				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
-			case MyreqifPackage.TOOLEXTENSIONS_TYPE__REQIFTOOLEXTENSION:
-				return ((InternalEList<?>)getREQIFTOOLEXTENSION()).basicRemove(otherEnd, msgs);
+			case MyreqifPackage.REQIFTOOLEXTENSION__ANY:
+				return ((InternalEList<?>)getAny()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -110,11 +93,9 @@ public class TOOLEXTENSIONSTypeImpl extends EObjectImpl implements TOOLEXTENSION
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MyreqifPackage.TOOLEXTENSIONS_TYPE__GROUP:
-				if (coreType) return getGroup();
-				return ((FeatureMap.Internal)getGroup()).getWrapper();
-			case MyreqifPackage.TOOLEXTENSIONS_TYPE__REQIFTOOLEXTENSION:
-				return getREQIFTOOLEXTENSION();
+			case MyreqifPackage.REQIFTOOLEXTENSION__ANY:
+				if (coreType) return getAny();
+				return ((FeatureMap.Internal)getAny()).getWrapper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -124,16 +105,11 @@ public class TOOLEXTENSIONSTypeImpl extends EObjectImpl implements TOOLEXTENSION
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MyreqifPackage.TOOLEXTENSIONS_TYPE__GROUP:
-				((FeatureMap.Internal)getGroup()).set(newValue);
-				return;
-			case MyreqifPackage.TOOLEXTENSIONS_TYPE__REQIFTOOLEXTENSION:
-				getREQIFTOOLEXTENSION().clear();
-				getREQIFTOOLEXTENSION().addAll((Collection<? extends REQIFTOOLEXTENSION>)newValue);
+			case MyreqifPackage.REQIFTOOLEXTENSION__ANY:
+				((FeatureMap.Internal)getAny()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -147,11 +123,8 @@ public class TOOLEXTENSIONSTypeImpl extends EObjectImpl implements TOOLEXTENSION
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MyreqifPackage.TOOLEXTENSIONS_TYPE__GROUP:
-				getGroup().clear();
-				return;
-			case MyreqifPackage.TOOLEXTENSIONS_TYPE__REQIFTOOLEXTENSION:
-				getREQIFTOOLEXTENSION().clear();
+			case MyreqifPackage.REQIFTOOLEXTENSION__ANY:
+				getAny().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -165,10 +138,8 @@ public class TOOLEXTENSIONSTypeImpl extends EObjectImpl implements TOOLEXTENSION
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MyreqifPackage.TOOLEXTENSIONS_TYPE__GROUP:
-				return group != null && !group.isEmpty();
-			case MyreqifPackage.TOOLEXTENSIONS_TYPE__REQIFTOOLEXTENSION:
-				return !getREQIFTOOLEXTENSION().isEmpty();
+			case MyreqifPackage.REQIFTOOLEXTENSION__ANY:
+				return any != null && !any.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -183,10 +154,10 @@ public class TOOLEXTENSIONSTypeImpl extends EObjectImpl implements TOOLEXTENSION
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (group: ");
-		result.append(group);
+		result.append(" (any: ");
+		result.append(any);
 		result.append(')');
 		return result.toString();
 	}
 
-} //TOOLEXTENSIONSTypeImpl
+} //REQIFTOOLEXTENSIONImpl

@@ -3478,7 +3478,435 @@ public interface MyreqifPackage extends EPackage {
 	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSOURCESPECIFICATIONType()
 	 * @generated
 	 */
-	int SOURCESPECIFICATION_TYPE = 75;
+	int SOURCESPECIFICATION_TYPE = 76;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SOURCETypeImpl <em>SOURCE Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SOURCETypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSOURCEType()
+	 * @generated
+	 */
+	int SOURCE_TYPE = 77;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESTypeImpl <em>SPECATTRIBUTES Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESTypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECATTRIBUTESType()
+	 * @generated
+	 */
+	int SPECATTRIBUTES_TYPE = 78;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESType1Impl <em>SPECATTRIBUTES Type1</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESType1Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECATTRIBUTESType1()
+	 * @generated
+	 */
+	int SPECATTRIBUTES_TYPE1 = 79;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESType2Impl <em>SPECATTRIBUTES Type2</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESType2Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECATTRIBUTESType2()
+	 * @generated
+	 */
+	int SPECATTRIBUTES_TYPE2 = 80;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESType3Impl <em>SPECATTRIBUTES Type3</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESType3Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECATTRIBUTESType3()
+	 * @generated
+	 */
+	int SPECATTRIBUTES_TYPE3 = 81;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECHIERARCHYImpl <em>SPECHIERARCHY</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECHIERARCHYImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECHIERARCHY()
+	 * @generated
+	 */
+	int SPECHIERARCHY = 82;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFICATIONImpl <em>SPECIFICATION</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFICATIONImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECIFICATION()
+	 * @generated
+	 */
+	int SPECIFICATION = 83;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFICATIONSTypeImpl <em>SPECIFICATIONS Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFICATIONSTypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECIFICATIONSType()
+	 * @generated
+	 */
+	int SPECIFICATIONS_TYPE = 84;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFICATIONTYPEImpl <em>SPECIFICATIONTYPE</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFICATIONTYPEImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECIFICATIONTYPE()
+	 * @generated
+	 */
+	int SPECIFICATIONTYPE = 85;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFIEDVALUESTypeImpl <em>SPECIFIEDVALUES Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFIEDVALUESTypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECIFIEDVALUESType()
+	 * @generated
+	 */
+	int SPECIFIEDVALUES_TYPE = 86;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECOBJECTImpl <em>SPECOBJECT</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECOBJECTImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECOBJECT()
+	 * @generated
+	 */
+	int SPECOBJECT = 87;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECOBJECTSTypeImpl <em>SPECOBJECTS Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECOBJECTSTypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECOBJECTSType()
+	 * @generated
+	 */
+	int SPECOBJECTS_TYPE = 88;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECOBJECTTYPEImpl <em>SPECOBJECTTYPE</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECOBJECTTYPEImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECOBJECTTYPE()
+	 * @generated
+	 */
+	int SPECOBJECTTYPE = 89;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONImpl <em>SPECRELATION</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECRELATION()
+	 * @generated
+	 */
+	int SPECRELATION = 90;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONGROUPSTypeImpl <em>SPECRELATIONGROUPS Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONGROUPSTypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECRELATIONGROUPSType()
+	 * @generated
+	 */
+	int SPECRELATIONGROUPS_TYPE = 91;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONSTypeImpl <em>SPECRELATIONS Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONSTypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECRELATIONSType()
+	 * @generated
+	 */
+	int SPECRELATIONS_TYPE = 92;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONSType1Impl <em>SPECRELATIONS Type1</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONSType1Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECRELATIONSType1()
+	 * @generated
+	 */
+	int SPECRELATIONS_TYPE1 = 93;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONTYPEImpl <em>SPECRELATIONTYPE</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONTYPEImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECRELATIONTYPE()
+	 * @generated
+	 */
+	int SPECRELATIONTYPE = 94;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECTYPESTypeImpl <em>SPECTYPES Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECTYPESTypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECTYPESType()
+	 * @generated
+	 */
+	int SPECTYPES_TYPE = 95;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TARGETSPECIFICATIONTypeImpl <em>TARGETSPECIFICATION Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TARGETSPECIFICATIONTypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTARGETSPECIFICATIONType()
+	 * @generated
+	 */
+	int TARGETSPECIFICATION_TYPE = 96;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TARGETTypeImpl <em>TARGET Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TARGETTypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTARGETType()
+	 * @generated
+	 */
+	int TARGET_TYPE = 97;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.THEHEADERTypeImpl <em>THEHEADER Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.THEHEADERTypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTHEHEADERType()
+	 * @generated
+	 */
+	int THEHEADER_TYPE = 98;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TOOLEXTENSIONSTypeImpl <em>TOOLEXTENSIONS Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TOOLEXTENSIONSTypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTOOLEXTENSIONSType()
+	 * @generated
+	 */
+	int TOOLEXTENSIONS_TYPE = 99;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPETypeImpl <em>TYPE Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPETypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType()
+	 * @generated
+	 */
+	int TYPE_TYPE = 100;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType1Impl <em>TYPE Type1</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType1Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType1()
+	 * @generated
+	 */
+	int TYPE_TYPE1 = 101;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType2Impl <em>TYPE Type2</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType2Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType2()
+	 * @generated
+	 */
+	int TYPE_TYPE2 = 102;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType3Impl <em>TYPE Type3</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType3Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType3()
+	 * @generated
+	 */
+	int TYPE_TYPE3 = 103;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType4Impl <em>TYPE Type4</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType4Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType4()
+	 * @generated
+	 */
+	int TYPE_TYPE4 = 104;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType5Impl <em>TYPE Type5</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType5Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType5()
+	 * @generated
+	 */
+	int TYPE_TYPE5 = 105;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType6Impl <em>TYPE Type6</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType6Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType6()
+	 * @generated
+	 */
+	int TYPE_TYPE6 = 106;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType7Impl <em>TYPE Type7</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType7Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType7()
+	 * @generated
+	 */
+	int TYPE_TYPE7 = 107;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType8Impl <em>TYPE Type8</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType8Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType8()
+	 * @generated
+	 */
+	int TYPE_TYPE8 = 108;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType9Impl <em>TYPE Type9</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType9Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType9()
+	 * @generated
+	 */
+	int TYPE_TYPE9 = 109;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType10Impl <em>TYPE Type10</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType10Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType10()
+	 * @generated
+	 */
+	int TYPE_TYPE10 = 110;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESTypeImpl <em>VALUES Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESTypeImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getVALUESType()
+	 * @generated
+	 */
+	int VALUES_TYPE = 111;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESType1Impl <em>VALUES Type1</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESType1Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getVALUESType1()
+	 * @generated
+	 */
+	int VALUES_TYPE1 = 112;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESType2Impl <em>VALUES Type2</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESType2Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getVALUESType2()
+	 * @generated
+	 */
+	int VALUES_TYPE2 = 113;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESType3Impl <em>VALUES Type3</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESType3Impl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getVALUESType3()
+	 * @generated
+	 */
+	int VALUES_TYPE3 = 114;
+
+	/**
+	 * The meta object id for the '<em>GLOBALREF</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.String
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getGLOBALREF()
+	 * @generated
+	 */
+	int GLOBALREF = 115;
+
+	/**
+	 * The meta object id for the '<em>LOCALREF</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.String
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getLOCALREF()
+	 * @generated
+	 */
+	int LOCALREF = 116;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.REQIFTOOLEXTENSIONImpl <em>REQIFTOOLEXTENSION</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.REQIFTOOLEXTENSIONImpl
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getREQIFTOOLEXTENSION()
+	 * @generated
+	 */
+	int REQIFTOOLEXTENSION = 75;
+
+	/**
+	 * The feature id for the '<em><b>Any</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQIFTOOLEXTENSION__ANY = 0;
+
+	/**
+	 * The number of structural features of the '<em>REQIFTOOLEXTENSION</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQIFTOOLEXTENSION_FEATURE_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>SPECIFICATIONREF</b></em>' attribute.
@@ -3499,16 +3927,6 @@ public interface MyreqifPackage extends EPackage {
 	int SOURCESPECIFICATION_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SOURCETypeImpl <em>SOURCE Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SOURCETypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSOURCEType()
-	 * @generated
-	 */
-	int SOURCE_TYPE = 76;
-
-	/**
 	 * The feature id for the '<em><b>SPECOBJECTREF</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3525,16 +3943,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOURCE_TYPE_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESTypeImpl <em>SPECATTRIBUTES Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESTypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECATTRIBUTESType()
-	 * @generated
-	 */
-	int SPECATTRIBUTES_TYPE = 77;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
@@ -3618,16 +4026,6 @@ public interface MyreqifPackage extends EPackage {
 	int SPECATTRIBUTES_TYPE_FEATURE_COUNT = 8;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESType1Impl <em>SPECATTRIBUTES Type1</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESType1Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECATTRIBUTESType1()
-	 * @generated
-	 */
-	int SPECATTRIBUTES_TYPE1 = 78;
-
-	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3707,16 +4105,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPECATTRIBUTES_TYPE1_FEATURE_COUNT = 8;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESType2Impl <em>SPECATTRIBUTES Type2</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESType2Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECATTRIBUTESType2()
-	 * @generated
-	 */
-	int SPECATTRIBUTES_TYPE2 = 79;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
@@ -3800,16 +4188,6 @@ public interface MyreqifPackage extends EPackage {
 	int SPECATTRIBUTES_TYPE2_FEATURE_COUNT = 8;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESType3Impl <em>SPECATTRIBUTES Type3</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECATTRIBUTESType3Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECATTRIBUTESType3()
-	 * @generated
-	 */
-	int SPECATTRIBUTES_TYPE3 = 80;
-
-	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3889,16 +4267,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPECATTRIBUTES_TYPE3_FEATURE_COUNT = 8;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECHIERARCHYImpl <em>SPECHIERARCHY</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECHIERARCHYImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECHIERARCHY()
-	 * @generated
-	 */
-	int SPECHIERARCHY = 81;
 
 	/**
 	 * The feature id for the '<em><b>ALTERNATIVEID</b></em>' containment reference.
@@ -4000,16 +4368,6 @@ public interface MyreqifPackage extends EPackage {
 	int SPECHIERARCHY_FEATURE_COUNT = 10;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFICATIONImpl <em>SPECIFICATION</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFICATIONImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECIFICATION()
-	 * @generated
-	 */
-	int SPECIFICATION = 82;
-
-	/**
 	 * The feature id for the '<em><b>ALTERNATIVEID</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4091,16 +4449,6 @@ public interface MyreqifPackage extends EPackage {
 	int SPECIFICATION_FEATURE_COUNT = 8;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFICATIONSTypeImpl <em>SPECIFICATIONS Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFICATIONSTypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECIFICATIONSType()
-	 * @generated
-	 */
-	int SPECIFICATIONS_TYPE = 83;
-
-	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4126,16 +4474,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPECIFICATIONS_TYPE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFICATIONTYPEImpl <em>SPECIFICATIONTYPE</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFICATIONTYPEImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECIFICATIONTYPE()
-	 * @generated
-	 */
-	int SPECIFICATIONTYPE = 84;
 
 	/**
 	 * The feature id for the '<em><b>ALTERNATIVEID</b></em>' containment reference.
@@ -4201,16 +4539,6 @@ public interface MyreqifPackage extends EPackage {
 	int SPECIFICATIONTYPE_FEATURE_COUNT = 6;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFIEDVALUESTypeImpl <em>SPECIFIEDVALUES Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECIFIEDVALUESTypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECIFIEDVALUESType()
-	 * @generated
-	 */
-	int SPECIFIEDVALUES_TYPE = 85;
-
-	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4236,16 +4564,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPECIFIEDVALUES_TYPE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECOBJECTImpl <em>SPECOBJECT</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECOBJECTImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECOBJECT()
-	 * @generated
-	 */
-	int SPECOBJECT = 86;
 
 	/**
 	 * The feature id for the '<em><b>ALTERNATIVEID</b></em>' containment reference.
@@ -4320,16 +4638,6 @@ public interface MyreqifPackage extends EPackage {
 	int SPECOBJECT_FEATURE_COUNT = 7;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECOBJECTSTypeImpl <em>SPECOBJECTS Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECOBJECTSTypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECOBJECTSType()
-	 * @generated
-	 */
-	int SPECOBJECTS_TYPE = 87;
-
-	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4355,16 +4663,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPECOBJECTS_TYPE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECOBJECTTYPEImpl <em>SPECOBJECTTYPE</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECOBJECTTYPEImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECOBJECTTYPE()
-	 * @generated
-	 */
-	int SPECOBJECTTYPE = 88;
 
 	/**
 	 * The feature id for the '<em><b>ALTERNATIVEID</b></em>' containment reference.
@@ -4428,16 +4726,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPECOBJECTTYPE_FEATURE_COUNT = 6;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONImpl <em>SPECRELATION</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECRELATION()
-	 * @generated
-	 */
-	int SPECRELATION = 89;
 
 	/**
 	 * The feature id for the '<em><b>ALTERNATIVEID</b></em>' containment reference.
@@ -4530,16 +4818,6 @@ public interface MyreqifPackage extends EPackage {
 	int SPECRELATION_FEATURE_COUNT = 9;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONGROUPSTypeImpl <em>SPECRELATIONGROUPS Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONGROUPSTypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECRELATIONGROUPSType()
-	 * @generated
-	 */
-	int SPECRELATIONGROUPS_TYPE = 90;
-
-	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4565,16 +4843,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPECRELATIONGROUPS_TYPE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONSTypeImpl <em>SPECRELATIONS Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONSTypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECRELATIONSType()
-	 * @generated
-	 */
-	int SPECRELATIONS_TYPE = 91;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
@@ -4604,16 +4872,6 @@ public interface MyreqifPackage extends EPackage {
 	int SPECRELATIONS_TYPE_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONSType1Impl <em>SPECRELATIONS Type1</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONSType1Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECRELATIONSType1()
-	 * @generated
-	 */
-	int SPECRELATIONS_TYPE1 = 92;
-
-	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4639,16 +4897,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPECRELATIONS_TYPE1_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONTYPEImpl <em>SPECRELATIONTYPE</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECRELATIONTYPEImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECRELATIONTYPE()
-	 * @generated
-	 */
-	int SPECRELATIONTYPE = 93;
 
 	/**
 	 * The feature id for the '<em><b>ALTERNATIVEID</b></em>' containment reference.
@@ -4714,16 +4962,6 @@ public interface MyreqifPackage extends EPackage {
 	int SPECRELATIONTYPE_FEATURE_COUNT = 6;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECTYPESTypeImpl <em>SPECTYPES Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.SPECTYPESTypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getSPECTYPESType()
-	 * @generated
-	 */
-	int SPECTYPES_TYPE = 94;
-
-	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4778,16 +5016,6 @@ public interface MyreqifPackage extends EPackage {
 	int SPECTYPES_TYPE_FEATURE_COUNT = 5;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TARGETSPECIFICATIONTypeImpl <em>TARGETSPECIFICATION Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TARGETSPECIFICATIONTypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTARGETSPECIFICATIONType()
-	 * @generated
-	 */
-	int TARGETSPECIFICATION_TYPE = 95;
-
-	/**
 	 * The feature id for the '<em><b>SPECIFICATIONREF</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4804,16 +5032,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int TARGETSPECIFICATION_TYPE_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TARGETTypeImpl <em>TARGET Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TARGETTypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTARGETType()
-	 * @generated
-	 */
-	int TARGET_TYPE = 96;
 
 	/**
 	 * The feature id for the '<em><b>SPECOBJECTREF</b></em>' attribute.
@@ -4834,16 +5052,6 @@ public interface MyreqifPackage extends EPackage {
 	int TARGET_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.THEHEADERTypeImpl <em>THEHEADER Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.THEHEADERTypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTHEHEADERType()
-	 * @generated
-	 */
-	int THEHEADER_TYPE = 97;
-
-	/**
 	 * The feature id for the '<em><b>REQIFHEADER</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4862,16 +5070,6 @@ public interface MyreqifPackage extends EPackage {
 	int THEHEADER_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TOOLEXTENSIONSTypeImpl <em>TOOLEXTENSIONS Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TOOLEXTENSIONSTypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTOOLEXTENSIONSType()
-	 * @generated
-	 */
-	int TOOLEXTENSIONS_TYPE = 98;
-
-	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4881,7 +5079,7 @@ public interface MyreqifPackage extends EPackage {
 	int TOOLEXTENSIONS_TYPE__GROUP = 0;
 
 	/**
-	 * The feature id for the '<em><b>REQIFTOOLEXTENSION</b></em>' attribute list.
+	 * The feature id for the '<em><b>REQIFTOOLEXTENSION</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4897,16 +5095,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int TOOLEXTENSIONS_TYPE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPETypeImpl <em>TYPE Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPETypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType()
-	 * @generated
-	 */
-	int TYPE_TYPE = 99;
 
 	/**
 	 * The feature id for the '<em><b>RELATIONGROUPTYPEREF</b></em>' attribute.
@@ -4927,16 +5115,6 @@ public interface MyreqifPackage extends EPackage {
 	int TYPE_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType1Impl <em>TYPE Type1</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType1Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType1()
-	 * @generated
-	 */
-	int TYPE_TYPE1 = 100;
-
-	/**
 	 * The feature id for the '<em><b>SPECIFICATIONTYPEREF</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4953,16 +5131,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_TYPE1_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType2Impl <em>TYPE Type2</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType2Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType2()
-	 * @generated
-	 */
-	int TYPE_TYPE2 = 101;
 
 	/**
 	 * The feature id for the '<em><b>DATATYPEDEFINITIONINTEGERREF</b></em>' attribute.
@@ -4983,16 +5151,6 @@ public interface MyreqifPackage extends EPackage {
 	int TYPE_TYPE2_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType3Impl <em>TYPE Type3</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType3Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType3()
-	 * @generated
-	 */
-	int TYPE_TYPE3 = 102;
-
-	/**
 	 * The feature id for the '<em><b>DATATYPEDEFINITIONSTRINGREF</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5009,16 +5167,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_TYPE3_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType4Impl <em>TYPE Type4</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType4Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType4()
-	 * @generated
-	 */
-	int TYPE_TYPE4 = 103;
 
 	/**
 	 * The feature id for the '<em><b>DATATYPEDEFINITIONREALREF</b></em>' attribute.
@@ -5039,16 +5187,6 @@ public interface MyreqifPackage extends EPackage {
 	int TYPE_TYPE4_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType5Impl <em>TYPE Type5</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType5Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType5()
-	 * @generated
-	 */
-	int TYPE_TYPE5 = 104;
-
-	/**
 	 * The feature id for the '<em><b>DATATYPEDEFINITIONXHTMLREF</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5065,16 +5203,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_TYPE5_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType6Impl <em>TYPE Type6</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType6Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType6()
-	 * @generated
-	 */
-	int TYPE_TYPE6 = 105;
 
 	/**
 	 * The feature id for the '<em><b>SPECOBJECTTYPEREF</b></em>' attribute.
@@ -5095,16 +5223,6 @@ public interface MyreqifPackage extends EPackage {
 	int TYPE_TYPE6_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType7Impl <em>TYPE Type7</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType7Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType7()
-	 * @generated
-	 */
-	int TYPE_TYPE7 = 106;
-
-	/**
 	 * The feature id for the '<em><b>SPECRELATIONTYPEREF</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5121,16 +5239,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_TYPE7_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType8Impl <em>TYPE Type8</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType8Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType8()
-	 * @generated
-	 */
-	int TYPE_TYPE8 = 107;
 
 	/**
 	 * The feature id for the '<em><b>DATATYPEDEFINITIONDATEREF</b></em>' attribute.
@@ -5151,16 +5259,6 @@ public interface MyreqifPackage extends EPackage {
 	int TYPE_TYPE8_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType9Impl <em>TYPE Type9</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType9Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType9()
-	 * @generated
-	 */
-	int TYPE_TYPE9 = 108;
-
-	/**
 	 * The feature id for the '<em><b>DATATYPEDEFINITIONENUMERATIONREF</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5179,16 +5277,6 @@ public interface MyreqifPackage extends EPackage {
 	int TYPE_TYPE9_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType10Impl <em>TYPE Type10</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPEType10Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getTYPEType10()
-	 * @generated
-	 */
-	int TYPE_TYPE10 = 109;
-
-	/**
 	 * The feature id for the '<em><b>DATATYPEDEFINITIONBOOLEANREF</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5205,16 +5293,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_TYPE10_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESTypeImpl <em>VALUES Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESTypeImpl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getVALUESType()
-	 * @generated
-	 */
-	int VALUES_TYPE = 110;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
@@ -5298,16 +5376,6 @@ public interface MyreqifPackage extends EPackage {
 	int VALUES_TYPE_FEATURE_COUNT = 8;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESType1Impl <em>VALUES Type1</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESType1Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getVALUESType1()
-	 * @generated
-	 */
-	int VALUES_TYPE1 = 111;
-
-	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5387,16 +5455,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALUES_TYPE1_FEATURE_COUNT = 8;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESType2Impl <em>VALUES Type2</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESType2Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getVALUESType2()
-	 * @generated
-	 */
-	int VALUES_TYPE2 = 112;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
@@ -5480,16 +5538,6 @@ public interface MyreqifPackage extends EPackage {
 	int VALUES_TYPE2_FEATURE_COUNT = 8;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESType3Impl <em>VALUES Type3</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.VALUESType3Impl
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getVALUESType3()
-	 * @generated
-	 */
-	int VALUES_TYPE3 = 113;
-
-	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5515,36 +5563,6 @@ public interface MyreqifPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALUES_TYPE3_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '<em>GLOBALREF</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.String
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getGLOBALREF()
-	 * @generated
-	 */
-	int GLOBALREF = 114;
-
-	/**
-	 * The meta object id for the '<em>LOCALREF</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.String
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getLOCALREF()
-	 * @generated
-	 */
-	int LOCALREF = 115;
-
-	/**
-	 * The meta object id for the '<em>REQIFTOOLEXTENSION</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.String
-	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getREQIFTOOLEXTENSION()
-	 * @generated
-	 */
-	int REQIFTOOLEXTENSION = 116;
 
 	/**
 	 * The meta object id for the '<em>XHTMLCONTENT</em>' data type.
@@ -10156,15 +10174,15 @@ public interface MyreqifPackage extends EPackage {
 	EAttribute getTOOLEXTENSIONSType_Group();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.TOOLEXTENSIONSType#getREQIFTOOLEXTENSION <em>REQIFTOOLEXTENSION</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.TOOLEXTENSIONSType#getREQIFTOOLEXTENSION <em>REQIFTOOLEXTENSION</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>REQIFTOOLEXTENSION</em>'.
+	 * @return the meta object for the containment reference list '<em>REQIFTOOLEXTENSION</em>'.
 	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.TOOLEXTENSIONSType#getREQIFTOOLEXTENSION()
 	 * @see #getTOOLEXTENSIONSType()
 	 * @generated
 	 */
-	EAttribute getTOOLEXTENSIONSType_REQIFTOOLEXTENSION();
+	EReference getTOOLEXTENSIONSType_REQIFTOOLEXTENSION();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.TYPEType <em>TYPE Type</em>}'.
@@ -10748,16 +10766,25 @@ public interface MyreqifPackage extends EPackage {
 	EDataType getLOCALREF();
 
 	/**
-	 * Returns the meta object for data type '{@link java.lang.String <em>REQIFTOOLEXTENSION</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.REQIFTOOLEXTENSION <em>REQIFTOOLEXTENSION</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>REQIFTOOLEXTENSION</em>'.
-	 * @see java.lang.String
-	 * @model instanceClass="java.lang.String"
-	 *        extendedMetaData="name='REQ-IF-TOOL-EXTENSION' baseType='http://www.eclipse.org/emf/2003/XMLType#string'"
+	 * @return the meta object for class '<em>REQIFTOOLEXTENSION</em>'.
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.REQIFTOOLEXTENSION
 	 * @generated
 	 */
-	EDataType getREQIFTOOLEXTENSION();
+	EClass getREQIFTOOLEXTENSION();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.REQIFTOOLEXTENSION#getAny <em>Any</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Any</em>'.
+	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.REQIFTOOLEXTENSION#getAny()
+	 * @see #getREQIFTOOLEXTENSION()
+	 * @generated
+	 */
+	EAttribute getREQIFTOOLEXTENSION_Any();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.String <em>XHTMLCONTENT</em>}'.
@@ -14408,12 +14435,12 @@ public interface MyreqifPackage extends EPackage {
 		EAttribute TOOLEXTENSIONS_TYPE__GROUP = eINSTANCE.getTOOLEXTENSIONSType_Group();
 
 		/**
-		 * The meta object literal for the '<em><b>REQIFTOOLEXTENSION</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>REQIFTOOLEXTENSION</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TOOLEXTENSIONS_TYPE__REQIFTOOLEXTENSION = eINSTANCE.getTOOLEXTENSIONSType_REQIFTOOLEXTENSION();
+		EReference TOOLEXTENSIONS_TYPE__REQIFTOOLEXTENSION = eINSTANCE.getTOOLEXTENSIONSType_REQIFTOOLEXTENSION();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.TYPETypeImpl <em>TYPE Type</em>}' class.
@@ -14882,14 +14909,22 @@ public interface MyreqifPackage extends EPackage {
 		EDataType LOCALREF = eINSTANCE.getLOCALREF();
 
 		/**
-		 * The meta object literal for the '<em>REQIFTOOLEXTENSION</em>' data type.
+		 * The meta object literal for the '{@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.REQIFTOOLEXTENSIONImpl <em>REQIFTOOLEXTENSION</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.lang.String
+		 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.REQIFTOOLEXTENSIONImpl
 		 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.impl.MyreqifPackageImpl#getREQIFTOOLEXTENSION()
 		 * @generated
 		 */
-		EDataType REQIFTOOLEXTENSION = eINSTANCE.getREQIFTOOLEXTENSION();
+		EClass REQIFTOOLEXTENSION = eINSTANCE.getREQIFTOOLEXTENSION();
+
+		/**
+		 * The meta object literal for the '<em><b>Any</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REQIFTOOLEXTENSION__ANY = eINSTANCE.getREQIFTOOLEXTENSION_Any();
 
 		/**
 		 * The meta object literal for the '<em>XHTMLCONTENT</em>' data type.

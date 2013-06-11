@@ -135,6 +135,7 @@ public class MyreqifFactoryImpl extends EFactoryImpl implements MyreqifFactory {
 			case MyreqifPackage.REQIF: return createREQIF();
 			case MyreqifPackage.REQIFCONTENT: return createREQIFCONTENT();
 			case MyreqifPackage.REQIFHEADER: return createREQIFHEADER();
+			case MyreqifPackage.REQIFTOOLEXTENSION: return createREQIFTOOLEXTENSION();
 			case MyreqifPackage.SOURCESPECIFICATION_TYPE: return createSOURCESPECIFICATIONType();
 			case MyreqifPackage.SOURCE_TYPE: return createSOURCEType();
 			case MyreqifPackage.SPECATTRIBUTES_TYPE: return createSPECATTRIBUTESType();
@@ -191,8 +192,6 @@ public class MyreqifFactoryImpl extends EFactoryImpl implements MyreqifFactory {
 				return createGLOBALREFFromString(eDataType, initialValue);
 			case MyreqifPackage.LOCALREF:
 				return createLOCALREFFromString(eDataType, initialValue);
-			case MyreqifPackage.REQIFTOOLEXTENSION:
-				return createREQIFTOOLEXTENSIONFromString(eDataType, initialValue);
 			case MyreqifPackage.XHTMLCONTENT:
 				return createXHTMLCONTENTFromString(eDataType, initialValue);
 			default:
@@ -212,8 +211,6 @@ public class MyreqifFactoryImpl extends EFactoryImpl implements MyreqifFactory {
 				return convertGLOBALREFToString(eDataType, instanceValue);
 			case MyreqifPackage.LOCALREF:
 				return convertLOCALREFToString(eDataType, instanceValue);
-			case MyreqifPackage.REQIFTOOLEXTENSION:
-				return convertREQIFTOOLEXTENSIONToString(eDataType, instanceValue);
 			case MyreqifPackage.XHTMLCONTENT:
 				return convertXHTMLCONTENTToString(eDataType, instanceValue);
 			default:
@@ -976,6 +973,16 @@ public class MyreqifFactoryImpl extends EFactoryImpl implements MyreqifFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public REQIFTOOLEXTENSION createREQIFTOOLEXTENSION() {
+		REQIFTOOLEXTENSIONImpl reqiftoolextension = new REQIFTOOLEXTENSIONImpl();
+		return reqiftoolextension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SOURCESPECIFICATIONType createSOURCESPECIFICATIONType() {
 		SOURCESPECIFICATIONTypeImpl sourcespecificationType = new SOURCESPECIFICATIONTypeImpl();
 		return sourcespecificationType;
@@ -1395,24 +1402,6 @@ public class MyreqifFactoryImpl extends EFactoryImpl implements MyreqifFactory {
 	 */
 	public String convertLOCALREFToString(EDataType eDataType, Object instanceValue) {
 		return XMLTypeFactory.eINSTANCE.convertToString(XMLTypePackage.Literals.IDREF, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String createREQIFTOOLEXTENSIONFromString(EDataType eDataType, String initialValue) {
-		return (String)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.STRING, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertREQIFTOOLEXTENSIONToString(EDataType eDataType, Object instanceValue) {
-		return XMLTypeFactory.eINSTANCE.convertToString(XMLTypePackage.Literals.STRING, instanceValue);
 	}
 
 	/**

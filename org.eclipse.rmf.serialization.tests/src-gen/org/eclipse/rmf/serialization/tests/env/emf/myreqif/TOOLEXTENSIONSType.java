@@ -44,20 +44,20 @@ public interface TOOLEXTENSIONSType extends EObject {
 	FeatureMap getGroup();
 
 	/**
-	 * Returns the value of the '<em><b>REQIFTOOLEXTENSION</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>REQIFTOOLEXTENSION</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.rmf.serialization.tests.env.emf.myreqif.REQIFTOOLEXTENSION}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>REQIFTOOLEXTENSION</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>REQIFTOOLEXTENSION</em>' attribute list.
+	 * @return the value of the '<em>REQIFTOOLEXTENSION</em>' containment reference list.
 	 * @see org.eclipse.rmf.serialization.tests.env.emf.myreqif.MyreqifPackage#getTOOLEXTENSIONSType_REQIFTOOLEXTENSION()
-	 * @model unique="false" dataType="org.eclipse.rmf.serialization.tests.env.emf.myreqif.REQIFTOOLEXTENSION" transient="true" volatile="true" derived="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='REQ-IF-TOOL-EXTENSION' namespace='##targetNamespace' group='#group:0'"
 	 * @generated
 	 */
-	EList<String> getREQIFTOOLEXTENSION();
+	EList<REQIFTOOLEXTENSION> getREQIFTOOLEXTENSION();
 
 } // TOOLEXTENSIONSType

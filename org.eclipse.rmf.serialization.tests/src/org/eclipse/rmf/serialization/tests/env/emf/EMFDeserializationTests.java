@@ -42,7 +42,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class EMFPlainJavaTests {
+public class EMFDeserializationTests {
 	public static final String DATA_BASEDIR = "input/org.eclipse.rmf.serialization.tests.env/data/"; //$NON-NLS-1$
 	public static final String MODEL_BASEDIR = "input/org.eclipse.rmf.serialization.tests.env/model/"; //$NON-NLS-1$
 	private static HashMap<String, Object> backupRegistry = new HashMap<String, Object>();
@@ -65,7 +65,7 @@ public class EMFPlainJavaTests {
 	}
 
 	/**
-	 * Expected behaviour: create instances of generated classes
+	 * Expected behavior: create instances of generated classes
 	 * 
 	 * @throws IOException
 	 */
@@ -75,6 +75,8 @@ public class EMFPlainJavaTests {
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
+		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new MyreqifResourceFactoryImpl()); //$NON-NLS-1$
 
@@ -82,6 +84,35 @@ public class EMFPlainJavaTests {
 		URI emfURI = URI.createURI(fileName, true);
 		Resource resource = resourceSet.createResource(emfURI);
 		HashMap<String, Object> options = new HashMap<String, Object>();
+		enableNewMethods(options);
+
+		resource.load(options);
+
+		// validate data
+		validateLoadErrors(resource);
+		validateBareDataWithGeneratedPackage(resource);
+
+	}
+
+	@Test
+	public void positiveloadResourceWithPreregisteredGeneratedPackageCheckOptionsSideEffects() throws IOException {
+		String fileName = DATA_BASEDIR + "bare.reqif"; //$NON-NLS-1$
+
+		// prepare resource set
+		ResourceSet resourceSet = new ResourceSetImpl();
+		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
+		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new MyreqifResourceFactoryImpl()); //$NON-NLS-1$
+
+		// load data
+		URI emfURI = URI.createURI(fileName, true);
+		Resource resource = resourceSet.createResource(emfURI);
+		HashMap<String, Object> options = new HashMap<String, Object>();
+		XMLOptions xmlOptions = new XMLOptionsImpl();
+		xmlOptions.setProcessAnyXML(true);
+		xmlOptions.setProcessSchemaLocations(true);
+		options.put(XMLResource.OPTION_XML_OPTIONS, xmlOptions);
 		enableNewMethods(options);
 
 		resource.load(options);

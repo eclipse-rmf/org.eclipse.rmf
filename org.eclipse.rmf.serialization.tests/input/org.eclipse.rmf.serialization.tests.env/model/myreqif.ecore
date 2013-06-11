@@ -2129,11 +2129,20 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="REQIFTOOLEXTENSION" instanceClassName="java.lang.String">
+  <eClassifiers xsi:type="ecore:EClass" name="REQIFTOOLEXTENSION">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="REQ-IF-TOOL-EXTENSION"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#string"/>
+      <details key="kind" value="elementOnly"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="wildcards" value="##other"/>
+        <details key="name" value=":0"/>
+        <details key="processing" value="lax"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SOURCESPECIFICATIONType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -3149,9 +3158,9 @@
         <details key="name" value="group:0"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rEQIFTOOLEXTENSION" unique="false"
-        upperBound="-1" eType="#//REQIFTOOLEXTENSION" volatile="true" transient="true"
-        derived="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rEQIFTOOLEXTENSION" upperBound="-1"
+        eType="#//REQIFTOOLEXTENSION" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="REQ-IF-TOOL-EXTENSION"/>
