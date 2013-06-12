@@ -2,7 +2,8 @@
 <?pde version="3.8"?><target name="KEPLER_4_3_0" sequenceNumber="6">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.sphinx.core.feature.group" version="0.7.0.201306070826"/>
+<unit id="org.eclipse.sphinx.core.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.sphinx.testutils.feature.group" version="0.0.0"/>
 <repository location="http://download.eclipse.org/sphinx/updates/interim"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
