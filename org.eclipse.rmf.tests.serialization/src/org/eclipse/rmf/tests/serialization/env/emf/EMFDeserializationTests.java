@@ -42,6 +42,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+@SuppressWarnings("nls")
 public class EMFDeserializationTests {
 	public static final String DATA_BASEDIR = "input/org.eclipse.rmf.tests.serialization.env/data/"; //$NON-NLS-1$
 	public static final String MODEL_BASEDIR = "input/org.eclipse.rmf.tests.serialization.env/model/"; //$NON-NLS-1$
@@ -69,6 +70,7 @@ public class EMFDeserializationTests {
 	 * 
 	 * @throws IOException
 	 */
+
 	@Test
 	public void positiveloadResourceWithPreregisteredGeneratedPackage() throws IOException {
 		String fileName = DATA_BASEDIR + "bare.reqif"; //$NON-NLS-1$
@@ -78,7 +80,7 @@ public class EMFDeserializationTests {
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
 		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new MyreqifResourceFactoryImpl()); //$NON-NLS-1$
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new MyreqifResourceFactoryImpl());
 
 		// load data
 		URI emfURI = URI.createURI(fileName, true);

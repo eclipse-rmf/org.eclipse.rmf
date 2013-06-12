@@ -1,0 +1,140 @@
+package org.eclipse.rmf.tests.serialization.env.emf;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.core.runtime.Plugin;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xmi.XMLSave;
+import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
+import org.eclipse.emf.ecore.xmi.impl.URIHandlerImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
+import org.eclipse.rmf.tests.serialization.env.emf.myreqif.DocumentRoot;
+import org.eclipse.rmf.tests.serialization.env.emf.myreqif.MyreqifFactory;
+import org.eclipse.rmf.tests.serialization.env.emf.myreqif.MyreqifPackage;
+import org.eclipse.rmf.tests.serialization.env.emf.myreqif.REQIF;
+import org.eclipse.rmf.tests.serialization.env.emf.myreqif.util.MyreqifResourceFactoryImpl;
+import org.eclipse.rmf.tests.serialization.internal.Activator;
+import org.eclipse.sphinx.testutils.AbstractTestCase;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+@SuppressWarnings("nls")
+public class EMFSerializationTests extends AbstractTestCase {
+	public static final String RELATIVE_WORK_DIR = "org.eclipse.rmf.tests.serialization.env.emf/EMFSerializationTests/";
+
+	class EmptyPrefixResourceFactoryImpl extends EcoreResourceFactoryImpl {
+		@Override
+		public Resource createResource(URI uri) {
+			XMLResource result = new XMIResourceImpl(uri) {
+				@Override
+				protected boolean useIDs() {
+
+					return eObjectToIDMap != null || idToEObjectMap != null;
+				}
+
+				@Override
+				protected XMLSave createXMLSave(Map<?, ?> options) {
+					return new XMLSaveImpl(createXMLHelper()) {
+						@Override
+						protected void init(XMLResource resource, Map<?, ?> options) {
+							super.init(resource, options);
+							helper.getPrefixToNamespaceMap().put("", EcorePackage.eNS_URI);
+						}
+					};
+				}
+			};
+			result.setEncoding("UTF-8");
+			result.getDefaultSaveOptions().put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.TRUE);
+			result.getDefaultSaveOptions().put(XMLResource.OPTION_LINE_WIDTH, 80);
+			result.getDefaultSaveOptions().put(XMLResource.OPTION_URI_HANDLER, new URIHandlerImpl.PlatformSchemeAware());
+			return result;
+		}
+
+	}
+
+	@BeforeClass
+	public static void init() {
+	}
+
+	@Test
+	public void testReqIFLangSerialization() throws Exception {
+		String fileName = RELATIVE_WORK_DIR + "testReqIFLangSerialization.xml"; //$NON-NLS-1$
+
+		// create model
+		DocumentRoot documentRoot = MyreqifFactory.eINSTANCE.createDocumentRoot();
+		REQIF reqif = MyreqifFactory.eINSTANCE.createREQIF();
+		reqif.setLang("en");
+		documentRoot.setREQIF(reqif);
+
+		// save model
+		saveWorkingFile(fileName, documentRoot, new MyreqifResourceFactoryImpl(), null);
+
+		// validate
+		String resourceAsString = loadWorkingFileAsString(fileName);
+		assertTrue(resourceAsString.contains("xml:lang=\"en\""));
+	}
+
+	@Test
+	public void testEcodingSerialization() throws Exception {
+		String fileName = RELATIVE_WORK_DIR + "testEcodingSerialization.xml"; //$NON-NLS-1$
+
+		// create model
+		DocumentRoot documentRoot = MyreqifFactory.eINSTANCE.createDocumentRoot();
+		REQIF reqif = MyreqifFactory.eINSTANCE.createREQIF();
+		documentRoot.setREQIF(reqif);
+
+		// save model
+		HashMap<String, Object> options = new HashMap<String, Object>();
+		options.put(XMLResource.OPTION_ENCODING, "UTF-8");
+		saveWorkingFile(fileName, documentRoot, new MyreqifResourceFactoryImpl(), options);
+
+		// validate
+		String resourceAsString = loadWorkingFileAsString(fileName);
+		assertTrue(resourceAsString.contains("encoding=\"UTF-8\""));
+	}
+
+	@Test
+	public void testNamespacePrefixSerialization() throws Exception {
+		String fileName = RELATIVE_WORK_DIR + "testNamespacePrefixSerialization.xml"; //$NON-NLS-1$
+
+		// create model
+		DocumentRoot documentRoot = MyreqifFactory.eINSTANCE.createDocumentRoot();
+		documentRoot.getXMLNSPrefixMap().put("", MyreqifPackage.eNS_URI);
+		REQIF reqif = MyreqifFactory.eINSTANCE.createREQIF();
+		documentRoot.setREQIF(reqif);
+
+		// save model
+		saveWorkingFile(fileName, documentRoot, new MyreqifResourceFactoryImpl(), null);
+
+		// validate
+		String resourceAsString = loadWorkingFileAsString(fileName);
+		assertTrue(resourceAsString.contains("<REQ-IF "));
+	}
+
+	@Test
+	public void testNamespacePrefixWithoutDocumentRootSerialization() throws Exception {
+		String fileName = RELATIVE_WORK_DIR + "testNamespacePrefixWithoutDocumentRootSerialization.xml"; //$NON-NLS-1$
+
+		// create model
+		EPackage ePackage = EcoreFactory.eINSTANCE.createEPackage();
+
+		// save model
+		saveWorkingFile(fileName, ePackage, new EmptyPrefixResourceFactoryImpl(), null);
+
+		// validate
+		String resourceAsString = loadWorkingFileAsString(fileName);
+		assertTrue(resourceAsString.contains("<EPackage "));
+	}
+
+	@Override
+	protected Plugin getTestPlugin() {
+		return new Activator.Implementation();
+	}
+}

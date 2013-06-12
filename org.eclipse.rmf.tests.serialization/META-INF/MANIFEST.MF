@@ -11,3 +11,4 @@ Require-Bundle: org.junit,
  org.eclipse.sphinx.emf;bundle-version="0.7.0",
  org.eclipse.sphinx.testutils;bundle-version="0.7.0"
 Bundle-Vendor: Eclipse Modeling Project
+Bundle-Activator: org.eclipse.rmf.tests.serialization.internal.Activator$Implementation

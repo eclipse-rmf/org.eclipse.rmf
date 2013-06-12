@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.ALTERNATIVEIDType;
@@ -973,6 +974,7 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
+		XMLNamespacePackage.eINSTANCE.eClass();
 		XMLTypePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -3515,6 +3517,15 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getREQIF_Lang() {
+		return (EAttribute)reqifEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getREQIFCONTENT() {
 		return reqifcontentEClass;
 	}
@@ -5735,6 +5746,7 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 		createEReference(reqifEClass, REQIF__THEHEADER);
 		createEReference(reqifEClass, REQIF__CORECONTENT);
 		createEReference(reqifEClass, REQIF__TOOLEXTENSIONS);
+		createEAttribute(reqifEClass, REQIF__LANG);
 
 		reqifcontentEClass = createEClass(REQIFCONTENT);
 		createEReference(reqifcontentEClass, REQIFCONTENT__DATATYPES);
@@ -6011,6 +6023,7 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 
 		// Obtain other dependent packages
 		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
+		XMLNamespacePackage theXMLNamespacePackage = (XMLNamespacePackage)EPackage.Registry.INSTANCE.getEPackage(XMLNamespacePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -6371,6 +6384,7 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 		initEReference(getREQIF_THEHEADER(), this.getTHEHEADERType(), null, "tHEHEADER", null, 1, 1, org.eclipse.rmf.tests.serialization.env.emf.myreqif.REQIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getREQIF_CORECONTENT(), this.getCORECONTENTType(), null, "cORECONTENT", null, 1, 1, org.eclipse.rmf.tests.serialization.env.emf.myreqif.REQIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getREQIF_TOOLEXTENSIONS(), this.getTOOLEXTENSIONSType(), null, "tOOLEXTENSIONS", null, 0, 1, org.eclipse.rmf.tests.serialization.env.emf.myreqif.REQIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getREQIF_Lang(), theXMLNamespacePackage.getLangType(), "lang", null, 0, 1, org.eclipse.rmf.tests.serialization.env.emf.myreqif.REQIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(reqifcontentEClass, org.eclipse.rmf.tests.serialization.env.emf.myreqif.REQIFCONTENT.class, "REQIFCONTENT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getREQIFCONTENT_DATATYPES(), this.getDATATYPESType(), null, "dATATYPES", null, 0, 1, org.eclipse.rmf.tests.serialization.env.emf.myreqif.REQIFCONTENT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6636,7 +6650,7 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";			
 		addAnnotation
 		  (alternativeidEClass, 
 		   source, 
@@ -8735,6 +8749,14 @@ public class MyreqifPackageImpl extends EPackageImpl implements MyreqifPackage {
 			 "kind", "element",
 			 "name", "TOOL-EXTENSIONS",
 			 "namespace", "##targetNamespace"
+		   });			
+		addAnnotation
+		  (getREQIF_Lang(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute",
+			 "name", "lang",
+			 "namespace", "http://www.w3.org/XML/1998/namespace"
 		   });		
 		addAnnotation
 		  (reqifcontentEClass, 

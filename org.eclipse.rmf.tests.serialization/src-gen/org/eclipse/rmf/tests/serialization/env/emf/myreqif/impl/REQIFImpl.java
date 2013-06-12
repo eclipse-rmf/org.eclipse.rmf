@@ -27,6 +27,7 @@ import org.eclipse.rmf.tests.serialization.env.emf.myreqif.TOOLEXTENSIONSType;
  *   <li>{@link org.eclipse.rmf.tests.serialization.env.emf.myreqif.impl.REQIFImpl#getTHEHEADER <em>THEHEADER</em>}</li>
  *   <li>{@link org.eclipse.rmf.tests.serialization.env.emf.myreqif.impl.REQIFImpl#getCORECONTENT <em>CORECONTENT</em>}</li>
  *   <li>{@link org.eclipse.rmf.tests.serialization.env.emf.myreqif.impl.REQIFImpl#getTOOLEXTENSIONS <em>TOOLEXTENSIONS</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.env.emf.myreqif.impl.REQIFImpl#getLang <em>Lang</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +63,26 @@ public class REQIFImpl extends EObjectImpl implements REQIF {
 	 * @ordered
 	 */
 	protected TOOLEXTENSIONSType tOOLEXTENSIONS;
+
+	/**
+	 * The default value of the '{@link #getLang() <em>Lang</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLang()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LANG_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLang() <em>Lang</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLang()
+	 * @generated
+	 * @ordered
+	 */
+	protected String lang = LANG_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,6 +237,27 @@ public class REQIFImpl extends EObjectImpl implements REQIF {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getLang() {
+		return lang;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLang(String newLang) {
+		String oldLang = lang;
+		lang = newLang;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MyreqifPackage.REQIF__LANG, oldLang, lang));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -243,6 +285,8 @@ public class REQIFImpl extends EObjectImpl implements REQIF {
 				return getCORECONTENT();
 			case MyreqifPackage.REQIF__TOOLEXTENSIONS:
 				return getTOOLEXTENSIONS();
+			case MyreqifPackage.REQIF__LANG:
+				return getLang();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -263,6 +307,9 @@ public class REQIFImpl extends EObjectImpl implements REQIF {
 				return;
 			case MyreqifPackage.REQIF__TOOLEXTENSIONS:
 				setTOOLEXTENSIONS((TOOLEXTENSIONSType)newValue);
+				return;
+			case MyreqifPackage.REQIF__LANG:
+				setLang((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -285,6 +332,9 @@ public class REQIFImpl extends EObjectImpl implements REQIF {
 			case MyreqifPackage.REQIF__TOOLEXTENSIONS:
 				setTOOLEXTENSIONS((TOOLEXTENSIONSType)null);
 				return;
+			case MyreqifPackage.REQIF__LANG:
+				setLang(LANG_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -303,8 +353,26 @@ public class REQIFImpl extends EObjectImpl implements REQIF {
 				return cORECONTENT != null;
 			case MyreqifPackage.REQIF__TOOLEXTENSIONS:
 				return tOOLEXTENSIONS != null;
+			case MyreqifPackage.REQIF__LANG:
+				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (lang: ");
+		result.append(lang);
+		result.append(')');
+		return result.toString();
 	}
 
 } //REQIFImpl

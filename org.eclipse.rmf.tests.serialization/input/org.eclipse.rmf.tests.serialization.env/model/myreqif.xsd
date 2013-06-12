@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema
     xmlns="http://www.w3.org/1999/xhtml" xmlns:REQIF="http://www.eclipse.org/rmf/tests/serialization/env/myreqif.xsd"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xml="http://www.w3.org/XML/1998/namespace" attributeFormDefault="unqualified"
     elementFormDefault="qualified" targetNamespace="http://www.eclipse.org/rmf/tests/serialization/env/myreqif.xsd">
+  <xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
   <xsd:element name="REQ-IF" type="REQIF:REQ-IF"/>
   <xsd:simpleType name="LOCAL-REF">
     <xsd:restriction base="xsd:IDREF"/>
@@ -557,6 +558,7 @@
         </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
+    <xsd:attribute ref="xml:lang" use="optional"/>
   </xsd:complexType>
   <xsd:complexType name="REQ-IF-CONTENT">
     <xsd:sequence>
