@@ -23,7 +23,7 @@ Contributors:
 		<relativePath>../org.eclipse.rmf.releng/pom.xml</relativePath>
 	</parent>
 	<groupId>org.eclipse.rmf.plugins</groupId>
-	<artifactId>org.eclipse.rmf.serialization.tests</artifactId>
+	<artifactId>org.eclipse.rmf.tests.serialization</artifactId>
 	<version>0.7.0-SNAPSHOT</version>
 	<properties>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
