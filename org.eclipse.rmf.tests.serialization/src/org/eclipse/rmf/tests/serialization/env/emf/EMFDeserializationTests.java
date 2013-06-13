@@ -33,6 +33,8 @@ import org.eclipse.rmf.tests.serialization.env.emf.myreqif.CORECONTENTType;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.DocumentRoot;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.MyreqifPackage;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.REQIF;
+import org.eclipse.rmf.tests.serialization.env.emf.myreqif.REQIFTOOLEXTENSION;
+import org.eclipse.rmf.tests.serialization.env.emf.myreqif.TOOLEXTENSIONSType;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.util.MyreqifResourceFactoryImpl;
 import org.eclipse.xsd.XSDPackage;
 import org.eclipse.xsd.ecore.XSDEcoreBuilder;
@@ -44,23 +46,24 @@ import org.junit.Test;
 
 @SuppressWarnings("nls")
 public class EMFDeserializationTests {
-	public static final String DATA_BASEDIR = "input/org.eclipse.rmf.tests.serialization.env/data/"; //$NON-NLS-1$
-	public static final String MODEL_BASEDIR = "input/org.eclipse.rmf.tests.serialization.env/model/"; //$NON-NLS-1$
+	public static final String DATA_BASEDIR = "resources/input/org.eclipse.rmf.tests.serialization.env/data/";
+	public static final String MODEL_BASEDIR = "resources/input/org.eclipse.rmf.tests.serialization.env/model/";
+
 	private static HashMap<String, Object> backupRegistry = new HashMap<String, Object>();
 
 	@BeforeClass
-	public static void backupPackageRegistry() {
+	public static void setupOnce() {
 		backupRegistry = new HashMap<String, Object>();
 		backupRegistry.putAll(EPackage.Registry.INSTANCE);
 	}
 
 	@Before
-	public void beforeTestCase() {
+	public void setUp() {
 		EPackage.Registry.INSTANCE.clear();
 	}
 
 	@AfterClass
-	public static void restorePackageRegistry() {
+	public static void tearDownOnce() {
 		EPackage.Registry.INSTANCE.clear();
 		EPackage.Registry.INSTANCE.putAll(backupRegistry);
 	}
@@ -72,15 +75,15 @@ public class EMFDeserializationTests {
 	 */
 
 	@Test
-	public void positiveloadResourceWithPreregisteredGeneratedPackage() throws IOException {
-		String fileName = DATA_BASEDIR + "bare.reqif"; //$NON-NLS-1$
+	public void testPositiveloadResourceWithPreregisteredGeneratedPackage() throws IOException {
+		String fileName = DATA_BASEDIR + "bare.xml";
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
 		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new MyreqifResourceFactoryImpl());
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new MyreqifResourceFactoryImpl());
 
 		// load data
 		URI emfURI = URI.createURI(fileName, true);
@@ -93,19 +96,70 @@ public class EMFDeserializationTests {
 		// validate data
 		validateLoadErrors(resource);
 		validateBareDataWithGeneratedPackage(resource);
-
 	}
 
 	@Test
-	public void positiveloadResourceWithPreregisteredGeneratedPackageCheckOptionsSideEffects() throws IOException {
-		String fileName = DATA_BASEDIR + "bare.reqif"; //$NON-NLS-1$
+	public void testPositiveloadResourceWithPreregisteredGeneratedPackageAndNestedAnyTypesWithRedefinedNsPrefix() throws IOException {
+		String fileName = DATA_BASEDIR + "simple_toolExtensions_redefinedNsPrefix.xml";
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
 		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new MyreqifResourceFactoryImpl()); //$NON-NLS-1$
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new MyreqifResourceFactoryImpl());
+
+		// load data
+		URI emfURI = URI.createURI(fileName, true);
+		Resource resource = resourceSet.createResource(emfURI);
+		HashMap<String, Object> options = new HashMap<String, Object>();
+		enableNewMethods(options);
+
+		resource.load(options);
+
+		// validate data
+		validateLoadErrors(resource);
+		validateBareDataWithGeneratedPackage(resource);
+		validateAnyTypeInGeneratedPackage(resource, 1);
+	}
+
+	@Test
+	public void testPositiveloadResourceWithPreregisteredGeneratedPackageAndNestedAnyAndEcoreTypes() throws IOException {
+		String fileName = DATA_BASEDIR + "bare_toolExtensions_AnyTypeAndEcoreType.xml";
+
+		// prepare resource set
+		ResourceSet resourceSet = new ResourceSetImpl();
+		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
+		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
+		resourceSet.getPackageRegistry().put(EcorePackage.eNS_URI, EcorePackage.eINSTANCE);
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new MyreqifResourceFactoryImpl());
+
+		// load data
+		URI emfURI = URI.createURI(fileName, true);
+		Resource resource = resourceSet.createResource(emfURI);
+		HashMap<String, Object> options = new HashMap<String, Object>();
+		enableNewMethods(options);
+
+		resource.load(options);
+
+		// validate data
+		validateLoadErrors(resource);
+		validateBareDataWithGeneratedPackage(resource);
+		validateAnyTypeInGeneratedPackage(resource, 2);
+		validateEcoreInGeneratedPackage(resource, 2);
+	}
+
+	@Test
+	public void testPositiveloadResourceWithPreregisteredGeneratedPackageCheckOptionsSideEffects() throws IOException {
+		String fileName = DATA_BASEDIR + "bare.xml"; //$NON-NLS-1$
+
+		// prepare resource set
+		ResourceSet resourceSet = new ResourceSetImpl();
+		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
+		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new MyreqifResourceFactoryImpl()); //$NON-NLS-1$
 
 		// load data
 		URI emfURI = URI.createURI(fileName, true);
@@ -122,12 +176,11 @@ public class EMFDeserializationTests {
 		// validate data
 		validateLoadErrors(resource);
 		validateBareDataWithGeneratedPackage(resource);
-
 	}
 
 	@Test
-	public void positiveloadResourceWithPreregisteredPackageInEcoreFile() throws IOException {
-		String fileName = DATA_BASEDIR + "bare.reqif"; //$NON-NLS-1$
+	public void testPositiveloadResourceWithPreregisteredPackageInEcoreFile() throws IOException {
+		String fileName = DATA_BASEDIR + "bare.xml"; //$NON-NLS-1$
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
@@ -147,7 +200,7 @@ public class EMFDeserializationTests {
 
 		// get the data
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, reqifPackage);
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLResourceFactoryImpl()); //$NON-NLS-1$
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl()); //$NON-NLS-1$
 
 		// load data
 		// note: loading an instance against an ecore that is generated from xsd requires extended meta data switched on
@@ -164,8 +217,8 @@ public class EMFDeserializationTests {
 	}
 
 	@Test
-	public void positiveloadResourceWithPreregisteredPackageInXSDFile() throws IOException {
-		String fileName = DATA_BASEDIR + "bare.reqif"; //$NON-NLS-1$
+	public void testPositiveloadResourceWithPreregisteredPackageInXSDFile() throws IOException {
+		String fileName = DATA_BASEDIR + "bare.xml"; //$NON-NLS-1$
 
 		// prepare resource set
 		XSDEcoreBuilder xsdEcoreBuilder = new XSDEcoreBuilder();
@@ -174,7 +227,7 @@ public class EMFDeserializationTests {
 
 		ResourceSet resourceSet = new ResourceSetImpl();
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, reqifPackage);
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLResourceFactoryImpl()); //$NON-NLS-1$
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl()); //$NON-NLS-1$
 
 		// load data
 		// note: loading an instance against an ecore that is generated from xsd requires extended meta data switched on
@@ -191,12 +244,12 @@ public class EMFDeserializationTests {
 	}
 
 	@Test
-	public void positiveloadResourceWithoutPackageInfo() throws IOException {
-		String fileName = DATA_BASEDIR + "bare.reqif"; //$NON-NLS-1$
+	public void testPositiveloadResourceWithoutPackageInfo() throws IOException {
+		String fileName = DATA_BASEDIR + "bare.xml"; //$NON-NLS-1$
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLResourceFactoryImpl()); //$NON-NLS-1$
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl()); //$NON-NLS-1$
 
 		// load data
 		// note: loading of XML files with unknown structure requires OPTION_RECORD_UNKNOWN_FEATURE
@@ -236,8 +289,8 @@ public class EMFDeserializationTests {
 	}
 
 	@Test
-	public void positiveloadResourceWithLocationHintPackageInEcoreFile() throws IOException {
-		String fileName = DATA_BASEDIR + "bareWithEcoreHint.reqif"; //$NON-NLS-1$
+	public void testPositiveloadResourceWithLocationHintPackageInEcoreFile() throws IOException {
+		String fileName = DATA_BASEDIR + "bareWithEcoreHint.xml"; //$NON-NLS-1$
 
 		// prepare resource set
 		// NOTE:
@@ -245,8 +298,8 @@ public class EMFDeserializationTests {
 		EPackage.Registry.INSTANCE.put(EcorePackage.eNS_URI, EcorePackage.eINSTANCE);
 
 		ResourceSet resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLResourceFactoryImpl()); //$NON-NLS-1$
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl()); //$NON-NLS-1$
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl());
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
 		resourceSet.getPackageRegistry().put(XSDPackage.eNS_URI, XSDPackage.eINSTANCE);
 
 		// load data
@@ -269,13 +322,13 @@ public class EMFDeserializationTests {
 	}
 
 	@Test
-	public void positiveloadResourceWithLocationHintPackageInXSDFile() throws IOException {
-		String fileName = DATA_BASEDIR + "bareWithSchemaHint.reqif"; //$NON-NLS-1$
+	public void testPositiveloadResourceWithLocationHintPackageInXSDFile() throws IOException {
+		String fileName = DATA_BASEDIR + "bareWithSchemaHint.xml"; //$NON-NLS-1$
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLResourceFactoryImpl()); //$NON-NLS-1$
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xsd", new XSDResourceFactoryImpl()); //$NON-NLS-1$		// resourceSet.getPackageRegistry().put(XSDPackage.eNS_URI, XSDPackage.eINSTANCE);
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl());
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xsd", new XSDResourceFactoryImpl());
 
 		// load data
 		// note: loading an instance against an ecore that is generated from xsd requires extended meta data switched on
@@ -299,29 +352,25 @@ public class EMFDeserializationTests {
 
 	}
 
-	@Test
-	public void loadResourceWithInvalidLocationHintPackage() {
-	}
-
 	private void validateBareDataWithDynamicEcore(Resource resource, EPackage reqifPackage) {
 		assertEquals(1, resource.getContents().size());
 		EObject documentRoot = resource.getContents().get(0);
 
 		assertFalse(documentRoot instanceof DocumentRoot);
 
-		EClass documentRootEClass = (EClass) reqifPackage.getEClassifier("DocumentRoot"); //$NON-NLS-1$
+		EClass documentRootEClass = (EClass) reqifPackage.getEClassifier("DocumentRoot");
 		assertEquals(documentRootEClass, documentRoot.eClass());
 
-		EStructuralFeature reqifFeature = documentRootEClass.getEStructuralFeature("rEQIF"); //$NON-NLS-1$
+		EStructuralFeature reqifFeature = documentRootEClass.getEStructuralFeature("rEQIF");
 		Object reqifObject = documentRoot.eGet(reqifFeature);
 		assertNotNull(reqifObject);
 		assertTrue(reqifObject instanceof EObject);
 
 		EObject reqif = (EObject) reqifObject;
-		EClass reqifEClass = (EClass) reqifPackage.getEClassifier("REQIF"); //$NON-NLS-1$
+		EClass reqifEClass = (EClass) reqifPackage.getEClassifier("REQIF");
 		assertEquals(reqifEClass, reqif.eClass());
 
-		EStructuralFeature coreContentFeature = reqifEClass.getEStructuralFeature("cORECONTENT"); //$NON-NLS-1$
+		EStructuralFeature coreContentFeature = reqifEClass.getEStructuralFeature("cORECONTENT");
 		Object coreContentObject = reqif.eGet(coreContentFeature);
 		assertNotNull(coreContentObject);
 
@@ -335,13 +384,68 @@ public class EMFDeserializationTests {
 		assertTrue(root instanceof DocumentRoot);
 		DocumentRoot documentRoot = (DocumentRoot) root;
 
-		assertTrue(null != documentRoot.getREQIF());
+		assertNotNull(documentRoot.getREQIF());
 		REQIF reqif = documentRoot.getREQIF();
 
-		assertTrue(null != reqif.getCORECONTENT());
+		assertNotNull(reqif.getCORECONTENT());
 		CORECONTENTType coreContent = reqif.getCORECONTENT();
 
-		assertTrue(null != coreContent.getREQIFCONTENT());
+		assertNotNull(coreContent.getREQIFCONTENT());
+	}
+
+	private void validateAnyTypeInGeneratedPackage(Resource resource, int expectedExtensionSize) {
+		// test data
+		assertEquals(1, resource.getContents().size());
+		EObject root = resource.getContents().get(0);
+
+		assertTrue(root instanceof DocumentRoot);
+		DocumentRoot documentRoot = (DocumentRoot) root;
+
+		assertNotNull(documentRoot.getREQIF());
+		REQIF reqif = documentRoot.getREQIF();
+
+		assertNotNull(reqif.getTOOLEXTENSIONS());
+		TOOLEXTENSIONSType toolExtensions = reqif.getTOOLEXTENSIONS();
+
+		assertNotNull(toolExtensions.getREQIFTOOLEXTENSION());
+		assertEquals(1, toolExtensions.getREQIFTOOLEXTENSION().size());
+		REQIFTOOLEXTENSION reqifToolExtension = toolExtensions.getREQIFTOOLEXTENSION().get(0);
+
+		assertNotNull(reqifToolExtension.getAny());
+		assertEquals(expectedExtensionSize, reqifToolExtension.getAny().size());
+		org.eclipse.emf.ecore.util.FeatureMap.Entry myExtensionEntry = reqifToolExtension.getAny().get(0);
+
+		Object myExtensionObject = myExtensionEntry.getValue();
+		assertTrue(myExtensionObject instanceof AnyTypeImpl);
+		assertEquals("myExtension", myExtensionEntry.getEStructuralFeature().getName());
+	}
+
+	private void validateEcoreInGeneratedPackage(Resource resource, int expectedExtensionSize) {
+		// test data
+		assertEquals(1, resource.getContents().size());
+		EObject root = resource.getContents().get(0);
+
+		assertTrue(root instanceof DocumentRoot);
+		DocumentRoot documentRoot = (DocumentRoot) root;
+
+		assertNotNull(documentRoot.getREQIF());
+		REQIF reqif = documentRoot.getREQIF();
+
+		assertNotNull(reqif.getTOOLEXTENSIONS());
+		TOOLEXTENSIONSType toolExtensions = reqif.getTOOLEXTENSIONS();
+
+		assertNotNull(toolExtensions.getREQIFTOOLEXTENSION());
+		assertEquals(1, toolExtensions.getREQIFTOOLEXTENSION().size());
+		REQIFTOOLEXTENSION reqifToolExtension = toolExtensions.getREQIFTOOLEXTENSION().get(0);
+
+		assertNotNull(reqifToolExtension.getAny());
+		assertEquals(expectedExtensionSize, reqifToolExtension.getAny().size());
+		org.eclipse.emf.ecore.util.FeatureMap.Entry myExtensionEntry = reqifToolExtension.getAny().get(1);
+
+		Object ePackageObject = myExtensionEntry.getValue();
+		assertTrue(ePackageObject instanceof EPackage);
+		EPackage ePackage = (EPackage) ePackageObject;
+		assertEquals(1, ePackage.getEClassifiers().size());
 	}
 
 	private void validateLoadErrors(Resource resource) {
@@ -349,7 +453,7 @@ public class EMFDeserializationTests {
 		assertEquals(0, resource.getWarnings().size());
 	}
 
-	private void enableNewMethods(Map<String, Object> options) {
+	protected void enableNewMethods(Map<String, Object> options) {
 		// Retrieve application-defined XMLReader features (see http://xerces.apache.org/xerces2-j/features.html for
 		// available features and their details)
 		Map<String, Boolean> parserFeatures = new HashMap<String, Boolean>();

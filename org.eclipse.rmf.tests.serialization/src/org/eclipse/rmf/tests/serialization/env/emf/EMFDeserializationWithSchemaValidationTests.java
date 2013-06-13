@@ -21,44 +21,23 @@ import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.DocumentRoot;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.MyreqifPackage;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.util.MyreqifResourceFactoryImpl;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 @SuppressWarnings("nls")
 public class EMFDeserializationWithSchemaValidationTests {
-	public static final String DATA_BASEDIR = "input/org.eclipse.rmf.tests.serialization.env/data/"; //$NON-NLS-1$
-	public static final String MODEL_BASEDIR = "input/org.eclipse.rmf.tests.serialization.env/model/"; //$NON-NLS-1$
-	private static HashMap<String, Object> backupRegistry = new HashMap<String, Object>();
-
-	@BeforeClass
-	public static void initRegistry() {
-		backupRegistry = new HashMap<String, Object>();
-		backupRegistry.putAll(EPackage.Registry.INSTANCE);
-	}
-
-	@Before
-	public void beforeTestCase() {
-		EPackage.Registry.INSTANCE.clear();
-	}
-
-	@AfterClass
-	public static void restorePackageRegistry() {
-		EPackage.Registry.INSTANCE.clear();
-		EPackage.Registry.INSTANCE.putAll(backupRegistry);
-	}
+	public static final String DATA_BASEDIR = "resources/input/org.eclipse.rmf.tests.serialization.env/data/"; //$NON-NLS-1$
+	public static final String MODEL_BASEDIR = "resources/input/org.eclipse.rmf.tests.serialization.env/model/"; //$NON-NLS-1$
 
 	@Test
 	public void testSchemaValidationOnLoadWithValidFile() throws IOException {
-		String fileName = DATA_BASEDIR + "simple.reqif"; //$NON-NLS-1$
+		String fileName = DATA_BASEDIR + "simple.xml"; //$NON-NLS-1$
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
 		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new MyreqifResourceFactoryImpl()); //$NON-NLS-1$
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new MyreqifResourceFactoryImpl()); //$NON-NLS-1$
 
 		// load data
 		URI emfURI = URI.createURI(fileName, true);
@@ -78,14 +57,14 @@ public class EMFDeserializationWithSchemaValidationTests {
 
 	@Test
 	public void testSchemaValidationOnLoadWithInvalidFile() {
-		String fileName = DATA_BASEDIR + "bare.reqif"; //$NON-NLS-1$
+		String fileName = DATA_BASEDIR + "bare.xml"; //$NON-NLS-1$
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
 		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new MyreqifResourceFactoryImpl()); //$NON-NLS-1$
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new MyreqifResourceFactoryImpl()); //$NON-NLS-1$
 
 		// load data
 		URI emfURI = URI.createURI(fileName, true);

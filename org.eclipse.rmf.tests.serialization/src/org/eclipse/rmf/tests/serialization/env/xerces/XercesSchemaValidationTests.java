@@ -27,8 +27,8 @@ import org.xml.sax.XMLReader;
 
 @SuppressWarnings("nls")
 public class XercesSchemaValidationTests {
-	public static final String DATA_BASEDIR = "input/org.eclipse.rmf.tests.serialization.env/data/";
-	public static final String MODEL_BASEDIR = "input/org.eclipse.rmf.tests.serialization.env/model/";
+	public static final String DATA_BASEDIR = "resources/input/org.eclipse.rmf.tests.serialization.env/data/";
+	public static final String MODEL_BASEDIR = "resources/input/org.eclipse.rmf.tests.serialization.env/model/";
 
 	class MyErrorHandler implements ErrorHandler {
 		public List<SAXParseException> errors = new Vector<SAXParseException>();
@@ -53,47 +53,8 @@ public class XercesSchemaValidationTests {
 	};
 
 	@Test
-	public void testSchemaValidationWithValidFile() {
-		String fileName = DATA_BASEDIR + "simple.reqif";
-		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
-		Source instanceDocument = new StreamSource(fileName);
-
-		SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-		Schema s;
-		try {
-			s = sf.newSchema(schemaDocuments);
-			Validator v = s.newValidator();
-			v.validate(instanceDocument);
-
-		} catch (SAXException ex) {
-			assertTrue(ex.getMessage(), false);
-		} catch (IOException ex) {
-			assertTrue(ex.getMessage(), false);
-		}
-	}
-
-	@Test
-	public void testSchemaValidationWithInvalidFile() {
-		String fileName = DATA_BASEDIR + "bare.reqif";
-		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
-		Source instanceDocument = new StreamSource(fileName);
-		SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-		Schema s;
-		try {
-			s = sf.newSchema(schemaDocuments);
-			Validator v = s.newValidator();
-			v.validate(instanceDocument);
-			assertTrue(false);
-		} catch (SAXException ex) {
-			assertTrue(ex.getMessage().contains("cvc-complex-type.2.4.a:"));
-		} catch (IOException ex) {
-			assertTrue(ex.getMessage(), false);
-		}
-	}
-
-	@Test
 	public void testSchemaValidationOnLoadWithValidFile() {
-		String fileName = DATA_BASEDIR + "simple.reqif";
+		String fileName = DATA_BASEDIR + "simple.xml";
 
 		try {
 			MyErrorHandler errorHandler = new MyErrorHandler();
@@ -118,13 +79,13 @@ public class XercesSchemaValidationTests {
 		} catch (IOException ex) {
 			assertTrue(ex.getMessage(), false);
 		} catch (ParserConfigurationException ex) {
-			// TODO Auto-generated catch block
+			assertTrue(ex.getMessage(), false);
 		}
 	}
 
 	@Test
 	public void testSchemaValidationOnLoadWithInvalidFile() {
-		String fileName = DATA_BASEDIR + "bare.reqif";
+		String fileName = DATA_BASEDIR + "bare.xml";
 		try {
 			MyErrorHandler errorHandler = new MyErrorHandler();
 			SAXParserFactory factory = SAXParserFactory.newInstance();
@@ -148,13 +109,52 @@ public class XercesSchemaValidationTests {
 		} catch (IOException ex) {
 			assertTrue(ex.getMessage(), false);
 		} catch (ParserConfigurationException ex) {
-			// TODO Auto-generated catch block
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testSchemaValidationWithValidFile() {
+		String fileName = DATA_BASEDIR + "simple.xml";
+		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
+		Source instanceDocument = new StreamSource(fileName);
+
+		SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+		Schema s;
+		try {
+			s = sf.newSchema(schemaDocuments);
+			Validator v = s.newValidator();
+			v.validate(instanceDocument);
+
+		} catch (SAXException ex) {
+			assertTrue(ex.getMessage(), false);
+		} catch (IOException ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testSchemaValidationWithInvalidFile() {
+		String fileName = DATA_BASEDIR + "bare.xml";
+		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
+		Source instanceDocument = new StreamSource(fileName);
+		SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+		Schema s;
+		try {
+			s = sf.newSchema(schemaDocuments);
+			Validator v = s.newValidator();
+			v.validate(instanceDocument);
+			assertTrue(false);
+		} catch (SAXException ex) {
+			assertTrue(ex.getMessage().contains("cvc-complex-type.2.4.a:"));
+		} catch (IOException ex) {
+			assertTrue(ex.getMessage(), false);
 		}
 	}
 
 	@Test
 	public void testSchemaValidationWithValidToolExtensionsFile() {
-		String fileName = DATA_BASEDIR + "toolExtensions.reqif";
+		String fileName = DATA_BASEDIR + "simple_toolExtensions.xml";
 		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
 		Source instanceDocument = new StreamSource(fileName);
 
@@ -173,7 +173,7 @@ public class XercesSchemaValidationTests {
 	}
 
 	public void testSchemaValidationWithValidRedefinedToolExtensionsFile() {
-		String fileName = DATA_BASEDIR + "toolExtensions_redefinedNsPrefix.reqif";
+		String fileName = DATA_BASEDIR + "simple_toolExtensions_redefinedNsPrefix.xml";
 		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
 		Source instanceDocument = new StreamSource(fileName);
 
@@ -197,7 +197,7 @@ public class XercesSchemaValidationTests {
 	 */
 	@Test
 	public void testSchemaValidationWithValidToolExtensionsXsiTypeFile() {
-		String fileName = DATA_BASEDIR + "toolExtensions_xsiType.reqif";
+		String fileName = DATA_BASEDIR + "simple_toolExtensions_xsiType.xml";
 		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
 		Source instanceDocument = new StreamSource(fileName);
 

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.Plugin;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -17,39 +18,19 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
 import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
+import org.eclipse.rmf.tests.serialization.env.emf.myreqif.CORECONTENTType;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.DocumentRoot;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.MyreqifFactory;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.MyreqifPackage;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.REQIF;
+import org.eclipse.rmf.tests.serialization.env.emf.myreqif.REQIFCONTENT;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.util.MyreqifResourceFactoryImpl;
 import org.eclipse.rmf.tests.serialization.internal.Activator;
-import org.eclipse.sphinx.testutils.AbstractTestCase;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 @SuppressWarnings("nls")
-public class EMFSerializationTests extends AbstractTestCase {
+public class EMFSerializationTests extends AbstractEMFTestCase {
 	public static final String RELATIVE_WORK_DIR = "org.eclipse.rmf.tests.serialization.env.emf/EMFSerializationTests/";
-	private static HashMap<String, Object> backupRegistry = new HashMap<String, Object>();
-
-	@BeforeClass
-	public static void initRegistry() {
-		backupRegistry = new HashMap<String, Object>();
-		backupRegistry.putAll(EPackage.Registry.INSTANCE);
-	}
-
-	@Before
-	public void beforeTestCase() {
-		EPackage.Registry.INSTANCE.clear();
-	}
-
-	@AfterClass
-	public static void restorePackageRegistry() {
-		EPackage.Registry.INSTANCE.clear();
-		EPackage.Registry.INSTANCE.putAll(backupRegistry);
-	}
 
 	class EmptyPrefixResourceFactoryImpl extends EcoreResourceFactoryImpl {
 		@Override
@@ -87,8 +68,14 @@ public class EMFSerializationTests extends AbstractTestCase {
 		// create model
 		DocumentRoot documentRoot = MyreqifFactory.eINSTANCE.createDocumentRoot();
 		REQIF reqif = MyreqifFactory.eINSTANCE.createREQIF();
-		reqif.setLang("en");
+		CORECONTENTType coreContent = MyreqifFactory.eINSTANCE.createCORECONTENTType();
+		REQIFCONTENT reqifContent = MyreqifFactory.eINSTANCE.createREQIFCONTENT();
+
 		documentRoot.setREQIF(reqif);
+		reqif.setCORECONTENT(coreContent);
+		coreContent.setREQIFCONTENT(reqifContent);
+
+		reqif.setLang("en");
 
 		// save model
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
@@ -110,7 +97,12 @@ public class EMFSerializationTests extends AbstractTestCase {
 		// create model
 		DocumentRoot documentRoot = MyreqifFactory.eINSTANCE.createDocumentRoot();
 		REQIF reqif = MyreqifFactory.eINSTANCE.createREQIF();
+		CORECONTENTType coreContent = MyreqifFactory.eINSTANCE.createCORECONTENTType();
+		REQIFCONTENT reqifContent = MyreqifFactory.eINSTANCE.createREQIFCONTENT();
+
 		documentRoot.setREQIF(reqif);
+		reqif.setCORECONTENT(coreContent);
+		coreContent.setREQIFCONTENT(reqifContent);
 
 		// save model
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
@@ -133,7 +125,12 @@ public class EMFSerializationTests extends AbstractTestCase {
 		// create model
 		DocumentRoot documentRoot = MyreqifFactory.eINSTANCE.createDocumentRoot();
 		REQIF reqif = MyreqifFactory.eINSTANCE.createREQIF();
+		CORECONTENTType coreContent = MyreqifFactory.eINSTANCE.createCORECONTENTType();
+		REQIFCONTENT reqifContent = MyreqifFactory.eINSTANCE.createREQIFCONTENT();
+
 		documentRoot.setREQIF(reqif);
+		reqif.setCORECONTENT(coreContent);
+		coreContent.setREQIFCONTENT(reqifContent);
 
 		// save model
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
@@ -155,7 +152,12 @@ public class EMFSerializationTests extends AbstractTestCase {
 		DocumentRoot documentRoot = MyreqifFactory.eINSTANCE.createDocumentRoot();
 		documentRoot.getXMLNSPrefixMap().put("", MyreqifPackage.eNS_URI);
 		REQIF reqif = MyreqifFactory.eINSTANCE.createREQIF();
+		CORECONTENTType coreContent = MyreqifFactory.eINSTANCE.createCORECONTENTType();
+		REQIFCONTENT reqifContent = MyreqifFactory.eINSTANCE.createREQIFCONTENT();
+
 		documentRoot.setREQIF(reqif);
+		reqif.setCORECONTENT(coreContent);
+		coreContent.setREQIFCONTENT(reqifContent);
 
 		// save model
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
@@ -175,6 +177,8 @@ public class EMFSerializationTests extends AbstractTestCase {
 
 		// create model
 		EPackage ePackage = EcoreFactory.eINSTANCE.createEPackage();
+		EClass eClass = EcoreFactory.eINSTANCE.createEClass();
+		ePackage.getEClassifiers().add(eClass);
 
 		// save model
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);

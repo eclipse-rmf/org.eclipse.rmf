@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.eclipse.org/rmf/tests/serialization/env/myreqif.xsd"
+	xmlns:ext="http://www.eclipse.org/rmf/myExtension" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT/>
+  </CORE-CONTENT>
+	<TOOL-EXTENSIONS>
+		<REQ-IF-TOOL-EXTENSION>
+			<ext:myExtension xmlns="http://www.eclipse.org/rmf/myExtension"></ext:myExtension>
+			<ecore:ePackage xsi:type="ecore:EPackage" name="Nodes"
+				nsURI="http//www.eclipse.org/rmf/ext/nodes" nsPrefix="nodes">
+				<ecore:eClassifiers xsi:type="ecore:EClass" name="Node">
+					<ecore:eStructuralFeatures xsi:type="ecore:EReference"
+						name="children" upperBound="-1"/>
+				</ecore:eClassifiers>
+			</ecore:ePackage>
+		</REQ-IF-TOOL-EXTENSION>
+	</TOOL-EXTENSIONS>
+</REQ-IF>

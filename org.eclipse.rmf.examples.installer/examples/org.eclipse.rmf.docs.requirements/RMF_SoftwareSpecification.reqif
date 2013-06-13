@@ -40,7 +40,7 @@
         <DATATYPE-DEFINITION-STRING IDENTIFIER="rmf-95898f85-f196-475f-8d35-f8db9d9e2dd0" LONG-NAME="T_Headline_String32k" MAX-LENGTH="32000"/>
       </DATATYPES>
       <SPEC-TYPES>
-        <SPEC-OBJECT-TYPE IDENTIFIER="rmf-e7aa3d46-6556-45bd-969b-d7534fa97ad1" LONG-NAME="Requirement Type">
+        <SPEC-OBJECT-TYPE IDENTIFIER="rmf-e7aa3d46-6556-45bd-969b-d7534fa97ad1" LONG-NAME="Spec Item Type">
           <SPEC-ATTRIBUTES>
             <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-150a04f0-8369-4faa-b884-b1477b1764e8" LONG-NAME="Description" IS-EDITABLE="true">
               <TYPE>
@@ -107,6 +107,30 @@
             </ATTRIBUTE-DEFINITION-STRING>
           </SPEC-ATTRIBUTES>
         </SPEC-OBJECT-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="rmf-f9375e1b-668c-4625-8ade-bc061ba737ef" LONG-NAME="Reference Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-19b3693b-4688-4a80-b67f-fa01171fdcd3" LONG-NAME="Author" IS-EDITABLE="true">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-fa6300d0-9e8b-4b57-a6ff-10a6bc76e604</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-69dda60a-262f-405f-9716-6b35c34d502b" LONG-NAME="Title">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-fa6300d0-9e8b-4b57-a6ff-10a6bc76e604</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-dbae7385-ede7-4feb-a9f7-0307021a2ba3" LONG-NAME="URL" IS-EDITABLE="true">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-fa6300d0-9e8b-4b57-a6ff-10a6bc76e604</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-1495c0d0-d792-47f2-ba70-0d78a979f16a" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-fa6300d0-9e8b-4b57-a6ff-10a6bc76e604</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
       </SPEC-TYPES>
       <SPEC-OBJECTS>
         <SPEC-OBJECT IDENTIFIER="rmf-b4682a3d-17b7-49e3-8703-81175b8fd1ec">
@@ -128,19 +152,19 @@
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-ec76d21c-6f26-4751-877b-e08cfbc6aee7">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="rmf_5">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="http://www.eclipse.org/edapt/">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b029ab42-aeb9-420e-ba50-95038d07b56d</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-dbae7385-ede7-4feb-a9f7-0307021a2ba3</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Edapt - Framework for Ecore model adaptation and instance migration">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-0b23aa34-c242-41a0-9157-6062df61ff98</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-69dda60a-262f-405f-9716-6b35c34d502b</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
-            <SPEC-OBJECT-TYPE-REF>rmf-e7aa3d46-6556-45bd-969b-d7534fa97ad1</SPEC-OBJECT-TYPE-REF>
+            <SPEC-OBJECT-TYPE-REF>rmf-f9375e1b-668c-4625-8ade-bc061ba737ef</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
       </SPEC-OBJECTS>
@@ -178,14 +202,15 @@
         <configuration:specViewConfigurations>
           <configuration:ProrSpecViewConfiguration configuration:specification="rmf-d1e0c2eb-4e9a-4b8a-bdf0-069b011d480e">
             <configuration:columns>
-              <configuration:Column configuration:label="ID" configuration:width="141"/>
-              <configuration:Column configuration:label="Title" configuration:width="358"/>
-              <configuration:Column configuration:label="Description" configuration:width="271"/>
-              <configuration:Column configuration:label="Rationale" configuration:width="246"/>
-              <configuration:Column configuration:label="Notes" configuration:width="229"/>
-              <configuration:Column configuration:label="Author" configuration:width="109"/>
-              <configuration:Column configuration:label="Status" configuration:width="60"/>
-              <configuration:Column configuration:label="Severity" configuration:width="50"/>
+              <configuration:Column configuration:label="ID" configuration:width="129"/>
+              <configuration:Column configuration:label="Title" configuration:width="346"/>
+              <configuration:Column configuration:label="Description" configuration:width="259"/>
+              <configuration:Column configuration:label="Rationale" configuration:width="234"/>
+              <configuration:Column configuration:label="Notes" configuration:width="217"/>
+              <configuration:Column configuration:label="Author" configuration:width="97"/>
+              <configuration:Column configuration:label="Status" configuration:width="48"/>
+              <configuration:Column configuration:label="Severity" configuration:width="38"/>
+              <configuration:Column configuration:label="URL" configuration:width="196"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column configuration:label="Lead Header Column" configuration:width="30"/>
@@ -206,7 +231,7 @@
           <configuration:ProrPresentationConfigurations>
             <configuration:presentationConfigurations>
               <headline:HeadlineConfiguration configuration:datatype="rmf-95898f85-f196-475f-8d35-f8db9d9e2dd0"/>
-              <id:IdConfiguration configuration:datatype="rmf-1d2c140f-97e9-4d11-9554-63b2bee2dc3c" id:prefix="rmf_" id:count="5"/>
+              <id:IdConfiguration configuration:datatype="rmf-1d2c140f-97e9-4d11-9554-63b2bee2dc3c" id:prefix="rmf_" id:count="6"/>
             </configuration:presentationConfigurations>
           </configuration:ProrPresentationConfigurations>
         </configuration:presentationConfigurations>
