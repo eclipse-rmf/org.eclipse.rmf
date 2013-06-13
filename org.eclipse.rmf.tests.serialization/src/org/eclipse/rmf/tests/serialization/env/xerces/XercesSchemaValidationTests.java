@@ -54,8 +54,9 @@ public class XercesSchemaValidationTests {
 
 	@Test
 	public void testSchemaValidationWithValidFile() {
+		String fileName = DATA_BASEDIR + "simple.reqif";
 		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
-		Source instanceDocument = new StreamSource(DATA_BASEDIR + "simple.reqif");
+		Source instanceDocument = new StreamSource(fileName);
 
 		SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 		Schema s;
@@ -73,8 +74,9 @@ public class XercesSchemaValidationTests {
 
 	@Test
 	public void testSchemaValidationWithInvalidFile() {
+		String fileName = DATA_BASEDIR + "bare.reqif";
 		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
-		Source instanceDocument = new StreamSource(DATA_BASEDIR + "bare.reqif");
+		Source instanceDocument = new StreamSource(fileName);
 		SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 		Schema s;
 		try {
@@ -91,6 +93,8 @@ public class XercesSchemaValidationTests {
 
 	@Test
 	public void testSchemaValidationOnLoadWithValidFile() {
+		String fileName = DATA_BASEDIR + "simple.reqif";
+
 		try {
 			MyErrorHandler errorHandler = new MyErrorHandler();
 			SAXParserFactory factory = SAXParserFactory.newInstance();
@@ -103,7 +107,7 @@ public class XercesSchemaValidationTests {
 			reader.setProperty(Constants.JAXP_PROPERTY_PREFIX + Constants.SCHEMA_LANGUAGE, XMLConstants.W3C_XML_SCHEMA_NS_URI);
 			reader.setProperty(Constants.XERCES_PROPERTY_PREFIX + Constants.SCHEMA_LOCATION, MyreqifPackage.eNS_URI + " ../model/myreqif.xsd");
 
-			reader.parse(DATA_BASEDIR + "simple.reqif");
+			reader.parse(fileName);
 
 			assertEquals(toString(errorHandler.errors), 0, errorHandler.errors.size());
 			assertEquals(toString(errorHandler.warnings), 0, errorHandler.warnings.size());
@@ -120,6 +124,7 @@ public class XercesSchemaValidationTests {
 
 	@Test
 	public void testSchemaValidationOnLoadWithInvalidFile() {
+		String fileName = DATA_BASEDIR + "bare.reqif";
 		try {
 			MyErrorHandler errorHandler = new MyErrorHandler();
 			SAXParserFactory factory = SAXParserFactory.newInstance();
@@ -132,7 +137,7 @@ public class XercesSchemaValidationTests {
 			reader.setProperty(Constants.JAXP_PROPERTY_PREFIX + Constants.SCHEMA_LANGUAGE, XMLConstants.W3C_XML_SCHEMA_NS_URI);
 			reader.setProperty(Constants.XERCES_PROPERTY_PREFIX + Constants.SCHEMA_LOCATION, MyreqifPackage.eNS_URI + " ../model/myreqif.xsd");
 
-			reader.parse(DATA_BASEDIR + "bare.reqif");
+			reader.parse(fileName);
 
 			assertEquals(toString(errorHandler.errors), 1, errorHandler.errors.size());
 			assertEquals(toString(errorHandler.warnings), 0, errorHandler.warnings.size());
@@ -149,8 +154,28 @@ public class XercesSchemaValidationTests {
 
 	@Test
 	public void testSchemaValidationWithValidToolExtensionsFile() {
+		String fileName = DATA_BASEDIR + "toolExtensions.reqif";
 		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
-		Source instanceDocument = new StreamSource(DATA_BASEDIR + "toolExtensions.reqif");
+		Source instanceDocument = new StreamSource(fileName);
+
+		SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+		Schema s;
+		try {
+			s = sf.newSchema(schemaDocuments);
+			Validator v = s.newValidator();
+			v.validate(instanceDocument);
+
+		} catch (SAXException ex) {
+			assertTrue(ex.getMessage(), false);
+		} catch (IOException ex) {
+			assertTrue(false);
+		}
+	}
+
+	public void testSchemaValidationWithValidRedefinedToolExtensionsFile() {
+		String fileName = DATA_BASEDIR + "toolExtensions_redefinedNsPrefix.reqif";
+		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
+		Source instanceDocument = new StreamSource(fileName);
 
 		SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 		Schema s;
@@ -172,8 +197,9 @@ public class XercesSchemaValidationTests {
 	 */
 	@Test
 	public void testSchemaValidationWithValidToolExtensionsXsiTypeFile() {
+		String fileName = DATA_BASEDIR + "toolExtensions_xsiType.reqif";
 		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
-		Source instanceDocument = new StreamSource(DATA_BASEDIR + "toolExtensions_xsiType.reqif");
+		Source instanceDocument = new StreamSource(fileName);
 
 		SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 		Schema s;

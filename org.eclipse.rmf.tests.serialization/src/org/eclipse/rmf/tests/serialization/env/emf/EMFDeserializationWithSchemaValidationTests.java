@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.DocumentRoot;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.MyreqifPackage;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.util.MyreqifResourceFactoryImpl;
+import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -28,11 +30,23 @@ import org.junit.Test;
 public class EMFDeserializationWithSchemaValidationTests {
 	public static final String DATA_BASEDIR = "input/org.eclipse.rmf.tests.serialization.env/data/"; //$NON-NLS-1$
 	public static final String MODEL_BASEDIR = "input/org.eclipse.rmf.tests.serialization.env/model/"; //$NON-NLS-1$
+	private static HashMap<String, Object> backupRegistry = new HashMap<String, Object>();
 
 	@BeforeClass
 	public static void initRegistry() {
-		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
-		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
+		backupRegistry = new HashMap<String, Object>();
+		backupRegistry.putAll(EPackage.Registry.INSTANCE);
+	}
+
+	@Before
+	public void beforeTestCase() {
+		EPackage.Registry.INSTANCE.clear();
+	}
+
+	@AfterClass
+	public static void restorePackageRegistry() {
+		EPackage.Registry.INSTANCE.clear();
+		EPackage.Registry.INSTANCE.putAll(backupRegistry);
 	}
 
 	@Test
@@ -41,6 +55,8 @@ public class EMFDeserializationWithSchemaValidationTests {
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
+		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new MyreqifResourceFactoryImpl()); //$NON-NLS-1$
 
@@ -66,6 +82,8 @@ public class EMFDeserializationWithSchemaValidationTests {
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
+		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new MyreqifResourceFactoryImpl()); //$NON-NLS-1$
 
