@@ -22,6 +22,8 @@ import org.eclipse.rmf.tests.serialization.env.emf.myreqif.MyreqifPackage;
 import org.junit.Test;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
+import org.xml.sax.SAXNotRecognizedException;
+import org.xml.sax.SAXNotSupportedException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
@@ -172,6 +174,7 @@ public class XercesSchemaValidationTests {
 		}
 	}
 
+	@Test
 	public void testSchemaValidationWithValidRedefinedToolExtensionsFile() {
 		String fileName = DATA_BASEDIR + "simple_toolExtensions_redefinedNsPrefix.xml";
 		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
@@ -188,6 +191,47 @@ public class XercesSchemaValidationTests {
 			assertTrue(ex.getMessage(), false);
 		} catch (IOException ex) {
 			assertTrue(false);
+		}
+	}
+
+	@Test
+	public void testSchemaValidationQualifiedForm() {
+		String fileName = DATA_BASEDIR + "simple_qualifiedForm.xml";
+		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
+		Source instanceDocument = new StreamSource(fileName);
+
+		SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+		Schema s;
+		try {
+			s = sf.newSchema(schemaDocuments);
+			Validator v = s.newValidator();
+			v.validate(instanceDocument);
+
+		} catch (SAXException ex) {
+			assertTrue(ex.getMessage(), false);
+		} catch (IOException ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testSchemaValidationUnqualifiedForm() throws SAXNotRecognizedException, SAXNotSupportedException {
+		String fileName = DATA_BASEDIR + "simple_unqualifiedForm.xml";
+		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource(MODEL_BASEDIR + "myreqif.xsd") };
+		Source instanceDocument = new StreamSource(fileName);
+
+		SchemaFactory sf = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+		sf.setFeature(Constants.XERCES_FEATURE_PREFIX + Constants.SCHEMA_FULL_CHECKING, Boolean.TRUE);
+		Schema s;
+		try {
+			s = sf.newSchema(schemaDocuments);
+			Validator v = s.newValidator();
+			v.validate(instanceDocument);
+
+		} catch (SAXException ex) {
+			assertTrue(ex.getMessage().contains("cvc-complex-type.2.4.a:"));
+		} catch (IOException ex) {
+			assertTrue(ex.getMessage(), false);
 		}
 	}
 

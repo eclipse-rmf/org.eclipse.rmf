@@ -7,17 +7,14 @@ import org.eclipse.core.runtime.Plugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLSave;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.URIHandlerImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMLHelperImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
 import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
@@ -54,67 +51,6 @@ public class EMFSerializationTests extends AbstractEMFTestCase {
 							helper.getPrefixToNamespaceMap().put("", EcorePackage.eNS_URI);
 						}
 					};
-				}
-			};
-			result.setEncoding("UTF-8");
-			result.getDefaultSaveOptions().put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.TRUE);
-			result.getDefaultSaveOptions().put(XMLResource.OPTION_LINE_WIDTH, 80);
-			result.getDefaultSaveOptions().put(XMLResource.OPTION_URI_HANDLER, new URIHandlerImpl.PlatformSchemeAware());
-			return result;
-		}
-	}
-
-	class MustHavePrefixResourceFactoryImpl extends EcoreResourceFactoryImpl {
-		@Override
-		public Resource createResource(URI uri) {
-			XMLResource result = new XMIResourceImpl(uri) {
-				@Override
-				protected boolean useIDs() {
-
-					return eObjectToIDMap != null || idToEObjectMap != null;
-				}
-
-				@Override
-				protected XMLHelper createXMLHelper() {
-					XMLHelper helper = new XMLHelperImpl(this) {
-						String previousNS = null;
-
-						// TODO: qualified references should be implemented via ExtendedMetadata
-						@Override
-						public String getQName(EStructuralFeature feature) {
-							if (extendedMetaData != null) {
-								String namespace = extendedMetaData.getNamespace(feature);
-								String name = extendedMetaData.getName(feature);
-
-								EPackage ePackage;
-								if (null == namespace) {
-									if (null == previousNS) {
-										EClass eClass = feature.getEContainingClass();
-										ePackage = eClass.getEPackage();
-										namespace = ePackage.getNsURI();
-									} else {
-										namespace = previousNS;
-									}
-								}
-
-								ePackage = extendedMetaData.getPackage(namespace);
-								if (ePackage == null) {
-									ePackage = extendedMetaData.demandPackage(namespace);
-								}
-
-								previousNS = namespace;
-
-								String result = getQName(ePackage, name);
-
-								return result;
-							}
-
-							return feature.getName();
-						}
-
-					};
-
-					return helper;
 				}
 			};
 			result.setEncoding("UTF-8");
@@ -207,6 +143,8 @@ public class EMFSerializationTests extends AbstractEMFTestCase {
 		// validate
 		String resourceAsString = loadWorkingFileAsString(fileName);
 		assertTrue(resourceAsString.contains("<myreqif:REQ-IF "));
+		assertTrue(resourceAsString.contains("<myreqif:CORE-CONTENT>"));
+		assertTrue(resourceAsString.contains("<myreqif:REQ-IF-CONTENT/>"));
 	}
 
 	@Test
@@ -237,7 +175,7 @@ public class EMFSerializationTests extends AbstractEMFTestCase {
 	}
 
 	@Test
-	public void testDefaultNamespacePrefixWithoutDocumentRootSerialization() throws Exception {
+	public void testDefaultNamespacePrefixWithoutDocumentRootSerialization_noMetadata() throws Exception {
 		String fileName = RELATIVE_WORK_DIR + "testDefaultNamespacePrefixWithoutDocumentRootSerialization.xml"; //$NON-NLS-1$
 
 		// create model
@@ -253,13 +191,15 @@ public class EMFSerializationTests extends AbstractEMFTestCase {
 
 		HashMap<String, Object> options = new HashMap<String, Object>();
 		options.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
-		// extended metadata required in order to properly write the namespace prefix before the elements
-		saveWorkingFile(fileName, ePackage, new MustHavePrefixResourceFactoryImpl(), options);
+		saveWorkingFile(fileName, ePackage, new EcoreResourceFactoryImpl(), options);
 
 		// validate
 		String resourceAsString = loadWorkingFileAsString(fileName);
+		// check qualified XML elements
 		assertTrue(resourceAsString.contains("<ecore:EPackage "));
-		assertTrue(resourceAsString.contains("<ecore:eClassifiers "));
+		assertTrue(resourceAsString.contains("<eClassifiers "));
+		// check unqualified XML attributes
+		assertTrue(resourceAsString.contains(" name=\""));
 	}
 
 	@Test
