@@ -26,7 +26,7 @@ import org.junit.Test;
 @SuppressWarnings("nls")
 public class EMFDeserializationWithSchemaValidationTests {
 	public static final String DATA_BASEDIR = "resources/input/org.eclipse.rmf.tests.serialization.env/data/"; //$NON-NLS-1$
-	public static final String MODEL_BASEDIR = "resources/input/org.eclipse.rmf.tests.serialization.env/model/"; //$NON-NLS-1$
+	public static final String MODEL_BASEDIR = "resources/model/"; //$NON-NLS-1$
 
 	@Test
 	public void testSchemaValidationOnLoadWithValidFile() throws IOException {
@@ -101,7 +101,7 @@ public class EMFDeserializationWithSchemaValidationTests {
 		parserFeatures.put(Constants.SAX_FEATURE_PREFIX + Constants.VALIDATION_FEATURE, true);
 		parserFeatures.put(Constants.XERCES_FEATURE_PREFIX + Constants.SCHEMA_VALIDATION_FEATURE, true);
 		parserProperties.put(Constants.JAXP_PROPERTY_PREFIX + Constants.SCHEMA_LANGUAGE, XMLConstants.W3C_XML_SCHEMA_NS_URI);
-		parserProperties.put(Constants.XERCES_PROPERTY_PREFIX + Constants.SCHEMA_LOCATION, MyreqifPackage.eNS_URI + " ../model/myreqif.xsd");
+		parserProperties.put(Constants.XERCES_PROPERTY_PREFIX + Constants.SCHEMA_LOCATION, MyreqifPackage.eNS_URI + " ../../../model/myreqif.xsd");
 
 		options.put(XMLResource.OPTION_PARSER_FEATURES, parserFeatures);
 		options.put(XMLResource.OPTION_PARSER_PROPERTIES, parserProperties);

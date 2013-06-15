@@ -1,4 +1,4 @@
-package org.eclipse.rmf.internal.serialization;
+package org.eclipse.rmf.serialization;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -75,7 +75,12 @@ public interface RMFExtendedMetaData {
 	/**
 	 * Returns the classifier with the given XML name within the package with the given namespace.
 	 */
-	EClassifier getType(String namespace, String name);
+	EClassifier getTypeByXMLName(String namespace, String xmlName);
+
+	/**
+	 * Returns the classifier with the given XML wrapper name within the package with the given namespace.
+	 */
+	EClassifier getTypeByXMLWrapperName(String namespace, String xmlWrapperName);
 
 	/**
 	 * Returns the structural feature with the given XML name that corresponds to a global attribute within the package
@@ -92,7 +97,17 @@ public interface RMFExtendedMetaData {
 	/**
 	 * Returns the classifier with the given XML name within the given package.
 	 */
-	EClassifier getType(EPackage ePackage, String name);
+	EClassifier getTypeByXMLName(EPackage ePackage, String xmlName);
+
+	/**
+	 * Returns the classifier with the given XML name within the given package.
+	 */
+	EClassifier getTypeByXMLWrapperName(EPackage ePackage, String xmlWrapperName);
+
+	/**
+	 * Retrieves the package with the specified namespace URI from the package registry associated with this instance.
+	 */
+	EPackage getPackage(String namespace);
 
 	/**
 	 * Returns a structural feature within a class, corresponding to a local attribute with the given namespace and

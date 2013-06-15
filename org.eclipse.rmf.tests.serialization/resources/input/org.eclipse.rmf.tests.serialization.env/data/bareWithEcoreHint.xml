@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<REQ-IF xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.eclipse.org/rmf/tests/serialization/env/myreqif.xsd" xsi:schemaLocation="http://www.eclipse.org/rmf/tests/serialization/env/myreqif.xsd resources/input/org.eclipse.rmf.tests.serialization.env/model/myreqif.ecore">
+<REQ-IF xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.eclipse.org/rmf/tests/serialization/env/myreqif.xsd" xsi:schemaLocation="http://www.eclipse.org/rmf/tests/serialization/env/myreqif.xsd resources/model/myreqif.ecore">
   <CORE-CONTENT>
     <REQ-IF-CONTENT/>
   </CORE-CONTENT>

@@ -1,4 +1,4 @@
-package org.eclipse.rmf.internal.serialization;
+package org.eclipse.rmf.serialization;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.EcoreFactory;
 public class RMFExtendedMetaDataImpl implements RMFExtendedMetaData {
 	static final String XML_NAME = "xmlName"; //$NON-NLS-1$
 	static final String XML_WRAPPER_NAME = "xmlWrapperName"; //$NON-NLS-1$
-	static final String FEATURE_WRAPPER_ELEMENT = "featureWraperElement"; //$NON-NLS-1$
+	static final String FEATURE_WRAPPER_ELEMENT = "featureWrapperElement"; //$NON-NLS-1$
 	static final String FEATURE_ELEMENT = "featureElement"; //$NON-NLS-1$
-	static final String CLASSIFIER_WRAPPER_ELEMENT = "classifierWraperElement"; //$NON-NLS-1$
+	static final String CLASSIFIER_WRAPPER_ELEMENT = "classifierWrapperElement"; //$NON-NLS-1$
 	static final String CLASSIFIER_ELEMENT = "classifierElement"; //$NON-NLS-1$
 
 	static final int FEATURE_WRAPPER_ELEMENT_MASK = 8;
@@ -25,7 +25,9 @@ public class RMFExtendedMetaDataImpl implements RMFExtendedMetaData {
 	static final int CLASSIFIER_WRAPPER_ELEMENT_MASK = 2;
 	static final int CLASSIFIER_ELEMENT_MASK = 1;
 
-	static final int[] FALLBACK_SERIALIZATION_STRUCTURES = { SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT /* 0000 */,
+	protected EPackage.Registry registry;
+
+	protected int[] fallbackSerializationConfiguration = { SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT /* 0000 */,
 			SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT/* 0001 */,
 			SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT/* 0010 */,
 			SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT/* 0011 */,
@@ -45,8 +47,8 @@ public class RMFExtendedMetaDataImpl implements RMFExtendedMetaData {
 
 	static final String PLURAL_EXTENSION = "s"; //$NON-NLS-1$
 
-	protected Map<EModelElement, Object> extendedMetaDataCache;
-	protected Map<EModelElement, EAnnotation> annotationCache;
+	protected Map<EModelElement, Object> extendedMetaDataCache = new HashMap<EModelElement, Object>();
+	protected Map<EModelElement, EAnnotation> annotationCache = new HashMap<EModelElement, EAnnotation>();
 
 	public static interface EPackageExtendedMetaData {
 		EClassifier getType(String name);
@@ -234,10 +236,30 @@ public class RMFExtendedMetaDataImpl implements RMFExtendedMetaData {
 		}
 
 		public void setFeatureSerializationStructure(int featureSerializationStructure) {
-			// TODO Auto-generated method stub
-
+			this.featureSerializationStructure = featureSerializationStructure;
 		}
 
+	}
+
+	public RMFExtendedMetaDataImpl() {
+		this(EPackage.Registry.INSTANCE);
+	}
+
+	public RMFExtendedMetaDataImpl(EPackage.Registry registry) {
+		super();
+		this.registry = registry;
+	}
+
+	public RMFExtendedMetaDataImpl(int[] fallbackSerializations) {
+		this();
+		int min = 0;
+		int max = fallbackSerializationConfiguration.length;
+		for (int i = min; i < max && i < fallbackSerializations.length; i++) {
+			int newValue = fallbackSerializations[i];
+			if (min <= i && i < max) {
+				fallbackSerializationConfiguration[i] = newValue;
+			}
+		}
 	}
 
 	public String getXMLName(EClassifier eClassifier) {
@@ -288,22 +310,12 @@ public class RMFExtendedMetaDataImpl implements RMFExtendedMetaData {
 		getExtendedMetaData(eStructuralFeature).setXMLWrapperName(xmlWrapperName);
 	}
 
-	public EClassifier getType(String namespace, String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public EStructuralFeature getAttribute(String namespace, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public EStructuralFeature getElement(String namespace, String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public EClassifier getType(EPackage ePackage, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -325,6 +337,30 @@ public class RMFExtendedMetaDataImpl implements RMFExtendedMetaData {
 	public void setFeatureSerializationStructure(EStructuralFeature eStructuralFeature, int serializationStructure) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public EClassifier getTypeByXMLName(String namespace, String xmlName) {
+		EPackage ePackage = getPackage(namespace);
+		return ePackage == null ? null : getTypeByXMLName(ePackage, xmlName);
+	}
+
+	public EClassifier getTypeByXMLWrapperName(String namespace, String xmlWrapperName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public EClassifier getTypeByXMLName(EPackage ePackage, String xmlName) {
+		return getExtendedMetaData(ePackage).getType(xmlName);
+	}
+
+	public EClassifier getTypeByXMLWrapperName(EPackage ePackage, String xmlWrapperName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public EPackage getPackage(String namespace) {
+		EPackage ePackage = registry.getEPackage(namespace);
+		return ePackage;
 	}
 
 	protected String basicGetXMLName(EClassifier eClassifier) {
@@ -384,27 +420,27 @@ public class RMFExtendedMetaDataImpl implements RMFExtendedMetaData {
 			String classifierElement = eAnnotation.getDetails().get(CLASSIFIER_ELEMENT);
 
 			int result = 0;
-			if (!Boolean.FALSE.equals(featureWrapperElement)) {
+			if (null == featureWrapperElement || Boolean.parseBoolean(featureWrapperElement)) {
 				// if not explicitly set to false, the feature wrapper element is created
 				result += FEATURE_WRAPPER_ELEMENT_MASK;
 			}
 
-			if (Boolean.TRUE.equals(featureElement)) {
+			if (Boolean.parseBoolean(featureElement)) {
 				// if explicitly set to true, the feature element is created
 				result += FEATURE_ELEMENT_MASK;
 			}
 
-			if (Boolean.TRUE.equals(classifierWrapperElement)) {
+			if (Boolean.parseBoolean(classifierWrapperElement)) {
 				// if explicitly set to true, the classifier wrapper element is created
 				result += CLASSIFIER_WRAPPER_ELEMENT_MASK;
 			}
 
-			if (!Boolean.FALSE.equals(classifierElement)) {
+			if (null == classifierWrapperElement || Boolean.parseBoolean(classifierElement)) {
 				// if not explicitly set to false, the classifier element is created
 				result += CLASSIFIER_ELEMENT_MASK;
 			}
 
-			return FALLBACK_SERIALIZATION_STRUCTURES[result];
+			return fallbackSerializationConfiguration[result];
 
 		} else {
 			return SERIALIZATION_STRUCTURE__UNDEFINED;
@@ -449,6 +485,9 @@ public class RMFExtendedMetaDataImpl implements RMFExtendedMetaData {
 
 	protected EAnnotation getAnnotation(EModelElement eModelElement, boolean demandCreate) {
 		EAnnotation result = annotationCache.get(eModelElement);
+		if (result == null) {
+			result = eModelElement.getEAnnotation(ANNOTATION_URI);
+		}
 		if (result == null && demandCreate) {
 			result = EcoreFactory.eINSTANCE.createEAnnotation();
 			result.setSource(ANNOTATION_URI);

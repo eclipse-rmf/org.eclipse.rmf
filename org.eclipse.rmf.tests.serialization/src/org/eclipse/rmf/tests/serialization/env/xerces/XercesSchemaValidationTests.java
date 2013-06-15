@@ -30,7 +30,7 @@ import org.xml.sax.XMLReader;
 @SuppressWarnings("nls")
 public class XercesSchemaValidationTests {
 	public static final String DATA_BASEDIR = "resources/input/org.eclipse.rmf.tests.serialization.env/data/";
-	public static final String MODEL_BASEDIR = "resources/input/org.eclipse.rmf.tests.serialization.env/model/";
+	public static final String MODEL_BASEDIR = "resources/model/";
 
 	class MyErrorHandler implements ErrorHandler {
 		public List<SAXParseException> errors = new Vector<SAXParseException>();
@@ -68,7 +68,7 @@ public class XercesSchemaValidationTests {
 			reader.setFeature(Constants.SAX_FEATURE_PREFIX + Constants.VALIDATION_FEATURE, true);
 			reader.setFeature(Constants.XERCES_FEATURE_PREFIX + Constants.SCHEMA_VALIDATION_FEATURE, true);
 			reader.setProperty(Constants.JAXP_PROPERTY_PREFIX + Constants.SCHEMA_LANGUAGE, XMLConstants.W3C_XML_SCHEMA_NS_URI);
-			reader.setProperty(Constants.XERCES_PROPERTY_PREFIX + Constants.SCHEMA_LOCATION, MyreqifPackage.eNS_URI + " ../model/myreqif.xsd");
+			reader.setProperty(Constants.XERCES_PROPERTY_PREFIX + Constants.SCHEMA_LOCATION, MyreqifPackage.eNS_URI + " ../../../model/myreqif.xsd");
 
 			reader.parse(fileName);
 
@@ -98,7 +98,7 @@ public class XercesSchemaValidationTests {
 			reader.setFeature(Constants.SAX_FEATURE_PREFIX + Constants.VALIDATION_FEATURE, true);
 			reader.setFeature(Constants.XERCES_FEATURE_PREFIX + Constants.SCHEMA_VALIDATION_FEATURE, true);
 			reader.setProperty(Constants.JAXP_PROPERTY_PREFIX + Constants.SCHEMA_LANGUAGE, XMLConstants.W3C_XML_SCHEMA_NS_URI);
-			reader.setProperty(Constants.XERCES_PROPERTY_PREFIX + Constants.SCHEMA_LOCATION, MyreqifPackage.eNS_URI + " ../model/myreqif.xsd");
+			reader.setProperty(Constants.XERCES_PROPERTY_PREFIX + Constants.SCHEMA_LOCATION, MyreqifPackage.eNS_URI + " ../../../model/myreqif.xsd");
 
 			reader.parse(fileName);
 

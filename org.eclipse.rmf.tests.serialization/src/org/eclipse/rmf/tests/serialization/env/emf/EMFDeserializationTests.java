@@ -47,7 +47,7 @@ import org.junit.Test;
 @SuppressWarnings("nls")
 public class EMFDeserializationTests {
 	public static final String DATA_BASEDIR = "resources/input/org.eclipse.rmf.tests.serialization.env/data/";
-	public static final String MODEL_BASEDIR = "resources/input/org.eclipse.rmf.tests.serialization.env/model/";
+	public static final String MODEL_BASEDIR = "resources/model/";
 
 	private static HashMap<String, Object> backupRegistry = new HashMap<String, Object>();
 

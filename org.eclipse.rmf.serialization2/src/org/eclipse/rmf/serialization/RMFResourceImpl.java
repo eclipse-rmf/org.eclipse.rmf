@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.rmf.internal.serialization.RMFXMLLoadImpl;
 import org.eclipse.rmf.internal.serialization.RMFXMLSaveImpl;
 
-public class RMFResourceImpl extends XMLResourceImpl {
+public class RMFResourceImpl extends XMLResourceImpl implements RMFResource {
 	// TODO: let implementation get the value from preferences and set it to false by default
 	// This is a temporal HACK
 	public boolean enableSchemaValidation = false;
@@ -81,6 +81,9 @@ public class RMFResourceImpl extends XMLResourceImpl {
 		saveOptions.put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
 		// get XML names and attribute/value information from extended metadata
 		saveOptions.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
+		// enable RMF serialization extension
+		saveOptions.put(RMFResource.OPTION_RMF_EXTENDED_META_DATA, Boolean.TRUE);
+
 		// make sure to write the <?xml version="1.0" encoding="UTF-8"?> header
 		saveOptions.put(XMLResource.OPTION_DECLARE_XML, Boolean.TRUE);
 
@@ -92,6 +95,9 @@ public class RMFResourceImpl extends XMLResourceImpl {
 		Map<Object, Object> loadOptions = getDefaultLoadOptions();
 		// get XML names and attribute/value information from extended metadata
 		loadOptions.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
+		// enable RMF serialization extension
+		loadOptions.put(RMFResource.OPTION_RMF_EXTENDED_META_DATA, Boolean.TRUE);
+
 		// TODO: why do we need this setting?
 		loadOptions.put(XMLResource.OPTION_USE_LEXICAL_HANDLER, Boolean.TRUE);
 		// Use deprecated methods - the default is true. To improve deserialization performance turn this option to
