@@ -412,7 +412,8 @@ public class RMFExtendedMetaDataImpl extends BasicExtendedMetaData implements RM
 						}
 					}
 				}
-			}
+				xmlNameToEStructuralFeatureMap.put(xmlElementName, result);
+			} // if (null == result)
 
 			// TODO: fall back to standard serialization?
 
