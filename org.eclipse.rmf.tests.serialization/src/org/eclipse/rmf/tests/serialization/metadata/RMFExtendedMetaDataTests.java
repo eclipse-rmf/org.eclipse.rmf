@@ -11,12 +11,18 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.rmf.serialization.RMFExtendedMetaData;
 import org.eclipse.rmf.serialization.RMFExtendedMetaDataImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 @SuppressWarnings("nls")
 public class RMFExtendedMetaDataTests {
 	int[] identitySerializationStructureConfiguration = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }; // identity
 																													// mapping
+
+	@BeforeClass
+	public static void setup() {
+		EPackage.Registry.INSTANCE.put(NodesPackage.eNS_URI, NodesPackage.eINSTANCE);
+	}
 
 	@Test
 	public void testMetadataIsSingleton() {
@@ -93,7 +99,6 @@ public class RMFExtendedMetaDataTests {
 
 	@Test
 	public void testGetTypeByXMLName_Namespace_knownType() {
-		EPackage.Registry.INSTANCE.put(NodesPackage.eNS_URI, NodesPackage.eINSTANCE);
 		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl();
 
 		EClassifier eClassifier = metadata.getTypeByXMLName(NodesPackage.eNS_URI, "NODE");
@@ -102,7 +107,6 @@ public class RMFExtendedMetaDataTests {
 
 	@Test
 	public void testGetTypeByXMLName_EPackage_knownType() {
-		EPackage.Registry.INSTANCE.put(NodesPackage.eNS_URI, NodesPackage.eINSTANCE);
 		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl();
 
 		EClassifier eClassifier = metadata.getTypeByXMLName(NodesPackage.eINSTANCE, "NODE");
@@ -111,11 +115,164 @@ public class RMFExtendedMetaDataTests {
 
 	@Test
 	public void testGetTypeByXMLName_EPackage_unKnownType() {
-		EPackage.Registry.INSTANCE.put(NodesPackage.eNS_URI, NodesPackage.eINSTANCE);
 		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl();
 
 		EClassifier eClassifier = metadata.getTypeByXMLName(NodesPackage.eINSTANCE, "Node");
 		assertNull(eClassifier);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization0000_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "ATTRIBUTE-FROM-NESTED-CLASS");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0000_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization0001_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "NODE");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0001_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization0010_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "NODES");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0010_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization0011_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "NODES");
+		// we assume 0010 here since there is no look ahead implemented to avoid ambiguity
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0010_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization0100_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "FEATURE-WITH-SERIALIZATION-0100-MULTI");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization0101_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "FEATURE-WITH-SERIALIZATION-0101-MULTI");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0101_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization0110_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "FEATURE-WITH-SERIALIZATION-0110-MULTI");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0110_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization0111_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "FEATURE-WITH-SERIALIZATION-0111-MULTI");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0111_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization1000_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "FEATURE-WITH-SERIALIZATION-1000-MULTIS");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1000_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization1001_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "FEATURE-WITH-SERIALIZATION-1001-MULTIS");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1001_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization1010_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "FEATURE-WITH-SERIALIZATION-1010-MULTIS");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1010_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization1011_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "FEATURE-WITH-SERIALIZATION-1011-MULTIS");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1011_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization1100_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "FEATURE-WITH-SERIALIZATION-1100-MULTIS");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1100_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization1101_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "FEATURE-WITH-SERIALIZATION-1101-MULTIS");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1101_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization1110_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "FEATURE-WITH-SERIALIZATION-1110-MULTIS");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1110_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureWithSerialization1111_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "FEATURE-WITH-SERIALIZATION-1111-MULTIS");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1111_Multi(), feature);
+	}
+
+	@Test
+	public void testGetElement_class_namespace_name_featureNoAnnotation_Multi() {
+		RMFExtendedMetaData metadata = new RMFExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "featureNoAnnotation_Multis");
+		assertSame(NodesPackage.eINSTANCE.getNode_FeatureNoAnnotation_Multi(), feature);
 	}
 
 	private String toBinaryString(int serializationStructure) {

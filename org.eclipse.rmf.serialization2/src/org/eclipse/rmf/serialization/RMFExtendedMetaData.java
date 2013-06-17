@@ -10,7 +10,7 @@ public interface RMFExtendedMetaData {
 	/**
 	 * The URI used as the annotation source: "http:///org/eclipse/rmf/serialization/RMFExtendedMetaData".
 	 */
-	String ANNOTATION_URI = "http:///org/eclipse/rmf/serialization/RMFExtendedMetaData"; //$NON-NLS-1$
+	String RMF_ANNOTATION_URI = "http:///org/eclipse/rmf/serialization/RMFExtendedMetaData"; //$NON-NLS-1$
 
 	/**
 	 * Returns the XML name for a classifier. This is the name is used if a classifier XML element is configured.
@@ -83,18 +83,6 @@ public interface RMFExtendedMetaData {
 	EClassifier getTypeByXMLWrapperName(String namespace, String xmlWrapperName);
 
 	/**
-	 * Returns the structural feature with the given XML name that corresponds to a global attribute within the package
-	 * with the given namespace.
-	 */
-	EStructuralFeature getAttribute(String namespace, String name);
-
-	/**
-	 * Returns the structural feature with the given XML name that corresponds to a global element within the package
-	 * with the given namespace.
-	 */
-	EStructuralFeature getElement(String namespace, String name);
-
-	/**
 	 * Returns the classifier with the given XML name within the given package.
 	 */
 	EClassifier getTypeByXMLName(EPackage ePackage, String xmlName);
@@ -121,7 +109,7 @@ public interface RMFExtendedMetaData {
 	 * or, failing that, a document root feature corresponding to a global element with the given namespace and name
 	 * that is {@link #getAffiliation(EClass, EStructuralFeature) affiliated} with a feature in the class.
 	 */
-	EStructuralFeature getElement(EClass eClass, String namespace, String name);
+	EStructuralFeature getFeatureByXMLElementName(EClass eClass, String namespace, String name);
 
 	int SERIALIZATION_STRUCTURE__UNDEFINED = -1;
 
