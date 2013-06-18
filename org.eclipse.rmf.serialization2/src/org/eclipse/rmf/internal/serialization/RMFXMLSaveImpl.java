@@ -53,6 +53,9 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
 					saveContainment0000Many(values, f);
 					break;
+				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+					saveContainment0100Many(values, f);
+					break;
 				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
 					saveContainment0101Many(values, f);
 					break;
@@ -121,15 +124,14 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 	}
 
 	protected void saveContainment0100Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+		// this is the default EMF behaviour
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
 		for (EObject value : values) {
-			doc.startElement(getFeatureQName(f));
-			saveFeatures(value);
-			doc.startElement(getFeatureQName(f));
+			saveElement(value, f);
 		}
 	}
 
@@ -143,7 +145,6 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 			doc.startElement(getFeatureQName(f));
 			doc.startElement(getClassifierQName(value.eClass()));
 			saveFeatures(value);
-			doc.endElement();
 			doc.endElement();
 		}
 	}
