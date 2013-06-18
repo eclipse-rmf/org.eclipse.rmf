@@ -1,13 +1,12 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- *     Mark Broerkens - initial API and implementation
- * 
+ *   itemis AG - initial API and implementation
  */
 package org.eclipse.rmf.internal.serialization;
 
@@ -25,14 +24,14 @@ public class RMFXMLLoadImpl extends XMLLoadImpl {
 	public RMFXMLLoadImpl(XMLHelper helper) {
 		super(helper);
 	}
-	
+
 	@Override
 	protected DefaultHandler makeDefaultHandler() {
 		RMFXMLHandler handler = new RMFXMLHandler(resource, helper, options);
 
 		return handler;
 	}
-	
+
 	@Override
 	protected SAXParser makeParser() throws ParserConfigurationException, SAXException {
 		// Create an instance of org.apache.xerces.parsers.SAXParser

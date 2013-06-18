@@ -1,8 +1,21 @@
+/**
+ * Copyright (c) 2013 itemis AG.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *   itemis AG - initial API and implementation
+ */
 package org.eclipse.rmf.tests.serialization.save;
 
 import org.eclipse.core.runtime.Plugin;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.rmf.serialization.RMFResourceFactoryImpl;
 import org.eclipse.rmf.tests.serialization.internal.Activator;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
@@ -73,6 +86,25 @@ public class RMFSaveTests extends AbstractTestCase {
 		}
 	}
 
+	@Test
+	public void testFeatureWithTypeEObjectAndSerialization0100_Multi() {
+		String fileName = BASEDIR + "FeatureWithTypeEObjectAndSerialization0100_Multi.xml";
+
+		Node rootNode = createNodeModelWithForeignSubmodel(NodesPackage.eINSTANCE.getNode_FeatureWithTypeEObjectAndSerialization0100_Multi());
+		try {
+			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	protected Node createNodeModel(EStructuralFeature feature) {
 		assert null != feature;
@@ -104,6 +136,41 @@ public class RMFSaveTests extends AbstractTestCase {
 
 		((EList<Object>) rootNode.eGet(feature)).add(intermediateNode1);
 		((EList<Object>) rootNode.eGet(feature)).add(intermediateNode2);
+
+		return rootNode;
+	}
+
+	@SuppressWarnings("unchecked")
+	protected Node createNodeModelWithForeignSubmodel(EStructuralFeature feature) {
+		assert null != feature;
+		assert feature.isMany();
+		Node rootNode = NodesFactory.eINSTANCE.createNode();
+
+		EPackage ePackage1 = EcoreFactory.eINSTANCE.createEPackage();
+		ePackage1.setName("EPackage1");
+
+		EPackage ePackage2 = EcoreFactory.eINSTANCE.createEPackage();
+		ePackage2.setName("EPackage2");
+
+		EClass eClass11 = EcoreFactory.eINSTANCE.createEClass();
+		eClass11.setName("EClass11");
+
+		EClass eClass12 = EcoreFactory.eINSTANCE.createEClass();
+		eClass12.setName("EClass12");
+
+		EClass eClass21 = EcoreFactory.eINSTANCE.createEClass();
+		eClass21.setName("EClass21");
+
+		EClass eClass22 = EcoreFactory.eINSTANCE.createEClass();
+		eClass22.setName("EClass22");
+
+		ePackage1.getEClassifiers().add(eClass11);
+		ePackage1.getEClassifiers().add(eClass12);
+		ePackage2.getEClassifiers().add(eClass21);
+		ePackage2.getEClassifiers().add(eClass22);
+
+		((EList<Object>) rootNode.eGet(feature)).add(ePackage1);
+		((EList<Object>) rootNode.eGet(feature)).add(ePackage2);
 
 		return rootNode;
 	}

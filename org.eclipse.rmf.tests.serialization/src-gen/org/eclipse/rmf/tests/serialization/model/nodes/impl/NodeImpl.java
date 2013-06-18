@@ -1,4 +1,13 @@
 /**
+ * Copyright (c) 2013 itemis AG.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    itemis AG - initial API and implementation
+ * 
  */
 package org.eclipse.rmf.tests.serialization.model.nodes.impl;
 
@@ -10,6 +19,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -64,6 +74,10 @@ import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
  *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureEmptyAnnotation_Multi <em>Feature Empty Annotation Multi</em>}</li>
  *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureNoAnnotation_Multi <em>Feature No Annotation Multi</em>}</li>
  *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithTypeEObjectAndSerialization0001_Multi <em>Feature With Type EObject And Serialization0001 Multi</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithTypeEObjectAndSerialization0010_Multi <em>Feature With Type EObject And Serialization0010 Multi</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithTypeEObjectAndSerialization0100_Multi <em>Feature With Type EObject And Serialization0100 Multi</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithTypeEObjectAndSerialization1000_Multi <em>Feature With Type EObject And Serialization1000 Multi</em>}</li>
  * </ul>
  * </p>
  *
@@ -449,6 +463,46 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFeatureWithTypeEObjectAndSerialization0001_Multi() <em>Feature With Type EObject And Serialization0001 Multi</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFeatureWithTypeEObjectAndSerialization0001_Multi()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EObject> featureWithTypeEObjectAndSerialization0001_Multi;
+
+	/**
+	 * The cached value of the '{@link #getFeatureWithTypeEObjectAndSerialization0010_Multi() <em>Feature With Type EObject And Serialization0010 Multi</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFeatureWithTypeEObjectAndSerialization0010_Multi()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EObject> featureWithTypeEObjectAndSerialization0010_Multi;
+
+	/**
+	 * The cached value of the '{@link #getFeatureWithTypeEObjectAndSerialization0100_Multi() <em>Feature With Type EObject And Serialization0100 Multi</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFeatureWithTypeEObjectAndSerialization0100_Multi()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EObject> featureWithTypeEObjectAndSerialization0100_Multi;
+
+	/**
+	 * The cached value of the '{@link #getFeatureWithTypeEObjectAndSerialization1000_Multi() <em>Feature With Type EObject And Serialization1000 Multi</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFeatureWithTypeEObjectAndSerialization1000_Multi()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EObject> featureWithTypeEObjectAndSerialization1000_Multi;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1485,6 +1539,54 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<EObject> getFeatureWithTypeEObjectAndSerialization0001_Multi() {
+		if (featureWithTypeEObjectAndSerialization0001_Multi == null) {
+			featureWithTypeEObjectAndSerialization0001_Multi = new EObjectContainmentEList<EObject>(EObject.class, this, NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI);
+		}
+		return featureWithTypeEObjectAndSerialization0001_Multi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EObject> getFeatureWithTypeEObjectAndSerialization0010_Multi() {
+		if (featureWithTypeEObjectAndSerialization0010_Multi == null) {
+			featureWithTypeEObjectAndSerialization0010_Multi = new EObjectContainmentEList<EObject>(EObject.class, this, NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI);
+		}
+		return featureWithTypeEObjectAndSerialization0010_Multi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EObject> getFeatureWithTypeEObjectAndSerialization0100_Multi() {
+		if (featureWithTypeEObjectAndSerialization0100_Multi == null) {
+			featureWithTypeEObjectAndSerialization0100_Multi = new EObjectContainmentEList<EObject>(EObject.class, this, NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI);
+		}
+		return featureWithTypeEObjectAndSerialization0100_Multi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EObject> getFeatureWithTypeEObjectAndSerialization1000_Multi() {
+		if (featureWithTypeEObjectAndSerialization1000_Multi == null) {
+			featureWithTypeEObjectAndSerialization1000_Multi = new EObjectContainmentEList<EObject>(EObject.class, this, NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI);
+		}
+		return featureWithTypeEObjectAndSerialization1000_Multi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -1560,6 +1662,14 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 				return ((InternalEList<?>)getFeatureEmptyAnnotation_Multi()).basicRemove(otherEnd, msgs);
 			case NodesPackage.NODE__FEATURE_NO_ANNOTATION_MULTI:
 				return ((InternalEList<?>)getFeatureNoAnnotation_Multi()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI:
+				return ((InternalEList<?>)getFeatureWithTypeEObjectAndSerialization0001_Multi()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI:
+				return ((InternalEList<?>)getFeatureWithTypeEObjectAndSerialization0010_Multi()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI:
+				return ((InternalEList<?>)getFeatureWithTypeEObjectAndSerialization0100_Multi()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI:
+				return ((InternalEList<?>)getFeatureWithTypeEObjectAndSerialization1000_Multi()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1646,6 +1756,14 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 				return getFeatureNoAnnotation_Multi();
 			case NodesPackage.NODE__NAME:
 				return getName();
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI:
+				return getFeatureWithTypeEObjectAndSerialization0001_Multi();
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI:
+				return getFeatureWithTypeEObjectAndSerialization0010_Multi();
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI:
+				return getFeatureWithTypeEObjectAndSerialization0100_Multi();
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI:
+				return getFeatureWithTypeEObjectAndSerialization1000_Multi();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1788,6 +1906,22 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 			case NodesPackage.NODE__NAME:
 				setName((String)newValue);
 				return;
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI:
+				getFeatureWithTypeEObjectAndSerialization0001_Multi().clear();
+				getFeatureWithTypeEObjectAndSerialization0001_Multi().addAll((Collection<? extends EObject>)newValue);
+				return;
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI:
+				getFeatureWithTypeEObjectAndSerialization0010_Multi().clear();
+				getFeatureWithTypeEObjectAndSerialization0010_Multi().addAll((Collection<? extends EObject>)newValue);
+				return;
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI:
+				getFeatureWithTypeEObjectAndSerialization0100_Multi().clear();
+				getFeatureWithTypeEObjectAndSerialization0100_Multi().addAll((Collection<? extends EObject>)newValue);
+				return;
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI:
+				getFeatureWithTypeEObjectAndSerialization1000_Multi().clear();
+				getFeatureWithTypeEObjectAndSerialization1000_Multi().addAll((Collection<? extends EObject>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1911,6 +2045,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 			case NodesPackage.NODE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI:
+				getFeatureWithTypeEObjectAndSerialization0001_Multi().clear();
+				return;
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI:
+				getFeatureWithTypeEObjectAndSerialization0010_Multi().clear();
+				return;
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI:
+				getFeatureWithTypeEObjectAndSerialization0100_Multi().clear();
+				return;
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI:
+				getFeatureWithTypeEObjectAndSerialization1000_Multi().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1997,6 +2143,14 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 				return featureNoAnnotation_Multi != null && !featureNoAnnotation_Multi.isEmpty();
 			case NodesPackage.NODE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI:
+				return featureWithTypeEObjectAndSerialization0001_Multi != null && !featureWithTypeEObjectAndSerialization0001_Multi.isEmpty();
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI:
+				return featureWithTypeEObjectAndSerialization0010_Multi != null && !featureWithTypeEObjectAndSerialization0010_Multi.isEmpty();
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI:
+				return featureWithTypeEObjectAndSerialization0100_Multi != null && !featureWithTypeEObjectAndSerialization0100_Multi.isEmpty();
+			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI:
+				return featureWithTypeEObjectAndSerialization1000_Multi != null && !featureWithTypeEObjectAndSerialization1000_Multi.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

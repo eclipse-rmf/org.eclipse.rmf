@@ -1,4 +1,13 @@
 /**
+ * Copyright (c) 2013 itemis AG.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    itemis AG - initial API and implementation
+ * 
  */
 package org.eclipse.rmf.tests.serialization.model.nodes.impl;
 
@@ -443,6 +452,42 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getNode_FeatureWithTypeEObjectAndSerialization0001_Multi() {
+		return (EReference)nodeEClass.getEStructuralFeatures().get(37);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNode_FeatureWithTypeEObjectAndSerialization0010_Multi() {
+		return (EReference)nodeEClass.getEStructuralFeatures().get(38);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNode_FeatureWithTypeEObjectAndSerialization0100_Multi() {
+		return (EReference)nodeEClass.getEStructuralFeatures().get(39);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNode_FeatureWithTypeEObjectAndSerialization1000_Multi() {
+		return (EReference)nodeEClass.getEStructuralFeatures().get(40);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAbstractNode() {
 		return abstractNodeEClass;
 	}
@@ -513,6 +558,10 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		createEReference(nodeEClass, NODE__FEATURE_EMPTY_ANNOTATION_MULTI);
 		createEReference(nodeEClass, NODE__FEATURE_NO_ANNOTATION_MULTI);
 		createEAttribute(nodeEClass, NODE__NAME);
+		createEReference(nodeEClass, NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI);
+		createEReference(nodeEClass, NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI);
+		createEReference(nodeEClass, NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI);
+		createEReference(nodeEClass, NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI);
 
 		abstractNodeEClass = createEClass(ABSTRACT_NODE);
 	}
@@ -586,6 +635,10 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		initEReference(getNode_FeatureEmptyAnnotation_Multi(), this.getNode(), null, "featureEmptyAnnotation_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_FeatureNoAnnotation_Multi(), this.getNode(), null, "featureNoAnnotation_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_FeatureWithTypeEObjectAndSerialization0001_Multi(), ecorePackage.getEObject(), null, "featureWithTypeEObjectAndSerialization0001_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_FeatureWithTypeEObjectAndSerialization0010_Multi(), ecorePackage.getEObject(), null, "featureWithTypeEObjectAndSerialization0010_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_FeatureWithTypeEObjectAndSerialization0100_Multi(), ecorePackage.getEObject(), null, "featureWithTypeEObjectAndSerialization0100_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_FeatureWithTypeEObjectAndSerialization1000_Multi(), ecorePackage.getEObject(), null, "featureWithTypeEObjectAndSerialization1000_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractNodeEClass, AbstractNode.class, "AbstractNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -597,6 +650,307 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		createExtendedMetaDataAnnotations();
 		// http:///org/eclipse/rmf/serialization/RMFExtendedMetaData
 		createRMFExtendedMetaDataAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
+		addAnnotation
+		  (nodeEClass, 
+		   source, 
+		   new String[] {
+			 "name", "NODE",
+			 "wrapperName", "NODES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0000_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0000-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0000-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0001_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0001-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0001-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0010_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0010-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0010-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0011_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0011-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0011-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0100_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0100-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0100-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0101_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0101-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0101-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0110_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0110-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0110-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0111_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0111-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0111-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1000_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1000-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1000-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1001_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1001-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1001-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1010_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1010-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1010-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1011_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1011-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1011-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1100_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1100-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1100-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1101_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1101-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1101-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1110_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1110-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1110-SINGLES"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1111_Single(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1111-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1111-SINGLES"
+		   });				
+		addAnnotation
+		  (getNode_FeatureWithSerialization0000_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0000-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0000-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0001_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0010_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0010-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0010-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0011_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0011-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0011-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0100_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0100-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0100-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0101_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0101-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0101-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0110_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0110-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0110-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization0111_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0111-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0111-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1000_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1000-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1000-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1001_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1001-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1001-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1010_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1010-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1010-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1011_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1011-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1011-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1100_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1100-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1100-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1101_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1101-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1101-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1110_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1110-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1110-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithSerialization1111_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1111-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1111-MULTIS"
+		   });				
+		addAnnotation
+		  (getNode_FeatureWithTypeEObjectAndSerialization0001_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithTypeEObjectAndSerialization0010_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTI",
+			 "wrapperName", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithTypeEObjectAndSerialization0100_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI",
+			 "wrapperName", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTIS"
+		   });			
+		addAnnotation
+		  (getNode_FeatureWithTypeEObjectAndSerialization1000_Multi(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTI",
+			 "wrapperName", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTIS"
+		   });
 	}
 
 	/**
@@ -906,277 +1260,44 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureEmptyAnnotation_Multi(), 
 		   source, 
 		   new String[] {
-		   });
-	}
-
-	/**
-	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
+		   });		
 		addAnnotation
-		  (nodeEClass, 
+		  (getNode_FeatureWithTypeEObjectAndSerialization0001_Multi(), 
 		   source, 
 		   new String[] {
-			 "name", "NODE",
-			 "wrapperName", "NODES"
+			 "featureWrapperElement", "false",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI",
+			 "wrapperName", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0000_Single(), 
+		  (getNode_FeatureWithTypeEObjectAndSerialization0010_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0000-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0000-SINGLES"
+			 "featureWrapperElement", "false",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "true",
+			 "classifierElement", "false"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0001_Single(), 
+		  (getNode_FeatureWithTypeEObjectAndSerialization0100_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0001-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0001-SINGLES"
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0010_Single(), 
+		  (getNode_FeatureWithTypeEObjectAndSerialization1000_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0010-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0010-SINGLES"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization0011_Single(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0011-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0011-SINGLES"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization0100_Single(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0100-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0100-SINGLES"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization0101_Single(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0101-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0101-SINGLES"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization0110_Single(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0110-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0110-SINGLES"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization0111_Single(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0111-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0111-SINGLES"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1000_Single(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1000-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1000-SINGLES"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1001_Single(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1001-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1001-SINGLES"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1010_Single(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1010-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1010-SINGLES"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1011_Single(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1011-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1011-SINGLES"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1100_Single(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1100-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1100-SINGLES"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1101_Single(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1101-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1101-SINGLES"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1110_Single(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1110-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1110-SINGLES"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1111_Single(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1111-SINGLE",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1111-SINGLES"
-		   });				
-		addAnnotation
-		  (getNode_FeatureWithSerialization0000_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0000-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0000-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization0001_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization0010_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0010-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0010-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization0011_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0011-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0011-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization0100_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0100-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0100-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization0101_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0101-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0101-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization0110_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0110-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0110-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization0111_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0111-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0111-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1000_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1000-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1000-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1001_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1001-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1001-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1010_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1010-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1010-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1011_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1011-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1011-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1100_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1100-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1100-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1101_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1101-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1101-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1110_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1110-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1110-MULTIS"
-		   });			
-		addAnnotation
-		  (getNode_FeatureWithSerialization1111_Multi(), 
-		   source, 
-		   new String[] {
-			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1111-MULTI",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1111-MULTIS"
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
 		   });	
 	}
 

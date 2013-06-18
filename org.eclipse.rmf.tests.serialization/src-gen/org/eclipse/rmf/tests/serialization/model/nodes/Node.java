@@ -1,8 +1,19 @@
 /**
+ * Copyright (c) 2013 itemis AG.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    itemis AG - initial API and implementation
+ * 
  */
 package org.eclipse.rmf.tests.serialization.model.nodes;
 
 import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,6 +60,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureEmptyAnnotation_Multi <em>Feature Empty Annotation Multi</em>}</li>
  *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureNoAnnotation_Multi <em>Feature No Annotation Multi</em>}</li>
  *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0001_Multi <em>Feature With Type EObject And Serialization0001 Multi</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0010_Multi <em>Feature With Type EObject And Serialization0010 Multi</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0100_Multi <em>Feature With Type EObject And Serialization0100 Multi</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization1000_Multi <em>Feature With Type EObject And Serialization1000 Multi</em>}</li>
  * </ul>
  * </p>
  *
@@ -902,5 +917,77 @@ public interface Node extends AbstractNode {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Feature With Type EObject And Serialization0001 Multi</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Feature With Type EObject And Serialization0001 Multi</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Feature With Type EObject And Serialization0001 Multi</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithTypeEObjectAndSerialization0001_Multi()
+	 * @model containment="true"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS'"
+	 *        extendedMetaData="namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<EObject> getFeatureWithTypeEObjectAndSerialization0001_Multi();
+
+	/**
+	 * Returns the value of the '<em><b>Feature With Type EObject And Serialization0010 Multi</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Feature With Type EObject And Serialization0010 Multi</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Feature With Type EObject And Serialization0010 Multi</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithTypeEObjectAndSerialization0010_Multi()
+	 * @model containment="true"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTI' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTIS'"
+	 * @generated
+	 */
+	EList<EObject> getFeatureWithTypeEObjectAndSerialization0010_Multi();
+
+	/**
+	 * Returns the value of the '<em><b>Feature With Type EObject And Serialization0100 Multi</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Feature With Type EObject And Serialization0100 Multi</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Feature With Type EObject And Serialization0100 Multi</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithTypeEObjectAndSerialization0100_Multi()
+	 * @model containment="true"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTIS'"
+	 * @generated
+	 */
+	EList<EObject> getFeatureWithTypeEObjectAndSerialization0100_Multi();
+
+	/**
+	 * Returns the value of the '<em><b>Feature With Type EObject And Serialization1000 Multi</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Feature With Type EObject And Serialization1000 Multi</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Feature With Type EObject And Serialization1000 Multi</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithTypeEObjectAndSerialization1000_Multi()
+	 * @model containment="true"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTI' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTIS'"
+	 * @generated
+	 */
+	EList<EObject> getFeatureWithTypeEObjectAndSerialization1000_Multi();
 
 } // Node

@@ -1,4 +1,13 @@
 /**
+ * Copyright (c) 2013 itemis AG.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    itemis AG - initial API and implementation
+ * 
  */
 package org.eclipse.rmf.tests.serialization.model.nodes;
 
@@ -418,13 +427,49 @@ public interface NodesPackage extends EPackage {
 	int NODE__NAME = ABSTRACT_NODE_FEATURE_COUNT + 36;
 
 	/**
+	 * The feature id for the '<em><b>Feature With Type EObject And Serialization0001 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 37;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Type EObject And Serialization0010 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 38;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Type EObject And Serialization0100 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 39;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Type EObject And Serialization1000 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 40;
+
+	/**
 	 * The number of structural features of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_FEATURE_COUNT = ABSTRACT_NODE_FEATURE_COUNT + 37;
+	int NODE_FEATURE_COUNT = ABSTRACT_NODE_FEATURE_COUNT + 41;
 
 
 	/**
@@ -845,6 +890,50 @@ public interface NodesPackage extends EPackage {
 	EAttribute getNode_Name();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0001_Multi <em>Feature With Type EObject And Serialization0001 Multi</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Feature With Type EObject And Serialization0001 Multi</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0001_Multi()
+	 * @see #getNode()
+	 * @generated
+	 */
+	EReference getNode_FeatureWithTypeEObjectAndSerialization0001_Multi();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0010_Multi <em>Feature With Type EObject And Serialization0010 Multi</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Feature With Type EObject And Serialization0010 Multi</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0010_Multi()
+	 * @see #getNode()
+	 * @generated
+	 */
+	EReference getNode_FeatureWithTypeEObjectAndSerialization0010_Multi();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0100_Multi <em>Feature With Type EObject And Serialization0100 Multi</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Feature With Type EObject And Serialization0100 Multi</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0100_Multi()
+	 * @see #getNode()
+	 * @generated
+	 */
+	EReference getNode_FeatureWithTypeEObjectAndSerialization0100_Multi();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization1000_Multi <em>Feature With Type EObject And Serialization1000 Multi</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Feature With Type EObject And Serialization1000 Multi</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization1000_Multi()
+	 * @see #getNode()
+	 * @generated
+	 */
+	EReference getNode_FeatureWithTypeEObjectAndSerialization1000_Multi();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.rmf.tests.serialization.model.nodes.AbstractNode <em>Abstract Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1181,6 +1270,38 @@ public interface NodesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NODE__NAME = eINSTANCE.getNode_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Feature With Type EObject And Serialization0001 Multi</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI = eINSTANCE.getNode_FeatureWithTypeEObjectAndSerialization0001_Multi();
+
+		/**
+		 * The meta object literal for the '<em><b>Feature With Type EObject And Serialization0010 Multi</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI = eINSTANCE.getNode_FeatureWithTypeEObjectAndSerialization0010_Multi();
+
+		/**
+		 * The meta object literal for the '<em><b>Feature With Type EObject And Serialization0100 Multi</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI = eINSTANCE.getNode_FeatureWithTypeEObjectAndSerialization0100_Multi();
+
+		/**
+		 * The meta object literal for the '<em><b>Feature With Type EObject And Serialization1000 Multi</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI = eINSTANCE.getNode_FeatureWithTypeEObjectAndSerialization1000_Multi();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.AbstractNodeImpl <em>Abstract Node</em>}' class.
