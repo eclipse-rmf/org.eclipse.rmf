@@ -593,10 +593,10 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		createResource(eNS_URI);
 
 		// Create annotations
-		// http:///org/eclipse/rmf/serialization/RMFExtendedMetaData
-		createRMFExtendedMetaDataAnnotations();
 		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
 		createExtendedMetaDataAnnotations();
+		// http:///org/eclipse/rmf/serialization/RMFExtendedMetaData
+		createRMFExtendedMetaDataAnnotations();
 	}
 
 	/**
@@ -606,20 +606,11 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * @generated
 	 */
 	protected void createRMFExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/rmf/serialization/RMFExtendedMetaData";		
-		addAnnotation
-		  (nodeEClass, 
-		   source, 
-		   new String[] {
-			 "xmlName", "NODE",
-			 "xmlWrapperName", "NODES"
-		   });			
+		String source = "http:///org/eclipse/rmf/serialization/RMFExtendedMetaData";			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0000_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0000-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0000-SINGLES",
 			 "featureWrapperElement", "false",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
@@ -629,8 +620,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0001_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0001-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0001-SINGLES",
 			 "featureWrapperElement", "false",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
@@ -640,8 +629,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0010_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0010-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0010-SINGLES",
 			 "featureWrapperElement", "false",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
@@ -651,8 +638,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0011_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0011-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0011-SINGLES",
 			 "featureWrapperElement", "false",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
@@ -662,8 +647,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0100_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0100-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0100-SINGLES",
 			 "featureWrapperElement", "false",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
@@ -673,8 +656,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0101_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0101-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0101-SINGLES",
 			 "featureWrapperElement", "false",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
@@ -684,8 +665,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0110_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0110-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0110-SINGLES",
 			 "featureWrapperElement", "false",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
@@ -695,8 +674,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0111_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0111-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0111-SINGLES",
 			 "featureWrapperElement", "false",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
@@ -706,8 +683,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1000_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1000-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1000-SINGLES",
 			 "featureWrapperElement", "true",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
@@ -717,8 +692,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1001_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1001-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1001-SINGLES",
 			 "featureWrapperElement", "true",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
@@ -728,8 +701,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1010_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1010-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1010-SINGLES",
 			 "featureWrapperElement", "true",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
@@ -739,8 +710,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1011_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1011-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1011-SINGLES",
 			 "featureWrapperElement", "true",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
@@ -750,8 +719,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1100_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1100-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1100-SINGLES",
 			 "featureWrapperElement", "true",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
@@ -761,8 +728,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1101_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1101-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1101-SINGLES",
 			 "featureWrapperElement", "true",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
@@ -772,8 +737,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1110_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1110-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1110-SINGLES",
 			 "featureWrapperElement", "true",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
@@ -783,8 +746,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1111_Single(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1111-SINGLE",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1111-SINGLES",
 			 "featureWrapperElement", "true",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
@@ -799,8 +760,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0000_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0000-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0000-MULTIS",
 			 "featureWrapperElement", "false",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
@@ -810,19 +769,17 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0001_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0001-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0001-MULTIS",
 			 "featureWrapperElement", "false",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
-			 "classifierElement", "true"
+			 "classifierElement", "true",
+			 "name", "FEATURE-WITH-SERIALIZATION-0001-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0001-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0010_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0010-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0010-MULTIS",
 			 "featureWrapperElement", "false",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
@@ -832,8 +789,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0011_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0011-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0011-MULTIS",
 			 "featureWrapperElement", "false",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
@@ -843,8 +798,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0100_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0100-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0100-MULTIS",
 			 "featureWrapperElement", "false",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
@@ -854,8 +807,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0101_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0101-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0101-MULTIS",
 			 "featureWrapperElement", "false",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
@@ -865,8 +816,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0110_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0110-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0110-MULTIS",
 			 "featureWrapperElement", "false",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
@@ -876,8 +825,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0111_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-0111-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-0111-MULTIS",
 			 "featureWrapperElement", "false",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
@@ -887,8 +834,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1000_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1000-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1000-MULTIS",
 			 "featureWrapperElement", "true",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
@@ -898,8 +843,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1001_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1001-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1001-MULTIS",
 			 "featureWrapperElement", "true",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
@@ -909,8 +852,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1010_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1010-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1010-MULTIS",
 			 "featureWrapperElement", "true",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
@@ -920,8 +861,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1011_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1011-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1011-MULTIS",
 			 "featureWrapperElement", "true",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
@@ -931,8 +870,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1100_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1100-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1100-MULTIS",
 			 "featureWrapperElement", "true",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
@@ -942,8 +879,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1101_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1101-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1101-MULTIS",
 			 "featureWrapperElement", "true",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
@@ -953,8 +888,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1110_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1110-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1110-MULTIS",
 			 "featureWrapperElement", "true",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
@@ -964,8 +897,6 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization1111_Multi(), 
 		   source, 
 		   new String[] {
-			 "xmlName", "FEATURE-WITH-SERIALIZATION-1111-MULTI",
-			 "xmlWrapperName", "FEATURE-WITH-SERIALIZATION-1111-MULTIS",
 			 "featureWrapperElement", "true",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
@@ -985,114 +916,149 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";			
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
 		addAnnotation
 		  (nodeEClass, 
 		   source, 
 		   new String[] {
-			 "name", "NODE"
+			 "name", "NODE",
+			 "wrapperName", "NODES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0000_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0000-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0000-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0001_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0001-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0001-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0010_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0010-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0010-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0011_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0011-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0011-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0100_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0100-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0100-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0101_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0101-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0101-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0110_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0110-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0110-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0111_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0111-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0111-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1000_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1000-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1000-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1001_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1001-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1001-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1010_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1010-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1010-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1011_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1011-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1011-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1100_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1100-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1100-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1101_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1101-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1101-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1110_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1110-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1110-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1111_Single(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1111-SINGLE",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1111-SINGLES"
 		   });				
 		addAnnotation
 		  (getNode_FeatureWithSerialization0000_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0000-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0000-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0001_Multi(), 
@@ -1104,85 +1070,113 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithSerialization0010_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0010-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0010-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0011_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0011-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0011-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0100_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0100-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0100-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0101_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0101-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0101-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0110_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0110-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0110-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0111_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-0111-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0111-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1000_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1000-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1000-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1001_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1001-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1001-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1010_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1010-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1010-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1011_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1011-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1011-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1100_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1100-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1100-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1101_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1101-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1101-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1110_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1110-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1110-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithSerialization1111_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-SERIALIZATION-1111-MULTI",
+			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1111-MULTIS"
 		   });	
 	}
 

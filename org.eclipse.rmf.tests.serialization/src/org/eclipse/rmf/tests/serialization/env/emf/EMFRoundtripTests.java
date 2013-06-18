@@ -6,12 +6,9 @@ import java.util.Map;
 
 import org.apache.xerces.impl.Constants;
 import org.eclipse.core.runtime.Plugin;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
@@ -19,7 +16,7 @@ import org.eclipse.rmf.tests.serialization.env.emf.myreqif.DocumentRoot;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.MyreqifPackage;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.util.MyreqifResourceFactoryImpl;
 import org.eclipse.rmf.tests.serialization.internal.Activator;
-import org.eclipse.sphinx.testutils.AbstractTestCase;
+import org.eclipse.rmf.tests.serialization.util.AbstractTestCase;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -105,20 +102,4 @@ public class EMFRoundtripTests extends AbstractTestCase {
 		return new Activator.Implementation();
 	}
 
-	/**
-	 * required to overwrite this, since the Sphinx AbstractTestCase doesn't properly handle plain java tests
-	 */
-	@Override
-	protected EObject loadInputFile(String inputFileName, ResourceFactoryImpl resourceFactory, Map<?, ?> options) throws Exception {
-		URI emfURI = URI.createURI("resources/input/" + inputFileName, true);
-		XMLResource resource = (XMLResource) resourceFactory.createResource(emfURI);
-		resource.load(options);
-
-		ResourceSet resourceSet = createDefaultResourceSet();
-		resourceSet.getResources().add(resource);
-
-		assertHasNoLoadProblems(resource);
-
-		return resource.getContents().get(0);
-	}
 }

@@ -3,7 +3,6 @@ package org.eclipse.rmf.tests.serialization.env.emf;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.core.runtime.Plugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -25,11 +24,11 @@ import org.eclipse.rmf.tests.serialization.env.emf.myreqif.MyreqifPackage;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.REQIF;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.REQIFCONTENT;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.util.MyreqifResourceFactoryImpl;
-import org.eclipse.rmf.tests.serialization.internal.Activator;
+import org.eclipse.rmf.tests.serialization.util.AbstractTestCase;
 import org.junit.Test;
 
 @SuppressWarnings("nls")
-public class EMFSerializationTests extends AbstractEMFTestCase {
+public class EMFSerializationTests extends AbstractTestCase {
 	public static final String RELATIVE_WORK_DIR = "org.eclipse.rmf.tests.serialization.env.emf/EMFSerializationTests/";
 
 	class EmptyPrefixResourceFactoryImpl extends EcoreResourceFactoryImpl {
@@ -223,8 +222,4 @@ public class EMFSerializationTests extends AbstractEMFTestCase {
 		assertTrue(resourceAsString.contains("<EPackage "));
 	}
 
-	@Override
-	protected Plugin getTestPlugin() {
-		return new Activator.Implementation();
-	}
 }

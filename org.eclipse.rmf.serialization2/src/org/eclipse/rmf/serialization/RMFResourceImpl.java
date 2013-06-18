@@ -81,8 +81,6 @@ public class RMFResourceImpl extends XMLResourceImpl implements RMFResource {
 		saveOptions.put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
 		// get XML names and attribute/value information from extended metadata
 		saveOptions.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
-		// enable RMF serialization extension
-		saveOptions.put(RMFResource.OPTION_RMF_EXTENDED_META_DATA, Boolean.TRUE);
 
 		// make sure to write the <?xml version="1.0" encoding="UTF-8"?> header
 		saveOptions.put(XMLResource.OPTION_DECLARE_XML, Boolean.TRUE);
@@ -95,8 +93,6 @@ public class RMFResourceImpl extends XMLResourceImpl implements RMFResource {
 		Map<Object, Object> loadOptions = getDefaultLoadOptions();
 		// get XML names and attribute/value information from extended metadata
 		loadOptions.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
-		// enable RMF serialization extension
-		loadOptions.put(RMFResource.OPTION_RMF_EXTENDED_META_DATA, Boolean.TRUE);
 
 		// TODO: why do we need this setting?
 		loadOptions.put(XMLResource.OPTION_USE_LEXICAL_HANDLER, Boolean.TRUE);

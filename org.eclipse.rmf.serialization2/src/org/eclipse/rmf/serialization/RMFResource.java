@@ -10,6 +10,6 @@ public interface RMFResource extends XMLResource {
 	 * 
 	 * @see org.eclipse.rmf.serialization.RMFExtendedMetaData
 	 */
-	String OPTION_RMF_EXTENDED_META_DATA = "RMF_EXTENDED_META_DATA"; //$NON-NLS-1$
+	//String OPTION_RMF_EXTENDED_META_DATA = "RMF_EXTENDED_META_DATA"; //$NON-NLS-1$
 
 }

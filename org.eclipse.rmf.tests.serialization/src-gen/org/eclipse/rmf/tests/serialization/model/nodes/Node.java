@@ -53,8 +53,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode()
- * @model annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='NODE' xmlWrapperName='NODES'"
- *        extendedMetaData="name='NODE'"
+ * @model extendedMetaData="name='NODE' wrapperName='NODES'"
  * @generated
  */
 public interface Node extends AbstractNode {
@@ -70,8 +69,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0000_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0000_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0000-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0000-SINGLES' featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0000-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0000-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization0000_Single();
@@ -98,8 +97,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0001_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0001_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0001-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0001-SINGLES' featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0001-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0001-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization0001_Single();
@@ -126,8 +125,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0010_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0010_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0010-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0010-SINGLES' featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0010-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0010-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization0010_Single();
@@ -154,8 +153,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0011_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0011_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0011-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0011-SINGLES' featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0011-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0011-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization0011_Single();
@@ -182,8 +181,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0100_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0100_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0100-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0100-SINGLES' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0100-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0100-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization0100_Single();
@@ -210,8 +209,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0101_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0101_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0101-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0101-SINGLES' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0101-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0101-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization0101_Single();
@@ -238,8 +237,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0110_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0110_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0110-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0110-SINGLES' featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0110-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0110-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization0110_Single();
@@ -266,8 +265,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0111_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0111_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0111-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0111-SINGLES' featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0111-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0111-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization0111_Single();
@@ -294,8 +293,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1000_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1000_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1000-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1000-SINGLES' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1000-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1000-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization1000_Single();
@@ -322,8 +321,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1001_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1001_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1001-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1001-SINGLES' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1001-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1001-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization1001_Single();
@@ -350,8 +349,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1010_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1010_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1010-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1010-SINGLES' featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1010-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1010-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization1010_Single();
@@ -378,8 +377,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1011_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1011_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1011-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1011-SINGLES' featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1011-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1011-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization1011_Single();
@@ -406,8 +405,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1100_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1100_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1100-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1100-SINGLES' featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1100-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1100-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization1100_Single();
@@ -434,8 +433,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1101_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1101_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1101-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1101-SINGLES' featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1101-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1101-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization1101_Single();
@@ -462,8 +461,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1110_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1110_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1110-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1110-SINGLES' featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1110-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1110-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization1110_Single();
@@ -490,8 +489,8 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1111_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1111_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1111-SINGLE' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1111-SINGLES' featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1111-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1111-SINGLES'"
 	 * @generated
 	 */
 	Node getFeatureWithSerialization1111_Single();
@@ -570,8 +569,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0000 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0000_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0000-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0000-MULTIS' featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0000-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0000-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization0000_Multi();
@@ -588,7 +587,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0001 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0001_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0001-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0001-MULTIS' featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' name='FEATURE-WITH-SERIALIZATION-0001-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0001-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -606,8 +605,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0010 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0010_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0010-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0010-MULTIS' featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0010-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0010-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization0010_Multi();
@@ -624,8 +623,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0011 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0011_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0011-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0011-MULTIS' featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0011-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0011-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization0011_Multi();
@@ -642,8 +641,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0100 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0100_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0100-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0100-MULTIS' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0100-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0100-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization0100_Multi();
@@ -660,8 +659,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0101 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0101_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0101-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0101-MULTIS' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0101-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0101-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization0101_Multi();
@@ -678,8 +677,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0110 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0110_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0110-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0110-MULTIS' featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0110-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0110-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization0110_Multi();
@@ -696,8 +695,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0111 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0111_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-0111-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-0111-MULTIS' featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0111-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0111-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization0111_Multi();
@@ -714,8 +713,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1000 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1000_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1000-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1000-MULTIS' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1000-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1000-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization1000_Multi();
@@ -732,8 +731,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1001 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1001_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1001-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1001-MULTIS' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1001-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1001-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization1001_Multi();
@@ -750,8 +749,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1010 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1010_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1010-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1010-MULTIS' featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1010-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1010-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization1010_Multi();
@@ -768,8 +767,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1011 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1011_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1011-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1011-MULTIS' featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1011-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1011-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization1011_Multi();
@@ -786,8 +785,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1100 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1100_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1100-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1100-MULTIS' featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1100-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1100-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization1100_Multi();
@@ -804,8 +803,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1101 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1101_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1101-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1101-MULTIS' featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1101-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1101-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization1101_Multi();
@@ -822,8 +821,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1110 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1110_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1110-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1110-MULTIS' featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1110-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1110-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization1110_Multi();
@@ -840,8 +839,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1111 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1111_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData xmlName='FEATURE-WITH-SERIALIZATION-1111-MULTI' xmlWrapperName='FEATURE-WITH-SERIALIZATION-1111-MULTIS' featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1111-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1111-MULTIS'"
 	 * @generated
 	 */
 	EList<Node> getFeatureWithSerialization1111_Multi();

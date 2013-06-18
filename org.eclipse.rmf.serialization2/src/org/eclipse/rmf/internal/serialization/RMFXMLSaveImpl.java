@@ -14,7 +14,6 @@ package org.eclipse.rmf.internal.serialization;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -26,7 +25,6 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
 import org.eclipse.rmf.serialization.RMFExtendedMetaData;
 import org.eclipse.rmf.serialization.RMFExtendedMetaDataImpl;
-import org.eclipse.rmf.serialization.RMFResource;
 
 /**
  * TODO: write down assumptions as asserts
@@ -55,6 +53,9 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
 					saveContainment0000Many(values, f);
 					break;
+				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+					saveContainment0101Many(values, f);
+					break;
 				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
 					saveContainment1001Many(values, f);
 					break;
@@ -78,7 +79,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveContainment0001Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment0001Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -91,7 +92,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveContainment0010Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment0010Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -104,7 +105,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		doc.startElement(getClassifierQName(f.getEType()));
 	}
 
-	protected void saveContainment0011Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment0011Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -119,7 +120,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		doc.startElement(getClassifierQName(f.getEType()));
 	}
 
-	protected void saveContainment0100Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment0100Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -132,7 +133,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveContainment0101Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment0101Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -147,7 +148,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveContainment0110Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment0110Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -162,7 +163,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveContainment0111Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment0111Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -179,7 +180,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveContainment1000Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment1000Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -208,7 +209,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		doc.endElement();
 	}
 
-	protected void saveContainment1010Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment1010Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -224,7 +225,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		// last end is written by caller
 	}
 
-	protected void saveContainment1011Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment1011Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -242,7 +243,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		// last end is written by caller
 	}
 
-	protected void saveContainment1100Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment1100Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -258,7 +259,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		// last end is written by caller
 	}
 
-	protected void saveContainment1101Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment1101Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -276,7 +277,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		// last end is written by caller
 	}
 
-	protected void saveContainment1110Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment1110Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -294,7 +295,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		// last end is written by caller
 	}
 
-	protected void saveContainment1111Many(EList<EObject> values, EStructuralFeature f) {
+	protected void saveContainment1111Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -361,14 +362,16 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 	@Override
 	protected void init(XMLResource resource, Map<?, ?> options) {
 		super.init(resource, options);
-		Object rmfExtendedMetaDataOption = options.get(RMFResource.OPTION_RMF_EXTENDED_META_DATA);
-		if (rmfExtendedMetaDataOption instanceof Boolean) {
-			if (rmfExtendedMetaDataOption.equals(Boolean.TRUE)) {
+		Object extendedMetaDataOption = options.get(XMLResource.OPTION_EXTENDED_META_DATA);
+		if (extendedMetaDataOption instanceof Boolean) {
+			if (extendedMetaDataOption.equals(Boolean.TRUE)) {
 				rmfExtendedMetaData = resource == null || resource.getResourceSet() == null ? RMFExtendedMetaData.INSTANCE
 						: new RMFExtendedMetaDataImpl(resource.getResourceSet().getPackageRegistry());
+				extendedMetaData = rmfExtendedMetaData;
 			}
-		} else {
-			rmfExtendedMetaData = (RMFExtendedMetaData) options.get(RMFResource.OPTION_RMF_EXTENDED_META_DATA);
+		} else if (extendedMetaDataOption instanceof RMFExtendedMetaData) {
+			rmfExtendedMetaData = (RMFExtendedMetaData) options.get(XMLResource.OPTION_EXTENDED_META_DATA);
+			extendedMetaData = rmfExtendedMetaData;
 		}
 	}
 

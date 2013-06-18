@@ -4,8 +4,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.ExtendedMetaData;
 
-public interface RMFExtendedMetaData {
+public interface RMFExtendedMetaData extends ExtendedMetaData {
 
 	/**
 	 * The URI used as the annotation source: "http:///org/eclipse/rmf/serialization/RMFExtendedMetaData".
@@ -24,7 +25,7 @@ public interface RMFExtendedMetaData {
 	 * <p>
 	 * details key: "xmlName"
 	 */
-	void setXMLName(EClassifier eClassifier, String xmlName);
+	// void setXMLName(EClassifier eClassifier, String xmlName);
 
 	/**
 	 * Returns the XML wrapper name for a classifier. This is the name is used if a classifier wrapper XML element is
@@ -40,7 +41,7 @@ public interface RMFExtendedMetaData {
 	 * <p>
 	 * details key: "xmlWrapperName"
 	 */
-	void setXMLWrapperName(EClassifier eClassifier, String xmlName);
+	// void setXMLWrapperName(EClassifier eClassifier, String xmlName);
 
 	/**
 	 * Returns the XML name for a structural feature. This is the name is used if a feature XML element is configured.
@@ -54,7 +55,7 @@ public interface RMFExtendedMetaData {
 	 * <p>
 	 * details key: "xmlName"
 	 */
-	void setXMLName(EStructuralFeature eStructuralFeature, String xmlName);
+	// void setXMLName(EStructuralFeature eStructuralFeature, String xmlName);
 
 	/**
 	 * Returns the XML name for a structural feature. This is the name is used if a feature wrapper XML element is
@@ -70,7 +71,7 @@ public interface RMFExtendedMetaData {
 	 * <p>
 	 * details key: "xmlWrapperName"
 	 */
-	void setXMLWrapperName(EStructuralFeature eStructuralFeature, String xmlName);
+	// void setXMLWrapperName(EStructuralFeature eStructuralFeature, String xmlName);
 
 	/**
 	 * Returns the classifier with the given XML name within the package with the given namespace.

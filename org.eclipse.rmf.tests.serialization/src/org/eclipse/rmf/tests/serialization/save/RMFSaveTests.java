@@ -41,8 +41,8 @@ public class RMFSaveTests extends AbstractTestCase {
 		intermediateNode2.getFeatureWithSerialization1001_Multi().add(leafNode21);
 		intermediateNode2.getFeatureWithSerialization1001_Multi().add(leafNode22);
 
-		rootNode.getFeatureWithSerialization0101_Multi().add(intermediateNode1);
-		rootNode.getFeatureWithSerialization0101_Multi().add(intermediateNode2);
+		rootNode.getFeatureWithSerialization1001_Multi().add(intermediateNode1);
+		rootNode.getFeatureWithSerialization1001_Multi().add(intermediateNode2);
 
 		try {
 			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);

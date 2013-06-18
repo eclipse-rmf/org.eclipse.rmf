@@ -16,8 +16,7 @@ import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
 
 public class RMFExtendedMetaDataImpl extends BasicExtendedMetaData implements RMFExtendedMetaData {
-	static final String XML_NAME = "xmlName"; //$NON-NLS-1$
-	static final String XML_WRAPPER_NAME = "xmlWrapperName"; //$NON-NLS-1$
+	static final String WRAPPER_NAME = "wrapperName"; //$NON-NLS-1$
 	static final String FEATURE_WRAPPER_ELEMENT = "featureWrapperElement"; //$NON-NLS-1$
 	static final String FEATURE_ELEMENT = "featureElement"; //$NON-NLS-1$
 	static final String CLASSIFIER_WRAPPER_ELEMENT = "classifierWrapperElement"; //$NON-NLS-1$
@@ -35,7 +34,7 @@ public class RMFExtendedMetaDataImpl extends BasicExtendedMetaData implements RM
 			SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT/* 0010 */,
 			SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT/* 0011 */,
 			SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT/* 0100 */,
-			SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT/* 0101 */,
+			SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT/* 0101 */,
 			SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT/* 0110 */,
 			SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT/* 0111 */,
 			SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT/* 1000 */,
@@ -510,15 +509,12 @@ public class RMFExtendedMetaDataImpl extends BasicExtendedMetaData implements RM
 		return getRMFExtendedMetaData(eClassifier).getXMLName();
 	}
 
-	public void setXMLName(EClassifier eClassifier, String xmlName) {
-		EAnnotation eAnnotation = getRMFAnnotation(eClassifier, true);
-		eAnnotation.getDetails().put(XML_NAME, xmlName);
-		getRMFExtendedMetaData(eClassifier).setXMLName(xmlName);
-		EPackage ePackage = eClassifier.getEPackage();
-		if (ePackage != null) {
-			getRMFExtendedMetaData(ePackage).renameToXMLName(eClassifier, xmlName);
-		}
-	}
+	/*
+	 * public void setXMLName(EClassifier eClassifier, String xmlName) { EAnnotation eAnnotation =
+	 * getRMFAnnotation(eClassifier, true); eAnnotation.getDetails().put(XML_NAME, xmlName);
+	 * getRMFExtendedMetaData(eClassifier).setXMLName(xmlName); EPackage ePackage = eClassifier.getEPackage(); if
+	 * (ePackage != null) { getRMFExtendedMetaData(ePackage).renameToXMLName(eClassifier, xmlName); } }
+	 */
 
 	public String getXMLWrapperName(EClassifier eClassifier) {
 		return getRMFExtendedMetaData(eClassifier).getXMLWrapperName();
@@ -526,7 +522,7 @@ public class RMFExtendedMetaDataImpl extends BasicExtendedMetaData implements RM
 
 	public void setXMLWrapperName(EClassifier eClassifier, String xmlWrapperName) {
 		EAnnotation eAnnotation = getRMFAnnotation(eClassifier, true);
-		eAnnotation.getDetails().put(XML_WRAPPER_NAME, xmlWrapperName);
+		eAnnotation.getDetails().put(WRAPPER_NAME, xmlWrapperName);
 		getRMFExtendedMetaData(eClassifier).setXMLWrapperName(xmlWrapperName);
 		EPackage ePackage = eClassifier.getEPackage();
 		if (ePackage != null) {
@@ -538,19 +534,13 @@ public class RMFExtendedMetaDataImpl extends BasicExtendedMetaData implements RM
 		return getRMFExtendedMetaData(eStructuralFeature).getXMLName();
 	}
 
-	public void setXMLName(EStructuralFeature eStructuralFeature, String xmlName) {
-		EAnnotation eAnnotation = getRMFAnnotation(eStructuralFeature, true);
-		eAnnotation.getDetails().put(XML_NAME, xmlName);
-		getRMFExtendedMetaData(eStructuralFeature).setXMLName(xmlName);
-	}
-
 	public String getXMLWrapperName(EStructuralFeature eStructuralFeature) {
 		return getRMFExtendedMetaData(eStructuralFeature).getXMLWrapperName();
 	}
 
 	public void setXMLWrapperName(EStructuralFeature eStructuralFeature, String xmlWrapperName) {
 		EAnnotation eAnnotation = getRMFAnnotation(eStructuralFeature, true);
-		eAnnotation.getDetails().put(XML_WRAPPER_NAME, xmlWrapperName);
+		eAnnotation.getDetails().put(WRAPPER_NAME, xmlWrapperName);
 		getRMFExtendedMetaData(eStructuralFeature).setXMLWrapperName(xmlWrapperName);
 	}
 
@@ -597,54 +587,26 @@ public class RMFExtendedMetaDataImpl extends BasicExtendedMetaData implements RM
 		return getRMFExtendedMetaData(eClass).getFeatureByXMLElementName(namespace, xmlElementName);
 	}
 
-	@Override
-	protected String basicGetName(EClassifier eClassifier) {
-		EAnnotation eAnnotation = getRMFAnnotation(eClassifier, false);
-		String result = null;
-		if (eAnnotation != null) {
-			result = eAnnotation.getDetails().get(XML_NAME);
-		}
-		// fall back to BasicExtendedMetaData
-		if (null == result) {
-			result = super.basicGetName(eClassifier);
-		}
-		return result;
-	}
-
-	@Override
-	protected String basicGetName(EStructuralFeature eStructuralFeature) {
-		EAnnotation eAnnotation = getRMFAnnotation(eStructuralFeature, false);
-		String result = null;
-		if (eAnnotation != null) {
-			result = eAnnotation.getDetails().get(XML_NAME);
-		}
-		// fall back to BasicExtendedMetaData
-		if (null == result) {
-			result = super.basicGetName(eStructuralFeature);
-		}
-		return result;
-	}
-
 	protected String basicGetWrapperName(EClassifier eClassifier) {
-		EAnnotation eAnnotation = getRMFAnnotation(eClassifier, false);
+		EAnnotation eAnnotation = getAnnotation(eClassifier, false);
 		String result = null;
 		if (eAnnotation != null) {
-			result = eAnnotation.getDetails().get(XML_WRAPPER_NAME);
+			result = eAnnotation.getDetails().get(WRAPPER_NAME);
 		}
 		if (null == result) {
-			result = super.basicGetName(eClassifier) + PLURAL_EXTENSION;
+			result = basicGetName(eClassifier) + PLURAL_EXTENSION;
 		}
 		return result;
 	}
 
 	protected String basicGetWrapperName(EStructuralFeature eStructuralFeature) {
-		EAnnotation eAnnotation = getRMFAnnotation(eStructuralFeature, false);
+		EAnnotation eAnnotation = getAnnotation(eStructuralFeature, false);
 		String result = null;
 		if (eAnnotation != null) {
-			result = eAnnotation.getDetails().get(XML_WRAPPER_NAME);
+			result = eAnnotation.getDetails().get(WRAPPER_NAME);
 		}
 		if (null == result) {
-			result = super.basicGetName(eStructuralFeature) + PLURAL_EXTENSION;
+			result = basicGetName(eStructuralFeature) + PLURAL_EXTENSION;
 		}
 		return result;
 	}
