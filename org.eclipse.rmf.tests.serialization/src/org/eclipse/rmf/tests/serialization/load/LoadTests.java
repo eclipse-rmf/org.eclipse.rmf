@@ -28,8 +28,18 @@ public class LoadTests extends AbstractTestCase {
 		String inputFileName = INPUT_PATH + "FeatureSerialization1001_Single.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new RMFResourceFactoryImpl(), null);
-			validateModelSingle(modelRoot);
+			validateModelSingle(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1001_Single());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
 
+	@Test
+	public void testFeatureSerialization0100_Multi() {
+		String inputFileName = INPUT_PATH + "FeatureSerialization0100_Multi.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new RMFResourceFactoryImpl(), null);
+			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -42,7 +52,6 @@ public class LoadTests extends AbstractTestCase {
 			EObject modelRoot = loadInputFile(inputFileName, new RMFResourceFactoryImpl(), null);
 			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0101_Multi());
 		} catch (Exception ex) {
-			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
 		}
 	}
@@ -118,18 +127,24 @@ public class LoadTests extends AbstractTestCase {
 
 	}
 
-	protected void validateModelSingle(EObject modelRoot) {
+	protected void validateModelSingle(EObject modelRoot, EStructuralFeature feature) {
 		// check root node
 		assertNotNull(modelRoot);
 		assertSame(NodesPackage.eINSTANCE.getNode(), modelRoot.eClass());
 		Node node = (Node) modelRoot;
 
 		// check intermediate node
-		Node intermediateNode1 = node.getFeatureWithSerialization1001_Single();
+		Object intermediateNodeObject1 = node.eGet(feature);
+		assertNotNull(intermediateNodeObject1);
+		assertTrue(intermediateNodeObject1 instanceof Node);
+		Node intermediateNode1 = (Node) intermediateNodeObject1;
 		assertEquals("intermediateNode1", intermediateNode1.getName());
 
 		// check leaf node
-		Node leafNode11 = intermediateNode1.getFeatureWithSerialization1001_Single();
+		Object leafNodeObject11 = intermediateNode1.eGet(feature);
+		assertNotNull(leafNodeObject11);
+		assertTrue(leafNodeObject11 instanceof Node);
+		Node leafNode11 = (Node) leafNodeObject11;
 		assertEquals("leafNode11", leafNode11.getName());
 	}
 
