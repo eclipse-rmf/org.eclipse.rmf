@@ -11,9 +11,13 @@
 
 package org.eclipse.rmf.reqif10.provider;
 
+import java.net.URISyntaxException;
+
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
@@ -48,7 +52,8 @@ public abstract class IdentifiableTest extends AbstractItemProviderTest {
 	/**
 	 * Make sure Notifications are generated for all fields.
 	 */
-	@Test public void testBasicNotifications() throws DatatypeConfigurationException {
+	@Test 
+	public void testBasicNotifications() throws DatatypeConfigurationException {
 		ItemProviderAdapter ip = ProrUtil.getItemProvider(adapterFactory, getFixture());
 		ip.addListener(listener);
 		getFixture().setDesc("new Description");
@@ -60,5 +65,24 @@ public abstract class IdentifiableTest extends AbstractItemProviderTest {
 		getFixture().setLongName("new Long Name");
 		Assert.assertEquals(4, notifications.size());
 	}
-
+	
+	/**
+	 * Make sure that the lastChanged attribute is set after creating the
+	 * object.
+	 * 
+	 * @throws URISyntaxException
+	 */
+	@Test
+	public void testSetLastChangeAfterCreation() throws URISyntaxException {
+		EObject parent = getParent();
+		EStructuralFeature parentFeature = getParentFeature();
+		Identifiable id = getFixture();
+		setViaCommand(parent, parentFeature, id);
+		Assert.assertNotNull(id.getLastChange());
+	}
+	
+	protected abstract EStructuralFeature getParentFeature();
+	
+	protected abstract EObject getParent();
+	
 } //IdentifiableTest
