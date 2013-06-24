@@ -11,7 +11,9 @@
 
 package org.eclipse.rmf.reqif10.provider;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 
 import java.net.URISyntaxException;
 import java.util.Collection;
@@ -20,6 +22,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
@@ -43,7 +46,7 @@ import org.junit.Test;
  * <em><b>Spec Element With User Defined Attributes</b></em>'.
  */
 public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
-
+	
 	/**
 	 * The Properties of an empty SpecElement.
 	 */
@@ -98,7 +101,7 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 
 		ProrUtil.setTheValue(getFixture().getValues().get(0), "newDescription",
 				editingDomain);
-		assertEquals(1, notifications.size());
+		assertEquals(2, notifications.size());
 		assertSame(getFixture(), notifications.get(0).getNotifier());
 		assertEquals(
 				ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
@@ -385,4 +388,9 @@ public abstract class SpecElementWithAttributesTest extends IdentifiableTest {
 	 */
 	protected abstract SpecType getSpecTypeInstance();
 
+	@Override
+	protected EObject getParent() {
+		return ReqIF10Factory.eINSTANCE.createReqIFContent();
+	}
+	
 } // SpecElementWithAttributesTest

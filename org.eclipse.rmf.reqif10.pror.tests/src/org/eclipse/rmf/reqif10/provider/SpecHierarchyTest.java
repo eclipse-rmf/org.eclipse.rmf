@@ -17,6 +17,8 @@ import java.net.URISyntaxException;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
@@ -35,6 +37,13 @@ import org.junit.Test;
  */
 public class SpecHierarchyTest extends IdentifiableTest {
 
+	private ReqIF reqif;
+	
+	@Before
+	public void setupReqif() throws URISyntaxException {
+		reqif = getTestReqif("simple.reqif");
+	}
+	
 	/**
 	 * Returns the fixture for this Spec Hierarchy test case.
 	 */
@@ -97,5 +106,14 @@ public class SpecHierarchyTest extends IdentifiableTest {
 		assertEquals(expected, actual);
 	}
 
+	@Override
+	protected EStructuralFeature getParentFeature() {
+		return ReqIF10Package.eINSTANCE.getSpecification_Children();
+	}
+
+	@Override
+	protected EObject getParent() {
+		return reqif.getCoreContent().getSpecifications().get(0);
+	}
 
 } //SpecHierarchyTest

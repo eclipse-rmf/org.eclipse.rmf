@@ -19,10 +19,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import junit.framework.Assert;
+
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
@@ -122,4 +126,24 @@ public class SpecificationTest extends SpecElementWithAttributesTest {
 		return ReqIF10Factory.eINSTANCE.createSpecificationType();
 	}
 
+	/**
+	 * Make sure that the lastChanged attribute is set after creating the
+	 * object.
+	 * 
+	 * @throws URISyntaxException
+	 */
+	@Test
+	public void testSetLastChangeAfterCreation() throws URISyntaxException {
+		ReqIF reqif = getTestReqif("simple.reqif");
+		Identifiable id = getFixture();
+		setViaCommand(reqif.getCoreContent(),
+				ReqIF10Package.eINSTANCE.getReqIFContent_Specifications(), id);
+		Assert.assertNotNull(id.getLastChange());
+	}
+
+	@Override
+	protected EStructuralFeature getParentFeature() {
+		return ReqIF10Package.eINSTANCE.getReqIFContent_Specifications();
+	}
+	
 } //SpecificationTest

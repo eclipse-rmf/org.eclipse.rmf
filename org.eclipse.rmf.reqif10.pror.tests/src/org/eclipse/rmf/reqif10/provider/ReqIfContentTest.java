@@ -45,7 +45,7 @@ public class ReqIfContentTest extends AbstractItemProviderTest {
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Before
-	protected void setUpReqIfContentTest() throws Exception {
+	public void setUpReqIfContentTest() throws Exception {
 		setFixture(ReqIF10Factory.eINSTANCE.createReqIFContent());
 	}
 
@@ -53,8 +53,8 @@ public class ReqIfContentTest extends AbstractItemProviderTest {
 	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@After
-	protected void tearDownReqIfContentTest() throws Exception {
+	public void tearDownReqIfContentTest() throws Exception {
 		setFixture(null);
 	}
-
+	
 } //ReqIfContentTest

@@ -16,6 +16,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.net.URISyntaxException;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
@@ -96,7 +98,15 @@ public abstract class AttributeDefinitionTest extends IdentifiableTest {
 		setViaCommand(getFixture(), ReqIF10Package.Literals.IDENTIFIABLE__LONG_NAME, "New Name");
 		assertEquals(1, notifications.size());
 	}
+	
+	@Override
+	protected EStructuralFeature getParentFeature() {
+		return ReqIF10Package.eINSTANCE.getSpecType_SpecAttributes();
+	}
 
-
+	@Override
+	protected EObject getParent() {
+		return ReqIF10Factory.eINSTANCE.createSpecObjectType();
+	}
 
 } //AttributeDefinitionTest

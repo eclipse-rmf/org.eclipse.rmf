@@ -14,6 +14,10 @@ import static org.junit.Assert.assertEquals;
 
 import java.net.URISyntaxException;
 
+import javax.xml.datatype.XMLGregorianCalendar;
+
+import junit.framework.Assert;
+
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecObject;
@@ -60,8 +64,20 @@ public abstract class AttributeValueTest extends AbstractItemProviderTest {
 		specObject.getValues().add(getFixture());
 		ProrUtil.getItemProvider(adapterFactory, specObject).addListener(listener);
 		ProrUtil.setTheValue(getFixture(), getValueObject(), editingDomain);
-		assertEquals(1, notifications.size());
+		assertEquals(2, notifications.size());
 		assertEquals(specObject, notifications.get(0).getNotifier());		
+	}
+	
+	@Test
+	public void testSetLasChangedEnclosingSpecObject()
+			throws URISyntaxException {
+		ReqIF reqif = getTestReqif("simple.reqif");
+		SpecObject specObject = reqif.getCoreContent().getSpecObjects().get(0);
+		specObject.getValues().add(getFixture());
+		XMLGregorianCalendar lastChangeBefore = specObject.getLastChange();
+		ProrUtil.setTheValue(getFixture(), getValueObject(), editingDomain);
+		XMLGregorianCalendar lastChangeAfter = specObject.getLastChange();
+		Assert.assertNotSame(lastChangeAfter, lastChangeBefore);
 	}
 	
 	/**
