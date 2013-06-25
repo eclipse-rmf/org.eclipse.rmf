@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
@@ -398,6 +399,27 @@ public class ReqIF10Util {
 				ensureIdIsUnique(resource, (Identifiable) obj);
 			}
 		}
+	}
+
+	public static Collection<?> ensureIdIsUnique(Resource resource, Collection<?> collection) {
+		if (resource == null) {
+			System.err.println("Cannot ensure unique IDs without resource."); //$NON-NLS-1$
+			return collection;
+		}
+		Collection<?> newCollection = EcoreUtil.copyAll(collection);
+		for (Object object : newCollection) {
+			if (object instanceof Identifiable) {
+				Identifiable identifiable = (Identifiable) object;
+				if (identifiable.getIdentifier() == null || resource.getEObject(identifiable.getIdentifier()) != null) {
+					identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$
+				}
+				EObject eobject = (EObject) object;
+				Collection<?> newContents = ensureIdIsUnique(resource, eobject.eContents());
+				eobject.eContents().clear();
+				eobject.eContents().addAll((Collection<? extends EObject>) newContents);
+			}
+		}
+		return newCollection;
 	}
 
 	/**

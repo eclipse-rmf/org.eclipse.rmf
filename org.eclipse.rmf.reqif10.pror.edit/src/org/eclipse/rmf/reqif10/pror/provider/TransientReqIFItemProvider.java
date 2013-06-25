@@ -21,7 +21,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.DragAndDropFeedback;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -100,6 +102,25 @@ public abstract class TransientReqIFItemProvider extends ItemProviderAdapter
 
 		return createWrappedCommand(super.createAddCommand(domain, owner,
 				feature, collection, index), owner);
+	}
+	
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain,
+			Object owner, float location, int operations, int operation,
+			Collection<?> collection) {
+		
+		if (operations == DragAndDropFeedback.DROP_COPY && owner instanceof EObject) {
+			// We must create a copy, as the collection is not detached from the model yet.
+			collection = EcoreUtil.copyAll(collection);
+			for (Object object : collection) {
+				if (object instanceof Identifiable)
+					ReqIF10Util.ensureIdIsUnique(((EObject)owner).eResource(),
+							(Identifiable) object);
+			}			
+		}
+
+		return super.createDragAndDropCommand(domain, owner, location, operations,
+				operation, collection);
 	}
 
 	protected Command createWrappedCommand(Command command, final EObject owner) {
