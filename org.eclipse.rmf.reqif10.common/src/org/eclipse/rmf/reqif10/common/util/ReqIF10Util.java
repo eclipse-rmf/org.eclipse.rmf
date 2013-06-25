@@ -16,7 +16,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.UUID;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeConstants;
@@ -27,7 +26,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
@@ -386,40 +384,43 @@ public class ReqIF10Util {
 	 * All (real) children are processed as well.
 	 */
 	public static void ensureIdIsUnique(Resource resource, Identifiable identifiable) {
-		if (resource == null) {
-			return;
-		}
-		if (identifiable.getIdentifier() == null || resource.getEObject(identifiable.getIdentifier()) != null) {
-			identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$
-		}
-
-		// Also process the children
-		for (EObject obj : identifiable.eContents()) {
-			if (obj instanceof Identifiable) {
-				ensureIdIsUnique(resource, (Identifiable) obj);
-			}
-		}
+		// FIXME unfinished code
+		// if (resource == null) {
+		// return;
+		// }
+		// if (identifiable.getIdentifier() == null || resource.getEObject(identifiable.getIdentifier()) != null) {
+		//			identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$
+		// }
+		//
+		// // Also process the children
+		// for (EObject obj : identifiable.eContents()) {
+		// if (obj instanceof Identifiable) {
+		// ensureIdIsUnique(resource, (Identifiable) obj);
+		// }
+		// }
 	}
 
 	public static Collection<?> ensureIdIsUnique(Resource resource, Collection<?> collection) {
-		if (resource == null) {
-			System.err.println("Cannot ensure unique IDs without resource."); //$NON-NLS-1$
-			return collection;
-		}
-		Collection<?> newCollection = EcoreUtil.copyAll(collection);
-		for (Object object : newCollection) {
-			if (object instanceof Identifiable) {
-				Identifiable identifiable = (Identifiable) object;
-				if (identifiable.getIdentifier() == null || resource.getEObject(identifiable.getIdentifier()) != null) {
-					identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$
-				}
-				EObject eobject = (EObject) object;
-				Collection<?> newContents = ensureIdIsUnique(resource, eobject.eContents());
-				eobject.eContents().clear();
-				eobject.eContents().addAll((Collection<? extends EObject>) newContents);
-			}
-		}
-		return newCollection;
+		return collection;
+		// FIXME unfinished code
+		// if (resource == null) {
+		//			System.err.println("Cannot ensure unique IDs without resource."); //$NON-NLS-1$
+		// return collection;
+		// }
+		// Collection<?> newCollection = EcoreUtil.copyAll(collection);
+		// for (Object object : newCollection) {
+		// if (object instanceof Identifiable) {
+		// Identifiable identifiable = (Identifiable) object;
+		// if (identifiable.getIdentifier() == null || resource.getEObject(identifiable.getIdentifier()) != null) {
+		//					identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$
+		// }
+		// EObject eobject = (EObject) object;
+		// Collection<?> newContents = ensureIdIsUnique(resource, eobject.eContents());
+		// eobject.eContents().clear();
+		// eobject.eContents().addAll((Collection<? extends EObject>) newContents);
+		// }
+		// }
+		// return newCollection;
 	}
 
 	/**
