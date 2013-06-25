@@ -13,8 +13,15 @@ package org.eclipse.rmf.reqif10.common.util;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.UUID;
+
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeConstants;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -414,4 +421,29 @@ public class ReqIF10Util {
 		}
 		return newCollection;
 	}
+
+	/**
+	 * This method returns the current date as an {@link XMLGregorianCalendar} object already formatted into a
+	 * Specification conform format.
+	 * 
+	 * @return the current date/time formatted for ReqIF
+	 */
+	public static XMLGregorianCalendar getReqIFLastChange() {
+
+		XMLGregorianCalendar date2 = null;
+		try {
+			GregorianCalendar gc = new GregorianCalendar();
+			Date lastChange = gc.getTime();
+			GregorianCalendar cal = new GregorianCalendar();
+			cal.setTime(lastChange);
+			date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
+			date2.setMillisecond(DatatypeConstants.FIELD_UNDEFINED);
+		} catch (DatatypeConfigurationException e) {
+			e.printStackTrace();
+		}
+
+		return date2;
+
+	}
+
 }

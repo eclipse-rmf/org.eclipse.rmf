@@ -27,11 +27,11 @@
                name="org.eclipse.rmf.docs.requirements"
                contentURI="examples/org.eclipse.rmf.docs.requirements/"
                description="%_UI_RMFDocsRequirementsProject_desc"/>
-         <projectDescriptor
+         <!--<projectDescriptor
                contentURI="examples/org.eclipse.rmf.docs.tests/"
                description="%_UI_RMFDocsTestsProject_desc"
                name="org.eclipse.rmf.docs.tests">
-         </projectDescriptor>
+         </projectDescriptor>-->
       </example>
       
       

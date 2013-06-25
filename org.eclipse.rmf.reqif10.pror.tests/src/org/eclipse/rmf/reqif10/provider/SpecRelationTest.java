@@ -17,7 +17,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import junit.framework.Assert;
+
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
@@ -34,7 +38,7 @@ import org.junit.Test;
  * A test case for the model object '<em><b>Spec Relation</b></em>'.
  */
 public class SpecRelationTest extends SpecElementWithAttributesTest {
-
+	
 	/**
 	 * Returns the fixture for this Spec Relation test case.
 	 */
@@ -92,6 +96,26 @@ public class SpecRelationTest extends SpecElementWithAttributesTest {
 	@Override
 	protected SpecType getSpecTypeInstance() {
 		return ReqIF10Factory.eINSTANCE.createSpecRelationType();
+	}
+	
+	/**
+	 * Make sure that the lastChanged attribute is set after creating the
+	 * object.
+	 * 
+	 * @throws URISyntaxException
+	 */
+	@Test
+	public void testSetLastChangeAfterCreation() throws URISyntaxException {
+		ReqIF reqif = getTestReqif("simple.reqif");
+		Identifiable id = getFixture();
+		setViaCommand(reqif.getCoreContent(),
+				ReqIF10Package.eINSTANCE.getReqIFContent_SpecRelations(), id);
+		Assert.assertNotNull(id.getLastChange());
+	}
+	
+	@Override
+	protected EStructuralFeature getParentFeature() {
+		return ReqIF10Package.eINSTANCE.getReqIFContent_SpecRelations();
 	}
 
 } //SpecRelationTest

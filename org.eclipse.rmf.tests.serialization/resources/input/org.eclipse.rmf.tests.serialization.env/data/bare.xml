@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.eclipse.org/rmf/tests/serialization/env/myreqif.xsd">
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT/>
+  </CORE-CONTENT>
+</REQ-IF>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes:NODE xmlns:nodes="http://www.eclipse.org/rmf/serialization/model/nodes.ecore">
+  <nodes:FEATURE-WITH-SERIALIZATION-1001-SINGLES>
+    <nodes:NODE name="intermediateNode1">
+      <nodes:FEATURE-WITH-SERIALIZATION-1001-SINGLES>
+        <nodes:NODE name="leafNode11"/>
+      </nodes:FEATURE-WITH-SERIALIZATION-1001-SINGLES>
+    </nodes:NODE>
+  </nodes:FEATURE-WITH-SERIALIZATION-1001-SINGLES>
+</nodes:NODE>

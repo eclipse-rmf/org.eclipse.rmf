@@ -15,6 +15,8 @@ import java.math.BigInteger;
 
 import junit.framework.Assert;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.rmf.reqif10.EmbeddedValue;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
@@ -65,6 +67,17 @@ public class EnumValueTest extends IdentifiableTest {
 		Assert.assertEquals(1, notifications.size());
 		setViaCommand(value, ReqIF10Package.Literals.EMBEDDED_VALUE__OTHER_CONTENT, "Other Content");
 		Assert.assertEquals(2, notifications.size());
+	}
+
+	@Override
+	protected EStructuralFeature getParentFeature() {
+		return ReqIF10Package.eINSTANCE
+				.getDatatypeDefinitionEnumeration_SpecifiedValues();
+	}
+
+	@Override
+	protected EObject getParent() {
+		return ReqIF10Factory.eINSTANCE.createDatatypeDefinitionEnumeration();
 	}
 
 } //EnumValueTest

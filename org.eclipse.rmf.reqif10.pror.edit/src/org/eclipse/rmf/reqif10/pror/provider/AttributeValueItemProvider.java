@@ -12,15 +12,23 @@
 package org.eclipse.rmf.reqif10.pror.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.xml.datatype.XMLGregorianCalendar;
+
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -28,8 +36,11 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeValue} object.
@@ -142,6 +153,37 @@ public class AttributeValueItemProvider
 	@Override
 	public ResourceLocator getResourceLocator() {
 		return Reqif10EditPlugin.INSTANCE;
+	}
+	
+	/**
+	 * We extended the command in order to append additional commands for
+	 * setting the lastChanged attribute of the to be added object.
+	 */
+	@Override
+	protected Command createSetCommand(EditingDomain domain, EObject owner,
+			EStructuralFeature feature, Object value) {
+
+		List<Command> commandList = new ArrayList<Command>();
+		commandList.add(super.createSetCommand(domain, owner, feature, value));
+
+		XMLGregorianCalendar lastChange = ReqIF10Util.getReqIFLastChange();
+		if (owner instanceof AttributeValue) {
+
+			EObject c = owner.eContainer();
+			if (c != null && c instanceof SpecElementWithAttributes) {
+				SetCommand sc = new SetCommand(domain, (Identifiable) c,
+						ReqIF10Package.eINSTANCE.getIdentifiable_LastChange(),
+						lastChange);
+				commandList.add(sc);
+
+			}
+
+		}
+
+		CompoundCommand cc = new CompoundCommand(commandList);
+
+		return cc;
+
 	}
 
 }

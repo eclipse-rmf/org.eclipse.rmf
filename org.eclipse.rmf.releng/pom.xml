@@ -10,7 +10,7 @@
 
 	<!-- this is the parent POM from which all modules inherit common settings -->
 	<properties>
-		<tycho-version>0.14.1</tycho-version>
+		<tycho-version>0.18.0</tycho-version>
 		<antrun-version>1.6</antrun-version>
 	</properties>
 
@@ -217,6 +217,56 @@
 				</plugins>
 			</build>
 		</profile>		
+		<profile>
+			<id>KEPLER_4_3_0.target</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- add target file content to target platform -->
+							<target>
+								<artifact>
+									<groupId>org.eclipse.rmf</groupId>
+									<artifactId>org.eclipse.rmf.target</artifactId>
+									<version>0.7.0-SNAPSHOT</version>
+									<classifier>KEPLER_4_3_0</classifier>
+								</artifact>
+							</target>
+							<environments>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>		
 	</profiles>
 
 	<pluginRepositories>
@@ -235,11 +285,13 @@
 		<module>../org.eclipse.rmf.reqif10</module>
 		<module>../org.eclipse.rmf.reqif10.common</module>
 		<module>../org.eclipse.rmf.serialization</module>
+		<module>../org.eclipse.rmf.serialization2</module>
 		<module>../org.eclipse.rmf.reqif10.feature</module>
 		<module>../org.eclipse.rmf.reqif10.sdk.feature</module>
 		
 		<module>../org.eclipse.rmf.reqif10.tests</module> 
 		<module>../org.eclipse.rmf.reqif10.tests.feature</module>
+		<module>../org.eclipse.rmf.tests.serialization</module>
 		
 		<!-- ReqIF UI ProR -->		
 		<module>../org.eclipse.rmf.reqif10.pror</module>
@@ -268,12 +320,16 @@
 		<module>../org.eclipse.rmf.rif11.model</module>		
 		<module>../org.eclipse.rmf.rif11.xsd.model</module>
 		<module>../org.eclipse.rmf.rif11.resource</module>
+		<!-- deactivated for kepler build
 		<module>../org.eclipse.rmf.rif11.model.test</module>
+		-->
 		
 		<module>../org.eclipse.rmf.rif12.model</module>
 		<module>../org.eclipse.rmf.rif12.xsd.model</module>
 		<module>../org.eclipse.rmf.rif12.resource</module>
-		<module>../org.eclipse.rmf.rif12.model.test</module>		
+		<!-- deactivated for kepler build
+		<module>../org.eclipse.rmf.rif12.model.test</module>
+		-->		
 		
 	</modules>
 
