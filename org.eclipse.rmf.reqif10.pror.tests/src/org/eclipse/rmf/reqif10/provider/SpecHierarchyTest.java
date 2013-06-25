@@ -116,4 +116,15 @@ public class SpecHierarchyTest extends IdentifiableTest {
 		return reqif.getCoreContent().getSpecifications().get(0);
 	}
 
+	/**
+	 * Make sure that the lastChanged attribute is set after moving the
+	 * {@link SpecHierarchy}.
+	 * 
+	 * @throws URISyntaxException
+	 */
+	@Test
+	public void testSetLastChangeAfterMoving() {
+		// FIXME: Implement me!!!
+	}
+	
 } //SpecHierarchyTest

@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.xml.datatype.XMLGregorianCalendar;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -444,6 +446,33 @@ public class SpecHierarchyItemProvider extends
 		}
 
 		return super.createAddCommand(domain, owner, feature, collection, index);
+	}
+	
+	/**
+	 * We extended the command in order to append an additional command for
+	 * setting the lastChanged attribute of the {@link SpecHierarchy} whenever
+	 * it is moved (the order is changed).
+	 */
+	@Override
+	protected Command createMoveCommand(EditingDomain domain, EObject owner,
+			EStructuralFeature feature, Object value, int index) {
+
+		List<Command> commandList = new ArrayList<Command>();
+		commandList.add(super.createMoveCommand(domain, owner, feature, value,
+				index));
+
+		XMLGregorianCalendar lastChange = ReqIF10Util.getReqIFLastChange();
+		if (value instanceof SpecHierarchy) {
+			SetCommand sc = new SetCommand(domain, (SpecHierarchy) value,
+					ReqIF10Package.eINSTANCE.getIdentifiable_LastChange(),
+					lastChange);
+			commandList.add(sc);
+		}
+
+		CompoundCommand cc = new CompoundCommand(commandList);
+
+		return cc;
+
 	}
 
 }
