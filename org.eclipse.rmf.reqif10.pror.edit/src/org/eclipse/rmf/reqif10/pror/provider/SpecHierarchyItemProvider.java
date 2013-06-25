@@ -27,6 +27,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.command.DragAndDropFeedback;
@@ -379,17 +380,20 @@ public class SpecHierarchyItemProvider extends
 	protected Command createDragAndDropCommand(EditingDomain domain,
 			Object owner, float location, int operations, int operation,
 			Collection<?> collection) {
-
-		// Ensure that the ID is unique if it's a copy operation.
-		if (owner instanceof EObject
-				&& operation == DragAndDropFeedback.DROP_COPY) {
-			for (Object object : collection) {
-				if (object instanceof Identifiable)
-					System.out.println("Updating collection: " + object);
-					ReqIF10Util.ensureIdIsUnique(((EObject) owner).eResource(),
-							(Identifiable) object);
-			}
-		}
+//
+//		// Ensure that the ID is unique if it's a copy operation.
+//		if (owner instanceof EObject
+//				&& operation == DragAndDropFeedback.DROP_COPY) {
+//			// We must create a copy, as the collection is not detached from the model yet.
+//			collection = EcoreUtil.copyAll(collection);
+//			
+//			for (Object object : collection) {
+//				if (object instanceof Identifiable)
+//					System.out.println("Updating collection: " + object);
+//					ReqIF10Util.ensureIdIsUnique(((EObject) owner).eResource(),
+//							(Identifiable) object);
+//			}
+//		}
 
 		for (Object obj : collection) {
 			if (obj instanceof SpecHierarchy) {
@@ -437,12 +441,7 @@ public class SpecHierarchyItemProvider extends
 			EStructuralFeature feature, Collection<?> collection, int index) {
 		
 		// Ensure that the ID is unique if it's a copy operation.
-		for (Object object : collection) {
-			if (object instanceof Identifiable)
-				ReqIF10Util.ensureIdIsUnique(owner.eResource(),
-						(Identifiable) object);
-		}
-
+		collection = ReqIF10Util.ensureIdIsUnique(owner.eResource(), collection);
 		return super.createAddCommand(domain, owner, feature, collection, index);
 	}
 
