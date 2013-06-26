@@ -12,7 +12,9 @@ package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.agilemore.agilegrid.AbstractContentProvider;
 import org.agilemore.agilegrid.AgileGrid;
@@ -20,6 +22,7 @@ import org.agilemore.agilegrid.IContentProvider;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
@@ -28,6 +31,8 @@ import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow.ProrRowSpecHierarchy;
+import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow.ProrRowSpecRelation;
 
 /**
  * This ContentProvider manages a {@link Specification}, to be displayed in an
@@ -38,6 +43,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	private final Specification root;
 	private final ProrSpecViewConfiguration specViewConfig;
 	private ArrayList<ProrRow> cache = null;
+	private Map<Identifiable, ProrRow> rowMap = new HashMap<Identifiable, ProrRow>();
 
 	private boolean showSpecRelations;
 
@@ -107,6 +113,10 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 */
 	public void setShowSpecRelations(boolean status) {
 		this.showSpecRelations = status;
+		for (ProrRow row : getCache()) {
+			if (row instanceof ProrRowSpecHierarchy)
+				((ProrRowSpecHierarchy) row).setShowSpecRelation(status);
+		}
 		flushCache();
 	}
 
@@ -119,17 +129,13 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 
 	/**
 	 * Finds the Object for the given row, which may be a SpecHierarchy or
-	 * SpecRelation. It basically traverses the tree structure of the root,
-	 * counting the steps.
-	 * <p>
-	 * 
-	 * TODO Serious potential for performance tuning.
+	 * SpecRelation.
 	 */
 	ProrRow getProrRow(int row) {
 		return getCache().get(row);
 	}
 
-	private void flushCache(){
+	public void flushCache(){
 		cache = null;
 	}
 	
@@ -147,6 +153,18 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		return cache;
 	}
 
+	private ProrRow getProrRowForSpecElement(Identifiable e, int row, int level) {
+		ProrRow prorRow = rowMap.get(e);
+		if (prorRow == null) {
+			prorRow = ProrRow.createProrRow(e, row, level);
+			rowMap.put(e, prorRow);
+		} else {
+			prorRow.setLevel(row);
+			prorRow.setLevel(level);
+		}
+		return prorRow;
+	}
+	
 	/**
 	 * 
 	 * @param current
@@ -161,15 +179,17 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	private int recurseSpecHierarchyForRow(int current, int depth,
 			List<SpecHierarchy> elements, ArrayList<ProrRow> tmpCache) {
 		for (SpecHierarchy element : elements) {
-
-			tmpCache.add(current,
-					ProrRow.createProrRow(element, current, depth));
-			for (SpecRelation specRelation : getSpecRelationsFor(element)) {
-				++current;
-				tmpCache.add(current,
-						ProrRow.createProrRow(specRelation, current, depth + 1));
+			ProrRowSpecHierarchy prorRowSH = (ProrRowSpecHierarchy) getProrRowForSpecElement(
+					element, current, depth);
+			tmpCache.add(current, prorRowSH);
+			if (prorRowSH.isShowSpecRelation()) {
+				for (SpecRelation specRelation : getSpecRelationsFor(element)) {
+					++current;
+					ProrRowSpecRelation prorRowSR = (ProrRowSpecRelation) getProrRowForSpecElement(
+							specRelation, current, depth + 1);
+					tmpCache.add(current, prorRowSR);
+				}
 			}
-
 			int result = recurseSpecHierarchyForRow(++current, depth + 1,
 					element.getChildren(), tmpCache);
 			current = result;
@@ -201,14 +221,10 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * and returns immediately if it is false.
 	 */
 	private List<SpecRelation> getSpecRelationsFor(SpecHierarchy specHierarchy) {
-		// System.out.println("showSpecRelations: " + showSpecRelations + " - "
-		// + this);
-		if (!showSpecRelations || specHierarchy.getObject() == null) {
+		if (specHierarchy.getObject() == null)
 			return Collections.emptyList();
-		}
 		SpecObject source = specHierarchy.getObject();
 		ReqIF reqif = ReqIF10Util.getReqIF(source);
-
 		// Can happen if source is detached from the reqif model (e.g. just
 		// being deleted)
 		if (reqif == null)
@@ -243,10 +259,13 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 			} else if (entry instanceof SpecHierarchy) {
 				SpecHierarchy specHierarchy = (SpecHierarchy) entry;
 				children.addAll(specHierarchy.getChildren());
-				if (showSpecRelations) {
-					children.addAll(getSpecRelationsFor(specHierarchy));
+				
+				ProrRow prorRow = getCache().get(row);
+				if (prorRow != null && prorRow instanceof ProrRowSpecHierarchy) {
+					if (((ProrRowSpecHierarchy) prorRow).isShowSpecRelation())
+						children.addAll(getSpecRelationsFor(specHierarchy));
 				}
-
+				
 				if (element.equals(specHierarchy.getObject())) {
 					refresh = true;
 				}
@@ -267,5 +286,5 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	public int getRowCount() {
 		return getCache().size();
 	}
-
+	
 }

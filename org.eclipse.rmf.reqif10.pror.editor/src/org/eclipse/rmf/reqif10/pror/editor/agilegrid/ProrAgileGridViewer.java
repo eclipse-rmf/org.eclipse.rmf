@@ -18,8 +18,10 @@ import java.util.Set;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.Cell;
+import org.agilemore.agilegrid.CellDoubleClickEvent;
 import org.agilemore.agilegrid.CellResizeAdapter;
 import org.agilemore.agilegrid.EditorActivationStrategy;
+import org.agilemore.agilegrid.ICellDoubleClickListener;
 import org.agilemore.agilegrid.ICellResizeListener;
 import org.agilemore.agilegrid.ISelectionChangedListener;
 import org.agilemore.agilegrid.SWTX;
@@ -103,6 +105,8 @@ public class ProrAgileGridViewer extends Viewer {
 	private EContentAdapter specHierarchyRootContentAdapter;
 	private Adapter emfColumnListener;
 	private ICellResizeListener agColumnListener;
+	
+	private ICellDoubleClickListener doubleClickListener;
 
 	/**
 	 * We need to ignore selection requests when a selection is in progress -
@@ -257,7 +261,8 @@ public class ProrAgileGridViewer extends Viewer {
 		unregisterSelectionChangedListener();
 		unregisterSpecHierarchyListener();
 		unregisterSpecRelationListener();
-
+		unregisterDoubleClickListener();
+		
 		this.specification = (Specification) input;
 		this.specViewConfig = ConfigurationUtil.createSpecViewConfiguration(
 				specification, editingDomain);
@@ -270,13 +275,14 @@ public class ProrAgileGridViewer extends Viewer {
 				editingDomain, adapterFactory, agileCellEditorActionHandler));
 		agileGrid.setRowResizeCursor(new Cursor(agileGrid.getDisplay(),
 				SWT.CURSOR_ARROW));
-
+		
 		updateRowCount();
 		updateColumnInformation();
 		registerColumnListener();
 		registerSelectionChangedListener();
 		registerSpecHierarchyListener();
 		registerSpecRelationListener();
+		registerDoubleClickListener();
 		resolveSpecObjectReferences();
 	}
 
@@ -319,6 +325,7 @@ public class ProrAgileGridViewer extends Viewer {
 		unregisterSelectionChangedListener();
 		unregisterSpecHierarchyListener();
 		unregisterSpecRelationListener();
+		unregisterDoubleClickListener();
 		if (!agileGrid.isDisposed()) {
 			agileGrid.dispose();
 		}
@@ -426,12 +433,13 @@ public class ProrAgileGridViewer extends Viewer {
 					if (specRelation.getTarget() != null) {
 						contentProvider.updateElement(specRelation.getTarget());
 					}
-					if (contentProvider.getShowSpecRelations()) {
-						// By setting the flag again, the cash is cleared,
-						// triggering a redraw.
-						contentProvider.setShowSpecRelations(true);
-						updateRowCount();
-					}
+					updateRowCount();
+					// if (contentProvider.getShowSpecRelations()) {
+					// // By setting the flag again, the cash is cleared,
+					// // triggering a redraw.
+					// contentProvider.setShowSpecRelations(true);
+					// updateRowCount();
+					// }
 					refresh();
 				}
 			}
@@ -439,6 +447,34 @@ public class ProrAgileGridViewer extends Viewer {
 
 		ReqIF10Util.getReqIF(specification).getCoreContent().eAdapters()
 				.add(specRelationContentAdapter);
+	}
+	
+	private void registerDoubleClickListener() {
+		doubleClickListener = new ICellDoubleClickListener() {
+			public void cellDoubleClicked(CellDoubleClickEvent event) {
+				Object source = event.getSource();
+				if (source instanceof Cell) {
+					Cell cell = (Cell) source;
+					ProrRow prorRow = contentProvider.getProrRow(cell.row);
+					if (prorRow instanceof ProrRowSpecHierarchy
+							&& cell.column == specViewConfig.getColumns()
+									.size()) {
+						ProrRowSpecHierarchy prorRowSH = (ProrRowSpecHierarchy) prorRow;
+						prorRowSH.setShowSpecRelation(!prorRowSH
+								.isShowSpecRelation());
+						contentProvider.flushCache();
+						updateRowCount();
+						refresh();
+					}
+				}
+			}
+		};
+		agileGrid.addCellDoubleClickListener(doubleClickListener);
+	}
+	
+	private void unregisterDoubleClickListener() {
+		if (doubleClickListener != null && !agileGrid.isDisposed())
+			agileGrid.removeDoubleClickListener(doubleClickListener);
 	}
 
 	private void unregisterSelectionChangedListener() {
