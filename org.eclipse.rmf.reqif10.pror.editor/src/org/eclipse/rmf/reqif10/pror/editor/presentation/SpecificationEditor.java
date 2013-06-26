@@ -39,6 +39,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
+import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.pror.editor.actions.SpecificationWebPrintAction;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGrid;
@@ -431,7 +432,24 @@ public class SpecificationEditor extends EditorPart implements
 	 * Forward requests to show or hide SpecRelations.
 	 */
 	public void setShowSpecRelations(boolean checked) {
+
+		ISelection sel = prorAgileGridViewer.getSelection();
+
 		prorAgileGridViewer.setShowSpecRelations(checked);
+
+		// Set the correct selection after showing/hiding SpecRelations
+		if (sel instanceof IStructuredSelection) {
+			IStructuredSelection selection = (IStructuredSelection) sel;
+			Object firstElement = selection.getFirstElement();
+			// If a SpecRelation was selected, select after hiding the
+			// SpecRealtions the first SpecHierarchy of the Specification
+			if (firstElement instanceof SpecRelation) {
+				selection = new StructuredSelection(specification.getChildren()
+						.get(0));
+			}
+			prorAgileGridViewer.setSelection(selection);
+		}
+
 	}
 
 	/**
