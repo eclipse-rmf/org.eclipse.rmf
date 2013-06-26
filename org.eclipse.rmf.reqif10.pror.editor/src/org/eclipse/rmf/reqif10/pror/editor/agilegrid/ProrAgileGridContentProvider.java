@@ -260,7 +260,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 				SpecHierarchy specHierarchy = (SpecHierarchy) entry;
 				children.addAll(specHierarchy.getChildren());
 				
-				ProrRow prorRow = getCache().get(row);
+				ProrRow prorRow = rowMap.get(specHierarchy);
 				if (prorRow != null && prorRow instanceof ProrRowSpecHierarchy) {
 					if (((ProrRowSpecHierarchy) prorRow).isShowSpecRelation())
 						children.addAll(getSpecRelationsFor(specHierarchy));
