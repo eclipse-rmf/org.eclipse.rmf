@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RIF xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://automotive-his.de/200807/rif">
+  <HEADER>
+    <RIF-HEADER>
+      <AUTHOR>nirmal</AUTHOR>
+      <CREATION-TIME>2011-07-26T17:24:56.658+02:00</CREATION-TIME>
+      <SOURCE-TOOL-ID>ProR (http://pror.org)</SOURCE-TOOL-ID>
+    </RIF-HEADER>
+  </HEADER>
+  <CORE-CONTENT>
+    <RIF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-STRING>
+          <IDENTIFIER>_ayczoLebEeCpUovxyofWyA</IDENTIFIER>
+          <LONG-NAME>T_String32k</LONG-NAME>
+          <MAX-LENGTH>32000</MAX-LENGTH>
+        </DATATYPE-DEFINITION-STRING>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-TYPE>
+          <IDENTIFIER>_aydasbebEeCpUovxyofWyA</IDENTIFIER>
+          <LONG-NAME>Requirement Type</LONG-NAME>
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-SIMPLE>
+              <IDENTIFIER>_ayeBwLebEeCpUovxyofWyA</IDENTIFIER>
+              <LONG-NAME>Description</LONG-NAME>
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_ayczoLebEeCpUovxyofWyA</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-SIMPLE>
+          </SPEC-ATTRIBUTES>
+        </SPEC-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT>
+          <IDENTIFIER>_ay-YELebEeCpUovxyofWyA</IDENTIFIER>
+          <TYPE>
+            <SPEC-TYPE-REF>_aydasbebEeCpUovxyofWyA</SPEC-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-SIMPLE>
+              <IDENTIFIER>_ay-_ILebEeCpUovxyofWyA</IDENTIFIER>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-SIMPLE-REF>_ayeBwLebEeCpUovxyofWyA</ATTRIBUTE-DEFINITION-SIMPLE-REF>
+              </DEFINITION>
+              <THE-VALUE>test</THE-VALUE>
+            </ATTRIBUTE-VALUE-SIMPLE>
+          </VALUES>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPEC-HIERARCHY-ROOTS>
+        <SPEC-HIERARCHY-ROOT>
+          <IDENTIFIER>_aydasLebEeCpUovxyofWyA</IDENTIFIER>
+          <LONG-NAME>Specification Document</LONG-NAME>
+          <CHILDREN>
+            <SPEC-HIERARCHY>
+              <IDENTIFIER>_ay_mMLebEeCpUovxyofWyA</IDENTIFIER>
+              <OBJECT>
+                <SPEC-OBJECT-REF>_ay-YELebEeCpUovxyofWyA</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPEC-HIERARCHY-ROOT>
+      </SPEC-HIERARCHY-ROOTS>
+    </RIF-CONTENT>
+  </CORE-CONTENT>
+</RIF>

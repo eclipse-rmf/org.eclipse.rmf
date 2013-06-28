@@ -35,8 +35,10 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.SAXXMLHandler;
 import org.eclipse.emf.ecore.xmi.impl.XMLHandler;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.util.Activator;
 import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
 import org.xml.sax.Attributes;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializationConstants {
@@ -47,6 +49,7 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 	private int previousLevel = -1;;
 	int xhtmlLevel = OUT_OF_XHTML;
 	int toolExtensionsLevel = OUT_OF_XHTML;
+	private String schemaURL;
 
 	protected XMLHandler.MyStack<EStructuralFeature> deferredFeatures = new MyStack<EStructuralFeature>();
 
@@ -59,6 +62,10 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 	public ReqIFXMLSAXHandler(XMLResource xmiResource, XMLHelper helper, Map<?, ?> options) {
 		super(xmiResource, helper, options);
 
+		// TODO: find a more generic approach that contributes the schemaURL without adding dependencies to specific
+		// metamodels
+		schemaURL = Activator.INSTANCE.getBaseURL() + "schema/"; //$NON-NLS-1$
+
 		IProgressMonitor monitor = getMonitor();
 		if (monitor != null) {
 			int lines = countLines(xmiResource);
@@ -68,7 +75,6 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 
 	@Override
 	public void reset() {
-		// TODO Auto-generated method stub
 		super.reset();
 		deferredFeatures.clear();
 	}
@@ -424,4 +430,65 @@ public class ReqIFXMLSAXHandler extends SAXXMLHandler implements IReqIFSerializa
 		}
 		return lines;
 	}
+
+	/**
+	 * This method is called to load referenced entities such as referenced schemas. Note: The schema location that is
+	 * identified in the reqif file using the schemLocation hint is resolved by the EntityResolver that can be defined
+	 * using the XMLResource.OPTION_URI_HANDLER parser property
+	 */
+	@Override
+	public InputSource resolveEntity(String publicId, String systemId) throws SAXException {
+
+		InputSource inputSource = null;
+
+		// try to find using xmlCatalogResolver
+		if (null != systemId && systemId.endsWith(".xsd")) { //$NON-NLS-1$
+			if (systemId.endsWith("reqif.xsd")) { //$NON-NLS-1$
+				systemId = schemaURL + "reqif.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/2001/xml.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xml.xsd"; //$NON-NLS-1$
+			} else if ("http://www.omg.org/spec/ReqIF/20110402/driver.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "driver.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-datatypes-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-datatypes-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-framework-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-framework-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-text-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-text-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-blkphras-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-blkphras-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-attribs-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-attribs-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-blkstruct-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-blkstruct-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-inlphras-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-inlphras-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-hypertext-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-hypertext-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-list-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-list-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-edit-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-edit-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-pres-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-pres-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-blkpres-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-blkpres-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-inlpres-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-inlpres-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-inlstyle-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-inlstyle-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-object-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-object-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-param-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-param-1.xsd"; //$NON-NLS-1$
+			} else if ("http://www.w3.org/TR/xhtml-modularization/SCHEMA/xhtml-table-1.xsd".equals(systemId)) { //$NON-NLS-1$
+				systemId = schemaURL + "xhtml-table-1.xsd"; //$NON-NLS-1$
+			}
+		}
+
+		inputSource = super.resolveEntity(publicId, systemId);
+
+		return inputSource;
+	}
+
 }

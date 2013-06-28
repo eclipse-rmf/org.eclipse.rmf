@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<req:REQ-IF xmlns:req="http://www.eclipse.org/rmf/tests/serialization/env/myreqif.xsd">
+  <req:THE-HEADER>
+     <req:REQ-IF-HEADER IDENTIFIER="a">
+      <req:CREATION-TIME>2005-05-23T12:00:00+02:00</req:CREATION-TIME>
+      <req:REQ-IF-TOOL-ID></req:REQ-IF-TOOL-ID>
+      <req:REQ-IF-VERSION>1.0</req:REQ-IF-VERSION>
+      <req:SOURCE-TOOL-ID>Manually written</req:SOURCE-TOOL-ID>
+      <req:TITLE></req:TITLE>
+     </req:REQ-IF-HEADER>
+  </req:THE-HEADER>
+  <req:CORE-CONTENT>
+    <req:REQ-IF-CONTENT/>
+  </req:CORE-CONTENT>
+</req:REQ-IF>

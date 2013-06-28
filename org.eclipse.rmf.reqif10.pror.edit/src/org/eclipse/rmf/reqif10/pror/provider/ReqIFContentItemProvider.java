@@ -17,13 +17,17 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import javax.xml.datatype.XMLGregorianCalendar;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -34,8 +38,10 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.ReqIFContent} object.
@@ -261,12 +267,28 @@ public class ReqIFContentItemProvider
 				owner, feature);
 	}
 
+	/**
+	 * We extended the command in order to append additional commands for
+	 * setting the lastChanged attribute of the to be added object.
+	 */
 	@Override
 	protected Command createAddCommand(EditingDomain domain, EObject owner,
 			EStructuralFeature feature, Collection<?> collection, int index) {
-		return createWrappedCommand(super.createAddCommand(domain, owner,
-				feature, collection, index), owner, feature);
-	}	
+		List<Command> commandList = new ArrayList<Command>();
+		commandList.add(super.createAddCommand(domain, owner, feature,
+				collection, index));
+		XMLGregorianCalendar lastChange = ReqIF10Util.getReqIFLastChange();
+		for (Object c : collection) {
+			if (c instanceof Identifiable) {
+				SetCommand sc = new SetCommand(domain, (Identifiable) c,
+						ReqIF10Package.eINSTANCE.getIdentifiable_LastChange(),
+						lastChange);
+				commandList.add(sc);
+			}
+		}
+		CompoundCommand cc = new CompoundCommand(commandList);
+		return createWrappedCommand(cc, owner, feature);
+	}
 	
 	protected Command createWrappedCommand(Command command,
 			final EObject owner, final EStructuralFeature feature) {

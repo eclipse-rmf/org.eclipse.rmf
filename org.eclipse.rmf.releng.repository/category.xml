@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.rmf.reqif10.feature_0.7.0.qualifier.jar" id="org.eclipse.rmf.reqif10.feature" version="0.7.0.qualifier">
+   <feature url="features/org.eclipse.rmf.reqif10.feature_0.7.1.qualifier.jar" id="org.eclipse.rmf.reqif10.feature" version="0.7.1.qualifier">
       <category name="RMF"/>
    </feature>
-   <feature url="features/org.eclipse.rmf.reqif10.pror.feature_0.7.0.qualifier.jar" id="org.eclipse.rmf.reqif10.pror.feature" version="0.7.0.qualifier">
+   <feature url="features/org.eclipse.rmf.reqif10.pror.feature_0.7.1.qualifier.jar" id="org.eclipse.rmf.reqif10.pror.feature" version="0.7.1.qualifier">
       <category name="RMF"/>
    </feature>
-   <feature url="features/org.eclipse.rmf.reqif10.pror.sdk.feature_0.7.0.qualifier.jar" id="org.eclipse.rmf.reqif10.pror.sdk.feature" version="0.7.0.qualifier">
+   <feature url="features/org.eclipse.rmf.reqif10.pror.sdk.feature_0.7.1.qualifier.jar" id="org.eclipse.rmf.reqif10.pror.sdk.feature" version="0.7.1.qualifier">
       <category name="RMF SDK"/>
    </feature>
-   <feature url="features/org.eclipse.rmf.reqif10.sdk.feature_0.7.0.qualifier.jar" id="org.eclipse.rmf.reqif10.sdk.feature" version="0.7.0.qualifier">
+   <feature url="features/org.eclipse.rmf.reqif10.sdk.feature_0.7.1.qualifier.jar" id="org.eclipse.rmf.reqif10.sdk.feature" version="0.7.1.qualifier">
       <category name="RMF SDK"/>
    </feature>
    <category-def name="RMF" label="RMF"/>

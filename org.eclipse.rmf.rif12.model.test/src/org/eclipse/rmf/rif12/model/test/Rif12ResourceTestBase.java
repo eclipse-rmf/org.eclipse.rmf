@@ -17,16 +17,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.compare.diff.metamodel.DiffElement;
 import org.eclipse.emf.compare.diff.metamodel.DiffModel;
+import org.eclipse.emf.compare.diff.metamodel.ModelElementChangeLeftTarget;
 import org.eclipse.emf.compare.diff.metamodel.ReferenceOrderChange;
 import org.eclipse.emf.compare.diff.service.DiffService;
 import org.eclipse.emf.compare.match.MatchOptions;
 import org.eclipse.emf.compare.match.metamodel.MatchModel;
 import org.eclipse.emf.compare.match.service.MatchService;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -74,9 +77,13 @@ public class Rif12ResourceTestBase {
 		return rifResource;
 	}
 
-	public void saveRif(Resource resource, String filename) {
-		resource.setURI(URI.createFileURI(new File(filename).getAbsolutePath()));
+	public void saveRif(EObject rootEObject, String filename) {
+		ResourceSet rifResourceSet = new ResourceSetImpl();
+
 		try {
+			Resource resource = rifResourceSet.createResource(
+					URI.createFileURI(new File(filename).getAbsolutePath()));
+			resource.getContents().add(rootEObject);
 			resource.save(Collections.EMPTY_MAP);
 		} catch (IOException e) {
 			fail(e.getMessage());
@@ -106,7 +113,7 @@ public class Rif12ResourceTestBase {
 
 			if (!diff.getDifferences().isEmpty()) {
 				differences = getValidDifferences(diff);
-				printAllDifferences(diff);
+				printDifferences(differences);
 			}
 			
 			Assert.assertTrue((differences != null ? differences.size() : "")
@@ -117,8 +124,8 @@ public class Rif12ResourceTestBase {
 		}
 	}
 
-	protected void printAllDifferences(DiffModel diff) {
-		for (DiffElement diffElement : diff.getDifferences()){
+	protected void printDifferences(List<DiffElement> diffElements) {
+		for (DiffElement diffElement : diffElements){
 			System.out.println(diffElement);
 		}
 	}
@@ -128,9 +135,12 @@ public class Rif12ResourceTestBase {
 		ArrayList<DiffElement> differences = new ArrayList<DiffElement>();
 
 		for (DiffElement diffElement : diff.getDifferences()) {
+			
+			boolean relatedToDocumentRootAddMapping = (diffElement instanceof ModelElementChangeLeftTarget) && ((ModelElementChangeLeftTarget)diffElement).getLeftElement().eContainer() instanceof DocumentRoot;
+			boolean relatedToDocumentRootOrderOfAttributes = (diffElement instanceof ReferenceOrderChange && ((ReferenceOrderChange) diffElement).getLeftElement() instanceof DocumentRoot);
+			
 
-			if (!(diffElement instanceof ReferenceOrderChange && ((ReferenceOrderChange) diffElement)
-					.getLeftElement() instanceof DocumentRoot)) {
+			if (!relatedToDocumentRootAddMapping && !relatedToDocumentRootOrderOfAttributes) {
 				differences.add(diffElement);
 			}
 		}

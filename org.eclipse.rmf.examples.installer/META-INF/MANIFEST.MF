@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RMF Examples Installer
+Bundle-SymbolicName: org.eclipse.rmf.examples.installer;singleton:=true
+Bundle-Version: 0.7.1.qualifier
+Bundle-Vendor: Eclipse Modeling Framework
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Require-Bundle: org.eclipse.emf.common.ui
+Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy

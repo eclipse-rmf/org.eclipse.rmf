@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.xml.datatype.XMLGregorianCalendar;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -29,7 +31,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.DragAndDropCommand;
-import org.eclipse.emf.edit.command.DragAndDropFeedback;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -43,7 +44,6 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptorDecorator;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
@@ -379,17 +379,20 @@ public class SpecHierarchyItemProvider extends
 	protected Command createDragAndDropCommand(EditingDomain domain,
 			Object owner, float location, int operations, int operation,
 			Collection<?> collection) {
-
-		// Ensure that the ID is unique if it's a copy operation.
-		if (owner instanceof EObject
-				&& operation == DragAndDropFeedback.DROP_COPY) {
-			for (Object object : collection) {
-				if (object instanceof Identifiable)
-					System.out.println("Updating collection: " + object);
-					ReqIF10Util.ensureIdIsUnique(((EObject) owner).eResource(),
-							(Identifiable) object);
-			}
-		}
+//
+//		// Ensure that the ID is unique if it's a copy operation.
+//		if (owner instanceof EObject
+//				&& operation == DragAndDropFeedback.DROP_COPY) {
+//			// We must create a copy, as the collection is not detached from the model yet.
+//			collection = EcoreUtil.copyAll(collection);
+//			
+//			for (Object object : collection) {
+//				if (object instanceof Identifiable)
+//					System.out.println("Updating collection: " + object);
+//					ReqIF10Util.ensureIdIsUnique(((EObject) owner).eResource(),
+//							(Identifiable) object);
+//			}
+//		}
 
 		for (Object obj : collection) {
 			if (obj instanceof SpecHierarchy) {
@@ -437,13 +440,35 @@ public class SpecHierarchyItemProvider extends
 			EStructuralFeature feature, Collection<?> collection, int index) {
 		
 		// Ensure that the ID is unique if it's a copy operation.
-		for (Object object : collection) {
-			if (object instanceof Identifiable)
-				ReqIF10Util.ensureIdIsUnique(owner.eResource(),
-						(Identifiable) object);
+		collection = ReqIF10Util.ensureIdIsUnique(owner.eResource(), collection);
+		return super.createAddCommand(domain, owner, feature, collection, index);
+	}
+	
+	/**
+	 * We extended the command in order to append an additional command for
+	 * setting the lastChanged attribute of the {@link SpecHierarchy} whenever
+	 * it is moved (the order is changed).
+	 */
+	@Override
+	protected Command createMoveCommand(EditingDomain domain, EObject owner,
+			EStructuralFeature feature, Object value, int index) {
+
+		List<Command> commandList = new ArrayList<Command>();
+		commandList.add(super.createMoveCommand(domain, owner, feature, value,
+				index));
+
+		XMLGregorianCalendar lastChange = ReqIF10Util.getReqIFLastChange();
+		if (value instanceof SpecHierarchy) {
+			SetCommand sc = new SetCommand(domain, (SpecHierarchy) value,
+					ReqIF10Package.eINSTANCE.getIdentifiable_LastChange(),
+					lastChange);
+			commandList.add(sc);
 		}
 
-		return super.createAddCommand(domain, owner, feature, collection, index);
+		CompoundCommand cc = new CompoundCommand(commandList);
+
+		return cc;
+
 	}
 
 }

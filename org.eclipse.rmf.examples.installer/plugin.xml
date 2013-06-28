@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.rmf.examples.RMF"
+            name="%_UI_RMFExampleCategory_name"
+            parentCategory="org.eclipse.ui.Examples">
+      </category>
+      <wizard
+            id="org.eclipse.rmf.examples.ExamplesWizard"
+            name="%_UI_RMFExamplesDocsWizard_name"
+            class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard"
+            category="org.eclipse.ui.Examples/org.eclipse.rmf.examples.RMF"
+            project="true"
+            icon="icons/full/ctool16/NewEMFExample.gif">
+         <description>%_UI_RMFExamplesDocsWizard_desc</description>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.emf.common.ui.examples">
+      <example
+            id="org.eclipse.rmf.examples.Examples"
+            wizardID="org.eclipse.rmf.examples.ExamplesWizard"
+            pageImage="icons/full/wizban/NewEMFExample.gif">
+         <projectDescriptor
+               name="org.eclipse.rmf.docs.requirements"
+               contentURI="examples/org.eclipse.rmf.docs.requirements/"
+               description="%_UI_RMFDocsRequirementsProject_desc"/>
+         <!--<projectDescriptor
+               contentURI="examples/org.eclipse.rmf.docs.tests/"
+               description="%_UI_RMFDocsTestsProject_desc"
+               name="org.eclipse.rmf.docs.tests">
+         </projectDescriptor>-->
+      </example>
+      
+      
+    </extension>
+</plugin>

@@ -17,8 +17,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,8 +24,7 @@ import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 import java.util.UUID;
 
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -64,6 +61,7 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
@@ -224,16 +222,9 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		ReqIFHeader header = reqif10Factory.createReqIFHeader();
 		root.setTheHeader(header);
 
-		// Setting the time gets more and more complicated...
-		try {
-			GregorianCalendar cal = new GregorianCalendar();
-			cal.setTime(new Date());
-			header.setCreationTime(DatatypeFactory.newInstance()
-					.newXMLGregorianCalendar(cal));
-		} catch (DatatypeConfigurationException e) {
-			throw new RuntimeException(e);
-		}
+		XMLGregorianCalendar reqIFLastChange = ReqIF10Util.getReqIFLastChange();
 
+		header.setCreationTime(reqIFLastChange);
 		header.setSourceToolId("ProR (http://pror.org)");
 		header.setIdentifier("rmf-" + UUID.randomUUID());
 		header.setReqIFVersion("1.0.1");
@@ -248,11 +239,13 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 				.createDatatypeDefinitionString();
 		ddString.setLongName("T_String32k");
 		ddString.setMaxLength(new BigInteger("32000"));
+		ddString.setLastChange(reqIFLastChange);
 		content.getDatatypes().add(ddString);
 
 		// Add a SpecObjectType
 		SpecObjectType specObjectType = reqif10Factory.createSpecObjectType();
 		specObjectType.setLongName("Requirement Type");
+		specObjectType.setLastChange(reqIFLastChange);
 		content.getSpecTypes().add(specObjectType);
 
 		// Add an AttributeDefinition
@@ -260,11 +253,13 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 				.createAttributeDefinitionString();
 		ad1.setType(ddString);
 		ad1.setLongName("Description");
+		ad1.setLastChange(reqIFLastChange);
 		specObjectType.getSpecAttributes().add(ad1);
 
 		// Add a SpecificationType
 		SpecificationType specificationType = reqif10Factory.createSpecificationType();
 		specificationType.setLongName("Specification Type");
+		specificationType.setLastChange(reqIFLastChange);
 		content.getSpecTypes().add(specificationType);
 
 		// Add an AttributeDefinition
@@ -272,12 +267,14 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 				.createAttributeDefinitionString();
 		ad2.setType(ddString);
 		ad2.setLongName("Description");
+		ad2.setLastChange(reqIFLastChange);
 		specificationType.getSpecAttributes().add(ad2);
 
 		// Add a Specification
 		Specification spec = reqif10Factory.createSpecification();
 		spec.setLongName("Specification Document");
 		spec.setType(specificationType);
+		spec.setLastChange(reqIFLastChange);
 		AttributeValueString value1 = reqif10Factory.createAttributeValueString();
 		value1.setTheValue("Requirements Document");
 		value1.setDefinition(ad2);
@@ -317,6 +314,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		// Create one Requirement
 		SpecObject specObject = reqif10Factory.createSpecObject();
 		specObject.setType(specObjectType);
+		specObject.setLastChange(reqIFLastChange);
 		content.getSpecObjects().add(specObject);
 		AttributeValueString value2 = reqif10Factory.createAttributeValueString();
 		value2.setTheValue("Start editing here.");
@@ -325,8 +323,9 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 
 		// Add the requirement to the Specification
 		SpecHierarchy specHierarchy = reqif10Factory.createSpecHierarchy();
+		specHierarchy.setLastChange(reqIFLastChange);
 		spec.getChildren().add(specHierarchy);
-		specHierarchy.setObject(specObject);	
+		specHierarchy.setObject(specObject);
 		return root;
 	}
 

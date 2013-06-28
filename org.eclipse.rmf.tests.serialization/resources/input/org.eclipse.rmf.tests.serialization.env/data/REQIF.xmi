@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<myreqif:REQIF
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:myreqif="http://www.eclipse.org/rmf/tests/serialization/env/myreqif.xsd"
+    xsi:schemaLocation="http://www.eclipse.org/rmf/tests/serialization/env/myreqif.xsd ../model/myreqif.ecore">
+  <cORECONTENT>
+    <rEQIFCONTENT/>
+  </cORECONTENT>
+  <tOOLEXTENSIONS>
+    <rEQIFTOOLEXTENSION/>
+  </tOOLEXTENSIONS>
+</myreqif:REQIF>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes:NODE xmlns:nodes="http://www.eclipse.org/rmf/serialization/model/nodes.ecore">
+  <nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI>
+    <nodes:NODE name="intermediateNode1">
+      <nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI>
+        <nodes:NODE name="leafNode11"/>
+      </nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI> 
+      <nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI> 
+        <nodes:NODE name="leafNode12"/>
+      </nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI>
+    </nodes:NODE>
+  </nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI>
+  <nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI>
+    <nodes:NODE name="intermediateNode2">
+      <nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI>
+        <nodes:NODE name="leafNode21"/>
+      </nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI> 
+      <nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI> 
+        <nodes:NODE name="leafNode22"/>
+      </nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI>
+    </nodes:NODE>
+  </nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI>
+</nodes:NODE>

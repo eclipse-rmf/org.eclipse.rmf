@@ -23,8 +23,8 @@ import org.eclipse.rmf.reqif10.SpecRelation;
  * 
  */
 public abstract class ProrRow {
-	final int level;
-	final int row;
+	private int level;
+	private int row;
 
 	/**
 	 * @ requires level >= 0 @ @ requires row >= 0 @
@@ -48,6 +48,14 @@ public abstract class ProrRow {
 	public int getRow() {
 		return row;
 	}
+	
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
+	public void setRow(int row) {
+		this.row = row;
+	}
 
 	/**
 	 * Factory method, element have to be an instance of SpecHierarchy or
@@ -62,7 +70,6 @@ public abstract class ProrRow {
 		else if (element instanceof SpecHierarchy)
 			return (new ProrRowSpecHierarchy((SpecHierarchy) element, row,
 					level));
-
 		else if (element == null)
 			throw new NullPointerException();
 		else
@@ -72,11 +79,20 @@ public abstract class ProrRow {
 	}
 
 	public static class ProrRowSpecHierarchy extends ProrRow {
+
 		SpecHierarchy element;
 
-		private ProrRowSpecHierarchy(SpecHierarchy element, int row, int level) {
+		boolean showSpecRelation;
+
+		private ProrRowSpecHierarchy(SpecHierarchy element, int row, int level,
+				boolean showSpecRelation) {
 			super(row, level);
 			this.element = element;
+			this.showSpecRelation = showSpecRelation;
+		}
+
+		private ProrRowSpecHierarchy(SpecHierarchy element, int row, int level) {
+			this(element, row, level, false);
 		}
 
 		public SpecHierarchy getSpecHierarchy() {
@@ -87,6 +103,15 @@ public abstract class ProrRow {
 		public SpecElementWithAttributes getSpecElement() {
 			return element.getObject();
 		}
+		
+		public boolean isShowSpecRelation() {
+			return showSpecRelation;
+		}
+
+		public void setShowSpecRelation(boolean showSpecRelation) {
+			this.showSpecRelation = showSpecRelation;
+		}
+
 	}
 
 	public static class ProrRowSpecRelation extends ProrRow {

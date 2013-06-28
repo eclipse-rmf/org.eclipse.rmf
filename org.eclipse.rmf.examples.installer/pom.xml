@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ <copyright>
+Copyright (c) 2012 itemis AG.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    Mark Broerkens - initial API and implementation
+ </copyright>
+
+-->
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.eclipse.rmf</groupId>
+		<artifactId>org.eclipse.rmf.releng</artifactId>
+		<version>0.7.1-SNAPSHOT</version>
+		<relativePath>../org.eclipse.rmf.releng/pom.xml</relativePath>
+	</parent>
+	<artifactId>org.eclipse.rmf.examples.installer</artifactId>
+	<version>0.7.1-SNAPSHOT</version>
+	<packaging>eclipse-plugin</packaging>
+	<groupId>org.eclipse.rmf.plugins</groupId>
+ 	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

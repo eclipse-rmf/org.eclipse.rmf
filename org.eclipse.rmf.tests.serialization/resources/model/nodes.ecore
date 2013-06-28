@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="nodes" nsURI="http://www.eclipse.org/rmf/serialization/model/nodes.ecore"
+    nsPrefix="nodes">
+  <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//AbstractNode">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="NODE"/>
+      <details key="wrapperName" value="NODES"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0000_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0000-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0000-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0001_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0001-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0001-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0010_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0010-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0010-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0011_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0011-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0011-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0100_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0100-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0100-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0101_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0101-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0101-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0110_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0110-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0110-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0111_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0111-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0111-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1000_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1000-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1000-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1001_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1001-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1001-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1010_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1010-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1010-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1011_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1011-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1011-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1100_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1100-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1100-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1101_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1101-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1101-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1110_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1110-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1110-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1111_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1111-SINGLE"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1111-SINGLES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureEmptyAnnotation_Single"
+        eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureNoAnnotation_Single"
+        eType="#//Node" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0000_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0000-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0000-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0001_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0001-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0001-MULTIS"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0010_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0010-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0010-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0011_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0011-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0011-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0100_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0100-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0100-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0101_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0101-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0101-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0110_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0110-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0110-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0111_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-0111-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0111-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1000_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1000-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1000-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1001_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1001-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1001-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1010_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1010-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1010-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1011_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1011-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1011-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1100_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1100-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1100-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1101_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1101-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1101-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1110_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1110-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1110-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1111_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-SERIALIZATION-1111-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1111-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureEmptyAnnotation_Multi"
+        upperBound="-1" eType="#//Node" containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureNoAnnotation_Multi"
+        upperBound="-1" eType="#//Node" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithTypeEObjectAndSerialization0001_Multi"
+        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+        <details key="name" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithTypeEObjectAndSerialization0010_Multi"
+        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithTypeEObjectAndSerialization0100_Multi"
+        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="false"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithTypeEObjectAndSerialization1000_Multi"
+        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTIS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractNode" abstract="true"/>
+</ecore:EPackage>

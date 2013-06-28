@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.xml.XMLConstants;
+
 import org.apache.xerces.impl.Constants;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -29,6 +31,9 @@ import org.eclipse.rmf.internal.serialization.ReqIFXMLLoadImpl;
 import org.eclipse.rmf.internal.serialization.ReqIFXMLSaveImpl;
 
 public class ReqIFResourceImpl extends XMLResourceImpl {
+	// TODO: let implementation get the value from preferences and set it to false by default
+	// This is a temporal HACK
+	public boolean enableSchemaValidation = false;
 
 	public ReqIFResourceImpl() {
 		super();
@@ -114,6 +119,14 @@ public class ReqIFResourceImpl extends XMLResourceImpl {
 		// original prefixed names
 		parserFeatures.put(Constants.SAX_FEATURE_PREFIX + Constants.NAMESPACES_FEATURE, true);
 		parserFeatures.put(Constants.SAX_FEATURE_PREFIX + Constants.NAMESPACE_PREFIXES_FEATURE, false);
+
+		if (enableSchemaValidation) {
+			parserFeatures.put(Constants.SAX_FEATURE_PREFIX + Constants.VALIDATION_FEATURE, true);
+			parserFeatures.put(Constants.XERCES_FEATURE_PREFIX + Constants.SCHEMA_VALIDATION_FEATURE, true);
+			parserProperties.put(Constants.JAXP_PROPERTY_PREFIX + Constants.SCHEMA_LANGUAGE, XMLConstants.W3C_XML_SCHEMA_NS_URI);
+			parserProperties.put(Constants.XERCES_PROPERTY_PREFIX + Constants.SCHEMA_LOCATION,
+					"http://www.omg.org/spec/ReqIF/20110401/reqif.xsd reqif.xsd");
+		}
 
 		loadOptions.put(XMLResource.OPTION_PARSER_FEATURES, parserFeatures);
 		loadOptions.put(XMLResource.OPTION_PARSER_PROPERTIES, parserProperties);
