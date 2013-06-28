@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.rmf.reqif10.pror.feature"
       label="RMF ProR Feature (Incubation)"
-      version="0.7.0.qualifier"
+      version="0.7.1.qualifier"
       provider-name="Eclipse Modeling Project"
       plugin="org.eclipse.rmf.reqif10.pror">
 
@@ -30,7 +30,7 @@ Contributors:
    </url>
 
    <requires>
-      <import feature="org.eclipse.rmf.reqif10.feature" version="0.7.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.rmf.reqif10.feature" version="0.7.1" match="greaterOrEqual"/>
    </requires>
 
    <plugin
