@@ -10,36 +10,61 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.presentation.ui;
 
-import org.eclipse.jface.viewers.ViewerCell;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 
 public class LinewrapCellRenderer implements IProrCellRenderer {
 
+	private Map<AttributeValue, LineWrapObject> cache = new HashMap<AttributeValue, LineWrapObject>();
+	
 	public int doDrawCellContent(GC gc, Rectangle rect, Object value) {
-		String text = getText(value, gc, rect.width);
+		String text = "";
+		int textExtent = 15;
+		LineWrapObject lineWrapObject = getLineWrapObject(value, gc, rect.width);
+		if (lineWrapObject != null) {
+			text = lineWrapObject.text;
+			textExtent = lineWrapObject.textExtent.y;
+		}
 		gc.drawText(text, rect.x + 1, rect.y + 1);
-		return gc.textExtent(text).y + 2;
+		return textExtent + 2;
 	}
 
-	/**
-	 * This method performs the line-breaking and can be used if new formatting
-	 * is provided (see {@link #formatCell(ViewerCell)}).
-	 */
-	protected String getText(Object object, GC gc, int width) {
-		if (!(object instanceof AttributeValueString)) {
-			return "";
+	protected LineWrapObject getLineWrapObject(Object object, GC gc, int width) {
+
+		LineWrapObject lo = null;
+
+		if (object instanceof AttributeValueString) {
+			AttributeValueString av = (AttributeValueString) object;
+			String theValue = av.getTheValue();
+			lo = cache.get(av);
+			if (lo == null) {
+				String text = getLineWrapText(theValue, gc, width);
+				lo = new LineWrapObject(text, width, gc.textExtent(text));
+				cache.put(av, lo);
+			} else if (width != lo.width) {
+				String text = getLineWrapText(theValue, gc, width);
+				lo.textExtent = gc.textExtent(text);
+				lo.text = text;
+				lo.width = width;
+			}
 		}
 
-		AttributeValueString av = (AttributeValueString) object;
-		String text = av.getTheValue();
-		if (text == null) {
-			return "";
-		}
+		return lo;
 
+	}
+	
+	private String getLineWrapText(String text, GC gc, int width) {
+
+		if(text == null)
+			return "";
+		
 		// Insert line breaks into the text
 		width = width - 2;
 		if (width <= 0)
@@ -90,8 +115,9 @@ public class LinewrapCellRenderer implements IProrCellRenderer {
 			sb.deleteCharAt(sb.length() - 1);
 
 		return sb.toString();
-	}
 
+	}
+	
 	public String doDrawHtmlContent(AttributeValue value) {
 		AttributeValueString av = (AttributeValueString) value;
 		String text = av.getTheValue();
@@ -102,4 +128,18 @@ public class LinewrapCellRenderer implements IProrCellRenderer {
 		return text;
 	}
 
+	public class LineWrapObject {
+
+		public String text;
+		public int width;
+		public Point textExtent;
+
+		public LineWrapObject(String text, int width, Point textExtent) {
+			this.text = text;
+			this.width = width;
+			this.textExtent = textExtent;
+		}
+
+	}
+	
 }
