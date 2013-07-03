@@ -36,6 +36,17 @@ public class LinewrapCellRenderer implements IProrCellRenderer {
 		return textExtent + 2;
 	}
 
+	/**
+	 * This method performs the line-breaking and can be used if new formatting
+	 * is provided (see {@link #formatCell(ViewerCell)}).
+	 */
+	protected String getText(Object object, GC gc, int width) {
+		LineWrapObject lineWrapObject = getLineWrapObject(object, gc, width);
+		if (lineWrapObject != null)
+			return lineWrapObject.text;
+		return "";
+	}
+
 	protected LineWrapObject getLineWrapObject(Object object, GC gc, int width) {
 
 		LineWrapObject lo = null;
