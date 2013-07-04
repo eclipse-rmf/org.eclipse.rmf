@@ -57,13 +57,16 @@ public class LinewrapCellRenderer implements IProrCellRenderer {
 			lo = cache.get(av);
 			if (lo == null) {
 				String text = getLineWrapText(theValue, gc, width);
-				lo = new LineWrapObject(text, width, gc.textExtent(text));
+				lo = new LineWrapObject(theValue, text, width,
+						gc.textExtent(text));
 				cache.put(av, lo);
-			} else if (width != lo.width) {
+			} else if (width != lo.width
+					|| (theValue.compareTo(lo.origText) != 0)) {
 				String text = getLineWrapText(theValue, gc, width);
 				lo.textExtent = gc.textExtent(text);
 				lo.text = text;
 				lo.width = width;
+				lo.origText = theValue;
 			}
 		}
 
@@ -141,11 +144,14 @@ public class LinewrapCellRenderer implements IProrCellRenderer {
 
 	public class LineWrapObject {
 
+		public String origText;
 		public String text;
 		public int width;
 		public Point textExtent;
 
-		public LineWrapObject(String text, int width, Point textExtent) {
+		public LineWrapObject(String origText, String text, int width,
+				Point textExtent) {
+			this.origText = origText;
 			this.text = text;
 			this.width = width;
 			this.textExtent = textExtent;
