@@ -54,19 +54,21 @@ public class LinewrapCellRenderer implements IProrCellRenderer {
 		if (object instanceof AttributeValueString) {
 			AttributeValueString av = (AttributeValueString) object;
 			String theValue = av.getTheValue();
-			lo = cache.get(av);
-			if (lo == null) {
-				String text = getLineWrapText(theValue, gc, width);
-				lo = new LineWrapObject(theValue, text, width,
-						gc.textExtent(text));
-				cache.put(av, lo);
-			} else if (width != lo.width
-					|| (theValue.compareTo(lo.origText) != 0)) {
-				String text = getLineWrapText(theValue, gc, width);
-				lo.textExtent = gc.textExtent(text);
-				lo.text = text;
-				lo.width = width;
-				lo.origText = theValue;
+			if (theValue != null) {
+				lo = cache.get(av);
+				if (lo == null) {
+					String text = getLineWrapText(theValue, gc, width);
+					lo = new LineWrapObject(theValue, text, width,
+							gc.textExtent(text));
+					cache.put(av, lo);
+				} else if (width != lo.width
+						|| (theValue.compareTo(lo.origText) != 0)) {
+					String text = getLineWrapText(theValue, gc, width);
+					lo.textExtent = gc.textExtent(text);
+					lo.text = text;
+					lo.width = width;
+					lo.origText = theValue;
+				}
 			}
 		}
 
