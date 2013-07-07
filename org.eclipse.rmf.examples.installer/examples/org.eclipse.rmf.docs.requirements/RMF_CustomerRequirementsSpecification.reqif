@@ -972,7 +972,7 @@
           <configuration:ProrSpecViewConfiguration configuration:specification="rmf-4bf26d3a-4abf-40d7-ac4d-5cbae08ebd02">
             <configuration:columns>
               <configuration:Column configuration:label="ID" configuration:width="81"/>
-              <configuration:Column configuration:label="Description" configuration:width="446"/>
+              <configuration:Column configuration:label="Description" configuration:width="490"/>
               <configuration:Column configuration:label="Status" configuration:width="110"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
