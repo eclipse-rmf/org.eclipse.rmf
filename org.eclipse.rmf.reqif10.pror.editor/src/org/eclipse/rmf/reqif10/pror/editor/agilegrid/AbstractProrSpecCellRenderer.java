@@ -11,15 +11,17 @@
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
 import org.agilemore.agilegrid.AgileGrid;
+import org.agilemore.agilegrid.SWTResourceManager;
 import org.agilemore.agilegrid.SWTX;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.rmf.reqif10.SpecRelation;
-import org.eclipse.rmf.reqif10.pror.editor.util.ProrEditorUtil;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Rectangle;
 
 public abstract class AbstractProrSpecCellRenderer extends AbstractProrCellRenderer {
+
+	public static Color COLOR_LINK = SWTResourceManager.getColor(240, 240, 240);
 
 	public AbstractProrSpecCellRenderer(AgileGrid agileGrid,
 			AdapterFactory adapterFactory) {
@@ -59,7 +61,7 @@ public abstract class AbstractProrSpecCellRenderer extends AbstractProrCellRende
 			ProrRow prorRowNext = contentProvider.getProrRow(nextRow);
 			if (prorRowNext != null
 					&& prorRowNext.getSpecElement() instanceof SpecRelation)
-				hBorderColor = ProrEditorUtil.COLOR_LINK;
+				hBorderColor = COLOR_LINK;
 		}
 		
 		drawDefaultCellLine(gc, rect, vBorderColor, hBorderColor);

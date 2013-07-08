@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.agilemore.agilegrid.SWTResourceManager;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -38,11 +37,8 @@ import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEdit
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
-import org.eclipse.swt.graphics.Color;
 
 public class ProrEditorUtil {
-
-	public static Color COLOR_LINK = SWTResourceManager.getColor(240, 240, 240);
 
 	private static String createHtmlHeader(Specification spec,
 			AdapterFactory adapterFactory) {
