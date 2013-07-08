@@ -20,7 +20,6 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.Cell;
 import org.agilemore.agilegrid.IContentProvider;
 import org.agilemore.agilegrid.SWTResourceManager;
-import org.agilemore.agilegrid.SWTX;
 import org.agilemore.agilegrid.renderers.TextCellRenderer;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
@@ -34,7 +33,6 @@ import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
@@ -157,33 +155,6 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		if (agileGrid.isCellSelected(row, col)) {
 			background = SWTResourceManager.getColor(223, 227, 237);
 		}
-	}
-
-	@Override
-	protected void drawGridLines(GC gc, Rectangle rect, int row, int col) {
-		Color vBorderColor = COLOR_LINE_LIGHTGRAY;
-		Color hBorderColor = COLOR_LINE_LIGHTGRAY;
-
-		if (agileGrid instanceof ProrAgileGrid) {
-			ProrAgileGrid grid = (ProrAgileGrid) agileGrid;
-			if (grid.dndHoverCell != null
-					&& row == grid.dndHoverCell.row
-					&& grid.dndHoverDropMode == ProrAgileGrid.DND_DROP_AS_SIBLING) {
-				hBorderColor = COLOR_LINE_DARKGRAY;
-			}
-		}
-
-		if ((style & INDICATION_SELECTION_ROW) != 0) {
-			vBorderColor = COLOR_BGROWSELECTION;
-			hBorderColor = COLOR_BGROWSELECTION;
-		}
-
-		if ((agileGrid.getStyle() & SWTX.NOT_SHOW_GRID_LINE) == SWTX.NOT_SHOW_GRID_LINE) {
-			vBorderColor = COLOR_BACKGROUND;
-			hBorderColor = COLOR_BACKGROUND;
-		}
-
-		drawDefaultCellLine(gc, rect, vBorderColor, hBorderColor);
 	}
 
 	@Override

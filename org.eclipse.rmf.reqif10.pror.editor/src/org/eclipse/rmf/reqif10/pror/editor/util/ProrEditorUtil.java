@@ -37,8 +37,13 @@ import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEdit
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Display;
 
 public class ProrEditorUtil {
+
+	public static Color COLOR_LINK = new Color(Display.getDefault(), 240, 240,
+			240);
 
 	private static String createHtmlHeader(Specification spec,
 			AdapterFactory adapterFactory) {
@@ -189,5 +194,5 @@ public class ProrEditorUtil {
 			}
 		};
 	}
-
+	
 }
