@@ -34,8 +34,8 @@ public class LoadTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureSerialization1001_Single() {
-		String inputFileName = INPUT_PATH + "FeatureSerialization1001_Single.xml";
+	public void testFeatureContainmentReferenceSerialization1001_Single() {
+		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization1001_Single.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new RMFResourceFactoryImpl(), null);
 			validateModelSingle(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1001_Single());
@@ -45,8 +45,8 @@ public class LoadTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureSerialization0100_Multi() {
-		String inputFileName = INPUT_PATH + "FeatureSerialization0100_Multi.xml";
+	public void testFeatureContainmentRTeferenceSerialization0100_Multi() {
+		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization0100_Multi.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new RMFResourceFactoryImpl(), null);
 			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
@@ -56,8 +56,8 @@ public class LoadTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureSerialization0101_Multi() {
-		String inputFileName = INPUT_PATH + "FeatureSerialization0101_Multi.xml";
+	public void testFeatureContainmentReferenceSerialization0101_Multi() {
+		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization0101_Multi.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new RMFResourceFactoryImpl(), null);
 			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0101_Multi());
@@ -67,8 +67,8 @@ public class LoadTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureSerialization1001_Multi() {
-		String inputFileName = INPUT_PATH + "FeatureSerialization1001_Multi.xml";
+	public void testFeatureContainmentReferenceSerialization1001_Multi() {
+		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization1001_Multi.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new RMFResourceFactoryImpl(), null);
 			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1001_Multi());

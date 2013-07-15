@@ -10,6 +10,17 @@
  */
 package org.eclipse.rmf.tests.serialization.save;
 
+import java.io.StringReader;
+import java.util.Iterator;
+
+import javax.xml.XMLConstants;
+import javax.xml.namespace.NamespaceContext;
+import javax.xml.namespace.QName;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
 import org.eclipse.core.runtime.Plugin;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -22,18 +33,53 @@ import org.eclipse.rmf.tests.serialization.model.nodes.Node;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesFactory;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
 import org.eclipse.sphinx.testutils.AbstractTestCase;
+import org.junit.Before;
 import org.junit.Test;
+import org.xml.sax.InputSource;
 
 // caution: Sphinx Abstract Test Case is JUnit 3.8
 @SuppressWarnings("nls")
 public class RMFSaveTests extends AbstractTestCase {
 	final String BASEDIR = "org.eclipse.rmf.tests.serialization.save/";
+	XPath xpath;
+
+	public class MyNamespaceContext implements NamespaceContext {
+		public String getNamespaceURI(String prefix) {
+			if (prefix.equals("nodes")) {
+				return "http://www.eclipse.org/rmf/serialization/model/nodes.ecore";
+			} else {
+				return XMLConstants.NULL_NS_URI;
+			}
+		}
+
+		public String getPrefix(String namespace) {
+			if (namespace.equals("http://www.eclipse.org/rmf/serialization/model/nodes.ecore")) {
+				return "nodes";
+			} else {
+				return null;
+			}
+		}
+
+		public Iterator<String> getPrefixes(String namespace) {
+			return null;
+		}
+	}
+
+	@Override
+	@Before
+	public void setUp() throws Exception {
+		super.setUp();
+		XPathFactory factory = XPathFactory.newInstance();
+		xpath = factory.newXPath();
+		xpath.setNamespaceContext(new MyNamespaceContext());
+	}
 
 	@Test
-	public void testFeatureSerialization0100() {
-		String fileName = BASEDIR + "FeatureSerialization0100.xml";
+	public void testFeatureContainmentReferenceSerialization0000() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0000.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0000_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
 			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
 		} catch (Exception ex) {
@@ -43,16 +89,31 @@ public class RMFSaveTests extends AbstractTestCase {
 
 		try {
 			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+
+			assertEquals("leafNode11",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode12",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode21",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode22",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name", root, XPathConstants.STRING));
+
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
 	}
 
 	@Test
-	public void testFeatureSerialization0101() {
-		String fileName = BASEDIR + "FeatureSerialization0101.xml";
+	public void testFeatureContainmentReferenceSerialization0001() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0001.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0101_Multi());
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0001_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
 			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
 		} catch (Exception ex) {
@@ -62,16 +123,33 @@ public class RMFSaveTests extends AbstractTestCase {
 
 		try {
 			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+			assertEquals("intermediateNode1", xpath.evaluate("/nodes:NODE/nodes:NODE[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode11",
+					xpath.evaluate("/nodes:NODE/nodes:NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode12",
+					xpath.evaluate("/nodes:NODE/nodes:NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root, XPathConstants.STRING));
+
+			assertEquals("intermediateNode2", xpath.evaluate("/nodes:NODE/nodes:NODE[2]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode21",
+					xpath.evaluate("/nodes:NODE/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode22",
+					xpath.evaluate("/nodes:NODE/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root, XPathConstants.STRING));
+
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
 	}
 
 	@Test
-	public void testFeatureSerialization1001() {
-		String fileName = BASEDIR + "FeatureSerialization1001.xml";
+	public void testFeatureContainmentReferenceSerialization0010() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0010.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1001_Multi());
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0010_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
 			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
 		} catch (Exception ex) {
@@ -81,14 +159,580 @@ public class RMFSaveTests extends AbstractTestCase {
 
 		try {
 			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+			assertEquals("leafNode11",
+					xpath.evaluate("/nodes:NODE/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode12",
+					xpath.evaluate("/nodes:NODE/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode21",
+					xpath.evaluate("/nodes:NODE/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode22",
+					xpath.evaluate("/nodes:NODE/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name", root, XPathConstants.STRING));
+
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
 	}
 
 	@Test
-	public void testFeatureWithTypeEObjectAndSerialization0100_Multi() {
-		String fileName = BASEDIR + "FeatureWithTypeEObjectAndSerialization0100_Multi.xml";
+	public void testFeatureContainmentReferenceSerialization0011() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0011.xml";
+
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0011_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+		try {
+			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+			assertEquals("intermediateNode1", xpath.evaluate("/nodes:NODE/nodes:NODES[1]/nodes:NODE[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode11", xpath.evaluate(
+					"/nodes:NODE/nodes:NODES[1]/nodes:NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode12", xpath.evaluate(
+					"/nodes:NODE/nodes:NODES[1]/nodes:NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root, XPathConstants.STRING));
+
+			assertEquals("intermediateNode2", xpath.evaluate("/nodes:NODE/nodes:NODES[1]/nodes:NODE[2]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode21", xpath.evaluate(
+					"/nodes:NODE/nodes:NODES[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode22", xpath.evaluate(
+					"/nodes:NODE/nodes:NODES[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testFeatureContainmentReferenceSerialization0100() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0100.xml";
+
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+		try {
+			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+
+			assertEquals("intermediateNode1",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode11", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root,
+					XPathConstants.STRING));
+			assertEquals("leafNode12", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root,
+					XPathConstants.STRING));
+
+			assertEquals("intermediateNode2",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode21", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root,
+					XPathConstants.STRING));
+			assertEquals("leafNode22", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root,
+					XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testFeatureContainmentReferenceSerialization0101() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0101.xml";
+
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0101_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+		try {
+			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+			assertEquals("intermediateNode1",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI[1]/nodes:NODE/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode11", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI[1]/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+					root, XPathConstants.STRING));
+			assertEquals("leafNode12", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI[1]/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+					root, XPathConstants.STRING));
+
+			assertEquals("intermediateNode2",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI[2]/nodes:NODE/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode21", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI[2]/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+					root, XPathConstants.STRING));
+			assertEquals("leafNode22", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI[2]/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+					root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testFeatureContainmentReferenceSerialization0110() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0110.xml";
+
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0110_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+		try {
+			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+			assertEquals("leafNode11", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0110-MULTI[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+					root, XPathConstants.STRING));
+			assertEquals("leafNode12", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0110-MULTI[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+					root, XPathConstants.STRING));
+			assertEquals("leafNode21", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0110-MULTI[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/@name",
+					root, XPathConstants.STRING));
+			assertEquals("leafNode22", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0110-MULTI[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name",
+					root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testFeatureContainmentReferenceSerialization0111() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0111.xml";
+
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0111_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+		try {
+			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+			assertEquals("intermediateNode1", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0111-MULTI[1]/nodes:NODES[1]/nodes:NODE[1]/@name", root, XPathConstants.STRING));
+
+			assertEquals(
+					"leafNode11",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0111-MULTI[1]/nodes:NODES[1]/nodes:NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode12",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0111-MULTI[1]/nodes:NODES[1]/nodes:NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+			assertEquals("intermediateNode2", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0111-MULTI[1]/nodes:NODES[1]/nodes:NODE[2]/@name", root, XPathConstants.STRING));
+
+			assertEquals(
+					"leafNode21",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0111-MULTI[1]/nodes:NODES[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode22",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0111-MULTI[1]/nodes:NODES[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testFeatureContainmentReferenceSerialization1001() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1001.xml";
+
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1001_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+		try {
+			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+			assertEquals("intermediateNode1",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1001-MULTIS[1]/nodes:NODE[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode11", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1001-MULTIS[1]/nodes:NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+					root, XPathConstants.STRING));
+			assertEquals("leafNode12", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1001-MULTIS[1]/nodes:NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+					root, XPathConstants.STRING));
+
+			assertEquals("intermediateNode2",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1001-MULTIS[1]/nodes:NODE[2]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode21", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1001-MULTIS[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+					root, XPathConstants.STRING));
+			assertEquals("leafNode22", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1001-MULTIS[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+					root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testFeatureContainmentReferenceSerialization1010() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1010.xml";
+
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1010_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+		try {
+			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+			assertEquals(
+					"leafNode11",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1010-MULTIS[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode12",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1010-MULTIS[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode21",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1010-MULTIS[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode22",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1010-MULTIS[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testFeatureContainmentReferenceSerialization1011() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1011.xml";
+
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1011_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+		try {
+			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+			assertEquals("intermediateNode1", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1011-MULTIS[1]/nodes:NODES[1]/nodes:NODE[1]/@name", root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode11",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1011-MULTIS[1]/nodes:NODES[1]/nodes:NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode12",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1011-MULTIS[1]/nodes:NODES[1]/nodes:NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals("intermediateNode2", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1011-MULTIS[1]/nodes:NODES[1]/nodes:NODE[2]/@name", root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode21",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1011-MULTIS[1]/nodes:NODES[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode22",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1011-MULTIS[1]/nodes:NODES[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testFeatureContainmentReferenceSerialization1100() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1100.xml";
+
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1100_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+		try {
+			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+
+			assertEquals("intermediateNode1", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[1]/@name", root,
+					XPathConstants.STRING));
+			assertEquals(
+					"leafNode11",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode12",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals("intermediateNode2", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[2]/@name", root,
+					XPathConstants.STRING));
+			assertEquals(
+					"leafNode21",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode22",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testFeatureContainmentReferenceSerialization1101() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1101.xml";
+
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1101_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+		try {
+			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+			assertEquals("intermediateNode1", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTI[1]/nodes:NODE/@name",
+					root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode11",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTI[1]/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode12",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTI[1]/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals("intermediateNode2", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTI[2]/nodes:NODE/@name",
+					root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode21",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTI[2]/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode22",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTI[2]/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testFeatureContainmentReferenceSerialization1110() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1110.xml";
+
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1110_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+		try {
+			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+			assertEquals(
+					"leafNode11",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTI[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode12",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTI[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode21",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTI[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode22",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTI[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testFeatureContainmentReferenceSerialization1111() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1111.xml";
+
+		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1111_Multi(),
+				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+		try {
+			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+			assertEquals(
+					"intermediateNode1",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTI[1]/nodes:NODES[1]/nodes:NODE[1]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals(
+					"leafNode11",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTI[1]/nodes:NODES[1]/nodes:NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode12",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTI[1]/nodes:NODES[1]/nodes:NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"intermediateNode2",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTI[1]/nodes:NODES[1]/nodes:NODE[2]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals(
+					"leafNode21",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTI[1]/nodes:NODES[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode22",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTI[1]/nodes:NODES[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testFeatureContainmentReferenceWithTypeEObjectAndSerialization0100_Multi() {
+		String fileName = BASEDIR + "FeatureContainmentReferenceWithTypeEObjectAndSerialization0100_Multi.xml";
 
 		Node rootNode = createNodeModelWithForeignSubmodel(NodesPackage.eINSTANCE.getNode_FeatureWithTypeEObjectAndSerialization0100_Multi());
 		try {
@@ -100,15 +744,34 @@ public class RMFSaveTests extends AbstractTestCase {
 
 		try {
 			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+
+			assertEquals("EPackage1",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI[1]/@name", root, XPathConstants.STRING));
+			assertEquals("EClass11", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI[1]/eClassifiers[1]/@name", root, XPathConstants.STRING));
+			assertEquals("EClass12", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI[1]/eClassifiers[2]/@name", root, XPathConstants.STRING));
+
+			assertEquals("EPackage2",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI[2]/@name", root, XPathConstants.STRING));
+			assertEquals("EClass21", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI[2]/eClassifiers[1]/@name", root, XPathConstants.STRING));
+			assertEquals("EClass22", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI[2]/eClassifiers[2]/@name", root, XPathConstants.STRING));
+
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	protected Node createNodeModel(EStructuralFeature feature) {
-		assert null != feature;
-		assert feature.isMany();
+	protected Node createNodeModel(EStructuralFeature topLevelfeature, EStructuralFeature subfeature) {
+		assert null != subfeature;
+		assert subfeature.isMany();
 		Node rootNode = NodesFactory.eINSTANCE.createNode();
 
 		Node intermediateNode1 = NodesFactory.eINSTANCE.createNode();
@@ -129,15 +792,19 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node leafNode22 = NodesFactory.eINSTANCE.createNode();
 		leafNode22.setName("leafNode22");
 
-		((EList<Object>) intermediateNode1.eGet(feature)).add(leafNode11);
-		((EList<Object>) intermediateNode1.eGet(feature)).add(leafNode12);
-		((EList<Object>) intermediateNode2.eGet(feature)).add(leafNode21);
-		((EList<Object>) intermediateNode2.eGet(feature)).add(leafNode22);
+		((EList<Object>) intermediateNode1.eGet(subfeature)).add(leafNode11);
+		((EList<Object>) intermediateNode1.eGet(subfeature)).add(leafNode12);
+		((EList<Object>) intermediateNode2.eGet(subfeature)).add(leafNode21);
+		((EList<Object>) intermediateNode2.eGet(subfeature)).add(leafNode22);
 
-		((EList<Object>) rootNode.eGet(feature)).add(intermediateNode1);
-		((EList<Object>) rootNode.eGet(feature)).add(intermediateNode2);
+		((EList<Object>) rootNode.eGet(topLevelfeature)).add(intermediateNode1);
+		((EList<Object>) rootNode.eGet(topLevelfeature)).add(intermediateNode2);
 
 		return rootNode;
+	}
+
+	protected Node createNodeModel(EStructuralFeature feature) {
+		return createNodeModel(feature, feature);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -178,6 +845,12 @@ public class RMFSaveTests extends AbstractTestCase {
 	@Override
 	protected Plugin getTestPlugin() {
 		return new Activator.Implementation();
+	}
+
+	protected void validateOutput(String xpathExpression, String output, String expectedResult, QName resultType) throws XPathExpressionException {
+		Object result = xpath.evaluate(xpathExpression, new InputSource(new StringReader(output)), resultType);
+		assertEquals(expectedResult, result);
+
 	}
 
 }
