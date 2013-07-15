@@ -473,6 +473,395 @@ public interface NodesPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.SubNodeImpl <em>Sub Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.impl.SubNodeImpl
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.impl.NodesPackageImpl#getSubNode()
+	 * @generated
+	 */
+	int SUB_NODE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0000 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0001 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0010 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0011 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0100 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0101 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0110 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0111 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1000 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1001 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1010 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1011 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1100 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1101 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1110 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1111 Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature Empty Annotation Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_EMPTY_ANNOTATION_SINGLE = NODE__FEATURE_EMPTY_ANNOTATION_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature No Annotation Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_NO_ANNOTATION_SINGLE = NODE__FEATURE_NO_ANNOTATION_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0000 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0000_MULTI = NODE__FEATURE_WITH_SERIALIZATION0000_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0001 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0001_MULTI = NODE__FEATURE_WITH_SERIALIZATION0001_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0010 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0010_MULTI = NODE__FEATURE_WITH_SERIALIZATION0010_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0011 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0011_MULTI = NODE__FEATURE_WITH_SERIALIZATION0011_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0100 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0100_MULTI = NODE__FEATURE_WITH_SERIALIZATION0100_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0101 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0101_MULTI = NODE__FEATURE_WITH_SERIALIZATION0101_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0110 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0110_MULTI = NODE__FEATURE_WITH_SERIALIZATION0110_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization0111 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION0111_MULTI = NODE__FEATURE_WITH_SERIALIZATION0111_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1000 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1000_MULTI = NODE__FEATURE_WITH_SERIALIZATION1000_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1001 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1001_MULTI = NODE__FEATURE_WITH_SERIALIZATION1001_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1010 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1010_MULTI = NODE__FEATURE_WITH_SERIALIZATION1010_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1011 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1011_MULTI = NODE__FEATURE_WITH_SERIALIZATION1011_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1100 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1100_MULTI = NODE__FEATURE_WITH_SERIALIZATION1100_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1101 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1101_MULTI = NODE__FEATURE_WITH_SERIALIZATION1101_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1110 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1110_MULTI = NODE__FEATURE_WITH_SERIALIZATION1110_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Serialization1111 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_SERIALIZATION1111_MULTI = NODE__FEATURE_WITH_SERIALIZATION1111_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature Empty Annotation Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_EMPTY_ANNOTATION_MULTI = NODE__FEATURE_EMPTY_ANNOTATION_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature No Annotation Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_NO_ANNOTATION_MULTI = NODE__FEATURE_NO_ANNOTATION_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__NAME = NODE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Type EObject And Serialization0001 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI = NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Type EObject And Serialization0010 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI = NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Type EObject And Serialization0100 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI = NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI;
+
+	/**
+	 * The feature id for the '<em><b>Feature With Type EObject And Serialization1000 Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI = NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI;
+
+	/**
+	 * The number of structural features of the '<em>Sub Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -944,6 +1333,16 @@ public interface NodesPackage extends EPackage {
 	EClass getAbstractNode();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.rmf.tests.serialization.model.nodes.SubNode <em>Sub Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sub Node</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.SubNode
+	 * @generated
+	 */
+	EClass getSubNode();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1312,6 +1711,16 @@ public interface NodesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ABSTRACT_NODE = eINSTANCE.getAbstractNode();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.SubNodeImpl <em>Sub Node</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.rmf.tests.serialization.model.nodes.impl.SubNodeImpl
+		 * @see org.eclipse.rmf.tests.serialization.model.nodes.impl.NodesPackageImpl#getSubNode()
+		 * @generated
+		 */
+		EClass SUB_NODE = eINSTANCE.getSubNode();
 
 	}
 

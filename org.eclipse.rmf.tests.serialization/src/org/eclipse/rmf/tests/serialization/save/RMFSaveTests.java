@@ -47,6 +47,8 @@ public class RMFSaveTests extends AbstractTestCase {
 		public String getNamespaceURI(String prefix) {
 			if (prefix.equals("nodes")) {
 				return "http://www.eclipse.org/rmf/serialization/model/nodes.ecore";
+			} else if (prefix.equals("xsi")) {
+				return "http://www.w3.org/2001/XMLSchema-instance";
 			} else {
 				return XMLConstants.NULL_NS_URI;
 			}
@@ -55,6 +57,8 @@ public class RMFSaveTests extends AbstractTestCase {
 		public String getPrefix(String namespace) {
 			if (namespace.equals("http://www.eclipse.org/rmf/serialization/model/nodes.ecore")) {
 				return "nodes";
+			} else if (namespace.equals("http://www.w3.org/2001/XMLSchema-instance")) {
+				return "xsi";
 			} else {
 				return null;
 			}
@@ -102,6 +106,14 @@ public class RMFSaveTests extends AbstractTestCase {
 					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/@name", root, XPathConstants.STRING));
 			assertEquals("leafNode22",
 					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode31",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[5]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode32",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[6]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode41",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[7]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode42",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[8]/@name", root, XPathConstants.STRING));
 
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
@@ -139,6 +151,18 @@ public class RMFSaveTests extends AbstractTestCase {
 			assertEquals("leafNode22",
 					xpath.evaluate("/nodes:NODE/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root, XPathConstants.STRING));
 
+			assertEquals("intermediateSubNode3", xpath.evaluate("/nodes:NODE/nodes:SUB-NODE[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode31",
+					xpath.evaluate("/nodes:NODE/nodes:SUB-NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode32",
+					xpath.evaluate("/nodes:NODE/nodes:SUB-NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root, XPathConstants.STRING));
+
+			assertEquals("intermediateSubNode4", xpath.evaluate("/nodes:NODE/nodes:SUB-NODE[2]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode41",
+					xpath.evaluate("/nodes:NODE/nodes:SUB-NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode42",
+					xpath.evaluate("/nodes:NODE/nodes:SUB-NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root, XPathConstants.STRING));
+
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -171,6 +195,14 @@ public class RMFSaveTests extends AbstractTestCase {
 					xpath.evaluate("/nodes:NODE/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/@name", root, XPathConstants.STRING));
 			assertEquals("leafNode22",
 					xpath.evaluate("/nodes:NODE/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode31", xpath.evaluate("/nodes:NODE/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root,
+					XPathConstants.STRING));
+			assertEquals("leafNode32", xpath.evaluate("/nodes:NODE/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root,
+					XPathConstants.STRING));
+			assertEquals("leafNode41", xpath.evaluate("/nodes:NODE/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/@name", root,
+					XPathConstants.STRING));
+			assertEquals("leafNode42", xpath.evaluate("/nodes:NODE/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name", root,
+					XPathConstants.STRING));
 
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
@@ -207,6 +239,24 @@ public class RMFSaveTests extends AbstractTestCase {
 					"/nodes:NODE/nodes:NODES[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root, XPathConstants.STRING));
 			assertEquals("leafNode22", xpath.evaluate(
 					"/nodes:NODE/nodes:NODES[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root, XPathConstants.STRING));
+
+			assertEquals("intermediateSubNode3",
+					xpath.evaluate("/nodes:NODE/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode31", xpath.evaluate(
+					"/nodes:NODE/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root,
+					XPathConstants.STRING));
+			assertEquals("leafNode32", xpath.evaluate(
+					"/nodes:NODE/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root,
+					XPathConstants.STRING));
+
+			assertEquals("intermediateSubNode4",
+					xpath.evaluate("/nodes:NODE/nodes:SUB-NODES[1]/nodes:SUB-NODE[2]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode41", xpath.evaluate(
+					"/nodes:NODE/nodes:SUB-NODES[1]/nodes:SUB-NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root,
+					XPathConstants.STRING));
+			assertEquals("leafNode42", xpath.evaluate(
+					"/nodes:NODE/nodes:SUB-NODES[1]/nodes:SUB-NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root,
+					XPathConstants.STRING));
 
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
@@ -251,6 +301,28 @@ public class RMFSaveTests extends AbstractTestCase {
 					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root,
 					XPathConstants.STRING));
 
+			assertEquals("intermediateSubNode3",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/@name", root, XPathConstants.STRING));
+			assertEquals("nodes:SUB-NODE",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/@xsi:type", root, XPathConstants.STRING));
+			assertEquals("leafNode31", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root,
+					XPathConstants.STRING));
+			assertEquals("leafNode32", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root,
+					XPathConstants.STRING));
+
+			assertEquals("intermediateSubNode4",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name", root, XPathConstants.STRING));
+			assertEquals("nodes:SUB-NODE",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@xsi:type", root, XPathConstants.STRING));
+			assertEquals("leafNode41", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name", root,
+					XPathConstants.STRING));
+			assertEquals("leafNode42", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name", root,
+					XPathConstants.STRING));
+
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -293,6 +365,24 @@ public class RMFSaveTests extends AbstractTestCase {
 					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI[2]/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
 					root, XPathConstants.STRING));
 
+			assertEquals("intermediateSubNode3",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI[3]/nodes:SUB-NODE/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode31", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI[3]/nodes:SUB-NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+					root, XPathConstants.STRING));
+			assertEquals("leafNode32", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI[3]/nodes:SUB-NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+					root, XPathConstants.STRING));
+
+			assertEquals("intermediateSubNode4",
+					xpath.evaluate("/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI[4]/nodes:SUB-NODE/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode41", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI[4]/nodes:SUB-NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+					root, XPathConstants.STRING));
+			assertEquals("leafNode42", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0101-MULTI[4]/nodes:SUB-NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+					root, XPathConstants.STRING));
+
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -329,6 +419,26 @@ public class RMFSaveTests extends AbstractTestCase {
 			assertEquals("leafNode22", xpath.evaluate(
 					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0110-MULTI[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name",
 					root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode31",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0110-MULTI[1]/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode32",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0110-MULTI[1]/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode41",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0110-MULTI[1]/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode42",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0110-MULTI[1]/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name",
+							root, XPathConstants.STRING));
 
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
@@ -381,6 +491,35 @@ public class RMFSaveTests extends AbstractTestCase {
 							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0111-MULTI[1]/nodes:NODES[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
 							root, XPathConstants.STRING));
 
+			assertEquals("intermediateSubNode3", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0111-MULTI[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/@name", root,
+					XPathConstants.STRING));
+
+			assertEquals(
+					"leafNode31",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0111-MULTI[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode32",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0111-MULTI[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+			assertEquals("intermediateSubNode4", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0111-MULTI[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[2]/@name", root,
+					XPathConstants.STRING));
+
+			assertEquals(
+					"leafNode41",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0111-MULTI[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode42",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0111-MULTI[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -422,6 +561,32 @@ public class RMFSaveTests extends AbstractTestCase {
 			assertEquals("leafNode22", xpath.evaluate(
 					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1001-MULTIS[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
 					root, XPathConstants.STRING));
+
+			assertEquals("intermediateSubNode3", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1001-MULTIS[1]/nodes:SUB-NODE[1]/@name", root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode31",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1001-MULTIS[1]/nodes:SUB-NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode32",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1001-MULTIS[1]/nodes:SUB-NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals("intermediateSubNode4", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1001-MULTIS[1]/nodes:SUB-NODE[2]/@name", root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode41",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1001-MULTIS[1]/nodes:SUB-NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode42",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1001-MULTIS[1]/nodes:SUB-NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
 
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
@@ -466,6 +631,27 @@ public class RMFSaveTests extends AbstractTestCase {
 					"leafNode22",
 					xpath.evaluate(
 							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1010-MULTIS[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals(
+					"leafNode31",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1010-MULTIS[1]/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode32",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1010-MULTIS[1]/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode41",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1010-MULTIS[1]/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode42",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1010-MULTIS[1]/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name",
 							root, XPathConstants.STRING));
 
 		} catch (Exception ex) {
@@ -516,6 +702,34 @@ public class RMFSaveTests extends AbstractTestCase {
 					"leafNode22",
 					xpath.evaluate(
 							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1011-MULTIS[1]/nodes:NODES[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals("intermediateSubNode3", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1011-MULTIS[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/@name", root,
+					XPathConstants.STRING));
+			assertEquals(
+					"leafNode31",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1011-MULTIS[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode32",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1011-MULTIS[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals("intermediateSubNode4", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1011-MULTIS[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[2]/@name", root,
+					XPathConstants.STRING));
+			assertEquals(
+					"leafNode41",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1011-MULTIS[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode42",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1011-MULTIS[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
 							root, XPathConstants.STRING));
 
 		} catch (Exception ex) {
@@ -571,6 +785,41 @@ public class RMFSaveTests extends AbstractTestCase {
 							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
 							root, XPathConstants.STRING));
 
+			assertEquals("intermediateSubNode3", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[3]/@name", root,
+					XPathConstants.STRING));
+			assertEquals("nodes:SUB-NODE", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[3]/@xsi:type", root,
+					XPathConstants.STRING));
+			assertEquals(
+					"leafNode31",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[3]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode32",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[3]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals("intermediateSubNode4", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[4]/@name", root,
+					XPathConstants.STRING));
+			assertEquals("nodes:SUB-NODE", xpath.evaluate(
+					"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[4]/@xsi:type", root,
+					XPathConstants.STRING));
+
+			assertEquals(
+					"leafNode41",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[4]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode42",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1100-MULTI[4]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -623,6 +872,38 @@ public class RMFSaveTests extends AbstractTestCase {
 							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTI[2]/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
 							root, XPathConstants.STRING));
 
+			assertEquals(
+					"intermediateSubNode3",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTI[3]/nodes:SUB-NODE/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode31",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTI[3]/nodes:SUB-NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode32",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTI[3]/nodes:SUB-NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals(
+					"intermediateSubNode4",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTI[4]/nodes:SUB-NODE/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode41",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTI[4]/nodes:SUB-NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode42",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1101-MULTI[4]/nodes:SUB-NODE/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -666,6 +947,27 @@ public class RMFSaveTests extends AbstractTestCase {
 					"leafNode22",
 					xpath.evaluate(
 							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTI[1]/nodes:NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals(
+					"leafNode31",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTI[1]/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode32",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTI[1]/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode41",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTI[1]/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[3]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode42",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1110-MULTI[1]/nodes:SUB-NODES[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[4]/@name",
 							root, XPathConstants.STRING));
 
 		} catch (Exception ex) {
@@ -725,6 +1027,39 @@ public class RMFSaveTests extends AbstractTestCase {
 							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTI[1]/nodes:NODES[1]/nodes:NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
 							root, XPathConstants.STRING));
 
+			assertEquals(
+					"intermediateSubNode3",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTI[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals(
+					"leafNode31",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTI[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode32",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTI[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"intermediateSubNode4",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTI[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[2]/@name",
+							root, XPathConstants.STRING));
+
+			assertEquals(
+					"leafNode41",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTI[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode42",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTIS[1]/nodes:FEATURE-WITH-SERIALIZATION-1111-MULTI[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[2]/nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI[2]/@name",
+							root, XPathConstants.STRING));
+
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -780,6 +1115,12 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node intermediateNode2 = NodesFactory.eINSTANCE.createNode();
 		intermediateNode2.setName("intermediateNode2");
 
+		Node intermediateSubNode3 = NodesFactory.eINSTANCE.createSubNode();
+		intermediateSubNode3.setName("intermediateSubNode3");
+
+		Node intermediateSubNode4 = NodesFactory.eINSTANCE.createSubNode();
+		intermediateSubNode4.setName("intermediateSubNode4");
+
 		Node leafNode11 = NodesFactory.eINSTANCE.createNode();
 		leafNode11.setName("leafNode11");
 
@@ -792,13 +1133,31 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node leafNode22 = NodesFactory.eINSTANCE.createNode();
 		leafNode22.setName("leafNode22");
 
+		Node leafNode31 = NodesFactory.eINSTANCE.createNode();
+		leafNode31.setName("leafNode31");
+
+		Node leafNode32 = NodesFactory.eINSTANCE.createNode();
+		leafNode32.setName("leafNode32");
+
+		Node leafNode41 = NodesFactory.eINSTANCE.createNode();
+		leafNode41.setName("leafNode41");
+
+		Node leafNode42 = NodesFactory.eINSTANCE.createNode();
+		leafNode42.setName("leafNode42");
+
 		((EList<Object>) intermediateNode1.eGet(subfeature)).add(leafNode11);
 		((EList<Object>) intermediateNode1.eGet(subfeature)).add(leafNode12);
 		((EList<Object>) intermediateNode2.eGet(subfeature)).add(leafNode21);
 		((EList<Object>) intermediateNode2.eGet(subfeature)).add(leafNode22);
+		((EList<Object>) intermediateSubNode3.eGet(subfeature)).add(leafNode31);
+		((EList<Object>) intermediateSubNode3.eGet(subfeature)).add(leafNode32);
+		((EList<Object>) intermediateSubNode4.eGet(subfeature)).add(leafNode41);
+		((EList<Object>) intermediateSubNode4.eGet(subfeature)).add(leafNode42);
 
 		((EList<Object>) rootNode.eGet(topLevelfeature)).add(intermediateNode1);
 		((EList<Object>) rootNode.eGet(topLevelfeature)).add(intermediateNode2);
+		((EList<Object>) rootNode.eGet(topLevelfeature)).add(intermediateSubNode3);
+		((EList<Object>) rootNode.eGet(topLevelfeature)).add(intermediateSubNode4);
 
 		return rootNode;
 	}

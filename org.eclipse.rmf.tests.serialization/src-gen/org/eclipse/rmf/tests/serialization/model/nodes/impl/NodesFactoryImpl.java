@@ -66,6 +66,7 @@ public class NodesFactoryImpl extends EFactoryImpl implements NodesFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case NodesPackage.NODE: return createNode();
+			case NodesPackage.SUB_NODE: return createSubNode();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -79,6 +80,16 @@ public class NodesFactoryImpl extends EFactoryImpl implements NodesFactory {
 	public Node createNode() {
 		NodeImpl node = new NodeImpl();
 		return node;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubNode createSubNode() {
+		SubNodeImpl subNode = new SubNodeImpl();
+		return subNode;
 	}
 
 	/**

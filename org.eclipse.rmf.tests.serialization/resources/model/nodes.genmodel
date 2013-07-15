@@ -52,5 +52,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithTypeEObjectAndSerialization1000_Multi"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nodes.ecore#//AbstractNode"/>
+    <genClasses ecoreClass="nodes.ecore#//SubNode"/>
   </genPackages>
 </genmodel:GenModel>

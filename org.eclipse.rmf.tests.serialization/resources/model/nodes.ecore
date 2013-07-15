@@ -530,4 +530,10 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractNode" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SubNode" eSuperTypes="#//Node">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="SUB-NODE"/>
+      <details key="wrapperName" value="SUB-NODES"/>
+    </eAnnotations>
+  </eClassifiers>
 </ecore:EPackage>

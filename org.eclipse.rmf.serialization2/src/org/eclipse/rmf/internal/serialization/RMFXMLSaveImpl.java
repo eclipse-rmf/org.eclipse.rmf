@@ -711,9 +711,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		assert null != extendedMetaData;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		for (EObject value : values) {
-			saveFeatures(value);
-		}
+		saveContainment0000Many(values, f);
 		doc.endElement();
 		// last end is written by caller
 	}
@@ -725,11 +723,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		assert null != extendedMetaData;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		for (EObject value : values) {
-			doc.startElement(getClassifierQName(value.eClass()));
-			saveFeatures(value);
-			// doc.endElement();
-		}
+		saveContainment0001Many(values, f);
 		doc.endElement();
 	}
 
@@ -740,15 +734,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		assert null != extendedMetaData;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		for (EClass eClass : getOrderedClasses(values)) {
-			doc.startElement(getClassifierWrapperQName(eClass));
-			for (EObject value : values) {
-				if (eClass == value.eClass()) {
-					saveFeatures(value, SerializationType.elementsOnly, true);
-				}
-			}
-			doc.endElement();
-		}
+		saveContainment0010Many(values, f);
 		doc.endElement();
 	}
 
@@ -759,16 +745,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		assert null != extendedMetaData;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		for (EClass eClass : getOrderedClasses(values)) {
-			doc.startElement(getClassifierWrapperQName(eClass));
-			for (EObject value : values) {
-				if (eClass == value.eClass()) {
-					doc.startElement(getClassifierQName(value.eClass()));
-					saveFeatures(value, SerializationType.attributesAndElements, false);
-				}
-			}
-			doc.endElement();
-		}
+		saveContainment0011Many(values, f);
 		doc.endElement();
 	}
 
@@ -779,10 +756,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		assert null != extendedMetaData;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		for (EObject value : values) {
-			doc.startElement(getFeatureQName(f));
-			saveFeatures(value);
-		}
+		saveContainment0100Many(values, f);
 		doc.endElement();
 	}
 
@@ -793,13 +767,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		assert null != extendedMetaData;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		for (EObject value : values) {
-			doc.startElement(getFeatureQName(f));
-			doc.startElement(getClassifierQName(value.eClass()));
-			saveFeatures(value, SerializationType.attributesAndElements, false);
-			doc.endElement();
-		}
-
+		saveContainment0101Many(values, f);
 		doc.endElement();
 	}
 
@@ -810,17 +778,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		assert null != extendedMetaData;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		doc.startElement(getFeatureQName(f));
-		for (EClass eClass : getOrderedClasses(values)) {
-			doc.startElement(getClassifierWrapperQName(eClass));
-			for (EObject value : values) {
-				if (eClass == value.eClass()) {
-					saveFeatures(value, SerializationType.elementsOnly, true);
-				}
-			}
-			doc.endElement();
-		}
-		doc.endElement();
+		saveContainment0110Many(values, f);
 		doc.endElement();
 	}
 
@@ -831,18 +789,7 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		assert null != extendedMetaData;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		doc.startElement(getFeatureQName(f));
-		for (EClass eClass : getOrderedClasses(values)) {
-			doc.startElement(getClassifierWrapperQName(eClass));
-			for (EObject value : values) {
-				if (eClass == value.eClass()) {
-					doc.startElement(getClassifierQName(value.eClass()));
-					saveFeatures(value);
-				}
-			}
-			doc.endElement();
-		}
-		doc.endElement();
+		saveContainment0111Many(values, f);
 		doc.endElement();
 	}
 

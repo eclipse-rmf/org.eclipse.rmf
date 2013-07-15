@@ -22,6 +22,7 @@ import org.eclipse.rmf.tests.serialization.model.nodes.AbstractNode;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesFactory;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
+import org.eclipse.rmf.tests.serialization.model.nodes.SubNode;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +44,13 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * @generated
 	 */
 	private EClass abstractNodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass subNodeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -497,6 +505,15 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSubNode() {
+		return subNodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NodesFactory getNodesFactory() {
 		return (NodesFactory)getEFactoryInstance();
 	}
@@ -564,6 +581,8 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		createEReference(nodeEClass, NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI);
 
 		abstractNodeEClass = createEClass(ABSTRACT_NODE);
+
+		subNodeEClass = createEClass(SUB_NODE);
 	}
 
 	/**
@@ -595,6 +614,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 
 		// Add supertypes to classes
 		nodeEClass.getESuperTypes().add(this.getAbstractNode());
+		subNodeEClass.getESuperTypes().add(this.getNode());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -641,6 +661,8 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		initEReference(getNode_FeatureWithTypeEObjectAndSerialization1000_Multi(), ecorePackage.getEObject(), null, "featureWithTypeEObjectAndSerialization1000_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractNodeEClass, AbstractNode.class, "AbstractNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(subNodeEClass, SubNode.class, "SubNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -950,6 +972,13 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTI",
 			 "wrapperName", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTIS"
+		   });		
+		addAnnotation
+		  (subNodeEClass, 
+		   source, 
+		   new String[] {
+			 "name", "SUB-NODE",
+			 "wrapperName", "SUB-NODES"
 		   });
 	}
 
@@ -1298,7 +1327,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false"
-		   });	
+		   });		
 	}
 
 } //NodesPackageImpl
