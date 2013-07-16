@@ -20,13 +20,13 @@ import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
  * @see org.eclipse.rmf.reqif10.util.Reqif10ResourceImpl
  * @generated
  */
-public class RMFResourceFactoryImpl extends ResourceFactoryImpl {
+public class XMLPersistenceMappingResourceFactoryImpl extends ResourceFactoryImpl {
 	/**
 	 * Creates an instance of the resource factory. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public RMFResourceFactoryImpl() {
+	public XMLPersistenceMappingResourceFactoryImpl() {
 		super();
 	}
 
@@ -35,7 +35,7 @@ public class RMFResourceFactoryImpl extends ResourceFactoryImpl {
 	 */
 	@Override
 	public Resource createResource(URI uri) {
-		Resource result = new RMFResourceImpl(uri);
+		Resource result = new XMLPersistenceMappingResourceImpl(uri);
 		return result;
 	}
 

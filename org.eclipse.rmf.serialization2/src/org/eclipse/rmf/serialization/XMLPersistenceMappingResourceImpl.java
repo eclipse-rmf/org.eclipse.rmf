@@ -27,20 +27,20 @@ import org.eclipse.emf.ecore.xmi.XMLSave;
 import org.eclipse.emf.ecore.xmi.impl.XMLHelperImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLOptionsImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
-import org.eclipse.rmf.internal.serialization.RMFXMLLoadImpl;
-import org.eclipse.rmf.internal.serialization.RMFXMLSaveImpl;
+import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingLoadImpl;
+import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingSaveImpl;
 
-public class RMFResourceImpl extends XMLResourceImpl implements RMFResource {
+public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implements XMLPersistenceMappingResource {
 	// TODO: let implementation get the value from preferences and set it to false by default
 	// This is a temporal HACK
 	public boolean enableSchemaValidation = false;
 
-	public RMFResourceImpl() {
+	public XMLPersistenceMappingResourceImpl() {
 		super();
 		initDefaultOptions();
 	}
 
-	public RMFResourceImpl(URI uri) {
+	public XMLPersistenceMappingResourceImpl(URI uri) {
 		super(uri);
 		initDefaultOptions();
 	}
@@ -52,12 +52,12 @@ public class RMFResourceImpl extends XMLResourceImpl implements RMFResource {
 
 	@Override
 	protected XMLLoad createXMLLoad() {
-		return new RMFXMLLoadImpl(createXMLHelper());
+		return new XMLPersistenceMappingLoadImpl(createXMLHelper());
 	}
 
 	@Override
 	protected XMLSave createXMLSave() {
-		return new RMFXMLSaveImpl(createXMLHelper());
+		return new XMLPersistenceMappingSaveImpl(createXMLHelper());
 	}
 
 	@Override

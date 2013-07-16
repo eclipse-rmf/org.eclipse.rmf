@@ -26,9 +26,9 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLHelperImpl;
 import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
 
-public class RMFXMLHelperImpl extends XMLHelperImpl implements XMLHelper {
+public class XMLPersistenceMappingHelperImpl extends XMLHelperImpl implements XMLHelper {
 
-	public RMFXMLHelperImpl(XMLResource resource) {
+	public XMLPersistenceMappingHelperImpl(XMLResource resource) {
 		super(resource);
 		EMap<String, String> prefixToNamespaceMap = getPrefixToNamespaceMap();
 		//prefixToNamespaceMap.put("", ReqIF10Package.eNS_URI); //$NON-NLS-1$

@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.xmi.impl.SAXXMLHandler;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaData;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 
-public class RMFXMLHandler extends SAXXMLHandler {
+public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	interface DeserializationRule {
 		public static int STATE_READY = 0;
 		public static int STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT = 1;
@@ -344,7 +344,7 @@ public class RMFXMLHandler extends SAXXMLHandler {
 	XMLPersistenceMappingExtendedMetaData rmfExtendedMetaData = null;
 	MyStack<DeserializationRule> deserializationRuleStack = null;
 
-	public RMFXMLHandler(XMLResource xmlResource, XMLHelper helper, Map<?, ?> options) {
+	public XMLPersistenceMappingHandler(XMLResource xmlResource, XMLHelper helper, Map<?, ?> options) {
 		super(xmlResource, helper, options);
 		Object extendedMetaDataOption = options.get(XMLResource.OPTION_EXTENDED_META_DATA);
 		if (extendedMetaDataOption instanceof Boolean) {

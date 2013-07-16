@@ -38,14 +38,14 @@ import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
  * 
  * @author broerkens
  */
-public class RMFXMLSaveImpl extends XMLSaveImpl {
+public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 	XMLPersistenceMappingExtendedMetaData rmfExtendedMetaData = null;
 
 	public enum SerializationType {
 		attributesOnly, elementsOnly, attributesAndElements
 	}
 
-	public RMFXMLSaveImpl(XMLHelper helper) {
+	public XMLPersistenceMappingSaveImpl(XMLHelper helper) {
 		super(helper);
 	}
 

@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
-public class RMFResourceSetImpl extends ResourceSetImpl {
+public class XMLPersistenceMappingResourceSetImpl extends ResourceSetImpl {
 
 	/**
 	 * Tools that need to follow the progress may store an {@link IProgressMonitor} in {@link #getLoadOptions()}, using

@@ -19,15 +19,15 @@ import org.eclipse.emf.ecore.xmi.impl.XMLLoadImpl;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class RMFXMLLoadImpl extends XMLLoadImpl {
+public class XMLPersistenceMappingLoadImpl extends XMLLoadImpl {
 
-	public RMFXMLLoadImpl(XMLHelper helper) {
+	public XMLPersistenceMappingLoadImpl(XMLHelper helper) {
 		super(helper);
 	}
 
 	@Override
 	protected DefaultHandler makeDefaultHandler() {
-		RMFXMLHandler handler = new RMFXMLHandler(resource, helper, options);
+		XMLPersistenceMappingHandler handler = new XMLPersistenceMappingHandler(resource, helper, options);
 
 		return handler;
 	}

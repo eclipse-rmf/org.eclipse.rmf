@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
-import org.eclipse.rmf.serialization.RMFResourceFactoryImpl;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.tests.serialization.internal.Activator;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesFactory;
@@ -85,7 +85,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0000_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -127,7 +127,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0001_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -175,7 +175,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0010_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -216,7 +216,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0011_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -270,7 +270,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -335,7 +335,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0101_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -395,7 +395,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0110_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -452,7 +452,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0111_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -532,7 +532,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1001_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -600,7 +600,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1010_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -666,7 +666,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1011_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -744,7 +744,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1100_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -832,7 +832,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1101_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -916,7 +916,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1110_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -982,7 +982,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1111_Multi(),
 				NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -1071,7 +1071,7 @@ public class RMFSaveTests extends AbstractTestCase {
 
 		Node rootNode = createNodeModelWithForeignSubmodel(NodesPackage.eINSTANCE.getNode_FeatureWithTypeEObjectAndSerialization0100_Multi());
 		try {
-			saveWorkingFile(fileName, rootNode, new RMFResourceFactoryImpl(), null);
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);

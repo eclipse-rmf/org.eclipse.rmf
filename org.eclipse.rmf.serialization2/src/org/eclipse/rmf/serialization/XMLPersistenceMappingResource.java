@@ -12,7 +12,7 @@ package org.eclipse.rmf.serialization;
 
 import org.eclipse.emf.ecore.xmi.XMLResource;
 
-public interface RMFResource extends XMLResource {
+public interface XMLPersistenceMappingResource extends XMLResource {
 
 	/**
 	 * This option allows you to tailor the XML serialization of objects. You should provide an RMFExtendedMetaData as

@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.rmf.serialization.RMFResourceFactoryImpl;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
 import org.eclipse.rmf.tests.serialization.model.nodes.SubNode;
@@ -38,7 +38,7 @@ public class LoadTests extends AbstractTestCase {
 	public void testFeatureContainmentReferenceSerialization1001_Single() {
 		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization1001_Single.xml";
 		try {
-			EObject modelRoot = loadInputFile(inputFileName, new RMFResourceFactoryImpl(), null);
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
 			validateModelSingle(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1001_Single());
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
@@ -49,7 +49,7 @@ public class LoadTests extends AbstractTestCase {
 	public void testFeatureContainmentRTeferenceSerialization0001_Many() {
 		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization0001_Many.xml";
 		try {
-			EObject modelRoot = loadInputFile(inputFileName, new RMFResourceFactoryImpl(), null);
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
 			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0001_Multi(),
 					NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		} catch (Exception ex) {
@@ -61,7 +61,7 @@ public class LoadTests extends AbstractTestCase {
 	public void testFeatureContainmentRTeferenceSerialization0100_Many() {
 		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization0100_Many.xml";
 		try {
-			EObject modelRoot = loadInputFile(inputFileName, new RMFResourceFactoryImpl(), null);
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
 			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi(),
 					NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		} catch (Exception ex) {
@@ -73,7 +73,7 @@ public class LoadTests extends AbstractTestCase {
 	public void testFeatureContainmentReferenceSerialization0101_Many() {
 		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization0101_Many.xml";
 		try {
-			EObject modelRoot = loadInputFile(inputFileName, new RMFResourceFactoryImpl(), null);
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
 			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0101_Multi(),
 					NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		} catch (Exception ex) {
@@ -85,7 +85,7 @@ public class LoadTests extends AbstractTestCase {
 	public void testFeatureContainmentReferenceSerialization1001_Many() {
 		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization1001_Many.xml";
 		try {
-			EObject modelRoot = loadInputFile(inputFileName, new RMFResourceFactoryImpl(), null);
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
 			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1001_Multi(),
 					NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
 		} catch (Exception ex) {

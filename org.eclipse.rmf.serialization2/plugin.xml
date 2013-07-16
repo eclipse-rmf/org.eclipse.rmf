@@ -5,6 +5,6 @@
    <extension point="org.eclipse.emf.ecore.content_parser">
       <parser
             contentTypeIdentifier="org.eclipse.rmf.reqif10.reqif10XMLFile"
-            class="org.eclipse.rmf.serialization.RMFResourceFactoryImpl"/>
+            class="org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl"/>
    </extension>
 </plugin>
