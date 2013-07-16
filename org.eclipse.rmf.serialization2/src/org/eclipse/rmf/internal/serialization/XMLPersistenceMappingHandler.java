@@ -13,6 +13,7 @@ package org.eclipse.rmf.internal.serialization;
 
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
@@ -317,6 +318,73 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
+	class DesrializationRuleReference1001Impl extends AbstractDeserializationRuleImpl {
+
+		public DesrializationRuleReference1001Impl(EObject anchorEObject, EStructuralFeature feature) {
+			super(anchorEObject, feature);
+		}
+
+		public void startElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				createRMFObject(anchorEObject, feature, namespace, xmlName);
+				break;
+			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				currentState = STATE_DELEGATE_CHILD_NEEDED;
+				break;
+			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				createRMFObject(anchorEObject, feature, namespace, xmlName);
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_DELEGATE_CHILD_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+
+			default:
+				// TODO: handle error
+			}
+		}
+
+		public void endElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_READY;
+				break;
+			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
+				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_DELEGATE_CHILD_NEEDED:
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
+				break;
+			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+
+			default:
+				// TODO: handle error
+			}
+		}
+	}
+
 	/**
 	 * Create an object based on the given feature and attributes.
 	 */
@@ -523,22 +591,30 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		EStructuralFeature feature = getFeature(eObject, prefix, name, true);
 		if (null != feature) {
 			int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(feature);
-			switch (featureSerializationStructure) {
-			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
-				deserializationRule = new DesrializationRuleContained0001Impl(eObject, feature);
-				break;
-			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
-				deserializationRule = new DesrializationRuleContained0100Impl(eObject, feature);
-				break;
-			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-				deserializationRule = new DesrializationRuleContained0101Impl(eObject, feature);
-				break;
-			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-				deserializationRule = new DesrializationRuleContained1001Impl(eObject, feature);
-				break;
-			default:
-				deserializationRule = new DesrializationRuleContained1001Impl(eObject, feature);
-				break;
+			if (feature instanceof EReference && ((EReference) feature).isContainment() || feature instanceof EAttribute) {
+				switch (featureSerializationStructure) {
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
+					deserializationRule = new DesrializationRuleContained0001Impl(eObject, feature);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+					deserializationRule = new DesrializationRuleContained0100Impl(eObject, feature);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+					deserializationRule = new DesrializationRuleContained0101Impl(eObject, feature);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+					deserializationRule = new DesrializationRuleContained1001Impl(eObject, feature);
+					break;
+				default:
+					deserializationRule = new DesrializationRuleContained1001Impl(eObject, feature);
+					break;
+				}
+			} else {
+				switch (featureSerializationStructure) {
+				default:
+					deserializationRule = new DesrializationRuleReference1001Impl(eObject, feature);
+					break;
+				}
 			}
 		} else {
 			// handle error, feature not found
