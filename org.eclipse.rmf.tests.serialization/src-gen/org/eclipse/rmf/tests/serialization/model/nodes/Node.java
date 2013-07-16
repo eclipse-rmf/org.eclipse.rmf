@@ -930,8 +930,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Type EObject And Serialization0001 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithTypeEObjectAndSerialization0001_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS'"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS'"
 	 * @generated
 	 */
 	EList<EObject> getFeatureWithTypeEObjectAndSerialization0001_Multi();

@@ -947,7 +947,9 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_FeatureWithTypeEObjectAndSerialization0001_Multi(), 
 		   source, 
 		   new String[] {
-			 "namespace", "##targetNamespace"
+			 "namespace", "##targetNamespace",
+			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI",
+			 "wrapperName", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithTypeEObjectAndSerialization0010_Multi(), 
@@ -1297,9 +1299,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureWrapperElement", "false",
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
-			 "classifierElement", "true",
-			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI",
-			 "wrapperName", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS"
+			 "classifierElement", "true"
 		   });			
 		addAnnotation
 		  (getNode_FeatureWithTypeEObjectAndSerialization0010_Multi(), 

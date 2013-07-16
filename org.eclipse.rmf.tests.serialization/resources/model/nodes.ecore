@@ -476,11 +476,11 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="true"/>
-        <details key="name" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI"/>
-        <details key="wrapperName" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="name" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI"/>
+        <details key="wrapperName" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithTypeEObjectAndSerialization0010_Multi"
