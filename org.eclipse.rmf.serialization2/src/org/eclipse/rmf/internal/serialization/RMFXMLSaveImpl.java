@@ -10,6 +10,10 @@
  */
 package org.eclipse.rmf.internal.serialization;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -853,14 +857,22 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected Set<EClass> getOrderedClasses(List<? extends InternalEObject> values) {
-		Set<EClass> classes = new LinkedHashSet<EClass>();
+	protected Collection<EClass> getOrderedClasses(List<? extends InternalEObject> values) {
+		Set<EClass> classesSet = new LinkedHashSet<EClass>();
 		for (EObject value : values) {
-			classes.add(value.eClass());
+			classesSet.add(value.eClass());
 		}
 
-		return classes;
+		List<EClass> classesList = new ArrayList<EClass>(classesSet);
+		Comparator<EClass> comparator = new Comparator<EClass>() {
+			public int compare(EClass o1, EClass o2) {
+				return o1.getName().compareTo(o2.getName());
+			}
+		};
 
+		Collections.sort(classesList, comparator);
+
+		return classesList;
 	}
 
 }
