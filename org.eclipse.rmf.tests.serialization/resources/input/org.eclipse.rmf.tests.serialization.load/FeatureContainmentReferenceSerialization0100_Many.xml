@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes:NODE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nodes="http://www.eclipse.org/rmf/serialization/model/nodes.ecore">
+  <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI name="intermediateNode1">
+    <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI name="leafNode11"/>
+    <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI name="leafNode12"/>
+  </nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI>
+  <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI name="intermediateNode2">
+    <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI name="leafNode21"/>
+    <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI name="leafNode22"/>
+  </nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI>
+  <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI xsi:type="nodes:SUB-NODE" name="intermediateSubNode3">
+    <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI name="leafNode31"/>
+    <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI name="leafNode32"/>
+  </nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI>
+  <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI xsi:type="nodes:SUB-NODE" name="intermediateSubNode4">
+    <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI name="leafNode41"/>
+    <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI name="leafNode42"/>
+  </nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI>
+</nodes:NODE>

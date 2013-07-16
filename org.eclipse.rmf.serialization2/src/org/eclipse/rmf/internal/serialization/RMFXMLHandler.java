@@ -71,18 +71,15 @@ public class RMFXMLHandler extends SAXXMLHandler {
 
 	}
 
-	class DesrializationRule1001Impl extends AbstractDeserializationRuleImpl {
+	class DesrializationRuleContained0001Impl extends AbstractDeserializationRuleImpl {
 
-		public DesrializationRule1001Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public DesrializationRuleContained0001Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
 		public void startElement(String namespace, String xmlName) {
 			switch (currentState) {
 			case STATE_READY:
-				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
 				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
 				createRMFObject(anchorEObject, feature, namespace, xmlName);
 				break;
@@ -92,9 +89,6 @@ public class RMFXMLHandler extends SAXXMLHandler {
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
 				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
 				createRMFObject(anchorEObject, feature, namespace, xmlName);
-				break;
-			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
@@ -113,16 +107,10 @@ public class RMFXMLHandler extends SAXXMLHandler {
 			case STATE_READY:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
-			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
+			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
 				currentState = STATE_READY;
 				break;
-			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
-				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
-				break;
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
@@ -138,9 +126,9 @@ public class RMFXMLHandler extends SAXXMLHandler {
 		}
 	}
 
-	class DesrializationRule0100Impl extends AbstractDeserializationRuleImpl {
+	class DesrializationRuleContained0100Impl extends AbstractDeserializationRuleImpl {
 
-		public DesrializationRule0100Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public DesrializationRuleContained0100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -148,14 +136,14 @@ public class RMFXMLHandler extends SAXXMLHandler {
 			switch (currentState) {
 			case STATE_READY:
 				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
-				createObjectFromFeatureType(anchorEObject, feature);
+				createObject(anchorEObject, feature);
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
 				currentState = STATE_DELEGATE_CHILD_NEEDED;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
-				createObjectFromFeatureType(anchorEObject, feature);
+				createObject(anchorEObject, feature);
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
@@ -193,9 +181,9 @@ public class RMFXMLHandler extends SAXXMLHandler {
 		}
 	}
 
-	class DesrializationRule0101Impl extends AbstractDeserializationRuleImpl {
+	class DesrializationRuleContained0101Impl extends AbstractDeserializationRuleImpl {
 
-		public DesrializationRule0101Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public DesrializationRuleContained0101Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -247,6 +235,73 @@ public class RMFXMLHandler extends SAXXMLHandler {
 				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_DELEGATE_CHILD_NEEDED:
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
+				break;
+			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+
+			default:
+				// TODO: handle error
+			}
+		}
+	}
+
+	class DesrializationRuleContained1001Impl extends AbstractDeserializationRuleImpl {
+
+		public DesrializationRuleContained1001Impl(EObject anchorEObject, EStructuralFeature feature) {
+			super(anchorEObject, feature);
+		}
+
+		public void startElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				createRMFObject(anchorEObject, feature, namespace, xmlName);
+				break;
+			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				currentState = STATE_DELEGATE_CHILD_NEEDED;
+				break;
+			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				createRMFObject(anchorEObject, feature, namespace, xmlName);
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_DELEGATE_CHILD_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+
+			default:
+				// TODO: handle error
+			}
+		}
+
+		public void endElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_READY;
+				break;
+			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
+				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
@@ -469,17 +524,20 @@ public class RMFXMLHandler extends SAXXMLHandler {
 		if (null != feature) {
 			int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(feature);
 			switch (featureSerializationStructure) {
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
+				deserializationRule = new DesrializationRuleContained0001Impl(eObject, feature);
+				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
-				deserializationRule = new DesrializationRule0100Impl(eObject, feature);
+				deserializationRule = new DesrializationRuleContained0100Impl(eObject, feature);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-				deserializationRule = new DesrializationRule0101Impl(eObject, feature);
+				deserializationRule = new DesrializationRuleContained0101Impl(eObject, feature);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-				deserializationRule = new DesrializationRule1001Impl(eObject, feature);
+				deserializationRule = new DesrializationRuleContained1001Impl(eObject, feature);
 				break;
 			default:
-				deserializationRule = new DesrializationRule1001Impl(eObject, feature);
+				deserializationRule = new DesrializationRuleContained1001Impl(eObject, feature);
 				break;
 			}
 		} else {
