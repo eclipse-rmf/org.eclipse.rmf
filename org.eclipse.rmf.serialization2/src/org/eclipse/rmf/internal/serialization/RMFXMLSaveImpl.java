@@ -30,8 +30,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
-import org.eclipse.rmf.serialization.RMFExtendedMetaData;
-import org.eclipse.rmf.serialization.RMFExtendedMetaDataImpl;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaData;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 
 /**
  * TODO: write down assumptions as asserts
@@ -39,7 +39,7 @@ import org.eclipse.rmf.serialization.RMFExtendedMetaDataImpl;
  * @author broerkens
  */
 public class RMFXMLSaveImpl extends XMLSaveImpl {
-	RMFExtendedMetaData rmfExtendedMetaData = null;
+	XMLPersistenceMappingExtendedMetaData rmfExtendedMetaData = null;
 
 	public enum SerializationType {
 		attributesOnly, elementsOnly, attributesAndElements
@@ -526,52 +526,52 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 				int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(f);
 
 				switch (featureSerializationStructure) {
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
 					saveContainment0000Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
 					saveContainment0001Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0010__CLASSIFIER_WRAPPER_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0010__CLASSIFIER_WRAPPER_ELEMENT:
 					saveContainment0010Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0011__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0011__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
 					saveContainment0011Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
 					saveContainment0100Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
 					saveContainment0101Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0110__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0110__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
 					saveContainment0110Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0111__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0111__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
 					saveContainment0111Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
 					saveContainment1001Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__1010__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1010__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
 					saveContainment1010Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__1011__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1011__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
 					saveContainment1011Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
 					saveContainment1100Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__1101__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1101__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
 					saveContainment1101Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__1110__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1110__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
 					saveContainment1110Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__1111__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1111__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
 					saveContainment1111Many(values, f);
 					break;
-				case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
 					// if undefined, use the standard EMF mechanism
 					saveContainment0100Many(values, f);
 					break;
@@ -847,12 +847,12 @@ public class RMFXMLSaveImpl extends XMLSaveImpl {
 		Object extendedMetaDataOption = options.get(XMLResource.OPTION_EXTENDED_META_DATA);
 		if (extendedMetaDataOption instanceof Boolean) {
 			if (extendedMetaDataOption.equals(Boolean.TRUE)) {
-				rmfExtendedMetaData = resource == null || resource.getResourceSet() == null ? RMFExtendedMetaData.INSTANCE
-						: new RMFExtendedMetaDataImpl(resource.getResourceSet().getPackageRegistry());
+				rmfExtendedMetaData = resource == null || resource.getResourceSet() == null ? XMLPersistenceMappingExtendedMetaData.INSTANCE
+						: new XMLPersistenceMappingExtendedMetaDataImpl(resource.getResourceSet().getPackageRegistry());
 				extendedMetaData = rmfExtendedMetaData;
 			}
-		} else if (extendedMetaDataOption instanceof RMFExtendedMetaData) {
-			rmfExtendedMetaData = (RMFExtendedMetaData) options.get(XMLResource.OPTION_EXTENDED_META_DATA);
+		} else if (extendedMetaDataOption instanceof XMLPersistenceMappingExtendedMetaData) {
+			rmfExtendedMetaData = (XMLPersistenceMappingExtendedMetaData) options.get(XMLResource.OPTION_EXTENDED_META_DATA);
 			extendedMetaData = rmfExtendedMetaData;
 		}
 	}

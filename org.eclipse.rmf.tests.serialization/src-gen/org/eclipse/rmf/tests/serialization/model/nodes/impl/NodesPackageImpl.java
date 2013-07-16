@@ -670,8 +670,8 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		// Create annotations
 		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
 		createExtendedMetaDataAnnotations();
-		// http:///org/eclipse/rmf/serialization/RMFExtendedMetaData
-		createRMFExtendedMetaDataAnnotations();
+		// http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData
+		createXMLPersistenceMappingExtendedMetaDataAnnotations();
 	}
 
 	/**
@@ -983,13 +983,13 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	}
 
 	/**
-	 * Initializes the annotations for <b>http:///org/eclipse/rmf/serialization/RMFExtendedMetaData</b>.
+	 * Initializes the annotations for <b>http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createRMFExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/rmf/serialization/RMFExtendedMetaData";			
+	protected void createXMLPersistenceMappingExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";			
 		addAnnotation
 		  (getNode_FeatureWithSerialization0000_Single(), 
 		   source, 

@@ -84,7 +84,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0000_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0000_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0000-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0000-SINGLES'"
 	 * @generated
 	 */
@@ -112,7 +112,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0001_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0001_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0001-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0001-SINGLES'"
 	 * @generated
 	 */
@@ -140,7 +140,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0010_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0010_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0010-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0010-SINGLES'"
 	 * @generated
 	 */
@@ -168,7 +168,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0011_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0011_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0011-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0011-SINGLES'"
 	 * @generated
 	 */
@@ -196,7 +196,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0100_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0100_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0100-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0100-SINGLES'"
 	 * @generated
 	 */
@@ -224,7 +224,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0101_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0101_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0101-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0101-SINGLES'"
 	 * @generated
 	 */
@@ -252,7 +252,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0110_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0110_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0110-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0110-SINGLES'"
 	 * @generated
 	 */
@@ -280,7 +280,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization0111_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0111_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0111-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-0111-SINGLES'"
 	 * @generated
 	 */
@@ -308,7 +308,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1000_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1000_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1000-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1000-SINGLES'"
 	 * @generated
 	 */
@@ -336,7 +336,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1001_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1001_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1001-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1001-SINGLES'"
 	 * @generated
 	 */
@@ -364,7 +364,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1010_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1010_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1010-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1010-SINGLES'"
 	 * @generated
 	 */
@@ -392,7 +392,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1011_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1011_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1011-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1011-SINGLES'"
 	 * @generated
 	 */
@@ -420,7 +420,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1100_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1100_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1100-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1100-SINGLES'"
 	 * @generated
 	 */
@@ -448,7 +448,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1101_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1101_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1101-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1101-SINGLES'"
 	 * @generated
 	 */
@@ -476,7 +476,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1110_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1110_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1110-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1110-SINGLES'"
 	 * @generated
 	 */
@@ -504,7 +504,7 @@ public interface Node extends AbstractNode {
 	 * @see #setFeatureWithSerialization1111_Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1111_Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1111-SINGLE' wrapperName='FEATURE-WITH-SERIALIZATION-1111-SINGLES'"
 	 * @generated
 	 */
@@ -584,7 +584,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0000 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0000_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0000-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0000-MULTIS'"
 	 * @generated
 	 */
@@ -602,7 +602,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0001 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0001_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' name='FEATURE-WITH-SERIALIZATION-0001-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0001-MULTIS'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' name='FEATURE-WITH-SERIALIZATION-0001-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0001-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -620,7 +620,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0010 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0010_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0010-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0010-MULTIS'"
 	 * @generated
 	 */
@@ -638,7 +638,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0011 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0011_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0011-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0011-MULTIS'"
 	 * @generated
 	 */
@@ -656,7 +656,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0100 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0100_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0100-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0100-MULTIS'"
 	 * @generated
 	 */
@@ -674,7 +674,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0101 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0101_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0101-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0101-MULTIS'"
 	 * @generated
 	 */
@@ -692,7 +692,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0110 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0110_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0110-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0110-MULTIS'"
 	 * @generated
 	 */
@@ -710,7 +710,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization0111 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0111_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0111-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-0111-MULTIS'"
 	 * @generated
 	 */
@@ -728,7 +728,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1000 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1000_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1000-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1000-MULTIS'"
 	 * @generated
 	 */
@@ -746,7 +746,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1001 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1001_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1001-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1001-MULTIS'"
 	 * @generated
 	 */
@@ -764,7 +764,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1010 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1010_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1010-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1010-MULTIS'"
 	 * @generated
 	 */
@@ -782,7 +782,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1011 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1011_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1011-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1011-MULTIS'"
 	 * @generated
 	 */
@@ -800,7 +800,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1100 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1100_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1100-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1100-MULTIS'"
 	 * @generated
 	 */
@@ -818,7 +818,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1101 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1101_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1101-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1101-MULTIS'"
 	 * @generated
 	 */
@@ -836,7 +836,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1110 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1110_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1110-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1110-MULTIS'"
 	 * @generated
 	 */
@@ -854,7 +854,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Serialization1111 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1111_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1111-MULTI' wrapperName='FEATURE-WITH-SERIALIZATION-1111-MULTIS'"
 	 * @generated
 	 */
@@ -930,7 +930,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Type EObject And Serialization0001 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithTypeEObjectAndSerialization0001_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -948,7 +948,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Type EObject And Serialization0010 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithTypeEObjectAndSerialization0010_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTI' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTIS'"
 	 * @generated
 	 */
@@ -966,7 +966,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Type EObject And Serialization0100 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithTypeEObjectAndSerialization0100_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTIS'"
 	 * @generated
 	 */
@@ -984,7 +984,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Feature With Type EObject And Serialization1000 Multi</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithTypeEObjectAndSerialization1000_Multi()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTI' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTIS'"
 	 * @generated
 	 */

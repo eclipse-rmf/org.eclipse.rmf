@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
 
-public class RMFExtendedMetaDataImpl extends BasicExtendedMetaData implements RMFExtendedMetaData {
+public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMetaData implements XMLPersistenceMappingExtendedMetaData {
 	static final String WRAPPER_NAME = "wrapperName"; //$NON-NLS-1$
 	static final String FEATURE_WRAPPER_ELEMENT = "featureWrapperElement"; //$NON-NLS-1$
 	static final String FEATURE_ELEMENT = "featureElement"; //$NON-NLS-1$
@@ -500,16 +500,16 @@ public class RMFExtendedMetaDataImpl extends BasicExtendedMetaData implements RM
 
 	}
 
-	public RMFExtendedMetaDataImpl() {
+	public XMLPersistenceMappingExtendedMetaDataImpl() {
 		this(EPackage.Registry.INSTANCE);
 	}
 
-	public RMFExtendedMetaDataImpl(EPackage.Registry registry) {
+	public XMLPersistenceMappingExtendedMetaDataImpl(EPackage.Registry registry) {
 		super();
 		this.registry = registry;
 	}
 
-	public RMFExtendedMetaDataImpl(int[] fallbackSerializations) {
+	public XMLPersistenceMappingExtendedMetaDataImpl(int[] fallbackSerializations) {
 		this();
 		int min = 0;
 		int max = fallbackSerializationConfiguration.length;
@@ -710,11 +710,11 @@ public class RMFExtendedMetaDataImpl extends BasicExtendedMetaData implements RM
 	protected EAnnotation getRMFAnnotation(EModelElement eModelElement, boolean demandCreate) {
 		EAnnotation result = annotationCache.get(eModelElement);
 		if (result == null) {
-			result = eModelElement.getEAnnotation(RMF_ANNOTATION_URI);
+			result = eModelElement.getEAnnotation(XML_PERSISTENCE_MAPPING_ANNOTATION_SOURCE_URI);
 		}
 		if (result == null && demandCreate) {
 			result = EcoreFactory.eINSTANCE.createEAnnotation();
-			result.setSource(RMF_ANNOTATION_URI);
+			result.setSource(XML_PERSISTENCE_MAPPING_ANNOTATION_SOURCE_URI);
 			annotationCache.put(eModelElement, result);
 		}
 		return result;

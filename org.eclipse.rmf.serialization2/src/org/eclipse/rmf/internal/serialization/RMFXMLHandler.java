@@ -23,8 +23,8 @@ import org.eclipse.emf.ecore.xmi.FeatureNotFoundException;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.SAXXMLHandler;
-import org.eclipse.rmf.serialization.RMFExtendedMetaData;
-import org.eclipse.rmf.serialization.RMFExtendedMetaDataImpl;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaData;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 
 public class RMFXMLHandler extends SAXXMLHandler {
 	interface DeserializationRule {
@@ -286,7 +286,7 @@ public class RMFXMLHandler extends SAXXMLHandler {
 		}
 	}
 
-	RMFExtendedMetaData rmfExtendedMetaData = null;
+	XMLPersistenceMappingExtendedMetaData rmfExtendedMetaData = null;
 	MyStack<DeserializationRule> deserializationRuleStack = null;
 
 	public RMFXMLHandler(XMLResource xmlResource, XMLHelper helper, Map<?, ?> options) {
@@ -294,12 +294,12 @@ public class RMFXMLHandler extends SAXXMLHandler {
 		Object extendedMetaDataOption = options.get(XMLResource.OPTION_EXTENDED_META_DATA);
 		if (extendedMetaDataOption instanceof Boolean) {
 			if (extendedMetaDataOption.equals(Boolean.TRUE)) {
-				rmfExtendedMetaData = xmlResource == null || xmlResource.getResourceSet() == null ? RMFExtendedMetaData.INSTANCE
-						: new RMFExtendedMetaDataImpl(xmlResource.getResourceSet().getPackageRegistry());
+				rmfExtendedMetaData = xmlResource == null || xmlResource.getResourceSet() == null ? XMLPersistenceMappingExtendedMetaData.INSTANCE
+						: new XMLPersistenceMappingExtendedMetaDataImpl(xmlResource.getResourceSet().getPackageRegistry());
 				extendedMetaData = rmfExtendedMetaData;
 			}
-		} else if (extendedMetaDataOption instanceof RMFExtendedMetaData) {
-			rmfExtendedMetaData = (RMFExtendedMetaData) options.get(XMLResource.OPTION_EXTENDED_META_DATA);
+		} else if (extendedMetaDataOption instanceof XMLPersistenceMappingExtendedMetaData) {
+			rmfExtendedMetaData = (XMLPersistenceMappingExtendedMetaData) options.get(XMLResource.OPTION_EXTENDED_META_DATA);
 			extendedMetaData = rmfExtendedMetaData;
 		}
 
@@ -469,13 +469,13 @@ public class RMFXMLHandler extends SAXXMLHandler {
 		if (null != feature) {
 			int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(feature);
 			switch (featureSerializationStructure) {
-			case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
 				deserializationRule = new DesrializationRule0100Impl(eObject, feature);
 				break;
-			case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
 				deserializationRule = new DesrializationRule0101Impl(eObject, feature);
 				break;
-			case RMFExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
 				deserializationRule = new DesrializationRule1001Impl(eObject, feature);
 				break;
 			default:

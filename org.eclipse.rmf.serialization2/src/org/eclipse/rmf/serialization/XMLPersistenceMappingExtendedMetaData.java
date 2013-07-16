@@ -16,12 +16,13 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
 
-public interface RMFExtendedMetaData extends ExtendedMetaData {
+public interface XMLPersistenceMappingExtendedMetaData extends ExtendedMetaData {
 
 	/**
-	 * The URI used as the annotation source: "http:///org/eclipse/rmf/serialization/RMFExtendedMetaData".
+	 * The URI used as the annotation source:
+	 * "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData".
 	 */
-	String RMF_ANNOTATION_URI = "http:///org/eclipse/rmf/serialization/RMFExtendedMetaData"; //$NON-NLS-1$
+	String XML_PERSISTENCE_MAPPING_ANNOTATION_SOURCE_URI = "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData"; //$NON-NLS-1$
 
 	/**
 	 * Returns the XML name for a classifier. This is the name is used if a classifier XML element is configured.
@@ -383,6 +384,6 @@ public interface RMFExtendedMetaData extends ExtendedMetaData {
 	/**
 	 * The default RMFExtendedMetaData instance.
 	 */
-	RMFExtendedMetaData INSTANCE = new RMFExtendedMetaDataImpl();
+	XMLPersistenceMappingExtendedMetaData INSTANCE = new XMLPersistenceMappingExtendedMetaDataImpl();
 
 }

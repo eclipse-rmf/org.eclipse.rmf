@@ -9,7 +9,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0000_Single"
         eType="#//Node" containment="true">
-      <eAnnotations source="http:///org/eclipse/rmf/serialization/RMFExtendedMetaData">
+      <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
