@@ -20,6 +20,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.Disposable;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -55,6 +56,14 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
+
+	/**
+	 * This keeps track of all the item providers created, so that they can be {@link #dispose disposed}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Disposable disposable = new Disposable();
 
 	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
@@ -470,14 +479,6 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeDefinitionBoolean} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AttributeDefinitionBooleanItemProvider attributeDefinitionBooleanItemProvider;
-
-	/**
 	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionBoolean}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -485,11 +486,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	 */
 	@Override
 	public Adapter createAttributeDefinitionBooleanAdapter() {
-		if (attributeDefinitionBooleanItemProvider == null) {
-			attributeDefinitionBooleanItemProvider = new AttributeDefinitionBooleanItemProvider(this);
-		}
-
-		return attributeDefinitionBooleanItemProvider;
+		return new AttributeDefinitionBooleanItemProvider(this);
 	}
 
 	/**
@@ -539,14 +536,6 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeDefinitionDate} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AttributeDefinitionDateItemProvider attributeDefinitionDateItemProvider;
-
-	/**
 	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionDate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -554,11 +543,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	 */
 	@Override
 	public Adapter createAttributeDefinitionDateAdapter() {
-		if (attributeDefinitionDateItemProvider == null) {
-			attributeDefinitionDateItemProvider = new AttributeDefinitionDateItemProvider(this);
-		}
-
-		return attributeDefinitionDateItemProvider;
+		return new AttributeDefinitionDateItemProvider(this);
 	}
 
 	/**
@@ -723,14 +708,6 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeDefinitionInteger} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AttributeDefinitionIntegerItemProvider attributeDefinitionIntegerItemProvider;
-
-	/**
 	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionInteger}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -738,11 +715,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	 */
 	@Override
 	public Adapter createAttributeDefinitionIntegerAdapter() {
-		if (attributeDefinitionIntegerItemProvider == null) {
-			attributeDefinitionIntegerItemProvider = new AttributeDefinitionIntegerItemProvider(this);
-		}
-
-		return attributeDefinitionIntegerItemProvider;
+		return new AttributeDefinitionIntegerItemProvider(this);
 	}
 
 	/**
@@ -792,14 +765,6 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeDefinitionReal} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AttributeDefinitionRealItemProvider attributeDefinitionRealItemProvider;
-
-	/**
 	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionReal}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -807,11 +772,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	 */
 	@Override
 	public Adapter createAttributeDefinitionRealAdapter() {
-		if (attributeDefinitionRealItemProvider == null) {
-			attributeDefinitionRealItemProvider = new AttributeDefinitionRealItemProvider(this);
-		}
-
-		return attributeDefinitionRealItemProvider;
+		return new AttributeDefinitionRealItemProvider(this);
 	}
 
 	/**
@@ -861,14 +822,6 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.AttributeDefinitionString} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AttributeDefinitionStringItemProvider attributeDefinitionStringItemProvider;
-
-	/**
 	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.AttributeDefinitionString}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -876,11 +829,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	 */
 	@Override
 	public Adapter createAttributeDefinitionStringAdapter() {
-		if (attributeDefinitionStringItemProvider == null) {
-			attributeDefinitionStringItemProvider = new AttributeDefinitionStringItemProvider(this);
-		}
-
-		return attributeDefinitionStringItemProvider;
+		return new AttributeDefinitionStringItemProvider(this);
 	}
 
 	/**
@@ -1011,6 +960,20 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	}
 
 	/**
+	 * Associates an adapter with a notifier via the base implementation, then records it to ensure it will be disposed.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected void associate(Adapter adapter, Notifier target) {
+		super.associate(adapter, target);
+		if (adapter != null) {
+			disposable.add(adapter);
+		}
+	}
+
+	/**
 	 * This adds a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1051,44 +1014,7 @@ public class ReqIF10ItemProviderAdapterFactory extends ReqIF10AdapterFactory imp
 	 * @generated
 	 */
 	public void dispose() {
-		if (attributeValueXHTMLItemProvider != null) attributeValueXHTMLItemProvider.dispose();
-		if (attributeDefinitionXHTMLItemProvider != null) attributeDefinitionXHTMLItemProvider.dispose();
-		if (reqIFContentItemProvider != null) reqIFContentItemProvider.dispose();
-		if (reqIFItemProvider != null) reqIFItemProvider.dispose();
-		if (reqIFHeaderItemProvider != null) reqIFHeaderItemProvider.dispose();
-		if (reqIFToolExtensionItemProvider != null) reqIFToolExtensionItemProvider.dispose();
-		if (specObjectItemProvider != null) specObjectItemProvider.dispose();
-		if (specObjectTypeItemProvider != null) specObjectTypeItemProvider.dispose();
-		if (specificationItemProvider != null) specificationItemProvider.dispose();
-		if (specificationTypeItemProvider != null) specificationTypeItemProvider.dispose();
-		if (specHierarchyItemProvider != null) specHierarchyItemProvider.dispose();
-		if (specRelationItemProvider != null) specRelationItemProvider.dispose();
-		if (specRelationTypeItemProvider != null) specRelationTypeItemProvider.dispose();
-		if (relationGroupItemProvider != null) relationGroupItemProvider.dispose();
-		if (relationGroupTypeItemProvider != null) relationGroupTypeItemProvider.dispose();
-		if (datatypeDefinitionXHTMLItemProvider != null) datatypeDefinitionXHTMLItemProvider.dispose();
-		if (alternativeIDItemProvider != null) alternativeIDItemProvider.dispose();
-		if (attributeDefinitionBooleanItemProvider != null) attributeDefinitionBooleanItemProvider.dispose();
-		if (datatypeDefinitionBooleanItemProvider != null) datatypeDefinitionBooleanItemProvider.dispose();
-		if (attributeValueBooleanItemProvider != null) attributeValueBooleanItemProvider.dispose();
-		if (attributeDefinitionDateItemProvider != null) attributeDefinitionDateItemProvider.dispose();
-		if (datatypeDefinitionDateItemProvider != null) datatypeDefinitionDateItemProvider.dispose();
-		if (attributeValueDateItemProvider != null) attributeValueDateItemProvider.dispose();
-		if (attributeDefinitionEnumerationItemProvider != null) attributeDefinitionEnumerationItemProvider.dispose();
-		if (datatypeDefinitionEnumerationItemProvider != null) datatypeDefinitionEnumerationItemProvider.dispose();
-		if (enumValueItemProvider != null) enumValueItemProvider.dispose();
-		if (embeddedValueItemProvider != null) embeddedValueItemProvider.dispose();
-		if (attributeValueEnumerationItemProvider != null) attributeValueEnumerationItemProvider.dispose();
-		if (attributeDefinitionIntegerItemProvider != null) attributeDefinitionIntegerItemProvider.dispose();
-		if (datatypeDefinitionIntegerItemProvider != null) datatypeDefinitionIntegerItemProvider.dispose();
-		if (attributeValueIntegerItemProvider != null) attributeValueIntegerItemProvider.dispose();
-		if (attributeDefinitionRealItemProvider != null) attributeDefinitionRealItemProvider.dispose();
-		if (datatypeDefinitionRealItemProvider != null) datatypeDefinitionRealItemProvider.dispose();
-		if (attributeValueRealItemProvider != null) attributeValueRealItemProvider.dispose();
-		if (attributeDefinitionStringItemProvider != null) attributeDefinitionStringItemProvider.dispose();
-		if (datatypeDefinitionStringItemProvider != null) datatypeDefinitionStringItemProvider.dispose();
-		if (attributeValueStringItemProvider != null) attributeValueStringItemProvider.dispose();
-		if (xhtmlContentItemProvider != null) xhtmlContentItemProvider.dispose();
+		disposable.dispose();
 	}
 
 }
