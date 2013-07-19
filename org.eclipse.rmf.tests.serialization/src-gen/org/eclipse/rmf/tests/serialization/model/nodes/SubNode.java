@@ -19,7 +19,8 @@ package org.eclipse.rmf.tests.serialization.model.nodes;
  *
  *
  * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getSubNode()
- * @model extendedMetaData="name='SUB-NODE' wrapperName='SUB-NODES'"
+ * @model extendedMetaData="name='SUB-NODE'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SUB-NODES'"
  * @generated
  */
 public interface SubNode extends Node {

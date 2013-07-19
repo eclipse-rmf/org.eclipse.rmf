@@ -68,7 +68,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 	protected Map<EModelElement, Object> extendedMetaDataCache = new HashMap<EModelElement, Object>();
 	protected Map<EModelElement, EAnnotation> annotationCache = new HashMap<EModelElement, EAnnotation>();
 
-	public static interface RMFEPackageExtendedMetaData {
+	public static interface XMLPersistenceMappingEPackageExtendedMetaData {
 		EClassifier getType(String name);
 
 		EClassifier getTypeByWrapperName(String wrapperName);
@@ -78,14 +78,14 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		void renameToXMLWrapperName(EClassifier eClassifier, String newName);
 	}
 
-	public class RMFEPackageExtendedMetaDataImpl implements RMFEPackageExtendedMetaData {
+	public class XMLPersistenceMappingEPackageExtendedMetaDataImpl implements XMLPersistenceMappingEPackageExtendedMetaData {
 		protected EPackage ePackage;
 		protected boolean isInitialized;
 		protected boolean isQualified;
 		protected Map<String, EClassifier> xmlNameToClassifierMap = new HashMap<String, EClassifier>();
 		protected Map<String, EClassifier> xmlWrapperNameToClassifierMap = new HashMap<String, EClassifier>();
 
-		public RMFEPackageExtendedMetaDataImpl(EPackage ePackage) {
+		public XMLPersistenceMappingEPackageExtendedMetaDataImpl(EPackage ePackage) {
 			this.ePackage = ePackage;
 		}
 
@@ -194,7 +194,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		}
 	}
 
-	public static interface RMFEClassifierExtendedMetaData {
+	public static interface XMLPersistenceMappingEClassifierExtendedMetaData {
 		String getXMLName();
 
 		void setXMLName(String name);
@@ -207,7 +207,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 
 	}
 
-	class RMFEDataTypeExtendedMetaDataImpl implements RMFEClassifierExtendedMetaData {
+	class XMLPersistenceMappingEDataTypeExtendedMetaDataImpl implements XMLPersistenceMappingEClassifierExtendedMetaData {
 		protected static final String UNINITIALIZED_STRING = "uninitialized"; //$NON-NLS-1$
 		protected static final int UNINITIALIZED_INT = -2;
 
@@ -215,7 +215,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		protected String xmlName = UNINITIALIZED_STRING;
 		protected String xmlWrapperName = UNINITIALIZED_STRING;
 
-		public RMFEDataTypeExtendedMetaDataImpl(EClassifier eClassifier) {
+		public XMLPersistenceMappingEDataTypeExtendedMetaDataImpl(EClassifier eClassifier) {
 			super();
 			this.eClassifier = eClassifier;
 		}
@@ -248,7 +248,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		}
 	}
 
-	class RMFEClassExtendedMetaDataImpl implements RMFEClassifierExtendedMetaData {
+	class XMLPersistenceMappingEClassExtendedMetaDataImpl implements XMLPersistenceMappingEClassifierExtendedMetaData {
 		protected static final String UNINITIALIZED_STRING = "uninitialized"; //$NON-NLS-1$
 		protected static final int UNINITIALIZED_INT = -2;
 
@@ -258,7 +258,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 
 		protected Map<String, EStructuralFeature> xmlNameToEStructuralFeatureMap = new HashMap<String, EStructuralFeature>();
 
-		public RMFEClassExtendedMetaDataImpl(EClassifier eClassifier) {
+		public XMLPersistenceMappingEClassExtendedMetaDataImpl(EClassifier eClassifier) {
 			super();
 			assert eClassifier instanceof EClass;
 			eClass = (EClass) eClassifier;
@@ -300,7 +300,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 				List<EStructuralFeature> results = new ArrayList<EStructuralFeature>();
 				while (allFeaturesIter.hasNext()) {
 					EStructuralFeature feature = allFeaturesIter.next();
-					String xmlWrapperName = getRMFExtendedMetaData(feature).getXMLWrapperName();
+					String xmlWrapperName = getXMLPersistenceMappingExtendedMetaData(feature).getXMLWrapperName();
 
 					// search by feature wrapper
 					if (xmlWrapperName.equals(xmlElementName)) {
@@ -311,7 +311,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 						}
 					} else {
 						// search by feature name
-						String xmlName = getRMFExtendedMetaData(feature).getXMLName();
+						String xmlName = getXMLPersistenceMappingExtendedMetaData(feature).getXMLName();
 						if (xmlName.equals(xmlElementName)) {
 							if (isIdentifiedByFeature(feature)) {
 								results.add(feature);
@@ -320,7 +320,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 							}
 						} else {
 							// search by type wrapper (assuming type is type of feature)
-							String classifierWrapperXMLName = getRMFExtendedMetaData(feature.getEType()).getXMLWrapperName();
+							String classifierWrapperXMLName = getXMLPersistenceMappingExtendedMetaData(feature.getEType()).getXMLWrapperName();
 							if (classifierWrapperXMLName.equals(xmlElementName)) {
 								if (isIdentifiedByClassifierWrapper(feature)) {
 									results.add(feature);
@@ -436,7 +436,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		}
 	}
 
-	public static interface RMFEStructuralFeatureExtendedMetaData {
+	public static interface XMLPersistenceMappingEStructuralFeatureExtendedMetaData {
 		String getXMLName();
 
 		void setXMLName(String name);
@@ -450,7 +450,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		void setFeatureSerializationStructure(int featureSerializationStructure);
 	}
 
-	class RMFEStructuralFeatureExtendedMetaDataImpl implements RMFEStructuralFeatureExtendedMetaData {
+	class RMFEStructuralFeatureExtendedMetaDataImpl implements XMLPersistenceMappingEStructuralFeatureExtendedMetaData {
 		protected static final String UNINITIALIZED_STRING = "uninitialized"; //$NON-NLS-1$
 		protected static final int UNINITIALIZED_INT = -2;
 
@@ -522,7 +522,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 	}
 
 	public String getXMLName(EClassifier eClassifier) {
-		return getRMFExtendedMetaData(eClassifier).getXMLName();
+		return getXMLPersistenceMappingExtendedMetaData(eClassifier).getXMLName();
 	}
 
 	/*
@@ -533,35 +533,35 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 	 */
 
 	public String getXMLWrapperName(EClassifier eClassifier) {
-		return getRMFExtendedMetaData(eClassifier).getXMLWrapperName();
+		return getXMLPersistenceMappingExtendedMetaData(eClassifier).getXMLWrapperName();
 	}
 
 	public void setXMLWrapperName(EClassifier eClassifier, String xmlWrapperName) {
 		EAnnotation eAnnotation = getRMFAnnotation(eClassifier, true);
 		eAnnotation.getDetails().put(WRAPPER_NAME, xmlWrapperName);
-		getRMFExtendedMetaData(eClassifier).setXMLWrapperName(xmlWrapperName);
+		getXMLPersistenceMappingExtendedMetaData(eClassifier).setXMLWrapperName(xmlWrapperName);
 		EPackage ePackage = eClassifier.getEPackage();
 		if (ePackage != null) {
-			getRMFExtendedMetaData(ePackage).renameToXMLWrapperName(eClassifier, xmlWrapperName);
+			getXMLPersistenceMappingExtendedMetaData(ePackage).renameToXMLWrapperName(eClassifier, xmlWrapperName);
 		}
 	}
 
 	public String getXMLName(EStructuralFeature eStructuralFeature) {
-		return getRMFExtendedMetaData(eStructuralFeature).getXMLName();
+		return getXMLPersistenceMappingExtendedMetaData(eStructuralFeature).getXMLName();
 	}
 
 	public String getXMLWrapperName(EStructuralFeature eStructuralFeature) {
-		return getRMFExtendedMetaData(eStructuralFeature).getXMLWrapperName();
+		return getXMLPersistenceMappingExtendedMetaData(eStructuralFeature).getXMLWrapperName();
 	}
 
 	public void setXMLWrapperName(EStructuralFeature eStructuralFeature, String xmlWrapperName) {
 		EAnnotation eAnnotation = getRMFAnnotation(eStructuralFeature, true);
 		eAnnotation.getDetails().put(WRAPPER_NAME, xmlWrapperName);
-		getRMFExtendedMetaData(eStructuralFeature).setXMLWrapperName(xmlWrapperName);
+		getXMLPersistenceMappingExtendedMetaData(eStructuralFeature).setXMLWrapperName(xmlWrapperName);
 	}
 
 	public int getFeatureSerializationStructure(EStructuralFeature eStructuralFeature) {
-		return getRMFExtendedMetaData(eStructuralFeature).getFeatureSerializationStructure();
+		return getXMLPersistenceMappingExtendedMetaData(eStructuralFeature).getFeatureSerializationStructure();
 	}
 
 	public void setFeatureSerializationStructure(EStructuralFeature eStructuralFeature, int serializationStructure) {
@@ -580,11 +580,11 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 	}
 
 	public EClassifier getTypeByXMLName(EPackage ePackage, String xmlName) {
-		return getRMFExtendedMetaData(ePackage).getType(xmlName);
+		return getXMLPersistenceMappingExtendedMetaData(ePackage).getType(xmlName);
 	}
 
 	public EClassifier getTypeByXMLWrapperName(EPackage ePackage, String xmlWrapperName) {
-		return getRMFExtendedMetaData(ePackage).getTypeByWrapperName(xmlWrapperName);
+		return getXMLPersistenceMappingExtendedMetaData(ePackage).getTypeByWrapperName(xmlWrapperName);
 	}
 
 	@Override
@@ -600,11 +600,11 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 	}
 
 	public EStructuralFeature getFeatureByXMLElementName(EClass eClass, String namespace, String xmlElementName) {
-		return getRMFExtendedMetaData(eClass).getFeatureByXMLElementName(namespace, xmlElementName);
+		return getXMLPersistenceMappingExtendedMetaData(eClass).getFeatureByXMLElementName(namespace, xmlElementName);
 	}
 
 	protected String basicGetWrapperName(EClassifier eClassifier) {
-		EAnnotation eAnnotation = getAnnotation(eClassifier, false);
+		EAnnotation eAnnotation = getRMFAnnotation(eClassifier, false);
 		String result = null;
 		if (eAnnotation != null) {
 			result = eAnnotation.getDetails().get(WRAPPER_NAME);
@@ -616,7 +616,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 	}
 
 	protected String basicGetWrapperName(EStructuralFeature eStructuralFeature) {
-		EAnnotation eAnnotation = getAnnotation(eStructuralFeature, false);
+		EAnnotation eAnnotation = getRMFAnnotation(eStructuralFeature, false);
 		String result = null;
 		if (eAnnotation != null) {
 			result = eAnnotation.getDetails().get(WRAPPER_NAME);
@@ -667,44 +667,44 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		}
 	}
 
-	protected RMFEStructuralFeatureExtendedMetaData getRMFExtendedMetaData(EStructuralFeature eStructuralFeature) {
-		RMFEStructuralFeatureExtendedMetaData result = (RMFEStructuralFeatureExtendedMetaData) extendedMetaDataCache.get(eStructuralFeature);
+	protected XMLPersistenceMappingEStructuralFeatureExtendedMetaData getXMLPersistenceMappingExtendedMetaData(EStructuralFeature eStructuralFeature) {
+		XMLPersistenceMappingEStructuralFeatureExtendedMetaData result = (XMLPersistenceMappingEStructuralFeatureExtendedMetaData) extendedMetaDataCache.get(eStructuralFeature);
 		if (result == null) {
 			extendedMetaDataCache.put(eStructuralFeature, result = createRMFEStructuralFeatureExtendedMetaData(eStructuralFeature));
 		}
 		return result;
 	}
 
-	protected RMFEClassifierExtendedMetaData getRMFExtendedMetaData(EClassifier eClassifier) {
-		RMFEClassifierExtendedMetaData result = (RMFEClassifierExtendedMetaData) extendedMetaDataCache.get(eClassifier);
+	protected XMLPersistenceMappingEClassifierExtendedMetaData getXMLPersistenceMappingExtendedMetaData(EClassifier eClassifier) {
+		XMLPersistenceMappingEClassifierExtendedMetaData result = (XMLPersistenceMappingEClassifierExtendedMetaData) extendedMetaDataCache.get(eClassifier);
 		if (result == null) {
 			extendedMetaDataCache.put(eClassifier, result = createRMFEClassifierExtendedMetaData(eClassifier));
 		}
 		return result;
 	}
 
-	protected RMFEPackageExtendedMetaData getRMFExtendedMetaData(EPackage ePackage) {
-		RMFEPackageExtendedMetaData result = (RMFEPackageExtendedMetaData) extendedMetaDataCache.get(ePackage);
+	protected XMLPersistenceMappingEPackageExtendedMetaData getXMLPersistenceMappingExtendedMetaData(EPackage ePackage) {
+		XMLPersistenceMappingEPackageExtendedMetaData result = (XMLPersistenceMappingEPackageExtendedMetaData) extendedMetaDataCache.get(ePackage);
 		if (result == null) {
 			extendedMetaDataCache.put(ePackage, result = createRMFEPackageExtendedMetaData(ePackage));
 		}
 		return result;
 	}
 
-	protected RMFEStructuralFeatureExtendedMetaData createRMFEStructuralFeatureExtendedMetaData(EStructuralFeature eStructuralFeature) {
+	protected XMLPersistenceMappingEStructuralFeatureExtendedMetaData createRMFEStructuralFeatureExtendedMetaData(EStructuralFeature eStructuralFeature) {
 		return new RMFEStructuralFeatureExtendedMetaDataImpl(eStructuralFeature);
 	}
 
-	protected RMFEClassifierExtendedMetaData createRMFEClassifierExtendedMetaData(EClassifier eClassifier) {
+	protected XMLPersistenceMappingEClassifierExtendedMetaData createRMFEClassifierExtendedMetaData(EClassifier eClassifier) {
 		if (eClassifier instanceof EClass) {
-			return new RMFEClassExtendedMetaDataImpl(eClassifier);
+			return new XMLPersistenceMappingEClassExtendedMetaDataImpl(eClassifier);
 		} else {
-			return new RMFEDataTypeExtendedMetaDataImpl(eClassifier);
+			return new XMLPersistenceMappingEDataTypeExtendedMetaDataImpl(eClassifier);
 		}
 	}
 
-	protected RMFEPackageExtendedMetaData createRMFEPackageExtendedMetaData(EPackage ePackage) {
-		return new RMFEPackageExtendedMetaDataImpl(ePackage);
+	protected XMLPersistenceMappingEPackageExtendedMetaData createRMFEPackageExtendedMetaData(EPackage ePackage) {
+		return new XMLPersistenceMappingEPackageExtendedMetaDataImpl(ePackage);
 	}
 
 	protected EAnnotation getRMFAnnotation(EModelElement eModelElement, boolean demandCreate) {
@@ -721,27 +721,27 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 	}
 
 	protected boolean isIdentifiedByFeatureWrapper(EStructuralFeature feature) {
-		int featureSerializationStructure = getRMFExtendedMetaData(feature).getFeatureSerializationStructure();
+		int featureSerializationStructure = getXMLPersistenceMappingExtendedMetaData(feature).getFeatureSerializationStructure();
 		return FEATURE_WRAPPER_ELEMENT_MASK == (featureSerializationStructure & FEATURE_WRAPPER_ELEMENT_MASK);
 	}
 
 	protected boolean isIdentifiedByFeature(EStructuralFeature feature) {
-		int featureSerializationStructure = getRMFExtendedMetaData(feature).getFeatureSerializationStructure();
+		int featureSerializationStructure = getXMLPersistenceMappingExtendedMetaData(feature).getFeatureSerializationStructure();
 		return FEATURE_ELEMENT_MASK == (featureSerializationStructure & (FEATURE_WRAPPER_ELEMENT_MASK | FEATURE_ELEMENT_MASK));
 	}
 
 	protected boolean isIdentifiedByClassifierWrapper(EStructuralFeature feature) {
-		int featureSerializationStructure = getRMFExtendedMetaData(feature).getFeatureSerializationStructure();
+		int featureSerializationStructure = getXMLPersistenceMappingExtendedMetaData(feature).getFeatureSerializationStructure();
 		return CLASSIFIER_WRAPPER_ELEMENT_MASK == (featureSerializationStructure & (FEATURE_WRAPPER_ELEMENT_MASK | FEATURE_ELEMENT_MASK | CLASSIFIER_WRAPPER_ELEMENT_MASK));
 	}
 
 	protected boolean isIdentifiedByClassifier(EStructuralFeature feature) {
-		int featureSerializationStructure = getRMFExtendedMetaData(feature).getFeatureSerializationStructure();
+		int featureSerializationStructure = getXMLPersistenceMappingExtendedMetaData(feature).getFeatureSerializationStructure();
 		return CLASSIFIER_ELEMENT_MASK == featureSerializationStructure;
 	}
 
 	protected boolean isNone(EStructuralFeature feature) {
-		int featureSerializationStructure = getRMFExtendedMetaData(feature).getFeatureSerializationStructure();
+		int featureSerializationStructure = getXMLPersistenceMappingExtendedMetaData(feature).getFeatureSerializationStructure();
 		return 0 == featureSerializationStructure;
 	}
 
