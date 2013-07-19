@@ -50,6 +50,70 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_WithTypeEObject_Contained0010Many"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_WithTypeEObject_Contained0100Many"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_WithTypeEObject_Contained1000Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0000Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0001Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0010Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0011Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0100Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0101Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0110Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0111Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1000Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1001Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1010Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1011Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1100Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1101Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1110Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1111Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0000Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0001Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0010Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0011Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0100Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0101Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0110Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced0111Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1000Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1001Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1010Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1011Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1100Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1101Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1110Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Referenced1111Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0000Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0001Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0010Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0011Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0100Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0101Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0110Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0111Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1000Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1001Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1010Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1011Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1100Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1101Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1110Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1111Single"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0000Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0001Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0010Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0011Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0100Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0101Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0110Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute0111Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1000Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1001Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1010Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1011Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1100Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1101Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1110Many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1111Many"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nodes.ecore#//AbstractNode"/>
     <genClasses ecoreClass="nodes.ecore#//SubNode"/>

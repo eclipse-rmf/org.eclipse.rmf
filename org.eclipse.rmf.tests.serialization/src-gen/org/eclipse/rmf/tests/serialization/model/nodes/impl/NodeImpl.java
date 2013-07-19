@@ -24,7 +24,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
@@ -78,6 +80,70 @@ import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
  *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_WithTypeEObject_Contained0010Many <em>EReference With Type EObject Contained0010 Many</em>}</li>
  *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_WithTypeEObject_Contained0100Many <em>EReference With Type EObject Contained0100 Many</em>}</li>
  *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_WithTypeEObject_Contained1000Many <em>EReference With Type EObject Contained1000 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0000Single <em>EReference Referenced0000 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0001Single <em>EReference Referenced0001 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0010Single <em>EReference Referenced0010 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0011Single <em>EReference Referenced0011 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0100Single <em>EReference Referenced0100 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0101Single <em>EReference Referenced0101 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0110Single <em>EReference Referenced0110 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0111Single <em>EReference Referenced0111 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1000Single <em>EReference Referenced1000 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1001Single <em>EReference Referenced1001 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1010Single <em>EReference Referenced1010 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1011Single <em>EReference Referenced1011 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1100Single <em>EReference Referenced1100 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1101Single <em>EReference Referenced1101 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1110Single <em>EReference Referenced1110 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1111Single <em>EReference Referenced1111 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0000Many <em>EReference Referenced0000 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0001Many <em>EReference Referenced0001 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0010Many <em>EReference Referenced0010 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0011Many <em>EReference Referenced0011 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0100Many <em>EReference Referenced0100 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0101Many <em>EReference Referenced0101 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0110Many <em>EReference Referenced0110 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced0111Many <em>EReference Referenced0111 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1000Many <em>EReference Referenced1000 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1001Many <em>EReference Referenced1001 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1010Many <em>EReference Referenced1010 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1011Many <em>EReference Referenced1011 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1100Many <em>EReference Referenced1100 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1101Many <em>EReference Referenced1101 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1110Many <em>EReference Referenced1110 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Referenced1111Many <em>EReference Referenced1111 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0000Single <em>EAttribute Attribute0000 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0001Single <em>EAttribute Attribute0001 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0010Single <em>EAttribute Attribute0010 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0011Single <em>EAttribute Attribute0011 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0100Single <em>EAttribute Attribute0100 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0101Single <em>EAttribute Attribute0101 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0110Single <em>EAttribute Attribute0110 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0111Single <em>EAttribute Attribute0111 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1000Single <em>EAttribute Attribute1000 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1001Single <em>EAttribute Attribute1001 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1010Single <em>EAttribute Attribute1010 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1011Single <em>EAttribute Attribute1011 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1100Single <em>EAttribute Attribute1100 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1101Single <em>EAttribute Attribute1101 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1110Single <em>EAttribute Attribute1110 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1111Single <em>EAttribute Attribute1111 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0000Many <em>EAttribute Attribute0000 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0001Many <em>EAttribute Attribute0001 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0010Many <em>EAttribute Attribute0010 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0011Many <em>EAttribute Attribute0011 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0100Many <em>EAttribute Attribute0100 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0101Many <em>EAttribute Attribute0101 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0110Many <em>EAttribute Attribute0110 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute0111Many <em>EAttribute Attribute0111 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1000Many <em>EAttribute Attribute1000 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1001Many <em>EAttribute Attribute1001 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1010Many <em>EAttribute Attribute1010 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1011Many <em>EAttribute Attribute1011 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1100Many <em>EAttribute Attribute1100 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1101Many <em>EAttribute Attribute1101 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1110Many <em>EAttribute Attribute1110 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEAttribute_Attribute1111Many <em>EAttribute Attribute1111 Many</em>}</li>
  * </ul>
  * </p>
  *
@@ -503,6 +569,806 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * @ordered
 	 */
 	protected EList<EObject> eReference_WithTypeEObject_Contained1000Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0000Single() <em>EReference Referenced0000 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0000Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced0000Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0001Single() <em>EReference Referenced0001 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0001Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced0001Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0010Single() <em>EReference Referenced0010 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0010Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced0010Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0011Single() <em>EReference Referenced0011 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0011Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced0011Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0100Single() <em>EReference Referenced0100 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0100Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced0100Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0101Single() <em>EReference Referenced0101 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0101Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced0101Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0110Single() <em>EReference Referenced0110 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0110Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced0110Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0111Single() <em>EReference Referenced0111 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0111Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced0111Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1000Single() <em>EReference Referenced1000 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1000Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced1000Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1001Single() <em>EReference Referenced1001 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1001Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced1001Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1010Single() <em>EReference Referenced1010 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1010Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced1010Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1011Single() <em>EReference Referenced1011 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1011Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced1011Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1100Single() <em>EReference Referenced1100 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1100Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced1100Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1101Single() <em>EReference Referenced1101 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1101Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced1101Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1110Single() <em>EReference Referenced1110 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1110Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced1110Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1111Single() <em>EReference Referenced1111 Single</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1111Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected Node eReference_Referenced1111Single;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0000Many() <em>EReference Referenced0000 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0000Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced0000Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0001Many() <em>EReference Referenced0001 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0001Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced0001Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0010Many() <em>EReference Referenced0010 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0010Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced0010Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0011Many() <em>EReference Referenced0011 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0011Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced0011Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0100Many() <em>EReference Referenced0100 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0100Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced0100Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0101Many() <em>EReference Referenced0101 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0101Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced0101Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0110Many() <em>EReference Referenced0110 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0110Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced0110Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced0111Many() <em>EReference Referenced0111 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced0111Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced0111Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1000Many() <em>EReference Referenced1000 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1000Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced1000Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1001Many() <em>EReference Referenced1001 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1001Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced1001Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1010Many() <em>EReference Referenced1010 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1010Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced1010Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1011Many() <em>EReference Referenced1011 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1011Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced1011Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1100Many() <em>EReference Referenced1100 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1100Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced1100Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1101Many() <em>EReference Referenced1101 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1101Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced1101Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1110Many() <em>EReference Referenced1110 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1110Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced1110Many;
+
+	/**
+	 * The cached value of the '{@link #getEReference_Referenced1111Many() <em>EReference Referenced1111 Many</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference_Referenced1111Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Node> eReference_Referenced1111Many;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute0000Single() <em>EAttribute Attribute0000 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0000Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE0000_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0000Single() <em>EAttribute Attribute0000 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0000Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute0000Single = EATTRIBUTE_ATTRIBUTE0000_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute0001Single() <em>EAttribute Attribute0001 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0001Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE0001_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0001Single() <em>EAttribute Attribute0001 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0001Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute0001Single = EATTRIBUTE_ATTRIBUTE0001_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute0010Single() <em>EAttribute Attribute0010 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0010Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE0010_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0010Single() <em>EAttribute Attribute0010 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0010Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute0010Single = EATTRIBUTE_ATTRIBUTE0010_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute0011Single() <em>EAttribute Attribute0011 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0011Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE0011_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0011Single() <em>EAttribute Attribute0011 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0011Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute0011Single = EATTRIBUTE_ATTRIBUTE0011_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute0100Single() <em>EAttribute Attribute0100 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0100Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE0100_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0100Single() <em>EAttribute Attribute0100 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0100Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute0100Single = EATTRIBUTE_ATTRIBUTE0100_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute0101Single() <em>EAttribute Attribute0101 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0101Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE0101_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0101Single() <em>EAttribute Attribute0101 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0101Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute0101Single = EATTRIBUTE_ATTRIBUTE0101_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute0110Single() <em>EAttribute Attribute0110 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0110Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE0110_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0110Single() <em>EAttribute Attribute0110 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0110Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute0110Single = EATTRIBUTE_ATTRIBUTE0110_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute0111Single() <em>EAttribute Attribute0111 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0111Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE0111_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0111Single() <em>EAttribute Attribute0111 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0111Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute0111Single = EATTRIBUTE_ATTRIBUTE0111_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute1000Single() <em>EAttribute Attribute1000 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1000Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE1000_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1000Single() <em>EAttribute Attribute1000 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1000Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute1000Single = EATTRIBUTE_ATTRIBUTE1000_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute1001Single() <em>EAttribute Attribute1001 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1001Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE1001_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1001Single() <em>EAttribute Attribute1001 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1001Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute1001Single = EATTRIBUTE_ATTRIBUTE1001_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute1010Single() <em>EAttribute Attribute1010 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1010Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE1010_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1010Single() <em>EAttribute Attribute1010 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1010Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute1010Single = EATTRIBUTE_ATTRIBUTE1010_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute1011Single() <em>EAttribute Attribute1011 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1011Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE1011_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1011Single() <em>EAttribute Attribute1011 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1011Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute1011Single = EATTRIBUTE_ATTRIBUTE1011_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute1100Single() <em>EAttribute Attribute1100 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1100Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE1100_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1100Single() <em>EAttribute Attribute1100 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1100Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute1100Single = EATTRIBUTE_ATTRIBUTE1100_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute1101Single() <em>EAttribute Attribute1101 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1101Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE1101_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1101Single() <em>EAttribute Attribute1101 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1101Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute1101Single = EATTRIBUTE_ATTRIBUTE1101_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute1110Single() <em>EAttribute Attribute1110 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1110Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE1110_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1110Single() <em>EAttribute Attribute1110 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1110Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute1110Single = EATTRIBUTE_ATTRIBUTE1110_SINGLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEAttribute_Attribute1111Single() <em>EAttribute Attribute1111 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1111Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EATTRIBUTE_ATTRIBUTE1111_SINGLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1111Single() <em>EAttribute Attribute1111 Single</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1111Single()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eAttribute_Attribute1111Single = EATTRIBUTE_ATTRIBUTE1111_SINGLE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0000Many() <em>EAttribute Attribute0000 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0000Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute0000Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0001Many() <em>EAttribute Attribute0001 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0001Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute0001Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0010Many() <em>EAttribute Attribute0010 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0010Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute0010Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0011Many() <em>EAttribute Attribute0011 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0011Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute0011Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0100Many() <em>EAttribute Attribute0100 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0100Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute0100Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0101Many() <em>EAttribute Attribute0101 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0101Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute0101Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0110Many() <em>EAttribute Attribute0110 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0110Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute0110Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute0111Many() <em>EAttribute Attribute0111 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute0111Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute0111Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1000Many() <em>EAttribute Attribute1000 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1000Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute1000Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1001Many() <em>EAttribute Attribute1001 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1001Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute1001Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1010Many() <em>EAttribute Attribute1010 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1010Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute1010Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1011Many() <em>EAttribute Attribute1011 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1011Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute1011Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1100Many() <em>EAttribute Attribute1100 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1100Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute1100Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1101Many() <em>EAttribute Attribute1101 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1101Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute1101Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1110Many() <em>EAttribute Attribute1110 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1110Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute1110Many;
+
+	/**
+	 * The cached value of the '{@link #getEAttribute_Attribute1111Many() <em>EAttribute Attribute1111 Many</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEAttribute_Attribute1111Many()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> eAttribute_Attribute1111Many;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1587,6 +2453,1334 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Node getEReference_Referenced0000Single() {
+		if (eReference_Referenced0000Single != null && eReference_Referenced0000Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced0000Single = (InternalEObject)eReference_Referenced0000Single;
+			eReference_Referenced0000Single = (Node)eResolveProxy(oldEReference_Referenced0000Single);
+			if (eReference_Referenced0000Single != oldEReference_Referenced0000Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED0000_SINGLE, oldEReference_Referenced0000Single, eReference_Referenced0000Single));
+			}
+		}
+		return eReference_Referenced0000Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced0000Single() {
+		return eReference_Referenced0000Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced0000Single(Node newEReference_Referenced0000Single) {
+		Node oldEReference_Referenced0000Single = eReference_Referenced0000Single;
+		eReference_Referenced0000Single = newEReference_Referenced0000Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED0000_SINGLE, oldEReference_Referenced0000Single, eReference_Referenced0000Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced0001Single() {
+		if (eReference_Referenced0001Single != null && eReference_Referenced0001Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced0001Single = (InternalEObject)eReference_Referenced0001Single;
+			eReference_Referenced0001Single = (Node)eResolveProxy(oldEReference_Referenced0001Single);
+			if (eReference_Referenced0001Single != oldEReference_Referenced0001Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED0001_SINGLE, oldEReference_Referenced0001Single, eReference_Referenced0001Single));
+			}
+		}
+		return eReference_Referenced0001Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced0001Single() {
+		return eReference_Referenced0001Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced0001Single(Node newEReference_Referenced0001Single) {
+		Node oldEReference_Referenced0001Single = eReference_Referenced0001Single;
+		eReference_Referenced0001Single = newEReference_Referenced0001Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED0001_SINGLE, oldEReference_Referenced0001Single, eReference_Referenced0001Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced0010Single() {
+		if (eReference_Referenced0010Single != null && eReference_Referenced0010Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced0010Single = (InternalEObject)eReference_Referenced0010Single;
+			eReference_Referenced0010Single = (Node)eResolveProxy(oldEReference_Referenced0010Single);
+			if (eReference_Referenced0010Single != oldEReference_Referenced0010Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED0010_SINGLE, oldEReference_Referenced0010Single, eReference_Referenced0010Single));
+			}
+		}
+		return eReference_Referenced0010Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced0010Single() {
+		return eReference_Referenced0010Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced0010Single(Node newEReference_Referenced0010Single) {
+		Node oldEReference_Referenced0010Single = eReference_Referenced0010Single;
+		eReference_Referenced0010Single = newEReference_Referenced0010Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED0010_SINGLE, oldEReference_Referenced0010Single, eReference_Referenced0010Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced0011Single() {
+		if (eReference_Referenced0011Single != null && eReference_Referenced0011Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced0011Single = (InternalEObject)eReference_Referenced0011Single;
+			eReference_Referenced0011Single = (Node)eResolveProxy(oldEReference_Referenced0011Single);
+			if (eReference_Referenced0011Single != oldEReference_Referenced0011Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED0011_SINGLE, oldEReference_Referenced0011Single, eReference_Referenced0011Single));
+			}
+		}
+		return eReference_Referenced0011Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced0011Single() {
+		return eReference_Referenced0011Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced0011Single(Node newEReference_Referenced0011Single) {
+		Node oldEReference_Referenced0011Single = eReference_Referenced0011Single;
+		eReference_Referenced0011Single = newEReference_Referenced0011Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED0011_SINGLE, oldEReference_Referenced0011Single, eReference_Referenced0011Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced0100Single() {
+		if (eReference_Referenced0100Single != null && eReference_Referenced0100Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced0100Single = (InternalEObject)eReference_Referenced0100Single;
+			eReference_Referenced0100Single = (Node)eResolveProxy(oldEReference_Referenced0100Single);
+			if (eReference_Referenced0100Single != oldEReference_Referenced0100Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED0100_SINGLE, oldEReference_Referenced0100Single, eReference_Referenced0100Single));
+			}
+		}
+		return eReference_Referenced0100Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced0100Single() {
+		return eReference_Referenced0100Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced0100Single(Node newEReference_Referenced0100Single) {
+		Node oldEReference_Referenced0100Single = eReference_Referenced0100Single;
+		eReference_Referenced0100Single = newEReference_Referenced0100Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED0100_SINGLE, oldEReference_Referenced0100Single, eReference_Referenced0100Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced0101Single() {
+		if (eReference_Referenced0101Single != null && eReference_Referenced0101Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced0101Single = (InternalEObject)eReference_Referenced0101Single;
+			eReference_Referenced0101Single = (Node)eResolveProxy(oldEReference_Referenced0101Single);
+			if (eReference_Referenced0101Single != oldEReference_Referenced0101Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED0101_SINGLE, oldEReference_Referenced0101Single, eReference_Referenced0101Single));
+			}
+		}
+		return eReference_Referenced0101Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced0101Single() {
+		return eReference_Referenced0101Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced0101Single(Node newEReference_Referenced0101Single) {
+		Node oldEReference_Referenced0101Single = eReference_Referenced0101Single;
+		eReference_Referenced0101Single = newEReference_Referenced0101Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED0101_SINGLE, oldEReference_Referenced0101Single, eReference_Referenced0101Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced0110Single() {
+		if (eReference_Referenced0110Single != null && eReference_Referenced0110Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced0110Single = (InternalEObject)eReference_Referenced0110Single;
+			eReference_Referenced0110Single = (Node)eResolveProxy(oldEReference_Referenced0110Single);
+			if (eReference_Referenced0110Single != oldEReference_Referenced0110Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED0110_SINGLE, oldEReference_Referenced0110Single, eReference_Referenced0110Single));
+			}
+		}
+		return eReference_Referenced0110Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced0110Single() {
+		return eReference_Referenced0110Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced0110Single(Node newEReference_Referenced0110Single) {
+		Node oldEReference_Referenced0110Single = eReference_Referenced0110Single;
+		eReference_Referenced0110Single = newEReference_Referenced0110Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED0110_SINGLE, oldEReference_Referenced0110Single, eReference_Referenced0110Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced0111Single() {
+		if (eReference_Referenced0111Single != null && eReference_Referenced0111Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced0111Single = (InternalEObject)eReference_Referenced0111Single;
+			eReference_Referenced0111Single = (Node)eResolveProxy(oldEReference_Referenced0111Single);
+			if (eReference_Referenced0111Single != oldEReference_Referenced0111Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED0111_SINGLE, oldEReference_Referenced0111Single, eReference_Referenced0111Single));
+			}
+		}
+		return eReference_Referenced0111Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced0111Single() {
+		return eReference_Referenced0111Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced0111Single(Node newEReference_Referenced0111Single) {
+		Node oldEReference_Referenced0111Single = eReference_Referenced0111Single;
+		eReference_Referenced0111Single = newEReference_Referenced0111Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED0111_SINGLE, oldEReference_Referenced0111Single, eReference_Referenced0111Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced1000Single() {
+		if (eReference_Referenced1000Single != null && eReference_Referenced1000Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced1000Single = (InternalEObject)eReference_Referenced1000Single;
+			eReference_Referenced1000Single = (Node)eResolveProxy(oldEReference_Referenced1000Single);
+			if (eReference_Referenced1000Single != oldEReference_Referenced1000Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED1000_SINGLE, oldEReference_Referenced1000Single, eReference_Referenced1000Single));
+			}
+		}
+		return eReference_Referenced1000Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced1000Single() {
+		return eReference_Referenced1000Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced1000Single(Node newEReference_Referenced1000Single) {
+		Node oldEReference_Referenced1000Single = eReference_Referenced1000Single;
+		eReference_Referenced1000Single = newEReference_Referenced1000Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED1000_SINGLE, oldEReference_Referenced1000Single, eReference_Referenced1000Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced1001Single() {
+		if (eReference_Referenced1001Single != null && eReference_Referenced1001Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced1001Single = (InternalEObject)eReference_Referenced1001Single;
+			eReference_Referenced1001Single = (Node)eResolveProxy(oldEReference_Referenced1001Single);
+			if (eReference_Referenced1001Single != oldEReference_Referenced1001Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED1001_SINGLE, oldEReference_Referenced1001Single, eReference_Referenced1001Single));
+			}
+		}
+		return eReference_Referenced1001Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced1001Single() {
+		return eReference_Referenced1001Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced1001Single(Node newEReference_Referenced1001Single) {
+		Node oldEReference_Referenced1001Single = eReference_Referenced1001Single;
+		eReference_Referenced1001Single = newEReference_Referenced1001Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED1001_SINGLE, oldEReference_Referenced1001Single, eReference_Referenced1001Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced1010Single() {
+		if (eReference_Referenced1010Single != null && eReference_Referenced1010Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced1010Single = (InternalEObject)eReference_Referenced1010Single;
+			eReference_Referenced1010Single = (Node)eResolveProxy(oldEReference_Referenced1010Single);
+			if (eReference_Referenced1010Single != oldEReference_Referenced1010Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED1010_SINGLE, oldEReference_Referenced1010Single, eReference_Referenced1010Single));
+			}
+		}
+		return eReference_Referenced1010Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced1010Single() {
+		return eReference_Referenced1010Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced1010Single(Node newEReference_Referenced1010Single) {
+		Node oldEReference_Referenced1010Single = eReference_Referenced1010Single;
+		eReference_Referenced1010Single = newEReference_Referenced1010Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED1010_SINGLE, oldEReference_Referenced1010Single, eReference_Referenced1010Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced1011Single() {
+		if (eReference_Referenced1011Single != null && eReference_Referenced1011Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced1011Single = (InternalEObject)eReference_Referenced1011Single;
+			eReference_Referenced1011Single = (Node)eResolveProxy(oldEReference_Referenced1011Single);
+			if (eReference_Referenced1011Single != oldEReference_Referenced1011Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED1011_SINGLE, oldEReference_Referenced1011Single, eReference_Referenced1011Single));
+			}
+		}
+		return eReference_Referenced1011Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced1011Single() {
+		return eReference_Referenced1011Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced1011Single(Node newEReference_Referenced1011Single) {
+		Node oldEReference_Referenced1011Single = eReference_Referenced1011Single;
+		eReference_Referenced1011Single = newEReference_Referenced1011Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED1011_SINGLE, oldEReference_Referenced1011Single, eReference_Referenced1011Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced1100Single() {
+		if (eReference_Referenced1100Single != null && eReference_Referenced1100Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced1100Single = (InternalEObject)eReference_Referenced1100Single;
+			eReference_Referenced1100Single = (Node)eResolveProxy(oldEReference_Referenced1100Single);
+			if (eReference_Referenced1100Single != oldEReference_Referenced1100Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED1100_SINGLE, oldEReference_Referenced1100Single, eReference_Referenced1100Single));
+			}
+		}
+		return eReference_Referenced1100Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced1100Single() {
+		return eReference_Referenced1100Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced1100Single(Node newEReference_Referenced1100Single) {
+		Node oldEReference_Referenced1100Single = eReference_Referenced1100Single;
+		eReference_Referenced1100Single = newEReference_Referenced1100Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED1100_SINGLE, oldEReference_Referenced1100Single, eReference_Referenced1100Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced1101Single() {
+		if (eReference_Referenced1101Single != null && eReference_Referenced1101Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced1101Single = (InternalEObject)eReference_Referenced1101Single;
+			eReference_Referenced1101Single = (Node)eResolveProxy(oldEReference_Referenced1101Single);
+			if (eReference_Referenced1101Single != oldEReference_Referenced1101Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED1101_SINGLE, oldEReference_Referenced1101Single, eReference_Referenced1101Single));
+			}
+		}
+		return eReference_Referenced1101Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced1101Single() {
+		return eReference_Referenced1101Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced1101Single(Node newEReference_Referenced1101Single) {
+		Node oldEReference_Referenced1101Single = eReference_Referenced1101Single;
+		eReference_Referenced1101Single = newEReference_Referenced1101Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED1101_SINGLE, oldEReference_Referenced1101Single, eReference_Referenced1101Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced1110Single() {
+		if (eReference_Referenced1110Single != null && eReference_Referenced1110Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced1110Single = (InternalEObject)eReference_Referenced1110Single;
+			eReference_Referenced1110Single = (Node)eResolveProxy(oldEReference_Referenced1110Single);
+			if (eReference_Referenced1110Single != oldEReference_Referenced1110Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED1110_SINGLE, oldEReference_Referenced1110Single, eReference_Referenced1110Single));
+			}
+		}
+		return eReference_Referenced1110Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced1110Single() {
+		return eReference_Referenced1110Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced1110Single(Node newEReference_Referenced1110Single) {
+		Node oldEReference_Referenced1110Single = eReference_Referenced1110Single;
+		eReference_Referenced1110Single = newEReference_Referenced1110Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED1110_SINGLE, oldEReference_Referenced1110Single, eReference_Referenced1110Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node getEReference_Referenced1111Single() {
+		if (eReference_Referenced1111Single != null && eReference_Referenced1111Single.eIsProxy()) {
+			InternalEObject oldEReference_Referenced1111Single = (InternalEObject)eReference_Referenced1111Single;
+			eReference_Referenced1111Single = (Node)eResolveProxy(oldEReference_Referenced1111Single);
+			if (eReference_Referenced1111Single != oldEReference_Referenced1111Single) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NodesPackage.NODE__EREFERENCE_REFERENCED1111_SINGLE, oldEReference_Referenced1111Single, eReference_Referenced1111Single));
+			}
+		}
+		return eReference_Referenced1111Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Node basicGetEReference_Referenced1111Single() {
+		return eReference_Referenced1111Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference_Referenced1111Single(Node newEReference_Referenced1111Single) {
+		Node oldEReference_Referenced1111Single = eReference_Referenced1111Single;
+		eReference_Referenced1111Single = newEReference_Referenced1111Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_REFERENCED1111_SINGLE, oldEReference_Referenced1111Single, eReference_Referenced1111Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced0000Many() {
+		if (eReference_Referenced0000Many == null) {
+			eReference_Referenced0000Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED0000_MANY);
+		}
+		return eReference_Referenced0000Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced0001Many() {
+		if (eReference_Referenced0001Many == null) {
+			eReference_Referenced0001Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED0001_MANY);
+		}
+		return eReference_Referenced0001Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced0010Many() {
+		if (eReference_Referenced0010Many == null) {
+			eReference_Referenced0010Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED0010_MANY);
+		}
+		return eReference_Referenced0010Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced0011Many() {
+		if (eReference_Referenced0011Many == null) {
+			eReference_Referenced0011Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED0011_MANY);
+		}
+		return eReference_Referenced0011Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced0100Many() {
+		if (eReference_Referenced0100Many == null) {
+			eReference_Referenced0100Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED0100_MANY);
+		}
+		return eReference_Referenced0100Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced0101Many() {
+		if (eReference_Referenced0101Many == null) {
+			eReference_Referenced0101Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED0101_MANY);
+		}
+		return eReference_Referenced0101Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced0110Many() {
+		if (eReference_Referenced0110Many == null) {
+			eReference_Referenced0110Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED0110_MANY);
+		}
+		return eReference_Referenced0110Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced0111Many() {
+		if (eReference_Referenced0111Many == null) {
+			eReference_Referenced0111Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED0111_MANY);
+		}
+		return eReference_Referenced0111Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced1000Many() {
+		if (eReference_Referenced1000Many == null) {
+			eReference_Referenced1000Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED1000_MANY);
+		}
+		return eReference_Referenced1000Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced1001Many() {
+		if (eReference_Referenced1001Many == null) {
+			eReference_Referenced1001Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED1001_MANY);
+		}
+		return eReference_Referenced1001Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced1010Many() {
+		if (eReference_Referenced1010Many == null) {
+			eReference_Referenced1010Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED1010_MANY);
+		}
+		return eReference_Referenced1010Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced1011Many() {
+		if (eReference_Referenced1011Many == null) {
+			eReference_Referenced1011Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED1011_MANY);
+		}
+		return eReference_Referenced1011Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced1100Many() {
+		if (eReference_Referenced1100Many == null) {
+			eReference_Referenced1100Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED1100_MANY);
+		}
+		return eReference_Referenced1100Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced1101Many() {
+		if (eReference_Referenced1101Many == null) {
+			eReference_Referenced1101Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED1101_MANY);
+		}
+		return eReference_Referenced1101Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced1110Many() {
+		if (eReference_Referenced1110Many == null) {
+			eReference_Referenced1110Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED1110_MANY);
+		}
+		return eReference_Referenced1110Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Node> getEReference_Referenced1111Many() {
+		if (eReference_Referenced1111Many == null) {
+			eReference_Referenced1111Many = new EObjectResolvingEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_REFERENCED1111_MANY);
+		}
+		return eReference_Referenced1111Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute0000Single() {
+		return eAttribute_Attribute0000Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute0000Single(String newEAttribute_Attribute0000Single) {
+		String oldEAttribute_Attribute0000Single = eAttribute_Attribute0000Single;
+		eAttribute_Attribute0000Single = newEAttribute_Attribute0000Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0000_SINGLE, oldEAttribute_Attribute0000Single, eAttribute_Attribute0000Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute0001Single() {
+		return eAttribute_Attribute0001Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute0001Single(String newEAttribute_Attribute0001Single) {
+		String oldEAttribute_Attribute0001Single = eAttribute_Attribute0001Single;
+		eAttribute_Attribute0001Single = newEAttribute_Attribute0001Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0001_SINGLE, oldEAttribute_Attribute0001Single, eAttribute_Attribute0001Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute0010Single() {
+		return eAttribute_Attribute0010Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute0010Single(String newEAttribute_Attribute0010Single) {
+		String oldEAttribute_Attribute0010Single = eAttribute_Attribute0010Single;
+		eAttribute_Attribute0010Single = newEAttribute_Attribute0010Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0010_SINGLE, oldEAttribute_Attribute0010Single, eAttribute_Attribute0010Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute0011Single() {
+		return eAttribute_Attribute0011Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute0011Single(String newEAttribute_Attribute0011Single) {
+		String oldEAttribute_Attribute0011Single = eAttribute_Attribute0011Single;
+		eAttribute_Attribute0011Single = newEAttribute_Attribute0011Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0011_SINGLE, oldEAttribute_Attribute0011Single, eAttribute_Attribute0011Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute0100Single() {
+		return eAttribute_Attribute0100Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute0100Single(String newEAttribute_Attribute0100Single) {
+		String oldEAttribute_Attribute0100Single = eAttribute_Attribute0100Single;
+		eAttribute_Attribute0100Single = newEAttribute_Attribute0100Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0100_SINGLE, oldEAttribute_Attribute0100Single, eAttribute_Attribute0100Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute0101Single() {
+		return eAttribute_Attribute0101Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute0101Single(String newEAttribute_Attribute0101Single) {
+		String oldEAttribute_Attribute0101Single = eAttribute_Attribute0101Single;
+		eAttribute_Attribute0101Single = newEAttribute_Attribute0101Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0101_SINGLE, oldEAttribute_Attribute0101Single, eAttribute_Attribute0101Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute0110Single() {
+		return eAttribute_Attribute0110Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute0110Single(String newEAttribute_Attribute0110Single) {
+		String oldEAttribute_Attribute0110Single = eAttribute_Attribute0110Single;
+		eAttribute_Attribute0110Single = newEAttribute_Attribute0110Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0110_SINGLE, oldEAttribute_Attribute0110Single, eAttribute_Attribute0110Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute0111Single() {
+		return eAttribute_Attribute0111Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute0111Single(String newEAttribute_Attribute0111Single) {
+		String oldEAttribute_Attribute0111Single = eAttribute_Attribute0111Single;
+		eAttribute_Attribute0111Single = newEAttribute_Attribute0111Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0111_SINGLE, oldEAttribute_Attribute0111Single, eAttribute_Attribute0111Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute1000Single() {
+		return eAttribute_Attribute1000Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute1000Single(String newEAttribute_Attribute1000Single) {
+		String oldEAttribute_Attribute1000Single = eAttribute_Attribute1000Single;
+		eAttribute_Attribute1000Single = newEAttribute_Attribute1000Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1000_SINGLE, oldEAttribute_Attribute1000Single, eAttribute_Attribute1000Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute1001Single() {
+		return eAttribute_Attribute1001Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute1001Single(String newEAttribute_Attribute1001Single) {
+		String oldEAttribute_Attribute1001Single = eAttribute_Attribute1001Single;
+		eAttribute_Attribute1001Single = newEAttribute_Attribute1001Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1001_SINGLE, oldEAttribute_Attribute1001Single, eAttribute_Attribute1001Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute1010Single() {
+		return eAttribute_Attribute1010Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute1010Single(String newEAttribute_Attribute1010Single) {
+		String oldEAttribute_Attribute1010Single = eAttribute_Attribute1010Single;
+		eAttribute_Attribute1010Single = newEAttribute_Attribute1010Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1010_SINGLE, oldEAttribute_Attribute1010Single, eAttribute_Attribute1010Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute1011Single() {
+		return eAttribute_Attribute1011Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute1011Single(String newEAttribute_Attribute1011Single) {
+		String oldEAttribute_Attribute1011Single = eAttribute_Attribute1011Single;
+		eAttribute_Attribute1011Single = newEAttribute_Attribute1011Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1011_SINGLE, oldEAttribute_Attribute1011Single, eAttribute_Attribute1011Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute1100Single() {
+		return eAttribute_Attribute1100Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute1100Single(String newEAttribute_Attribute1100Single) {
+		String oldEAttribute_Attribute1100Single = eAttribute_Attribute1100Single;
+		eAttribute_Attribute1100Single = newEAttribute_Attribute1100Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1100_SINGLE, oldEAttribute_Attribute1100Single, eAttribute_Attribute1100Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute1101Single() {
+		return eAttribute_Attribute1101Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute1101Single(String newEAttribute_Attribute1101Single) {
+		String oldEAttribute_Attribute1101Single = eAttribute_Attribute1101Single;
+		eAttribute_Attribute1101Single = newEAttribute_Attribute1101Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1101_SINGLE, oldEAttribute_Attribute1101Single, eAttribute_Attribute1101Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute1110Single() {
+		return eAttribute_Attribute1110Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute1110Single(String newEAttribute_Attribute1110Single) {
+		String oldEAttribute_Attribute1110Single = eAttribute_Attribute1110Single;
+		eAttribute_Attribute1110Single = newEAttribute_Attribute1110Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1110_SINGLE, oldEAttribute_Attribute1110Single, eAttribute_Attribute1110Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEAttribute_Attribute1111Single() {
+		return eAttribute_Attribute1111Single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEAttribute_Attribute1111Single(String newEAttribute_Attribute1111Single) {
+		String oldEAttribute_Attribute1111Single = eAttribute_Attribute1111Single;
+		eAttribute_Attribute1111Single = newEAttribute_Attribute1111Single;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1111_SINGLE, oldEAttribute_Attribute1111Single, eAttribute_Attribute1111Single));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute0000Many() {
+		if (eAttribute_Attribute0000Many == null) {
+			eAttribute_Attribute0000Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0000_MANY);
+		}
+		return eAttribute_Attribute0000Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute0001Many() {
+		if (eAttribute_Attribute0001Many == null) {
+			eAttribute_Attribute0001Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0001_MANY);
+		}
+		return eAttribute_Attribute0001Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute0010Many() {
+		if (eAttribute_Attribute0010Many == null) {
+			eAttribute_Attribute0010Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0010_MANY);
+		}
+		return eAttribute_Attribute0010Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute0011Many() {
+		if (eAttribute_Attribute0011Many == null) {
+			eAttribute_Attribute0011Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0011_MANY);
+		}
+		return eAttribute_Attribute0011Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute0100Many() {
+		if (eAttribute_Attribute0100Many == null) {
+			eAttribute_Attribute0100Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0100_MANY);
+		}
+		return eAttribute_Attribute0100Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute0101Many() {
+		if (eAttribute_Attribute0101Many == null) {
+			eAttribute_Attribute0101Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0101_MANY);
+		}
+		return eAttribute_Attribute0101Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute0110Many() {
+		if (eAttribute_Attribute0110Many == null) {
+			eAttribute_Attribute0110Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0110_MANY);
+		}
+		return eAttribute_Attribute0110Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute0111Many() {
+		if (eAttribute_Attribute0111Many == null) {
+			eAttribute_Attribute0111Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0111_MANY);
+		}
+		return eAttribute_Attribute0111Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute1000Many() {
+		if (eAttribute_Attribute1000Many == null) {
+			eAttribute_Attribute1000Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1000_MANY);
+		}
+		return eAttribute_Attribute1000Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute1001Many() {
+		if (eAttribute_Attribute1001Many == null) {
+			eAttribute_Attribute1001Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1001_MANY);
+		}
+		return eAttribute_Attribute1001Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute1010Many() {
+		if (eAttribute_Attribute1010Many == null) {
+			eAttribute_Attribute1010Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1010_MANY);
+		}
+		return eAttribute_Attribute1010Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute1011Many() {
+		if (eAttribute_Attribute1011Many == null) {
+			eAttribute_Attribute1011Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1011_MANY);
+		}
+		return eAttribute_Attribute1011Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute1100Many() {
+		if (eAttribute_Attribute1100Many == null) {
+			eAttribute_Attribute1100Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1100_MANY);
+		}
+		return eAttribute_Attribute1100Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute1101Many() {
+		if (eAttribute_Attribute1101Many == null) {
+			eAttribute_Attribute1101Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1101_MANY);
+		}
+		return eAttribute_Attribute1101Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute1110Many() {
+		if (eAttribute_Attribute1110Many == null) {
+			eAttribute_Attribute1110Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1110_MANY);
+		}
+		return eAttribute_Attribute1110Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getEAttribute_Attribute1111Many() {
+		if (eAttribute_Attribute1111Many == null) {
+			eAttribute_Attribute1111Many = new EDataTypeUniqueEList<String>(String.class, this, NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1111_MANY);
+		}
+		return eAttribute_Attribute1111Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -1764,6 +3958,150 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 				return getEReference_WithTypeEObject_Contained0100Many();
 			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY:
 				return getEReference_WithTypeEObject_Contained1000Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0000_SINGLE:
+				if (resolve) return getEReference_Referenced0000Single();
+				return basicGetEReference_Referenced0000Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0001_SINGLE:
+				if (resolve) return getEReference_Referenced0001Single();
+				return basicGetEReference_Referenced0001Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0010_SINGLE:
+				if (resolve) return getEReference_Referenced0010Single();
+				return basicGetEReference_Referenced0010Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0011_SINGLE:
+				if (resolve) return getEReference_Referenced0011Single();
+				return basicGetEReference_Referenced0011Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0100_SINGLE:
+				if (resolve) return getEReference_Referenced0100Single();
+				return basicGetEReference_Referenced0100Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0101_SINGLE:
+				if (resolve) return getEReference_Referenced0101Single();
+				return basicGetEReference_Referenced0101Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0110_SINGLE:
+				if (resolve) return getEReference_Referenced0110Single();
+				return basicGetEReference_Referenced0110Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0111_SINGLE:
+				if (resolve) return getEReference_Referenced0111Single();
+				return basicGetEReference_Referenced0111Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1000_SINGLE:
+				if (resolve) return getEReference_Referenced1000Single();
+				return basicGetEReference_Referenced1000Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1001_SINGLE:
+				if (resolve) return getEReference_Referenced1001Single();
+				return basicGetEReference_Referenced1001Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1010_SINGLE:
+				if (resolve) return getEReference_Referenced1010Single();
+				return basicGetEReference_Referenced1010Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1011_SINGLE:
+				if (resolve) return getEReference_Referenced1011Single();
+				return basicGetEReference_Referenced1011Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1100_SINGLE:
+				if (resolve) return getEReference_Referenced1100Single();
+				return basicGetEReference_Referenced1100Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1101_SINGLE:
+				if (resolve) return getEReference_Referenced1101Single();
+				return basicGetEReference_Referenced1101Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1110_SINGLE:
+				if (resolve) return getEReference_Referenced1110Single();
+				return basicGetEReference_Referenced1110Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1111_SINGLE:
+				if (resolve) return getEReference_Referenced1111Single();
+				return basicGetEReference_Referenced1111Single();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0000_MANY:
+				return getEReference_Referenced0000Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0001_MANY:
+				return getEReference_Referenced0001Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0010_MANY:
+				return getEReference_Referenced0010Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0011_MANY:
+				return getEReference_Referenced0011Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0100_MANY:
+				return getEReference_Referenced0100Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0101_MANY:
+				return getEReference_Referenced0101Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0110_MANY:
+				return getEReference_Referenced0110Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0111_MANY:
+				return getEReference_Referenced0111Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1000_MANY:
+				return getEReference_Referenced1000Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1001_MANY:
+				return getEReference_Referenced1001Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1010_MANY:
+				return getEReference_Referenced1010Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1011_MANY:
+				return getEReference_Referenced1011Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1100_MANY:
+				return getEReference_Referenced1100Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1101_MANY:
+				return getEReference_Referenced1101Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1110_MANY:
+				return getEReference_Referenced1110Many();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1111_MANY:
+				return getEReference_Referenced1111Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0000_SINGLE:
+				return getEAttribute_Attribute0000Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0001_SINGLE:
+				return getEAttribute_Attribute0001Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0010_SINGLE:
+				return getEAttribute_Attribute0010Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0011_SINGLE:
+				return getEAttribute_Attribute0011Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0100_SINGLE:
+				return getEAttribute_Attribute0100Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0101_SINGLE:
+				return getEAttribute_Attribute0101Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0110_SINGLE:
+				return getEAttribute_Attribute0110Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0111_SINGLE:
+				return getEAttribute_Attribute0111Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1000_SINGLE:
+				return getEAttribute_Attribute1000Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1001_SINGLE:
+				return getEAttribute_Attribute1001Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1010_SINGLE:
+				return getEAttribute_Attribute1010Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1011_SINGLE:
+				return getEAttribute_Attribute1011Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1100_SINGLE:
+				return getEAttribute_Attribute1100Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1101_SINGLE:
+				return getEAttribute_Attribute1101Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1110_SINGLE:
+				return getEAttribute_Attribute1110Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1111_SINGLE:
+				return getEAttribute_Attribute1111Single();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0000_MANY:
+				return getEAttribute_Attribute0000Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0001_MANY:
+				return getEAttribute_Attribute0001Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0010_MANY:
+				return getEAttribute_Attribute0010Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0011_MANY:
+				return getEAttribute_Attribute0011Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0100_MANY:
+				return getEAttribute_Attribute0100Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0101_MANY:
+				return getEAttribute_Attribute0101Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0110_MANY:
+				return getEAttribute_Attribute0110Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0111_MANY:
+				return getEAttribute_Attribute0111Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1000_MANY:
+				return getEAttribute_Attribute1000Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1001_MANY:
+				return getEAttribute_Attribute1001Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1010_MANY:
+				return getEAttribute_Attribute1010Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1011_MANY:
+				return getEAttribute_Attribute1011Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1100_MANY:
+				return getEAttribute_Attribute1100Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1101_MANY:
+				return getEAttribute_Attribute1101Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1110_MANY:
+				return getEAttribute_Attribute1110Many();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1111_MANY:
+				return getEAttribute_Attribute1111Many();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1922,6 +4260,230 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 				getEReference_WithTypeEObject_Contained1000Many().clear();
 				getEReference_WithTypeEObject_Contained1000Many().addAll((Collection<? extends EObject>)newValue);
 				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0000_SINGLE:
+				setEReference_Referenced0000Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0001_SINGLE:
+				setEReference_Referenced0001Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0010_SINGLE:
+				setEReference_Referenced0010Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0011_SINGLE:
+				setEReference_Referenced0011Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0100_SINGLE:
+				setEReference_Referenced0100Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0101_SINGLE:
+				setEReference_Referenced0101Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0110_SINGLE:
+				setEReference_Referenced0110Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0111_SINGLE:
+				setEReference_Referenced0111Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1000_SINGLE:
+				setEReference_Referenced1000Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1001_SINGLE:
+				setEReference_Referenced1001Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1010_SINGLE:
+				setEReference_Referenced1010Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1011_SINGLE:
+				setEReference_Referenced1011Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1100_SINGLE:
+				setEReference_Referenced1100Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1101_SINGLE:
+				setEReference_Referenced1101Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1110_SINGLE:
+				setEReference_Referenced1110Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1111_SINGLE:
+				setEReference_Referenced1111Single((Node)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0000_MANY:
+				getEReference_Referenced0000Many().clear();
+				getEReference_Referenced0000Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0001_MANY:
+				getEReference_Referenced0001Many().clear();
+				getEReference_Referenced0001Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0010_MANY:
+				getEReference_Referenced0010Many().clear();
+				getEReference_Referenced0010Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0011_MANY:
+				getEReference_Referenced0011Many().clear();
+				getEReference_Referenced0011Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0100_MANY:
+				getEReference_Referenced0100Many().clear();
+				getEReference_Referenced0100Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0101_MANY:
+				getEReference_Referenced0101Many().clear();
+				getEReference_Referenced0101Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0110_MANY:
+				getEReference_Referenced0110Many().clear();
+				getEReference_Referenced0110Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0111_MANY:
+				getEReference_Referenced0111Many().clear();
+				getEReference_Referenced0111Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1000_MANY:
+				getEReference_Referenced1000Many().clear();
+				getEReference_Referenced1000Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1001_MANY:
+				getEReference_Referenced1001Many().clear();
+				getEReference_Referenced1001Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1010_MANY:
+				getEReference_Referenced1010Many().clear();
+				getEReference_Referenced1010Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1011_MANY:
+				getEReference_Referenced1011Many().clear();
+				getEReference_Referenced1011Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1100_MANY:
+				getEReference_Referenced1100Many().clear();
+				getEReference_Referenced1100Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1101_MANY:
+				getEReference_Referenced1101Many().clear();
+				getEReference_Referenced1101Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1110_MANY:
+				getEReference_Referenced1110Many().clear();
+				getEReference_Referenced1110Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1111_MANY:
+				getEReference_Referenced1111Many().clear();
+				getEReference_Referenced1111Many().addAll((Collection<? extends Node>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0000_SINGLE:
+				setEAttribute_Attribute0000Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0001_SINGLE:
+				setEAttribute_Attribute0001Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0010_SINGLE:
+				setEAttribute_Attribute0010Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0011_SINGLE:
+				setEAttribute_Attribute0011Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0100_SINGLE:
+				setEAttribute_Attribute0100Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0101_SINGLE:
+				setEAttribute_Attribute0101Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0110_SINGLE:
+				setEAttribute_Attribute0110Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0111_SINGLE:
+				setEAttribute_Attribute0111Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1000_SINGLE:
+				setEAttribute_Attribute1000Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1001_SINGLE:
+				setEAttribute_Attribute1001Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1010_SINGLE:
+				setEAttribute_Attribute1010Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1011_SINGLE:
+				setEAttribute_Attribute1011Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1100_SINGLE:
+				setEAttribute_Attribute1100Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1101_SINGLE:
+				setEAttribute_Attribute1101Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1110_SINGLE:
+				setEAttribute_Attribute1110Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1111_SINGLE:
+				setEAttribute_Attribute1111Single((String)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0000_MANY:
+				getEAttribute_Attribute0000Many().clear();
+				getEAttribute_Attribute0000Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0001_MANY:
+				getEAttribute_Attribute0001Many().clear();
+				getEAttribute_Attribute0001Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0010_MANY:
+				getEAttribute_Attribute0010Many().clear();
+				getEAttribute_Attribute0010Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0011_MANY:
+				getEAttribute_Attribute0011Many().clear();
+				getEAttribute_Attribute0011Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0100_MANY:
+				getEAttribute_Attribute0100Many().clear();
+				getEAttribute_Attribute0100Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0101_MANY:
+				getEAttribute_Attribute0101Many().clear();
+				getEAttribute_Attribute0101Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0110_MANY:
+				getEAttribute_Attribute0110Many().clear();
+				getEAttribute_Attribute0110Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0111_MANY:
+				getEAttribute_Attribute0111Many().clear();
+				getEAttribute_Attribute0111Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1000_MANY:
+				getEAttribute_Attribute1000Many().clear();
+				getEAttribute_Attribute1000Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1001_MANY:
+				getEAttribute_Attribute1001Many().clear();
+				getEAttribute_Attribute1001Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1010_MANY:
+				getEAttribute_Attribute1010Many().clear();
+				getEAttribute_Attribute1010Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1011_MANY:
+				getEAttribute_Attribute1011Many().clear();
+				getEAttribute_Attribute1011Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1100_MANY:
+				getEAttribute_Attribute1100Many().clear();
+				getEAttribute_Attribute1100Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1101_MANY:
+				getEAttribute_Attribute1101Many().clear();
+				getEAttribute_Attribute1101Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1110_MANY:
+				getEAttribute_Attribute1110Many().clear();
+				getEAttribute_Attribute1110Many().addAll((Collection<? extends String>)newValue);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1111_MANY:
+				getEAttribute_Attribute1111Many().clear();
+				getEAttribute_Attribute1111Many().addAll((Collection<? extends String>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -2057,6 +4619,198 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY:
 				getEReference_WithTypeEObject_Contained1000Many().clear();
 				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0000_SINGLE:
+				setEReference_Referenced0000Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0001_SINGLE:
+				setEReference_Referenced0001Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0010_SINGLE:
+				setEReference_Referenced0010Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0011_SINGLE:
+				setEReference_Referenced0011Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0100_SINGLE:
+				setEReference_Referenced0100Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0101_SINGLE:
+				setEReference_Referenced0101Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0110_SINGLE:
+				setEReference_Referenced0110Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0111_SINGLE:
+				setEReference_Referenced0111Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1000_SINGLE:
+				setEReference_Referenced1000Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1001_SINGLE:
+				setEReference_Referenced1001Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1010_SINGLE:
+				setEReference_Referenced1010Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1011_SINGLE:
+				setEReference_Referenced1011Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1100_SINGLE:
+				setEReference_Referenced1100Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1101_SINGLE:
+				setEReference_Referenced1101Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1110_SINGLE:
+				setEReference_Referenced1110Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1111_SINGLE:
+				setEReference_Referenced1111Single((Node)null);
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0000_MANY:
+				getEReference_Referenced0000Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0001_MANY:
+				getEReference_Referenced0001Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0010_MANY:
+				getEReference_Referenced0010Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0011_MANY:
+				getEReference_Referenced0011Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0100_MANY:
+				getEReference_Referenced0100Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0101_MANY:
+				getEReference_Referenced0101Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0110_MANY:
+				getEReference_Referenced0110Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0111_MANY:
+				getEReference_Referenced0111Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1000_MANY:
+				getEReference_Referenced1000Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1001_MANY:
+				getEReference_Referenced1001Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1010_MANY:
+				getEReference_Referenced1010Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1011_MANY:
+				getEReference_Referenced1011Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1100_MANY:
+				getEReference_Referenced1100Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1101_MANY:
+				getEReference_Referenced1101Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1110_MANY:
+				getEReference_Referenced1110Many().clear();
+				return;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1111_MANY:
+				getEReference_Referenced1111Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0000_SINGLE:
+				setEAttribute_Attribute0000Single(EATTRIBUTE_ATTRIBUTE0000_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0001_SINGLE:
+				setEAttribute_Attribute0001Single(EATTRIBUTE_ATTRIBUTE0001_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0010_SINGLE:
+				setEAttribute_Attribute0010Single(EATTRIBUTE_ATTRIBUTE0010_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0011_SINGLE:
+				setEAttribute_Attribute0011Single(EATTRIBUTE_ATTRIBUTE0011_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0100_SINGLE:
+				setEAttribute_Attribute0100Single(EATTRIBUTE_ATTRIBUTE0100_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0101_SINGLE:
+				setEAttribute_Attribute0101Single(EATTRIBUTE_ATTRIBUTE0101_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0110_SINGLE:
+				setEAttribute_Attribute0110Single(EATTRIBUTE_ATTRIBUTE0110_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0111_SINGLE:
+				setEAttribute_Attribute0111Single(EATTRIBUTE_ATTRIBUTE0111_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1000_SINGLE:
+				setEAttribute_Attribute1000Single(EATTRIBUTE_ATTRIBUTE1000_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1001_SINGLE:
+				setEAttribute_Attribute1001Single(EATTRIBUTE_ATTRIBUTE1001_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1010_SINGLE:
+				setEAttribute_Attribute1010Single(EATTRIBUTE_ATTRIBUTE1010_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1011_SINGLE:
+				setEAttribute_Attribute1011Single(EATTRIBUTE_ATTRIBUTE1011_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1100_SINGLE:
+				setEAttribute_Attribute1100Single(EATTRIBUTE_ATTRIBUTE1100_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1101_SINGLE:
+				setEAttribute_Attribute1101Single(EATTRIBUTE_ATTRIBUTE1101_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1110_SINGLE:
+				setEAttribute_Attribute1110Single(EATTRIBUTE_ATTRIBUTE1110_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1111_SINGLE:
+				setEAttribute_Attribute1111Single(EATTRIBUTE_ATTRIBUTE1111_SINGLE_EDEFAULT);
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0000_MANY:
+				getEAttribute_Attribute0000Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0001_MANY:
+				getEAttribute_Attribute0001Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0010_MANY:
+				getEAttribute_Attribute0010Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0011_MANY:
+				getEAttribute_Attribute0011Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0100_MANY:
+				getEAttribute_Attribute0100Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0101_MANY:
+				getEAttribute_Attribute0101Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0110_MANY:
+				getEAttribute_Attribute0110Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0111_MANY:
+				getEAttribute_Attribute0111Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1000_MANY:
+				getEAttribute_Attribute1000Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1001_MANY:
+				getEAttribute_Attribute1001Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1010_MANY:
+				getEAttribute_Attribute1010Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1011_MANY:
+				getEAttribute_Attribute1011Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1100_MANY:
+				getEAttribute_Attribute1100Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1101_MANY:
+				getEAttribute_Attribute1101Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1110_MANY:
+				getEAttribute_Attribute1110Many().clear();
+				return;
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1111_MANY:
+				getEAttribute_Attribute1111Many().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -2151,6 +4905,134 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 				return eReference_WithTypeEObject_Contained0100Many != null && !eReference_WithTypeEObject_Contained0100Many.isEmpty();
 			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY:
 				return eReference_WithTypeEObject_Contained1000Many != null && !eReference_WithTypeEObject_Contained1000Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0000_SINGLE:
+				return eReference_Referenced0000Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0001_SINGLE:
+				return eReference_Referenced0001Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0010_SINGLE:
+				return eReference_Referenced0010Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0011_SINGLE:
+				return eReference_Referenced0011Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0100_SINGLE:
+				return eReference_Referenced0100Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0101_SINGLE:
+				return eReference_Referenced0101Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0110_SINGLE:
+				return eReference_Referenced0110Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0111_SINGLE:
+				return eReference_Referenced0111Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1000_SINGLE:
+				return eReference_Referenced1000Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1001_SINGLE:
+				return eReference_Referenced1001Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1010_SINGLE:
+				return eReference_Referenced1010Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1011_SINGLE:
+				return eReference_Referenced1011Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1100_SINGLE:
+				return eReference_Referenced1100Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1101_SINGLE:
+				return eReference_Referenced1101Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1110_SINGLE:
+				return eReference_Referenced1110Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1111_SINGLE:
+				return eReference_Referenced1111Single != null;
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0000_MANY:
+				return eReference_Referenced0000Many != null && !eReference_Referenced0000Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0001_MANY:
+				return eReference_Referenced0001Many != null && !eReference_Referenced0001Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0010_MANY:
+				return eReference_Referenced0010Many != null && !eReference_Referenced0010Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0011_MANY:
+				return eReference_Referenced0011Many != null && !eReference_Referenced0011Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0100_MANY:
+				return eReference_Referenced0100Many != null && !eReference_Referenced0100Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0101_MANY:
+				return eReference_Referenced0101Many != null && !eReference_Referenced0101Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0110_MANY:
+				return eReference_Referenced0110Many != null && !eReference_Referenced0110Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED0111_MANY:
+				return eReference_Referenced0111Many != null && !eReference_Referenced0111Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1000_MANY:
+				return eReference_Referenced1000Many != null && !eReference_Referenced1000Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1001_MANY:
+				return eReference_Referenced1001Many != null && !eReference_Referenced1001Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1010_MANY:
+				return eReference_Referenced1010Many != null && !eReference_Referenced1010Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1011_MANY:
+				return eReference_Referenced1011Many != null && !eReference_Referenced1011Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1100_MANY:
+				return eReference_Referenced1100Many != null && !eReference_Referenced1100Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1101_MANY:
+				return eReference_Referenced1101Many != null && !eReference_Referenced1101Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1110_MANY:
+				return eReference_Referenced1110Many != null && !eReference_Referenced1110Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_REFERENCED1111_MANY:
+				return eReference_Referenced1111Many != null && !eReference_Referenced1111Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0000_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE0000_SINGLE_EDEFAULT == null ? eAttribute_Attribute0000Single != null : !EATTRIBUTE_ATTRIBUTE0000_SINGLE_EDEFAULT.equals(eAttribute_Attribute0000Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0001_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE0001_SINGLE_EDEFAULT == null ? eAttribute_Attribute0001Single != null : !EATTRIBUTE_ATTRIBUTE0001_SINGLE_EDEFAULT.equals(eAttribute_Attribute0001Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0010_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE0010_SINGLE_EDEFAULT == null ? eAttribute_Attribute0010Single != null : !EATTRIBUTE_ATTRIBUTE0010_SINGLE_EDEFAULT.equals(eAttribute_Attribute0010Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0011_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE0011_SINGLE_EDEFAULT == null ? eAttribute_Attribute0011Single != null : !EATTRIBUTE_ATTRIBUTE0011_SINGLE_EDEFAULT.equals(eAttribute_Attribute0011Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0100_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE0100_SINGLE_EDEFAULT == null ? eAttribute_Attribute0100Single != null : !EATTRIBUTE_ATTRIBUTE0100_SINGLE_EDEFAULT.equals(eAttribute_Attribute0100Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0101_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE0101_SINGLE_EDEFAULT == null ? eAttribute_Attribute0101Single != null : !EATTRIBUTE_ATTRIBUTE0101_SINGLE_EDEFAULT.equals(eAttribute_Attribute0101Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0110_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE0110_SINGLE_EDEFAULT == null ? eAttribute_Attribute0110Single != null : !EATTRIBUTE_ATTRIBUTE0110_SINGLE_EDEFAULT.equals(eAttribute_Attribute0110Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0111_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE0111_SINGLE_EDEFAULT == null ? eAttribute_Attribute0111Single != null : !EATTRIBUTE_ATTRIBUTE0111_SINGLE_EDEFAULT.equals(eAttribute_Attribute0111Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1000_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE1000_SINGLE_EDEFAULT == null ? eAttribute_Attribute1000Single != null : !EATTRIBUTE_ATTRIBUTE1000_SINGLE_EDEFAULT.equals(eAttribute_Attribute1000Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1001_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE1001_SINGLE_EDEFAULT == null ? eAttribute_Attribute1001Single != null : !EATTRIBUTE_ATTRIBUTE1001_SINGLE_EDEFAULT.equals(eAttribute_Attribute1001Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1010_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE1010_SINGLE_EDEFAULT == null ? eAttribute_Attribute1010Single != null : !EATTRIBUTE_ATTRIBUTE1010_SINGLE_EDEFAULT.equals(eAttribute_Attribute1010Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1011_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE1011_SINGLE_EDEFAULT == null ? eAttribute_Attribute1011Single != null : !EATTRIBUTE_ATTRIBUTE1011_SINGLE_EDEFAULT.equals(eAttribute_Attribute1011Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1100_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE1100_SINGLE_EDEFAULT == null ? eAttribute_Attribute1100Single != null : !EATTRIBUTE_ATTRIBUTE1100_SINGLE_EDEFAULT.equals(eAttribute_Attribute1100Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1101_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE1101_SINGLE_EDEFAULT == null ? eAttribute_Attribute1101Single != null : !EATTRIBUTE_ATTRIBUTE1101_SINGLE_EDEFAULT.equals(eAttribute_Attribute1101Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1110_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE1110_SINGLE_EDEFAULT == null ? eAttribute_Attribute1110Single != null : !EATTRIBUTE_ATTRIBUTE1110_SINGLE_EDEFAULT.equals(eAttribute_Attribute1110Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1111_SINGLE:
+				return EATTRIBUTE_ATTRIBUTE1111_SINGLE_EDEFAULT == null ? eAttribute_Attribute1111Single != null : !EATTRIBUTE_ATTRIBUTE1111_SINGLE_EDEFAULT.equals(eAttribute_Attribute1111Single);
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0000_MANY:
+				return eAttribute_Attribute0000Many != null && !eAttribute_Attribute0000Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0001_MANY:
+				return eAttribute_Attribute0001Many != null && !eAttribute_Attribute0001Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0010_MANY:
+				return eAttribute_Attribute0010Many != null && !eAttribute_Attribute0010Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0011_MANY:
+				return eAttribute_Attribute0011Many != null && !eAttribute_Attribute0011Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0100_MANY:
+				return eAttribute_Attribute0100Many != null && !eAttribute_Attribute0100Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0101_MANY:
+				return eAttribute_Attribute0101Many != null && !eAttribute_Attribute0101Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0110_MANY:
+				return eAttribute_Attribute0110Many != null && !eAttribute_Attribute0110Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE0111_MANY:
+				return eAttribute_Attribute0111Many != null && !eAttribute_Attribute0111Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1000_MANY:
+				return eAttribute_Attribute1000Many != null && !eAttribute_Attribute1000Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1001_MANY:
+				return eAttribute_Attribute1001Many != null && !eAttribute_Attribute1001Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1010_MANY:
+				return eAttribute_Attribute1010Many != null && !eAttribute_Attribute1010Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1011_MANY:
+				return eAttribute_Attribute1011Many != null && !eAttribute_Attribute1011Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1100_MANY:
+				return eAttribute_Attribute1100Many != null && !eAttribute_Attribute1100Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1101_MANY:
+				return eAttribute_Attribute1101Many != null && !eAttribute_Attribute1101Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1110_MANY:
+				return eAttribute_Attribute1110Many != null && !eAttribute_Attribute1110Many.isEmpty();
+			case NodesPackage.NODE__EATTRIBUTE_ATTRIBUTE1111_MANY:
+				return eAttribute_Attribute1111Many != null && !eAttribute_Attribute1111Many.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -2167,6 +5049,70 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", eAttribute_Attribute0000Single: ");
+		result.append(eAttribute_Attribute0000Single);
+		result.append(", eAttribute_Attribute0001Single: ");
+		result.append(eAttribute_Attribute0001Single);
+		result.append(", eAttribute_Attribute0010Single: ");
+		result.append(eAttribute_Attribute0010Single);
+		result.append(", eAttribute_Attribute0011Single: ");
+		result.append(eAttribute_Attribute0011Single);
+		result.append(", eAttribute_Attribute0100Single: ");
+		result.append(eAttribute_Attribute0100Single);
+		result.append(", eAttribute_Attribute0101Single: ");
+		result.append(eAttribute_Attribute0101Single);
+		result.append(", eAttribute_Attribute0110Single: ");
+		result.append(eAttribute_Attribute0110Single);
+		result.append(", eAttribute_Attribute0111Single: ");
+		result.append(eAttribute_Attribute0111Single);
+		result.append(", eAttribute_Attribute1000Single: ");
+		result.append(eAttribute_Attribute1000Single);
+		result.append(", eAttribute_Attribute1001Single: ");
+		result.append(eAttribute_Attribute1001Single);
+		result.append(", eAttribute_Attribute1010Single: ");
+		result.append(eAttribute_Attribute1010Single);
+		result.append(", eAttribute_Attribute1011Single: ");
+		result.append(eAttribute_Attribute1011Single);
+		result.append(", eAttribute_Attribute1100Single: ");
+		result.append(eAttribute_Attribute1100Single);
+		result.append(", eAttribute_Attribute1101Single: ");
+		result.append(eAttribute_Attribute1101Single);
+		result.append(", eAttribute_Attribute1110Single: ");
+		result.append(eAttribute_Attribute1110Single);
+		result.append(", eAttribute_Attribute1111Single: ");
+		result.append(eAttribute_Attribute1111Single);
+		result.append(", eAttribute_Attribute0000Many: ");
+		result.append(eAttribute_Attribute0000Many);
+		result.append(", eAttribute_Attribute0001Many: ");
+		result.append(eAttribute_Attribute0001Many);
+		result.append(", eAttribute_Attribute0010Many: ");
+		result.append(eAttribute_Attribute0010Many);
+		result.append(", eAttribute_Attribute0011Many: ");
+		result.append(eAttribute_Attribute0011Many);
+		result.append(", eAttribute_Attribute0100Many: ");
+		result.append(eAttribute_Attribute0100Many);
+		result.append(", eAttribute_Attribute0101Many: ");
+		result.append(eAttribute_Attribute0101Many);
+		result.append(", eAttribute_Attribute0110Many: ");
+		result.append(eAttribute_Attribute0110Many);
+		result.append(", eAttribute_Attribute0111Many: ");
+		result.append(eAttribute_Attribute0111Many);
+		result.append(", eAttribute_Attribute1000Many: ");
+		result.append(eAttribute_Attribute1000Many);
+		result.append(", eAttribute_Attribute1001Many: ");
+		result.append(eAttribute_Attribute1001Many);
+		result.append(", eAttribute_Attribute1010Many: ");
+		result.append(eAttribute_Attribute1010Many);
+		result.append(", eAttribute_Attribute1011Many: ");
+		result.append(eAttribute_Attribute1011Many);
+		result.append(", eAttribute_Attribute1100Many: ");
+		result.append(eAttribute_Attribute1100Many);
+		result.append(", eAttribute_Attribute1101Many: ");
+		result.append(eAttribute_Attribute1101Many);
+		result.append(", eAttribute_Attribute1110Many: ");
+		result.append(eAttribute_Attribute1110Many);
+		result.append(", eAttribute_Attribute1111Many: ");
+		result.append(eAttribute_Attribute1111Many);
 		result.append(')');
 		return result.toString();
 	}
