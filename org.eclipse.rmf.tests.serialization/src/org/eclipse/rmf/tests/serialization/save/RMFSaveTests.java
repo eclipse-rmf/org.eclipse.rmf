@@ -23,6 +23,7 @@ import javax.xml.xpath.XPathFactory;
 
 import org.eclipse.core.runtime.Plugin;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -79,10 +80,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization0000() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0000.xml";
+	public void testEReference_Contained0000Many() {
+		String fileName = BASEDIR + "EReference_Contained0000Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained0000Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained0000Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -121,10 +122,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization0001() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0001.xml";
+	public void testEReference_Contained0001Many() {
+		String fileName = BASEDIR + "EReference_Contained0001Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained0001Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained0001Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -169,10 +170,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization0010() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0010.xml";
+	public void testEReference_Contained0010Many() {
+		String fileName = BASEDIR + "EReference_Contained0010Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained0010Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained0010Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -210,10 +211,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization0011() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0011.xml";
+	public void testEReference_Contained0011Many() {
+		String fileName = BASEDIR + "EReference_Contained0011Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained0011Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained0011Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -264,10 +265,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization0100() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0100.xml";
+	public void testEReference_Contained0100Many() {
+		String fileName = BASEDIR + "EReference_Contained0100Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -329,10 +330,37 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization0101() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0101.xml";
+	public void testEAttribute_Attribute0100Many() {
+		String fileName = BASEDIR + "EAttribute_Attribute0100Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained0101Many(),
+		Node rootNode = createNodeModel_AttributexxxxMany(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0100Many());
+		try {
+			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+
+		try {
+			String modelAsString = loadWorkingFileAsString(fileName);
+			InputSource source = new InputSource(new StringReader(modelAsString));
+			org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
+			assertEquals(1, rootNodes.getLength());
+			org.w3c.dom.Node root = rootNodes.item(0);
+
+			assertEquals("value1", xpath.evaluate("/nodes:NODE/nodes:EATTRIBUTE-ATTRIBUTE-0100-MANY[1]", root, XPathConstants.STRING));
+			assertEquals("value2", xpath.evaluate("/nodes:NODE/nodes:EATTRIBUTE-ATTRIBUTE-0100-MANY[2]", root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained0101Many() {
+		String fileName = BASEDIR + "EReference_Contained0101Many.xml";
+
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained0101Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -389,10 +417,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization0110() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0110.xml";
+	public void testEReference_Contained0110Many() {
+		String fileName = BASEDIR + "EReference_Contained0110Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained0110Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained0110Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -446,10 +474,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization0111() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization0111.xml";
+	public void testEReference_Contained0111Many() {
+		String fileName = BASEDIR + "EReference_Contained0111Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained0111Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained0111Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -526,10 +554,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization1001() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1001.xml";
+	public void testEReference_Contained1001Many() {
+		String fileName = BASEDIR + "EReference_Contained1001Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained1001Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained1001Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -594,10 +622,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization1010() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1010.xml";
+	public void testEReference_Contained1010Many() {
+		String fileName = BASEDIR + "EReference_Contained1010Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained1010Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained1010Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -660,10 +688,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization1011() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1011.xml";
+	public void testEReference_Contained1011Many() {
+		String fileName = BASEDIR + "EReference_Contained1011Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained1011Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained1011Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -738,10 +766,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization1100() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1100.xml";
+	public void testEReference_Contained1100Many() {
+		String fileName = BASEDIR + "EReference_Contained1100Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained1100Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained1100Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -826,10 +854,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization1101() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1101.xml";
+	public void testEReference_Contained1101Many() {
+		String fileName = BASEDIR + "EReference_Contained1101Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained1101Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained1101Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -910,10 +938,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization1110() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1110.xml";
+	public void testEReference_Contained1110Many() {
+		String fileName = BASEDIR + "EReference_Contained1110Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained1110Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained1110Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -976,10 +1004,10 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization1111() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceSerialization1111.xml";
+	public void testEReference_Contained1111Many() {
+		String fileName = BASEDIR + "EReference_Contained1111Many.xml";
 
-		Node rootNode = createNodeModel(NodesPackage.eINSTANCE.getNode_EReference_Contained1111Many(),
+		Node rootNode = createNodeModel_ContainedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Contained1111Many(),
 				NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
@@ -1067,9 +1095,10 @@ public class RMFSaveTests extends AbstractTestCase {
 
 	@Test
 	public void testFeatureContainmentReferenceWithTypeEObjectAndSerialization0100Many() {
-		String fileName = BASEDIR + "FeatureContainmentReferenceWithTypeEObjectAndSerialization0100Many.xml";
+		String fileName = BASEDIR + "FeatureContainmentReferenceWithTypeEObjectAndSerialization0100ManyMany.xml";
 
-		Node rootNode = createNodeModelWithForeignSubmodel(NodesPackage.eINSTANCE.getNode_EReference_WithTypeEObject_Contained0100Many());
+		Node rootNode = createNodeModelWithForeignSubmodel_ContainedxxxxMany(NodesPackage.eINSTANCE
+				.getNode_EReference_WithTypeEObject_Contained0100Many());
 		try {
 			saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
 		} catch (Exception ex) {
@@ -1104,7 +1133,7 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@SuppressWarnings("unchecked")
-	protected Node createNodeModel(EStructuralFeature topLevelfeature, EStructuralFeature subfeature) {
+	protected Node createNodeModel_ContainedxxxxMany(EStructuralFeature topLevelfeature, EStructuralFeature subfeature) {
 		assert null != subfeature;
 		assert subfeature.isMany();
 		Node rootNode = NodesFactory.eINSTANCE.createNode();
@@ -1163,11 +1192,11 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	protected Node createNodeModel(EStructuralFeature feature) {
-		return createNodeModel(feature, feature);
+		return createNodeModel_ContainedxxxxMany(feature, feature);
 	}
 
 	@SuppressWarnings("unchecked")
-	protected Node createNodeModelWithForeignSubmodel(EStructuralFeature feature) {
+	protected Node createNodeModelWithForeignSubmodel_ContainedxxxxMany(EStructuralFeature feature) {
 		assert null != feature;
 		assert feature.isMany();
 		Node rootNode = NodesFactory.eINSTANCE.createNode();
@@ -1197,6 +1226,18 @@ public class RMFSaveTests extends AbstractTestCase {
 
 		((EList<Object>) rootNode.eGet(feature)).add(ePackage1);
 		((EList<Object>) rootNode.eGet(feature)).add(ePackage2);
+
+		return rootNode;
+	}
+
+	@SuppressWarnings("unchecked")
+	protected Node createNodeModel_AttributexxxxMany(EAttribute feature) {
+		assert null != feature;
+		assert feature.isMany();
+		Node rootNode = NodesFactory.eINSTANCE.createNode();
+		EList<Object> values = (EList<Object>) rootNode.eGet(feature);
+		values.add("value1");
+		values.add("value2");
 
 		return rootNode;
 	}
