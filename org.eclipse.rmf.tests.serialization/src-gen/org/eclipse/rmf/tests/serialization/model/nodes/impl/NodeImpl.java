@@ -37,47 +37,47 @@ import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0000_Single <em>Feature With Serialization0000 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0001_Single <em>Feature With Serialization0001 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0010_Single <em>Feature With Serialization0010 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0011_Single <em>Feature With Serialization0011 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0100_Single <em>Feature With Serialization0100 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0101_Single <em>Feature With Serialization0101 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0110_Single <em>Feature With Serialization0110 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0111_Single <em>Feature With Serialization0111 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1000_Single <em>Feature With Serialization1000 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1001_Single <em>Feature With Serialization1001 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1010_Single <em>Feature With Serialization1010 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1011_Single <em>Feature With Serialization1011 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1100_Single <em>Feature With Serialization1100 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1101_Single <em>Feature With Serialization1101 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1110_Single <em>Feature With Serialization1110 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1111_Single <em>Feature With Serialization1111 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureEmptyAnnotation_Single <em>Feature Empty Annotation Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureNoAnnotation_Single <em>Feature No Annotation Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0000_Multi <em>Feature With Serialization0000 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0001_Multi <em>Feature With Serialization0001 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0010_Multi <em>Feature With Serialization0010 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0011_Multi <em>Feature With Serialization0011 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0100_Multi <em>Feature With Serialization0100 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0101_Multi <em>Feature With Serialization0101 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0110_Multi <em>Feature With Serialization0110 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization0111_Multi <em>Feature With Serialization0111 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1000_Multi <em>Feature With Serialization1000 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1001_Multi <em>Feature With Serialization1001 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1010_Multi <em>Feature With Serialization1010 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1011_Multi <em>Feature With Serialization1011 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1100_Multi <em>Feature With Serialization1100 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1101_Multi <em>Feature With Serialization1101 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1110_Multi <em>Feature With Serialization1110 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithSerialization1111_Multi <em>Feature With Serialization1111 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureEmptyAnnotation_Multi <em>Feature Empty Annotation Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureNoAnnotation_Multi <em>Feature No Annotation Multi</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0000Single <em>EReference Contained0000 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0001Single <em>EReference Contained0001 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0010Single <em>EReference Contained0010 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0011Single <em>EReference Contained0011 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0100Single <em>EReference Contained0100 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0101Single <em>EReference Contained0101 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0110Single <em>EReference Contained0110 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0111Single <em>EReference Contained0111 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1000Single <em>EReference Contained1000 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1001Single <em>EReference Contained1001 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1010Single <em>EReference Contained1010 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1011Single <em>EReference Contained1011 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1100Single <em>EReference Contained1100 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1101Single <em>EReference Contained1101 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1110Single <em>EReference Contained1110 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1111Single <em>EReference Contained1111 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_EmptyAnnotationSingle <em>EReference Empty Annotation Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_NoAnnotationSingle <em>EReference No Annotation Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0000Many <em>EReference Contained0000 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0001Many <em>EReference Contained0001 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0010Many <em>EReference Contained0010 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0011Many <em>EReference Contained0011 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0100Many <em>EReference Contained0100 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0101Many <em>EReference Contained0101 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0110Many <em>EReference Contained0110 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained0111Many <em>EReference Contained0111 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1000Many <em>EReference Contained1000 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1001Many <em>EReference Contained1001 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1010Many <em>EReference Contained1010 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1011Many <em>EReference Contained1011 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1100Many <em>EReference Contained1100 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1101Many <em>EReference Contained1101 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1110Many <em>EReference Contained1110 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_Contained1111Many <em>EReference Contained1111 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_EmptyAnnotationMany <em>EReference Empty Annotation Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_NoAnnotationMany <em>EReference No Annotation Many</em>}</li>
  *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithTypeEObjectAndSerialization0001_Multi <em>Feature With Type EObject And Serialization0001 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithTypeEObjectAndSerialization0010_Multi <em>Feature With Type EObject And Serialization0010 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithTypeEObjectAndSerialization0100_Multi <em>Feature With Type EObject And Serialization0100 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getFeatureWithTypeEObjectAndSerialization1000_Multi <em>Feature With Type EObject And Serialization1000 Multi</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_WithTypeEObject_Contained0001Many <em>EReference With Type EObject Contained0001 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_WithTypeEObject_Contained0010Many <em>EReference With Type EObject Contained0010 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_WithTypeEObject_Contained0100Many <em>EReference With Type EObject Contained0100 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.NodeImpl#getEReference_WithTypeEObject_Contained1000Many <em>EReference With Type EObject Contained1000 Many</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,364 +85,364 @@ import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
  */
 public class NodeImpl extends AbstractNodeImpl implements Node {
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0000_Single() <em>Feature With Serialization0000 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained0000Single() <em>EReference Contained0000 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0000_Single()
+	 * @see #getEReference_Contained0000Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization0000_Single;
+	protected Node eReference_Contained0000Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0001_Single() <em>Feature With Serialization0001 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained0001Single() <em>EReference Contained0001 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0001_Single()
+	 * @see #getEReference_Contained0001Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization0001_Single;
+	protected Node eReference_Contained0001Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0010_Single() <em>Feature With Serialization0010 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained0010Single() <em>EReference Contained0010 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0010_Single()
+	 * @see #getEReference_Contained0010Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization0010_Single;
+	protected Node eReference_Contained0010Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0011_Single() <em>Feature With Serialization0011 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained0011Single() <em>EReference Contained0011 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0011_Single()
+	 * @see #getEReference_Contained0011Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization0011_Single;
+	protected Node eReference_Contained0011Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0100_Single() <em>Feature With Serialization0100 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained0100Single() <em>EReference Contained0100 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0100_Single()
+	 * @see #getEReference_Contained0100Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization0100_Single;
+	protected Node eReference_Contained0100Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0101_Single() <em>Feature With Serialization0101 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained0101Single() <em>EReference Contained0101 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0101_Single()
+	 * @see #getEReference_Contained0101Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization0101_Single;
+	protected Node eReference_Contained0101Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0110_Single() <em>Feature With Serialization0110 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained0110Single() <em>EReference Contained0110 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0110_Single()
+	 * @see #getEReference_Contained0110Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization0110_Single;
+	protected Node eReference_Contained0110Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0111_Single() <em>Feature With Serialization0111 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained0111Single() <em>EReference Contained0111 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0111_Single()
+	 * @see #getEReference_Contained0111Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization0111_Single;
+	protected Node eReference_Contained0111Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1000_Single() <em>Feature With Serialization1000 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained1000Single() <em>EReference Contained1000 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1000_Single()
+	 * @see #getEReference_Contained1000Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization1000_Single;
+	protected Node eReference_Contained1000Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1001_Single() <em>Feature With Serialization1001 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained1001Single() <em>EReference Contained1001 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1001_Single()
+	 * @see #getEReference_Contained1001Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization1001_Single;
+	protected Node eReference_Contained1001Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1010_Single() <em>Feature With Serialization1010 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained1010Single() <em>EReference Contained1010 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1010_Single()
+	 * @see #getEReference_Contained1010Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization1010_Single;
+	protected Node eReference_Contained1010Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1011_Single() <em>Feature With Serialization1011 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained1011Single() <em>EReference Contained1011 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1011_Single()
+	 * @see #getEReference_Contained1011Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization1011_Single;
+	protected Node eReference_Contained1011Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1100_Single() <em>Feature With Serialization1100 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained1100Single() <em>EReference Contained1100 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1100_Single()
+	 * @see #getEReference_Contained1100Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization1100_Single;
+	protected Node eReference_Contained1100Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1101_Single() <em>Feature With Serialization1101 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained1101Single() <em>EReference Contained1101 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1101_Single()
+	 * @see #getEReference_Contained1101Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization1101_Single;
+	protected Node eReference_Contained1101Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1110_Single() <em>Feature With Serialization1110 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained1110Single() <em>EReference Contained1110 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1110_Single()
+	 * @see #getEReference_Contained1110Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization1110_Single;
+	protected Node eReference_Contained1110Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1111_Single() <em>Feature With Serialization1111 Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_Contained1111Single() <em>EReference Contained1111 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1111_Single()
+	 * @see #getEReference_Contained1111Single()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureWithSerialization1111_Single;
+	protected Node eReference_Contained1111Single;
 
 	/**
-	 * The cached value of the '{@link #getFeatureEmptyAnnotation_Single() <em>Feature Empty Annotation Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_EmptyAnnotationSingle() <em>EReference Empty Annotation Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureEmptyAnnotation_Single()
+	 * @see #getEReference_EmptyAnnotationSingle()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureEmptyAnnotation_Single;
+	protected Node eReference_EmptyAnnotationSingle;
 
 	/**
-	 * The cached value of the '{@link #getFeatureNoAnnotation_Single() <em>Feature No Annotation Single</em>}' containment reference.
+	 * The cached value of the '{@link #getEReference_NoAnnotationSingle() <em>EReference No Annotation Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureNoAnnotation_Single()
+	 * @see #getEReference_NoAnnotationSingle()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node featureNoAnnotation_Single;
+	protected Node eReference_NoAnnotationSingle;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0000_Multi() <em>Feature With Serialization0000 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained0000Many() <em>EReference Contained0000 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0000_Multi()
+	 * @see #getEReference_Contained0000Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization0000_Multi;
+	protected EList<Node> eReference_Contained0000Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0001_Multi() <em>Feature With Serialization0001 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained0001Many() <em>EReference Contained0001 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0001_Multi()
+	 * @see #getEReference_Contained0001Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization0001_Multi;
+	protected EList<Node> eReference_Contained0001Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0010_Multi() <em>Feature With Serialization0010 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained0010Many() <em>EReference Contained0010 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0010_Multi()
+	 * @see #getEReference_Contained0010Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization0010_Multi;
+	protected EList<Node> eReference_Contained0010Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0011_Multi() <em>Feature With Serialization0011 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained0011Many() <em>EReference Contained0011 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0011_Multi()
+	 * @see #getEReference_Contained0011Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization0011_Multi;
+	protected EList<Node> eReference_Contained0011Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0100_Multi() <em>Feature With Serialization0100 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained0100Many() <em>EReference Contained0100 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0100_Multi()
+	 * @see #getEReference_Contained0100Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization0100_Multi;
+	protected EList<Node> eReference_Contained0100Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0101_Multi() <em>Feature With Serialization0101 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained0101Many() <em>EReference Contained0101 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0101_Multi()
+	 * @see #getEReference_Contained0101Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization0101_Multi;
+	protected EList<Node> eReference_Contained0101Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0110_Multi() <em>Feature With Serialization0110 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained0110Many() <em>EReference Contained0110 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0110_Multi()
+	 * @see #getEReference_Contained0110Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization0110_Multi;
+	protected EList<Node> eReference_Contained0110Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization0111_Multi() <em>Feature With Serialization0111 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained0111Many() <em>EReference Contained0111 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization0111_Multi()
+	 * @see #getEReference_Contained0111Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization0111_Multi;
+	protected EList<Node> eReference_Contained0111Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1000_Multi() <em>Feature With Serialization1000 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained1000Many() <em>EReference Contained1000 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1000_Multi()
+	 * @see #getEReference_Contained1000Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization1000_Multi;
+	protected EList<Node> eReference_Contained1000Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1001_Multi() <em>Feature With Serialization1001 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained1001Many() <em>EReference Contained1001 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1001_Multi()
+	 * @see #getEReference_Contained1001Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization1001_Multi;
+	protected EList<Node> eReference_Contained1001Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1010_Multi() <em>Feature With Serialization1010 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained1010Many() <em>EReference Contained1010 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1010_Multi()
+	 * @see #getEReference_Contained1010Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization1010_Multi;
+	protected EList<Node> eReference_Contained1010Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1011_Multi() <em>Feature With Serialization1011 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained1011Many() <em>EReference Contained1011 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1011_Multi()
+	 * @see #getEReference_Contained1011Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization1011_Multi;
+	protected EList<Node> eReference_Contained1011Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1100_Multi() <em>Feature With Serialization1100 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained1100Many() <em>EReference Contained1100 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1100_Multi()
+	 * @see #getEReference_Contained1100Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization1100_Multi;
+	protected EList<Node> eReference_Contained1100Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1101_Multi() <em>Feature With Serialization1101 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained1101Many() <em>EReference Contained1101 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1101_Multi()
+	 * @see #getEReference_Contained1101Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization1101_Multi;
+	protected EList<Node> eReference_Contained1101Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1110_Multi() <em>Feature With Serialization1110 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained1110Many() <em>EReference Contained1110 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1110_Multi()
+	 * @see #getEReference_Contained1110Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization1110_Multi;
+	protected EList<Node> eReference_Contained1110Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithSerialization1111_Multi() <em>Feature With Serialization1111 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_Contained1111Many() <em>EReference Contained1111 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithSerialization1111_Multi()
+	 * @see #getEReference_Contained1111Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureWithSerialization1111_Multi;
+	protected EList<Node> eReference_Contained1111Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureEmptyAnnotation_Multi() <em>Feature Empty Annotation Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_EmptyAnnotationMany() <em>EReference Empty Annotation Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureEmptyAnnotation_Multi()
+	 * @see #getEReference_EmptyAnnotationMany()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureEmptyAnnotation_Multi;
+	protected EList<Node> eReference_EmptyAnnotationMany;
 
 	/**
-	 * The cached value of the '{@link #getFeatureNoAnnotation_Multi() <em>Feature No Annotation Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_NoAnnotationMany() <em>EReference No Annotation Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureNoAnnotation_Multi()
+	 * @see #getEReference_NoAnnotationMany()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> featureNoAnnotation_Multi;
+	protected EList<Node> eReference_NoAnnotationMany;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -465,44 +465,44 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithTypeEObjectAndSerialization0001_Multi() <em>Feature With Type EObject And Serialization0001 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_WithTypeEObject_Contained0001Many() <em>EReference With Type EObject Contained0001 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithTypeEObjectAndSerialization0001_Multi()
+	 * @see #getEReference_WithTypeEObject_Contained0001Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EObject> featureWithTypeEObjectAndSerialization0001_Multi;
+	protected EList<EObject> eReference_WithTypeEObject_Contained0001Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithTypeEObjectAndSerialization0010_Multi() <em>Feature With Type EObject And Serialization0010 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_WithTypeEObject_Contained0010Many() <em>EReference With Type EObject Contained0010 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithTypeEObjectAndSerialization0010_Multi()
+	 * @see #getEReference_WithTypeEObject_Contained0010Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EObject> featureWithTypeEObjectAndSerialization0010_Multi;
+	protected EList<EObject> eReference_WithTypeEObject_Contained0010Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithTypeEObjectAndSerialization0100_Multi() <em>Feature With Type EObject And Serialization0100 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_WithTypeEObject_Contained0100Many() <em>EReference With Type EObject Contained0100 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithTypeEObjectAndSerialization0100_Multi()
+	 * @see #getEReference_WithTypeEObject_Contained0100Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EObject> featureWithTypeEObjectAndSerialization0100_Multi;
+	protected EList<EObject> eReference_WithTypeEObject_Contained0100Many;
 
 	/**
-	 * The cached value of the '{@link #getFeatureWithTypeEObjectAndSerialization1000_Multi() <em>Feature With Type EObject And Serialization1000 Multi</em>}' containment reference list.
+	 * The cached value of the '{@link #getEReference_WithTypeEObject_Contained1000Many() <em>EReference With Type EObject Contained1000 Many</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatureWithTypeEObjectAndSerialization1000_Multi()
+	 * @see #getEReference_WithTypeEObject_Contained1000Many()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EObject> featureWithTypeEObjectAndSerialization1000_Multi;
+	protected EList<EObject> eReference_WithTypeEObject_Contained1000Many;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -528,8 +528,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization0000_Single() {
-		return featureWithSerialization0000_Single;
+	public Node getEReference_Contained0000Single() {
+		return eReference_Contained0000Single;
 	}
 
 	/**
@@ -537,11 +537,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization0000_Single(Node newFeatureWithSerialization0000_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization0000_Single = featureWithSerialization0000_Single;
-		featureWithSerialization0000_Single = newFeatureWithSerialization0000_Single;
+	public NotificationChain basicSetEReference_Contained0000Single(Node newEReference_Contained0000Single, NotificationChain msgs) {
+		Node oldEReference_Contained0000Single = eReference_Contained0000Single;
+		eReference_Contained0000Single = newEReference_Contained0000Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE, oldFeatureWithSerialization0000_Single, newFeatureWithSerialization0000_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0000_SINGLE, oldEReference_Contained0000Single, newEReference_Contained0000Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -552,18 +552,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization0000_Single(Node newFeatureWithSerialization0000_Single) {
-		if (newFeatureWithSerialization0000_Single != featureWithSerialization0000_Single) {
+	public void setEReference_Contained0000Single(Node newEReference_Contained0000Single) {
+		if (newEReference_Contained0000Single != eReference_Contained0000Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization0000_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization0000_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE, null, msgs);
-			if (newFeatureWithSerialization0000_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization0000_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization0000_Single(newFeatureWithSerialization0000_Single, msgs);
+			if (eReference_Contained0000Single != null)
+				msgs = ((InternalEObject)eReference_Contained0000Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0000_SINGLE, null, msgs);
+			if (newEReference_Contained0000Single != null)
+				msgs = ((InternalEObject)newEReference_Contained0000Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0000_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained0000Single(newEReference_Contained0000Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE, newFeatureWithSerialization0000_Single, newFeatureWithSerialization0000_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0000_SINGLE, newEReference_Contained0000Single, newEReference_Contained0000Single));
 	}
 
 	/**
@@ -571,8 +571,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization0001_Single() {
-		return featureWithSerialization0001_Single;
+	public Node getEReference_Contained0001Single() {
+		return eReference_Contained0001Single;
 	}
 
 	/**
@@ -580,11 +580,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization0001_Single(Node newFeatureWithSerialization0001_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization0001_Single = featureWithSerialization0001_Single;
-		featureWithSerialization0001_Single = newFeatureWithSerialization0001_Single;
+	public NotificationChain basicSetEReference_Contained0001Single(Node newEReference_Contained0001Single, NotificationChain msgs) {
+		Node oldEReference_Contained0001Single = eReference_Contained0001Single;
+		eReference_Contained0001Single = newEReference_Contained0001Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE, oldFeatureWithSerialization0001_Single, newFeatureWithSerialization0001_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0001_SINGLE, oldEReference_Contained0001Single, newEReference_Contained0001Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -595,18 +595,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization0001_Single(Node newFeatureWithSerialization0001_Single) {
-		if (newFeatureWithSerialization0001_Single != featureWithSerialization0001_Single) {
+	public void setEReference_Contained0001Single(Node newEReference_Contained0001Single) {
+		if (newEReference_Contained0001Single != eReference_Contained0001Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization0001_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization0001_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE, null, msgs);
-			if (newFeatureWithSerialization0001_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization0001_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization0001_Single(newFeatureWithSerialization0001_Single, msgs);
+			if (eReference_Contained0001Single != null)
+				msgs = ((InternalEObject)eReference_Contained0001Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0001_SINGLE, null, msgs);
+			if (newEReference_Contained0001Single != null)
+				msgs = ((InternalEObject)newEReference_Contained0001Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0001_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained0001Single(newEReference_Contained0001Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE, newFeatureWithSerialization0001_Single, newFeatureWithSerialization0001_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0001_SINGLE, newEReference_Contained0001Single, newEReference_Contained0001Single));
 	}
 
 	/**
@@ -614,8 +614,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization0010_Single() {
-		return featureWithSerialization0010_Single;
+	public Node getEReference_Contained0010Single() {
+		return eReference_Contained0010Single;
 	}
 
 	/**
@@ -623,11 +623,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization0010_Single(Node newFeatureWithSerialization0010_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization0010_Single = featureWithSerialization0010_Single;
-		featureWithSerialization0010_Single = newFeatureWithSerialization0010_Single;
+	public NotificationChain basicSetEReference_Contained0010Single(Node newEReference_Contained0010Single, NotificationChain msgs) {
+		Node oldEReference_Contained0010Single = eReference_Contained0010Single;
+		eReference_Contained0010Single = newEReference_Contained0010Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE, oldFeatureWithSerialization0010_Single, newFeatureWithSerialization0010_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0010_SINGLE, oldEReference_Contained0010Single, newEReference_Contained0010Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -638,18 +638,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization0010_Single(Node newFeatureWithSerialization0010_Single) {
-		if (newFeatureWithSerialization0010_Single != featureWithSerialization0010_Single) {
+	public void setEReference_Contained0010Single(Node newEReference_Contained0010Single) {
+		if (newEReference_Contained0010Single != eReference_Contained0010Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization0010_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization0010_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE, null, msgs);
-			if (newFeatureWithSerialization0010_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization0010_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization0010_Single(newFeatureWithSerialization0010_Single, msgs);
+			if (eReference_Contained0010Single != null)
+				msgs = ((InternalEObject)eReference_Contained0010Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0010_SINGLE, null, msgs);
+			if (newEReference_Contained0010Single != null)
+				msgs = ((InternalEObject)newEReference_Contained0010Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0010_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained0010Single(newEReference_Contained0010Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE, newFeatureWithSerialization0010_Single, newFeatureWithSerialization0010_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0010_SINGLE, newEReference_Contained0010Single, newEReference_Contained0010Single));
 	}
 
 	/**
@@ -657,8 +657,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization0011_Single() {
-		return featureWithSerialization0011_Single;
+	public Node getEReference_Contained0011Single() {
+		return eReference_Contained0011Single;
 	}
 
 	/**
@@ -666,11 +666,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization0011_Single(Node newFeatureWithSerialization0011_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization0011_Single = featureWithSerialization0011_Single;
-		featureWithSerialization0011_Single = newFeatureWithSerialization0011_Single;
+	public NotificationChain basicSetEReference_Contained0011Single(Node newEReference_Contained0011Single, NotificationChain msgs) {
+		Node oldEReference_Contained0011Single = eReference_Contained0011Single;
+		eReference_Contained0011Single = newEReference_Contained0011Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE, oldFeatureWithSerialization0011_Single, newFeatureWithSerialization0011_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0011_SINGLE, oldEReference_Contained0011Single, newEReference_Contained0011Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -681,18 +681,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization0011_Single(Node newFeatureWithSerialization0011_Single) {
-		if (newFeatureWithSerialization0011_Single != featureWithSerialization0011_Single) {
+	public void setEReference_Contained0011Single(Node newEReference_Contained0011Single) {
+		if (newEReference_Contained0011Single != eReference_Contained0011Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization0011_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization0011_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE, null, msgs);
-			if (newFeatureWithSerialization0011_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization0011_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization0011_Single(newFeatureWithSerialization0011_Single, msgs);
+			if (eReference_Contained0011Single != null)
+				msgs = ((InternalEObject)eReference_Contained0011Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0011_SINGLE, null, msgs);
+			if (newEReference_Contained0011Single != null)
+				msgs = ((InternalEObject)newEReference_Contained0011Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0011_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained0011Single(newEReference_Contained0011Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE, newFeatureWithSerialization0011_Single, newFeatureWithSerialization0011_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0011_SINGLE, newEReference_Contained0011Single, newEReference_Contained0011Single));
 	}
 
 	/**
@@ -700,8 +700,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization0100_Single() {
-		return featureWithSerialization0100_Single;
+	public Node getEReference_Contained0100Single() {
+		return eReference_Contained0100Single;
 	}
 
 	/**
@@ -709,11 +709,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization0100_Single(Node newFeatureWithSerialization0100_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization0100_Single = featureWithSerialization0100_Single;
-		featureWithSerialization0100_Single = newFeatureWithSerialization0100_Single;
+	public NotificationChain basicSetEReference_Contained0100Single(Node newEReference_Contained0100Single, NotificationChain msgs) {
+		Node oldEReference_Contained0100Single = eReference_Contained0100Single;
+		eReference_Contained0100Single = newEReference_Contained0100Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE, oldFeatureWithSerialization0100_Single, newFeatureWithSerialization0100_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0100_SINGLE, oldEReference_Contained0100Single, newEReference_Contained0100Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -724,18 +724,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization0100_Single(Node newFeatureWithSerialization0100_Single) {
-		if (newFeatureWithSerialization0100_Single != featureWithSerialization0100_Single) {
+	public void setEReference_Contained0100Single(Node newEReference_Contained0100Single) {
+		if (newEReference_Contained0100Single != eReference_Contained0100Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization0100_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization0100_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE, null, msgs);
-			if (newFeatureWithSerialization0100_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization0100_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization0100_Single(newFeatureWithSerialization0100_Single, msgs);
+			if (eReference_Contained0100Single != null)
+				msgs = ((InternalEObject)eReference_Contained0100Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0100_SINGLE, null, msgs);
+			if (newEReference_Contained0100Single != null)
+				msgs = ((InternalEObject)newEReference_Contained0100Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0100_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained0100Single(newEReference_Contained0100Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE, newFeatureWithSerialization0100_Single, newFeatureWithSerialization0100_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0100_SINGLE, newEReference_Contained0100Single, newEReference_Contained0100Single));
 	}
 
 	/**
@@ -743,8 +743,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization0101_Single() {
-		return featureWithSerialization0101_Single;
+	public Node getEReference_Contained0101Single() {
+		return eReference_Contained0101Single;
 	}
 
 	/**
@@ -752,11 +752,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization0101_Single(Node newFeatureWithSerialization0101_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization0101_Single = featureWithSerialization0101_Single;
-		featureWithSerialization0101_Single = newFeatureWithSerialization0101_Single;
+	public NotificationChain basicSetEReference_Contained0101Single(Node newEReference_Contained0101Single, NotificationChain msgs) {
+		Node oldEReference_Contained0101Single = eReference_Contained0101Single;
+		eReference_Contained0101Single = newEReference_Contained0101Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE, oldFeatureWithSerialization0101_Single, newFeatureWithSerialization0101_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0101_SINGLE, oldEReference_Contained0101Single, newEReference_Contained0101Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -767,18 +767,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization0101_Single(Node newFeatureWithSerialization0101_Single) {
-		if (newFeatureWithSerialization0101_Single != featureWithSerialization0101_Single) {
+	public void setEReference_Contained0101Single(Node newEReference_Contained0101Single) {
+		if (newEReference_Contained0101Single != eReference_Contained0101Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization0101_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization0101_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE, null, msgs);
-			if (newFeatureWithSerialization0101_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization0101_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization0101_Single(newFeatureWithSerialization0101_Single, msgs);
+			if (eReference_Contained0101Single != null)
+				msgs = ((InternalEObject)eReference_Contained0101Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0101_SINGLE, null, msgs);
+			if (newEReference_Contained0101Single != null)
+				msgs = ((InternalEObject)newEReference_Contained0101Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0101_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained0101Single(newEReference_Contained0101Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE, newFeatureWithSerialization0101_Single, newFeatureWithSerialization0101_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0101_SINGLE, newEReference_Contained0101Single, newEReference_Contained0101Single));
 	}
 
 	/**
@@ -786,8 +786,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization0110_Single() {
-		return featureWithSerialization0110_Single;
+	public Node getEReference_Contained0110Single() {
+		return eReference_Contained0110Single;
 	}
 
 	/**
@@ -795,11 +795,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization0110_Single(Node newFeatureWithSerialization0110_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization0110_Single = featureWithSerialization0110_Single;
-		featureWithSerialization0110_Single = newFeatureWithSerialization0110_Single;
+	public NotificationChain basicSetEReference_Contained0110Single(Node newEReference_Contained0110Single, NotificationChain msgs) {
+		Node oldEReference_Contained0110Single = eReference_Contained0110Single;
+		eReference_Contained0110Single = newEReference_Contained0110Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE, oldFeatureWithSerialization0110_Single, newFeatureWithSerialization0110_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0110_SINGLE, oldEReference_Contained0110Single, newEReference_Contained0110Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -810,18 +810,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization0110_Single(Node newFeatureWithSerialization0110_Single) {
-		if (newFeatureWithSerialization0110_Single != featureWithSerialization0110_Single) {
+	public void setEReference_Contained0110Single(Node newEReference_Contained0110Single) {
+		if (newEReference_Contained0110Single != eReference_Contained0110Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization0110_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization0110_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE, null, msgs);
-			if (newFeatureWithSerialization0110_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization0110_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization0110_Single(newFeatureWithSerialization0110_Single, msgs);
+			if (eReference_Contained0110Single != null)
+				msgs = ((InternalEObject)eReference_Contained0110Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0110_SINGLE, null, msgs);
+			if (newEReference_Contained0110Single != null)
+				msgs = ((InternalEObject)newEReference_Contained0110Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0110_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained0110Single(newEReference_Contained0110Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE, newFeatureWithSerialization0110_Single, newFeatureWithSerialization0110_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0110_SINGLE, newEReference_Contained0110Single, newEReference_Contained0110Single));
 	}
 
 	/**
@@ -829,8 +829,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization0111_Single() {
-		return featureWithSerialization0111_Single;
+	public Node getEReference_Contained0111Single() {
+		return eReference_Contained0111Single;
 	}
 
 	/**
@@ -838,11 +838,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization0111_Single(Node newFeatureWithSerialization0111_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization0111_Single = featureWithSerialization0111_Single;
-		featureWithSerialization0111_Single = newFeatureWithSerialization0111_Single;
+	public NotificationChain basicSetEReference_Contained0111Single(Node newEReference_Contained0111Single, NotificationChain msgs) {
+		Node oldEReference_Contained0111Single = eReference_Contained0111Single;
+		eReference_Contained0111Single = newEReference_Contained0111Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE, oldFeatureWithSerialization0111_Single, newFeatureWithSerialization0111_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0111_SINGLE, oldEReference_Contained0111Single, newEReference_Contained0111Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -853,18 +853,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization0111_Single(Node newFeatureWithSerialization0111_Single) {
-		if (newFeatureWithSerialization0111_Single != featureWithSerialization0111_Single) {
+	public void setEReference_Contained0111Single(Node newEReference_Contained0111Single) {
+		if (newEReference_Contained0111Single != eReference_Contained0111Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization0111_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization0111_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE, null, msgs);
-			if (newFeatureWithSerialization0111_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization0111_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization0111_Single(newFeatureWithSerialization0111_Single, msgs);
+			if (eReference_Contained0111Single != null)
+				msgs = ((InternalEObject)eReference_Contained0111Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0111_SINGLE, null, msgs);
+			if (newEReference_Contained0111Single != null)
+				msgs = ((InternalEObject)newEReference_Contained0111Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED0111_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained0111Single(newEReference_Contained0111Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE, newFeatureWithSerialization0111_Single, newFeatureWithSerialization0111_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED0111_SINGLE, newEReference_Contained0111Single, newEReference_Contained0111Single));
 	}
 
 	/**
@@ -872,8 +872,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization1000_Single() {
-		return featureWithSerialization1000_Single;
+	public Node getEReference_Contained1000Single() {
+		return eReference_Contained1000Single;
 	}
 
 	/**
@@ -881,11 +881,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization1000_Single(Node newFeatureWithSerialization1000_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization1000_Single = featureWithSerialization1000_Single;
-		featureWithSerialization1000_Single = newFeatureWithSerialization1000_Single;
+	public NotificationChain basicSetEReference_Contained1000Single(Node newEReference_Contained1000Single, NotificationChain msgs) {
+		Node oldEReference_Contained1000Single = eReference_Contained1000Single;
+		eReference_Contained1000Single = newEReference_Contained1000Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE, oldFeatureWithSerialization1000_Single, newFeatureWithSerialization1000_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1000_SINGLE, oldEReference_Contained1000Single, newEReference_Contained1000Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -896,18 +896,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization1000_Single(Node newFeatureWithSerialization1000_Single) {
-		if (newFeatureWithSerialization1000_Single != featureWithSerialization1000_Single) {
+	public void setEReference_Contained1000Single(Node newEReference_Contained1000Single) {
+		if (newEReference_Contained1000Single != eReference_Contained1000Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization1000_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization1000_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE, null, msgs);
-			if (newFeatureWithSerialization1000_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization1000_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization1000_Single(newFeatureWithSerialization1000_Single, msgs);
+			if (eReference_Contained1000Single != null)
+				msgs = ((InternalEObject)eReference_Contained1000Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1000_SINGLE, null, msgs);
+			if (newEReference_Contained1000Single != null)
+				msgs = ((InternalEObject)newEReference_Contained1000Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1000_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained1000Single(newEReference_Contained1000Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE, newFeatureWithSerialization1000_Single, newFeatureWithSerialization1000_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1000_SINGLE, newEReference_Contained1000Single, newEReference_Contained1000Single));
 	}
 
 	/**
@@ -915,8 +915,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization1001_Single() {
-		return featureWithSerialization1001_Single;
+	public Node getEReference_Contained1001Single() {
+		return eReference_Contained1001Single;
 	}
 
 	/**
@@ -924,11 +924,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization1001_Single(Node newFeatureWithSerialization1001_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization1001_Single = featureWithSerialization1001_Single;
-		featureWithSerialization1001_Single = newFeatureWithSerialization1001_Single;
+	public NotificationChain basicSetEReference_Contained1001Single(Node newEReference_Contained1001Single, NotificationChain msgs) {
+		Node oldEReference_Contained1001Single = eReference_Contained1001Single;
+		eReference_Contained1001Single = newEReference_Contained1001Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE, oldFeatureWithSerialization1001_Single, newFeatureWithSerialization1001_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1001_SINGLE, oldEReference_Contained1001Single, newEReference_Contained1001Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -939,18 +939,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization1001_Single(Node newFeatureWithSerialization1001_Single) {
-		if (newFeatureWithSerialization1001_Single != featureWithSerialization1001_Single) {
+	public void setEReference_Contained1001Single(Node newEReference_Contained1001Single) {
+		if (newEReference_Contained1001Single != eReference_Contained1001Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization1001_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization1001_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE, null, msgs);
-			if (newFeatureWithSerialization1001_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization1001_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization1001_Single(newFeatureWithSerialization1001_Single, msgs);
+			if (eReference_Contained1001Single != null)
+				msgs = ((InternalEObject)eReference_Contained1001Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1001_SINGLE, null, msgs);
+			if (newEReference_Contained1001Single != null)
+				msgs = ((InternalEObject)newEReference_Contained1001Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1001_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained1001Single(newEReference_Contained1001Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE, newFeatureWithSerialization1001_Single, newFeatureWithSerialization1001_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1001_SINGLE, newEReference_Contained1001Single, newEReference_Contained1001Single));
 	}
 
 	/**
@@ -958,8 +958,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization1010_Single() {
-		return featureWithSerialization1010_Single;
+	public Node getEReference_Contained1010Single() {
+		return eReference_Contained1010Single;
 	}
 
 	/**
@@ -967,11 +967,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization1010_Single(Node newFeatureWithSerialization1010_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization1010_Single = featureWithSerialization1010_Single;
-		featureWithSerialization1010_Single = newFeatureWithSerialization1010_Single;
+	public NotificationChain basicSetEReference_Contained1010Single(Node newEReference_Contained1010Single, NotificationChain msgs) {
+		Node oldEReference_Contained1010Single = eReference_Contained1010Single;
+		eReference_Contained1010Single = newEReference_Contained1010Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE, oldFeatureWithSerialization1010_Single, newFeatureWithSerialization1010_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1010_SINGLE, oldEReference_Contained1010Single, newEReference_Contained1010Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -982,18 +982,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization1010_Single(Node newFeatureWithSerialization1010_Single) {
-		if (newFeatureWithSerialization1010_Single != featureWithSerialization1010_Single) {
+	public void setEReference_Contained1010Single(Node newEReference_Contained1010Single) {
+		if (newEReference_Contained1010Single != eReference_Contained1010Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization1010_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization1010_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE, null, msgs);
-			if (newFeatureWithSerialization1010_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization1010_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization1010_Single(newFeatureWithSerialization1010_Single, msgs);
+			if (eReference_Contained1010Single != null)
+				msgs = ((InternalEObject)eReference_Contained1010Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1010_SINGLE, null, msgs);
+			if (newEReference_Contained1010Single != null)
+				msgs = ((InternalEObject)newEReference_Contained1010Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1010_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained1010Single(newEReference_Contained1010Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE, newFeatureWithSerialization1010_Single, newFeatureWithSerialization1010_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1010_SINGLE, newEReference_Contained1010Single, newEReference_Contained1010Single));
 	}
 
 	/**
@@ -1001,8 +1001,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization1011_Single() {
-		return featureWithSerialization1011_Single;
+	public Node getEReference_Contained1011Single() {
+		return eReference_Contained1011Single;
 	}
 
 	/**
@@ -1010,11 +1010,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization1011_Single(Node newFeatureWithSerialization1011_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization1011_Single = featureWithSerialization1011_Single;
-		featureWithSerialization1011_Single = newFeatureWithSerialization1011_Single;
+	public NotificationChain basicSetEReference_Contained1011Single(Node newEReference_Contained1011Single, NotificationChain msgs) {
+		Node oldEReference_Contained1011Single = eReference_Contained1011Single;
+		eReference_Contained1011Single = newEReference_Contained1011Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE, oldFeatureWithSerialization1011_Single, newFeatureWithSerialization1011_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1011_SINGLE, oldEReference_Contained1011Single, newEReference_Contained1011Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1025,18 +1025,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization1011_Single(Node newFeatureWithSerialization1011_Single) {
-		if (newFeatureWithSerialization1011_Single != featureWithSerialization1011_Single) {
+	public void setEReference_Contained1011Single(Node newEReference_Contained1011Single) {
+		if (newEReference_Contained1011Single != eReference_Contained1011Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization1011_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization1011_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE, null, msgs);
-			if (newFeatureWithSerialization1011_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization1011_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization1011_Single(newFeatureWithSerialization1011_Single, msgs);
+			if (eReference_Contained1011Single != null)
+				msgs = ((InternalEObject)eReference_Contained1011Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1011_SINGLE, null, msgs);
+			if (newEReference_Contained1011Single != null)
+				msgs = ((InternalEObject)newEReference_Contained1011Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1011_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained1011Single(newEReference_Contained1011Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE, newFeatureWithSerialization1011_Single, newFeatureWithSerialization1011_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1011_SINGLE, newEReference_Contained1011Single, newEReference_Contained1011Single));
 	}
 
 	/**
@@ -1044,8 +1044,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization1100_Single() {
-		return featureWithSerialization1100_Single;
+	public Node getEReference_Contained1100Single() {
+		return eReference_Contained1100Single;
 	}
 
 	/**
@@ -1053,11 +1053,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization1100_Single(Node newFeatureWithSerialization1100_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization1100_Single = featureWithSerialization1100_Single;
-		featureWithSerialization1100_Single = newFeatureWithSerialization1100_Single;
+	public NotificationChain basicSetEReference_Contained1100Single(Node newEReference_Contained1100Single, NotificationChain msgs) {
+		Node oldEReference_Contained1100Single = eReference_Contained1100Single;
+		eReference_Contained1100Single = newEReference_Contained1100Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE, oldFeatureWithSerialization1100_Single, newFeatureWithSerialization1100_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1100_SINGLE, oldEReference_Contained1100Single, newEReference_Contained1100Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1068,18 +1068,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization1100_Single(Node newFeatureWithSerialization1100_Single) {
-		if (newFeatureWithSerialization1100_Single != featureWithSerialization1100_Single) {
+	public void setEReference_Contained1100Single(Node newEReference_Contained1100Single) {
+		if (newEReference_Contained1100Single != eReference_Contained1100Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization1100_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization1100_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE, null, msgs);
-			if (newFeatureWithSerialization1100_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization1100_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization1100_Single(newFeatureWithSerialization1100_Single, msgs);
+			if (eReference_Contained1100Single != null)
+				msgs = ((InternalEObject)eReference_Contained1100Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1100_SINGLE, null, msgs);
+			if (newEReference_Contained1100Single != null)
+				msgs = ((InternalEObject)newEReference_Contained1100Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1100_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained1100Single(newEReference_Contained1100Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE, newFeatureWithSerialization1100_Single, newFeatureWithSerialization1100_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1100_SINGLE, newEReference_Contained1100Single, newEReference_Contained1100Single));
 	}
 
 	/**
@@ -1087,8 +1087,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization1101_Single() {
-		return featureWithSerialization1101_Single;
+	public Node getEReference_Contained1101Single() {
+		return eReference_Contained1101Single;
 	}
 
 	/**
@@ -1096,11 +1096,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization1101_Single(Node newFeatureWithSerialization1101_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization1101_Single = featureWithSerialization1101_Single;
-		featureWithSerialization1101_Single = newFeatureWithSerialization1101_Single;
+	public NotificationChain basicSetEReference_Contained1101Single(Node newEReference_Contained1101Single, NotificationChain msgs) {
+		Node oldEReference_Contained1101Single = eReference_Contained1101Single;
+		eReference_Contained1101Single = newEReference_Contained1101Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE, oldFeatureWithSerialization1101_Single, newFeatureWithSerialization1101_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1101_SINGLE, oldEReference_Contained1101Single, newEReference_Contained1101Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1111,18 +1111,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization1101_Single(Node newFeatureWithSerialization1101_Single) {
-		if (newFeatureWithSerialization1101_Single != featureWithSerialization1101_Single) {
+	public void setEReference_Contained1101Single(Node newEReference_Contained1101Single) {
+		if (newEReference_Contained1101Single != eReference_Contained1101Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization1101_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization1101_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE, null, msgs);
-			if (newFeatureWithSerialization1101_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization1101_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization1101_Single(newFeatureWithSerialization1101_Single, msgs);
+			if (eReference_Contained1101Single != null)
+				msgs = ((InternalEObject)eReference_Contained1101Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1101_SINGLE, null, msgs);
+			if (newEReference_Contained1101Single != null)
+				msgs = ((InternalEObject)newEReference_Contained1101Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1101_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained1101Single(newEReference_Contained1101Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE, newFeatureWithSerialization1101_Single, newFeatureWithSerialization1101_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1101_SINGLE, newEReference_Contained1101Single, newEReference_Contained1101Single));
 	}
 
 	/**
@@ -1130,8 +1130,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization1110_Single() {
-		return featureWithSerialization1110_Single;
+	public Node getEReference_Contained1110Single() {
+		return eReference_Contained1110Single;
 	}
 
 	/**
@@ -1139,11 +1139,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization1110_Single(Node newFeatureWithSerialization1110_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization1110_Single = featureWithSerialization1110_Single;
-		featureWithSerialization1110_Single = newFeatureWithSerialization1110_Single;
+	public NotificationChain basicSetEReference_Contained1110Single(Node newEReference_Contained1110Single, NotificationChain msgs) {
+		Node oldEReference_Contained1110Single = eReference_Contained1110Single;
+		eReference_Contained1110Single = newEReference_Contained1110Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE, oldFeatureWithSerialization1110_Single, newFeatureWithSerialization1110_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1110_SINGLE, oldEReference_Contained1110Single, newEReference_Contained1110Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1154,18 +1154,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization1110_Single(Node newFeatureWithSerialization1110_Single) {
-		if (newFeatureWithSerialization1110_Single != featureWithSerialization1110_Single) {
+	public void setEReference_Contained1110Single(Node newEReference_Contained1110Single) {
+		if (newEReference_Contained1110Single != eReference_Contained1110Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization1110_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization1110_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE, null, msgs);
-			if (newFeatureWithSerialization1110_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization1110_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization1110_Single(newFeatureWithSerialization1110_Single, msgs);
+			if (eReference_Contained1110Single != null)
+				msgs = ((InternalEObject)eReference_Contained1110Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1110_SINGLE, null, msgs);
+			if (newEReference_Contained1110Single != null)
+				msgs = ((InternalEObject)newEReference_Contained1110Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1110_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained1110Single(newEReference_Contained1110Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE, newFeatureWithSerialization1110_Single, newFeatureWithSerialization1110_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1110_SINGLE, newEReference_Contained1110Single, newEReference_Contained1110Single));
 	}
 
 	/**
@@ -1173,8 +1173,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureWithSerialization1111_Single() {
-		return featureWithSerialization1111_Single;
+	public Node getEReference_Contained1111Single() {
+		return eReference_Contained1111Single;
 	}
 
 	/**
@@ -1182,11 +1182,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureWithSerialization1111_Single(Node newFeatureWithSerialization1111_Single, NotificationChain msgs) {
-		Node oldFeatureWithSerialization1111_Single = featureWithSerialization1111_Single;
-		featureWithSerialization1111_Single = newFeatureWithSerialization1111_Single;
+	public NotificationChain basicSetEReference_Contained1111Single(Node newEReference_Contained1111Single, NotificationChain msgs) {
+		Node oldEReference_Contained1111Single = eReference_Contained1111Single;
+		eReference_Contained1111Single = newEReference_Contained1111Single;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE, oldFeatureWithSerialization1111_Single, newFeatureWithSerialization1111_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1111_SINGLE, oldEReference_Contained1111Single, newEReference_Contained1111Single);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1197,18 +1197,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureWithSerialization1111_Single(Node newFeatureWithSerialization1111_Single) {
-		if (newFeatureWithSerialization1111_Single != featureWithSerialization1111_Single) {
+	public void setEReference_Contained1111Single(Node newEReference_Contained1111Single) {
+		if (newEReference_Contained1111Single != eReference_Contained1111Single) {
 			NotificationChain msgs = null;
-			if (featureWithSerialization1111_Single != null)
-				msgs = ((InternalEObject)featureWithSerialization1111_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE, null, msgs);
-			if (newFeatureWithSerialization1111_Single != null)
-				msgs = ((InternalEObject)newFeatureWithSerialization1111_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE, null, msgs);
-			msgs = basicSetFeatureWithSerialization1111_Single(newFeatureWithSerialization1111_Single, msgs);
+			if (eReference_Contained1111Single != null)
+				msgs = ((InternalEObject)eReference_Contained1111Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1111_SINGLE, null, msgs);
+			if (newEReference_Contained1111Single != null)
+				msgs = ((InternalEObject)newEReference_Contained1111Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_CONTAINED1111_SINGLE, null, msgs);
+			msgs = basicSetEReference_Contained1111Single(newEReference_Contained1111Single, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE, newFeatureWithSerialization1111_Single, newFeatureWithSerialization1111_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_CONTAINED1111_SINGLE, newEReference_Contained1111Single, newEReference_Contained1111Single));
 	}
 
 	/**
@@ -1216,8 +1216,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureEmptyAnnotation_Single() {
-		return featureEmptyAnnotation_Single;
+	public Node getEReference_EmptyAnnotationSingle() {
+		return eReference_EmptyAnnotationSingle;
 	}
 
 	/**
@@ -1225,11 +1225,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureEmptyAnnotation_Single(Node newFeatureEmptyAnnotation_Single, NotificationChain msgs) {
-		Node oldFeatureEmptyAnnotation_Single = featureEmptyAnnotation_Single;
-		featureEmptyAnnotation_Single = newFeatureEmptyAnnotation_Single;
+	public NotificationChain basicSetEReference_EmptyAnnotationSingle(Node newEReference_EmptyAnnotationSingle, NotificationChain msgs) {
+		Node oldEReference_EmptyAnnotationSingle = eReference_EmptyAnnotationSingle;
+		eReference_EmptyAnnotationSingle = newEReference_EmptyAnnotationSingle;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_SINGLE, oldFeatureEmptyAnnotation_Single, newFeatureEmptyAnnotation_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE, oldEReference_EmptyAnnotationSingle, newEReference_EmptyAnnotationSingle);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1240,18 +1240,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureEmptyAnnotation_Single(Node newFeatureEmptyAnnotation_Single) {
-		if (newFeatureEmptyAnnotation_Single != featureEmptyAnnotation_Single) {
+	public void setEReference_EmptyAnnotationSingle(Node newEReference_EmptyAnnotationSingle) {
+		if (newEReference_EmptyAnnotationSingle != eReference_EmptyAnnotationSingle) {
 			NotificationChain msgs = null;
-			if (featureEmptyAnnotation_Single != null)
-				msgs = ((InternalEObject)featureEmptyAnnotation_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_SINGLE, null, msgs);
-			if (newFeatureEmptyAnnotation_Single != null)
-				msgs = ((InternalEObject)newFeatureEmptyAnnotation_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_SINGLE, null, msgs);
-			msgs = basicSetFeatureEmptyAnnotation_Single(newFeatureEmptyAnnotation_Single, msgs);
+			if (eReference_EmptyAnnotationSingle != null)
+				msgs = ((InternalEObject)eReference_EmptyAnnotationSingle).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE, null, msgs);
+			if (newEReference_EmptyAnnotationSingle != null)
+				msgs = ((InternalEObject)newEReference_EmptyAnnotationSingle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE, null, msgs);
+			msgs = basicSetEReference_EmptyAnnotationSingle(newEReference_EmptyAnnotationSingle, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_SINGLE, newFeatureEmptyAnnotation_Single, newFeatureEmptyAnnotation_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE, newEReference_EmptyAnnotationSingle, newEReference_EmptyAnnotationSingle));
 	}
 
 	/**
@@ -1259,8 +1259,8 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFeatureNoAnnotation_Single() {
-		return featureNoAnnotation_Single;
+	public Node getEReference_NoAnnotationSingle() {
+		return eReference_NoAnnotationSingle;
 	}
 
 	/**
@@ -1268,11 +1268,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFeatureNoAnnotation_Single(Node newFeatureNoAnnotation_Single, NotificationChain msgs) {
-		Node oldFeatureNoAnnotation_Single = featureNoAnnotation_Single;
-		featureNoAnnotation_Single = newFeatureNoAnnotation_Single;
+	public NotificationChain basicSetEReference_NoAnnotationSingle(Node newEReference_NoAnnotationSingle, NotificationChain msgs) {
+		Node oldEReference_NoAnnotationSingle = eReference_NoAnnotationSingle;
+		eReference_NoAnnotationSingle = newEReference_NoAnnotationSingle;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_NO_ANNOTATION_SINGLE, oldFeatureNoAnnotation_Single, newFeatureNoAnnotation_Single);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_SINGLE, oldEReference_NoAnnotationSingle, newEReference_NoAnnotationSingle);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1283,18 +1283,18 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFeatureNoAnnotation_Single(Node newFeatureNoAnnotation_Single) {
-		if (newFeatureNoAnnotation_Single != featureNoAnnotation_Single) {
+	public void setEReference_NoAnnotationSingle(Node newEReference_NoAnnotationSingle) {
+		if (newEReference_NoAnnotationSingle != eReference_NoAnnotationSingle) {
 			NotificationChain msgs = null;
-			if (featureNoAnnotation_Single != null)
-				msgs = ((InternalEObject)featureNoAnnotation_Single).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_NO_ANNOTATION_SINGLE, null, msgs);
-			if (newFeatureNoAnnotation_Single != null)
-				msgs = ((InternalEObject)newFeatureNoAnnotation_Single).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__FEATURE_NO_ANNOTATION_SINGLE, null, msgs);
-			msgs = basicSetFeatureNoAnnotation_Single(newFeatureNoAnnotation_Single, msgs);
+			if (eReference_NoAnnotationSingle != null)
+				msgs = ((InternalEObject)eReference_NoAnnotationSingle).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_SINGLE, null, msgs);
+			if (newEReference_NoAnnotationSingle != null)
+				msgs = ((InternalEObject)newEReference_NoAnnotationSingle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_SINGLE, null, msgs);
+			msgs = basicSetEReference_NoAnnotationSingle(newEReference_NoAnnotationSingle, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__FEATURE_NO_ANNOTATION_SINGLE, newFeatureNoAnnotation_Single, newFeatureNoAnnotation_Single));
+			eNotify(new ENotificationImpl(this, Notification.SET, NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_SINGLE, newEReference_NoAnnotationSingle, newEReference_NoAnnotationSingle));
 	}
 
 	/**
@@ -1302,11 +1302,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization0000_Multi() {
-		if (featureWithSerialization0000_Multi == null) {
-			featureWithSerialization0000_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_MULTI);
+	public EList<Node> getEReference_Contained0000Many() {
+		if (eReference_Contained0000Many == null) {
+			eReference_Contained0000Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED0000_MANY);
 		}
-		return featureWithSerialization0000_Multi;
+		return eReference_Contained0000Many;
 	}
 
 	/**
@@ -1314,11 +1314,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization0001_Multi() {
-		if (featureWithSerialization0001_Multi == null) {
-			featureWithSerialization0001_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_MULTI);
+	public EList<Node> getEReference_Contained0001Many() {
+		if (eReference_Contained0001Many == null) {
+			eReference_Contained0001Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED0001_MANY);
 		}
-		return featureWithSerialization0001_Multi;
+		return eReference_Contained0001Many;
 	}
 
 	/**
@@ -1326,11 +1326,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization0010_Multi() {
-		if (featureWithSerialization0010_Multi == null) {
-			featureWithSerialization0010_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_MULTI);
+	public EList<Node> getEReference_Contained0010Many() {
+		if (eReference_Contained0010Many == null) {
+			eReference_Contained0010Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED0010_MANY);
 		}
-		return featureWithSerialization0010_Multi;
+		return eReference_Contained0010Many;
 	}
 
 	/**
@@ -1338,11 +1338,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization0011_Multi() {
-		if (featureWithSerialization0011_Multi == null) {
-			featureWithSerialization0011_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_MULTI);
+	public EList<Node> getEReference_Contained0011Many() {
+		if (eReference_Contained0011Many == null) {
+			eReference_Contained0011Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED0011_MANY);
 		}
-		return featureWithSerialization0011_Multi;
+		return eReference_Contained0011Many;
 	}
 
 	/**
@@ -1350,11 +1350,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization0100_Multi() {
-		if (featureWithSerialization0100_Multi == null) {
-			featureWithSerialization0100_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_MULTI);
+	public EList<Node> getEReference_Contained0100Many() {
+		if (eReference_Contained0100Many == null) {
+			eReference_Contained0100Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED0100_MANY);
 		}
-		return featureWithSerialization0100_Multi;
+		return eReference_Contained0100Many;
 	}
 
 	/**
@@ -1362,11 +1362,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization0101_Multi() {
-		if (featureWithSerialization0101_Multi == null) {
-			featureWithSerialization0101_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_MULTI);
+	public EList<Node> getEReference_Contained0101Many() {
+		if (eReference_Contained0101Many == null) {
+			eReference_Contained0101Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED0101_MANY);
 		}
-		return featureWithSerialization0101_Multi;
+		return eReference_Contained0101Many;
 	}
 
 	/**
@@ -1374,11 +1374,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization0110_Multi() {
-		if (featureWithSerialization0110_Multi == null) {
-			featureWithSerialization0110_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_MULTI);
+	public EList<Node> getEReference_Contained0110Many() {
+		if (eReference_Contained0110Many == null) {
+			eReference_Contained0110Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED0110_MANY);
 		}
-		return featureWithSerialization0110_Multi;
+		return eReference_Contained0110Many;
 	}
 
 	/**
@@ -1386,11 +1386,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization0111_Multi() {
-		if (featureWithSerialization0111_Multi == null) {
-			featureWithSerialization0111_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_MULTI);
+	public EList<Node> getEReference_Contained0111Many() {
+		if (eReference_Contained0111Many == null) {
+			eReference_Contained0111Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED0111_MANY);
 		}
-		return featureWithSerialization0111_Multi;
+		return eReference_Contained0111Many;
 	}
 
 	/**
@@ -1398,11 +1398,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization1000_Multi() {
-		if (featureWithSerialization1000_Multi == null) {
-			featureWithSerialization1000_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_MULTI);
+	public EList<Node> getEReference_Contained1000Many() {
+		if (eReference_Contained1000Many == null) {
+			eReference_Contained1000Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED1000_MANY);
 		}
-		return featureWithSerialization1000_Multi;
+		return eReference_Contained1000Many;
 	}
 
 	/**
@@ -1410,11 +1410,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization1001_Multi() {
-		if (featureWithSerialization1001_Multi == null) {
-			featureWithSerialization1001_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_MULTI);
+	public EList<Node> getEReference_Contained1001Many() {
+		if (eReference_Contained1001Many == null) {
+			eReference_Contained1001Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED1001_MANY);
 		}
-		return featureWithSerialization1001_Multi;
+		return eReference_Contained1001Many;
 	}
 
 	/**
@@ -1422,11 +1422,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization1010_Multi() {
-		if (featureWithSerialization1010_Multi == null) {
-			featureWithSerialization1010_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_MULTI);
+	public EList<Node> getEReference_Contained1010Many() {
+		if (eReference_Contained1010Many == null) {
+			eReference_Contained1010Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED1010_MANY);
 		}
-		return featureWithSerialization1010_Multi;
+		return eReference_Contained1010Many;
 	}
 
 	/**
@@ -1434,11 +1434,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization1011_Multi() {
-		if (featureWithSerialization1011_Multi == null) {
-			featureWithSerialization1011_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_MULTI);
+	public EList<Node> getEReference_Contained1011Many() {
+		if (eReference_Contained1011Many == null) {
+			eReference_Contained1011Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED1011_MANY);
 		}
-		return featureWithSerialization1011_Multi;
+		return eReference_Contained1011Many;
 	}
 
 	/**
@@ -1446,11 +1446,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization1100_Multi() {
-		if (featureWithSerialization1100_Multi == null) {
-			featureWithSerialization1100_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_MULTI);
+	public EList<Node> getEReference_Contained1100Many() {
+		if (eReference_Contained1100Many == null) {
+			eReference_Contained1100Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED1100_MANY);
 		}
-		return featureWithSerialization1100_Multi;
+		return eReference_Contained1100Many;
 	}
 
 	/**
@@ -1458,11 +1458,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization1101_Multi() {
-		if (featureWithSerialization1101_Multi == null) {
-			featureWithSerialization1101_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_MULTI);
+	public EList<Node> getEReference_Contained1101Many() {
+		if (eReference_Contained1101Many == null) {
+			eReference_Contained1101Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED1101_MANY);
 		}
-		return featureWithSerialization1101_Multi;
+		return eReference_Contained1101Many;
 	}
 
 	/**
@@ -1470,11 +1470,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization1110_Multi() {
-		if (featureWithSerialization1110_Multi == null) {
-			featureWithSerialization1110_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_MULTI);
+	public EList<Node> getEReference_Contained1110Many() {
+		if (eReference_Contained1110Many == null) {
+			eReference_Contained1110Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED1110_MANY);
 		}
-		return featureWithSerialization1110_Multi;
+		return eReference_Contained1110Many;
 	}
 
 	/**
@@ -1482,11 +1482,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureWithSerialization1111_Multi() {
-		if (featureWithSerialization1111_Multi == null) {
-			featureWithSerialization1111_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_MULTI);
+	public EList<Node> getEReference_Contained1111Many() {
+		if (eReference_Contained1111Many == null) {
+			eReference_Contained1111Many = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_CONTAINED1111_MANY);
 		}
-		return featureWithSerialization1111_Multi;
+		return eReference_Contained1111Many;
 	}
 
 	/**
@@ -1494,11 +1494,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureEmptyAnnotation_Multi() {
-		if (featureEmptyAnnotation_Multi == null) {
-			featureEmptyAnnotation_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_MULTI);
+	public EList<Node> getEReference_EmptyAnnotationMany() {
+		if (eReference_EmptyAnnotationMany == null) {
+			eReference_EmptyAnnotationMany = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_MANY);
 		}
-		return featureEmptyAnnotation_Multi;
+		return eReference_EmptyAnnotationMany;
 	}
 
 	/**
@@ -1506,11 +1506,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getFeatureNoAnnotation_Multi() {
-		if (featureNoAnnotation_Multi == null) {
-			featureNoAnnotation_Multi = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__FEATURE_NO_ANNOTATION_MULTI);
+	public EList<Node> getEReference_NoAnnotationMany() {
+		if (eReference_NoAnnotationMany == null) {
+			eReference_NoAnnotationMany = new EObjectContainmentEList<Node>(Node.class, this, NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_MANY);
 		}
-		return featureNoAnnotation_Multi;
+		return eReference_NoAnnotationMany;
 	}
 
 	/**
@@ -1539,11 +1539,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EObject> getFeatureWithTypeEObjectAndSerialization0001_Multi() {
-		if (featureWithTypeEObjectAndSerialization0001_Multi == null) {
-			featureWithTypeEObjectAndSerialization0001_Multi = new EObjectContainmentEList<EObject>(EObject.class, this, NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI);
+	public EList<EObject> getEReference_WithTypeEObject_Contained0001Many() {
+		if (eReference_WithTypeEObject_Contained0001Many == null) {
+			eReference_WithTypeEObject_Contained0001Many = new EObjectContainmentEList<EObject>(EObject.class, this, NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0001_MANY);
 		}
-		return featureWithTypeEObjectAndSerialization0001_Multi;
+		return eReference_WithTypeEObject_Contained0001Many;
 	}
 
 	/**
@@ -1551,11 +1551,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EObject> getFeatureWithTypeEObjectAndSerialization0010_Multi() {
-		if (featureWithTypeEObjectAndSerialization0010_Multi == null) {
-			featureWithTypeEObjectAndSerialization0010_Multi = new EObjectContainmentEList<EObject>(EObject.class, this, NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI);
+	public EList<EObject> getEReference_WithTypeEObject_Contained0010Many() {
+		if (eReference_WithTypeEObject_Contained0010Many == null) {
+			eReference_WithTypeEObject_Contained0010Many = new EObjectContainmentEList<EObject>(EObject.class, this, NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0010_MANY);
 		}
-		return featureWithTypeEObjectAndSerialization0010_Multi;
+		return eReference_WithTypeEObject_Contained0010Many;
 	}
 
 	/**
@@ -1563,11 +1563,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EObject> getFeatureWithTypeEObjectAndSerialization0100_Multi() {
-		if (featureWithTypeEObjectAndSerialization0100_Multi == null) {
-			featureWithTypeEObjectAndSerialization0100_Multi = new EObjectContainmentEList<EObject>(EObject.class, this, NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI);
+	public EList<EObject> getEReference_WithTypeEObject_Contained0100Many() {
+		if (eReference_WithTypeEObject_Contained0100Many == null) {
+			eReference_WithTypeEObject_Contained0100Many = new EObjectContainmentEList<EObject>(EObject.class, this, NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0100_MANY);
 		}
-		return featureWithTypeEObjectAndSerialization0100_Multi;
+		return eReference_WithTypeEObject_Contained0100Many;
 	}
 
 	/**
@@ -1575,11 +1575,11 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EObject> getFeatureWithTypeEObjectAndSerialization1000_Multi() {
-		if (featureWithTypeEObjectAndSerialization1000_Multi == null) {
-			featureWithTypeEObjectAndSerialization1000_Multi = new EObjectContainmentEList<EObject>(EObject.class, this, NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI);
+	public EList<EObject> getEReference_WithTypeEObject_Contained1000Many() {
+		if (eReference_WithTypeEObject_Contained1000Many == null) {
+			eReference_WithTypeEObject_Contained1000Many = new EObjectContainmentEList<EObject>(EObject.class, this, NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY);
 		}
-		return featureWithTypeEObjectAndSerialization1000_Multi;
+		return eReference_WithTypeEObject_Contained1000Many;
 	}
 
 	/**
@@ -1590,86 +1590,86 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE:
-				return basicSetFeatureWithSerialization0000_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE:
-				return basicSetFeatureWithSerialization0001_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE:
-				return basicSetFeatureWithSerialization0010_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE:
-				return basicSetFeatureWithSerialization0011_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE:
-				return basicSetFeatureWithSerialization0100_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE:
-				return basicSetFeatureWithSerialization0101_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE:
-				return basicSetFeatureWithSerialization0110_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE:
-				return basicSetFeatureWithSerialization0111_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE:
-				return basicSetFeatureWithSerialization1000_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE:
-				return basicSetFeatureWithSerialization1001_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE:
-				return basicSetFeatureWithSerialization1010_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE:
-				return basicSetFeatureWithSerialization1011_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE:
-				return basicSetFeatureWithSerialization1100_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE:
-				return basicSetFeatureWithSerialization1101_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE:
-				return basicSetFeatureWithSerialization1110_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE:
-				return basicSetFeatureWithSerialization1111_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_SINGLE:
-				return basicSetFeatureEmptyAnnotation_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_NO_ANNOTATION_SINGLE:
-				return basicSetFeatureNoAnnotation_Single(null, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization0000_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization0001_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization0010_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization0011_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization0100_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization0101_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization0110_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization0111_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization1000_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization1001_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization1010_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization1011_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization1100_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization1101_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization1110_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_MULTI:
-				return ((InternalEList<?>)getFeatureWithSerialization1111_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_MULTI:
-				return ((InternalEList<?>)getFeatureEmptyAnnotation_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_NO_ANNOTATION_MULTI:
-				return ((InternalEList<?>)getFeatureNoAnnotation_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI:
-				return ((InternalEList<?>)getFeatureWithTypeEObjectAndSerialization0001_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI:
-				return ((InternalEList<?>)getFeatureWithTypeEObjectAndSerialization0010_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI:
-				return ((InternalEList<?>)getFeatureWithTypeEObjectAndSerialization0100_Multi()).basicRemove(otherEnd, msgs);
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI:
-				return ((InternalEList<?>)getFeatureWithTypeEObjectAndSerialization1000_Multi()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0000_SINGLE:
+				return basicSetEReference_Contained0000Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0001_SINGLE:
+				return basicSetEReference_Contained0001Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0010_SINGLE:
+				return basicSetEReference_Contained0010Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0011_SINGLE:
+				return basicSetEReference_Contained0011Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0100_SINGLE:
+				return basicSetEReference_Contained0100Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0101_SINGLE:
+				return basicSetEReference_Contained0101Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0110_SINGLE:
+				return basicSetEReference_Contained0110Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0111_SINGLE:
+				return basicSetEReference_Contained0111Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1000_SINGLE:
+				return basicSetEReference_Contained1000Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1001_SINGLE:
+				return basicSetEReference_Contained1001Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1010_SINGLE:
+				return basicSetEReference_Contained1010Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1011_SINGLE:
+				return basicSetEReference_Contained1011Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1100_SINGLE:
+				return basicSetEReference_Contained1100Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1101_SINGLE:
+				return basicSetEReference_Contained1101Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1110_SINGLE:
+				return basicSetEReference_Contained1110Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1111_SINGLE:
+				return basicSetEReference_Contained1111Single(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE:
+				return basicSetEReference_EmptyAnnotationSingle(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_SINGLE:
+				return basicSetEReference_NoAnnotationSingle(null, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0000_MANY:
+				return ((InternalEList<?>)getEReference_Contained0000Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0001_MANY:
+				return ((InternalEList<?>)getEReference_Contained0001Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0010_MANY:
+				return ((InternalEList<?>)getEReference_Contained0010Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0011_MANY:
+				return ((InternalEList<?>)getEReference_Contained0011Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0100_MANY:
+				return ((InternalEList<?>)getEReference_Contained0100Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0101_MANY:
+				return ((InternalEList<?>)getEReference_Contained0101Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0110_MANY:
+				return ((InternalEList<?>)getEReference_Contained0110Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0111_MANY:
+				return ((InternalEList<?>)getEReference_Contained0111Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1000_MANY:
+				return ((InternalEList<?>)getEReference_Contained1000Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1001_MANY:
+				return ((InternalEList<?>)getEReference_Contained1001Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1010_MANY:
+				return ((InternalEList<?>)getEReference_Contained1010Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1011_MANY:
+				return ((InternalEList<?>)getEReference_Contained1011Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1100_MANY:
+				return ((InternalEList<?>)getEReference_Contained1100Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1101_MANY:
+				return ((InternalEList<?>)getEReference_Contained1101Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1110_MANY:
+				return ((InternalEList<?>)getEReference_Contained1110Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1111_MANY:
+				return ((InternalEList<?>)getEReference_Contained1111Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_MANY:
+				return ((InternalEList<?>)getEReference_EmptyAnnotationMany()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_MANY:
+				return ((InternalEList<?>)getEReference_NoAnnotationMany()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0001_MANY:
+				return ((InternalEList<?>)getEReference_WithTypeEObject_Contained0001Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0010_MANY:
+				return ((InternalEList<?>)getEReference_WithTypeEObject_Contained0010Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0100_MANY:
+				return ((InternalEList<?>)getEReference_WithTypeEObject_Contained0100Many()).basicRemove(otherEnd, msgs);
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY:
+				return ((InternalEList<?>)getEReference_WithTypeEObject_Contained1000Many()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1682,88 +1682,88 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE:
-				return getFeatureWithSerialization0000_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE:
-				return getFeatureWithSerialization0001_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE:
-				return getFeatureWithSerialization0010_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE:
-				return getFeatureWithSerialization0011_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE:
-				return getFeatureWithSerialization0100_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE:
-				return getFeatureWithSerialization0101_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE:
-				return getFeatureWithSerialization0110_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE:
-				return getFeatureWithSerialization0111_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE:
-				return getFeatureWithSerialization1000_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE:
-				return getFeatureWithSerialization1001_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE:
-				return getFeatureWithSerialization1010_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE:
-				return getFeatureWithSerialization1011_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE:
-				return getFeatureWithSerialization1100_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE:
-				return getFeatureWithSerialization1101_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE:
-				return getFeatureWithSerialization1110_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE:
-				return getFeatureWithSerialization1111_Single();
-			case NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_SINGLE:
-				return getFeatureEmptyAnnotation_Single();
-			case NodesPackage.NODE__FEATURE_NO_ANNOTATION_SINGLE:
-				return getFeatureNoAnnotation_Single();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_MULTI:
-				return getFeatureWithSerialization0000_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_MULTI:
-				return getFeatureWithSerialization0001_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_MULTI:
-				return getFeatureWithSerialization0010_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_MULTI:
-				return getFeatureWithSerialization0011_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_MULTI:
-				return getFeatureWithSerialization0100_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_MULTI:
-				return getFeatureWithSerialization0101_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_MULTI:
-				return getFeatureWithSerialization0110_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_MULTI:
-				return getFeatureWithSerialization0111_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_MULTI:
-				return getFeatureWithSerialization1000_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_MULTI:
-				return getFeatureWithSerialization1001_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_MULTI:
-				return getFeatureWithSerialization1010_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_MULTI:
-				return getFeatureWithSerialization1011_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_MULTI:
-				return getFeatureWithSerialization1100_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_MULTI:
-				return getFeatureWithSerialization1101_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_MULTI:
-				return getFeatureWithSerialization1110_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_MULTI:
-				return getFeatureWithSerialization1111_Multi();
-			case NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_MULTI:
-				return getFeatureEmptyAnnotation_Multi();
-			case NodesPackage.NODE__FEATURE_NO_ANNOTATION_MULTI:
-				return getFeatureNoAnnotation_Multi();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0000_SINGLE:
+				return getEReference_Contained0000Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0001_SINGLE:
+				return getEReference_Contained0001Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0010_SINGLE:
+				return getEReference_Contained0010Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0011_SINGLE:
+				return getEReference_Contained0011Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0100_SINGLE:
+				return getEReference_Contained0100Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0101_SINGLE:
+				return getEReference_Contained0101Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0110_SINGLE:
+				return getEReference_Contained0110Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0111_SINGLE:
+				return getEReference_Contained0111Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1000_SINGLE:
+				return getEReference_Contained1000Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1001_SINGLE:
+				return getEReference_Contained1001Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1010_SINGLE:
+				return getEReference_Contained1010Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1011_SINGLE:
+				return getEReference_Contained1011Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1100_SINGLE:
+				return getEReference_Contained1100Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1101_SINGLE:
+				return getEReference_Contained1101Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1110_SINGLE:
+				return getEReference_Contained1110Single();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1111_SINGLE:
+				return getEReference_Contained1111Single();
+			case NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE:
+				return getEReference_EmptyAnnotationSingle();
+			case NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_SINGLE:
+				return getEReference_NoAnnotationSingle();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0000_MANY:
+				return getEReference_Contained0000Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0001_MANY:
+				return getEReference_Contained0001Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0010_MANY:
+				return getEReference_Contained0010Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0011_MANY:
+				return getEReference_Contained0011Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0100_MANY:
+				return getEReference_Contained0100Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0101_MANY:
+				return getEReference_Contained0101Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0110_MANY:
+				return getEReference_Contained0110Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0111_MANY:
+				return getEReference_Contained0111Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1000_MANY:
+				return getEReference_Contained1000Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1001_MANY:
+				return getEReference_Contained1001Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1010_MANY:
+				return getEReference_Contained1010Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1011_MANY:
+				return getEReference_Contained1011Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1100_MANY:
+				return getEReference_Contained1100Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1101_MANY:
+				return getEReference_Contained1101Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1110_MANY:
+				return getEReference_Contained1110Many();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1111_MANY:
+				return getEReference_Contained1111Many();
+			case NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_MANY:
+				return getEReference_EmptyAnnotationMany();
+			case NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_MANY:
+				return getEReference_NoAnnotationMany();
 			case NodesPackage.NODE__NAME:
 				return getName();
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI:
-				return getFeatureWithTypeEObjectAndSerialization0001_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI:
-				return getFeatureWithTypeEObjectAndSerialization0010_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI:
-				return getFeatureWithTypeEObjectAndSerialization0100_Multi();
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI:
-				return getFeatureWithTypeEObjectAndSerialization1000_Multi();
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0001_MANY:
+				return getEReference_WithTypeEObject_Contained0001Many();
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0010_MANY:
+				return getEReference_WithTypeEObject_Contained0010Many();
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0100_MANY:
+				return getEReference_WithTypeEObject_Contained0100Many();
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY:
+				return getEReference_WithTypeEObject_Contained1000Many();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1777,150 +1777,150 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE:
-				setFeatureWithSerialization0000_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0000_SINGLE:
+				setEReference_Contained0000Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE:
-				setFeatureWithSerialization0001_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0001_SINGLE:
+				setEReference_Contained0001Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE:
-				setFeatureWithSerialization0010_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0010_SINGLE:
+				setEReference_Contained0010Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE:
-				setFeatureWithSerialization0011_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0011_SINGLE:
+				setEReference_Contained0011Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE:
-				setFeatureWithSerialization0100_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0100_SINGLE:
+				setEReference_Contained0100Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE:
-				setFeatureWithSerialization0101_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0101_SINGLE:
+				setEReference_Contained0101Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE:
-				setFeatureWithSerialization0110_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0110_SINGLE:
+				setEReference_Contained0110Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE:
-				setFeatureWithSerialization0111_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0111_SINGLE:
+				setEReference_Contained0111Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE:
-				setFeatureWithSerialization1000_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1000_SINGLE:
+				setEReference_Contained1000Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE:
-				setFeatureWithSerialization1001_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1001_SINGLE:
+				setEReference_Contained1001Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE:
-				setFeatureWithSerialization1010_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1010_SINGLE:
+				setEReference_Contained1010Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE:
-				setFeatureWithSerialization1011_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1011_SINGLE:
+				setEReference_Contained1011Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE:
-				setFeatureWithSerialization1100_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1100_SINGLE:
+				setEReference_Contained1100Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE:
-				setFeatureWithSerialization1101_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1101_SINGLE:
+				setEReference_Contained1101Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE:
-				setFeatureWithSerialization1110_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1110_SINGLE:
+				setEReference_Contained1110Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE:
-				setFeatureWithSerialization1111_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1111_SINGLE:
+				setEReference_Contained1111Single((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_SINGLE:
-				setFeatureEmptyAnnotation_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE:
+				setEReference_EmptyAnnotationSingle((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_NO_ANNOTATION_SINGLE:
-				setFeatureNoAnnotation_Single((Node)newValue);
+			case NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_SINGLE:
+				setEReference_NoAnnotationSingle((Node)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_MULTI:
-				getFeatureWithSerialization0000_Multi().clear();
-				getFeatureWithSerialization0000_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0000_MANY:
+				getEReference_Contained0000Many().clear();
+				getEReference_Contained0000Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_MULTI:
-				getFeatureWithSerialization0001_Multi().clear();
-				getFeatureWithSerialization0001_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0001_MANY:
+				getEReference_Contained0001Many().clear();
+				getEReference_Contained0001Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_MULTI:
-				getFeatureWithSerialization0010_Multi().clear();
-				getFeatureWithSerialization0010_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0010_MANY:
+				getEReference_Contained0010Many().clear();
+				getEReference_Contained0010Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_MULTI:
-				getFeatureWithSerialization0011_Multi().clear();
-				getFeatureWithSerialization0011_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0011_MANY:
+				getEReference_Contained0011Many().clear();
+				getEReference_Contained0011Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_MULTI:
-				getFeatureWithSerialization0100_Multi().clear();
-				getFeatureWithSerialization0100_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0100_MANY:
+				getEReference_Contained0100Many().clear();
+				getEReference_Contained0100Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_MULTI:
-				getFeatureWithSerialization0101_Multi().clear();
-				getFeatureWithSerialization0101_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0101_MANY:
+				getEReference_Contained0101Many().clear();
+				getEReference_Contained0101Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_MULTI:
-				getFeatureWithSerialization0110_Multi().clear();
-				getFeatureWithSerialization0110_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0110_MANY:
+				getEReference_Contained0110Many().clear();
+				getEReference_Contained0110Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_MULTI:
-				getFeatureWithSerialization0111_Multi().clear();
-				getFeatureWithSerialization0111_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0111_MANY:
+				getEReference_Contained0111Many().clear();
+				getEReference_Contained0111Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_MULTI:
-				getFeatureWithSerialization1000_Multi().clear();
-				getFeatureWithSerialization1000_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1000_MANY:
+				getEReference_Contained1000Many().clear();
+				getEReference_Contained1000Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_MULTI:
-				getFeatureWithSerialization1001_Multi().clear();
-				getFeatureWithSerialization1001_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1001_MANY:
+				getEReference_Contained1001Many().clear();
+				getEReference_Contained1001Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_MULTI:
-				getFeatureWithSerialization1010_Multi().clear();
-				getFeatureWithSerialization1010_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1010_MANY:
+				getEReference_Contained1010Many().clear();
+				getEReference_Contained1010Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_MULTI:
-				getFeatureWithSerialization1011_Multi().clear();
-				getFeatureWithSerialization1011_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1011_MANY:
+				getEReference_Contained1011Many().clear();
+				getEReference_Contained1011Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_MULTI:
-				getFeatureWithSerialization1100_Multi().clear();
-				getFeatureWithSerialization1100_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1100_MANY:
+				getEReference_Contained1100Many().clear();
+				getEReference_Contained1100Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_MULTI:
-				getFeatureWithSerialization1101_Multi().clear();
-				getFeatureWithSerialization1101_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1101_MANY:
+				getEReference_Contained1101Many().clear();
+				getEReference_Contained1101Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_MULTI:
-				getFeatureWithSerialization1110_Multi().clear();
-				getFeatureWithSerialization1110_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1110_MANY:
+				getEReference_Contained1110Many().clear();
+				getEReference_Contained1110Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_MULTI:
-				getFeatureWithSerialization1111_Multi().clear();
-				getFeatureWithSerialization1111_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1111_MANY:
+				getEReference_Contained1111Many().clear();
+				getEReference_Contained1111Many().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_MULTI:
-				getFeatureEmptyAnnotation_Multi().clear();
-				getFeatureEmptyAnnotation_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_MANY:
+				getEReference_EmptyAnnotationMany().clear();
+				getEReference_EmptyAnnotationMany().addAll((Collection<? extends Node>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_NO_ANNOTATION_MULTI:
-				getFeatureNoAnnotation_Multi().clear();
-				getFeatureNoAnnotation_Multi().addAll((Collection<? extends Node>)newValue);
+			case NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_MANY:
+				getEReference_NoAnnotationMany().clear();
+				getEReference_NoAnnotationMany().addAll((Collection<? extends Node>)newValue);
 				return;
 			case NodesPackage.NODE__NAME:
 				setName((String)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI:
-				getFeatureWithTypeEObjectAndSerialization0001_Multi().clear();
-				getFeatureWithTypeEObjectAndSerialization0001_Multi().addAll((Collection<? extends EObject>)newValue);
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0001_MANY:
+				getEReference_WithTypeEObject_Contained0001Many().clear();
+				getEReference_WithTypeEObject_Contained0001Many().addAll((Collection<? extends EObject>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI:
-				getFeatureWithTypeEObjectAndSerialization0010_Multi().clear();
-				getFeatureWithTypeEObjectAndSerialization0010_Multi().addAll((Collection<? extends EObject>)newValue);
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0010_MANY:
+				getEReference_WithTypeEObject_Contained0010Many().clear();
+				getEReference_WithTypeEObject_Contained0010Many().addAll((Collection<? extends EObject>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI:
-				getFeatureWithTypeEObjectAndSerialization0100_Multi().clear();
-				getFeatureWithTypeEObjectAndSerialization0100_Multi().addAll((Collection<? extends EObject>)newValue);
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0100_MANY:
+				getEReference_WithTypeEObject_Contained0100Many().clear();
+				getEReference_WithTypeEObject_Contained0100Many().addAll((Collection<? extends EObject>)newValue);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI:
-				getFeatureWithTypeEObjectAndSerialization1000_Multi().clear();
-				getFeatureWithTypeEObjectAndSerialization1000_Multi().addAll((Collection<? extends EObject>)newValue);
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY:
+				getEReference_WithTypeEObject_Contained1000Many().clear();
+				getEReference_WithTypeEObject_Contained1000Many().addAll((Collection<? extends EObject>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1934,128 +1934,128 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE:
-				setFeatureWithSerialization0000_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0000_SINGLE:
+				setEReference_Contained0000Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE:
-				setFeatureWithSerialization0001_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0001_SINGLE:
+				setEReference_Contained0001Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE:
-				setFeatureWithSerialization0010_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0010_SINGLE:
+				setEReference_Contained0010Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE:
-				setFeatureWithSerialization0011_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0011_SINGLE:
+				setEReference_Contained0011Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE:
-				setFeatureWithSerialization0100_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0100_SINGLE:
+				setEReference_Contained0100Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE:
-				setFeatureWithSerialization0101_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0101_SINGLE:
+				setEReference_Contained0101Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE:
-				setFeatureWithSerialization0110_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0110_SINGLE:
+				setEReference_Contained0110Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE:
-				setFeatureWithSerialization0111_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0111_SINGLE:
+				setEReference_Contained0111Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE:
-				setFeatureWithSerialization1000_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1000_SINGLE:
+				setEReference_Contained1000Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE:
-				setFeatureWithSerialization1001_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1001_SINGLE:
+				setEReference_Contained1001Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE:
-				setFeatureWithSerialization1010_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1010_SINGLE:
+				setEReference_Contained1010Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE:
-				setFeatureWithSerialization1011_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1011_SINGLE:
+				setEReference_Contained1011Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE:
-				setFeatureWithSerialization1100_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1100_SINGLE:
+				setEReference_Contained1100Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE:
-				setFeatureWithSerialization1101_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1101_SINGLE:
+				setEReference_Contained1101Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE:
-				setFeatureWithSerialization1110_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1110_SINGLE:
+				setEReference_Contained1110Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE:
-				setFeatureWithSerialization1111_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1111_SINGLE:
+				setEReference_Contained1111Single((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_SINGLE:
-				setFeatureEmptyAnnotation_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE:
+				setEReference_EmptyAnnotationSingle((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_NO_ANNOTATION_SINGLE:
-				setFeatureNoAnnotation_Single((Node)null);
+			case NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_SINGLE:
+				setEReference_NoAnnotationSingle((Node)null);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_MULTI:
-				getFeatureWithSerialization0000_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0000_MANY:
+				getEReference_Contained0000Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_MULTI:
-				getFeatureWithSerialization0001_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0001_MANY:
+				getEReference_Contained0001Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_MULTI:
-				getFeatureWithSerialization0010_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0010_MANY:
+				getEReference_Contained0010Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_MULTI:
-				getFeatureWithSerialization0011_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0011_MANY:
+				getEReference_Contained0011Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_MULTI:
-				getFeatureWithSerialization0100_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0100_MANY:
+				getEReference_Contained0100Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_MULTI:
-				getFeatureWithSerialization0101_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0101_MANY:
+				getEReference_Contained0101Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_MULTI:
-				getFeatureWithSerialization0110_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0110_MANY:
+				getEReference_Contained0110Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_MULTI:
-				getFeatureWithSerialization0111_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0111_MANY:
+				getEReference_Contained0111Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_MULTI:
-				getFeatureWithSerialization1000_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1000_MANY:
+				getEReference_Contained1000Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_MULTI:
-				getFeatureWithSerialization1001_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1001_MANY:
+				getEReference_Contained1001Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_MULTI:
-				getFeatureWithSerialization1010_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1010_MANY:
+				getEReference_Contained1010Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_MULTI:
-				getFeatureWithSerialization1011_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1011_MANY:
+				getEReference_Contained1011Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_MULTI:
-				getFeatureWithSerialization1100_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1100_MANY:
+				getEReference_Contained1100Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_MULTI:
-				getFeatureWithSerialization1101_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1101_MANY:
+				getEReference_Contained1101Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_MULTI:
-				getFeatureWithSerialization1110_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1110_MANY:
+				getEReference_Contained1110Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_MULTI:
-				getFeatureWithSerialization1111_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1111_MANY:
+				getEReference_Contained1111Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_MULTI:
-				getFeatureEmptyAnnotation_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_MANY:
+				getEReference_EmptyAnnotationMany().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_NO_ANNOTATION_MULTI:
-				getFeatureNoAnnotation_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_MANY:
+				getEReference_NoAnnotationMany().clear();
 				return;
 			case NodesPackage.NODE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI:
-				getFeatureWithTypeEObjectAndSerialization0001_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0001_MANY:
+				getEReference_WithTypeEObject_Contained0001Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI:
-				getFeatureWithTypeEObjectAndSerialization0010_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0010_MANY:
+				getEReference_WithTypeEObject_Contained0010Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI:
-				getFeatureWithTypeEObjectAndSerialization0100_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0100_MANY:
+				getEReference_WithTypeEObject_Contained0100Many().clear();
 				return;
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI:
-				getFeatureWithTypeEObjectAndSerialization1000_Multi().clear();
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY:
+				getEReference_WithTypeEObject_Contained1000Many().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -2069,88 +2069,88 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE:
-				return featureWithSerialization0000_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE:
-				return featureWithSerialization0001_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE:
-				return featureWithSerialization0010_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE:
-				return featureWithSerialization0011_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE:
-				return featureWithSerialization0100_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE:
-				return featureWithSerialization0101_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE:
-				return featureWithSerialization0110_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE:
-				return featureWithSerialization0111_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE:
-				return featureWithSerialization1000_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE:
-				return featureWithSerialization1001_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE:
-				return featureWithSerialization1010_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE:
-				return featureWithSerialization1011_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE:
-				return featureWithSerialization1100_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE:
-				return featureWithSerialization1101_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE:
-				return featureWithSerialization1110_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE:
-				return featureWithSerialization1111_Single != null;
-			case NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_SINGLE:
-				return featureEmptyAnnotation_Single != null;
-			case NodesPackage.NODE__FEATURE_NO_ANNOTATION_SINGLE:
-				return featureNoAnnotation_Single != null;
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0000_MULTI:
-				return featureWithSerialization0000_Multi != null && !featureWithSerialization0000_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0001_MULTI:
-				return featureWithSerialization0001_Multi != null && !featureWithSerialization0001_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0010_MULTI:
-				return featureWithSerialization0010_Multi != null && !featureWithSerialization0010_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0011_MULTI:
-				return featureWithSerialization0011_Multi != null && !featureWithSerialization0011_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0100_MULTI:
-				return featureWithSerialization0100_Multi != null && !featureWithSerialization0100_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0101_MULTI:
-				return featureWithSerialization0101_Multi != null && !featureWithSerialization0101_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0110_MULTI:
-				return featureWithSerialization0110_Multi != null && !featureWithSerialization0110_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION0111_MULTI:
-				return featureWithSerialization0111_Multi != null && !featureWithSerialization0111_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1000_MULTI:
-				return featureWithSerialization1000_Multi != null && !featureWithSerialization1000_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1001_MULTI:
-				return featureWithSerialization1001_Multi != null && !featureWithSerialization1001_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1010_MULTI:
-				return featureWithSerialization1010_Multi != null && !featureWithSerialization1010_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1011_MULTI:
-				return featureWithSerialization1011_Multi != null && !featureWithSerialization1011_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1100_MULTI:
-				return featureWithSerialization1100_Multi != null && !featureWithSerialization1100_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1101_MULTI:
-				return featureWithSerialization1101_Multi != null && !featureWithSerialization1101_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1110_MULTI:
-				return featureWithSerialization1110_Multi != null && !featureWithSerialization1110_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_SERIALIZATION1111_MULTI:
-				return featureWithSerialization1111_Multi != null && !featureWithSerialization1111_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_EMPTY_ANNOTATION_MULTI:
-				return featureEmptyAnnotation_Multi != null && !featureEmptyAnnotation_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_NO_ANNOTATION_MULTI:
-				return featureNoAnnotation_Multi != null && !featureNoAnnotation_Multi.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0000_SINGLE:
+				return eReference_Contained0000Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0001_SINGLE:
+				return eReference_Contained0001Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0010_SINGLE:
+				return eReference_Contained0010Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0011_SINGLE:
+				return eReference_Contained0011Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0100_SINGLE:
+				return eReference_Contained0100Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0101_SINGLE:
+				return eReference_Contained0101Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0110_SINGLE:
+				return eReference_Contained0110Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0111_SINGLE:
+				return eReference_Contained0111Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1000_SINGLE:
+				return eReference_Contained1000Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1001_SINGLE:
+				return eReference_Contained1001Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1010_SINGLE:
+				return eReference_Contained1010Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1011_SINGLE:
+				return eReference_Contained1011Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1100_SINGLE:
+				return eReference_Contained1100Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1101_SINGLE:
+				return eReference_Contained1101Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1110_SINGLE:
+				return eReference_Contained1110Single != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1111_SINGLE:
+				return eReference_Contained1111Single != null;
+			case NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE:
+				return eReference_EmptyAnnotationSingle != null;
+			case NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_SINGLE:
+				return eReference_NoAnnotationSingle != null;
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0000_MANY:
+				return eReference_Contained0000Many != null && !eReference_Contained0000Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0001_MANY:
+				return eReference_Contained0001Many != null && !eReference_Contained0001Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0010_MANY:
+				return eReference_Contained0010Many != null && !eReference_Contained0010Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0011_MANY:
+				return eReference_Contained0011Many != null && !eReference_Contained0011Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0100_MANY:
+				return eReference_Contained0100Many != null && !eReference_Contained0100Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0101_MANY:
+				return eReference_Contained0101Many != null && !eReference_Contained0101Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0110_MANY:
+				return eReference_Contained0110Many != null && !eReference_Contained0110Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED0111_MANY:
+				return eReference_Contained0111Many != null && !eReference_Contained0111Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1000_MANY:
+				return eReference_Contained1000Many != null && !eReference_Contained1000Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1001_MANY:
+				return eReference_Contained1001Many != null && !eReference_Contained1001Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1010_MANY:
+				return eReference_Contained1010Many != null && !eReference_Contained1010Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1011_MANY:
+				return eReference_Contained1011Many != null && !eReference_Contained1011Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1100_MANY:
+				return eReference_Contained1100Many != null && !eReference_Contained1100Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1101_MANY:
+				return eReference_Contained1101Many != null && !eReference_Contained1101Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1110_MANY:
+				return eReference_Contained1110Many != null && !eReference_Contained1110Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_CONTAINED1111_MANY:
+				return eReference_Contained1111Many != null && !eReference_Contained1111Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_EMPTY_ANNOTATION_MANY:
+				return eReference_EmptyAnnotationMany != null && !eReference_EmptyAnnotationMany.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_NO_ANNOTATION_MANY:
+				return eReference_NoAnnotationMany != null && !eReference_NoAnnotationMany.isEmpty();
 			case NodesPackage.NODE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI:
-				return featureWithTypeEObjectAndSerialization0001_Multi != null && !featureWithTypeEObjectAndSerialization0001_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI:
-				return featureWithTypeEObjectAndSerialization0010_Multi != null && !featureWithTypeEObjectAndSerialization0010_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI:
-				return featureWithTypeEObjectAndSerialization0100_Multi != null && !featureWithTypeEObjectAndSerialization0100_Multi.isEmpty();
-			case NodesPackage.NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI:
-				return featureWithTypeEObjectAndSerialization1000_Multi != null && !featureWithTypeEObjectAndSerialization1000_Multi.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0001_MANY:
+				return eReference_WithTypeEObject_Contained0001Many != null && !eReference_WithTypeEObject_Contained0001Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0010_MANY:
+				return eReference_WithTypeEObject_Contained0010Many != null && !eReference_WithTypeEObject_Contained0010Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0100_MANY:
+				return eReference_WithTypeEObject_Contained0100Many != null && !eReference_WithTypeEObject_Contained0100Many.isEmpty();
+			case NodesPackage.NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY:
+				return eReference_WithTypeEObject_Contained1000Many != null && !eReference_WithTypeEObject_Contained1000Many.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

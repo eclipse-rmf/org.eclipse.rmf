@@ -9,7 +9,7 @@
     <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
       <details key="wrapperName" value="NODES"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0000_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0000Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
@@ -23,7 +23,7 @@
         <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0000-SINGLES"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0001_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0001Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -37,7 +37,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0001-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0010_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0010Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -51,7 +51,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0010-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0011_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0011Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -65,7 +65,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0011-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0100_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0100Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -79,7 +79,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0100-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0101_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0101Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -93,7 +93,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0101-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0110_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0110Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -107,7 +107,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0110-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0111_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0111Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -121,7 +121,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0111-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1000_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1000Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -135,7 +135,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1000-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1001_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1001Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -149,7 +149,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1001-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1010_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1010Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -163,7 +163,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1010-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1011_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1011Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -177,7 +177,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1011-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1100_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1100Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -191,7 +191,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1100-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1101_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1101Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -205,7 +205,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1101-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1110_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1110Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -219,7 +219,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1110-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1111_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1111Single"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -233,13 +233,13 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1111-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureEmptyAnnotation_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_EmptyAnnotationSingle"
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureNoAnnotation_Single"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_NoAnnotationSingle"
         eType="#//Node" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0000_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0000Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -253,7 +253,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0000-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0001_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0001Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -267,7 +267,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0001-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0010_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0010Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -281,7 +281,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0010-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0011_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0011Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -295,7 +295,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0011-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0100_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0100Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -309,7 +309,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0100-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0101_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0101Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -323,7 +323,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0101-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0110_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0110Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -337,7 +337,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0110-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization0111_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0111Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -351,7 +351,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0111-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1000_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1000Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -365,7 +365,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1000-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1001_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1001Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -379,7 +379,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1001-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1010_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1010Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -393,7 +393,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1010-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1011_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1011Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -407,7 +407,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1011-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1100_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1100Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -421,7 +421,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1100-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1101_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1101Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -435,7 +435,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1101-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1110_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1110Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -449,7 +449,7 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1110-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithSerialization1111_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1111Many"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="true"/>
@@ -463,14 +463,14 @@
         <details key="name" value="FEATURE-WITH-SERIALIZATION-1111-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureEmptyAnnotation_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_EmptyAnnotationMany"
         upperBound="-1" eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureNoAnnotation_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_NoAnnotationMany"
         upperBound="-1" eType="#//Node" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithTypeEObjectAndSerialization0001_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_WithTypeEObject_Contained0001Many"
         upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
@@ -485,7 +485,7 @@
         <details key="name" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithTypeEObjectAndSerialization0010_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_WithTypeEObject_Contained0010Many"
         upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
@@ -500,7 +500,7 @@
         <details key="name" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithTypeEObjectAndSerialization0100_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_WithTypeEObject_Contained0100Many"
         upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
@@ -515,7 +515,7 @@
         <details key="name" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureWithTypeEObjectAndSerialization1000_Multi"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_WithTypeEObject_Contained1000Many"
         upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">

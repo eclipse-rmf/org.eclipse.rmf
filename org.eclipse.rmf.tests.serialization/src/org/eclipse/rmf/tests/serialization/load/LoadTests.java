@@ -36,59 +36,59 @@ public class LoadTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization1001_Single() {
-		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization1001_Single.xml";
+	public void testEReference_Contained1001_Single() {
+		String inputFileName = INPUT_PATH + "EReference_Contained1001Single.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
-			validateModelSingle(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1001_Single());
+			validateModelSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained1001Single());
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
 	}
 
 	@Test
-	public void testFeatureContainmentRTeferenceSerialization0001_Many() {
-		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization0001_Many.xml";
+	public void testEReference_Contained0001_Many() {
+		String inputFileName = INPUT_PATH + "EReference_Contained0001Many.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
-			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0001_Multi(),
-					NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained0001Many(),
+					NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
 	}
 
 	@Test
-	public void testFeatureContainmentRTeferenceSerialization0100_Many() {
-		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization0100_Many.xml";
+	public void testEReference_Contained0100_Many() {
+		String inputFileName = INPUT_PATH + "EReference_Contained0100Many.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
-			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi(),
-					NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many(),
+					NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization0101_Many() {
-		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization0101_Many.xml";
+	public void testEReference_Contained0101_Many() {
+		String inputFileName = INPUT_PATH + "EReference_Contained0101Many.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
-			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0101_Multi(),
-					NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained0101Many(),
+					NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
 	}
 
 	@Test
-	public void testFeatureContainmentReferenceSerialization1001_Many() {
-		String inputFileName = INPUT_PATH + "FeatureContainmentReferenceSerialization1001_Many.xml";
+	public void testEReference_Contained1001_Many() {
+		String inputFileName = INPUT_PATH + "EReference_Contained1001Many.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
-			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_FeatureWithSerialization1001_Multi(),
-					NodesPackage.eINSTANCE.getNode_FeatureWithSerialization0100_Multi());
+			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained1001Many(),
+					NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}

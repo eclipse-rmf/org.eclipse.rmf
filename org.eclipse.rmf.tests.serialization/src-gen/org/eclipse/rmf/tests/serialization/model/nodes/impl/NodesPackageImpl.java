@@ -127,7 +127,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0000_Single() {
+	public EReference getNode_EReference_Contained0000Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -136,7 +136,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0001_Single() {
+	public EReference getNode_EReference_Contained0001Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -145,7 +145,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0010_Single() {
+	public EReference getNode_EReference_Contained0010Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -154,7 +154,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0011_Single() {
+	public EReference getNode_EReference_Contained0011Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -163,7 +163,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0100_Single() {
+	public EReference getNode_EReference_Contained0100Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -172,7 +172,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0101_Single() {
+	public EReference getNode_EReference_Contained0101Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -181,7 +181,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0110_Single() {
+	public EReference getNode_EReference_Contained0110Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -190,7 +190,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0111_Single() {
+	public EReference getNode_EReference_Contained0111Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -199,7 +199,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1000_Single() {
+	public EReference getNode_EReference_Contained1000Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -208,7 +208,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1001_Single() {
+	public EReference getNode_EReference_Contained1001Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -217,7 +217,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1010_Single() {
+	public EReference getNode_EReference_Contained1010Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -226,7 +226,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1011_Single() {
+	public EReference getNode_EReference_Contained1011Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -235,7 +235,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1100_Single() {
+	public EReference getNode_EReference_Contained1100Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -244,7 +244,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1101_Single() {
+	public EReference getNode_EReference_Contained1101Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -253,7 +253,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1110_Single() {
+	public EReference getNode_EReference_Contained1110Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -262,7 +262,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1111_Single() {
+	public EReference getNode_EReference_Contained1111Single() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -271,7 +271,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureEmptyAnnotation_Single() {
+	public EReference getNode_EReference_EmptyAnnotationSingle() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -280,7 +280,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureNoAnnotation_Single() {
+	public EReference getNode_EReference_NoAnnotationSingle() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -289,7 +289,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0000_Multi() {
+	public EReference getNode_EReference_Contained0000Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -298,7 +298,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0001_Multi() {
+	public EReference getNode_EReference_Contained0001Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -307,7 +307,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0010_Multi() {
+	public EReference getNode_EReference_Contained0010Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(20);
 	}
 
@@ -316,7 +316,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0011_Multi() {
+	public EReference getNode_EReference_Contained0011Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(21);
 	}
 
@@ -325,7 +325,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0100_Multi() {
+	public EReference getNode_EReference_Contained0100Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(22);
 	}
 
@@ -334,7 +334,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0101_Multi() {
+	public EReference getNode_EReference_Contained0101Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(23);
 	}
 
@@ -343,7 +343,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0110_Multi() {
+	public EReference getNode_EReference_Contained0110Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(24);
 	}
 
@@ -352,7 +352,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization0111_Multi() {
+	public EReference getNode_EReference_Contained0111Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(25);
 	}
 
@@ -361,7 +361,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1000_Multi() {
+	public EReference getNode_EReference_Contained1000Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(26);
 	}
 
@@ -370,7 +370,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1001_Multi() {
+	public EReference getNode_EReference_Contained1001Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(27);
 	}
 
@@ -379,7 +379,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1010_Multi() {
+	public EReference getNode_EReference_Contained1010Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(28);
 	}
 
@@ -388,7 +388,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1011_Multi() {
+	public EReference getNode_EReference_Contained1011Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(29);
 	}
 
@@ -397,7 +397,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1100_Multi() {
+	public EReference getNode_EReference_Contained1100Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(30);
 	}
 
@@ -406,7 +406,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1101_Multi() {
+	public EReference getNode_EReference_Contained1101Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(31);
 	}
 
@@ -415,7 +415,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1110_Multi() {
+	public EReference getNode_EReference_Contained1110Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(32);
 	}
 
@@ -424,7 +424,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithSerialization1111_Multi() {
+	public EReference getNode_EReference_Contained1111Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(33);
 	}
 
@@ -433,7 +433,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureEmptyAnnotation_Multi() {
+	public EReference getNode_EReference_EmptyAnnotationMany() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(34);
 	}
 
@@ -442,7 +442,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureNoAnnotation_Multi() {
+	public EReference getNode_EReference_NoAnnotationMany() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(35);
 	}
 
@@ -460,7 +460,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithTypeEObjectAndSerialization0001_Multi() {
+	public EReference getNode_EReference_WithTypeEObject_Contained0001Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(37);
 	}
 
@@ -469,7 +469,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithTypeEObjectAndSerialization0010_Multi() {
+	public EReference getNode_EReference_WithTypeEObject_Contained0010Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(38);
 	}
 
@@ -478,7 +478,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithTypeEObjectAndSerialization0100_Multi() {
+	public EReference getNode_EReference_WithTypeEObject_Contained0100Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(39);
 	}
 
@@ -487,7 +487,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_FeatureWithTypeEObjectAndSerialization1000_Multi() {
+	public EReference getNode_EReference_WithTypeEObject_Contained1000Many() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(40);
 	}
 
@@ -538,47 +538,47 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 
 		// Create classes and their features
 		nodeEClass = createEClass(NODE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_EMPTY_ANNOTATION_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_NO_ANNOTATION_SINGLE);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0000_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0001_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0010_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0011_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0100_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0101_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0110_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION0111_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1000_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1001_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1010_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1011_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1100_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1101_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1110_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_SERIALIZATION1111_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_EMPTY_ANNOTATION_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_NO_ANNOTATION_MULTI);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0000_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0001_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0010_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0011_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0100_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0101_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0110_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0111_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1000_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1001_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1010_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1011_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1100_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1101_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1110_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1111_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_NO_ANNOTATION_SINGLE);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0000_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0001_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0010_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0011_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0100_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0101_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0110_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED0111_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1000_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1001_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1010_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1011_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1100_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1101_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1110_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_CONTAINED1111_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_EMPTY_ANNOTATION_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_NO_ANNOTATION_MANY);
 		createEAttribute(nodeEClass, NODE__NAME);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI);
-		createEReference(nodeEClass, NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI);
+		createEReference(nodeEClass, NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0001_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0010_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0100_MANY);
+		createEReference(nodeEClass, NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY);
 
 		abstractNodeEClass = createEClass(ABSTRACT_NODE);
 
@@ -618,47 +618,47 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNode_FeatureWithSerialization0000_Single(), this.getNode(), null, "featureWithSerialization0000_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0001_Single(), this.getNode(), null, "featureWithSerialization0001_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0010_Single(), this.getNode(), null, "featureWithSerialization0010_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0011_Single(), this.getNode(), null, "featureWithSerialization0011_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0100_Single(), this.getNode(), null, "featureWithSerialization0100_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0101_Single(), this.getNode(), null, "featureWithSerialization0101_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0110_Single(), this.getNode(), null, "featureWithSerialization0110_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0111_Single(), this.getNode(), null, "featureWithSerialization0111_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1000_Single(), this.getNode(), null, "featureWithSerialization1000_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1001_Single(), this.getNode(), null, "featureWithSerialization1001_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1010_Single(), this.getNode(), null, "featureWithSerialization1010_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1011_Single(), this.getNode(), null, "featureWithSerialization1011_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1100_Single(), this.getNode(), null, "featureWithSerialization1100_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1101_Single(), this.getNode(), null, "featureWithSerialization1101_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1110_Single(), this.getNode(), null, "featureWithSerialization1110_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1111_Single(), this.getNode(), null, "featureWithSerialization1111_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureEmptyAnnotation_Single(), this.getNode(), null, "featureEmptyAnnotation_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureNoAnnotation_Single(), this.getNode(), null, "featureNoAnnotation_Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0000_Multi(), this.getNode(), null, "featureWithSerialization0000_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0001_Multi(), this.getNode(), null, "featureWithSerialization0001_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0010_Multi(), this.getNode(), null, "featureWithSerialization0010_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0011_Multi(), this.getNode(), null, "featureWithSerialization0011_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0100_Multi(), this.getNode(), null, "featureWithSerialization0100_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0101_Multi(), this.getNode(), null, "featureWithSerialization0101_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0110_Multi(), this.getNode(), null, "featureWithSerialization0110_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization0111_Multi(), this.getNode(), null, "featureWithSerialization0111_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1000_Multi(), this.getNode(), null, "featureWithSerialization1000_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1001_Multi(), this.getNode(), null, "featureWithSerialization1001_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1010_Multi(), this.getNode(), null, "featureWithSerialization1010_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1011_Multi(), this.getNode(), null, "featureWithSerialization1011_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1100_Multi(), this.getNode(), null, "featureWithSerialization1100_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1101_Multi(), this.getNode(), null, "featureWithSerialization1101_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1110_Multi(), this.getNode(), null, "featureWithSerialization1110_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithSerialization1111_Multi(), this.getNode(), null, "featureWithSerialization1111_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureEmptyAnnotation_Multi(), this.getNode(), null, "featureEmptyAnnotation_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureNoAnnotation_Multi(), this.getNode(), null, "featureNoAnnotation_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0000Single(), this.getNode(), null, "eReference_Contained0000Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0001Single(), this.getNode(), null, "eReference_Contained0001Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0010Single(), this.getNode(), null, "eReference_Contained0010Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0011Single(), this.getNode(), null, "eReference_Contained0011Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0100Single(), this.getNode(), null, "eReference_Contained0100Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0101Single(), this.getNode(), null, "eReference_Contained0101Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0110Single(), this.getNode(), null, "eReference_Contained0110Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0111Single(), this.getNode(), null, "eReference_Contained0111Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1000Single(), this.getNode(), null, "eReference_Contained1000Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1001Single(), this.getNode(), null, "eReference_Contained1001Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1010Single(), this.getNode(), null, "eReference_Contained1010Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1011Single(), this.getNode(), null, "eReference_Contained1011Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1100Single(), this.getNode(), null, "eReference_Contained1100Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1101Single(), this.getNode(), null, "eReference_Contained1101Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1110Single(), this.getNode(), null, "eReference_Contained1110Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1111Single(), this.getNode(), null, "eReference_Contained1111Single", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_EmptyAnnotationSingle(), this.getNode(), null, "eReference_EmptyAnnotationSingle", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_NoAnnotationSingle(), this.getNode(), null, "eReference_NoAnnotationSingle", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0000Many(), this.getNode(), null, "eReference_Contained0000Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0001Many(), this.getNode(), null, "eReference_Contained0001Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0010Many(), this.getNode(), null, "eReference_Contained0010Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0011Many(), this.getNode(), null, "eReference_Contained0011Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0100Many(), this.getNode(), null, "eReference_Contained0100Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0101Many(), this.getNode(), null, "eReference_Contained0101Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0110Many(), this.getNode(), null, "eReference_Contained0110Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained0111Many(), this.getNode(), null, "eReference_Contained0111Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1000Many(), this.getNode(), null, "eReference_Contained1000Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1001Many(), this.getNode(), null, "eReference_Contained1001Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1010Many(), this.getNode(), null, "eReference_Contained1010Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1011Many(), this.getNode(), null, "eReference_Contained1011Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1100Many(), this.getNode(), null, "eReference_Contained1100Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1101Many(), this.getNode(), null, "eReference_Contained1101Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1110Many(), this.getNode(), null, "eReference_Contained1110Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_Contained1111Many(), this.getNode(), null, "eReference_Contained1111Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_EmptyAnnotationMany(), this.getNode(), null, "eReference_EmptyAnnotationMany", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_NoAnnotationMany(), this.getNode(), null, "eReference_NoAnnotationMany", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithTypeEObjectAndSerialization0001_Multi(), ecorePackage.getEObject(), null, "featureWithTypeEObjectAndSerialization0001_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithTypeEObjectAndSerialization0010_Multi(), ecorePackage.getEObject(), null, "featureWithTypeEObjectAndSerialization0010_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithTypeEObjectAndSerialization0100_Multi(), ecorePackage.getEObject(), null, "featureWithTypeEObjectAndSerialization0100_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_FeatureWithTypeEObjectAndSerialization1000_Multi(), ecorePackage.getEObject(), null, "featureWithTypeEObjectAndSerialization1000_Multi", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_WithTypeEObject_Contained0001Many(), ecorePackage.getEObject(), null, "eReference_WithTypeEObject_Contained0001Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_WithTypeEObject_Contained0010Many(), ecorePackage.getEObject(), null, "eReference_WithTypeEObject_Contained0010Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_WithTypeEObject_Contained0100Many(), ecorePackage.getEObject(), null, "eReference_WithTypeEObject_Contained0100Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_EReference_WithTypeEObject_Contained1000Many(), ecorePackage.getEObject(), null, "eReference_WithTypeEObject_Contained1000Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractNodeEClass, AbstractNode.class, "AbstractNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -689,252 +689,252 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "name", "NODE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0000_Single(), 
+		  (getNode_EReference_Contained0000Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0000-SINGLE"
 		   });				
 		addAnnotation
-		  (getNode_FeatureWithSerialization0001_Single(), 
+		  (getNode_EReference_Contained0001Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0001-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0010_Single(), 
+		  (getNode_EReference_Contained0010Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0010-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0011_Single(), 
+		  (getNode_EReference_Contained0011Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0011-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0100_Single(), 
+		  (getNode_EReference_Contained0100Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0100-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0101_Single(), 
+		  (getNode_EReference_Contained0101Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0101-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0110_Single(), 
+		  (getNode_EReference_Contained0110Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0110-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0111_Single(), 
+		  (getNode_EReference_Contained0111Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0111-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1000_Single(), 
+		  (getNode_EReference_Contained1000Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1000-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1001_Single(), 
+		  (getNode_EReference_Contained1001Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1001-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1010_Single(), 
+		  (getNode_EReference_Contained1010Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1010-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1011_Single(), 
+		  (getNode_EReference_Contained1011Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1011-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1100_Single(), 
+		  (getNode_EReference_Contained1100Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1100-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1101_Single(), 
+		  (getNode_EReference_Contained1101Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1101-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1110_Single(), 
+		  (getNode_EReference_Contained1110Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1110-SINGLE"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1111_Single(), 
+		  (getNode_EReference_Contained1111Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1111-SINGLE"
 		   });				
 		addAnnotation
-		  (getNode_FeatureWithSerialization0000_Multi(), 
+		  (getNode_EReference_Contained0000Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0000-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0001_Multi(), 
+		  (getNode_EReference_Contained0001Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0001-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0010_Multi(), 
+		  (getNode_EReference_Contained0010Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0010-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0011_Multi(), 
+		  (getNode_EReference_Contained0011Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0011-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0100_Multi(), 
+		  (getNode_EReference_Contained0100Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0100-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0101_Multi(), 
+		  (getNode_EReference_Contained0101Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0101-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0110_Multi(), 
+		  (getNode_EReference_Contained0110Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0110-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0111_Multi(), 
+		  (getNode_EReference_Contained0111Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-0111-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1000_Multi(), 
+		  (getNode_EReference_Contained1000Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1000-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1001_Multi(), 
+		  (getNode_EReference_Contained1001Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1001-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1010_Multi(), 
+		  (getNode_EReference_Contained1010Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1010-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1011_Multi(), 
+		  (getNode_EReference_Contained1011Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1011-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1100_Multi(), 
+		  (getNode_EReference_Contained1100Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1100-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1101_Multi(), 
+		  (getNode_EReference_Contained1101Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1101-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1110_Multi(), 
+		  (getNode_EReference_Contained1110Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1110-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1111_Multi(), 
+		  (getNode_EReference_Contained1111Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-SERIALIZATION-1111-MULTI"
 		   });				
 		addAnnotation
-		  (getNode_FeatureWithTypeEObjectAndSerialization0001_Multi(), 
+		  (getNode_EReference_WithTypeEObject_Contained0001Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithTypeEObjectAndSerialization0010_Multi(), 
+		  (getNode_EReference_WithTypeEObject_Contained0010Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithTypeEObjectAndSerialization0100_Multi(), 
+		  (getNode_EReference_WithTypeEObject_Contained0100Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithTypeEObjectAndSerialization1000_Multi(), 
+		  (getNode_EReference_WithTypeEObject_Contained1000Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
@@ -963,7 +963,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "NODES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0000_Single(), 
+		  (getNode_EReference_Contained0000Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -973,7 +973,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0000-SINGLES"
 		   });		
 		addAnnotation
-		  (getNode_FeatureWithSerialization0001_Single(), 
+		  (getNode_EReference_Contained0001Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -983,7 +983,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0001-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0010_Single(), 
+		  (getNode_EReference_Contained0010Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -993,7 +993,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0010-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0011_Single(), 
+		  (getNode_EReference_Contained0011Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1003,7 +1003,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0011-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0100_Single(), 
+		  (getNode_EReference_Contained0100Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1013,7 +1013,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0100-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0101_Single(), 
+		  (getNode_EReference_Contained0101Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1023,7 +1023,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0101-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0110_Single(), 
+		  (getNode_EReference_Contained0110Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1033,7 +1033,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0110-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0111_Single(), 
+		  (getNode_EReference_Contained0111Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1043,7 +1043,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0111-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1000_Single(), 
+		  (getNode_EReference_Contained1000Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1053,7 +1053,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1000-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1001_Single(), 
+		  (getNode_EReference_Contained1001Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1063,7 +1063,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1001-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1010_Single(), 
+		  (getNode_EReference_Contained1010Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1073,7 +1073,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1010-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1011_Single(), 
+		  (getNode_EReference_Contained1011Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1083,7 +1083,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1011-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1100_Single(), 
+		  (getNode_EReference_Contained1100Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1093,7 +1093,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1100-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1101_Single(), 
+		  (getNode_EReference_Contained1101Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1103,7 +1103,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1101-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1110_Single(), 
+		  (getNode_EReference_Contained1110Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1113,7 +1113,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1110-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1111_Single(), 
+		  (getNode_EReference_Contained1111Single(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1123,12 +1123,12 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1111-SINGLES"
 		   });			
 		addAnnotation
-		  (getNode_FeatureEmptyAnnotation_Single(), 
+		  (getNode_EReference_EmptyAnnotationSingle(), 
 		   source, 
 		   new String[] {
 		   });		
 		addAnnotation
-		  (getNode_FeatureWithSerialization0000_Multi(), 
+		  (getNode_EReference_Contained0000Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1138,7 +1138,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0000-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0001_Multi(), 
+		  (getNode_EReference_Contained0001Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1148,7 +1148,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0001-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0010_Multi(), 
+		  (getNode_EReference_Contained0010Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1158,7 +1158,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0010-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0011_Multi(), 
+		  (getNode_EReference_Contained0011Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1168,7 +1168,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0011-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0100_Multi(), 
+		  (getNode_EReference_Contained0100Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1178,7 +1178,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0100-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0101_Multi(), 
+		  (getNode_EReference_Contained0101Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1188,7 +1188,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0101-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0110_Multi(), 
+		  (getNode_EReference_Contained0110Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1198,7 +1198,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0110-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization0111_Multi(), 
+		  (getNode_EReference_Contained0111Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1208,7 +1208,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0111-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1000_Multi(), 
+		  (getNode_EReference_Contained1000Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1218,7 +1218,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1000-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1001_Multi(), 
+		  (getNode_EReference_Contained1001Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1228,7 +1228,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1001-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1010_Multi(), 
+		  (getNode_EReference_Contained1010Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1238,7 +1238,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1010-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1011_Multi(), 
+		  (getNode_EReference_Contained1011Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1248,7 +1248,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1011-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1100_Multi(), 
+		  (getNode_EReference_Contained1100Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1258,7 +1258,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1100-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1101_Multi(), 
+		  (getNode_EReference_Contained1101Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1268,7 +1268,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1101-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1110_Multi(), 
+		  (getNode_EReference_Contained1110Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1278,7 +1278,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1110-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithSerialization1111_Multi(), 
+		  (getNode_EReference_Contained1111Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",
@@ -1288,12 +1288,12 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1111-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureEmptyAnnotation_Multi(), 
+		  (getNode_EReference_EmptyAnnotationMany(), 
 		   source, 
 		   new String[] {
 		   });		
 		addAnnotation
-		  (getNode_FeatureWithTypeEObjectAndSerialization0001_Multi(), 
+		  (getNode_EReference_WithTypeEObject_Contained0001Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1303,7 +1303,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithTypeEObjectAndSerialization0010_Multi(), 
+		  (getNode_EReference_WithTypeEObject_Contained0010Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1313,7 +1313,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithTypeEObjectAndSerialization0100_Multi(), 
+		  (getNode_EReference_WithTypeEObject_Contained0100Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "false",
@@ -1323,7 +1323,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "wrapperName", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTIS"
 		   });			
 		addAnnotation
-		  (getNode_FeatureWithTypeEObjectAndSerialization1000_Multi(), 
+		  (getNode_EReference_WithTypeEObject_Contained1000Many(), 
 		   source, 
 		   new String[] {
 			 "featureWrapperElement", "true",

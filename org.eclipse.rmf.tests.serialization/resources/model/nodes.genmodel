@@ -9,47 +9,47 @@
   <genPackages prefix="Nodes" basePackage="org.eclipse.rmf.tests.serialization.model"
       disposableProviderFactory="true" ecorePackage="nodes.ecore#/">
     <genClasses ecoreClass="nodes.ecore#//Node">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0000_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0001_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0010_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0011_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0100_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0101_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0110_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0111_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1000_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1001_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1010_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1011_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1100_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1101_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1110_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1111_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureEmptyAnnotation_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureNoAnnotation_Single"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0000_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0001_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0010_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0011_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0100_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0101_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0110_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization0111_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1000_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1001_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1010_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1011_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1100_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1101_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1110_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithSerialization1111_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureEmptyAnnotation_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureNoAnnotation_Multi"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0000Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0001Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0010Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0011Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0100Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0101Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0110Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0111Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1000Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1001Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1010Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1011Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1100Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1101Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1110Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1111Single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_EmptyAnnotationSingle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_NoAnnotationSingle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0000Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0001Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0010Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0011Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0100Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0101Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0110Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained0111Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1000Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1001Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1010Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1011Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1100Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1101Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1110Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_Contained1111Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_EmptyAnnotationMany"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_NoAnnotationMany"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithTypeEObjectAndSerialization0001_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithTypeEObjectAndSerialization0010_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithTypeEObjectAndSerialization0100_Multi"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/featureWithTypeEObjectAndSerialization1000_Multi"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_WithTypeEObject_Contained0001Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_WithTypeEObject_Contained0010Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_WithTypeEObject_Contained0100Many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/eReference_WithTypeEObject_Contained1000Many"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nodes.ecore#//AbstractNode"/>
     <genClasses ecoreClass="nodes.ecore#//SubNode"/>

@@ -94,328 +94,328 @@ public interface NodesPackage extends EPackage {
 	int NODE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0000 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0000 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 0;
+	int NODE__EREFERENCE_CONTAINED0000_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0001 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0001 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 1;
+	int NODE__EREFERENCE_CONTAINED0001_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0010 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0010 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 2;
+	int NODE__EREFERENCE_CONTAINED0010_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0011 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0011 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 3;
+	int NODE__EREFERENCE_CONTAINED0011_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0100 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0100 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 4;
+	int NODE__EREFERENCE_CONTAINED0100_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0101 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0101 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 5;
+	int NODE__EREFERENCE_CONTAINED0101_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0110 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0110 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 6;
+	int NODE__EREFERENCE_CONTAINED0110_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0111 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0111 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 7;
+	int NODE__EREFERENCE_CONTAINED0111_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1000 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1000 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 8;
+	int NODE__EREFERENCE_CONTAINED1000_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1001 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1001 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 9;
+	int NODE__EREFERENCE_CONTAINED1001_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1010 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1010 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 10;
+	int NODE__EREFERENCE_CONTAINED1010_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 10;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1011 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1011 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 11;
+	int NODE__EREFERENCE_CONTAINED1011_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1100 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1100 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 12;
+	int NODE__EREFERENCE_CONTAINED1100_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1101 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1101 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 13;
+	int NODE__EREFERENCE_CONTAINED1101_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 13;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1110 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1110 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 14;
+	int NODE__EREFERENCE_CONTAINED1110_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 14;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1111 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1111 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 15;
+	int NODE__EREFERENCE_CONTAINED1111_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Feature Empty Annotation Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Empty Annotation Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_EMPTY_ANNOTATION_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 16;
+	int NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 16;
 
 	/**
-	 * The feature id for the '<em><b>Feature No Annotation Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference No Annotation Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_NO_ANNOTATION_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 17;
+	int NODE__EREFERENCE_NO_ANNOTATION_SINGLE = ABSTRACT_NODE_FEATURE_COUNT + 17;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0000 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0000 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0000_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 18;
+	int NODE__EREFERENCE_CONTAINED0000_MANY = ABSTRACT_NODE_FEATURE_COUNT + 18;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0001 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0001 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0001_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 19;
+	int NODE__EREFERENCE_CONTAINED0001_MANY = ABSTRACT_NODE_FEATURE_COUNT + 19;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0010 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0010 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0010_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 20;
+	int NODE__EREFERENCE_CONTAINED0010_MANY = ABSTRACT_NODE_FEATURE_COUNT + 20;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0011 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0011 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0011_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 21;
+	int NODE__EREFERENCE_CONTAINED0011_MANY = ABSTRACT_NODE_FEATURE_COUNT + 21;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0100 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0100 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0100_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 22;
+	int NODE__EREFERENCE_CONTAINED0100_MANY = ABSTRACT_NODE_FEATURE_COUNT + 22;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0101 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0101 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0101_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 23;
+	int NODE__EREFERENCE_CONTAINED0101_MANY = ABSTRACT_NODE_FEATURE_COUNT + 23;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0110 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0110 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0110_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 24;
+	int NODE__EREFERENCE_CONTAINED0110_MANY = ABSTRACT_NODE_FEATURE_COUNT + 24;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0111 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0111 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION0111_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 25;
+	int NODE__EREFERENCE_CONTAINED0111_MANY = ABSTRACT_NODE_FEATURE_COUNT + 25;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1000 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1000 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1000_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 26;
+	int NODE__EREFERENCE_CONTAINED1000_MANY = ABSTRACT_NODE_FEATURE_COUNT + 26;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1001 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1001 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1001_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 27;
+	int NODE__EREFERENCE_CONTAINED1001_MANY = ABSTRACT_NODE_FEATURE_COUNT + 27;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1010 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1010 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1010_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 28;
+	int NODE__EREFERENCE_CONTAINED1010_MANY = ABSTRACT_NODE_FEATURE_COUNT + 28;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1011 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1011 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1011_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 29;
+	int NODE__EREFERENCE_CONTAINED1011_MANY = ABSTRACT_NODE_FEATURE_COUNT + 29;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1100 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1100 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1100_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 30;
+	int NODE__EREFERENCE_CONTAINED1100_MANY = ABSTRACT_NODE_FEATURE_COUNT + 30;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1101 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1101 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1101_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 31;
+	int NODE__EREFERENCE_CONTAINED1101_MANY = ABSTRACT_NODE_FEATURE_COUNT + 31;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1110 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1110 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1110_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 32;
+	int NODE__EREFERENCE_CONTAINED1110_MANY = ABSTRACT_NODE_FEATURE_COUNT + 32;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1111 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1111 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_SERIALIZATION1111_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 33;
+	int NODE__EREFERENCE_CONTAINED1111_MANY = ABSTRACT_NODE_FEATURE_COUNT + 33;
 
 	/**
-	 * The feature id for the '<em><b>Feature Empty Annotation Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Empty Annotation Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_EMPTY_ANNOTATION_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 34;
+	int NODE__EREFERENCE_EMPTY_ANNOTATION_MANY = ABSTRACT_NODE_FEATURE_COUNT + 34;
 
 	/**
-	 * The feature id for the '<em><b>Feature No Annotation Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference No Annotation Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_NO_ANNOTATION_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 35;
+	int NODE__EREFERENCE_NO_ANNOTATION_MANY = ABSTRACT_NODE_FEATURE_COUNT + 35;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -427,40 +427,40 @@ public interface NodesPackage extends EPackage {
 	int NODE__NAME = ABSTRACT_NODE_FEATURE_COUNT + 36;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Type EObject And Serialization0001 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference With Type EObject Contained0001 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 37;
+	int NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0001_MANY = ABSTRACT_NODE_FEATURE_COUNT + 37;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Type EObject And Serialization0010 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference With Type EObject Contained0010 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 38;
+	int NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0010_MANY = ABSTRACT_NODE_FEATURE_COUNT + 38;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Type EObject And Serialization0100 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference With Type EObject Contained0100 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 39;
+	int NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0100_MANY = ABSTRACT_NODE_FEATURE_COUNT + 39;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Type EObject And Serialization1000 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference With Type EObject Contained1000 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI = ABSTRACT_NODE_FEATURE_COUNT + 40;
+	int NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY = ABSTRACT_NODE_FEATURE_COUNT + 40;
 
 	/**
 	 * The number of structural features of the '<em>Node</em>' class.
@@ -483,328 +483,328 @@ public interface NodesPackage extends EPackage {
 	int SUB_NODE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0000 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0000 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED0000_SINGLE = NODE__EREFERENCE_CONTAINED0000_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0001 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0001 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED0001_SINGLE = NODE__EREFERENCE_CONTAINED0001_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0010 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0010 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED0010_SINGLE = NODE__EREFERENCE_CONTAINED0010_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0011 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0011 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED0011_SINGLE = NODE__EREFERENCE_CONTAINED0011_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0100 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0100 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED0100_SINGLE = NODE__EREFERENCE_CONTAINED0100_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0101 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0101 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED0101_SINGLE = NODE__EREFERENCE_CONTAINED0101_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0110 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0110 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED0110_SINGLE = NODE__EREFERENCE_CONTAINED0110_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0111 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained0111 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE = NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED0111_SINGLE = NODE__EREFERENCE_CONTAINED0111_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1000 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1000 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED1000_SINGLE = NODE__EREFERENCE_CONTAINED1000_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1001 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1001 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED1001_SINGLE = NODE__EREFERENCE_CONTAINED1001_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1010 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1010 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED1010_SINGLE = NODE__EREFERENCE_CONTAINED1010_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1011 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1011 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED1011_SINGLE = NODE__EREFERENCE_CONTAINED1011_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1100 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1100 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED1100_SINGLE = NODE__EREFERENCE_CONTAINED1100_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1101 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1101 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED1101_SINGLE = NODE__EREFERENCE_CONTAINED1101_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1110 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1110 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED1110_SINGLE = NODE__EREFERENCE_CONTAINED1110_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1111 Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Contained1111 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE = NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE;
+	int SUB_NODE__EREFERENCE_CONTAINED1111_SINGLE = NODE__EREFERENCE_CONTAINED1111_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature Empty Annotation Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference Empty Annotation Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_EMPTY_ANNOTATION_SINGLE = NODE__FEATURE_EMPTY_ANNOTATION_SINGLE;
+	int SUB_NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE = NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature No Annotation Single</b></em>' containment reference.
+	 * The feature id for the '<em><b>EReference No Annotation Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_NO_ANNOTATION_SINGLE = NODE__FEATURE_NO_ANNOTATION_SINGLE;
+	int SUB_NODE__EREFERENCE_NO_ANNOTATION_SINGLE = NODE__EREFERENCE_NO_ANNOTATION_SINGLE;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0000 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0000 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0000_MULTI = NODE__FEATURE_WITH_SERIALIZATION0000_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED0000_MANY = NODE__EREFERENCE_CONTAINED0000_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0001 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0001 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0001_MULTI = NODE__FEATURE_WITH_SERIALIZATION0001_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED0001_MANY = NODE__EREFERENCE_CONTAINED0001_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0010 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0010 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0010_MULTI = NODE__FEATURE_WITH_SERIALIZATION0010_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED0010_MANY = NODE__EREFERENCE_CONTAINED0010_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0011 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0011 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0011_MULTI = NODE__FEATURE_WITH_SERIALIZATION0011_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED0011_MANY = NODE__EREFERENCE_CONTAINED0011_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0100 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0100 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0100_MULTI = NODE__FEATURE_WITH_SERIALIZATION0100_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED0100_MANY = NODE__EREFERENCE_CONTAINED0100_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0101 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0101 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0101_MULTI = NODE__FEATURE_WITH_SERIALIZATION0101_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED0101_MANY = NODE__EREFERENCE_CONTAINED0101_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0110 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0110 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0110_MULTI = NODE__FEATURE_WITH_SERIALIZATION0110_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED0110_MANY = NODE__EREFERENCE_CONTAINED0110_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization0111 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained0111 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION0111_MULTI = NODE__FEATURE_WITH_SERIALIZATION0111_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED0111_MANY = NODE__EREFERENCE_CONTAINED0111_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1000 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1000 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1000_MULTI = NODE__FEATURE_WITH_SERIALIZATION1000_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED1000_MANY = NODE__EREFERENCE_CONTAINED1000_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1001 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1001 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1001_MULTI = NODE__FEATURE_WITH_SERIALIZATION1001_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED1001_MANY = NODE__EREFERENCE_CONTAINED1001_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1010 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1010 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1010_MULTI = NODE__FEATURE_WITH_SERIALIZATION1010_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED1010_MANY = NODE__EREFERENCE_CONTAINED1010_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1011 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1011 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1011_MULTI = NODE__FEATURE_WITH_SERIALIZATION1011_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED1011_MANY = NODE__EREFERENCE_CONTAINED1011_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1100 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1100 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1100_MULTI = NODE__FEATURE_WITH_SERIALIZATION1100_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED1100_MANY = NODE__EREFERENCE_CONTAINED1100_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1101 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1101 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1101_MULTI = NODE__FEATURE_WITH_SERIALIZATION1101_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED1101_MANY = NODE__EREFERENCE_CONTAINED1101_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1110 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1110 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1110_MULTI = NODE__FEATURE_WITH_SERIALIZATION1110_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED1110_MANY = NODE__EREFERENCE_CONTAINED1110_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Serialization1111 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Contained1111 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_SERIALIZATION1111_MULTI = NODE__FEATURE_WITH_SERIALIZATION1111_MULTI;
+	int SUB_NODE__EREFERENCE_CONTAINED1111_MANY = NODE__EREFERENCE_CONTAINED1111_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature Empty Annotation Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference Empty Annotation Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_EMPTY_ANNOTATION_MULTI = NODE__FEATURE_EMPTY_ANNOTATION_MULTI;
+	int SUB_NODE__EREFERENCE_EMPTY_ANNOTATION_MANY = NODE__EREFERENCE_EMPTY_ANNOTATION_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature No Annotation Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference No Annotation Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_NO_ANNOTATION_MULTI = NODE__FEATURE_NO_ANNOTATION_MULTI;
+	int SUB_NODE__EREFERENCE_NO_ANNOTATION_MANY = NODE__EREFERENCE_NO_ANNOTATION_MANY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -816,40 +816,40 @@ public interface NodesPackage extends EPackage {
 	int SUB_NODE__NAME = NODE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Type EObject And Serialization0001 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference With Type EObject Contained0001 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI = NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI;
+	int SUB_NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0001_MANY = NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0001_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Type EObject And Serialization0010 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference With Type EObject Contained0010 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI = NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI;
+	int SUB_NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0010_MANY = NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0010_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Type EObject And Serialization0100 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference With Type EObject Contained0100 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI = NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI;
+	int SUB_NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0100_MANY = NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0100_MANY;
 
 	/**
-	 * The feature id for the '<em><b>Feature With Type EObject And Serialization1000 Multi</b></em>' containment reference list.
+	 * The feature id for the '<em><b>EReference With Type EObject Contained1000 Many</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI = NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI;
+	int SUB_NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY = NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY;
 
 	/**
 	 * The number of structural features of the '<em>Sub Node</em>' class.
@@ -872,400 +872,400 @@ public interface NodesPackage extends EPackage {
 	EClass getNode();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0000_Single <em>Feature With Serialization0000 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0000Single <em>EReference Contained0000 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization0000 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0000_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained0000 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0000Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0000_Single();
+	EReference getNode_EReference_Contained0000Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0001_Single <em>Feature With Serialization0001 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0001Single <em>EReference Contained0001 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization0001 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0001_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained0001 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0001Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0001_Single();
+	EReference getNode_EReference_Contained0001Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0010_Single <em>Feature With Serialization0010 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0010Single <em>EReference Contained0010 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization0010 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0010_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained0010 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0010Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0010_Single();
+	EReference getNode_EReference_Contained0010Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0011_Single <em>Feature With Serialization0011 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0011Single <em>EReference Contained0011 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization0011 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0011_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained0011 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0011Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0011_Single();
+	EReference getNode_EReference_Contained0011Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0100_Single <em>Feature With Serialization0100 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0100Single <em>EReference Contained0100 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization0100 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0100_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained0100 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0100Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0100_Single();
+	EReference getNode_EReference_Contained0100Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0101_Single <em>Feature With Serialization0101 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0101Single <em>EReference Contained0101 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization0101 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0101_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained0101 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0101Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0101_Single();
+	EReference getNode_EReference_Contained0101Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0110_Single <em>Feature With Serialization0110 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0110Single <em>EReference Contained0110 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization0110 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0110_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained0110 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0110Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0110_Single();
+	EReference getNode_EReference_Contained0110Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0111_Single <em>Feature With Serialization0111 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0111Single <em>EReference Contained0111 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization0111 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0111_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained0111 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0111Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0111_Single();
+	EReference getNode_EReference_Contained0111Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1000_Single <em>Feature With Serialization1000 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1000Single <em>EReference Contained1000 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization1000 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1000_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained1000 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1000Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1000_Single();
+	EReference getNode_EReference_Contained1000Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1001_Single <em>Feature With Serialization1001 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1001Single <em>EReference Contained1001 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization1001 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1001_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained1001 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1001Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1001_Single();
+	EReference getNode_EReference_Contained1001Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1010_Single <em>Feature With Serialization1010 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1010Single <em>EReference Contained1010 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization1010 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1010_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained1010 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1010Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1010_Single();
+	EReference getNode_EReference_Contained1010Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1011_Single <em>Feature With Serialization1011 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1011Single <em>EReference Contained1011 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization1011 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1011_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained1011 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1011Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1011_Single();
+	EReference getNode_EReference_Contained1011Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1100_Single <em>Feature With Serialization1100 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1100Single <em>EReference Contained1100 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization1100 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1100_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained1100 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1100Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1100_Single();
+	EReference getNode_EReference_Contained1100Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1101_Single <em>Feature With Serialization1101 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1101Single <em>EReference Contained1101 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization1101 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1101_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained1101 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1101Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1101_Single();
+	EReference getNode_EReference_Contained1101Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1110_Single <em>Feature With Serialization1110 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1110Single <em>EReference Contained1110 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization1110 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1110_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained1110 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1110Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1110_Single();
+	EReference getNode_EReference_Contained1110Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1111_Single <em>Feature With Serialization1111 Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1111Single <em>EReference Contained1111 Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature With Serialization1111 Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1111_Single()
+	 * @return the meta object for the containment reference '<em>EReference Contained1111 Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1111Single()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1111_Single();
+	EReference getNode_EReference_Contained1111Single();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureEmptyAnnotation_Single <em>Feature Empty Annotation Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_EmptyAnnotationSingle <em>EReference Empty Annotation Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature Empty Annotation Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureEmptyAnnotation_Single()
+	 * @return the meta object for the containment reference '<em>EReference Empty Annotation Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_EmptyAnnotationSingle()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureEmptyAnnotation_Single();
+	EReference getNode_EReference_EmptyAnnotationSingle();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureNoAnnotation_Single <em>Feature No Annotation Single</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_NoAnnotationSingle <em>EReference No Annotation Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Feature No Annotation Single</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureNoAnnotation_Single()
+	 * @return the meta object for the containment reference '<em>EReference No Annotation Single</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_NoAnnotationSingle()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureNoAnnotation_Single();
+	EReference getNode_EReference_NoAnnotationSingle();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0000_Multi <em>Feature With Serialization0000 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0000Many <em>EReference Contained0000 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization0000 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0000_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained0000 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0000Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0000_Multi();
+	EReference getNode_EReference_Contained0000Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0001_Multi <em>Feature With Serialization0001 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0001Many <em>EReference Contained0001 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization0001 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0001_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained0001 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0001Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0001_Multi();
+	EReference getNode_EReference_Contained0001Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0010_Multi <em>Feature With Serialization0010 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0010Many <em>EReference Contained0010 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization0010 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0010_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained0010 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0010Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0010_Multi();
+	EReference getNode_EReference_Contained0010Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0011_Multi <em>Feature With Serialization0011 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0011Many <em>EReference Contained0011 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization0011 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0011_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained0011 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0011Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0011_Multi();
+	EReference getNode_EReference_Contained0011Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0100_Multi <em>Feature With Serialization0100 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0100Many <em>EReference Contained0100 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization0100 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0100_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained0100 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0100Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0100_Multi();
+	EReference getNode_EReference_Contained0100Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0101_Multi <em>Feature With Serialization0101 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0101Many <em>EReference Contained0101 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization0101 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0101_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained0101 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0101Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0101_Multi();
+	EReference getNode_EReference_Contained0101Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0110_Multi <em>Feature With Serialization0110 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0110Many <em>EReference Contained0110 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization0110 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0110_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained0110 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0110Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0110_Multi();
+	EReference getNode_EReference_Contained0110Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0111_Multi <em>Feature With Serialization0111 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0111Many <em>EReference Contained0111 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization0111 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0111_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained0111 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0111Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization0111_Multi();
+	EReference getNode_EReference_Contained0111Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1000_Multi <em>Feature With Serialization1000 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1000Many <em>EReference Contained1000 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization1000 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1000_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained1000 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1000Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1000_Multi();
+	EReference getNode_EReference_Contained1000Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1001_Multi <em>Feature With Serialization1001 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1001Many <em>EReference Contained1001 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization1001 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1001_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained1001 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1001Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1001_Multi();
+	EReference getNode_EReference_Contained1001Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1010_Multi <em>Feature With Serialization1010 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1010Many <em>EReference Contained1010 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization1010 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1010_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained1010 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1010Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1010_Multi();
+	EReference getNode_EReference_Contained1010Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1011_Multi <em>Feature With Serialization1011 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1011Many <em>EReference Contained1011 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization1011 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1011_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained1011 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1011Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1011_Multi();
+	EReference getNode_EReference_Contained1011Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1100_Multi <em>Feature With Serialization1100 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1100Many <em>EReference Contained1100 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization1100 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1100_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained1100 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1100Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1100_Multi();
+	EReference getNode_EReference_Contained1100Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1101_Multi <em>Feature With Serialization1101 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1101Many <em>EReference Contained1101 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization1101 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1101_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained1101 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1101Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1101_Multi();
+	EReference getNode_EReference_Contained1101Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1110_Multi <em>Feature With Serialization1110 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1110Many <em>EReference Contained1110 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization1110 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1110_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained1110 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1110Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1110_Multi();
+	EReference getNode_EReference_Contained1110Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1111_Multi <em>Feature With Serialization1111 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1111Many <em>EReference Contained1111 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Serialization1111 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1111_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Contained1111 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1111Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithSerialization1111_Multi();
+	EReference getNode_EReference_Contained1111Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureEmptyAnnotation_Multi <em>Feature Empty Annotation Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_EmptyAnnotationMany <em>EReference Empty Annotation Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature Empty Annotation Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureEmptyAnnotation_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference Empty Annotation Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_EmptyAnnotationMany()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureEmptyAnnotation_Multi();
+	EReference getNode_EReference_EmptyAnnotationMany();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureNoAnnotation_Multi <em>Feature No Annotation Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_NoAnnotationMany <em>EReference No Annotation Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature No Annotation Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureNoAnnotation_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference No Annotation Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_NoAnnotationMany()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureNoAnnotation_Multi();
+	EReference getNode_EReference_NoAnnotationMany();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getName <em>Name</em>}'.
@@ -1279,48 +1279,48 @@ public interface NodesPackage extends EPackage {
 	EAttribute getNode_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0001_Multi <em>Feature With Type EObject And Serialization0001 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_WithTypeEObject_Contained0001Many <em>EReference With Type EObject Contained0001 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Type EObject And Serialization0001 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0001_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference With Type EObject Contained0001 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_WithTypeEObject_Contained0001Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithTypeEObjectAndSerialization0001_Multi();
+	EReference getNode_EReference_WithTypeEObject_Contained0001Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0010_Multi <em>Feature With Type EObject And Serialization0010 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_WithTypeEObject_Contained0010Many <em>EReference With Type EObject Contained0010 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Type EObject And Serialization0010 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0010_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference With Type EObject Contained0010 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_WithTypeEObject_Contained0010Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithTypeEObjectAndSerialization0010_Multi();
+	EReference getNode_EReference_WithTypeEObject_Contained0010Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0100_Multi <em>Feature With Type EObject And Serialization0100 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_WithTypeEObject_Contained0100Many <em>EReference With Type EObject Contained0100 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Type EObject And Serialization0100 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0100_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference With Type EObject Contained0100 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_WithTypeEObject_Contained0100Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithTypeEObjectAndSerialization0100_Multi();
+	EReference getNode_EReference_WithTypeEObject_Contained0100Many();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization1000_Multi <em>Feature With Type EObject And Serialization1000 Multi</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_WithTypeEObject_Contained1000Many <em>EReference With Type EObject Contained1000 Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Feature With Type EObject And Serialization1000 Multi</em>'.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization1000_Multi()
+	 * @return the meta object for the containment reference list '<em>EReference With Type EObject Contained1000 Many</em>'.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_WithTypeEObject_Contained1000Many()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_FeatureWithTypeEObjectAndSerialization1000_Multi();
+	EReference getNode_EReference_WithTypeEObject_Contained1000Many();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.rmf.tests.serialization.model.nodes.AbstractNode <em>Abstract Node</em>}'.
@@ -1375,292 +1375,292 @@ public interface NodesPackage extends EPackage {
 		EClass NODE = eINSTANCE.getNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0000 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained0000 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0000_SINGLE = eINSTANCE.getNode_FeatureWithSerialization0000_Single();
+		EReference NODE__EREFERENCE_CONTAINED0000_SINGLE = eINSTANCE.getNode_EReference_Contained0000Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0001 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained0001 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0001_SINGLE = eINSTANCE.getNode_FeatureWithSerialization0001_Single();
+		EReference NODE__EREFERENCE_CONTAINED0001_SINGLE = eINSTANCE.getNode_EReference_Contained0001Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0010 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained0010 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0010_SINGLE = eINSTANCE.getNode_FeatureWithSerialization0010_Single();
+		EReference NODE__EREFERENCE_CONTAINED0010_SINGLE = eINSTANCE.getNode_EReference_Contained0010Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0011 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained0011 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0011_SINGLE = eINSTANCE.getNode_FeatureWithSerialization0011_Single();
+		EReference NODE__EREFERENCE_CONTAINED0011_SINGLE = eINSTANCE.getNode_EReference_Contained0011Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0100 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained0100 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0100_SINGLE = eINSTANCE.getNode_FeatureWithSerialization0100_Single();
+		EReference NODE__EREFERENCE_CONTAINED0100_SINGLE = eINSTANCE.getNode_EReference_Contained0100Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0101 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained0101 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0101_SINGLE = eINSTANCE.getNode_FeatureWithSerialization0101_Single();
+		EReference NODE__EREFERENCE_CONTAINED0101_SINGLE = eINSTANCE.getNode_EReference_Contained0101Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0110 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained0110 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0110_SINGLE = eINSTANCE.getNode_FeatureWithSerialization0110_Single();
+		EReference NODE__EREFERENCE_CONTAINED0110_SINGLE = eINSTANCE.getNode_EReference_Contained0110Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0111 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained0111 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0111_SINGLE = eINSTANCE.getNode_FeatureWithSerialization0111_Single();
+		EReference NODE__EREFERENCE_CONTAINED0111_SINGLE = eINSTANCE.getNode_EReference_Contained0111Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1000 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained1000 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1000_SINGLE = eINSTANCE.getNode_FeatureWithSerialization1000_Single();
+		EReference NODE__EREFERENCE_CONTAINED1000_SINGLE = eINSTANCE.getNode_EReference_Contained1000Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1001 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained1001 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1001_SINGLE = eINSTANCE.getNode_FeatureWithSerialization1001_Single();
+		EReference NODE__EREFERENCE_CONTAINED1001_SINGLE = eINSTANCE.getNode_EReference_Contained1001Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1010 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained1010 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1010_SINGLE = eINSTANCE.getNode_FeatureWithSerialization1010_Single();
+		EReference NODE__EREFERENCE_CONTAINED1010_SINGLE = eINSTANCE.getNode_EReference_Contained1010Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1011 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained1011 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1011_SINGLE = eINSTANCE.getNode_FeatureWithSerialization1011_Single();
+		EReference NODE__EREFERENCE_CONTAINED1011_SINGLE = eINSTANCE.getNode_EReference_Contained1011Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1100 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained1100 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1100_SINGLE = eINSTANCE.getNode_FeatureWithSerialization1100_Single();
+		EReference NODE__EREFERENCE_CONTAINED1100_SINGLE = eINSTANCE.getNode_EReference_Contained1100Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1101 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained1101 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1101_SINGLE = eINSTANCE.getNode_FeatureWithSerialization1101_Single();
+		EReference NODE__EREFERENCE_CONTAINED1101_SINGLE = eINSTANCE.getNode_EReference_Contained1101Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1110 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained1110 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1110_SINGLE = eINSTANCE.getNode_FeatureWithSerialization1110_Single();
+		EReference NODE__EREFERENCE_CONTAINED1110_SINGLE = eINSTANCE.getNode_EReference_Contained1110Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1111 Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Contained1111 Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1111_SINGLE = eINSTANCE.getNode_FeatureWithSerialization1111_Single();
+		EReference NODE__EREFERENCE_CONTAINED1111_SINGLE = eINSTANCE.getNode_EReference_Contained1111Single();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature Empty Annotation Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference Empty Annotation Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_EMPTY_ANNOTATION_SINGLE = eINSTANCE.getNode_FeatureEmptyAnnotation_Single();
+		EReference NODE__EREFERENCE_EMPTY_ANNOTATION_SINGLE = eINSTANCE.getNode_EReference_EmptyAnnotationSingle();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature No Annotation Single</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>EReference No Annotation Single</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_NO_ANNOTATION_SINGLE = eINSTANCE.getNode_FeatureNoAnnotation_Single();
+		EReference NODE__EREFERENCE_NO_ANNOTATION_SINGLE = eINSTANCE.getNode_EReference_NoAnnotationSingle();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0000 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained0000 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0000_MULTI = eINSTANCE.getNode_FeatureWithSerialization0000_Multi();
+		EReference NODE__EREFERENCE_CONTAINED0000_MANY = eINSTANCE.getNode_EReference_Contained0000Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0001 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained0001 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0001_MULTI = eINSTANCE.getNode_FeatureWithSerialization0001_Multi();
+		EReference NODE__EREFERENCE_CONTAINED0001_MANY = eINSTANCE.getNode_EReference_Contained0001Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0010 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained0010 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0010_MULTI = eINSTANCE.getNode_FeatureWithSerialization0010_Multi();
+		EReference NODE__EREFERENCE_CONTAINED0010_MANY = eINSTANCE.getNode_EReference_Contained0010Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0011 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained0011 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0011_MULTI = eINSTANCE.getNode_FeatureWithSerialization0011_Multi();
+		EReference NODE__EREFERENCE_CONTAINED0011_MANY = eINSTANCE.getNode_EReference_Contained0011Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0100 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained0100 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0100_MULTI = eINSTANCE.getNode_FeatureWithSerialization0100_Multi();
+		EReference NODE__EREFERENCE_CONTAINED0100_MANY = eINSTANCE.getNode_EReference_Contained0100Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0101 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained0101 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0101_MULTI = eINSTANCE.getNode_FeatureWithSerialization0101_Multi();
+		EReference NODE__EREFERENCE_CONTAINED0101_MANY = eINSTANCE.getNode_EReference_Contained0101Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0110 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained0110 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0110_MULTI = eINSTANCE.getNode_FeatureWithSerialization0110_Multi();
+		EReference NODE__EREFERENCE_CONTAINED0110_MANY = eINSTANCE.getNode_EReference_Contained0110Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization0111 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained0111 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION0111_MULTI = eINSTANCE.getNode_FeatureWithSerialization0111_Multi();
+		EReference NODE__EREFERENCE_CONTAINED0111_MANY = eINSTANCE.getNode_EReference_Contained0111Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1000 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained1000 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1000_MULTI = eINSTANCE.getNode_FeatureWithSerialization1000_Multi();
+		EReference NODE__EREFERENCE_CONTAINED1000_MANY = eINSTANCE.getNode_EReference_Contained1000Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1001 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained1001 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1001_MULTI = eINSTANCE.getNode_FeatureWithSerialization1001_Multi();
+		EReference NODE__EREFERENCE_CONTAINED1001_MANY = eINSTANCE.getNode_EReference_Contained1001Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1010 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained1010 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1010_MULTI = eINSTANCE.getNode_FeatureWithSerialization1010_Multi();
+		EReference NODE__EREFERENCE_CONTAINED1010_MANY = eINSTANCE.getNode_EReference_Contained1010Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1011 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained1011 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1011_MULTI = eINSTANCE.getNode_FeatureWithSerialization1011_Multi();
+		EReference NODE__EREFERENCE_CONTAINED1011_MANY = eINSTANCE.getNode_EReference_Contained1011Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1100 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained1100 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1100_MULTI = eINSTANCE.getNode_FeatureWithSerialization1100_Multi();
+		EReference NODE__EREFERENCE_CONTAINED1100_MANY = eINSTANCE.getNode_EReference_Contained1100Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1101 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained1101 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1101_MULTI = eINSTANCE.getNode_FeatureWithSerialization1101_Multi();
+		EReference NODE__EREFERENCE_CONTAINED1101_MANY = eINSTANCE.getNode_EReference_Contained1101Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1110 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained1110 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1110_MULTI = eINSTANCE.getNode_FeatureWithSerialization1110_Multi();
+		EReference NODE__EREFERENCE_CONTAINED1110_MANY = eINSTANCE.getNode_EReference_Contained1110Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Serialization1111 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Contained1111 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_SERIALIZATION1111_MULTI = eINSTANCE.getNode_FeatureWithSerialization1111_Multi();
+		EReference NODE__EREFERENCE_CONTAINED1111_MANY = eINSTANCE.getNode_EReference_Contained1111Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature Empty Annotation Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference Empty Annotation Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_EMPTY_ANNOTATION_MULTI = eINSTANCE.getNode_FeatureEmptyAnnotation_Multi();
+		EReference NODE__EREFERENCE_EMPTY_ANNOTATION_MANY = eINSTANCE.getNode_EReference_EmptyAnnotationMany();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature No Annotation Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference No Annotation Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_NO_ANNOTATION_MULTI = eINSTANCE.getNode_FeatureNoAnnotation_Multi();
+		EReference NODE__EREFERENCE_NO_ANNOTATION_MANY = eINSTANCE.getNode_EReference_NoAnnotationMany();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1671,36 +1671,36 @@ public interface NodesPackage extends EPackage {
 		EAttribute NODE__NAME = eINSTANCE.getNode_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Type EObject And Serialization0001 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference With Type EObject Contained0001 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0001_MULTI = eINSTANCE.getNode_FeatureWithTypeEObjectAndSerialization0001_Multi();
+		EReference NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0001_MANY = eINSTANCE.getNode_EReference_WithTypeEObject_Contained0001Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Type EObject And Serialization0010 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference With Type EObject Contained0010 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0010_MULTI = eINSTANCE.getNode_FeatureWithTypeEObjectAndSerialization0010_Multi();
+		EReference NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0010_MANY = eINSTANCE.getNode_EReference_WithTypeEObject_Contained0010Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Type EObject And Serialization0100 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference With Type EObject Contained0100 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION0100_MULTI = eINSTANCE.getNode_FeatureWithTypeEObjectAndSerialization0100_Multi();
+		EReference NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED0100_MANY = eINSTANCE.getNode_EReference_WithTypeEObject_Contained0100Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature With Type EObject And Serialization1000 Multi</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>EReference With Type EObject Contained1000 Many</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__FEATURE_WITH_TYPE_EOBJECT_AND_SERIALIZATION1000_MULTI = eINSTANCE.getNode_FeatureWithTypeEObjectAndSerialization1000_Multi();
+		EReference NODE__EREFERENCE_WITH_TYPE_EOBJECT_CONTAINED1000_MANY = eINSTANCE.getNode_EReference_WithTypeEObject_Contained1000Many();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.rmf.tests.serialization.model.nodes.impl.AbstractNodeImpl <em>Abstract Node</em>}' class.

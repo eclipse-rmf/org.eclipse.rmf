@@ -23,47 +23,47 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0000_Single <em>Feature With Serialization0000 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0001_Single <em>Feature With Serialization0001 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0010_Single <em>Feature With Serialization0010 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0011_Single <em>Feature With Serialization0011 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0100_Single <em>Feature With Serialization0100 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0101_Single <em>Feature With Serialization0101 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0110_Single <em>Feature With Serialization0110 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0111_Single <em>Feature With Serialization0111 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1000_Single <em>Feature With Serialization1000 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1001_Single <em>Feature With Serialization1001 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1010_Single <em>Feature With Serialization1010 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1011_Single <em>Feature With Serialization1011 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1100_Single <em>Feature With Serialization1100 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1101_Single <em>Feature With Serialization1101 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1110_Single <em>Feature With Serialization1110 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1111_Single <em>Feature With Serialization1111 Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureEmptyAnnotation_Single <em>Feature Empty Annotation Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureNoAnnotation_Single <em>Feature No Annotation Single</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0000_Multi <em>Feature With Serialization0000 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0001_Multi <em>Feature With Serialization0001 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0010_Multi <em>Feature With Serialization0010 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0011_Multi <em>Feature With Serialization0011 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0100_Multi <em>Feature With Serialization0100 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0101_Multi <em>Feature With Serialization0101 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0110_Multi <em>Feature With Serialization0110 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0111_Multi <em>Feature With Serialization0111 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1000_Multi <em>Feature With Serialization1000 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1001_Multi <em>Feature With Serialization1001 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1010_Multi <em>Feature With Serialization1010 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1011_Multi <em>Feature With Serialization1011 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1100_Multi <em>Feature With Serialization1100 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1101_Multi <em>Feature With Serialization1101 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1110_Multi <em>Feature With Serialization1110 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1111_Multi <em>Feature With Serialization1111 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureEmptyAnnotation_Multi <em>Feature Empty Annotation Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureNoAnnotation_Multi <em>Feature No Annotation Multi</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0000Single <em>EReference Contained0000 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0001Single <em>EReference Contained0001 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0010Single <em>EReference Contained0010 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0011Single <em>EReference Contained0011 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0100Single <em>EReference Contained0100 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0101Single <em>EReference Contained0101 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0110Single <em>EReference Contained0110 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0111Single <em>EReference Contained0111 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1000Single <em>EReference Contained1000 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1001Single <em>EReference Contained1001 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1010Single <em>EReference Contained1010 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1011Single <em>EReference Contained1011 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1100Single <em>EReference Contained1100 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1101Single <em>EReference Contained1101 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1110Single <em>EReference Contained1110 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1111Single <em>EReference Contained1111 Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_EmptyAnnotationSingle <em>EReference Empty Annotation Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_NoAnnotationSingle <em>EReference No Annotation Single</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0000Many <em>EReference Contained0000 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0001Many <em>EReference Contained0001 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0010Many <em>EReference Contained0010 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0011Many <em>EReference Contained0011 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0100Many <em>EReference Contained0100 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0101Many <em>EReference Contained0101 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0110Many <em>EReference Contained0110 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0111Many <em>EReference Contained0111 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1000Many <em>EReference Contained1000 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1001Many <em>EReference Contained1001 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1010Many <em>EReference Contained1010 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1011Many <em>EReference Contained1011 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1100Many <em>EReference Contained1100 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1101Many <em>EReference Contained1101 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1110Many <em>EReference Contained1110 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1111Many <em>EReference Contained1111 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_EmptyAnnotationMany <em>EReference Empty Annotation Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_NoAnnotationMany <em>EReference No Annotation Many</em>}</li>
  *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0001_Multi <em>Feature With Type EObject And Serialization0001 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0010_Multi <em>Feature With Type EObject And Serialization0010 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization0100_Multi <em>Feature With Type EObject And Serialization0100 Multi</em>}</li>
- *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithTypeEObjectAndSerialization1000_Multi <em>Feature With Type EObject And Serialization1000 Multi</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_WithTypeEObject_Contained0001Many <em>EReference With Type EObject Contained0001 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_WithTypeEObject_Contained0010Many <em>EReference With Type EObject Contained0010 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_WithTypeEObject_Contained0100Many <em>EReference With Type EObject Contained0100 Many</em>}</li>
+ *   <li>{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_WithTypeEObject_Contained1000Many <em>EReference With Type EObject Contained1000 Many</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,824 +74,824 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Node extends AbstractNode {
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0000 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained0000 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0000 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained0000 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0000 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization0000_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0000_Single()
+	 * @return the value of the '<em>EReference Contained0000 Single</em>' containment reference.
+	 * @see #setEReference_Contained0000Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0000Single()
 	 * @model containment="true"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0000-SINGLE'"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-0000-SINGLES'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization0000_Single();
+	Node getEReference_Contained0000Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0000_Single <em>Feature With Serialization0000 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0000Single <em>EReference Contained0000 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization0000 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization0000_Single()
+	 * @param value the new value of the '<em>EReference Contained0000 Single</em>' containment reference.
+	 * @see #getEReference_Contained0000Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization0000_Single(Node value);
+	void setEReference_Contained0000Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0001 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained0001 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0001 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained0001 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0001 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization0001_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0001_Single()
+	 * @return the value of the '<em>EReference Contained0001 Single</em>' containment reference.
+	 * @see #setEReference_Contained0001Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0001Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-0001-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0001-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization0001_Single();
+	Node getEReference_Contained0001Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0001_Single <em>Feature With Serialization0001 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0001Single <em>EReference Contained0001 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization0001 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization0001_Single()
+	 * @param value the new value of the '<em>EReference Contained0001 Single</em>' containment reference.
+	 * @see #getEReference_Contained0001Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization0001_Single(Node value);
+	void setEReference_Contained0001Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0010 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained0010 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0010 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained0010 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0010 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization0010_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0010_Single()
+	 * @return the value of the '<em>EReference Contained0010 Single</em>' containment reference.
+	 * @see #setEReference_Contained0010Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0010Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-0010-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0010-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization0010_Single();
+	Node getEReference_Contained0010Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0010_Single <em>Feature With Serialization0010 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0010Single <em>EReference Contained0010 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization0010 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization0010_Single()
+	 * @param value the new value of the '<em>EReference Contained0010 Single</em>' containment reference.
+	 * @see #getEReference_Contained0010Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization0010_Single(Node value);
+	void setEReference_Contained0010Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0011 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained0011 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0011 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained0011 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0011 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization0011_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0011_Single()
+	 * @return the value of the '<em>EReference Contained0011 Single</em>' containment reference.
+	 * @see #setEReference_Contained0011Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0011Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-0011-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0011-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization0011_Single();
+	Node getEReference_Contained0011Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0011_Single <em>Feature With Serialization0011 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0011Single <em>EReference Contained0011 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization0011 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization0011_Single()
+	 * @param value the new value of the '<em>EReference Contained0011 Single</em>' containment reference.
+	 * @see #getEReference_Contained0011Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization0011_Single(Node value);
+	void setEReference_Contained0011Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0100 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained0100 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0100 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained0100 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0100 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization0100_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0100_Single()
+	 * @return the value of the '<em>EReference Contained0100 Single</em>' containment reference.
+	 * @see #setEReference_Contained0100Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0100Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-0100-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0100-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization0100_Single();
+	Node getEReference_Contained0100Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0100_Single <em>Feature With Serialization0100 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0100Single <em>EReference Contained0100 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization0100 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization0100_Single()
+	 * @param value the new value of the '<em>EReference Contained0100 Single</em>' containment reference.
+	 * @see #getEReference_Contained0100Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization0100_Single(Node value);
+	void setEReference_Contained0100Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0101 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained0101 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0101 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained0101 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0101 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization0101_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0101_Single()
+	 * @return the value of the '<em>EReference Contained0101 Single</em>' containment reference.
+	 * @see #setEReference_Contained0101Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0101Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-0101-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0101-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization0101_Single();
+	Node getEReference_Contained0101Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0101_Single <em>Feature With Serialization0101 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0101Single <em>EReference Contained0101 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization0101 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization0101_Single()
+	 * @param value the new value of the '<em>EReference Contained0101 Single</em>' containment reference.
+	 * @see #getEReference_Contained0101Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization0101_Single(Node value);
+	void setEReference_Contained0101Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0110 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained0110 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0110 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained0110 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0110 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization0110_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0110_Single()
+	 * @return the value of the '<em>EReference Contained0110 Single</em>' containment reference.
+	 * @see #setEReference_Contained0110Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0110Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-0110-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0110-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization0110_Single();
+	Node getEReference_Contained0110Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0110_Single <em>Feature With Serialization0110 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0110Single <em>EReference Contained0110 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization0110 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization0110_Single()
+	 * @param value the new value of the '<em>EReference Contained0110 Single</em>' containment reference.
+	 * @see #getEReference_Contained0110Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization0110_Single(Node value);
+	void setEReference_Contained0110Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0111 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained0111 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0111 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained0111 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0111 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization0111_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0111_Single()
+	 * @return the value of the '<em>EReference Contained0111 Single</em>' containment reference.
+	 * @see #setEReference_Contained0111Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0111Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-0111-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0111-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization0111_Single();
+	Node getEReference_Contained0111Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization0111_Single <em>Feature With Serialization0111 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained0111Single <em>EReference Contained0111 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization0111 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization0111_Single()
+	 * @param value the new value of the '<em>EReference Contained0111 Single</em>' containment reference.
+	 * @see #getEReference_Contained0111Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization0111_Single(Node value);
+	void setEReference_Contained0111Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1000 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained1000 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1000 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained1000 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1000 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization1000_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1000_Single()
+	 * @return the value of the '<em>EReference Contained1000 Single</em>' containment reference.
+	 * @see #setEReference_Contained1000Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1000Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-1000-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1000-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization1000_Single();
+	Node getEReference_Contained1000Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1000_Single <em>Feature With Serialization1000 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1000Single <em>EReference Contained1000 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization1000 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization1000_Single()
+	 * @param value the new value of the '<em>EReference Contained1000 Single</em>' containment reference.
+	 * @see #getEReference_Contained1000Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization1000_Single(Node value);
+	void setEReference_Contained1000Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1001 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained1001 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1001 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained1001 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1001 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization1001_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1001_Single()
+	 * @return the value of the '<em>EReference Contained1001 Single</em>' containment reference.
+	 * @see #setEReference_Contained1001Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1001Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-1001-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1001-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization1001_Single();
+	Node getEReference_Contained1001Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1001_Single <em>Feature With Serialization1001 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1001Single <em>EReference Contained1001 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization1001 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization1001_Single()
+	 * @param value the new value of the '<em>EReference Contained1001 Single</em>' containment reference.
+	 * @see #getEReference_Contained1001Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization1001_Single(Node value);
+	void setEReference_Contained1001Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1010 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained1010 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1010 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained1010 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1010 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization1010_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1010_Single()
+	 * @return the value of the '<em>EReference Contained1010 Single</em>' containment reference.
+	 * @see #setEReference_Contained1010Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1010Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-1010-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1010-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization1010_Single();
+	Node getEReference_Contained1010Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1010_Single <em>Feature With Serialization1010 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1010Single <em>EReference Contained1010 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization1010 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization1010_Single()
+	 * @param value the new value of the '<em>EReference Contained1010 Single</em>' containment reference.
+	 * @see #getEReference_Contained1010Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization1010_Single(Node value);
+	void setEReference_Contained1010Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1011 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained1011 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1011 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained1011 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1011 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization1011_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1011_Single()
+	 * @return the value of the '<em>EReference Contained1011 Single</em>' containment reference.
+	 * @see #setEReference_Contained1011Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1011Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-1011-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1011-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization1011_Single();
+	Node getEReference_Contained1011Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1011_Single <em>Feature With Serialization1011 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1011Single <em>EReference Contained1011 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization1011 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization1011_Single()
+	 * @param value the new value of the '<em>EReference Contained1011 Single</em>' containment reference.
+	 * @see #getEReference_Contained1011Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization1011_Single(Node value);
+	void setEReference_Contained1011Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1100 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained1100 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1100 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained1100 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1100 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization1100_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1100_Single()
+	 * @return the value of the '<em>EReference Contained1100 Single</em>' containment reference.
+	 * @see #setEReference_Contained1100Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1100Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-1100-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1100-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization1100_Single();
+	Node getEReference_Contained1100Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1100_Single <em>Feature With Serialization1100 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1100Single <em>EReference Contained1100 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization1100 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization1100_Single()
+	 * @param value the new value of the '<em>EReference Contained1100 Single</em>' containment reference.
+	 * @see #getEReference_Contained1100Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization1100_Single(Node value);
+	void setEReference_Contained1100Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1101 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained1101 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1101 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained1101 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1101 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization1101_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1101_Single()
+	 * @return the value of the '<em>EReference Contained1101 Single</em>' containment reference.
+	 * @see #setEReference_Contained1101Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1101Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-1101-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1101-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization1101_Single();
+	Node getEReference_Contained1101Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1101_Single <em>Feature With Serialization1101 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1101Single <em>EReference Contained1101 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization1101 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization1101_Single()
+	 * @param value the new value of the '<em>EReference Contained1101 Single</em>' containment reference.
+	 * @see #getEReference_Contained1101Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization1101_Single(Node value);
+	void setEReference_Contained1101Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1110 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained1110 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1110 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained1110 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1110 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization1110_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1110_Single()
+	 * @return the value of the '<em>EReference Contained1110 Single</em>' containment reference.
+	 * @see #setEReference_Contained1110Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1110Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-1110-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1110-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization1110_Single();
+	Node getEReference_Contained1110Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1110_Single <em>Feature With Serialization1110 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1110Single <em>EReference Contained1110 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization1110 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization1110_Single()
+	 * @param value the new value of the '<em>EReference Contained1110 Single</em>' containment reference.
+	 * @see #getEReference_Contained1110Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization1110_Single(Node value);
+	void setEReference_Contained1110Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1111 Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Contained1111 Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1111 Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Contained1111 Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1111 Single</em>' containment reference.
-	 * @see #setFeatureWithSerialization1111_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1111_Single()
+	 * @return the value of the '<em>EReference Contained1111 Single</em>' containment reference.
+	 * @see #setEReference_Contained1111Single(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1111Single()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-1111-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1111-SINGLE'"
 	 * @generated
 	 */
-	Node getFeatureWithSerialization1111_Single();
+	Node getEReference_Contained1111Single();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureWithSerialization1111_Single <em>Feature With Serialization1111 Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_Contained1111Single <em>EReference Contained1111 Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature With Serialization1111 Single</em>' containment reference.
-	 * @see #getFeatureWithSerialization1111_Single()
+	 * @param value the new value of the '<em>EReference Contained1111 Single</em>' containment reference.
+	 * @see #getEReference_Contained1111Single()
 	 * @generated
 	 */
-	void setFeatureWithSerialization1111_Single(Node value);
+	void setEReference_Contained1111Single(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature Empty Annotation Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference Empty Annotation Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature Empty Annotation Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference Empty Annotation Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature Empty Annotation Single</em>' containment reference.
-	 * @see #setFeatureEmptyAnnotation_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureEmptyAnnotation_Single()
+	 * @return the value of the '<em>EReference Empty Annotation Single</em>' containment reference.
+	 * @see #setEReference_EmptyAnnotationSingle(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_EmptyAnnotationSingle()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Node getFeatureEmptyAnnotation_Single();
+	Node getEReference_EmptyAnnotationSingle();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureEmptyAnnotation_Single <em>Feature Empty Annotation Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_EmptyAnnotationSingle <em>EReference Empty Annotation Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature Empty Annotation Single</em>' containment reference.
-	 * @see #getFeatureEmptyAnnotation_Single()
+	 * @param value the new value of the '<em>EReference Empty Annotation Single</em>' containment reference.
+	 * @see #getEReference_EmptyAnnotationSingle()
 	 * @generated
 	 */
-	void setFeatureEmptyAnnotation_Single(Node value);
+	void setEReference_EmptyAnnotationSingle(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature No Annotation Single</b></em>' containment reference.
+	 * Returns the value of the '<em><b>EReference No Annotation Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature No Annotation Single</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>EReference No Annotation Single</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature No Annotation Single</em>' containment reference.
-	 * @see #setFeatureNoAnnotation_Single(Node)
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureNoAnnotation_Single()
+	 * @return the value of the '<em>EReference No Annotation Single</em>' containment reference.
+	 * @see #setEReference_NoAnnotationSingle(Node)
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_NoAnnotationSingle()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Node getFeatureNoAnnotation_Single();
+	Node getEReference_NoAnnotationSingle();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getFeatureNoAnnotation_Single <em>Feature No Annotation Single</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.tests.serialization.model.nodes.Node#getEReference_NoAnnotationSingle <em>EReference No Annotation Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature No Annotation Single</em>' containment reference.
-	 * @see #getFeatureNoAnnotation_Single()
+	 * @param value the new value of the '<em>EReference No Annotation Single</em>' containment reference.
+	 * @see #getEReference_NoAnnotationSingle()
 	 * @generated
 	 */
-	void setFeatureNoAnnotation_Single(Node value);
+	void setEReference_NoAnnotationSingle(Node value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0000 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained0000 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0000 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained0000 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0000 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0000_Multi()
+	 * @return the value of the '<em>EReference Contained0000 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0000Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-0000-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0000-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization0000_Multi();
+	EList<Node> getEReference_Contained0000Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0001 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained0001 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0001 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained0001 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0001 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0001_Multi()
+	 * @return the value of the '<em>EReference Contained0001 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0001Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-0001-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0001-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization0001_Multi();
+	EList<Node> getEReference_Contained0001Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0010 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained0010 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0010 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained0010 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0010 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0010_Multi()
+	 * @return the value of the '<em>EReference Contained0010 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0010Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-0010-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0010-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization0010_Multi();
+	EList<Node> getEReference_Contained0010Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0011 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained0011 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0011 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained0011 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0011 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0011_Multi()
+	 * @return the value of the '<em>EReference Contained0011 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0011Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-0011-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0011-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization0011_Multi();
+	EList<Node> getEReference_Contained0011Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0100 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained0100 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0100 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained0100 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0100 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0100_Multi()
+	 * @return the value of the '<em>EReference Contained0100 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0100Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-0100-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0100-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization0100_Multi();
+	EList<Node> getEReference_Contained0100Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0101 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained0101 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0101 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained0101 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0101 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0101_Multi()
+	 * @return the value of the '<em>EReference Contained0101 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0101Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-0101-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0101-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization0101_Multi();
+	EList<Node> getEReference_Contained0101Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0110 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained0110 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0110 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained0110 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0110 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0110_Multi()
+	 * @return the value of the '<em>EReference Contained0110 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0110Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-0110-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0110-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization0110_Multi();
+	EList<Node> getEReference_Contained0110Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization0111 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained0111 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization0111 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained0111 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization0111 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization0111_Multi()
+	 * @return the value of the '<em>EReference Contained0111 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0111Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-0111-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0111-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization0111_Multi();
+	EList<Node> getEReference_Contained0111Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1000 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained1000 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1000 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained1000 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1000 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1000_Multi()
+	 * @return the value of the '<em>EReference Contained1000 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1000Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-1000-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1000-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization1000_Multi();
+	EList<Node> getEReference_Contained1000Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1001 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained1001 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1001 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained1001 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1001 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1001_Multi()
+	 * @return the value of the '<em>EReference Contained1001 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1001Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-1001-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1001-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization1001_Multi();
+	EList<Node> getEReference_Contained1001Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1010 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained1010 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1010 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained1010 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1010 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1010_Multi()
+	 * @return the value of the '<em>EReference Contained1010 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1010Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-1010-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1010-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization1010_Multi();
+	EList<Node> getEReference_Contained1010Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1011 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained1011 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1011 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained1011 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1011 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1011_Multi()
+	 * @return the value of the '<em>EReference Contained1011 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1011Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-1011-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1011-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization1011_Multi();
+	EList<Node> getEReference_Contained1011Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1100 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained1100 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1100 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained1100 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1100 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1100_Multi()
+	 * @return the value of the '<em>EReference Contained1100 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1100Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-1100-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1100-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization1100_Multi();
+	EList<Node> getEReference_Contained1100Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1101 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained1101 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1101 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained1101 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1101 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1101_Multi()
+	 * @return the value of the '<em>EReference Contained1101 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1101Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-1101-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1101-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization1101_Multi();
+	EList<Node> getEReference_Contained1101Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1110 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained1110 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1110 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained1110 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1110 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1110_Multi()
+	 * @return the value of the '<em>EReference Contained1110 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1110Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-1110-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1110-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization1110_Multi();
+	EList<Node> getEReference_Contained1110Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Serialization1111 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Contained1111 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Serialization1111 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Contained1111 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Serialization1111 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithSerialization1111_Multi()
+	 * @return the value of the '<em>EReference Contained1111 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1111Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-1111-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1111-MULTI'"
 	 * @generated
 	 */
-	EList<Node> getFeatureWithSerialization1111_Multi();
+	EList<Node> getEReference_Contained1111Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature Empty Annotation Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference Empty Annotation Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature Empty Annotation Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference Empty Annotation Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature Empty Annotation Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureEmptyAnnotation_Multi()
+	 * @return the value of the '<em>EReference Empty Annotation Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_EmptyAnnotationMany()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Node> getFeatureEmptyAnnotation_Multi();
+	EList<Node> getEReference_EmptyAnnotationMany();
 
 	/**
-	 * Returns the value of the '<em><b>Feature No Annotation Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference No Annotation Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.rmf.tests.serialization.model.nodes.Node}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature No Annotation Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference No Annotation Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature No Annotation Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureNoAnnotation_Multi()
+	 * @return the value of the '<em>EReference No Annotation Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_NoAnnotationMany()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Node> getFeatureNoAnnotation_Multi();
+	EList<Node> getEReference_NoAnnotationMany();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -920,75 +920,75 @@ public interface Node extends AbstractNode {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Type EObject And Serialization0001 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference With Type EObject Contained0001 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Type EObject And Serialization0001 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference With Type EObject Contained0001 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Type EObject And Serialization0001 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithTypeEObjectAndSerialization0001_Multi()
+	 * @return the value of the '<em>EReference With Type EObject Contained0001 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_WithTypeEObject_Contained0001Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI'"
 	 * @generated
 	 */
-	EList<EObject> getFeatureWithTypeEObjectAndSerialization0001_Multi();
+	EList<EObject> getEReference_WithTypeEObject_Contained0001Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Type EObject And Serialization0010 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference With Type EObject Contained0010 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Type EObject And Serialization0010 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference With Type EObject Contained0010 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Type EObject And Serialization0010 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithTypeEObjectAndSerialization0010_Multi()
+	 * @return the value of the '<em>EReference With Type EObject Contained0010 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_WithTypeEObject_Contained0010Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTI'"
 	 * @generated
 	 */
-	EList<EObject> getFeatureWithTypeEObjectAndSerialization0010_Multi();
+	EList<EObject> getEReference_WithTypeEObject_Contained0010Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Type EObject And Serialization0100 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference With Type EObject Contained0100 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Type EObject And Serialization0100 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference With Type EObject Contained0100 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Type EObject And Serialization0100 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithTypeEObjectAndSerialization0100_Multi()
+	 * @return the value of the '<em>EReference With Type EObject Contained0100 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_WithTypeEObject_Contained0100Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI'"
 	 * @generated
 	 */
-	EList<EObject> getFeatureWithTypeEObjectAndSerialization0100_Multi();
+	EList<EObject> getEReference_WithTypeEObject_Contained0100Many();
 
 	/**
-	 * Returns the value of the '<em><b>Feature With Type EObject And Serialization1000 Multi</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>EReference With Type EObject Contained1000 Many</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature With Type EObject And Serialization1000 Multi</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>EReference With Type EObject Contained1000 Many</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature With Type EObject And Serialization1000 Multi</em>' containment reference list.
-	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_FeatureWithTypeEObjectAndSerialization1000_Multi()
+	 * @return the value of the '<em>EReference With Type EObject Contained1000 Many</em>' containment reference list.
+	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_WithTypeEObject_Contained1000Many()
 	 * @model containment="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTI'"
 	 * @generated
 	 */
-	EList<EObject> getFeatureWithTypeEObjectAndSerialization1000_Multi();
+	EList<EObject> getEReference_WithTypeEObject_Contained1000Many();
 
 } // Node
