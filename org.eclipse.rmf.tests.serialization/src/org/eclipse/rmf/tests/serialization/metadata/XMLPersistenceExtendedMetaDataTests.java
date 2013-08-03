@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaData;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
@@ -65,6 +66,66 @@ public class XMLPersistenceExtendedMetaDataTests {
 			String featureName = "eReference_Contained" + toBinaryString(i) + "Many";
 			EStructuralFeature feature = nodeEClass.getEStructuralFeature(featureName);
 			assertNotNull("EReference '" + featureName + "' not found", feature);
+
+			int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
+			assertSame(i, featureSerializationStructure);
+		}
+	}
+
+	@Test
+	public void testGetFeatureSerializationStructure_EReference_ReferencedxxxxSingle() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		for (int i = 0; i < identitySerializationStructureConfiguration.length; i++) {
+			String featureName = "eReference_Referenced" + toBinaryString(i) + "Single";
+			EStructuralFeature feature = nodeEClass.getEStructuralFeature(featureName);
+			assertNotNull("EReference '" + featureName + "' not found", feature);
+
+			int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
+			assertSame(i, featureSerializationStructure);
+		}
+	}
+
+	@Test
+	public void testGetFeatureSerializationStructure_EReference_ReferencedxxxxMany() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		for (int i = 0; i < identitySerializationStructureConfiguration.length; i++) {
+			String featureName = "eReference_Referenced" + toBinaryString(i) + "Many";
+			EStructuralFeature feature = nodeEClass.getEStructuralFeature(featureName);
+			assertNotNull("EReference '" + featureName + "' not found", feature);
+
+			int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
+			assertSame(i, featureSerializationStructure);
+		}
+	}
+
+	@Test
+	public void testGetFeatureSerializationStructure_EAttribute_AttributexxxxSingle() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		for (int i = 0; i < identitySerializationStructureConfiguration.length; i++) {
+			String featureName = "eAttribute_Attribute" + toBinaryString(i) + "Single";
+			EStructuralFeature feature = nodeEClass.getEStructuralFeature(featureName);
+			assertNotNull("EAttribute '" + featureName + "' not found", feature);
+
+			int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
+			assertSame(i, featureSerializationStructure);
+		}
+	}
+
+	@Test
+	public void testGetFeatureSerializationStructure_EAttribute_AttributexxxxMany() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		for (int i = 0; i < identitySerializationStructureConfiguration.length; i++) {
+			String featureName = "eAttribute_Attribute" + toBinaryString(i) + "Many";
+			EStructuralFeature feature = nodeEClass.getEStructuralFeature(featureName);
+			assertNotNull("Attribute '" + featureName + "' not found", feature);
 
 			int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
 			assertSame(i, featureSerializationStructure);
@@ -134,7 +195,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization0000Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained0000Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -143,7 +204,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization0001Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained0001Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -152,7 +213,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization0010Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained0010Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -161,7 +222,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization0011Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained0011Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -171,7 +232,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization0100Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained0100Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -180,7 +241,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization0101Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained0101Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -189,7 +250,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization0110Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained0110Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -198,7 +259,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization0111Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained0111Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -207,7 +268,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization1000Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained1000Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -216,7 +277,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization1001Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained1001Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -225,7 +286,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization1010Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained1010Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -234,7 +295,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization1011Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained1011Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -243,7 +304,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization1100Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained1100Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -252,7 +313,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization1101Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained1101Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -261,7 +322,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization1110Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained1110Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -270,7 +331,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureWithSerialization1111Many() {
+	public void testGetFeatureByXMLElementName_EReference_Contained1111Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -279,7 +340,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetElement_class_namespace_name_featureNoAnnotationMany() {
+	public void testGetFeatureByXMLElementName_EReference_NoAnnotationMany() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
@@ -287,6 +348,179 @@ public class XMLPersistenceExtendedMetaDataTests {
 		assertSame(NodesPackage.eINSTANCE.getNode_EReference_NoAnnotationMany(), feature);
 	}
 
+	/*
+	 * for robustness tests
+	 * @Test public void testGetFeatureByXMLElementName_EAttribute_Attribute0000Many() {
+	 * XMLPersistenceMappingExtendedMetaData metadata = new
+	 * XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration); EClass nodeEClass =
+	 * NodesPackage.eINSTANCE.getNode(); EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass,
+	 * NodesPackage.eNS_URI, "ATTRIBUTE-FROM-NESTED-CLASS");
+	 * assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0000Many(), feature); }
+	 */
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute0001Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, EcorePackage.eNS_URI, "EString");
+		System.out.println(metadata.getXMLName(feature.getEType()));
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0001Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute0010Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EStrings");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0010Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute0010Many2() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, EcorePackage.eNS_URI, "EStrings");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0010Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute0011Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EStrings");
+		// we assume 0010 here since there is no look ahead implemented to avoid ambiguity
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0010Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute0011Many2() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, EcorePackage.eNS_URI, "EStrings");
+		// we assume 0010 here since there is no look ahead implemented to avoid ambiguity
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0010Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute0100Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EATTRIBUTE-ATTRIBUTE-0100-MANY");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0100Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute0101Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EATTRIBUTE-ATTRIBUTE-0101-MANY");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0101Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute0110Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EATTRIBUTE-ATTRIBUTE-0110-MANY");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0110Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute0111Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EATTRIBUTE-ATTRIBUTE-0111-MANY");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0111Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute1000Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EATTRIBUTE-ATTRIBUTE-1000-MANIES");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute1000Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute1001Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EATTRIBUTE-ATTRIBUTE-1001-MANIES");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute1001Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute1010Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EATTRIBUTE-ATTRIBUTE-1010-MANIES");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute1010Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute1011Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EATTRIBUTE-ATTRIBUTE-1011-MANIES");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute1011Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute1100Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EATTRIBUTE-ATTRIBUTE-1100-MANIES");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute1100Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute1101Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EATTRIBUTE-ATTRIBUTE-1101-MANIES");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute1101Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute1110Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EATTRIBUTE-ATTRIBUTE-1110-MANIES");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute1110Many(), feature);
+	}
+
+	@Test
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute1111Many() {
+		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
+
+		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EATTRIBUTE-ATTRIBUTE-1111-MANIES");
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute1111Many(), feature);
+	}
+
+	/*
+	 * @Test public void testGetFeatureByXMLElementName_EAttribute_NoAnnotationMany() {
+	 * XMLPersistenceMappingExtendedMetaData metadata = new
+	 * XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration); EClass nodeEClass =
+	 * NodesPackage.eINSTANCE.getNode(); EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass,
+	 * NodesPackage.eNS_URI, "eReference_NoAnnotationManys");
+	 * assertSame(NodesPackage.eINSTANCE.getNode_EReference_NoAnnotationMany(), feature); }
+	 */
 	private String toBinaryString(int serializationStructure) {
 		StringBuffer buffer = new StringBuffer();
 

@@ -2175,7 +2175,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EAttribute Attribute1111 Single</em>' attribute.
 	 * @see #setEAttribute_Attribute1111Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1111Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-1111-SINGLES'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-1111-SINGLES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1111-SINGLE'"
 	 * @generated
 	 */
@@ -2457,7 +2457,7 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EAttribute Attribute1111 Many</em>' attribute list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1111Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-1111-MANIES'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-1111-MANIES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1111-MANY'"
 	 * @generated
 	 */

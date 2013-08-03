@@ -1191,10 +1191,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="eAttribute_Attribute1111Single"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
-        <details key="featureWrapperElement" value="false"/>
-        <details key="featureElement" value="false"/>
-        <details key="classifierWrapperElement" value="false"/>
-        <details key="classifierElement" value="false"/>
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="true"/>
         <details key="wrapperName" value="EATTRIBUTE-ATTRIBUTE-1111-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -1415,10 +1415,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="eAttribute_Attribute1111Many"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
-        <details key="featureWrapperElement" value="false"/>
-        <details key="featureElement" value="false"/>
-        <details key="classifierWrapperElement" value="false"/>
-        <details key="classifierElement" value="false"/>
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="true"/>
         <details key="wrapperName" value="EATTRIBUTE-ATTRIBUTE-1111-MANIES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

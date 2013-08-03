@@ -2958,10 +2958,10 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_EAttribute_Attribute1111Single(), 
 		   source, 
 		   new String[] {
-			 "featureWrapperElement", "false",
-			 "featureElement", "false",
-			 "classifierWrapperElement", "false",
-			 "classifierElement", "false",
+			 "featureWrapperElement", "true",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "true",
+			 "classifierElement", "true",
 			 "wrapperName", "EATTRIBUTE-ATTRIBUTE-1111-SINGLES"
 		   });			
 		addAnnotation
@@ -3118,10 +3118,10 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_EAttribute_Attribute1111Many(), 
 		   source, 
 		   new String[] {
-			 "featureWrapperElement", "false",
-			 "featureElement", "false",
-			 "classifierWrapperElement", "false",
-			 "classifierElement", "false",
+			 "featureWrapperElement", "true",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "true",
+			 "classifierElement", "true",
 			 "wrapperName", "EATTRIBUTE-ATTRIBUTE-1111-MANIES"
 		   });				
 		addAnnotation
