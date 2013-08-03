@@ -13,7 +13,6 @@ package org.eclipse.rmf.internal.serialization;
 
 import java.util.Map;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
@@ -28,7 +27,7 @@ import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaData;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 
 public class XMLPersistenceMappingHandler extends SAXXMLHandler {
-	interface DeserializationRule {
+	interface LoadPattern {
 		public static int STATE_READY = 0;
 		public static int STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT = 1;
 		public static int STATE_HAS_SEEN_START_FEATURE_ELEMENT = 2;
@@ -51,12 +50,12 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 
 	}
 
-	abstract class AbstractDeserializationRuleImpl implements DeserializationRule {
+	abstract class AbstractLoadPatternImpl implements LoadPattern {
 		final EObject anchorEObject;
 		final EStructuralFeature feature;
 		int currentState;
 
-		public AbstractDeserializationRuleImpl(EObject anchorEObject, EStructuralFeature feature) {
+		public AbstractLoadPatternImpl(EObject anchorEObject, EStructuralFeature feature) {
 			this.anchorEObject = anchorEObject;
 			this.feature = feature;
 			currentState = STATE_READY;
@@ -72,9 +71,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 
 	}
 
-	class DesrializationRuleContained0001Impl extends AbstractDeserializationRuleImpl {
+	class LoadPatternContained0001Impl extends AbstractLoadPatternImpl {
 
-		public DesrializationRuleContained0001Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternContained0001Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -127,9 +126,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	class DesrializationRuleContained0100Impl extends AbstractDeserializationRuleImpl {
+	class LoadPatternContained0100Impl extends AbstractLoadPatternImpl {
 
-		public DesrializationRuleContained0100Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternContained0100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -182,9 +181,123 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	class DesrializationRuleContained0101Impl extends AbstractDeserializationRuleImpl {
+	class LoadPatternAttribute0100Impl extends AbstractLoadPatternImpl {
 
-		public DesrializationRuleContained0101Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternAttribute0100Impl(EObject anchorEObject, EStructuralFeature feature) {
+			super(anchorEObject, feature);
+		}
+
+		public void startElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				text = new StringBuffer(); // record all strings
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
+				// TODO handle error. no further elements expected here
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				// wait to read contained text
+				break;
+			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+
+			default:
+				// TODO: handle error
+			}
+		}
+
+		public void endElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
+				setFeatureValue(anchorEObject, feature, text == null ? null : text.toString());
+				text = null;
+				currentState = STATE_READY;
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+
+			default:
+				// TODO: handle error
+			}
+		}
+	}
+
+	class LoadPatternAttribute1100Impl extends AbstractLoadPatternImpl {
+
+		public LoadPatternAttribute1100Impl(EObject anchorEObject, EStructuralFeature feature) {
+			super(anchorEObject, feature);
+		}
+
+		public void startElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				text = new StringBuffer(); // record all strings
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
+				// TODO handle error. no further elements expected here
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				text = new StringBuffer(); // record all strings
+				break;
+			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+
+			default:
+				// TODO: handle error
+			}
+		}
+
+		public void endElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_READY;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
+				setFeatureValue(anchorEObject, feature, text == null ? null : text.toString());
+				text = null;
+				currentState = STATE_READY;
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
+				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+
+			default:
+				// TODO: handle error
+			}
+		}
+	}
+
+	class LoadPatternContained0101Impl extends AbstractLoadPatternImpl {
+
+		public LoadPatternContained0101Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -251,9 +364,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	class DesrializationRuleContained1001Impl extends AbstractDeserializationRuleImpl {
+	class LoadPatternContained1001Impl extends AbstractLoadPatternImpl {
 
-		public DesrializationRuleContained1001Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternContained1001Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -318,9 +431,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	class DesrializationRuleReference1001Impl extends AbstractDeserializationRuleImpl {
+	class LoadPatternReference1001Impl extends AbstractLoadPatternImpl {
 
-		public DesrializationRuleReference1001Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternReference1001Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -410,7 +523,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	}
 
 	XMLPersistenceMappingExtendedMetaData rmfExtendedMetaData = null;
-	MyStack<DeserializationRule> deserializationRuleStack = null;
+	MyStack<LoadPattern> deserializationRuleStack = null;
 
 	public XMLPersistenceMappingHandler(XMLResource xmlResource, XMLHelper helper, Map<?, ?> options) {
 		super(xmlResource, helper, options);
@@ -426,14 +539,14 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			extendedMetaData = rmfExtendedMetaData;
 		}
 
-		deserializationRuleStack = new MyStack<DeserializationRule>();
+		deserializationRuleStack = new MyStack<LoadPattern>();
 
 	}
 
 	@Override
 	public void endElement(String uri, String localName, String qName) {
 		if (null != rmfExtendedMetaData) {
-			DeserializationRule activeDeserializationRule = deserializationRuleStack.peek();
+			LoadPattern activeDeserializationRule = deserializationRuleStack.peek();
 			if (null != activeDeserializationRule) {
 				activeDeserializationRule.endElement(uri, localName);
 				if (activeDeserializationRule.needsDelegateParent()) {
@@ -471,9 +584,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		if (null != rmfExtendedMetaData) {
 			// why do we need the prefix indirection?
 			String namespace = helper.getNamespaceURI(prefix);
-			DeserializationRule activeDeserializationRule = deserializationRuleStack.peek();
+			LoadPattern activeDeserializationRule = deserializationRuleStack.peek();
 			if (null == activeDeserializationRule) {
-				activeDeserializationRule = getDeserializationRule(peekObject, prefix, name);
+				activeDeserializationRule = getLoadPattern(peekObject, prefix, name);
 				if (null != activeDeserializationRule) {
 					deserializationRuleStack.push(activeDeserializationRule);
 				} else {
@@ -484,7 +597,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			if (null != activeDeserializationRule) {
 				activeDeserializationRule.startElement(namespace, name);
 				if (activeDeserializationRule.needsDelegateChild()) {
-					activeDeserializationRule = getDeserializationRule(peekObject, prefix, name);
+					activeDeserializationRule = getLoadPattern(peekObject, prefix, name);
 					if (null != activeDeserializationRule) {
 						deserializationRuleStack.push(activeDeserializationRule);
 						activeDeserializationRule.startElement(namespace, name);
@@ -583,38 +696,49 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	protected DeserializationRule getDeserializationRule(EObject eObject, String prefix, String name) {
+	protected LoadPattern getLoadPattern(EObject eObject, String prefix, String name) {
 		assert null != rmfExtendedMetaData;
 
-		DeserializationRule deserializationRule = null;
+		LoadPattern deserializationRule = null;
 
 		EStructuralFeature feature = getFeature(eObject, prefix, name, true);
 		if (null != feature) {
 			int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(feature);
-			if (feature instanceof EReference && ((EReference) feature).isContainment() || feature instanceof EAttribute) {
-				switch (featureSerializationStructure) {
-				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
-					deserializationRule = new DesrializationRuleContained0001Impl(eObject, feature);
-					break;
-				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
-					deserializationRule = new DesrializationRuleContained0100Impl(eObject, feature);
-					break;
-				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-					deserializationRule = new DesrializationRuleContained0101Impl(eObject, feature);
-					break;
-				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-					deserializationRule = new DesrializationRuleContained1001Impl(eObject, feature);
-					break;
-				default:
-					deserializationRule = new DesrializationRuleContained1001Impl(eObject, feature);
-					break;
+			if (feature instanceof EReference) {
+				EReference reference = (EReference) feature;
+				if (reference.isContainment()) {
+					switch (featureSerializationStructure) {
+					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
+						deserializationRule = new LoadPatternContained0001Impl(eObject, feature);
+						break;
+					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+						deserializationRule = new LoadPatternContained0100Impl(eObject, feature);
+						break;
+					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+						deserializationRule = new LoadPatternContained0101Impl(eObject, feature);
+						break;
+					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+						deserializationRule = new LoadPatternContained1001Impl(eObject, feature);
+						break;
+					default:
+						deserializationRule = new LoadPatternContained1001Impl(eObject, feature);
+						break;
+					}
+				} else {
+					switch (featureSerializationStructure) {
+					default:
+						deserializationRule = new LoadPatternReference1001Impl(eObject, feature);
+						break;
+					}
 				}
 			} else {
+				// feature is an EAttribute
 				switch (featureSerializationStructure) {
 				default:
-					deserializationRule = new DesrializationRuleReference1001Impl(eObject, feature);
+					deserializationRule = new LoadPatternAttribute0100Impl(eObject, feature);
 					break;
 				}
+
 			}
 		} else {
 			// handle error, feature not found
@@ -648,7 +772,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	@Override
 	public void prepare(XMLResource resource, XMLHelper helper, Map<?, ?> options) {
 		super.prepare(resource, helper, options);
-		deserializationRuleStack = new MyStack<DeserializationRule>();
+		deserializationRuleStack = new MyStack<LoadPattern>();
 	}
 
 }

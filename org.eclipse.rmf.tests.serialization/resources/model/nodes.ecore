@@ -989,6 +989,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0000-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1003,6 +1004,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0001-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1017,6 +1019,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0010-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1031,6 +1034,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0011-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1045,6 +1049,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0100-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1059,6 +1064,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0101-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1073,6 +1079,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0110-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1087,6 +1094,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0111-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1101,6 +1109,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1000-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1115,6 +1124,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1001-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1129,6 +1139,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1010-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1143,6 +1154,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1011-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1157,6 +1169,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1100-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1171,6 +1184,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1101-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1185,6 +1199,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1110-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1199,6 +1214,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1111-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>

@@ -1771,7 +1771,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0000Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0000Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-0000-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0000-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0000-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0000Single();
@@ -1798,7 +1798,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0001Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0001Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-0001-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0001-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0001-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0001Single();
@@ -1825,7 +1825,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0010Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0010Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-0010-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0010-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0010-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0010Single();
@@ -1852,7 +1852,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0011Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0011Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-0011-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0011-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0011-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0011Single();
@@ -1879,7 +1879,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0100Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0100Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-0100-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0100-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0100-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0100Single();
@@ -1906,7 +1906,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0101Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0101Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-0101-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0101-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0101-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0101Single();
@@ -1933,7 +1933,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0110Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0110Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-0110-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0110-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0110-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0110Single();
@@ -1960,7 +1960,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0111Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0111Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-0111-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0111-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0111-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0111Single();
@@ -1987,7 +1987,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1000Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1000Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-1000-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1000-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1000-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1000Single();
@@ -2014,7 +2014,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1001Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1001Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-1001-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1001-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1001-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1001Single();
@@ -2041,7 +2041,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1010Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1010Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-1010-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1010-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1010-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1010Single();
@@ -2068,7 +2068,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1011Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1011Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-1011-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1011-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1011-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1011Single();
@@ -2095,7 +2095,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1100Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1100Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-1100-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1100-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1100-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1100Single();
@@ -2122,7 +2122,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1101Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1101Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-1101-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1101-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1101-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1101Single();
@@ -2149,7 +2149,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1110Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1110Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-1110-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1110-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1110-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1110Single();
@@ -2176,7 +2176,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1111Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1111Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-1111-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1111-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1111-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1111Single();

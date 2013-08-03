@@ -1873,6 +1873,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0000-SINGLE"
 		   });			
 		addAnnotation
@@ -1880,6 +1881,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0001-SINGLE"
 		   });			
 		addAnnotation
@@ -1887,6 +1889,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0010-SINGLE"
 		   });			
 		addAnnotation
@@ -1894,6 +1897,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0011-SINGLE"
 		   });			
 		addAnnotation
@@ -1901,6 +1905,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0100-SINGLE"
 		   });			
 		addAnnotation
@@ -1908,6 +1913,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0101-SINGLE"
 		   });			
 		addAnnotation
@@ -1915,6 +1921,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0110-SINGLE"
 		   });			
 		addAnnotation
@@ -1922,6 +1929,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0111-SINGLE"
 		   });			
 		addAnnotation
@@ -1929,6 +1937,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1000-SINGLE"
 		   });			
 		addAnnotation
@@ -1936,6 +1945,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1001-SINGLE"
 		   });			
 		addAnnotation
@@ -1943,6 +1953,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1010-SINGLE"
 		   });			
 		addAnnotation
@@ -1950,6 +1961,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1011-SINGLE"
 		   });			
 		addAnnotation
@@ -1957,6 +1969,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1100-SINGLE"
 		   });			
 		addAnnotation
@@ -1964,6 +1977,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1101-SINGLE"
 		   });			
 		addAnnotation
@@ -1971,6 +1985,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1110-SINGLE"
 		   });			
 		addAnnotation
@@ -1978,6 +1993,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1111-SINGLE"
 		   });			
 		addAnnotation
