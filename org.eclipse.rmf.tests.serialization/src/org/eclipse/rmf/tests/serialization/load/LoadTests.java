@@ -47,6 +47,38 @@ public class LoadTests extends AbstractTestCase {
 	}
 
 	@Test
+	public void testEAtribute_Atribute1000Many() {
+		String inputFileName = INPUT_PATH + "EAttribute_Attribute1000Many.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateEAttributeMany(modelRoot, NodesPackage.eINSTANCE.getNode_EAttribute_Attribute1000Many());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	public void testEAtribute_Atribute0100Single() {
+		String inputFileName = INPUT_PATH + "EAttribute_Attribute0100Single.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateEAttributeSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0100Single());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEAtribute_Atribute1000Single() {
+		String inputFileName = INPUT_PATH + "EAttribute_Attribute1000Single.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateEAttributeSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EAttribute_Attribute1000Single());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
 	public void testEReference_Contained1001_Single() {
 		String inputFileName = INPUT_PATH + "EReference_Contained1001Single.xml";
 		try {
@@ -254,7 +286,7 @@ public class LoadTests extends AbstractTestCase {
 
 		Object valueObject = node.eGet(feature);
 		assertNotNull(valueObject);
-		assertEquals("value", valueObject);
+		assertEquals("value1", valueObject);
 	}
 
 }

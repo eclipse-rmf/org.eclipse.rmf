@@ -12,6 +12,7 @@
 package org.eclipse.rmf.internal.serialization;
 
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EFactory;
@@ -220,6 +221,67 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_READY;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+
+			default:
+				// TODO: handle error
+			}
+		}
+	}
+
+	class LoadPatternAttribute1000Impl extends AbstractLoadPatternImpl {
+
+		public LoadPatternAttribute1000Impl(EObject anchorEObject, EStructuralFeature feature) {
+			super(anchorEObject, feature);
+		}
+
+		public void startElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				text = new StringBuffer(); // record all strings
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
+				// TODO handle error. no further elements expected here
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				// wait to read contained text
+				break;
+			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+
+			default:
+				// TODO: handle error
+			}
+		}
+
+		public void endElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
+				if (null == text) {
+					setFeatureValue(anchorEObject, feature, null);
+				} else {
+					String svalues = text.toString();
+					StringTokenizer st = new StringTokenizer(svalues);
+					String svalue;
+					while (st.hasMoreTokens()) {
+						svalue = st.nextToken();
+						setFeatureValue(anchorEObject, feature, svalue);
+					}
+				}
+				text = null;
+				currentState = STATE_READY;
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
@@ -734,6 +796,19 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			} else {
 				// feature is an EAttribute
 				switch (featureSerializationStructure) {
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+					deserializationRule = new LoadPatternAttribute0100Impl(eObject, feature);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1000__FEATURE_WRAPPER_ELEMENT:
+					deserializationRule = new LoadPatternAttribute1000Impl(eObject, feature);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
+					deserializationRule = new LoadPatternAttribute1100Impl(eObject, feature);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
+					deserializationRule = new LoadPatternAttribute0100Impl(eObject, feature);
+					break;
+
 				default:
 					deserializationRule = new LoadPatternAttribute0100Impl(eObject, feature);
 					break;

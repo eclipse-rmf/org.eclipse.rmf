@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes:NODE xmlns:nodes="http://www.eclipse.org/rmf/serialization/model/nodes.ecore">
+  <nodes:EATTRIBUTE-ATTRIBUTE-1000-MANIES>value1 value2</nodes:EATTRIBUTE-ATTRIBUTE-1000-MANIES>
+</nodes:NODE>
