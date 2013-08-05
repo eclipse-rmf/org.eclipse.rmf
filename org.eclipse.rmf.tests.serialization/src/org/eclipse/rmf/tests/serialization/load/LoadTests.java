@@ -13,6 +13,7 @@ package org.eclipse.rmf.tests.serialization.load;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
@@ -90,13 +91,13 @@ public class LoadTests extends AbstractTestCase {
 		}
 	}
 
-	// @Test
-	public void _testEReference_Contained0001_Single() {
+	@Test
+	public void testEReference_Contained0001_Single() {
 		String inputFileName = INPUT_PATH + "EReference_Contained0001Single.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
-			validateModelSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained0001Single(),
-					NodesPackage.eINSTANCE.getNode_EReference_Contained0001Single());
+			validateModelSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained0001Many(),
+					NodesPackage.eINSTANCE.getNode_EReference_Contained0001Many());
 		} catch (Exception ex) {
 
 			assertTrue(ex.getMessage(), false);
@@ -282,24 +283,38 @@ public class LoadTests extends AbstractTestCase {
 
 	}
 
-	protected void validateModelSingle(EObject modelRoot, EStructuralFeature topFeature, EStructuralFeature subFeature) {
+	protected void validateModelSingle(EObject modelRoot, EReference topFeature, EReference subFeature) {
 		// check root node
 		assertNotNull(modelRoot);
 		assertSame(NodesPackage.eINSTANCE.getNode(), modelRoot.eClass());
 		Node node = (Node) modelRoot;
 
 		// check intermediate node
-		Object intermediateNodeObject1 = node.eGet(topFeature);
+		Object intermediateNodeObject1;
+		if (topFeature.isMany()) {
+			EList<EObject> intermediateNodeObjects = (EList<EObject>) node.eGet(topFeature);
+			assertSame(1, intermediateNodeObjects.size());
+			intermediateNodeObject1 = intermediateNodeObjects.get(0);
+		} else {
+			intermediateNodeObject1 = node.eGet(topFeature);
+		}
 		assertNotNull(intermediateNodeObject1);
 		assertTrue(intermediateNodeObject1 instanceof Node);
 		Node intermediateNode1 = (Node) intermediateNodeObject1;
 		assertEquals("intermediateNode1", intermediateNode1.getName());
 
 		// check leaf node
-		Object leafNodeObject11 = intermediateNode1.eGet(subFeature);
-		assertNotNull(leafNodeObject11);
-		assertTrue(leafNodeObject11 instanceof Node);
-		Node leafNode11 = (Node) leafNodeObject11;
+		Object leafNodeObject1;
+		if (topFeature.isMany()) {
+			EList<EObject> leafNodeObjects = (EList<EObject>) intermediateNode1.eGet(subFeature);
+			assertSame(1, leafNodeObjects.size());
+			leafNodeObject1 = leafNodeObjects.get(0);
+		} else {
+			leafNodeObject1 = intermediateNode1.eGet(subFeature);
+		}
+		assertNotNull(leafNodeObject1);
+		assertTrue(leafNodeObject1 instanceof Node);
+		Node leafNode11 = (Node) leafNodeObject1;
 		assertEquals("leafNode1", leafNode11.getName());
 	}
 

@@ -366,6 +366,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 												// not found, continue with next feature
 											}
 										} else if (classifier instanceof EClass) {
+											EClass eClass = (EClass) classifier;
 											if (eClass.getEAllSuperTypes().contains(feature.getEType())) {
 												if (isIdentifiedByClassifier(feature)) {
 													results.add(feature);
