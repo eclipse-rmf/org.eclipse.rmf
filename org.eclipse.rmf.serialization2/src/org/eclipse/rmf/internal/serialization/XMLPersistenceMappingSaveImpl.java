@@ -599,7 +599,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 	}
 
 	@Override
-	protected void saveHRefMany(EObject o, EStructuralFeature f) {
+	protected void saveElementReferenceMany(EObject o, EStructuralFeature f) {
 		if (null != rmfExtendedMetaData && null != extendedMetaData) {
 			// TODO: check for null values
 			InternalEList<? extends EObject> values = (InternalEList<? extends EObject>) helper.getValue(o, f);
@@ -634,15 +634,38 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 	}
 
 	protected void saveReferenced0100Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
-
+		int size = values.size();
+		String qname = getFeatureQName(f);
+		for (int i = 0; i < size; i++) {
+			// TODO: what is the difference between get and basicGet?
+			saveReferencedHREF(f, values.basicGet(i), qname);
+		}
 	}
 
 	protected void saveReferenced0101Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
-
+		int size = values.size();
+		String qname;
+		EObject value;
+		doc.startElement(getFeatureQName(f));
+		for (int i = 0; i < size; i++) {
+			value = values.basicGet(i);
+			qname = getClassifierQName(value.eClass());
+			saveReferencedHREF(f, value, qname);
+		}
+		doc.endElement();
 	}
 
 	protected void saveReferenced1001Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
-
+		int size = values.size();
+		String qname;
+		EObject value;
+		doc.startElement(getFeatureWrapperQName(f));
+		for (int i = 0; i < size; i++) {
+			value = values.basicGet(i);
+			qname = getClassifierQName(value.eClass());
+			saveReferencedHREF(f, value, qname);
+		}
+		doc.endElement();
 	}
 
 	@Override

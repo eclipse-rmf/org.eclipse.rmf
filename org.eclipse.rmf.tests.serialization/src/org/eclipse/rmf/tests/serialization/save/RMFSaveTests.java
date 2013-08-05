@@ -35,6 +35,7 @@ import org.eclipse.rmf.tests.serialization.internal.Activator;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesFactory;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
+import org.eclipse.rmf.tests.serialization.model.nodes.SubNode;
 import org.eclipse.sphinx.testutils.AbstractTestCase;
 import org.junit.Before;
 import org.junit.Test;
@@ -944,6 +945,58 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
+	public void testEReference_Referenced0100Many() {
+		try {
+			String fileName = BASEDIR + "EReference_Referenced0100Many.xml";
+			Node rootNode = createNodeModel_ReferencedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Referenced0100Many());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("node", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-MANY-REF[1]", root, XPathConstants.STRING));
+			assertEquals("", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-MANY-REF[1]/@xsi:type", root, XPathConstants.STRING));
+			assertEquals("subNode", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-MANY-REF[2]", root, XPathConstants.STRING));
+			// assertEquals("nodes:SubNode",
+			// xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-MANY-REF[2]/@xsi:type", root,
+			// XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Referenced0101Many() {
+		try {
+			String fileName = BASEDIR + "EReference_Referenced0101Many.xml";
+			Node rootNode = createNodeModel_ReferencedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Referenced0101Many());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("node", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0101-MANY-REF/nodes:NODE[1]", root, XPathConstants.STRING));
+			assertEquals("subNode",
+					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0101-MANY-REF/nodes:SUB-NODE[1]", root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Referenced1001Many() {
+		try {
+			String fileName = BASEDIR + "EReference_Referenced1001Many.xml";
+			Node rootNode = createNodeModel_ReferencedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Referenced1001Many());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("node", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-1001-MANY-REFS/nodes:NODE[1]", root, XPathConstants.STRING));
+			assertEquals("subNode",
+					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-1001-MANY-REFS/nodes:SUB-NODE[1]", root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
 	public void testEAttribute_Attribute0001Many() {
 		try {
 			String fileName = BASEDIR + "EAttribute_Attribute0001Many.xml";
@@ -1529,9 +1582,19 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = NodesFactory.eINSTANCE.createNode();
 		rootNode.setName("root");
 
-		EList<EObject> values = (EList<EObject>) rootNode.eGet(reference);
-		values.add(rootNode);
-		values.add(rootNode);
+		Node node = NodesFactory.eINSTANCE.createNode();
+		node.setName("node");
+
+		SubNode subNode = NodesFactory.eINSTANCE.createSubNode();
+		subNode.setName("subNode");
+
+		EList<EObject> containedValues = (EList<EObject>) rootNode.eGet(NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
+		containedValues.add(node);
+		containedValues.add(subNode);
+
+		EList<EObject> referencedNodes = (EList<EObject>) rootNode.eGet(reference);
+		referencedNodes.add(node);
+		referencedNodes.add(subNode);
 
 		return rootNode;
 	}
