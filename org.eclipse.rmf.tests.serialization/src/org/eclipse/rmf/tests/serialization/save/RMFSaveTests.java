@@ -906,13 +906,352 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
+	public void testEReference_Contained0000Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained0000Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained0000Single(),
+					NodesPackage.eINSTANCE.getNode_EReference_Contained0101Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("leafNode1",
+					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-CONTAINED-0101-SINGLE[1]/nodes:SUB-NODE/@name", root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained0001Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained0001Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained0001Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1", xpath.evaluate("/nodes:NODE/nodes:NODE[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode1", xpath.evaluate("/nodes:NODE/nodes:NODE[1]/nodes:SUB-NODE[1]/@name", root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained0010Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained0010Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained0010Single(),
+					NodesPackage.eINSTANCE.getNode_EReference_Contained0101Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1", xpath.evaluate("/nodes:NODE/nodes:NODES[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode1", xpath.evaluate("/nodes:NODE/nodes:NODES[1]//nodes:EREFERENCE-CONTAINED-0101-SINGLE[1]/nodes:SUB-NODE[1]/@name",
+					root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained0011Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained0011Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained0011Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1", xpath.evaluate("/nodes:NODE/nodes:NODES[1]/nodes:NODE[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode1", xpath.evaluate("/nodes:NODE/nodes:NODES[1]/nodes:NODE[1]/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/@name", root,
+					XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained0100Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained0100Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained0100Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1",
+					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-CONTAINED-0100-SINGLE[1]/@name", root, XPathConstants.STRING));
+			assertEquals("leafNode1", xpath.evaluate(
+					"/nodes:NODE/nodes:EREFERENCE-CONTAINED-0100-SINGLE[1]/nodes:EREFERENCE-CONTAINED-0100-SINGLE[1]/@name", root,
+					XPathConstants.STRING));
+			assertEquals("nodes:SUB-NODE", xpath.evaluate(
+					"/nodes:NODE/nodes:EREFERENCE-CONTAINED-0100-SINGLE[1]/nodes:EREFERENCE-CONTAINED-0100-SINGLE[1]/@xsi:type", root,
+					XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained0101Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained0101Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained0101Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1",
+					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-CONTAINED-0101-SINGLE[1]/nodes:NODE/@name", root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode1",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-0101-SINGLE[1]/nodes:NODE/nodes:EREFERENCE-CONTAINED-0101-SINGLE[1]/nodes:SUB-NODE/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-0101-SINGLE[1]/nodes:NODE/nodes:EREFERENCE-CONTAINED-0101-SINGLE[1]/nodes:NODE/@xsi:type",
+							root, XPathConstants.STRING));
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained0110Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained0110Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained0110Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1",
+					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-CONTAINED-0110-SINGLE[1]/nodes:NODES/@name", root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode1",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-0110-SINGLE[1]/nodes:NODES/nodes:EREFERENCE-CONTAINED-0110-SINGLE[1]/nodes:SUB-NODES/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-0110-SINGLE[1]/nodes:NODES/nodes:EREFERENCE-CONTAINED-0110-SINGLE[1]/nodes:SUB-NODES/@xsi:type",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained0111Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained0111Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained0111Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1",
+					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-CONTAINED-0111-SINGLE[1]/nodes:NODES/nodes:NODE/@name", root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode1",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-0111-SINGLE[1]/nodes:NODES/nodes:NODE/nodes:EREFERENCE-CONTAINED-0111-SINGLE[1]/nodes:SUB-NODES/nodes:SUB-NODE/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-0111-SINGLE[1]/nodes:NODES/nodes:NODE/nodes:EREFERENCE-CONTAINED-0111-SINGLE[1]/nodes:SUB-NODES/nodes:SUB-NODE/@xsi:type",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained1000Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained1000Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained1000Single(),
+					NodesPackage.eINSTANCE.getNode_EReference_Contained0101Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("leafNode1", xpath.evaluate(
+					"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1000-SINGLES/nodes:EREFERENCE-CONTAINED-0101-SINGLE[1]/nodes:SUB-NODE/@name", root,
+					XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained1001Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained1001Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained1001Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1",
+					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-CONTAINED-1001-SINGLES/nodes:NODE[1]/@name", root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode1",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1001-SINGLES/nodes:NODE[1]/nodes:EREFERENCE-CONTAINED-1001-SINGLES/nodes:SUB-NODE[1]/@name",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained1010Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained1010Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained1010Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1",
+					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-CONTAINED-1010-SINGLES/nodes:NODES[1]/@name", root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode1",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1010-SINGLES/nodes:NODES[1]/nodes:EREFERENCE-CONTAINED-1010-SINGLES[1]/nodes:SUB-NODES[1]/@name",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained1011Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained1011Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained1011Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1", xpath.evaluate(
+					"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1011-SINGLES/nodes:NODES[1]/nodes:NODE[1]/@name", root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode1",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1011-SINGLES/nodes:NODES[1]/nodes:NODE[1]/nodes:EREFERENCE-CONTAINED-1011-SINGLES/nodes:SUB-NODES[1]/nodes:SUB-NODE[1]/@name",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained1100Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained1100Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained1100Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1", xpath.evaluate(
+					"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1100-SINGLES/nodes:EREFERENCE-CONTAINED-1100-SINGLE[1]/@name", root,
+					XPathConstants.STRING));
+			assertEquals(
+					"leafNode1",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1100-SINGLES/nodes:EREFERENCE-CONTAINED-1100-SINGLE[1]/nodes:EREFERENCE-CONTAINED-1100-SINGLES/nodes:EREFERENCE-CONTAINED-1100-SINGLE[1]/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"nodes:SUB-NODE",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1100-SINGLES/nodes:EREFERENCE-CONTAINED-1100-SINGLE[1]/nodes:EREFERENCE-CONTAINED-1100-SINGLES/nodes:EREFERENCE-CONTAINED-1100-SINGLE[1]/@xsi:type",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained1101Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained1101Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained1101Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1", xpath.evaluate(
+					"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1101-SINGLES/nodes:EREFERENCE-CONTAINED-1101-SINGLE[1]/nodes:NODE/@name", root,
+					XPathConstants.STRING));
+			assertEquals(
+					"leafNode1",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1101-SINGLES/nodes:EREFERENCE-CONTAINED-1101-SINGLE[1]/nodes:NODE/nodes:EREFERENCE-CONTAINED-1101-SINGLES/nodes:EREFERENCE-CONTAINED-1101-SINGLE[1]/nodes:SUB-NODE/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1101-SINGLES/nodes:EREFERENCE-CONTAINED-1101-SINGLE[1]/nodes:NODE/nodes:EREFERENCE-CONTAINED-1101-SINGLES/nodes:EREFERENCE-CONTAINED-1101-SINGLE[1]/nodes:SUB-NODE/@xsi:type",
+							root, XPathConstants.STRING));
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained1110Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained1110Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained1110Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1", xpath.evaluate(
+					"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1110-SINGLES/nodes:EREFERENCE-CONTAINED-1110-SINGLE[1]/nodes:NODES/@name", root,
+					XPathConstants.STRING));
+			assertEquals(
+					"leafNode1",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1110-SINGLES/nodes:EREFERENCE-CONTAINED-1110-SINGLE[1]/nodes:NODES/nodes:EREFERENCE-CONTAINED-1110-SINGLES/nodes:EREFERENCE-CONTAINED-1110-SINGLE[1]/nodes:SUB-NODES/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1110-SINGLES/nodes:EREFERENCE-CONTAINED-1110-SINGLE[1]/nodes:NODES/nodes:EREFERENCE-CONTAINED-1110-SINGLES/nodes:EREFERENCE-CONTAINED-1110-SINGLE[1]/nodes:SUB-NODES/@xsi:type",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained1111Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Contained1111Single.xml";
+			Node rootNode = createNodeModel_ContainedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Contained1111Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("intermediateNode1", xpath.evaluate(
+					"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1111-SINGLES/nodes:EREFERENCE-CONTAINED-1111-SINGLE[1]/nodes:NODES/nodes:NODE/@name",
+					root, XPathConstants.STRING));
+			assertEquals(
+					"leafNode1",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1111-SINGLES/nodes:EREFERENCE-CONTAINED-1111-SINGLE[1]/nodes:NODES/nodes:NODE/nodes:EREFERENCE-CONTAINED-1111-SINGLES/nodes:EREFERENCE-CONTAINED-1111-SINGLE[1]/nodes:SUB-NODES/nodes:SUB-NODE/@name",
+							root, XPathConstants.STRING));
+			assertEquals(
+					"",
+					xpath.evaluate(
+							"/nodes:NODE/nodes:EREFERENCE-CONTAINED-1111-SINGLES/nodes:EREFERENCE-CONTAINED-1111-SINGLE[1]/nodes:NODES/nodes:NODE/nodes:EREFERENCE-CONTAINED-1111-SINGLES/nodes:EREFERENCE-CONTAINED-1111-SINGLE[1]/nodes:SUB-NODES/nodes:SUB-NODE/@xsi:type",
+							root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
 	public void testEReference_Referenced0100Single() {
 		try {
 			String fileName = BASEDIR + "EReference_Referenced0100Single.xml";
 			Node rootNode = createNodeModel_ReferencedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Referenced0100Single());
 			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
 
-			assertEquals("root", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-SINGLE-REF", root, XPathConstants.STRING));
+			assertEquals("root", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-0100-SINGLE-REF", root, XPathConstants.STRING));
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -925,7 +1264,7 @@ public class RMFSaveTests extends AbstractTestCase {
 			Node rootNode = createNodeModel_ReferencedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Referenced0101Single());
 			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
 
-			assertEquals("root", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0101-SINGLE-REF/nodes:NODE", root, XPathConstants.STRING));
+			assertEquals("root", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-0101-SINGLE-REF/nodes:NODE", root, XPathConstants.STRING));
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -938,7 +1277,7 @@ public class RMFSaveTests extends AbstractTestCase {
 			Node rootNode = createNodeModel_ReferencedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Referenced1001Single());
 			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
 
-			assertEquals("root", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-1001-SINGLE-REFS/nodes:NODE", root, XPathConstants.STRING));
+			assertEquals("root", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-1001-SINGLE-REFS/nodes:NODE", root, XPathConstants.STRING));
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -951,11 +1290,11 @@ public class RMFSaveTests extends AbstractTestCase {
 			Node rootNode = createNodeModel_ReferencedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Referenced0100Many());
 			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
 
-			assertEquals("node", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-MANY-REF[1]", root, XPathConstants.STRING));
-			assertEquals("", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-MANY-REF[1]/@xsi:type", root, XPathConstants.STRING));
-			assertEquals("subNode", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-MANY-REF[2]", root, XPathConstants.STRING));
+			assertEquals("node", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-0100-MANY-REF[1]", root, XPathConstants.STRING));
+			assertEquals("", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-0100-MANY-REF[1]/@xsi:type", root, XPathConstants.STRING));
+			assertEquals("subNode", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-0100-MANY-REF[2]", root, XPathConstants.STRING));
 			assertEquals("nodes:SUB-NODE",
-					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-MANY-REF[2]/@xsi:type", root, XPathConstants.STRING));
+					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-0100-MANY-REF[2]/@xsi:type", root, XPathConstants.STRING));
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -970,9 +1309,9 @@ public class RMFSaveTests extends AbstractTestCase {
 			Node rootNode = createNodeModel_ReferencedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Referenced0101Many());
 			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
 
-			assertEquals("node", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0101-MANY-REF/nodes:NODE[1]", root, XPathConstants.STRING));
+			assertEquals("node", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-0101-MANY-REF/nodes:NODE[1]", root, XPathConstants.STRING));
 			assertEquals("subNode",
-					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0101-MANY-REF/nodes:SUB-NODE[1]", root, XPathConstants.STRING));
+					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-0101-MANY-REF/nodes:SUB-NODE[1]", root, XPathConstants.STRING));
 
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
@@ -986,9 +1325,9 @@ public class RMFSaveTests extends AbstractTestCase {
 			Node rootNode = createNodeModel_ReferencedxxxxMany(NodesPackage.eINSTANCE.getNode_EReference_Referenced1001Many());
 			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
 
-			assertEquals("node", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-1001-MANY-REFS/nodes:NODE[1]", root, XPathConstants.STRING));
+			assertEquals("node", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-1001-MANY-REFS/nodes:NODE[1]", root, XPathConstants.STRING));
 			assertEquals("subNode",
-					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-1001-MANY-REFS/nodes:SUB-NODE[1]", root, XPathConstants.STRING));
+					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-1001-MANY-REFS/nodes:SUB-NODE[1]", root, XPathConstants.STRING));
 
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
@@ -1558,6 +1897,28 @@ public class RMFSaveTests extends AbstractTestCase {
 		((EList<Object>) rootNode.eGet(topLevelfeature)).add(intermediateNode2);
 		((EList<Object>) rootNode.eGet(topLevelfeature)).add(intermediateSubNode3);
 		((EList<Object>) rootNode.eGet(topLevelfeature)).add(intermediateSubNode4);
+
+		return rootNode;
+	}
+
+	protected Node createNodeModel_ContainedxxxxSingle(EStructuralFeature feature) {
+		return createNodeModel_ContainedxxxxSingle(feature, feature);
+	}
+
+	@SuppressWarnings("unchecked")
+	protected Node createNodeModel_ContainedxxxxSingle(EStructuralFeature topLevelfeature, EStructuralFeature subFeature) {
+		assert !topLevelfeature.isMany();
+		Node rootNode = NodesFactory.eINSTANCE.createNode();
+		rootNode.setName("root");
+
+		Node intermediateNode1 = NodesFactory.eINSTANCE.createNode();
+		intermediateNode1.setName("intermediateNode1");
+
+		SubNode leafNode1 = NodesFactory.eINSTANCE.createSubNode();
+		leafNode1.setName("leafNode1");
+
+		intermediateNode1.eSet(subFeature, leafNode1);
+		rootNode.eSet(topLevelfeature, intermediateNode1);
 
 		return rootNode;
 	}

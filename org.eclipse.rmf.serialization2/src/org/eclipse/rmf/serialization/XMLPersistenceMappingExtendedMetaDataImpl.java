@@ -277,7 +277,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		}
 
 		public String getXMLWrapperName() {
-			if (UNINITIALIZED_STRING == xmlName) {
+			if (UNINITIALIZED_STRING == xmlWrapperName) {
 				setXMLWrapperName(basicGetWrapperName(eClass));
 			}
 			return xmlWrapperName;
