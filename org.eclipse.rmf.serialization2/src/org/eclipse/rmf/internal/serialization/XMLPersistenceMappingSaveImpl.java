@@ -520,6 +520,132 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 	}
 
 	@Override
+	protected void saveElementReferenceSingle(EObject o, EStructuralFeature f) {
+		assert null != helper.getValue(o, f);
+
+		if (null != rmfExtendedMetaData && null != extendedMetaData) {
+			// TODO: check for null values
+			EObject remote = (EObject) helper.getValue(o, f);
+			if (null != remote) {
+
+				int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(f);
+
+				switch (featureSerializationStructure) {
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
+					// not allowed - ignore;
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+					// default EMF mapping
+					saveReferenced0100Single(remote, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+					saveReferenced0101Single(remote, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+					saveReferenced1001Single(remote, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
+					// if undefined, use the standard EMF mechanism
+					super.saveElementReferenceSingle(o, f);
+					break;
+				default:
+					saveReferenced1001Single(remote, f);
+					break;
+				}
+			}
+
+		} else {
+			super.saveElementReferenceSingle(o, f);
+		}
+	}
+
+	protected void saveReferencedHREF(EStructuralFeature f, EObject remote, String qname) {
+		{
+			String href = helper.getHREF(remote);
+			if (href != null) {
+				href = convertURI(href);
+				EClass eClass = remote.eClass();
+				EClass expectedType = (EClass) f.getEType();
+				boolean shouldSaveType = saveTypeInfo ? xmlTypeInfo.shouldSaveType(eClass, expectedType, f) : eClass != expectedType
+						&& (proxyAttributes && eClass.getEAllAttributes().size() > expectedType.getEAllAttributes().size()
+								|| expectedType.isAbstract() || f.getEGenericType().getETypeParameter() != null);
+				doc.startElement(qname);
+
+				if (shouldSaveType) {
+					saveTypeAttribute(eClass);
+				}
+				doc.endContentElement(href);
+			}
+		}
+	}
+
+	protected void saveReferenced0100Single(EObject remote, EStructuralFeature f) {
+		String qname = getFeatureQName(f);
+		saveReferencedHREF(f, remote, qname);
+	}
+
+	protected void saveReferenced0101Single(EObject remote, EStructuralFeature f) {
+		doc.startElement(getFeatureQName(f));
+		String qname = getClassifierQName(remote.eClass());
+		saveReferencedHREF(f, remote, qname);
+		doc.endElement();
+	}
+
+	protected void saveReferenced1001Single(EObject remote, EStructuralFeature f) {
+		doc.startElement(getFeatureWrapperQName(f));
+		String qname = getClassifierQName(remote.eClass());
+		saveReferencedHREF(f, remote, qname);
+		doc.endElement();
+	}
+
+	@Override
+	protected void saveHRefMany(EObject o, EStructuralFeature f) {
+		if (null != rmfExtendedMetaData && null != extendedMetaData) {
+			// TODO: check for null values
+			InternalEList<? extends EObject> values = (InternalEList<? extends EObject>) helper.getValue(o, f);
+			int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(f);
+
+			switch (featureSerializationStructure) {
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
+				// not allowed - ignore;
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+				// default EMF mapping
+				saveReferenced0100Many(values, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+				saveReferenced0101Many(values, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				saveReferenced1001Many(values, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
+				// if undefined, use the standard EMF mechanism
+				super.saveHRefMany(o, f);
+				break;
+			default:
+				saveReferenced1001Many(values, f);
+				break;
+			}
+
+		} else {
+			super.saveHRefMany(o, f);
+		}
+	}
+
+	protected void saveReferenced0100Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+
+	}
+
+	protected void saveReferenced0101Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+
+	}
+
+	protected void saveReferenced1001Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+
+	}
+
+	@Override
 	protected void saveDataTypeElementSingle(EObject o, EStructuralFeature f) {
 		if (null != rmfExtendedMetaData && null != extendedMetaData) {
 			// TODO: check for null values
@@ -577,7 +703,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
 				// if undefined, use the standard EMF mechanism
-				saveAttribute0100Single(svalue, f);
+				super.saveDataTypeMany(o, f);
 				break;
 			default:
 				saveAttribute1001Single(svalue, f);

@@ -25,7 +25,9 @@ import org.eclipse.core.runtime.Plugin;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
@@ -903,6 +905,45 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
+	public void testEReference_Referenced0100Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Referenced0100Single.xml";
+			Node rootNode = createNodeModel_ReferencedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Referenced0100Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("root", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-SINGLE-REF", root, XPathConstants.STRING));
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Referenced0101Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Referenced0101Single.xml";
+			Node rootNode = createNodeModel_ReferencedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Referenced0101Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("root", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0101-SINGLE-REF/nodes:NODE", root, XPathConstants.STRING));
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Referenced1001Single() {
+		try {
+			String fileName = BASEDIR + "EReference_Referenced1001Single.xml";
+			Node rootNode = createNodeModel_ReferencedxxxxSingle(NodesPackage.eINSTANCE.getNode_EReference_Referenced1001Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("root", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-1001-SINGLE-REFS/nodes:NODE", root, XPathConstants.STRING));
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
 	public void testEAttribute_Attribute0001Many() {
 		try {
 			String fileName = BASEDIR + "EAttribute_Attribute0001Many.xml";
@@ -1465,6 +1506,32 @@ public class RMFSaveTests extends AbstractTestCase {
 		((EList<Object>) rootNode.eGet(topLevelfeature)).add(intermediateNode2);
 		((EList<Object>) rootNode.eGet(topLevelfeature)).add(intermediateSubNode3);
 		((EList<Object>) rootNode.eGet(topLevelfeature)).add(intermediateSubNode4);
+
+		return rootNode;
+	}
+
+	@SuppressWarnings("unchecked")
+	protected Node createNodeModel_ReferencedxxxxSingle(EReference reference) {
+		assert !reference.isContainment();
+		assert !reference.isMany();
+		Node rootNode = NodesFactory.eINSTANCE.createNode();
+		rootNode.setName("root");
+
+		rootNode.eSet(reference, rootNode);
+
+		return rootNode;
+	}
+
+	@SuppressWarnings("unchecked")
+	protected Node createNodeModel_ReferencedxxxxMany(EReference reference) {
+		assert !reference.isContainment();
+		assert reference.isMany();
+		Node rootNode = NodesFactory.eINSTANCE.createNode();
+		rootNode.setName("root");
+
+		EList<EObject> values = (EList<EObject>) rootNode.eGet(reference);
+		values.add(rootNode);
+		values.add(rootNode);
 
 		return rootNode;
 	}

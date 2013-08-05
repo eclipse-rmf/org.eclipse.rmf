@@ -1294,7 +1294,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		initEReference(getNode_EReference_Contained1111Many(), this.getNode(), null, "eReference_Contained1111Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_EReference_EmptyAnnotationMany(), this.getNode(), null, "eReference_EmptyAnnotationMany", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_EReference_NoAnnotationMany(), this.getNode(), null, "eReference_NoAnnotationMany", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_EReference_WithTypeEObject_Contained0001Many(), ecorePackage.getEObject(), null, "eReference_WithTypeEObject_Contained0001Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_EReference_WithTypeEObject_Contained0010Many(), ecorePackage.getEObject(), null, "eReference_WithTypeEObject_Contained0010Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_EReference_WithTypeEObject_Contained0100Many(), ecorePackage.getEObject(), null, "eReference_WithTypeEObject_Contained0100Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1649,118 +1649,135 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0000-SINGLE-REF"
+			 "name", "FEATURE-WITH-SERIALIZATION-0000-SINGLE-REF",
+			 "kind", "element"
 		   });				
 		addAnnotation
 		  (getNode_EReference_Referenced0001Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0001-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-0001-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0010Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0010-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-0010-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0011Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0011-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-0011-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0100Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0100-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-0100-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0101Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0101-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-0101-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0110Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0110-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-0110-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0111Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0111-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-0111-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1000Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1000-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-1000-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1001Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1001-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-1001-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1010Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1010-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-1010-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1011Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1011-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-1011-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1100Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1100-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-1100-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1101Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1101-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-1101-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1110Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1110-SINGLE-REF"
+			 "name", "EREFERENCE_REFERENCED-1110-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1111Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1111-SINGLE"
+			 "name", "EREFERENCE_REFERENCED-1111-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0000Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-0000-MANY-REF"
 		   });			
 		addAnnotation
@@ -1768,6 +1785,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-0001-MANY-REF"
 		   });			
 		addAnnotation
@@ -1775,6 +1793,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-0010-MANY-REF"
 		   });			
 		addAnnotation
@@ -1782,6 +1801,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-0011-MANY-REF"
 		   });			
 		addAnnotation
@@ -1789,6 +1809,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-0100-MANY-REF"
 		   });			
 		addAnnotation
@@ -1796,6 +1817,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-0101-MANY-REF"
 		   });			
 		addAnnotation
@@ -1803,6 +1825,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-0110-MANY-REF"
 		   });			
 		addAnnotation
@@ -1810,6 +1833,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-0111-MANY-REF"
 		   });			
 		addAnnotation
@@ -1817,6 +1841,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-1000-MANY-REF"
 		   });			
 		addAnnotation
@@ -1824,6 +1849,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-1001-MANY-REF"
 		   });			
 		addAnnotation
@@ -1831,6 +1857,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-1010-MANY-REF"
 		   });			
 		addAnnotation
@@ -1838,6 +1865,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-1011-MANY-REF"
 		   });			
 		addAnnotation
@@ -1845,6 +1873,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-1100-MANY-REF"
 		   });			
 		addAnnotation
@@ -1852,6 +1881,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-1101-MANY-REF"
 		   });			
 		addAnnotation
@@ -1859,6 +1889,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-1110-MANY-REF"
 		   });			
 		addAnnotation
@@ -1866,6 +1897,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EREFERENCE_REFERENCED-1111-MANY-REF"
 		   });			
 		addAnnotation

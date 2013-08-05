@@ -469,7 +469,8 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_NoAnnotationMany"
         upperBound="-1" eType="#//Node" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_WithTypeEObject_Contained0001Many"
         upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true">
@@ -535,6 +536,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0000-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
@@ -556,6 +558,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-0001-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0010Single"
@@ -570,6 +573,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-0010-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0011Single"
@@ -584,6 +588,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-0011-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0100Single"
@@ -598,6 +603,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-0100-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0101Single"
@@ -612,6 +618,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-0101-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0110Single"
@@ -626,6 +633,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-0110-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0111Single"
@@ -640,6 +648,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-0111-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1000Single"
@@ -654,6 +663,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-1000-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1001Single"
@@ -668,6 +678,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-1001-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1010Single"
@@ -682,6 +693,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-1010-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1011Single"
@@ -696,6 +708,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-1011-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1100Single"
@@ -710,6 +723,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-1100-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1101Single"
@@ -724,6 +738,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-1101-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1110Single"
@@ -738,6 +753,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-1110-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1111Single"
@@ -752,6 +768,7 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="EREFERENCE_REFERENCED-1111-SINGLE"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0000Many"
@@ -765,6 +782,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-0000-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -779,6 +797,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-0001-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -793,6 +812,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-0010-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -807,6 +827,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-0011-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -821,6 +842,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-0100-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -835,6 +857,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-0101-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -849,6 +872,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-0110-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -863,6 +887,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-0111-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -877,6 +902,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-1000-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -891,6 +917,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-1001-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -905,6 +932,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-1010-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -919,6 +947,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-1011-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -933,6 +962,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-1100-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -947,6 +977,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-1101-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -961,6 +992,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-1110-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -975,6 +1007,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EREFERENCE_REFERENCED-1111-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>

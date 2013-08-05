@@ -14,12 +14,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
@@ -35,9 +32,6 @@ public class XMLPersistenceMappingHelperImpl extends XMLHelperImpl implements XM
 		setPrefixToNamespaceMap(prefixToNamespaceMap);
 	}
 
-	/**
-	 * TODO: how to always make use of IDREF references?
-	 */
 	@Override
 	public String getHREF(EObject obj) {
 		if (obj.eIsProxy()) {
@@ -46,7 +40,6 @@ public class XMLPersistenceMappingHelperImpl extends XMLHelperImpl implements XM
 		} else {
 			return getIDREF(obj);
 		}
-
 	}
 
 	@Override
@@ -57,35 +50,4 @@ public class XMLPersistenceMappingHelperImpl extends XMLHelperImpl implements XM
 			return super.convertToString(factory, dataType, value);
 		}
 	}
-
-	@Override
-	public String getQName(EStructuralFeature feature) {
-		// we want all features of tool extensions that are not written as attributes to be fully qualified
-		EPackage ePackage = feature.getEContainingClass().getEPackage();
-		/*
-		 * if (ReqIF10Package.eINSTANCE == ePackage || XhtmlPackage.eINSTANCE == ePackage) { return
-		 * super.getQName(feature); } else { return getQName(ePackage, getName(feature)); }
-		 */
-		return null;
-
-	}
-
-	@Override
-	public String getQName(EClass c) {
-		// TODO Auto-generated method stub
-		return super.getQName(c);
-	}
-
-	@Override
-	public String getQName(EDataType c) {
-		// TODO Auto-generated method stub
-		return super.getQName(c);
-	}
-
-	@Override
-	public void setValue(EObject object, EStructuralFeature feature, Object value, int position) {
-		// TODO Auto-generated method stub
-		super.setValue(object, feature, value, position);
-	}
-
 }
