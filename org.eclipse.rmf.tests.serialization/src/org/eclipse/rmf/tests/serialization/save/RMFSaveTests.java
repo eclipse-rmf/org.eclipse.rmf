@@ -954,9 +954,8 @@ public class RMFSaveTests extends AbstractTestCase {
 			assertEquals("node", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-MANY-REF[1]", root, XPathConstants.STRING));
 			assertEquals("", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-MANY-REF[1]/@xsi:type", root, XPathConstants.STRING));
 			assertEquals("subNode", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-MANY-REF[2]", root, XPathConstants.STRING));
-			// assertEquals("nodes:SubNode",
-			// xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-MANY-REF[2]/@xsi:type", root,
-			// XPathConstants.STRING));
+			assertEquals("nodes:SUB-NODE",
+					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE_REFERENCED-0100-MANY-REF[2]/@xsi:type", root, XPathConstants.STRING));
 
 		} catch (Exception ex) {
 			ex.printStackTrace();

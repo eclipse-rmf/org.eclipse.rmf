@@ -566,9 +566,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 				href = convertURI(href);
 				EClass eClass = remote.eClass();
 				EClass expectedType = (EClass) f.getEType();
-				boolean shouldSaveType = saveTypeInfo ? xmlTypeInfo.shouldSaveType(eClass, expectedType, f) : eClass != expectedType
-						&& (proxyAttributes && eClass.getEAllAttributes().size() > expectedType.getEAllAttributes().size()
-								|| expectedType.isAbstract() || f.getEGenericType().getETypeParameter() != null);
+				boolean shouldSaveType = saveTypeInfo ? xmlTypeInfo.shouldSaveType(eClass, expectedType, f) : eClass != expectedType;
 				doc.startElement(qname);
 
 				if (shouldSaveType) {
