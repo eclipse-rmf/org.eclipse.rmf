@@ -13,6 +13,7 @@ package org.eclipse.rmf.tests.serialization.load;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
@@ -36,11 +37,43 @@ public class LoadTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testEReference_Contained1001_Single() {
-		String inputFileName = INPUT_PATH + "EReference_Contained1001Single.xml";
+	public void testEAtribute_Atribute0100Many() {
+		String inputFileName = INPUT_PATH + "EAttribute_Attribute0100Many.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
-			validateModelSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained1001Single());
+			validateEAttributeMany(modelRoot, NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0100Many());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEAtribute_Atribute1000Many() {
+		String inputFileName = INPUT_PATH + "EAttribute_Attribute1000Many.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateEAttributeMany(modelRoot, NodesPackage.eINSTANCE.getNode_EAttribute_Attribute1000Many());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	public void testEAtribute_Atribute0100Single() {
+		String inputFileName = INPUT_PATH + "EAttribute_Attribute0100Single.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateEAttributeSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0100Single());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEAtribute_Atribute1000Single() {
+		String inputFileName = INPUT_PATH + "EAttribute_Attribute1000Single.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateEAttributeSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EAttribute_Attribute1000Single());
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -59,6 +92,19 @@ public class LoadTests extends AbstractTestCase {
 	}
 
 	@Test
+	public void testEReference_Contained0001_Single() {
+		String inputFileName = INPUT_PATH + "EReference_Contained0001Single.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateModelSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained0001Many(),
+					NodesPackage.eINSTANCE.getNode_EReference_Contained0001Many());
+		} catch (Exception ex) {
+
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
 	public void testEReference_Contained0100_Many() {
 		String inputFileName = INPUT_PATH + "EReference_Contained0100Many.xml";
 		try {
@@ -66,6 +112,19 @@ public class LoadTests extends AbstractTestCase {
 			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many(),
 					NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
 		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained0100_Single() {
+		String inputFileName = INPUT_PATH + "EReference_Contained0100Single.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateModelSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained0100Single(),
+					NodesPackage.eINSTANCE.getNode_EReference_Contained0100Single());
+		} catch (Exception ex) {
+			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
 		}
 	}
@@ -83,12 +142,36 @@ public class LoadTests extends AbstractTestCase {
 	}
 
 	@Test
+	public void testEReference_Contained0101_Single() {
+		String inputFileName = INPUT_PATH + "EReference_Contained0101Single.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateModelSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained0101Single(),
+					NodesPackage.eINSTANCE.getNode_EReference_Contained0101Single());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
 	public void testEReference_Contained1001_Many() {
 		String inputFileName = INPUT_PATH + "EReference_Contained1001Many.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
 			validateModelMulti(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained1001Many(),
 					NodesPackage.eINSTANCE.getNode_EReference_Contained0100Many());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained1001_Single() {
+		String inputFileName = INPUT_PATH + "EReference_Contained1001Single.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateModelSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Contained1001Single(),
+					NodesPackage.eINSTANCE.getNode_EReference_Contained1001Single());
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
@@ -200,25 +283,64 @@ public class LoadTests extends AbstractTestCase {
 
 	}
 
-	protected void validateModelSingle(EObject modelRoot, EStructuralFeature feature) {
+	protected void validateModelSingle(EObject modelRoot, EReference topFeature, EReference subFeature) {
 		// check root node
 		assertNotNull(modelRoot);
 		assertSame(NodesPackage.eINSTANCE.getNode(), modelRoot.eClass());
 		Node node = (Node) modelRoot;
 
 		// check intermediate node
-		Object intermediateNodeObject1 = node.eGet(feature);
+		Object intermediateNodeObject1;
+		if (topFeature.isMany()) {
+			EList<EObject> intermediateNodeObjects = (EList<EObject>) node.eGet(topFeature);
+			assertSame(1, intermediateNodeObjects.size());
+			intermediateNodeObject1 = intermediateNodeObjects.get(0);
+		} else {
+			intermediateNodeObject1 = node.eGet(topFeature);
+		}
 		assertNotNull(intermediateNodeObject1);
 		assertTrue(intermediateNodeObject1 instanceof Node);
 		Node intermediateNode1 = (Node) intermediateNodeObject1;
 		assertEquals("intermediateNode1", intermediateNode1.getName());
 
 		// check leaf node
-		Object leafNodeObject11 = intermediateNode1.eGet(feature);
-		assertNotNull(leafNodeObject11);
-		assertTrue(leafNodeObject11 instanceof Node);
-		Node leafNode11 = (Node) leafNodeObject11;
-		assertEquals("leafNode11", leafNode11.getName());
+		Object leafNodeObject1;
+		if (topFeature.isMany()) {
+			EList<EObject> leafNodeObjects = (EList<EObject>) intermediateNode1.eGet(subFeature);
+			assertSame(1, leafNodeObjects.size());
+			leafNodeObject1 = leafNodeObjects.get(0);
+		} else {
+			leafNodeObject1 = intermediateNode1.eGet(subFeature);
+		}
+		assertNotNull(leafNodeObject1);
+		assertTrue(leafNodeObject1 instanceof Node);
+		Node leafNode11 = (Node) leafNodeObject1;
+		assertEquals("leafNode1", leafNode11.getName());
+	}
+
+	@SuppressWarnings("unchecked")
+	protected void validateEAttributeMany(EObject modelRoot, EStructuralFeature feature) {
+		// check root node
+		assertNotNull(modelRoot);
+		assertSame(NodesPackage.eINSTANCE.getNode(), modelRoot.eClass());
+		Node node = (Node) modelRoot;
+
+		// check intermediate node
+		EList<Object> valueObjects = (EList<Object>) node.eGet(feature);
+		assertSame(2, valueObjects.size());
+		assertEquals("value1", valueObjects.get(0));
+		assertEquals("value2", valueObjects.get(1));
+	}
+
+	protected void validateEAttributeSingle(EObject modelRoot, EStructuralFeature feature) {
+		// check root node
+		assertNotNull(modelRoot);
+		assertSame(NodesPackage.eINSTANCE.getNode(), modelRoot.eClass());
+		Node node = (Node) modelRoot;
+
+		Object valueObject = node.eGet(feature);
+		assertNotNull(valueObject);
+		assertEquals("value1", valueObject);
 	}
 
 }

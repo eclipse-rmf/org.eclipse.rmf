@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,8 @@ import java.util.Set;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -40,6 +43,8 @@ import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
  */
 public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 	XMLPersistenceMappingExtendedMetaData rmfExtendedMetaData = null;
+
+	final StringBuffer buffer = new StringBuffer();
 
 	public enum SerializationType {
 		attributesOnly, elementsOnly, attributesAndElements
@@ -515,11 +520,715 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 	}
 
 	@Override
+	protected void saveElementReferenceSingle(EObject o, EStructuralFeature f) {
+		assert null != helper.getValue(o, f);
+
+		if (null != rmfExtendedMetaData && null != extendedMetaData) {
+			// TODO: check for null values
+			EObject remote = (EObject) helper.getValue(o, f);
+			if (null != remote) {
+
+				int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(f);
+
+				switch (featureSerializationStructure) {
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
+					// not allowed - ignore;
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+					// default EMF mapping
+					saveReferenced0100Single(remote, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+					saveReferenced0101Single(remote, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+					saveReferenced1001Single(remote, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
+					// if undefined, use the standard EMF mechanism
+					super.saveElementReferenceSingle(o, f);
+					break;
+				default:
+					saveReferenced1001Single(remote, f);
+					break;
+				}
+			}
+
+		} else {
+			super.saveElementReferenceSingle(o, f);
+		}
+	}
+
+	protected void saveReferencedHREF(EStructuralFeature f, EObject remote, String qname, boolean doSaveType) {
+		{
+			String href = helper.getHREF(remote);
+			if (href != null) {
+				href = convertURI(href);
+				EClass eClass = remote.eClass();
+				EClass expectedType = (EClass) f.getEType();
+				boolean shouldSaveType = doSaveType && (saveTypeInfo ? xmlTypeInfo.shouldSaveType(eClass, expectedType, f) : eClass != expectedType);
+				doc.startElement(qname);
+				if (shouldSaveType) {
+					saveTypeAttribute(eClass);
+				}
+				doc.endContentElement(href);
+			}
+		}
+	}
+
+	protected void saveReferenced0100Single(EObject remote, EStructuralFeature f) {
+		String qname = getFeatureQName(f);
+		saveReferencedHREF(f, remote, qname, true);
+	}
+
+	protected void saveReferenced0101Single(EObject remote, EStructuralFeature f) {
+		doc.startElement(getFeatureQName(f));
+		String qname = getClassifierQName(remote.eClass());
+		saveReferencedHREF(f, remote, qname, false);
+		doc.endElement();
+	}
+
+	protected void saveReferenced1001Single(EObject remote, EStructuralFeature f) {
+		doc.startElement(getFeatureWrapperQName(f));
+		String qname = getClassifierQName(remote.eClass());
+		saveReferencedHREF(f, remote, qname, false);
+		doc.endElement();
+	}
+
+	@Override
+	protected void saveElementReferenceMany(EObject o, EStructuralFeature f) {
+		if (null != rmfExtendedMetaData && null != extendedMetaData) {
+			// TODO: check for null values
+			InternalEList<? extends EObject> values = (InternalEList<? extends EObject>) helper.getValue(o, f);
+			int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(f);
+
+			switch (featureSerializationStructure) {
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
+				// not allowed - ignore;
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+				// default EMF mapping
+				saveReferenced0100Many(values, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+				saveReferenced0101Many(values, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				saveReferenced1001Many(values, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
+				// if undefined, use the standard EMF mechanism
+				super.saveHRefMany(o, f);
+				break;
+			default:
+				saveReferenced1001Many(values, f);
+				break;
+			}
+
+		} else {
+			super.saveHRefMany(o, f);
+		}
+	}
+
+	protected void saveReferenced0100Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		int size = values.size();
+		String qname = getFeatureQName(f);
+		for (int i = 0; i < size; i++) {
+			// TODO: what is the difference between get and basicGet?
+			saveReferencedHREF(f, values.basicGet(i), qname, true);
+		}
+	}
+
+	protected void saveReferenced0101Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		int size = values.size();
+		String qname;
+		EObject value;
+		for (int i = 0; i < size; i++) {
+			doc.startElement(getFeatureQName(f));
+			value = values.basicGet(i);
+			qname = getClassifierQName(value.eClass());
+			saveReferencedHREF(f, value, qname, false);
+			doc.endElement();
+		}
+
+	}
+
+	protected void saveReferenced1001Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		int size = values.size();
+		String qname;
+		EObject value;
+		doc.startElement(getFeatureWrapperQName(f));
+		for (int i = 0; i < size; i++) {
+			value = values.basicGet(i);
+			qname = getClassifierQName(value.eClass());
+			saveReferencedHREF(f, value, qname, false);
+		}
+		doc.endElement();
+	}
+
+	@Override
+	protected void saveDataTypeElementSingle(EObject o, EStructuralFeature f) {
+		if (null != rmfExtendedMetaData && null != extendedMetaData) {
+			// TODO: check for null values
+			String svalue = getDatatypeValue(helper.getValue(o, f), f, false);
+			int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(f);
+
+			switch (featureSerializationStructure) {
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
+				// not allowed - ignore;
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
+				saveAttribute0001Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0010__CLASSIFIER_WRAPPER_ELEMENT:
+				saveAttribute0010Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0011__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				saveAttribute0011Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+				saveAttribute0100Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+				saveAttribute0101Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0110__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+				saveAttribute0110Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0111__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				saveAttribute0111Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1000__FEATURE_WRAPPER_ELEMENT:
+				saveAttribute1000Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				saveAttribute1001Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1010__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+				saveAttribute1010Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1011__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				saveAttribute1011Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
+				saveAttribute1100Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1101__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+				saveAttribute1101Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1110__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+				saveAttribute1110Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1111__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				saveAttribute1111Single(svalue, f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
+				// if undefined, use the standard EMF mechanism
+				super.saveDataTypeMany(o, f);
+				break;
+			default:
+				saveAttribute1001Single(svalue, f);
+				break;
+			}
+
+		} else {
+			super.saveDataTypeMany(o, f);
+		}
+
+	}
+
+	protected void saveAttribute0001Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		String name = getClassifierQName(f.getEType());
+		if (value == null) {
+			doc.startElement(name);
+			doc.addAttribute(XSI_NIL, "true");
+			doc.endEmptyElement();
+			declareXSI = true;
+		} else {
+			doc.saveDataValueElement(name, value);
+		}
+
+	}
+
+	protected void saveAttribute0010Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		String name = getClassifierWrapperQName(f.getEType());
+		if (value == null) {
+			doc.startElement(name);
+			doc.addAttribute(XSI_NIL, "true");
+			doc.endEmptyElement();
+			declareXSI = true;
+		} else {
+			doc.saveDataValueElement(name, value);
+		}
+	}
+
+	protected void saveAttribute0011Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getClassifierWrapperQName(f.getEType()));
+		saveAttribute0001Single(value, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute0100Single(String value, EStructuralFeature f) {
+		// this is the default EMF behaviour
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		String name = getFeatureQName(f);
+		if (value == null) {
+			doc.startElement(name);
+			doc.addAttribute(XSI_NIL, "true");
+			doc.endEmptyElement();
+			declareXSI = true;
+		} else {
+			doc.saveDataValueElement(name, value);
+		}
+	}
+
+	protected void saveAttribute0101Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureQName(f));
+		saveAttribute0001Single(value, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute0110Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureQName(f));
+		saveAttribute0010Single(value, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute0111Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureQName(f));
+		doc.startElement(getClassifierWrapperQName(f.getEType()));
+		saveAttribute0001Single(value, f);
+		doc.endElement();
+		doc.endElement();
+	}
+
+	protected void saveAttribute1000Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		String name = getFeatureWrapperQName(f);
+		if (value == null) {
+			doc.startElement(name);
+			doc.addAttribute(XSI_NIL, "true");
+			doc.endEmptyElement();
+			declareXSI = true;
+		} else {
+			doc.saveDataValueElement(name, value);
+		}
+	}
+
+	protected void saveAttribute1001Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveAttribute0001Single(value, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute1010Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveAttribute0010Single(value, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute1011Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		doc.startElement(getClassifierWrapperQName(f.getEType()));
+		saveAttribute0001Single(value, f);
+		doc.endElement();
+		doc.endElement();
+	}
+
+	protected void saveAttribute1100Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveAttribute0100Single(value, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute1101Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		doc.startElement(getFeatureQName(f));
+		saveAttribute0001Single(value, f);
+		doc.endElement();
+		doc.endElement();
+	}
+
+	protected void saveAttribute1110Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		doc.startElement(getFeatureQName(f));
+		saveAttribute0010Single(value, f);
+		doc.endElement();
+		doc.endElement();
+	}
+
+	protected void saveAttribute1111Single(String value, EStructuralFeature f) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		doc.startElement(getFeatureQName(f));
+		doc.startElement(getClassifierWrapperQName(f.getEType()));
+		saveAttribute0001Single(value, f);
+		doc.endElement();
+		doc.endElement();
+		doc.endElement();
+	}
+
+	@Override
+	protected void saveDataTypeMany(EObject o, EStructuralFeature f) {
+		if (null != rmfExtendedMetaData && null != extendedMetaData) {
+			InternalEList<? extends EObject> values = (InternalEList<? extends EObject>) helper.getValue(o, f);
+			if (null != values && !values.isEmpty()) {
+				int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(f);
+
+				switch (featureSerializationStructure) {
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
+					// not allowed - ignore;
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
+					saveAttribute0001Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0010__CLASSIFIER_WRAPPER_ELEMENT:
+					saveAttribute0010Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0011__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+					saveAttribute0011Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+					saveAttribute0100Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+					saveAttribute0101Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0110__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+					saveAttribute0110Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0111__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+					saveAttribute0111Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1000__FEATURE_WRAPPER_ELEMENT:
+					saveAttribute1000Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+					saveAttribute1001Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1010__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+					saveAttribute1010Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1011__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+					saveAttribute1011Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
+					saveAttribute1100Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1101__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+					saveAttribute1101Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1110__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+					saveAttribute1110Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1111__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+					saveAttribute1111Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
+					// if undefined, use the standard EMF mechanism
+					saveAttribute0100Many(values, f);
+					break;
+				default:
+					saveAttribute1001Many(values, f);
+					break;
+				}
+			}
+
+		} else {
+			super.saveDataTypeMany(o, f);
+		}
+	}
+
+	protected String getAttributeString(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+
+		EDataType d = (EDataType) f.getEType();
+		EPackage ePackage = d.getEPackage();
+		EFactory fac = ePackage.getEFactoryInstance();
+		buffer.setLength(0);
+		for (Iterator<? extends EObject> i = values.basicIterator();;) {
+			Object value = i.next();
+			String svalue = helper.convertToString(fac, d, value);
+			if (escape != null) {
+				svalue = escape.convertText(svalue);
+			}
+			buffer.append(svalue);
+			if (i.hasNext()) {
+				buffer.append(' ');
+			} else {
+				break;
+			}
+		}
+		return buffer.toString();
+	}
+
+	protected void saveAttribute0001Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		EDataType d = (EDataType) f.getEType();
+		EPackage ePackage = d.getEPackage();
+		EFactory fac = ePackage.getEFactoryInstance();
+		String name = helper.getQName(d);
+		int size = values.size();
+		for (int i = 0; i < size; ++i) {
+			Object value = values.get(i);
+			if (value == null) {
+				doc.startElement(name);
+				doc.addAttribute(XSI_NIL, "true");
+				doc.endEmptyElement();
+				declareXSI = true;
+			} else {
+				String svalue = helper.convertToString(fac, d, value);
+				if (escape != null) {
+					svalue = escape.convertText(svalue);
+				}
+				doc.saveDataValueElement(name, svalue);
+			}
+		}
+	}
+
+	protected void saveAttribute0010Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		String name = getClassifierWrapperQName(f.getEType());
+		doc.saveDataValueElement(name, getAttributeString(values, f));
+	}
+
+	protected void saveAttribute0011Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getClassifierWrapperQName(f.getEType()));
+		saveAttribute0001Many(values, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute0100Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		// this is the default EMF behaviour
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		EDataType d = (EDataType) f.getEType();
+		EPackage ePackage = d.getEPackage();
+		EFactory fac = ePackage.getEFactoryInstance();
+		String name = helper.getQName(f);
+		int size = values.size();
+		for (int i = 0; i < size; ++i) {
+			Object value = values.get(i);
+			if (value == null) {
+				doc.startElement(name);
+				doc.addAttribute(XSI_NIL, "true");
+				doc.endEmptyElement();
+				declareXSI = true;
+			} else {
+				String svalue = helper.convertToString(fac, d, value);
+				if (escape != null) {
+					svalue = escape.convertText(svalue);
+				}
+				doc.saveDataValueElement(name, svalue);
+			}
+		}
+	}
+
+	protected void saveAttribute0101Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		EDataType d = (EDataType) f.getEType();
+		EPackage ePackage = d.getEPackage();
+		EFactory fac = ePackage.getEFactoryInstance();
+		String name = getClassifierQName(d);
+		int size = values.size();
+		for (int i = 0; i < size; ++i) {
+			Object value = values.get(i);
+			doc.startElement(getFeatureQName(f));
+			if (value == null) {
+				doc.startElement(name);
+				doc.addAttribute(XSI_NIL, "true");
+				doc.endEmptyElement();
+				declareXSI = true;
+			} else {
+				String svalue = helper.convertToString(fac, d, value);
+				if (escape != null) {
+					svalue = escape.convertText(svalue);
+				}
+				doc.saveDataValueElement(name, svalue);
+			}
+			doc.endElement();
+		}
+	}
+
+	protected void saveAttribute0110Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureQName(f));
+		saveAttribute0010Many(values, f);
+		doc.endElement();
+
+	}
+
+	protected void saveAttribute0111Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureQName(f));
+		saveAttribute0011Many(values, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute1000Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		String name = getFeatureWrapperQName(f);
+		doc.saveDataValueElement(name, getAttributeString(values, f));
+	}
+
+	protected void saveAttribute1001Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveAttribute0001Many(values, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute1010Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveAttribute0010Many(values, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute1011Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveAttribute0011Many(values, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute1100Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveAttribute0100Many(values, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute1101Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveAttribute0101Many(values, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute1110Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveAttribute0110Many(values, f);
+		doc.endElement();
+	}
+
+	protected void saveAttribute1111Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+		assert null != values;
+		assert !values.isEmpty();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveAttribute0111Many(values, f);
+		doc.endElement();
+	}
+
+	@Override
 	protected void saveContainedMany(EObject o, EStructuralFeature f) {
 		assert f.isMany();
 
 		if (null != rmfExtendedMetaData && null != extendedMetaData) {
-			// RMF serialization enabled
+			// XML Mapping serialization enabled
 			@SuppressWarnings("unchecked")
 			List<? extends InternalEObject> values = ((InternalEList<? extends InternalEObject>) helper.getValue(o, f)).basicList();
 			if (null != values && !values.isEmpty()) {
@@ -549,6 +1258,9 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0111__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
 					saveContained0111Many(values, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1000__FEATURE_WRAPPER_ELEMENT:
+					saveContained1000Many(values, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
 					saveContained1001Many(values, f);
@@ -708,7 +1420,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		doc.endElement();
 	}
 
-	protected void saveContainment1000Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveContained1000Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
@@ -794,6 +1506,267 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 		doc.startElement(getFeatureWrapperQName(f));
 		saveContained0111Many(values, f);
+		doc.endElement();
+	}
+
+	@Override
+	protected void saveContainedSingle(EObject o, EStructuralFeature f) {
+		assert !f.isMany();
+
+		if (null != rmfExtendedMetaData && null != extendedMetaData) {
+			// XML Mapping serialization enabled
+			@SuppressWarnings("unchecked")
+			EObject value = (EObject) helper.getValue(o, f);
+			if (null != value) {
+				int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(f);
+
+				switch (featureSerializationStructure) {
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
+					saveContained0000Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
+					saveContained0001Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0010__CLASSIFIER_WRAPPER_ELEMENT:
+					saveContained0010Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0011__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+					saveContained0011Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+					saveContained0100Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+					saveContained0101Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0110__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+					saveContained0110Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0111__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+					saveContained0111Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1000__FEATURE_WRAPPER_ELEMENT:
+					saveContained1000Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+					saveContained1001Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1010__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+					saveContained1010Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1011__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+					saveContained1011Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
+					saveContained1100Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1101__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+					saveContained1101Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1110__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+					saveContained1110Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1111__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+					saveContained1111Single(value, f);
+					break;
+				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
+					// if undefined, use the standard EMF mechanism
+					super.saveContainedMany(o, f);
+					break;
+				default:
+					saveContained1001Single(value, f);
+					break;
+				}
+
+			}
+
+		} else {
+			super.saveContainedMany(o, f);
+		}
+	}
+
+	protected void saveContained0000Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		saveFeatures(value, SerializationType.elementsOnly, true);
+	}
+
+	protected void saveContained0001Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getClassifierQName(value.eClass()));
+		saveFeatures(value);
+
+	}
+
+	protected void saveContained0010Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		EClass eClass = value.eClass();
+		doc.startElement(getClassifierWrapperQName(eClass));
+		saveFeatures(value);
+	}
+
+	protected void saveContained0011Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		EClass eClass = value.eClass();
+		doc.startElement(getClassifierWrapperQName(eClass));
+		doc.startElement(getClassifierQName(eClass));
+		saveFeatures(value);
+		doc.endElement();
+
+	}
+
+	protected void saveContained0100Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		saveElement(value, f);
+	}
+
+	protected void saveContained0101Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		EClass eClass = value.eClass();
+		doc.startElement(getFeatureQName(f));
+		doc.startElement(getClassifierQName(eClass));
+		saveFeatures(value);
+		doc.endElement();
+	}
+
+	protected void saveContained0110Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		EClass eClass = value.eClass();
+		doc.startElement(getFeatureQName(f));
+		doc.startElement(getClassifierWrapperQName(eClass));
+		saveFeatures(value);
+		doc.endElement();
+
+	}
+
+	protected void saveContained0111Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		EClass eClass = value.eClass();
+		doc.startElement(getFeatureQName(f));
+		doc.startElement(getClassifierWrapperQName(eClass));
+		doc.startElement(getClassifierQName(eClass));
+		saveFeatures(value);
+		doc.endElement();
+		doc.endElement();
+	}
+
+	protected void saveContained1000Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveContained0000Single(value, f);
+		doc.endElement();
+		// last end is written by caller
+	}
+
+	protected void saveContained1001Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveContained0001Single(value, f);
+		doc.endElement();
+	}
+
+	protected void saveContained1010Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveContained0010Single(value, f);
+		doc.endElement();
+	}
+
+	protected void saveContained1011Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveContained0011Single(value, f);
+		doc.endElement();
+	}
+
+	protected void saveContained1100Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveContained0100Single(value, f);
+		doc.endElement();
+	}
+
+	protected void saveContained1101Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveContained0101Single(value, f);
+		doc.endElement();
+	}
+
+	protected void saveContained1110Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveContained0110Single(value, f);
+		doc.endElement();
+	}
+
+	protected void saveContained1111Single(EObject value, EStructuralFeature f) {
+		assert null != value;
+		assert !f.isMany();
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+
+		doc.startElement(getFeatureWrapperQName(f));
+		saveContained0111Single(value, f);
 		doc.endElement();
 	}
 

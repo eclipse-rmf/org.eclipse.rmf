@@ -13,14 +13,14 @@
         eType="#//Node" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-0000-SINGLE"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0000-SINGLE"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0000-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0000-SINGLES"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0001Single"
@@ -30,11 +30,11 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0001-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-0001-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-0001-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-0001-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0010Single"
@@ -44,11 +44,11 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0010-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-0010-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-0010-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-0010-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0011Single"
@@ -58,11 +58,11 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0011-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-0011-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-0011-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-0011-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0100Single"
@@ -72,11 +72,11 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0100-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-0100-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-0100-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-0100-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0101Single"
@@ -86,11 +86,11 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0101-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-0101-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-0101-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-0101-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0110Single"
@@ -100,11 +100,11 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0110-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-0110-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-0110-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-0110-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained0111Single"
@@ -114,11 +114,11 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0111-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-0111-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-0111-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-0111-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1000Single"
@@ -128,11 +128,11 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1000-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-1000-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-1000-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-1000-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1001Single"
@@ -142,11 +142,11 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1001-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-1001-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-1001-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-1001-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1010Single"
@@ -156,11 +156,11 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1010-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-1010-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-1010-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-1010-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1011Single"
@@ -170,11 +170,11 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1011-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-1011-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-1011-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-1011-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1100Single"
@@ -184,11 +184,11 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1100-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-1100-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-1100-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-1100-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1101Single"
@@ -198,11 +198,11 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1101-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-1101-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-1101-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-1101-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1110Single"
@@ -212,11 +212,11 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1110-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-1110-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-1110-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-1110-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Contained1111Single"
@@ -226,11 +226,11 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-1111-SINGLES"/>
+        <details key="wrapperName" value="EREFERENCE-CONTAINED-1111-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="FEATURE-WITH-SERIALIZATION-1111-SINGLE"/>
+        <details key="name" value="EREFERENCE-CONTAINED-1111-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_EmptyAnnotationSingle"
@@ -246,7 +246,7 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="FEATURE-WITH-SERIALIZATION-0000-MULTIS"/>
+        <details key="wrapperName" value="FEATUEREFERENCE-REFERENCEDMULTIS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
@@ -469,7 +469,8 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_NoAnnotationMany"
         upperBound="-1" eType="#//Node" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_WithTypeEObject_Contained0001Many"
         upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true">
@@ -535,13 +536,14 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="FEATURE-WITH-SERIALIZATION-0000-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="featureWrapperElement" value="false"/>
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0000-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0000-SINGLE-REFS"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0001Single"
@@ -551,11 +553,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0001-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0001-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0001-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0001-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0010Single"
@@ -565,11 +568,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0010-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0010-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0010-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0010-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0011Single"
@@ -579,11 +583,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0011-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0011-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0011-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0011-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0100Single"
@@ -593,11 +598,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0100-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0100-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0100-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0100-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0101Single"
@@ -607,11 +613,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0101-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0101-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0101-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0101-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0110Single"
@@ -621,11 +628,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0110-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0110-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0110-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0110-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0111Single"
@@ -635,11 +643,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0111-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0111-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0111-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0111-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1000Single"
@@ -649,11 +658,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1000-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1000-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1000-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1000-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1001Single"
@@ -663,11 +673,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1001-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1001-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1001-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1001-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1010Single"
@@ -677,11 +688,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1010-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1010-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1010-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1010-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1011Single"
@@ -691,11 +703,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1011-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1011-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1011-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1011-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1100Single"
@@ -705,11 +718,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1100-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1100-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1100-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1100-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1101Single"
@@ -719,11 +733,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1101-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1101-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1101-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1101-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1110Single"
@@ -733,11 +748,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1110-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1110-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1110-SINGLE-REF"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1110-SINGLE-REF"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1111Single"
@@ -747,11 +763,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1111-SINGLE-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1111-SINGLE-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1111-SINGLE"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1111-SINGLE"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0000Many"
@@ -761,11 +778,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0000-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0000-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0000-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0000-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0001Many"
@@ -775,11 +793,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0001-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0001-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0001-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0001-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0010Many"
@@ -789,11 +808,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0010-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0010-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0010-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0010-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0011Many"
@@ -803,11 +823,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0011-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0011-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0011-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0011-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0100Many"
@@ -817,11 +838,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0100-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0100-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0100-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0100-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0101Many"
@@ -831,11 +853,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0101-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0101-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0101-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0101-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0110Many"
@@ -845,11 +868,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0110-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0110-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0110-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0110-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0111Many"
@@ -859,11 +883,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-0111-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-0111-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-0111-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-0111-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1000Many"
@@ -873,11 +898,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1000-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1000-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1000-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1000-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1001Many"
@@ -887,11 +913,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1001-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1001-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1001-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1001-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1010Many"
@@ -901,11 +928,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1010-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1010-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1010-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1010-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1011Many"
@@ -915,11 +943,12 @@
         <details key="featureElement" value="false"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1011-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1011-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1011-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1011-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1100Many"
@@ -929,11 +958,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1100-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1100-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1100-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1100-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1101Many"
@@ -943,11 +973,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1101-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1101-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1101-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1101-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1110Many"
@@ -957,11 +988,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="false"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1110-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1110-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1110-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1110-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced1111Many"
@@ -971,11 +1003,12 @@
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="true"/>
         <details key="classifierElement" value="true"/>
-        <details key="wrapperName" value="EREFERENCE_REFERENCED-1111-MANY-REFS"/>
+        <details key="wrapperName" value="EREFERENCE-REFERENCED-1111-MANY-REFS"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
-        <details key="name" value="EREFERENCE_REFERENCED-1111-MANY-REF"/>
+        <details key="kind" value="element"/>
+        <details key="name" value="EREFERENCE-REFERENCED-1111-MANY-REF"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="eAttribute_Attribute0000Single"
@@ -989,6 +1022,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0000-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1003,6 +1037,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0001-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1017,6 +1052,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0010-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1031,6 +1067,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0011-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1045,6 +1082,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0100-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1059,6 +1097,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0101-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1073,6 +1112,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0110-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1087,6 +1127,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-0111-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1101,6 +1142,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1000-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1115,6 +1157,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1001-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1129,6 +1172,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1010-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1143,6 +1187,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1011-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1157,6 +1202,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1100-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1171,6 +1217,7 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1101-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1185,20 +1232,22 @@
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1110-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="eAttribute_Attribute1111Single"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
-        <details key="featureWrapperElement" value="false"/>
-        <details key="featureElement" value="false"/>
-        <details key="classifierWrapperElement" value="false"/>
-        <details key="classifierElement" value="false"/>
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="true"/>
         <details key="wrapperName" value="EATTRIBUTE-ATTRIBUTE-1111-SINGLES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
+        <details key="kind" value="element"/>
         <details key="name" value="EATTRIBUTE-ATTRIBUTE-1111-SINGLE"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -1415,10 +1464,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="eAttribute_Attribute1111Many"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
-        <details key="featureWrapperElement" value="false"/>
-        <details key="featureElement" value="false"/>
-        <details key="classifierWrapperElement" value="false"/>
-        <details key="classifierElement" value="false"/>
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="true"/>
+        <details key="classifierWrapperElement" value="true"/>
+        <details key="classifierElement" value="true"/>
         <details key="wrapperName" value="EATTRIBUTE-ATTRIBUTE-1111-MANIES"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

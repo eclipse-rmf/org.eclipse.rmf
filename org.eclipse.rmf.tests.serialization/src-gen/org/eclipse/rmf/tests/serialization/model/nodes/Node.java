@@ -149,8 +149,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained0000Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0000Single()
 	 * @model containment="true"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0000-SINGLE'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-0000-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-0000-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-0000-SINGLES'"
 	 * @generated
 	 */
 	Node getEReference_Contained0000Single();
@@ -177,8 +177,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained0001Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0001Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-0001-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0001-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE-CONTAINED-0001-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-0001-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained0001Single();
@@ -205,8 +205,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained0010Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0010Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-0010-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0010-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE-CONTAINED-0010-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-0010-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained0010Single();
@@ -233,8 +233,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained0011Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0011Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-0011-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0011-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE-CONTAINED-0011-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-0011-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained0011Single();
@@ -261,8 +261,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained0100Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0100Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-0100-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0100-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE-CONTAINED-0100-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-0100-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained0100Single();
@@ -289,8 +289,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained0101Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0101Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-0101-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0101-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE-CONTAINED-0101-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-0101-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained0101Single();
@@ -317,8 +317,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained0110Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0110Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-0110-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0110-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE-CONTAINED-0110-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-0110-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained0110Single();
@@ -345,8 +345,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained0111Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0111Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-0111-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0111-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE-CONTAINED-0111-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-0111-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained0111Single();
@@ -373,8 +373,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained1000Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1000Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-1000-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1000-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE-CONTAINED-1000-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-1000-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained1000Single();
@@ -401,8 +401,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained1001Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1001Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-1001-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1001-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE-CONTAINED-1001-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-1001-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained1001Single();
@@ -429,8 +429,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained1010Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1010Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-1010-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1010-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE-CONTAINED-1010-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-1010-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained1010Single();
@@ -457,8 +457,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained1011Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1011Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-1011-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1011-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE-CONTAINED-1011-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-1011-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained1011Single();
@@ -485,8 +485,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained1100Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1100Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-1100-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1100-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE-CONTAINED-1100-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-1100-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained1100Single();
@@ -513,8 +513,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained1101Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1101Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-1101-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1101-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE-CONTAINED-1101-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-1101-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained1101Single();
@@ -541,8 +541,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained1110Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1110Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-1110-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1110-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE-CONTAINED-1110-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-1110-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained1110Single();
@@ -569,8 +569,8 @@ public interface Node extends AbstractNode {
 	 * @see #setEReference_Contained1111Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained1111Single()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='FEATURE-WITH-SERIALIZATION-1111-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-1111-SINGLE'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE-CONTAINED-1111-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-CONTAINED-1111-SINGLE'"
 	 * @generated
 	 */
 	Node getEReference_Contained1111Single();
@@ -649,7 +649,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Contained0000 Many</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Contained0000Many()
 	 * @model containment="true"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-SERIALIZATION-0000-MULTIS'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATUEREFERENCE-REFERENCEDMULTIS'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0000-MULTI'"
 	 * @generated
 	 */
@@ -968,7 +968,7 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_Name()
-	 * @model
+	 * @model id="true"
 	 * @generated
 	 */
 	String getName();
@@ -1066,8 +1066,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced0000 Single</em>' reference.
 	 * @see #setEReference_Referenced0000Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0000Single()
-	 * @model extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0000-SINGLE-REF'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-0000-SINGLE-REFS'"
+	 * @model extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-SERIALIZATION-0000-SINGLE-REF' kind='element'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-0000-SINGLE-REFS'"
 	 * @generated
 	 */
 	Node getEReference_Referenced0000Single();
@@ -1093,8 +1093,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced0001 Single</em>' reference.
 	 * @see #setEReference_Referenced0001Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0001Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-0001-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0001-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-0001-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-0001-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced0001Single();
@@ -1120,8 +1120,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced0010 Single</em>' reference.
 	 * @see #setEReference_Referenced0010Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0010Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-0010-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0010-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-0010-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-0010-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced0010Single();
@@ -1147,8 +1147,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced0011 Single</em>' reference.
 	 * @see #setEReference_Referenced0011Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0011Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-0011-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0011-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-0011-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-0011-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced0011Single();
@@ -1174,8 +1174,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced0100 Single</em>' reference.
 	 * @see #setEReference_Referenced0100Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0100Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-0100-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0100-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-0100-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-0100-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced0100Single();
@@ -1201,8 +1201,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced0101 Single</em>' reference.
 	 * @see #setEReference_Referenced0101Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0101Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-0101-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0101-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-0101-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-0101-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced0101Single();
@@ -1228,8 +1228,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced0110 Single</em>' reference.
 	 * @see #setEReference_Referenced0110Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0110Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-0110-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0110-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-0110-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-0110-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced0110Single();
@@ -1255,8 +1255,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced0111 Single</em>' reference.
 	 * @see #setEReference_Referenced0111Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0111Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-0111-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0111-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-0111-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-0111-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced0111Single();
@@ -1282,8 +1282,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced1000 Single</em>' reference.
 	 * @see #setEReference_Referenced1000Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1000Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-1000-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1000-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-1000-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-1000-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced1000Single();
@@ -1309,8 +1309,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced1001 Single</em>' reference.
 	 * @see #setEReference_Referenced1001Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1001Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-1001-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1001-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-1001-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-1001-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced1001Single();
@@ -1336,8 +1336,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced1010 Single</em>' reference.
 	 * @see #setEReference_Referenced1010Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1010Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-1010-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1010-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-1010-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-1010-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced1010Single();
@@ -1363,8 +1363,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced1011 Single</em>' reference.
 	 * @see #setEReference_Referenced1011Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1011Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-1011-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1011-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-1011-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-1011-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced1011Single();
@@ -1390,8 +1390,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced1100 Single</em>' reference.
 	 * @see #setEReference_Referenced1100Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1100Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-1100-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1100-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-1100-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-1100-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced1100Single();
@@ -1417,8 +1417,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced1101 Single</em>' reference.
 	 * @see #setEReference_Referenced1101Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1101Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-1101-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1101-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-1101-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-1101-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced1101Single();
@@ -1444,8 +1444,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced1110 Single</em>' reference.
 	 * @see #setEReference_Referenced1110Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1110Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-1110-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1110-SINGLE-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-1110-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-1110-SINGLE-REF' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced1110Single();
@@ -1471,8 +1471,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EReference Referenced1111 Single</em>' reference.
 	 * @see #setEReference_Referenced1111Single(Node)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1111Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-1111-SINGLE-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1111-SINGLE'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-1111-SINGLE-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE-REFERENCED-1111-SINGLE' kind='element'"
 	 * @generated
 	 */
 	Node getEReference_Referenced1111Single();
@@ -1498,8 +1498,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced0000 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0000Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-0000-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0000-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-0000-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-0000-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced0000Many();
@@ -1515,8 +1515,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced0001 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0001Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-0001-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0001-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-0001-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-0001-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced0001Many();
@@ -1532,8 +1532,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced0010 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0010Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-0010-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0010-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-0010-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-0010-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced0010Many();
@@ -1549,8 +1549,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced0011 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0011Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-0011-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0011-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-0011-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-0011-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced0011Many();
@@ -1566,8 +1566,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced0100 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0100Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-0100-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0100-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-0100-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-0100-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced0100Many();
@@ -1583,8 +1583,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced0101 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0101Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-0101-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0101-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-0101-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-0101-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced0101Many();
@@ -1600,8 +1600,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced0110 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0110Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-0110-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0110-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-0110-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-0110-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced0110Many();
@@ -1617,8 +1617,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced0111 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced0111Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-0111-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-0111-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-0111-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-0111-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced0111Many();
@@ -1634,8 +1634,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced1000 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1000Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-1000-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1000-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-1000-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-1000-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced1000Many();
@@ -1651,8 +1651,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced1001 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1001Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-1001-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1001-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-1001-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-1001-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced1001Many();
@@ -1668,8 +1668,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced1010 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1010Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-1010-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1010-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-1010-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-1010-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced1010Many();
@@ -1685,8 +1685,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced1011 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1011Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-1011-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1011-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-1011-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-1011-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced1011Many();
@@ -1702,8 +1702,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced1100 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1100Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-1100-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1100-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-1100-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-1100-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced1100Many();
@@ -1719,8 +1719,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced1101 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1101Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-1101-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1101-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-1101-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-1101-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced1101Many();
@@ -1736,8 +1736,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced1110 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1110Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE_REFERENCED-1110-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1110-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EREFERENCE-REFERENCED-1110-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-1110-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced1110Many();
@@ -1753,8 +1753,8 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EReference Referenced1111 Many</em>' reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_Referenced1111Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE_REFERENCED-1111-MANY-REFS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EREFERENCE_REFERENCED-1111-MANY-REF'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EREFERENCE-REFERENCED-1111-MANY-REFS'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EREFERENCE-REFERENCED-1111-MANY-REF'"
 	 * @generated
 	 */
 	EList<Node> getEReference_Referenced1111Many();
@@ -1771,7 +1771,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0000Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0000Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-0000-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0000-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0000-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0000Single();
@@ -1798,7 +1798,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0001Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0001Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-0001-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0001-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0001-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0001Single();
@@ -1825,7 +1825,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0010Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0010Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-0010-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0010-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0010-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0010Single();
@@ -1852,7 +1852,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0011Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0011Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-0011-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0011-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0011-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0011Single();
@@ -1879,7 +1879,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0100Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0100Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-0100-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0100-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0100-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0100Single();
@@ -1906,7 +1906,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0101Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0101Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-0101-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0101-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0101-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0101Single();
@@ -1933,7 +1933,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0110Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0110Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-0110-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0110-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0110-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0110Single();
@@ -1960,7 +1960,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute0111Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute0111Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-0111-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-0111-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-0111-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute0111Single();
@@ -1987,7 +1987,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1000Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1000Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-1000-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1000-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1000-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1000Single();
@@ -2014,7 +2014,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1001Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1001Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-1001-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1001-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1001-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1001Single();
@@ -2041,7 +2041,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1010Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1010Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-1010-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1010-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1010-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1010Single();
@@ -2068,7 +2068,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1011Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1011Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='true' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-1011-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1011-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1011-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1011Single();
@@ -2095,7 +2095,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1100Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1100Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-1100-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1100-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1100-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1100Single();
@@ -2122,7 +2122,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1101Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1101Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='false' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-1101-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1101-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1101-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1101Single();
@@ -2149,7 +2149,7 @@ public interface Node extends AbstractNode {
 	 * @see #setEAttribute_Attribute1110Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1110Single()
 	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-1110-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1110-SINGLE'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1110-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1110Single();
@@ -2175,8 +2175,8 @@ public interface Node extends AbstractNode {
 	 * @return the value of the '<em>EAttribute Attribute1111 Single</em>' attribute.
 	 * @see #setEAttribute_Attribute1111Single(String)
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1111Single()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-1111-SINGLES'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1111-SINGLE'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-1111-SINGLES'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element' name='EATTRIBUTE-ATTRIBUTE-1111-SINGLE'"
 	 * @generated
 	 */
 	String getEAttribute_Attribute1111Single();
@@ -2457,7 +2457,7 @@ public interface Node extends AbstractNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>EAttribute Attribute1111 Many</em>' attribute list.
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EAttribute_Attribute1111Many()
-	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='EATTRIBUTE-ATTRIBUTE-1111-MANIES'"
+	 * @model annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='true' classifierWrapperElement='true' classifierElement='true' wrapperName='EATTRIBUTE-ATTRIBUTE-1111-MANIES'"
 	 *        extendedMetaData="namespace='##targetNamespace' name='EATTRIBUTE-ATTRIBUTE-1111-MANY'"
 	 * @generated
 	 */

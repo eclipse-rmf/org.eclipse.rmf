@@ -1294,7 +1294,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		initEReference(getNode_EReference_Contained1111Many(), this.getNode(), null, "eReference_Contained1111Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_EReference_EmptyAnnotationMany(), this.getNode(), null, "eReference_EmptyAnnotationMany", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_EReference_NoAnnotationMany(), this.getNode(), null, "eReference_NoAnnotationMany", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_EReference_WithTypeEObject_Contained0001Many(), ecorePackage.getEObject(), null, "eReference_WithTypeEObject_Contained0001Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_EReference_WithTypeEObject_Contained0010Many(), ecorePackage.getEObject(), null, "eReference_WithTypeEObject_Contained0010Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_EReference_WithTypeEObject_Contained0100Many(), ecorePackage.getEObject(), null, "eReference_WithTypeEObject_Contained0100Many", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1397,112 +1397,112 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0000-SINGLE"
+			 "name", "EREFERENCE-REFERENCED-0000-SINGLE"
 		   });				
 		addAnnotation
 		  (getNode_EReference_Contained0001Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0001-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0001-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0010Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0010-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0010-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0011Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0011-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0011-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0100Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0100-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0100-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0101Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0101-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0101-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0110Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0110-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0110-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0111Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0111-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0111-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1000Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1000-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1000-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1001Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1001-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1001-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1010Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1010-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1010-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1011Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1011-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1011-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1100Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1100-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1100-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1101Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1101-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1101-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1110Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1110-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1110-SINGLE"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1111Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1111-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1111-SINGLE"
 		   });				
 		addAnnotation
 		  (getNode_EReference_Contained0000Many(), 
@@ -1649,230 +1649,263 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0000-SINGLE-REF"
+			 "name", "FEATURE-WITH-SERIALIZATION-0000-SINGLE-REF",
+			 "kind", "element"
 		   });				
 		addAnnotation
 		  (getNode_EReference_Referenced0001Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0001-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-0001-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0010Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0010-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-0010-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0011Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0011-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-0011-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0100Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0100-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-0100-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0101Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0101-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-0101-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0110Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0110-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-0110-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0111Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0111-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-0111-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1000Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1000-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-1000-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1001Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1001-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-1001-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1010Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1010-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-1010-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1011Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1011-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-1011-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1100Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1100-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-1100-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1101Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1101-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-1101-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1110Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1110-SINGLE-REF"
+			 "name", "EREFERENCE-REFERENCED-1110-SINGLE-REF",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1111Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1111-SINGLE"
+			 "name", "EREFERENCE-REFERENCED-1111-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0000Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0000-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-0000-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0001Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0001-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-0001-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0010Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0010-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-0010-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0011Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0011-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-0011-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0100Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0100-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-0100-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0101Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0101-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-0101-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0110Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0110-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-0110-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0111Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-0111-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-0111-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1000Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1000-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-1000-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1001Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1001-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-1001-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1010Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1010-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-1010-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1011Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1011-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-1011-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1100Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1100-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-1100-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1101Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1101-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-1101-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1110Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1110-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-1110-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1111Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE_REFERENCED-1111-MANY-REF"
+			 "kind", "element",
+			 "name", "EREFERENCE-REFERENCED-1111-MANY-REF"
 		   });			
 		addAnnotation
 		  (getNode_EAttribute_Attribute0000Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0000-SINGLE"
 		   });			
 		addAnnotation
@@ -1880,6 +1913,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0001-SINGLE"
 		   });			
 		addAnnotation
@@ -1887,6 +1921,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0010-SINGLE"
 		   });			
 		addAnnotation
@@ -1894,6 +1929,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0011-SINGLE"
 		   });			
 		addAnnotation
@@ -1901,6 +1937,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0100-SINGLE"
 		   });			
 		addAnnotation
@@ -1908,6 +1945,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0101-SINGLE"
 		   });			
 		addAnnotation
@@ -1915,6 +1953,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0110-SINGLE"
 		   });			
 		addAnnotation
@@ -1922,6 +1961,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-0111-SINGLE"
 		   });			
 		addAnnotation
@@ -1929,6 +1969,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1000-SINGLE"
 		   });			
 		addAnnotation
@@ -1936,6 +1977,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1001-SINGLE"
 		   });			
 		addAnnotation
@@ -1943,6 +1985,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1010-SINGLE"
 		   });			
 		addAnnotation
@@ -1950,6 +1993,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1011-SINGLE"
 		   });			
 		addAnnotation
@@ -1957,6 +2001,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1100-SINGLE"
 		   });			
 		addAnnotation
@@ -1964,6 +2009,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1101-SINGLE"
 		   });			
 		addAnnotation
@@ -1971,6 +2017,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1110-SINGLE"
 		   });			
 		addAnnotation
@@ -1978,6 +2025,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
+			 "kind", "element",
 			 "name", "EATTRIBUTE-ATTRIBUTE-1111-SINGLE"
 		   });			
 		addAnnotation
@@ -2122,7 +2170,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0000-SINGLES"
+			 "wrapperName", "EREFERENCE-REFERENCED-0000-SINGLES"
 		   });		
 		addAnnotation
 		  (getNode_EReference_Contained0001Single(), 
@@ -2132,7 +2180,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0001-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-0001-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0010Single(), 
@@ -2142,7 +2190,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "false",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0010-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-0010-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0011Single(), 
@@ -2152,7 +2200,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "true",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0011-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-0011-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0100Single(), 
@@ -2162,7 +2210,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0100-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-0100-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0101Single(), 
@@ -2172,7 +2220,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0101-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-0101-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0110Single(), 
@@ -2182,7 +2230,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "false",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0110-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-0110-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0111Single(), 
@@ -2192,7 +2240,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "true",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0111-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-0111-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1000Single(), 
@@ -2202,7 +2250,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1000-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-1000-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1001Single(), 
@@ -2212,7 +2260,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1001-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-1001-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1010Single(), 
@@ -2222,7 +2270,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "false",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1010-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-1010-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1011Single(), 
@@ -2232,7 +2280,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "true",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1011-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-1011-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1100Single(), 
@@ -2242,7 +2290,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1100-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-1100-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1101Single(), 
@@ -2252,7 +2300,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1101-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-1101-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1110Single(), 
@@ -2262,7 +2310,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "false",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1110-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-1110-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1111Single(), 
@@ -2272,7 +2320,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "true",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-1111-SINGLES"
+			 "wrapperName", "EREFERENCE-CONTAINED-1111-SINGLES"
 		   });			
 		addAnnotation
 		  (getNode_EReference_EmptyAnnotationSingle(), 
@@ -2287,7 +2335,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false",
-			 "wrapperName", "FEATURE-WITH-SERIALIZATION-0000-MULTIS"
+			 "wrapperName", "FEATUEREFERENCE-REFERENCEDMULTIS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0001Many(), 
@@ -2492,7 +2540,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-0000-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0000-SINGLE-REFS"
 		   });		
 		addAnnotation
 		  (getNode_EReference_Referenced0001Single(), 
@@ -2502,7 +2550,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-0001-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0001-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0010Single(), 
@@ -2512,7 +2560,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-0010-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0010-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0011Single(), 
@@ -2522,7 +2570,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-0011-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0011-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0100Single(), 
@@ -2532,7 +2580,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-0100-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0100-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0101Single(), 
@@ -2542,7 +2590,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-0101-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0101-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0110Single(), 
@@ -2552,7 +2600,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-0110-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0110-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0111Single(), 
@@ -2562,7 +2610,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-0111-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0111-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1000Single(), 
@@ -2572,7 +2620,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-1000-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1000-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1001Single(), 
@@ -2582,7 +2630,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-1001-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1001-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1010Single(), 
@@ -2592,7 +2640,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-1010-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1010-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1011Single(), 
@@ -2602,7 +2650,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-1011-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1011-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1100Single(), 
@@ -2612,7 +2660,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-1100-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1100-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1101Single(), 
@@ -2622,7 +2670,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-1101-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1101-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1110Single(), 
@@ -2632,7 +2680,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-1110-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1110-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1111Single(), 
@@ -2642,7 +2690,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-1111-SINGLE-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1111-SINGLE-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0000Many(), 
@@ -2652,7 +2700,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-0000-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0000-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0001Many(), 
@@ -2662,7 +2710,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-0001-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0001-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0010Many(), 
@@ -2672,7 +2720,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-0010-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0010-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0011Many(), 
@@ -2682,7 +2730,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-0011-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0011-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0100Many(), 
@@ -2692,7 +2740,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-0100-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0100-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0101Many(), 
@@ -2702,7 +2750,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-0101-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0101-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0110Many(), 
@@ -2712,7 +2760,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-0110-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0110-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced0111Many(), 
@@ -2722,7 +2770,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-0111-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-0111-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1000Many(), 
@@ -2732,7 +2780,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-1000-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1000-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1001Many(), 
@@ -2742,7 +2790,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-1001-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1001-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1010Many(), 
@@ -2752,7 +2800,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-1010-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1010-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1011Many(), 
@@ -2762,7 +2810,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "false",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-1011-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1011-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1100Many(), 
@@ -2772,7 +2820,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-1100-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1100-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1101Many(), 
@@ -2782,7 +2830,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-1101-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1101-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1110Many(), 
@@ -2792,7 +2840,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "false",
-			 "wrapperName", "EREFERENCE_REFERENCED-1110-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1110-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Referenced1111Many(), 
@@ -2802,7 +2850,7 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 			 "featureElement", "true",
 			 "classifierWrapperElement", "true",
 			 "classifierElement", "true",
-			 "wrapperName", "EREFERENCE_REFERENCED-1111-MANY-REFS"
+			 "wrapperName", "EREFERENCE-REFERENCED-1111-MANY-REFS"
 		   });			
 		addAnnotation
 		  (getNode_EAttribute_Attribute0000Single(), 
@@ -2958,10 +3006,10 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_EAttribute_Attribute1111Single(), 
 		   source, 
 		   new String[] {
-			 "featureWrapperElement", "false",
-			 "featureElement", "false",
-			 "classifierWrapperElement", "false",
-			 "classifierElement", "false",
+			 "featureWrapperElement", "true",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "true",
+			 "classifierElement", "true",
 			 "wrapperName", "EATTRIBUTE-ATTRIBUTE-1111-SINGLES"
 		   });			
 		addAnnotation
@@ -3118,10 +3166,10 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		  (getNode_EAttribute_Attribute1111Many(), 
 		   source, 
 		   new String[] {
-			 "featureWrapperElement", "false",
-			 "featureElement", "false",
-			 "classifierWrapperElement", "false",
-			 "classifierElement", "false",
+			 "featureWrapperElement", "true",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "true",
+			 "classifierElement", "true",
 			 "wrapperName", "EATTRIBUTE-ATTRIBUTE-1111-MANIES"
 		   });				
 		addAnnotation

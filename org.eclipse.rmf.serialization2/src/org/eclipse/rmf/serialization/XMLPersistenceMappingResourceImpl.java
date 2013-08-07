@@ -24,9 +24,9 @@ import org.eclipse.emf.ecore.xmi.XMLLoad;
 import org.eclipse.emf.ecore.xmi.XMLOptions;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLSave;
-import org.eclipse.emf.ecore.xmi.impl.XMLHelperImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLOptionsImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
+import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingHelperImpl;
 import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingLoadImpl;
 import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingSaveImpl;
 
@@ -47,7 +47,7 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 
 	@Override
 	protected XMLHelper createXMLHelper() {
-		return new XMLHelperImpl(this);
+		return new XMLPersistenceMappingHelperImpl(this);
 	}
 
 	@Override

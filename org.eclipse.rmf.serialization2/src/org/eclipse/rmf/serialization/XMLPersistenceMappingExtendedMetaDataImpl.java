@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
@@ -276,7 +277,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		}
 
 		public String getXMLWrapperName() {
-			if (UNINITIALIZED_STRING == xmlName) {
+			if (UNINITIALIZED_STRING == xmlWrapperName) {
 				setXMLWrapperName(basicGetWrapperName(eClass));
 			}
 			return xmlWrapperName;
@@ -297,6 +298,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 			EStructuralFeature result = xmlNameToEStructuralFeatureMap.get(xmlElementName);
 			if (null == result) {
 				Iterator<EStructuralFeature> allFeaturesIter = eClass.getEAllStructuralFeatures().iterator();
+				// TODO: we should iterate over features with no kind or
 				List<EStructuralFeature> results = new ArrayList<EStructuralFeature>();
 				while (allFeaturesIter.hasNext()) {
 					EStructuralFeature feature = allFeaturesIter.next();
@@ -358,31 +360,32 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 										if (feature.getEType().equals(classifier)) {
 											if (isIdentifiedByClassifier(feature)) {
 												results.add(feature);
-											} else if (isNone(feature)) {
+											} else if (isEReference_Contained0000(feature)) {
 												results.add(feature);
 											} else {
 												// not found, continue with next feature
 											}
 										} else if (classifier instanceof EClass) {
+											EClass eClass = (EClass) classifier;
 											if (eClass.getEAllSuperTypes().contains(feature.getEType())) {
 												if (isIdentifiedByClassifier(feature)) {
 													results.add(feature);
-												} else if (isNone(feature)) {
+												} else if (isEReference_Contained0000(feature)) {
 													results.add(feature);
 												} else {
 													// not found, continue with next feature
 												}
-											} else if (isNone(feature)) {
+											} else if (isEReference_Contained0000(feature)) {
 												results.add(feature);
 											} else {
 												// not found, continue with next feature
 											}
-										} else if (isNone(feature)) {
+										} else if (isEReference_Contained0000(feature)) {
 											results.add(feature);
 										} else {
 											// not found, continue with next feature
 										}
-									} else if (isNone(feature)) {
+									} else if (isEReference_Contained0000(feature)) {
 										results.add(feature);
 									} else {
 										// not found, continue with next feature
@@ -668,7 +671,8 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 	}
 
 	protected XMLPersistenceMappingEStructuralFeatureExtendedMetaData getXMLPersistenceMappingExtendedMetaData(EStructuralFeature eStructuralFeature) {
-		XMLPersistenceMappingEStructuralFeatureExtendedMetaData result = (XMLPersistenceMappingEStructuralFeatureExtendedMetaData) extendedMetaDataCache.get(eStructuralFeature);
+		XMLPersistenceMappingEStructuralFeatureExtendedMetaData result = (XMLPersistenceMappingEStructuralFeatureExtendedMetaData) extendedMetaDataCache
+				.get(eStructuralFeature);
 		if (result == null) {
 			extendedMetaDataCache.put(eStructuralFeature, result = createRMFEStructuralFeatureExtendedMetaData(eStructuralFeature));
 		}
@@ -676,7 +680,8 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 	}
 
 	protected XMLPersistenceMappingEClassifierExtendedMetaData getXMLPersistenceMappingExtendedMetaData(EClassifier eClassifier) {
-		XMLPersistenceMappingEClassifierExtendedMetaData result = (XMLPersistenceMappingEClassifierExtendedMetaData) extendedMetaDataCache.get(eClassifier);
+		XMLPersistenceMappingEClassifierExtendedMetaData result = (XMLPersistenceMappingEClassifierExtendedMetaData) extendedMetaDataCache
+				.get(eClassifier);
 		if (result == null) {
 			extendedMetaDataCache.put(eClassifier, result = createRMFEClassifierExtendedMetaData(eClassifier));
 		}
@@ -691,7 +696,8 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		return result;
 	}
 
-	protected XMLPersistenceMappingEStructuralFeatureExtendedMetaData createRMFEStructuralFeatureExtendedMetaData(EStructuralFeature eStructuralFeature) {
+	protected XMLPersistenceMappingEStructuralFeatureExtendedMetaData createRMFEStructuralFeatureExtendedMetaData(
+			EStructuralFeature eStructuralFeature) {
 		return new RMFEStructuralFeatureExtendedMetaDataImpl(eStructuralFeature);
 	}
 
@@ -743,6 +749,21 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 	protected boolean isNone(EStructuralFeature feature) {
 		int featureSerializationStructure = getXMLPersistenceMappingExtendedMetaData(feature).getFeatureSerializationStructure();
 		return 0 == featureSerializationStructure;
+	}
+
+	protected boolean isEReference_Contained0000(EStructuralFeature feature) {
+		boolean isEReference_Contained0000;
+		if (feature instanceof EReference) {
+			EReference reference = (EReference) feature;
+			if (reference.isContainment()) {
+				isEReference_Contained0000 = isNone(feature);
+			} else {
+				isEReference_Contained0000 = false;
+			}
+		} else {
+			isEReference_Contained0000 = false;
+		}
+		return isEReference_Contained0000;
 	}
 
 }
