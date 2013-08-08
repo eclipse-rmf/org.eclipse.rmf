@@ -177,6 +177,74 @@ public class LoadTests extends AbstractTestCase {
 		}
 	}
 
+	@Test
+	public void testEReference_Referenced0100_Many() {
+		String inputFileName = INPUT_PATH + "EReference_Referenced0100Many.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateReferencedMany(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Referenced0100Many());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Referenced0100_Single() {
+		String inputFileName = INPUT_PATH + "EReference_Referenced0100Single.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateReferencedSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Referenced0100Single());
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Referenced0101_Many() {
+		String inputFileName = INPUT_PATH + "EReference_Referenced0101Many.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateReferencedMany(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Referenced0101Many());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Referenced0101_Single() {
+		String inputFileName = INPUT_PATH + "EReference_Referenced0101Single.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateReferencedSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Referenced0101Single());
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Referenced1001_Many() {
+		String inputFileName = INPUT_PATH + "EReference_Referenced1001Many.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateReferencedMany(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Referenced1001Many());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Referenced1001_Single() {
+		String inputFileName = INPUT_PATH + "EReference_Referenced1001Single.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateReferencedSingle(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Referenced1001Single());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	protected void validateModelMulti(EObject modelRoot, EStructuralFeature topFeature, EStructuralFeature subFeature) {
 		assert topFeature.isMany();
@@ -341,6 +409,36 @@ public class LoadTests extends AbstractTestCase {
 		Object valueObject = node.eGet(feature);
 		assertNotNull(valueObject);
 		assertEquals("value1", valueObject);
+	}
+
+	@SuppressWarnings("unchecked")
+	protected void validateReferencedMany(EObject modelRoot, EReference feature) {
+		// check root node
+		assertNotNull(modelRoot);
+		assertSame(NodesPackage.eINSTANCE.getNode(), modelRoot.eClass());
+		Node node = (Node) modelRoot;
+
+		EList<Node> childNodes = node.getEReference_Contained0100Many();
+		assertSame(2, childNodes.size());
+		Node childNode1 = childNodes.get(0);
+		Node childNode2 = childNodes.get(1);
+
+		EList<Object> values = (EList<Object>) node.eGet(feature);
+		assertSame(2, values.size());
+
+		assertSame(childNode1, values.get(0));
+		assertSame(childNode2, values.get(1));
+	}
+
+	protected void validateReferencedSingle(EObject modelRoot, EReference feature) {
+		// check root node
+		assertNotNull(modelRoot);
+		assertSame(NodesPackage.eINSTANCE.getNode(), modelRoot.eClass());
+		Node node = (Node) modelRoot;
+
+		Object valueObject = node.eGet(feature);
+		assertNotNull(valueObject);
+		assertSame(node, valueObject);
 	}
 
 }

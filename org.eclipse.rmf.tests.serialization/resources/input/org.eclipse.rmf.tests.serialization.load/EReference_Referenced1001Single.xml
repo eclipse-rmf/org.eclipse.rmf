@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes:NODE xmlns:nodes="http://www.eclipse.org/rmf/serialization/model/nodes.ecore" name="root">
+  <nodes:EREFERENCE-REFERENCED-1001-SINGLE-REFS>
+    <nodes:NODE>root</nodes:NODE>
+  </nodes:EREFERENCE-REFERENCED-1001-SINGLE-REFS>
+</nodes:NODE>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes:NODE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nodes="http://www.eclipse.org/rmf/serialization/model/nodes.ecore" name="root">
+  <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI name="node"/>
+  <nodes:FEATURE-WITH-SERIALIZATION-0100-MULTI xsi:type="nodes:SUB-NODE" name="subNode"/>
+  <nodes:EREFERENCE-REFERENCED-0100-MANY-REF>node</nodes:EREFERENCE-REFERENCED-0100-MANY-REF>
+  <nodes:EREFERENCE-REFERENCED-0100-MANY-REF xsi:type="nodes:SUB-NODE">subNode</nodes:EREFERENCE-REFERENCED-0100-MANY-REF>
+</nodes:NODE>
