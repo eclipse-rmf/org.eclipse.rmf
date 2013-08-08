@@ -7,10 +7,12 @@ import java.util.TreeSet;
 
 import org.agilemore.agilegrid.AbstractContentProvider;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor.PropertyValueWrapper;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
@@ -110,7 +112,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 		// Use cached version if it exists.
 		if (rows != null)
 			return rows;
-		
+
 		// We get the provider, which may be null.
 		rows = new ArrayList<PropertyRow>();
 		ItemProviderAdapter provider = ProrUtil.getItemProvider(adapterFactory,
@@ -176,7 +178,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	private boolean isAdvancedProperty(IItemPropertyDescriptor prop) {
 		String name = prop.getId(content);
 		String category = prop.getCategory(content);
-		
+
 		// Special case: Datatype Dialog
 		if (category == null && "identifier".equals(name)
 				|| "desc".equals(name) || "lastChange".equals(name)) {
@@ -191,7 +193,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 					.equals(category))) {
 			return false;
 		}
-		
+
 		// These are the attributes that shall be hidden.
 		if ("identifier".equals(name) || "desc".equals(name)
 				|| "lastChange".equals(name) || "editable".equals(name)
@@ -258,7 +260,10 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 		}
 
 		public boolean isRMFSpecific() {
-			return descriptor.getFeature(content) == ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES;
+			Object feature = descriptor.getFeature(content);
+			return feature == ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES
+					|| descriptor.getFeature(content) == ReqIF10Package.Literals.ATTRIBUTE_VALUE_BOOLEAN__THE_VALUE
+;
 		}
 
 		public Object getContent(int column) {
@@ -275,8 +280,8 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 		public String toString() {
 			PropertyValueWrapper propertyValueWrapper = (PropertyValueWrapper) descriptor
 					.getPropertyValue(content);
-			return propertyValueWrapper == null ? ""
-					: propertyValueWrapper.getText(content);
+			return propertyValueWrapper == null ? "" : propertyValueWrapper
+					.getText(content);
 
 		}
 
@@ -309,9 +314,18 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 			} else if (content instanceof SpecHierarchy) {
 				specElement = ((SpecHierarchy) content).getObject();
 			}
+			
+			// Could also be a default value
+			if (specElement == null) {
+				if (content instanceof AttributeDefinition) {
+					AttributeDefinition ad = (AttributeDefinition) content;
+					EStructuralFeature defaultValueFeature = ReqIF10Util.getDefaultValueFeature(ad);
+					return (AttributeValue) ((AttributeDefinition) content).eGet(defaultValueFeature);
+				}
+			}
 
-			return ReqIF10Util.getAttributeValueForLabel(
-					specElement, descriptor.getDisplayName(specElement));
+			return ReqIF10Util.getAttributeValueForLabel(specElement,
+					descriptor.getDisplayName(specElement));
 		}
 	}
 }
