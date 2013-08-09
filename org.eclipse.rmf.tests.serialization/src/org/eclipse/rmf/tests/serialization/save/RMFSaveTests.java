@@ -1847,6 +1847,7 @@ public class RMFSaveTests extends AbstractTestCase {
 		assert null != subfeature;
 		assert subfeature.isMany();
 		Node rootNode = NodesFactory.eINSTANCE.createNode();
+		rootNode.setName("root");
 
 		Node intermediateNode1 = NodesFactory.eINSTANCE.createNode();
 		intermediateNode1.setName("intermediateNode1");
