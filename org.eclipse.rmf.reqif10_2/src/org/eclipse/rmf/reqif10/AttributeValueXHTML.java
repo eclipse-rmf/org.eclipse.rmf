@@ -158,7 +158,7 @@ public interface AttributeValueXHTML extends AttributeValue {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueXHTML_TheOriginalValue()
 	 * @model containment="true" unsettable="true" ordered="false"
 	 *        extendedMetaData="name='THE-ORIGINAL-VALUE' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-ORIGINAL-VALUE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-ORIGINAL-VALUE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	XhtmlContent getTheOriginalValue();
@@ -213,7 +213,7 @@ public interface AttributeValueXHTML extends AttributeValue {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueXHTML_TheValue()
 	 * @model containment="true" unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='THE-VALUE' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-VALUE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-VALUE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	XhtmlContent getTheValue();

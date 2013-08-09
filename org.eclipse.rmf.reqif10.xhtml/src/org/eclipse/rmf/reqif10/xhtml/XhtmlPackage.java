@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -574,15 +573,6 @@ public interface XhtmlPackage extends EPackage {
 	int DOCUMENT_ROOT_FEATURE_COUNT = 8;
 
 	/**
-	 * The number of operations of the '<em>Document Root</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlAbbrTypeImpl <em>Abbr Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -888,15 +878,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_ABBR_TYPE_FEATURE_COUNT = 32;
-
-	/**
-	 * The number of operations of the '<em>Abbr Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_ABBR_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlAcronymTypeImpl <em>Acronym Type</em>}' class.
@@ -1206,15 +1187,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_ACRONYM_TYPE_FEATURE_COUNT = 32;
 
 	/**
-	 * The number of operations of the '<em>Acronym Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_ACRONYM_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlAddressTypeImpl <em>Address Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1520,15 +1492,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_ADDRESS_TYPE_FEATURE_COUNT = 32;
-
-	/**
-	 * The number of operations of the '<em>Address Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_ADDRESS_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl <em>AType</em>}' class.
@@ -1901,15 +1864,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_ATYPE_FEATURE_COUNT = 39;
 
 	/**
-	 * The number of operations of the '<em>AType</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_ATYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlBlockquoteTypeImpl <em>Blockquote Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2163,15 +2117,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_BLOCKQUOTE_TYPE_FEATURE_COUNT = 26;
 
 	/**
-	 * The number of operations of the '<em>Blockquote Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_BLOCKQUOTE_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlBrTypeImpl <em>Br Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2225,15 +2170,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_BR_TYPE_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Br Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_BR_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlCaptionTypeImpl <em>Caption Type</em>}' class.
@@ -2543,15 +2479,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_CAPTION_TYPE_FEATURE_COUNT = 32;
 
 	/**
-	 * The number of operations of the '<em>Caption Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_CAPTION_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlCiteTypeImpl <em>Cite Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2857,15 +2784,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_CITE_TYPE_FEATURE_COUNT = 32;
-
-	/**
-	 * The number of operations of the '<em>Cite Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_CITE_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlCodeTypeImpl <em>Code Type</em>}' class.
@@ -3175,15 +3093,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_CODE_TYPE_FEATURE_COUNT = 32;
 
 	/**
-	 * The number of operations of the '<em>Code Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_CODE_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColgroupTypeImpl <em>Colgroup Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3320,15 +3229,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_COLGROUP_TYPE_FEATURE_COUNT = 13;
 
 	/**
-	 * The number of operations of the '<em>Colgroup Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_COLGROUP_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl <em>Col Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3454,15 +3354,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_COL_TYPE_FEATURE_COUNT = 12;
-
-	/**
-	 * The number of operations of the '<em>Col Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_COL_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlDdTypeImpl <em>Dd Type</em>}' class.
@@ -3916,15 +3807,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_DD_TYPE_FEATURE_COUNT = 48;
 
 	/**
-	 * The number of operations of the '<em>Dd Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_DD_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlDfnTypeImpl <em>Dfn Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4230,15 +4112,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_DFN_TYPE_FEATURE_COUNT = 32;
-
-	/**
-	 * The number of operations of the '<em>Dfn Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_DFN_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlDivTypeImpl <em>Div Type</em>}' class.
@@ -4692,15 +4565,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_DIV_TYPE_FEATURE_COUNT = 48;
 
 	/**
-	 * The number of operations of the '<em>Div Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_DIV_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlDlTypeImpl <em>Dl Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4799,15 +4663,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_DL_TYPE_FEATURE_COUNT = 9;
-
-	/**
-	 * The number of operations of the '<em>Dl Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_DL_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlDtTypeImpl <em>Dt Type</em>}' class.
@@ -5115,15 +4970,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_DT_TYPE_FEATURE_COUNT = 32;
-
-	/**
-	 * The number of operations of the '<em>Dt Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_DT_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlEditTypeImpl <em>Edit Type</em>}' class.
@@ -5595,15 +5441,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_EDIT_TYPE_FEATURE_COUNT = 50;
 
 	/**
-	 * The number of operations of the '<em>Edit Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_EDIT_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlEmTypeImpl <em>Em Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5909,15 +5746,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_EM_TYPE_FEATURE_COUNT = 32;
-
-	/**
-	 * The number of operations of the '<em>Em Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_EM_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlH1TypeImpl <em>H1 Type</em>}' class.
@@ -6227,15 +6055,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_H1_TYPE_FEATURE_COUNT = 32;
 
 	/**
-	 * The number of operations of the '<em>H1 Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_H1_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlH2TypeImpl <em>H2 Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6541,15 +6360,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_H2_TYPE_FEATURE_COUNT = 32;
-
-	/**
-	 * The number of operations of the '<em>H2 Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_H2_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlH3TypeImpl <em>H3 Type</em>}' class.
@@ -6859,15 +6669,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_H3_TYPE_FEATURE_COUNT = 32;
 
 	/**
-	 * The number of operations of the '<em>H3 Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_H3_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlH4TypeImpl <em>H4 Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7173,15 +6974,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_H4_TYPE_FEATURE_COUNT = 32;
-
-	/**
-	 * The number of operations of the '<em>H4 Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_H4_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlH5TypeImpl <em>H5 Type</em>}' class.
@@ -7491,15 +7283,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_H5_TYPE_FEATURE_COUNT = 32;
 
 	/**
-	 * The number of operations of the '<em>H5 Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_H5_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlH6TypeImpl <em>H6 Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7805,15 +7588,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_H6_TYPE_FEATURE_COUNT = 32;
-
-	/**
-	 * The number of operations of the '<em>H6 Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_H6_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlHeadingTypeImpl <em>Heading Type</em>}' class.
@@ -8123,15 +7897,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_HEADING_TYPE_FEATURE_COUNT = 32;
 
 	/**
-	 * The number of operations of the '<em>Heading Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_HEADING_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlHrTypeImpl <em>Hr Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8203,15 +7968,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_HR_TYPE_FEATURE_COUNT = 6;
-
-	/**
-	 * The number of operations of the '<em>Hr Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_HR_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlInlPresTypeImpl <em>Inl Pres Type</em>}' class.
@@ -8521,15 +8277,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_INL_PRES_TYPE_FEATURE_COUNT = 32;
 
 	/**
-	 * The number of operations of the '<em>Inl Pres Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_INL_PRES_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlKbdTypeImpl <em>Kbd Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8835,15 +8582,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_KBD_TYPE_FEATURE_COUNT = 32;
-
-	/**
-	 * The number of operations of the '<em>Kbd Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_KBD_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlLiTypeImpl <em>Li Type</em>}' class.
@@ -9295,15 +9033,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_LI_TYPE_FEATURE_COUNT = 48;
-
-	/**
-	 * The number of operations of the '<em>Li Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_LI_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlObjectTypeImpl <em>Object Type</em>}' class.
@@ -9874,15 +9603,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_OBJECT_TYPE_FEATURE_COUNT = 61;
 
 	/**
-	 * The number of operations of the '<em>Object Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_OBJECT_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlOlTypeImpl <em>Ol Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9965,15 +9685,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_OL_TYPE_FEATURE_COUNT = 7;
 
 	/**
-	 * The number of operations of the '<em>Ol Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_OL_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlParamTypeImpl <em>Param Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10036,15 +9747,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_PARAM_TYPE_FEATURE_COUNT = 5;
-
-	/**
-	 * The number of operations of the '<em>Param Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_PARAM_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlPreTypeImpl <em>Pre Type</em>}' class.
@@ -10307,15 +10009,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_PRE_TYPE_FEATURE_COUNT = 27;
-
-	/**
-	 * The number of operations of the '<em>Pre Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_PRE_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlPTypeImpl <em>PType</em>}' class.
@@ -10623,15 +10316,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_PTYPE_FEATURE_COUNT = 32;
-
-	/**
-	 * The number of operations of the '<em>PType</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_PTYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlQTypeImpl <em>QType</em>}' class.
@@ -10950,15 +10634,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_QTYPE_FEATURE_COUNT = 33;
 
 	/**
-	 * The number of operations of the '<em>QType</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_QTYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlSampTypeImpl <em>Samp Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11264,15 +10939,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_SAMP_TYPE_FEATURE_COUNT = 32;
-
-	/**
-	 * The number of operations of the '<em>Samp Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_SAMP_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlSpanTypeImpl <em>Span Type</em>}' class.
@@ -11582,15 +11248,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_SPAN_TYPE_FEATURE_COUNT = 32;
 
 	/**
-	 * The number of operations of the '<em>Span Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_SPAN_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlStrongTypeImpl <em>Strong Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11898,15 +11555,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_STRONG_TYPE_FEATURE_COUNT = 32;
 
 	/**
-	 * The number of operations of the '<em>Strong Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_STRONG_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlTableTypeImpl <em>Table Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12106,15 +11754,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_TABLE_TYPE_FEATURE_COUNT = 20;
 
 	/**
-	 * The number of operations of the '<em>Table Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_TABLE_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlTbodyTypeImpl <em>Tbody Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12231,15 +11870,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_TBODY_TYPE_FEATURE_COUNT = 11;
-
-	/**
-	 * The number of operations of the '<em>Tbody Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_TBODY_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlTdTypeImpl <em>Td Type</em>}' class.
@@ -12783,15 +12413,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_TD_TYPE_FEATURE_COUNT = 58;
 
 	/**
-	 * The number of operations of the '<em>Td Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_TD_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlTfootTypeImpl <em>Tfoot Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12910,15 +12531,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_TFOOT_TYPE_FEATURE_COUNT = 11;
 
 	/**
-	 * The number of operations of the '<em>Tfoot Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_TFOOT_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlTheadTypeImpl <em>Thead Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13035,15 +12647,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_THEAD_TYPE_FEATURE_COUNT = 11;
-
-	/**
-	 * The number of operations of the '<em>Thead Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_THEAD_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlThTypeImpl <em>Th Type</em>}' class.
@@ -13587,15 +13190,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_TH_TYPE_FEATURE_COUNT = 58;
 
 	/**
-	 * The number of operations of the '<em>Th Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_TH_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlTrTypeImpl <em>Tr Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13732,15 +13326,6 @@ public interface XhtmlPackage extends EPackage {
 	int XHTML_TR_TYPE_FEATURE_COUNT = 13;
 
 	/**
-	 * The number of operations of the '<em>Tr Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_TR_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl <em>Ul Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13821,15 +13406,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_UL_TYPE_FEATURE_COUNT = 7;
-
-	/**
-	 * The number of operations of the '<em>Ul Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_UL_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlVarTypeImpl <em>Var Type</em>}' class.
@@ -14137,15 +13713,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XHTML_VAR_TYPE_FEATURE_COUNT = 32;
-
-	/**
-	 * The number of operations of the '<em>Var Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XHTML_VAR_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.xhtml.AlignType <em>Align Type</em>}' enum.

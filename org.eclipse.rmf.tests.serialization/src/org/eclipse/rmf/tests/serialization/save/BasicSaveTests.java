@@ -11,17 +11,11 @@
 package org.eclipse.rmf.tests.serialization.save;
 
 import java.io.StringReader;
-import java.util.Iterator;
 
-import javax.xml.XMLConstants;
-import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
-import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
 
-import org.eclipse.core.runtime.Plugin;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -30,61 +24,16 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
-import org.eclipse.rmf.tests.serialization.internal.Activator;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesFactory;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
 import org.eclipse.rmf.tests.serialization.model.nodes.SubNode;
-import org.eclipse.sphinx.testutils.AbstractTestCase;
-import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.InputSource;
 
 // caution: Sphinx Abstract Test Case is JUnit 3.8
 @SuppressWarnings("nls")
-public class RMFSaveTests extends AbstractTestCase {
-	final String BASEDIR = "org.eclipse.rmf.tests.serialization.save/";
-	XPath xpath;
-
-	public class MyNamespaceContext implements NamespaceContext {
-		public String getNamespaceURI(String prefix) {
-			if (prefix.equals("nodes")) {
-				return "http://www.eclipse.org/rmf/serialization/model/nodes.ecore";
-			} else if (prefix.equals("xsi")) {
-				return "http://www.w3.org/2001/XMLSchema-instance";
-			} else if (prefix.equals("ecore")) {
-				return "http://www.eclipse.org/emf/2002/Ecore";
-			} else {
-				return XMLConstants.NULL_NS_URI;
-			}
-		}
-
-		public String getPrefix(String namespace) {
-			if (namespace.equals("http://www.eclipse.org/rmf/serialization/model/nodes.ecore")) {
-				return "nodes";
-			} else if (namespace.equals("http://www.w3.org/2001/XMLSchema-instance")) {
-				return "xsi";
-			} else if (namespace.equals("http://www.eclipse.org/emf/2002/Ecore")) {
-				return "ecore";
-			} else {
-				return null;
-			}
-		}
-
-		public Iterator<String> getPrefixes(String namespace) {
-			return null;
-		}
-	}
-
-	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
-		XPathFactory factory = XPathFactory.newInstance();
-		xpath = factory.newXPath();
-		xpath.setNamespaceContext(new MyNamespaceContext());
-	}
+public class BasicSaveTests extends AbstractSaveTestCase {
 
 	@Test
 	public void testEReference_Contained0000Many() {
@@ -1335,6 +1284,37 @@ public class RMFSaveTests extends AbstractTestCase {
 	}
 
 	@Test
+	public void testReqIF_EReference_Referenced0101Single() {
+		try {
+			String fileName = BASEDIR + "ReqIF_EReference_Referenced0101Single.xml";
+			Node rootNode = createNodeModel_ReferencedxxxxSingle(NodesPackage.eINSTANCE.getNode_Reqif_eReference_Referenced0101Single());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("root",
+					xpath.evaluate("/nodes:NODE/nodes:REQIF-EREFERENCE-REFERENCED-0101-SINGLE/nodes:NODE-REF", root, XPathConstants.STRING));
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testReqIF_EReference_Referenced1001Many() {
+		try {
+			String fileName = BASEDIR + "ReqIF_EReference_Referenced1001Many.xml";
+			Node rootNode = createNodeModel_ReferencedxxxxMany(NodesPackage.eINSTANCE.getNode_Reqif_eReference_Referenced1001Many());
+			org.w3c.dom.Node root = getXMLRootNode(fileName, rootNode);
+
+			assertEquals("node",
+					xpath.evaluate("/nodes:NODE/nodes:REQIF-EREFERENCE-REFERENCED-1001-MANIES/nodes:NODE-REF[1]", root, XPathConstants.STRING));
+			assertEquals("subNode",
+					xpath.evaluate("/nodes:NODE/nodes:REQIF-EREFERENCE-REFERENCED-1001-MANIES/nodes:SUB-NODE-REF[1]", root, XPathConstants.STRING));
+
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
 	public void testEAttribute_Attribute0001Many() {
 		try {
 			String fileName = BASEDIR + "EAttribute_Attribute0001Many.xml";
@@ -1347,16 +1327,6 @@ public class RMFSaveTests extends AbstractTestCase {
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);
 		}
-	}
-
-	private org.w3c.dom.Node getXMLRootNode(String fileName, Node rootNode) throws Exception, XPathExpressionException {
-		saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
-		String modelAsString = loadWorkingFileAsString(fileName);
-		InputSource source = new InputSource(new StringReader(modelAsString));
-		org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
-		assertEquals(1, rootNodes.getLength());
-		org.w3c.dom.Node root = rootNodes.item(0);
-		return root;
 	}
 
 	@Test
@@ -2018,11 +1988,6 @@ public class RMFSaveTests extends AbstractTestCase {
 		Node rootNode = NodesFactory.eINSTANCE.createNode();
 		rootNode.eSet(feature, "value1");
 		return rootNode;
-	}
-
-	@Override
-	protected Plugin getTestPlugin() {
-		return new Activator.Implementation();
 	}
 
 	protected void validateOutput(String xpathExpression, String output, String expectedResult, QName resultType) throws XPathExpressionException {

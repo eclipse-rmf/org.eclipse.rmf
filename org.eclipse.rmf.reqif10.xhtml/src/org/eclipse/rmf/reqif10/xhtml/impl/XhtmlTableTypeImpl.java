@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -75,7 +75,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlTrType;
  *
  * @generated
  */
-public class XhtmlTableTypeImpl extends MinimalEObjectImpl.Container implements XhtmlTableType {
+public class XhtmlTableTypeImpl extends EObjectImpl implements XhtmlTableType {
 	/**
 	 * The cached value of the '{@link #getCaption() <em>Caption</em>}' containment reference.
 	 * <!-- begin-user-doc -->

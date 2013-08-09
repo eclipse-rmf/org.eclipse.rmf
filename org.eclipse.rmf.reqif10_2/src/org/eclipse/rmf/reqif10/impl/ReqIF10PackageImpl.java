@@ -3292,7 +3292,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "featureWrapperElement", "false",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
-			 "classifierElement", "true"
+			 "classifierElement", "false"
 		   });			
 		addAnnotation
 		  (getAttributeValueXHTML_TheValue(), 
@@ -3302,7 +3302,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "featureWrapperElement", "false",
 			 "featureElement", "true",
 			 "classifierWrapperElement", "false",
-			 "classifierElement", "true"
+			 "classifierElement", "false"
 		   });			
 		addAnnotation
 		  (attributeValueEClass, 

@@ -1,0 +1,150 @@
+<html>
+<body>
+<h2>TC1300 "SpecRelation"</h2>
+
+<h3>Purpose</h3>
+<p>To check whether ReqIF tools can import/export links and groups of links (SpecRelation, SpecRelationType, RelationGroup, RelationGroupType).</p>
+
+<h3>Description of Reference Test Data</h3>
+
+<h4>ReqIFHeader</h4>
+The ReqIF Header contains all data that is mandatory according to the reqif XML schema.
+<h4>ReqIFToolExtension</h4> 
+No ReqIF Tool Extensions are contained in the reqif file  
+<h4>ReqIFContent</h4>
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> 
+<tr>
+<th>ReqIF element name</th>
+<th>Multiplicity</th>
+<th>Description</th>
+</tr>
+
+</thead> 
+<tbody>
+<tr>
+<td>Specification</td>
+<td>1</td>
+<td>One specification for the contents. </td>
+</tr>
+
+<tr>
+<td>SpecHierarchy</td>
+<td>2</td>
+<td>One SpecHierarchy per SpecObjects.</td>
+</tr>
+
+<tr>
+<td>SpecObject</td>
+<td>2</td>
+<td>Two simple requirements</td>
+</tr>
+
+<tr>
+<td>SpecRelation</td>
+<td>1</td>
+<td>a single link between the two SpecObjects</td>
+</tr>
+
+<tr>
+<td>RelationGroup</td>
+<td>1</td>
+<td>a single RelationGroup that references the single specification as source and target and the single SpecRelation as specRelations</td>
+</tr>
+
+<tr>
+<td>SpecificationType</td>
+<td>1</td>
+<td>Specification type without additional attributes. </td>
+</tr>
+
+<tr>
+<td>SpecRelationType</td>
+<td>1</td>
+<td>SpecRelation type without additional attributes</td>
+</tr>
+
+<tr>
+<td>RelationGroupType</td>
+<td>1</td>
+<td>RelationGroup type without additional attributes</td>
+</tr>
+
+<tr>
+<td><i>AttributeDefinition/<br />
+AttributeValue/ DatatypeDefinition</i></td>
+<td colspan="2"><p>See chapters SpecObjectType and SpecRelationType (for Attribute Definitions).  
+See chapter SpecObjects (with attribute values) and SpecRelation (with attribute values) for Attribute Values.</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4>SpecObjectType</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> <tr>
+<th>Attribute Name</th>
+<th>ReqIF Attribute Type (AttributeDefinition..)</th>
+<th>Properties</th>
+</tr>
+</thead> 
+<tbody>
+<tr>
+<td>TC1300 String</td>
+<td>String</td>
+<td>maxLength := 256</td>
+</tr>
+</tbody>
+</table>
+
+<h4>SpecRelationType</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> <tr>
+<th>Attribute Name</th>
+<th>ReqIF Attribute Type (AttributeDefinition..)</th>
+<th>Properties</th>
+</tr>
+</thead> 
+<tbody>
+<tr>
+<td>ReqIF.Name</td>
+<td>XHTML</td>
+</tr>
+</tbody>
+</table>
+
+<h4>SpecObjects (with attribute values)</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> <tr>
+<th>TC1300 String</th>
+</tr>
+</thead> 
+<tbody>
+<tr>
+<td>Requirement 1</td>
+</tr>
+<tr>
+<td>Requirement 2</td>
+</tr>
+</tbody>
+</table>
+
+<h4>SpecRelation (with attribute values)</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> <tr>
+<th>ReqIF.Name</th>
+</tr>
+</thead> 
+<tbody>
+<tr>
+<td>TC 1300 SpecRelation</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>

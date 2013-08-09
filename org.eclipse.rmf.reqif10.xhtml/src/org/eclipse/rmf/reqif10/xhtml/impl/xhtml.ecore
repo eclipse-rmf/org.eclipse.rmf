@@ -178,7 +178,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlAbbrType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.abbr.type"/>
+      <details key="name" value="abbr"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -459,7 +459,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlAcronymType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.acronym.type"/>
+      <details key="name" value="acronym"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -740,7 +740,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlAddressType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.address.type"/>
+      <details key="name" value="address"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -1021,7 +1021,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlAType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.a.type"/>
+      <details key="name" value="a"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -1341,7 +1341,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlBlockquoteType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.blockquote.type"/>
+      <details key="name" value="blockquote"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="xhtmlBlockMix" unique="false"
@@ -1565,7 +1565,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlBrType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.br.type"/>
+      <details key="name" value="br"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
@@ -1598,7 +1598,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlCaptionType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.caption.type"/>
+      <details key="name" value="caption"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -1879,7 +1879,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlCiteType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.cite.type"/>
+      <details key="name" value="cite"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -2160,7 +2160,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlCodeType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.code.type"/>
+      <details key="name" value="code"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -2441,7 +2441,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlColgroupType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.colgroup.type"/>
+      <details key="name" value="colgroup"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="col" upperBound="-1" eType="#//XhtmlColType"
@@ -2534,7 +2534,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlColType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.col.type"/>
+      <details key="name" value="col"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="align" eType="#//AlignType"
@@ -2619,7 +2619,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlDdType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.dd.type"/>
+      <details key="name" value="dd"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -3047,7 +3047,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlDfnType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.dfn.type"/>
+      <details key="name" value="dfn"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -3328,7 +3328,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlDivType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.div.type"/>
+      <details key="name" value="div"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -3756,7 +3756,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlDlType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.dl.type"/>
+      <details key="name" value="dl"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
@@ -3827,7 +3827,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlDtType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.dt.type"/>
+      <details key="name" value="dt"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -4108,7 +4108,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlEditType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.edit.type"/>
+      <details key="name" value="edit"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -4548,7 +4548,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlEmType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.em.type"/>
+      <details key="name" value="em"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -4829,7 +4829,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlH1Type">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.h1.type"/>
+      <details key="name" value="h1"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -5110,7 +5110,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlH2Type">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.h2.type"/>
+      <details key="name" value="h2"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -5391,7 +5391,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlH3Type">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.h3.type"/>
+      <details key="name" value="h3"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -5672,7 +5672,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlH4Type">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.h4.type"/>
+      <details key="name" value="h4"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -5953,7 +5953,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlH5Type">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.h5.type"/>
+      <details key="name" value="h5"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -6234,7 +6234,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlH6Type">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.h6.type"/>
+      <details key="name" value="h6"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -6515,7 +6515,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlHeadingType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.heading.type"/>
+      <details key="name" value="heading"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -6796,7 +6796,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlHrType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.hr.type"/>
+      <details key="name" value="hr"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
@@ -6842,7 +6842,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlInlPresType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.InlPres.type"/>
+      <details key="name" value="InlPres"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -7123,7 +7123,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlKbdType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.kbd.type"/>
+      <details key="name" value="kbd"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -7404,7 +7404,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlLiType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.li.type"/>
+      <details key="name" value="li"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -7832,7 +7832,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlObjectType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.object.type"/>
+      <details key="name" value="object"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -8343,7 +8343,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlOlType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.ol.type"/>
+      <details key="name" value="ol"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="li" lowerBound="1" upperBound="-1"
@@ -8397,7 +8397,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlParamType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.param.type"/>
+      <details key="name" value="param"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//ID"
@@ -8435,7 +8435,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlPreType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.pre.type"/>
+      <details key="name" value="pre"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -8669,7 +8669,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlPType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.p.type"/>
+      <details key="name" value="p"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -8950,7 +8950,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlQType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.q.type"/>
+      <details key="name" value="q"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -9237,7 +9237,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlSampType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.samp.type"/>
+      <details key="name" value="samp"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -9518,7 +9518,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlSpanType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.span.type"/>
+      <details key="name" value="span"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -9799,7 +9799,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlStrongType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.strong.type"/>
+      <details key="name" value="strong"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -10080,7 +10080,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlTableType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.table.type"/>
+      <details key="name" value="table"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="caption" eType="#//XhtmlCaptionType"
@@ -10226,7 +10226,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlTbodyType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.tbody.type"/>
+      <details key="name" value="tbody"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tr" lowerBound="1" upperBound="-1"
@@ -10306,7 +10306,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlTdType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.td.type"/>
+      <details key="name" value="td"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -10799,7 +10799,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlTfootType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.tfoot.type"/>
+      <details key="name" value="tfoot"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tr" lowerBound="1" upperBound="-1"
@@ -10879,7 +10879,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlTheadType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.thead.type"/>
+      <details key="name" value="thead"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tr" lowerBound="1" upperBound="-1"
@@ -10959,7 +10959,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlThType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.th.type"/>
+      <details key="name" value="th"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
@@ -11452,7 +11452,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlTrType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.tr.type"/>
+      <details key="name" value="tr"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
@@ -11549,7 +11549,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlUlType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.ul.type"/>
+      <details key="name" value="ul"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="li" lowerBound="1" upperBound="-1"
@@ -11603,7 +11603,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XhtmlVarType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="xhtml.var.type"/>
+      <details key="name" value="var"/>
       <details key="kind" value="mixed"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"

@@ -1,0 +1,230 @@
+<html>
+<body>
+
+<h2>TC1100 "Unformatted common system attributes &amp; SpecHierarchy"</h2>
+
+<h3>Purpose</h3>
+
+<p>To check whether ReqIF tools can correctly import/export</p>
+
+<ol>
+<li>common system attributes (that are not formatted), and</li>
+<li>structured specifications.</li>
+</ol>
+
+<h3>Description of Reference Test Data</h3>
+
+<h4>ReqIFContent</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> 
+<tr>
+<th valign="top" >ReqIF element name</th>
+<th valign="top" >Multi-plicity</th>
+<th valign="top" >Description</th>
+</tr>
+</thead> 
+<tbody>
+<tr>
+<td valign="top" >Specification</td>
+<td valign="top" >1</td>
+<td valign="top" >One specification for the contents.</td>
+</tr>
+
+<tr>
+<td valign="top" >SpecHierarchy</td>
+<td valign="top" >5</td>
+<td valign="top" >SpecHierarchy elements that each reference one SpecObject.</td>
+</tr>
+
+<tr>
+<td valign="top" >SpecObject</td>
+<td valign="top" >5</td>
+<td valign="top" >In total, there are 5 SpecObjects.</td>
+</tr>
+
+<tr>
+<td valign="top" >SpecObjectType</td>
+<td valign="top" >1</td>
+<td valign="top" >Type for common system attributes on object level.</td>
+</tr>
+
+<tr>
+<td valign="top" >SpecificationType</td>
+<td valign="top" >1</td>
+<td valign="top" >Type for common system attributes on specification level.</td>
+</tr>
+
+<tr>
+<td valign="top" ><i>AttributeDefinition/<br />
+AttributeValue/ DatatypeDefinition</i></td>
+<td colspan="2" valign="top" >See chapters SpecObjectType and SpecificationType (for Attribute Definitions).
+See chapters SpecObjects (with attribute values) and Specification (with Attribute Values) for AttributeValues.</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4>SpecObjectType</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> 
+<tr>
+<th valign="top" >Attribute Name</th>
+<th valign="top" >ReqIF Attribute Type (AttributeDefinition..)</th>
+<th valign="top" >Properties</th>
+</tr>
+</thead> 
+<tbody>
+<tr>
+<td valign="top" >ReqIF.ForeignID</td>
+<td valign="top" >String</td>
+<td valign="top" > </td>
+</tr>
+
+<tr>
+<td valign="top" >ReqIF.Name</td>
+<td valign="top" >XHTML</td>
+<td valign="top" > </td>
+</tr>
+
+<tr>
+<td valign="top" >ReqIF.ForeignCreatedBy</td>
+<td valign="top" >String</td>
+<td valign="top" > </td>
+</tr>
+
+<tr>
+<td valign="top" >ReqIF.ForeignCreatedOn</td>
+<td valign="top" >Date</td>
+<td valign="top" > </td>
+</tr>
+
+<tr>
+<td valign="top" >ReqIF.ForeignModifiedBy</td>
+<td valign="top" >String</td>
+<td valign="top" > </td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h4>SpecificationType</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> 
+<tr>
+<th valign="top" >Attribute Name</th>
+<th valign="top" >ReqIF Attribute Type (AttributeDefinition..)</th>
+<th valign="top" >Properties</th>
+</tr>
+</thead> 
+<tbody>
+<tr>
+<td valign="top" >ReqIF.Name</td>
+<td valign="top" >XHTML</td>
+<td valign="top" > </td>
+</tr>
+
+<tr>
+<td valign="top" >ReqIF.ForeignCreatedBy</td>
+<td valign="top" >String</td>
+<td valign="top" > </td>
+</tr>
+
+<tr>
+<td valign="top" >ReqIF.ForeignCreatedOn</td>
+<td valign="top" >Date</td>
+<td valign="top" > </td>
+</tr>
+
+<tr>
+<td valign="top" >ReqIF.ForeignModifiedBy</td>
+<td valign="top" >String</td>
+<td valign="top" > </td>
+</tr>
+
+</tbody>
+</table>
+
+<h4>SpecObjects (with Attribute Values)</h4>
+
+<p>Note: For simplicity, the intended position in the hierarchy matches the ReqIF.ForeignID</p>
+
+<table border="1" cellspacing="0" cellpadding="0" > <thead> <tr>
+<th valign="top" >ReqIF.ForeignID</th>
+<th valign="top" >ReqIF.Name</th>
+<th valign="top" >ReqIF.ForeignCreatedBy</th>
+<th valign="top" >ReqIF.ForeignCreatedOn</th>
+<th valign="top" >ReqIF.ForeignModifiedBy</th>
+</tr>
+
+</thead> 
+<tbody>
+<tr>
+<td valign="top" >1</td>
+<td valign="top" >Obj1</td>
+<td valign="top" >Max Mustermann</td>
+<td valign="top" >2002-01-01</td>
+<td valign="top" >Jane Q. Public</td>
+</tr>
+
+<tr>
+<td valign="top" >1.1</td>
+<td valign="top" >Obj1.1</td>
+<td valign="top" >Otto Normal</td>
+<td valign="top" >2003-02-02</td>
+<td valign="top" >John Q. Public</td>
+</tr>
+
+<tr>
+<td valign="top" >1.1.1</td>
+<td valign="top" >Obj1.1.1</td>
+<td valign="top" >Fulanito</td>
+<td valign="top" >2004-03-03</td>
+<td valign="top" >John Doe</td>
+</tr>
+
+<tr>
+<td valign="top" >1.2</td>
+<td valign="top" >Obj1.2</td>
+<td valign="top" >Juan Nadie</td>
+<td valign="top" >2005-04-04</td>
+<td valign="top" >Jane Q. Citizen</td>
+</tr>
+
+<tr>
+<td valign="top" >2</td>
+<td valign="top" >Obj2</td>
+<td valign="top" >Jean Dupont</td>
+<td valign="top" >2006-05-05</td>
+<td valign="top" >John Q. Citizen</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4>Specification (with Attribute Values)</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > <thead> <tr>
+<th valign="top" >ReqIF.Name</th>
+<th valign="top" >ReqIF.ForeignCreatedBy</th>
+<th valign="top" >ReqIF.ForeignCreatedOn</th>
+<th valign="top" >ReqIF.ForeignModifiedBy</th>
+</tr>
+
+</thead> 
+<tbody>
+<tr>
+<td valign="top" >Specification1</td>
+<td valign="top" >Fulanito</td>
+<td valign="top" >2002-01-01</td>
+<td valign="top" >Jane Q. Public</td>
+</tr>
+
+</tbody>
+</table>
+
+</body>
+</html>

@@ -27,9 +27,18 @@ public interface XMLPersistenceMappingExtendedMetaData extends ExtendedMetaData 
 	/**
 	 * Returns the XML name for a classifier. This is the name is used if a classifier XML element is configured.
 	 * <p>
-	 * details key: "xmlName"
+	 * details key: "name"
 	 */
 	String getXMLName(EClassifier eClassifier);
+
+	/**
+	 * Returns the XML name for a classifier in a context of a given feature. This name is used if a classifier XML
+	 * element is configured.
+	 * <p>
+	 * details key: Classifier "name" <br/>
+	 * details key: EStructuralFeature "classifierNameSuffix"
+	 */
+	String getXMLName(EClassifier classifier, EStructuralFeature eStructuralFeature);
 
 	/**
 	 * Sets the XML name for a classifier. This is the name is used if a classifier XML element is configured.
@@ -42,7 +51,7 @@ public interface XMLPersistenceMappingExtendedMetaData extends ExtendedMetaData 
 	 * Returns the XML wrapper name for a classifier. This is the name is used if a classifier wrapper XML element is
 	 * configured.
 	 * <p>
-	 * details key: "xmlWrapperName"
+	 * details key: "wrapperName"
 	 */
 	String getXMLWrapperName(EClassifier eClassifier);
 
@@ -50,21 +59,21 @@ public interface XMLPersistenceMappingExtendedMetaData extends ExtendedMetaData 
 	 * Sets the XML wrapper name for a classifier. This is the name is used if a classifier wrapper XML element is
 	 * configured.
 	 * <p>
-	 * details key: "xmlWrapperName"
+	 * details key: "wrapperName"
 	 */
 	// void setXMLWrapperName(EClassifier eClassifier, String xmlName);
 
 	/**
 	 * Returns the XML name for a structural feature. This is the name is used if a feature XML element is configured.
 	 * <p>
-	 * details key: "xmlName"
+	 * details key: "name"
 	 */
 	String getXMLName(EStructuralFeature eStructuralFeature);
 
 	/**
 	 * Set the XML name for a structural feature. This is the name is used if a feature XML element is configured.
 	 * <p>
-	 * details key: "xmlName"
+	 * details key: "name"
 	 */
 	// void setXMLName(EStructuralFeature eStructuralFeature, String xmlName);
 
@@ -72,7 +81,7 @@ public interface XMLPersistenceMappingExtendedMetaData extends ExtendedMetaData 
 	 * Returns the XML name for a structural feature. This is the name is used if a feature wrapper XML element is
 	 * configured.
 	 * <p>
-	 * details key: "xmlWrapperName"
+	 * details key: "wrapperName"
 	 */
 	String getXMLWrapperName(EStructuralFeature eStructuralFeature);
 
@@ -80,7 +89,7 @@ public interface XMLPersistenceMappingExtendedMetaData extends ExtendedMetaData 
 	 * Set the XML name for a structural feature. This is the name is used if a feature wrapper XML element is
 	 * configured.
 	 * <p>
-	 * details key: "xmlWrapperName"
+	 * details key: "wrapperName"
 	 */
 	// void setXMLWrapperName(EStructuralFeature eStructuralFeature, String xmlName);
 
@@ -108,6 +117,8 @@ public interface XMLPersistenceMappingExtendedMetaData extends ExtendedMetaData 
 	 * Retrieves the package with the specified namespace URI from the package registry associated with this instance.
 	 */
 	EPackage getPackage(String namespace);
+
+	boolean isXMLPersistenceMappingEnabled(EStructuralFeature feature);
 
 	/**
 	 * Returns a structural feature within a class, corresponding to a local attribute with the given namespace and

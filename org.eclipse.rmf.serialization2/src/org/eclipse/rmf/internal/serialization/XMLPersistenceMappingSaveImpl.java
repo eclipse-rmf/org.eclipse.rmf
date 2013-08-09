@@ -148,7 +148,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 						break;
 					}
 					case OBJECT_HREF_MANY_UNSETTABLE: {
-						if (isEmpty(o, f)) {
+						if (isEmpty(o, f) && !isXMLPersistenceMappingEnabled(f)) {
 							continue LOOP; // next feature, no element required
 						}
 						// It's intentional to keep going.
@@ -206,7 +206,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 					}
 					case OBJECT_CONTAIN_MANY_UNSETTABLE:
 					case DATATYPE_MANY: {
-						if (isEmpty(o, f)) {
+						if (isEmpty(o, f) && !isXMLPersistenceMappingEnabled(f)) {
 							continue LOOP; // next feature, no element required
 						}
 						break;
@@ -304,7 +304,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 						break;
 					}
 					case OBJECT_HREF_MANY_UNSETTABLE: {
-						if (isEmpty(o, f)) {
+						if (isEmpty(o, f) && !isXMLPersistenceMappingEnabled(f)) {
 							saveManyEmpty(o, f);
 							continue LOOP; // next feature, no element required
 						}
@@ -365,7 +365,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 					}
 					case OBJECT_CONTAIN_MANY_UNSETTABLE:
 					case DATATYPE_MANY: {
-						if (isEmpty(o, f)) {
+						if (isEmpty(o, f) && !isXMLPersistenceMappingEnabled(f)) {
 							saveManyEmpty(o, f);
 							continue LOOP; // next feature, no element required
 						}
@@ -520,6 +520,56 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 	}
 
 	@Override
+	protected void saveNil(EStructuralFeature f) {
+		if (isXMLPersistenceMappingEnabled(f)) {
+			int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(f);
+			switch (featureSerializationStructure) {
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
+				// no means for describing null values
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
+				doc.saveNilElement(getClassifierQName(f.getEType(), f));
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0010__CLASSIFIER_WRAPPER_ELEMENT:
+				doc.saveNilElement(getClassifierWrapperQName(f.getEType()));
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0011__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				doc.startElement(getClassifierWrapperQName(f.getEType()));
+				doc.endEmptyElement();
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+				super.saveNil(f);
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0110__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0111__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				doc.startElement(getFeatureQName(f));
+				doc.endEmptyElement();
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1000__FEATURE_WRAPPER_ELEMENT:
+				doc.saveNilElement(getFeatureWrapperQName(f));
+				break;
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1010__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1011__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1101__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1110__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
+			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1111__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+				doc.startElement(getFeatureWrapperQName(f));
+				doc.endEmptyElement();
+				break;
+			default:
+				super.saveNil(f);
+			}
+
+		} else {
+			super.saveNil(f);
+		}
+
+	}
+
+	@Override
 	protected void saveElementReferenceSingle(EObject o, EStructuralFeature f) {
 		assert null != helper.getValue(o, f);
 
@@ -583,14 +633,14 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveReferenced0101Single(EObject remote, EStructuralFeature f) {
 		doc.startElement(getFeatureQName(f));
-		String qname = getClassifierQName(remote.eClass());
+		String qname = getClassifierQName(remote.eClass(), f);
 		saveReferencedHREF(f, remote, qname, false);
 		doc.endElement();
 	}
 
 	protected void saveReferenced1001Single(EObject remote, EStructuralFeature f) {
 		doc.startElement(getFeatureWrapperQName(f));
-		String qname = getClassifierQName(remote.eClass());
+		String qname = getClassifierQName(remote.eClass(), f);
 		saveReferencedHREF(f, remote, qname, false);
 		doc.endElement();
 	}
@@ -646,7 +696,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		for (int i = 0; i < size; i++) {
 			doc.startElement(getFeatureQName(f));
 			value = values.basicGet(i);
-			qname = getClassifierQName(value.eClass());
+			qname = getClassifierQName(value.eClass(), f);
 			saveReferencedHREF(f, value, qname, false);
 			doc.endElement();
 		}
@@ -660,7 +710,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		doc.startElement(getFeatureWrapperQName(f));
 		for (int i = 0; i < size; i++) {
 			value = values.basicGet(i);
-			qname = getClassifierQName(value.eClass());
+			qname = getClassifierQName(value.eClass(), f);
 			saveReferencedHREF(f, value, qname, false);
 		}
 		doc.endElement();
@@ -1231,7 +1281,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 			// XML Mapping serialization enabled
 			@SuppressWarnings("unchecked")
 			List<? extends InternalEObject> values = ((InternalEList<? extends InternalEObject>) helper.getValue(o, f)).basicList();
-			if (null != values && !values.isEmpty()) {
+			if (null != values) {
 				int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(f);
 
 				switch (featureSerializationStructure) {
@@ -1513,7 +1563,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 	protected void saveContainedSingle(EObject o, EStructuralFeature f) {
 		assert !f.isMany();
 
-		if (null != rmfExtendedMetaData && null != extendedMetaData) {
+		if (isXMLPersistenceMappingEnabled(f)) {
 			// XML Mapping serialization enabled
 			@SuppressWarnings("unchecked")
 			EObject value = (EObject) helper.getValue(o, f);
@@ -1571,7 +1621,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
 					// if undefined, use the standard EMF mechanism
-					super.saveContainedMany(o, f);
+					super.saveContainedSingle(o, f);
 					break;
 				default:
 					saveContained1001Single(value, f);
@@ -1581,7 +1631,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 			}
 
 		} else {
-			super.saveContainedMany(o, f);
+			super.saveContainedSingle(o, f);
 		}
 	}
 
@@ -1797,6 +1847,15 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		return getQName(prefix, classifierXMLName);
 	}
 
+	protected String getClassifierQName(EClassifier eClassifier, EStructuralFeature eStructuralFeature) {
+		assert null != rmfExtendedMetaData;
+		assert null != extendedMetaData;
+		String classifierXMLName = rmfExtendedMetaData.getXMLName(eClassifier, eStructuralFeature);
+		EPackage ePackage = eClassifier.getEPackage();
+		String prefix = helper.getPrefix(ePackage);
+		return getQName(prefix, classifierXMLName);
+	}
+
 	protected String getClassifierWrapperQName(EClassifier eClassifier) {
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
@@ -1846,6 +1905,14 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		Collections.sort(classesList, comparator);
 
 		return classesList;
+	}
+
+	protected boolean isXMLPersistenceMappingEnabled(EStructuralFeature feature) {
+		if (null != rmfExtendedMetaData) {
+			return rmfExtendedMetaData.isXMLPersistenceMappingEnabled(feature);
+		} else {
+			return false;
+		}
 	}
 
 }

@@ -1,0 +1,178 @@
+<html>
+<body>
+<h2>TC1000 "Simple content"</h2>
+
+<h3>Purpose</h3>
+<p>To check whether ReqIF tools can import/export attributes containing plain text content (integer, string, enumerations etc.) correctly. Hierarchies, relations and system attributes are left out as far as possible to better identify general problems with simple content.</p>
+
+<h3>Description of Reference Test Data</h3>
+
+<h4>ReqIF elements</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> 
+<tr>
+<th>ReqIF element name</th>
+<th>Multiplicity</th>
+<th>Description</th>
+</tr>
+
+</thead> 
+<tbody>
+<tr>
+<td>Specification</td>
+<td>1</td>
+<td>One specification for the contents. </td>
+</tr>
+
+<tr>
+<td>SpecHierarchy</td>
+<td>1</td>
+<td>SpecHierarchy element that references one SpecObject.</td>
+</tr>
+
+<tr>
+<td>SpecObject</td>
+<td>1</td>
+<td>Single requirement </td>
+</tr>
+
+<tr>
+<td>SpecObjectType</td>
+<td>1</td>
+<td>Type of the requirement for attributes with plain text content.</td>
+</tr>
+
+<tr>
+<td>SpecificationType</td>
+<td>1</td>
+<td>Specification type without additional attributes. </td>
+</tr>
+
+<tr>
+<td><i>AttributeDefinition/<br />
+AttributeValue/ DatatypeDefinition</i></td>
+<td colspan="2"><p>See SpecObjectType (for Attribute Definitions) and SpecObject (with attribute values) for Attribute Values</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4>SpecObjectType</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > <thead> <tr>
+<th>Attribute Name</th>
+<th>ReqIF Attribute Type (AttributeDefinition..)</th>
+<th>Properties</th>
+</tr>
+</thead> 
+
+<tbody>
+<tr>
+<td>TC1000T</td>
+<td>Boolean</td>
+<td> </td>
+</tr>
+
+<tr>
+<td>TC1000F</td>
+<td>Boolean</td>
+<td> </td>
+</tr>
+
+<tr>
+<td>TC1000 Integer</td>
+<td>Integer</p>
+
+</td>
+<td>max :=5000
+min := -17496</td>
+</tr>
+
+<tr>
+<td>TC1000 String</td>
+<td>String</p>
+
+</td>
+<td>maxLength := 256</td>
+</tr>
+
+<tr>
+<td>TC1000 Real</td>
+<td>Real</p>
+
+</td>
+<td>max :=1234.5678
+min := -1234.5678
+accuracy := 10</td>
+</tr>
+
+<tr>
+<td>TC1000 Date</td>
+<td>Date</td>
+<td> </td>
+</tr>
+
+<tr>
+<td>TC1000 Enum</td>
+<td>Enumeration</td>
+<td>multiValued:=false
+
+<i>Literals:</i>
+<ul>
+<li>TC1000 Red</li>
+<li>TC1000 Green</li>
+<li>TC1000 Yellow</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>TC1000 EnumMultiValue</td>
+<td>Enumeration</td>
+<td>multiValued:=true
+
+<i>Literals:</i>
+<ul>
+<li>TC1000 Red</li>
+<li>TC1000 Green</li>
+<li>TC1000 Yellow</li>
+</ul>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h4>SpecObject (with attribute values)</h4>
+
+<table border="1" cellspacing="0" cellpadding="0" > 
+<thead> <tr>
+<th>TC1000T</th>
+<th>TC1000F</th>
+<th>TC1000 Integer</th>
+<th>TC1000 String</th>
+<th>TC1000 Real</th>
+<th>TC1000 Date</th>
+<th>TC1000 Enum</th>
+<th>TC1000 EnumMultiValue</th>
+</tr>
+
+</thead> 
+<tbody>
+<tr>
+<td>true</td>
+<td>false</td>
+<td>5000</td>
+<td>Plain</td>
+<td>1234.5</td>
+<td>2002-05-30T09:30:10+06:00</td>
+<td>TC1000Yellow</td>
+<td>TC1000Yellow, TC1000Red, TC1000Green,</td>
+</tr>
+
+</tbody>
+</table>
+
+</body>
+</html>

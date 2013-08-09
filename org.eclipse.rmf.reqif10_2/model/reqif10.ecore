@@ -157,7 +157,7 @@
         <details key="featureWrapperElement" value="false"/>
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
-        <details key="classifierElement" value="true"/>
+        <details key="classifierElement" value="false"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="theValue" ordered="false"
@@ -172,7 +172,7 @@
         <details key="featureWrapperElement" value="false"/>
         <details key="featureElement" value="true"/>
         <details key="classifierWrapperElement" value="false"/>
-        <details key="classifierElement" value="true"/>
+        <details key="classifierElement" value="false"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

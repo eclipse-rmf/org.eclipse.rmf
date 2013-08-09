@@ -114,6 +114,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1101Many"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1110Many"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nodes.ecore#//Node/eAttribute_Attribute1111Many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/reqif_eReference_Referenced0101Single"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nodes.ecore#//Node/reqif_eReference_Referenced1001Many"/>
     </genClasses>
     <genClasses image="false" ecoreClass="nodes.ecore#//AbstractNode"/>
     <genClasses ecoreClass="nodes.ecore#//SubNode"/>

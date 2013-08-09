@@ -28,6 +28,8 @@ import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
 
 public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMetaData implements XMLPersistenceMappingExtendedMetaData {
 	static final String WRAPPER_NAME = "wrapperName"; //$NON-NLS-1$
+	static final String CLASSIFIER_NAME_SUFFIX = "classifierNameSuffix"; //$NON-NLS-1$
+
 	static final String FEATURE_WRAPPER_ELEMENT = "featureWrapperElement"; //$NON-NLS-1$
 	static final String FEATURE_ELEMENT = "featureElement"; //$NON-NLS-1$
 	static final String CLASSIFIER_WRAPPER_ELEMENT = "classifierWrapperElement"; //$NON-NLS-1$
@@ -448,21 +450,29 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 
 		void setXMLWrapperName(String name);
 
+		String getXMLClassiferNameSuffix();
+
+		void setXMLClassiferNameSuffix(String suffix);
+
+		boolean isXMLPersistenceMappingEnabled();
+
 		int getFeatureSerializationStructure();
 
 		void setFeatureSerializationStructure(int featureSerializationStructure);
 	}
 
-	class RMFEStructuralFeatureExtendedMetaDataImpl implements XMLPersistenceMappingEStructuralFeatureExtendedMetaData {
+	class XMLPersistenceMappingEStructuralFeatureExtendedMetaDataImpl implements XMLPersistenceMappingEStructuralFeatureExtendedMetaData {
 		protected static final String UNINITIALIZED_STRING = "uninitialized"; //$NON-NLS-1$
 		protected static final int UNINITIALIZED_INT = -2;
 
 		protected EStructuralFeature eStructuralFeature;
 		protected String xmlName = UNINITIALIZED_STRING;
 		protected String xmlWrapperName = UNINITIALIZED_STRING;
+		protected String xmlClassifierNameSuffix = UNINITIALIZED_STRING;
 		protected int featureSerializationStructure = UNINITIALIZED_INT;
+		protected Boolean xmlPersistenceMappingEnabled = null;
 
-		public RMFEStructuralFeatureExtendedMetaDataImpl(EStructuralFeature eStructuralFeature) {
+		public XMLPersistenceMappingEStructuralFeatureExtendedMetaDataImpl(EStructuralFeature eStructuralFeature) {
 			super();
 			this.eStructuralFeature = eStructuralFeature;
 		}
@@ -487,7 +497,29 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 
 		public void setXMLWrapperName(String xmlWrapperName) {
 			this.xmlWrapperName = xmlWrapperName;
+		}
 
+		public String getXMLClassiferNameSuffix() {
+			if (UNINITIALIZED_STRING == xmlClassifierNameSuffix) {
+				setXMLClassiferNameSuffix(basicGetClassifierNameSuffix(eStructuralFeature));
+			}
+			return xmlClassifierNameSuffix;
+		}
+
+		public boolean isXMLPersistenceMappingEnabled() {
+			if (null == xmlPersistenceMappingEnabled) {
+				setXMLPersistenceMappingEnabled(basicIsXMLPersistenceMappingEnabled(eStructuralFeature));
+			}
+			return xmlPersistenceMappingEnabled;
+
+		};
+
+		void setXMLPersistenceMappingEnabled(Boolean xmlPersistenceMappingEnabled) {
+			this.xmlPersistenceMappingEnabled = xmlPersistenceMappingEnabled;
+		};
+
+		public void setXMLClassiferNameSuffix(String suffix) {
+			xmlClassifierNameSuffix = suffix;
 		}
 
 		public int getFeatureSerializationStructure() {
@@ -524,19 +556,23 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		}
 	}
 
+	public boolean isXMLPersistenceMappingEnabled(EStructuralFeature feature) {
+		return null != getRMFAnnotation(feature, false);
+	}
+
 	public String getXMLName(EClassifier eClassifier) {
 		return getXMLPersistenceMappingExtendedMetaData(eClassifier).getXMLName();
 	}
 
-	/*
-	 * public void setXMLName(EClassifier eClassifier, String xmlName) { EAnnotation eAnnotation =
-	 * getRMFAnnotation(eClassifier, true); eAnnotation.getDetails().put(XML_NAME, xmlName);
-	 * getRMFExtendedMetaData(eClassifier).setXMLName(xmlName); EPackage ePackage = eClassifier.getEPackage(); if
-	 * (ePackage != null) { getRMFExtendedMetaData(ePackage).renameToXMLName(eClassifier, xmlName); } }
-	 */
-
 	public String getXMLWrapperName(EClassifier eClassifier) {
 		return getXMLPersistenceMappingExtendedMetaData(eClassifier).getXMLWrapperName();
+	}
+
+	public String getXMLName(EClassifier eClassifier, EStructuralFeature eStructuralFeature) {
+		StringBuffer buffer = new StringBuffer();
+		buffer.append(getXMLPersistenceMappingExtendedMetaData(eClassifier).getXMLName());
+		buffer.append(getXMLPersistenceMappingExtendedMetaData(eStructuralFeature).getXMLClassiferNameSuffix());
+		return buffer.toString();
 	}
 
 	public void setXMLWrapperName(EClassifier eClassifier, String xmlWrapperName) {
@@ -606,6 +642,10 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		return getXMLPersistenceMappingExtendedMetaData(eClass).getFeatureByXMLElementName(namespace, xmlElementName);
 	}
 
+	protected boolean basicIsXMLPersistenceMappingEnabled(EStructuralFeature eStructuralFeature) {
+		return null != getRMFAnnotation(eStructuralFeature, false);
+	}
+
 	protected String basicGetWrapperName(EClassifier eClassifier) {
 		EAnnotation eAnnotation = getRMFAnnotation(eClassifier, false);
 		String result = null;
@@ -626,6 +666,18 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		}
 		if (null == result) {
 			result = basicGetName(eStructuralFeature) + PLURAL_EXTENSION;
+		}
+		return result;
+	}
+
+	protected String basicGetClassifierNameSuffix(EStructuralFeature eStructuralFeature) {
+		EAnnotation eAnnotation = getRMFAnnotation(eStructuralFeature, false);
+		String result = null;
+		if (eAnnotation != null) {
+			result = eAnnotation.getDetails().get(CLASSIFIER_NAME_SUFFIX);
+		}
+		if (null == result) {
+			result = ""; //$NON-NLS-1$
 		}
 		return result;
 	}
@@ -698,7 +750,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 
 	protected XMLPersistenceMappingEStructuralFeatureExtendedMetaData createRMFEStructuralFeatureExtendedMetaData(
 			EStructuralFeature eStructuralFeature) {
-		return new RMFEStructuralFeatureExtendedMetaDataImpl(eStructuralFeature);
+		return new XMLPersistenceMappingEStructuralFeatureExtendedMetaDataImpl(eStructuralFeature);
 	}
 
 	protected XMLPersistenceMappingEClassifierExtendedMetaData createRMFEClassifierExtendedMetaData(EClassifier eClassifier) {

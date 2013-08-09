@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,7 +16,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.xml.namespace.SpaceType;
 
@@ -39,7 +39,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
  *
  * @generated
  */
-public class XhtmlBrTypeImpl extends MinimalEObjectImpl.Container implements XhtmlBrType {
+public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	/**
 	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
