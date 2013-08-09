@@ -13,7 +13,6 @@ package org.eclipse.rmf.reqif10.pror.editor.propertiesview;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.Arrays;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.Cell;
@@ -21,12 +20,15 @@ import org.agilemore.agilegrid.SWTX;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.Descriptor;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.PropertyRow;
 import org.eclipse.swt.SWT;
@@ -135,12 +137,29 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 	private AttributeValue removeValue;
 
 	private void removeValue() {
-		Command cmd = RemoveCommand.create(editingDomain,
-				removeValue.eContainer(),
-				ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
-				removeValue);
-		editingDomain.getCommandStack().execute(cmd);
-		redrawCells(ProrPropertyControl.this.getCellSelection());
+		Command cmd = null;
+		if (removeValue.eContainer() instanceof SpecElementWithAttributes) {
+			cmd = RemoveCommand
+					.create(editingDomain,
+							removeValue.eContainer(),
+							ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+							removeValue);
+		} else if (removeValue.eContainer() instanceof AttributeDefinition) {
+			AttributeDefinition ad = (AttributeDefinition) removeValue
+					.eContainer();
+
+			cmd = SetCommand.create(editingDomain, ad,
+					ReqIF10Util.getDefaultValueFeature(ad), null);
+			System.out.println(cmd.canExecute());
+		}
+
+		if (cmd != null) {
+			editingDomain.getCommandStack().execute(cmd);
+			redrawCells(ProrPropertyControl.this.getCellSelection());
+		} else {
+			System.err
+					.println("Don't know parent: " + removeValue.eContainer());
+		}
 	}
 	
 	void setSelection(ISelection selection) {
