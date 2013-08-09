@@ -1,0 +1,32 @@
+<project name="getReqIFSchema" default="patchEcoreFiles" basedir="../.." xmlns:qvto="http://www.eclipse.org/qvt/1.0.0/Operational">
+	<description>
+        Get the ReqIF XML schema and the XHTML Schema fragments
+    </description>
+
+	<property file="./ant/reqif10-xhtml/generate.properties">
+	</property>
+	<!-- TODO: check if user starts script from within eclipse JVM -->
+
+
+	<target name="patchEcoreFiles">
+		<emf.XSD2Java model="${GEN_FOLDER}/driver.xsd"
+			genModel="${GEN_FOLDER}/xhtml.genmodel"
+			reconcileGenModel="reload"
+			generateJavaCode="false">
+		</emf.XSD2Java>
+		
+		<copy file="${GEN_FOLDER}/xhtml.ecore" toFile="${GEN_FOLDER}/xhtml.bak.ecore" />
+
+		<!-- eliminate dependencies to the types.ecore model -->
+		<replace file="${GEN_FOLDER}/xhtml.ecore" token="value=&quot;xhtml." value="value=&quot;" />
+		<replace file="${GEN_FOLDER}/xhtml.ecore" token=".type&quot;" value="&quot;" />
+		<replace file="${GEN_FOLDER}/xhtml.ecore" token="namespace.ecore#" value="http://www.w3.org/XML/1998/namespace#" />
+
+		<copy file="${GEN_FOLDER}/xhtml.ecore" toFile="${GEN_FOLDER}/xhtml.bak2.ecore" />
+
+
+	</target>
+
+
+
+</project>
