@@ -24,7 +24,6 @@ import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
-import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
@@ -50,11 +49,11 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 	 */
 	private AttributeValueEnumeration attributeValue;
 	private final EditingDomain editingDomain;
-	private SpecElementWithAttributes parent;
+	private Object parent;
 
 	public ProrEnumerationMultiValueCellEditor(AgileGrid agileGrid,
 			DatatypeDefinitionEnumeration dde,
-			SpecElementWithAttributes parent, EditingDomain editingDomain,
+			Object parent, EditingDomain editingDomain,
 			AdapterFactory adapterFactory) {
 		super(agileGrid);
 		this.dde = dde;

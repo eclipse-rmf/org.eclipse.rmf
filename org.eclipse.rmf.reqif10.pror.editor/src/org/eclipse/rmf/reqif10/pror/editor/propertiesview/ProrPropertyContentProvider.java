@@ -263,7 +263,12 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 			Object feature = descriptor.getFeature(content);
 			return feature == ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES
 					|| descriptor.getFeature(content) == ReqIF10Package.Literals.ATTRIBUTE_VALUE_BOOLEAN__THE_VALUE
-;
+					|| descriptor.getFeature(content) == ReqIF10Package.Literals.ATTRIBUTE_VALUE_DATE__THE_VALUE
+					|| descriptor.getFeature(content) == ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES
+					|| descriptor.getFeature(content) == ReqIF10Package.Literals.ATTRIBUTE_VALUE_INTEGER__THE_VALUE
+					|| descriptor.getFeature(content) == ReqIF10Package.Literals.ATTRIBUTE_VALUE_REAL__THE_VALUE
+					|| descriptor.getFeature(content) == ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE
+					|| descriptor.getFeature(content) == ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__THE_VALUE;
 		}
 
 		public Object getContent(int column) {

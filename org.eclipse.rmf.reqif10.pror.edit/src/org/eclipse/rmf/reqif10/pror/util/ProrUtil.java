@@ -142,7 +142,7 @@ public final class ProrUtil {
 	 * case this method takes care of that as well.
 	 */
 	public static void setTheValue(final AttributeValue av, Object value,
-			SpecElementWithAttributes parent,
+			Object parent,
 			final Object affectedObject, EditingDomain ed) {
 
 		// The Command that sets the value
