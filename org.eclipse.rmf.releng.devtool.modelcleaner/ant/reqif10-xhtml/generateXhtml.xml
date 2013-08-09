@@ -1,0 +1,59 @@
+<project name="getReqIFSchema" default="generateXhtml" basedir="../..">
+	<description>
+        Get the ReqIF XML schema and the XHTML Schema fragments
+    </description>
+
+	<property file="./ant/reqif10-xhtml/generate.properties">
+	</property>
+
+	<target name="preparePatchOriginalXsd">
+		<mkdir dir="${GEN_FOLDER}" />
+		<copy overwrite="true" todir="${GEN_FOLDER}">
+			<fileset dir="${RESOURCES_FOLDER}/omg" />
+		</copy>
+		<copy overwrite="true" todir="${GEN_FOLDER}">
+			<fileset dir="${RESOURCES_FOLDER}/w3c" />
+		</copy>
+		<copy overwrite="true" todir="${GEN_FOLDER}">
+			<fileset dir="${RESOURCES_FOLDER}/custom" />
+		</copy>
+	</target>
+
+	<target name="patchXsds" depends="preparePatchOriginalXsd">
+		<replace file="${GEN_FOLDER}/driver.xsd" token="schemaLocation=&quot;http://www.w3.org/TR/xhtml-modularization/SCHEMA/" value="schemaLocation=&quot;" />
+		<replace file="${GEN_FOLDER}/driver.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/reqif.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/reqif.xsd" token="schemaLocation=&quot;http://www.omg.org/spec/ReqIF/20110402/" value="schemaLocation=&quot;" />
+
+		<replace file="${GEN_FOLDER}/xhtml-attribs-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-datatypes-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-framework-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-text-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-hypertext-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-list-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-edit-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-pres-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-inlstyle-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-object-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-table-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-attribs-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-blkstruct-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-inlstruct-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-inlphras-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-inlpres-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-blkphras-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-blkpres-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+		<replace file="${GEN_FOLDER}/xhtml-param-1.xsd" token="schemaLocation=&quot;http://www.w3.org/2001/xml.xsd" value="schemaLocation=&quot;xml.xsd" />
+
+		<replace file="${GEN_FOLDER}/driver.xsd" token="&lt;/xsd:schema&gt;" value="&lt;xsd:element name=&quot;p&quot; type=&quot;xhtml.p.type&quot; /&gt;&lt;xsd:element name=&quot;div&quot; type=&quot;xhtml.div.type&quot; /&gt;&lt;/xsd:schema&gt;" />
+	</target>
+
+	<target name="generateXhtml" depends="patchXsds">
+		<echo>Precondition for further steps: EMF SDK, XSD SDK</echo>
+		<echo>Reload ${GEN_FOLDER}/xhtml.genmodel (right-click on the file / Reload...)</echo>
+		<echo>Select xhtml.ecore and datatypes.ecore</echo>
+		<echo>Update the base-directory of datatypes and xhtml to 'org.eclipse.rmf.reqif10'</echo>
+		<echo>Generate all (=model and edit)</echo>
+	</target>
+</project>
+

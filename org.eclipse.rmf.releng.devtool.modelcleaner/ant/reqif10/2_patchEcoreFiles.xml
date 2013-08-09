@@ -1,0 +1,39 @@
+<project name="getReqIFSchema" default="patchEcoreFiles" basedir="../.." xmlns:qvto="http://www.eclipse.org/qvt/1.0.0/Operational">
+    <description>
+        Get the ReqIF XML schema and the XHTML Schema fragments
+    </description>
+	
+	<property file="./ant/reqif10/generate.properties"></property>
+	<!-- TODO: check if user starts script from within eclipse JVM -->
+	
+
+	<target name="clean">
+		<delete file="${GEN_FOLDER}/reqif10.ecore"/>				
+	</target>	
+	
+<target name="patchEcoreFiles" depends="clean">
+	<copy file="${GEN_FOLDER}/ReqIF.ecore" toFile="${GEN_FOLDER}/reqif10.ecore"/>
+	
+	<!-- eliminate dependencies to the types.ecore model -->
+	<replace file="${GEN_FOLDER}/reqif10.ecore" token="ecore:EDataType types.ecore#//Boolean" value="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" />
+	<replace file="${GEN_FOLDER}/reqif10.ecore" token="ecore:EDataType types.ecore#//String" value="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" />
+	<replace file="${GEN_FOLDER}/reqif10.ecore" token="ecore:EDataType types.ecore#//Integer" value="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger" />
+	<replace file="${GEN_FOLDER}/reqif10.ecore" token="ecore:EDataType types.ecore#//UnlimitedNatural" value="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger" />
+	<replace file="${GEN_FOLDER}/reqif10.ecore" token="ecore:EDataType types.ecore#//Real" value="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" />
+	<replace file="${GEN_FOLDER}/reqif10.ecore" token="#//DataTypes/Float" value="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" />
+
+	<copy file="${GEN_FOLDER}/reqif10.ecore" toFile="${GEN_FOLDER}/reqif10-snapshot.ecore"/>
+
+	
+	<!-- fix ReqIF ecore file -->
+	<qvto:transformation uri="transforms/ReqIFModelCleaner.qvto">
+	     <inout uri="${GEN_FOLDER}/reqif10.ecore"/>
+	</qvto:transformation>
+
+	<replace file="${GEN_FOLDER}/reqif10.ecore" token="/org.eclipse.rmf.releng.devtools.modelcleaner/gen/reqif10/reqif10.ecore" value="" />
+
+</target>	
+	
+
+
+</project>
