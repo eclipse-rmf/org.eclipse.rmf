@@ -13,6 +13,7 @@ package org.eclipse.rmf.reqif10.pror.presentation.ui;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.agilemore.agilegrid.ICellRenderer;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
@@ -25,6 +26,13 @@ public class LinewrapCellRenderer implements IProrCellRenderer {
 	private Map<AttributeValue, LineWrapObject> cache = new HashMap<AttributeValue, LineWrapObject>();
 	
 	public int doDrawCellContent(GC gc, Rectangle rect, Object value) {
+
+		// Draw default values in gray
+		if (value instanceof AttributeValue) {
+			gc.setForeground(((AttributeValue) value).eContainer() == null ? ICellRenderer.COLOR_LINE_DARKGRAY
+					: ICellRenderer.COLOR_TEXT);
+		}
+
 		String text = "";
 		int textExtent = 15;
 		LineWrapObject lineWrapObject = getLineWrapObject(value, gc, rect.width);
