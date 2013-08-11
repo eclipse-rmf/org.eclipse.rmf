@@ -43,7 +43,7 @@ public class TC0001000ContainmentEStructuralFeatureTests extends AbstractTestCas
 		assertTrue(loadedReqIF.isSetTheHeader());
 		assertNotNull(loadedReqIF.getTheHeader());
 	}
-
+	
 	@Test
 	public void test0004ReferenceSingleSetDefaultValue() {
 		AttributeDefinitionBoolean attributeDefinitionBoolean = (AttributeDefinitionBoolean) loadedReqIF.getCoreContent().getSpecTypes().get(0)
@@ -90,9 +90,7 @@ public class TC0001000ContainmentEStructuralFeatureTests extends AbstractTestCas
 	public void test0012AttributeSingleSetDefaultValue() {
 		ReqIFHeader reqIFHeader = loadedReqIF.getTheHeader();
 		assertTrue(reqIFHeader.isSetTitle());
-		// it is not possible to distinguish between null and empty string.
-		// thus we assume an empty string
-		assertEquals("", reqIFHeader.getTitle());
+		assertEquals(null, reqIFHeader.getTitle());
 	}
 
 }

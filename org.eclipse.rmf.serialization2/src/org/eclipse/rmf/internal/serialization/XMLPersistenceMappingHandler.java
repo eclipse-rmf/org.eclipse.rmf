@@ -14,6 +14,7 @@ package org.eclipse.rmf.internal.serialization;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
+import org.eclipse.emf.ecore.xmi.ClassNotFoundException;
 import org.eclipse.emf.ecore.xmi.FeatureNotFoundException;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
@@ -221,7 +223,11 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				setFeatureValue(anchorEObject, feature, text == null ? null : text.toString());
+				if (isNull()) {
+					setFeatureValue(anchorEObject, feature, null);
+				} else {
+					setFeatureValue(anchorEObject, feature, text == null ? null : text.toString());
+				}
 				text = null;
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
@@ -407,14 +413,22 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				objects.pop();
+				// only the feature element was available => consider it as a null value;
+				if (feature.isMany()) {
+					@SuppressWarnings("unchecked")
+					EList<EObject> values = (EList<EObject>) anchorEObject.eGet(feature);
+					values.clear();
+				} else {
+					setFeatureValue(anchorEObject, feature, null);
+				}
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				objects.pop();
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
@@ -458,7 +472,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
+				// nothing todo
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
@@ -475,14 +489,22 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
-				objects.pop();
+				// only the feature element was available => consider it as a null value;
+				if (feature.isMany()) {
+					@SuppressWarnings("unchecked")
+					EList<EObject> values = (EList<EObject>) anchorEObject.eGet(feature);
+					values.clear();
+				} else {
+					setFeatureValue(anchorEObject, feature, null);
+				}
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				objects.pop();
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
@@ -670,13 +692,17 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
 				// TODO: Use uri converter instead
-				handleProxy(proxy, resourceURI.toString() + "#" + text.toString());
-				objects.pop();
+				if (null != proxy) {
+					handleProxy(proxy, resourceURI.toString() + "#" + text.toString());
+					objects.pop();
+				} else {
+					// TODO: handle error: could not create object
+				}
 				text = null;
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
@@ -779,16 +805,23 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		assert null != namespace;
 		assert null != typeXMLName;
 
-		EClassifier eClassifier = rmfExtendedMetaData.getTypeByXMLName(namespace, typeXMLName);
+		EClassifier eClassifier = rmfExtendedMetaData.getTypeByXMLName(namespace, typeXMLName, feature);
+		EFactory eFactory = rmfExtendedMetaData.getPackage(namespace).getEFactoryInstance();
+
 		if (null != eClassifier) {
-			EFactory eFactory = eClassifier.getEPackage().getEFactoryInstance();
 			EObject obj = helper.createObject(eFactory, eClassifier);
-			setFeatureValue(peekObject, feature, obj);
-			handleObjectAttribs(obj);
-			processObject(obj);
+			// TODO: add created type object validation
+			// obj = validateCreateObjectFromFactory(eFactory, typeXMLName, obj, feature);
+			if (null != obj) {
+				setFeatureValue(peekObject, feature, obj);
+				handleObjectAttribs(obj);
+				processObject(obj);
+			}
 			return obj;
 		} else {
-			// TODO: error handling
+
+			error(new ClassNotFoundException(typeXMLName, eFactory, getLocation(), getLineNumber(), getColumnNumber()));
+
 			return null;
 		}
 	}
@@ -817,6 +850,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	@Override
 	public void endElement(String uri, String localName, String qName) {
 		if (null != rmfExtendedMetaData) {
+			elements.pop();
 			LoadPattern activeDeserializationRule = deserializationRuleStack.peek();
 			if (null != activeDeserializationRule) {
 				activeDeserializationRule.endElement(uri, localName);
@@ -862,6 +896,8 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					deserializationRuleStack.push(activeDeserializationRule);
 				} else {
 					// TODO: handle error
+					System.out.println("Could not find deserialization rule for " + prefix + ":" + name + " in context of "
+							+ peekObject.eClass().getName());
 				}
 			}
 

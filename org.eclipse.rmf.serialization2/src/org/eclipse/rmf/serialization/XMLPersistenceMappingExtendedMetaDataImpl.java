@@ -74,6 +74,8 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 	public static interface XMLPersistenceMappingEPackageExtendedMetaData {
 		EClassifier getType(String name);
 
+		EClassifier getType(String name, EStructuralFeature feature);
+
 		EClassifier getTypeByWrapperName(String wrapperName);
 
 		void renameToXMLName(EClassifier eClassifier, String newName);
@@ -135,6 +137,25 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 			}
 
 			return result;
+		}
+
+		public EClassifier getType(String name, EStructuralFeature feature) {
+			// TODO optimize implementation for performance
+			String classifierNameSuffix = getXMLPersistenceMappingExtendedMetaData(feature).getXMLClassiferNameSuffix();
+			EClassifier classifier;
+			int classifierNameSuffixLength = classifierNameSuffix.length();
+			if (0 == classifierNameSuffixLength) {
+				classifier = getType(name);
+			} else {
+				if (name.endsWith(classifierNameSuffix)) {
+					String classfierName = name.substring(0, name.length() - classifierNameSuffixLength);
+					classifier = getType(classfierName);
+				} else {
+					classifier = null;
+				}
+			}
+
+			return classifier;
 		}
 
 		public EClassifier getTypeByWrapperName(String name) {
@@ -302,100 +323,112 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 				Iterator<EStructuralFeature> allFeaturesIter = eClass.getEAllStructuralFeatures().iterator();
 				// TODO: we should iterate over features with no kind or
 				List<EStructuralFeature> results = new ArrayList<EStructuralFeature>();
+				EStructuralFeature possibleResult;
+
 				while (allFeaturesIter.hasNext()) {
 					EStructuralFeature feature = allFeaturesIter.next();
+					possibleResult = null;
 					String xmlWrapperName = getXMLPersistenceMappingExtendedMetaData(feature).getXMLWrapperName();
 
 					// search by feature wrapper
-					if (xmlWrapperName.equals(xmlElementName)) {
+					if (xmlWrapperName.equals(xmlElementName) && isIdentifiedByFeatureWrapper(feature)) {
 						if (isIdentifiedByFeatureWrapper(feature)) {
-							results.add(feature);
+							possibleResult = feature;
 						} else {
 							// not found, continue with next feature
 						}
-					} else {
+					}
+
+					if (null == possibleResult) {
 						// search by feature name
 						String xmlName = getXMLPersistenceMappingExtendedMetaData(feature).getXMLName();
 						if (xmlName.equals(xmlElementName)) {
 							if (isIdentifiedByFeature(feature)) {
-								results.add(feature);
+								possibleResult = feature;
+							} else {
+								// not found, continue with next feature
+							}
+						}
+					}
+
+					if (null == possibleResult) {
+						// search by type wrapper (assuming type is type of feature)
+						String classifierWrapperXMLName = getXMLPersistenceMappingExtendedMetaData(feature.getEType()).getXMLWrapperName();
+						if (classifierWrapperXMLName.equals(xmlElementName)) {
+							if (isIdentifiedByClassifierWrapper(feature)) {
+								possibleResult = feature;
 							} else {
 								// not found, continue with next feature
 							}
 						} else {
-							// search by type wrapper (assuming type is type of feature)
-							String classifierWrapperXMLName = getXMLPersistenceMappingExtendedMetaData(feature.getEType()).getXMLWrapperName();
-							if (classifierWrapperXMLName.equals(xmlElementName)) {
-								if (isIdentifiedByClassifierWrapper(feature)) {
-									results.add(feature);
+							// search by type wrapper name (assuming type not type of feature)
+							EClassifier classifier = getTypeByXMLWrapperName(namespace, xmlElementName);
+							if (null != classifier) {
+								if (feature.getEType().equals(classifier)) {
+									if (isIdentifiedByClassifierWrapper(feature)) {
+										possibleResult = feature;
+									} else {
+										// not found, continue with next feature
+									}
+								} else if (classifier instanceof EClass) {
+									EClass eClass = (EClass) classifier;
+									if (eClass.getEAllSuperTypes().contains(feature.getEType())) {
+										if (isIdentifiedByClassifierWrapper(feature)) {
+											possibleResult = feature;
+										} else {
+											// not found, continue with next feature
+										}
+									} else {
+										// not found, continue with next feature
+									}
 								} else {
 									// not found, continue with next feature
 								}
-							} else {
-								// search by type wrapper name (assuming type not type of feature)
-								EClassifier classifier = getTypeByXMLWrapperName(namespace, xmlElementName);
-								if (null != classifier) {
-									if (feature.getEType().equals(classifier)) {
-										if (isIdentifiedByClassifierWrapper(feature)) {
-											results.add(feature);
-										} else {
-											// not found, continue with next feature
-										}
-									} else if (classifier instanceof EClass) {
-										EClass eClass = (EClass) classifier;
-										if (eClass.getEAllSuperTypes().contains(feature.getEType())) {
-											if (isIdentifiedByClassifierWrapper(feature)) {
-												results.add(feature);
-											} else {
-												// not found, continue with next feature
-											}
-										} else {
-											// not found, continue with next feature
-										}
-									} else {
-										// not found, continue with next feature
-									}
+							}
+						}
+					}
+					if (null == possibleResult) {
+						// search by type name (assuming type not type of feature)
+						EClassifier classifier = getTypeByXMLName(namespace, xmlElementName);
+						if (null != classifier) {
+							if (feature.getEType().equals(classifier)) {
+								if (isIdentifiedByClassifier(feature)) {
+									possibleResult = feature;
+								} else if (isEReference_Contained0000(feature)) {
+									possibleResult = feature;
 								} else {
-									// search by type name (assuming type not type of feature)
-									classifier = getTypeByXMLName(namespace, xmlElementName);
-									if (null != classifier) {
-										if (feature.getEType().equals(classifier)) {
-											if (isIdentifiedByClassifier(feature)) {
-												results.add(feature);
-											} else if (isEReference_Contained0000(feature)) {
-												results.add(feature);
-											} else {
-												// not found, continue with next feature
-											}
-										} else if (classifier instanceof EClass) {
-											EClass eClass = (EClass) classifier;
-											if (eClass.getEAllSuperTypes().contains(feature.getEType())) {
-												if (isIdentifiedByClassifier(feature)) {
-													results.add(feature);
-												} else if (isEReference_Contained0000(feature)) {
-													results.add(feature);
-												} else {
-													// not found, continue with next feature
-												}
-											} else if (isEReference_Contained0000(feature)) {
-												results.add(feature);
-											} else {
-												// not found, continue with next feature
-											}
-										} else if (isEReference_Contained0000(feature)) {
-											results.add(feature);
-										} else {
-											// not found, continue with next feature
-										}
+									// not found, continue with next feature
+								}
+							} else if (classifier instanceof EClass) {
+								EClass eClass = (EClass) classifier;
+								if (eClass.getEAllSuperTypes().contains(feature.getEType())) {
+									if (isIdentifiedByClassifier(feature)) {
+										possibleResult = feature;
 									} else if (isEReference_Contained0000(feature)) {
-										results.add(feature);
+										possibleResult = feature;
 									} else {
 										// not found, continue with next feature
 									}
-								} // if (null != classifier && classifier instanceof EClass)
-							} // if (classifierXMLName.equals(xmlElementName))
-						} // if (xmlName.equals(xmlElementName))
-					} // if (xmlWrapperName.equals(xmlElementName))
+								} else if (isEReference_Contained0000(feature)) {
+									possibleResult = feature;
+								} else {
+									// not found, continue with next feature
+								}
+							} else if (isEReference_Contained0000(feature)) {
+								possibleResult = feature;
+							} else {
+								// not found, continue with next feature
+							}
+						} else if (isEReference_Contained0000(feature)) {
+							possibleResult = feature;
+						} else {
+							// not found, continue with next feature
+						}
+					}
+
+					if (null != possibleResult) {
+						results.add(possibleResult);
+					}
 				} // while
 
 				// if there are multiple valid features, we prefer the feature that is many and is not NONE
@@ -613,6 +646,11 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 		return ePackage == null ? null : getTypeByXMLName(ePackage, xmlName);
 	}
 
+	public EClassifier getTypeByXMLName(String namespace, String xmlName, EStructuralFeature feature) {
+		EPackage ePackage = getPackage(namespace);
+		return ePackage == null ? null : getTypeByXMLName(ePackage, xmlName, feature);
+	}
+
 	public EClassifier getTypeByXMLWrapperName(String namespace, String xmlWrapperName) {
 		EPackage ePackage = getPackage(namespace);
 		return ePackage == null ? null : getTypeByXMLWrapperName(ePackage, xmlWrapperName);
@@ -620,6 +658,10 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 
 	public EClassifier getTypeByXMLName(EPackage ePackage, String xmlName) {
 		return getXMLPersistenceMappingExtendedMetaData(ePackage).getType(xmlName);
+	}
+
+	public EClassifier getTypeByXMLName(EPackage ePackage, String xmlName, EStructuralFeature feature) {
+		return getXMLPersistenceMappingExtendedMetaData(ePackage).getType(xmlName, feature);
 	}
 
 	public EClassifier getTypeByXMLWrapperName(EPackage ePackage, String xmlWrapperName) {

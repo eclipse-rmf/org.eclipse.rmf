@@ -99,6 +99,11 @@ public interface XMLPersistenceMappingExtendedMetaData extends ExtendedMetaData 
 	EClassifier getTypeByXMLName(String namespace, String xmlName);
 
 	/**
+	 * Returns the classifier with the given XML name within the package with the given namespace.
+	 */
+	EClassifier getTypeByXMLName(String namespace, String xmlName, EStructuralFeature feature);
+
+	/**
 	 * Returns the classifier with the given XML wrapper name within the package with the given namespace.
 	 */
 	EClassifier getTypeByXMLWrapperName(String namespace, String xmlWrapperName);
