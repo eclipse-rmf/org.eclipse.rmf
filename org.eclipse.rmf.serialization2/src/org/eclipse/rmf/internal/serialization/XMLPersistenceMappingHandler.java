@@ -43,12 +43,15 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		public static int STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT = 8;
 		public static int STATE_DELEGATE_CHILD_NEEDED = -1;
 		public static int STATE_DELEGATE_PARENT_NEEDED = -2;
+		public static int STATE_DELEGATE_SIBLING_NEEDED = -3;
 
 		void startElement(String namespace, String xmlName);
 
 		void endElement(String namespace, String xmlName);
 
 		boolean needsDelegateChild();
+
+		boolean needsDelegateSibling();
 
 		boolean needsDelegateParent();
 
@@ -73,9 +76,14 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			return currentState == STATE_DELEGATE_PARENT_NEEDED;
 		}
 
+		public boolean needsDelegateSibling() {
+			return currentState == STATE_DELEGATE_SIBLING_NEEDED;
+		}
+
 	}
 
 	class LoadPatternContained0001Impl extends AbstractLoadPatternImpl {
+		String classifierName = null;
 
 		public LoadPatternContained0001Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -85,19 +93,27 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			switch (currentState) {
 			case STATE_READY:
 				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				classifierName = xmlName;
 				createRMFObject(anchorEObject, feature, namespace, xmlName);
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
 				currentState = STATE_DELEGATE_CHILD_NEEDED;
 				break;
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
-				createRMFObject(anchorEObject, feature, namespace, xmlName);
+				if (xmlName.equals(classifierName)) {
+					currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+					createRMFObject(anchorEObject, feature, namespace, xmlName);
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
 
@@ -114,15 +130,20 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
 				// this happens if there are no nested structures
 				objects.pop();
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
-				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				// this happens if there are nested structures
+				objects.pop();
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
 
@@ -133,6 +154,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	}
 
 	class LoadPatternContained0100Impl extends AbstractLoadPatternImpl {
+		String featureName;
 
 		public LoadPatternContained0100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -142,6 +164,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			switch (currentState) {
 			case STATE_READY:
 				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				featureName = xmlName;
 				// This puts the newly created eObject onto the objects stack
 				createObject(anchorEObject, feature);
 				break;
@@ -149,13 +172,21 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_DELEGATE_CHILD_NEEDED;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
-				createObject(anchorEObject, feature);
+				if (featureName.equals(xmlName)) {
+					currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+					createObject(anchorEObject, feature);
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
+
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
 
@@ -171,15 +202,19 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
 				objects.pop();
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
-				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				objects.pop();
+				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
 
@@ -190,6 +225,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	}
 
 	class LoadPatternAttribute0100Impl extends AbstractLoadPatternImpl {
+		String featureName = null;;
 
 		public LoadPatternAttribute0100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -199,16 +235,25 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			switch (currentState) {
 			case STATE_READY:
 				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				featureName = xmlName;
 				text = new StringBuffer(); // record all strings
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
 				// TODO handle error. no further elements expected here
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
-				// wait to read contained text
+				if (featureName.equals(xmlName)) {
+					text = new StringBuffer(); // record all strings
+					currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+					// wait to read contained text
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
 
@@ -229,12 +274,15 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					setFeatureValue(anchorEObject, feature, text == null ? null : text.toString());
 				}
 				text = null;
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
 
@@ -245,6 +293,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	}
 
 	class LoadPatternAttribute1000Impl extends AbstractLoadPatternImpl {
+		String featureWrapperName = null;
 
 		public LoadPatternAttribute1000Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -254,16 +303,25 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			switch (currentState) {
 			case STATE_READY:
 				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				featureWrapperName = xmlName;
 				text = new StringBuffer(); // record all strings
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
 				// TODO handle error. no further elements expected here
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
-				// wait to read contained text
+				if (featureWrapperName.equals(xmlName)) {
+					currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+					text = new StringBuffer(); // record all strings
+					// wait to read contained text
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
 
@@ -290,12 +348,15 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					}
 				}
 				text = null;
-				currentState = STATE_READY;
+				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
 
@@ -306,6 +367,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	}
 
 	class LoadPatternAttribute1100Impl extends AbstractLoadPatternImpl {
+		String featureWrapperName = null;
 
 		public LoadPatternAttribute1100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -314,6 +376,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		public void startElement(String namespace, String xmlName) {
 			switch (currentState) {
 			case STATE_READY:
+				featureWrapperName = xmlName;
 				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
@@ -324,13 +387,20 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				// TODO handle error. no further elements expected here
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				if (featureWrapperName == xmlName) {
+					currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
 				text = new StringBuffer(); // record all strings
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
 
@@ -361,6 +431,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			case STATE_DELEGATE_PARENT_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
 
 			default:
 				// TODO: handle error
@@ -369,6 +442,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	}
 
 	class LoadPatternContained0101Impl extends AbstractLoadPatternImpl {
+		String featureName = null;
 
 		public LoadPatternContained0101Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -377,6 +451,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		public void startElement(String namespace, String xmlName) {
 			switch (currentState) {
 			case STATE_READY:
+				featureName = xmlName;
 				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
@@ -393,12 +468,19 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				createRMFObject(anchorEObject, feature, namespace, xmlName);
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				if (featureName.equals(xmlName)) {
+					currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
+				// TODO handle error. something was wrong with delegate handshake
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
 
@@ -421,20 +503,21 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				} else {
 					setFeatureValue(anchorEObject, feature, null);
 				}
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
 				objects.pop();
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
-				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				objects.pop();
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
@@ -447,6 +530,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	}
 
 	class LoadPatternContained1001Impl extends AbstractLoadPatternImpl {
+		String featureWrapperName = null;
 
 		public LoadPatternContained1001Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -455,6 +539,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		public void startElement(String namespace, String xmlName) {
 			switch (currentState) {
 			case STATE_READY:
+				featureWrapperName = xmlName;
 				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
@@ -469,7 +554,11 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				createRMFObject(anchorEObject, feature, namespace, xmlName);
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				if (featureWrapperName.equals(xmlName)) {
+					currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
 				// nothing todo
@@ -497,20 +586,21 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				} else {
 					setFeatureValue(anchorEObject, feature, null);
 				}
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
 				objects.pop();
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
-				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				objects.pop();
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
@@ -523,6 +613,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	}
 
 	class LoadPatternReferenced0100Impl extends AbstractLoadPatternImpl {
+		String featureName = null;
 		InternalEObject proxy;
 
 		public LoadPatternReferenced0100Impl(EObject anchorEObject, EStructuralFeature feature) {
@@ -534,14 +625,22 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			case STATE_READY:
 				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
 				createObject(anchorEObject, feature);
+				proxy = (InternalEObject) objects.peekEObject();
 				text = new StringBuffer(); // record all strings
+				featureName = xmlName;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
 				// TODO handle error. no further elements expected here
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
-				// wait to read contained text
+				if (featureName.equals(xmlName)) {
+					currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+					createObject(anchorEObject, feature);
+					proxy = (InternalEObject) objects.peekEObject();
+					text = new StringBuffer(); // record all strings
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
@@ -559,10 +658,12 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
 				// TODO: Use uri converter instead
-				handleProxy((InternalEObject) objects.peekEObject(), resourceURI.toString() + "#" + text.toString());
-				objects.pop();
+				if (null != proxy) {
+					handleProxy(proxy, resourceURI.toString() + "#" + text.toString());
+					objects.pop();
+				}
 				text = null;
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
@@ -578,6 +679,8 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	}
 
 	class LoadPatternReferenced1100Impl extends AbstractLoadPatternImpl {
+		String featureWrapperName = null;
+		EObject proxy;
 
 		public LoadPatternReferenced1100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -586,20 +689,27 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		public void startElement(String namespace, String xmlName) {
 			switch (currentState) {
 			case STATE_READY:
+				featureWrapperName = xmlName;
 				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
 				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				createObject(anchorEObject, feature);
 				text = new StringBuffer(); // record all strings
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
 				// TODO handle error. no further elements expected here
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				if (featureWrapperName.equals(xmlName)) {
+					currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				createObject(anchorEObject, feature);
 				text = new StringBuffer(); // record all strings
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
@@ -620,7 +730,10 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_READY;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				// TODO: handle reference
+				if (null != proxy) {
+					handleProxy((InternalEObject) objects.peekEObject(), resourceURI.toString() + "#" + text.toString());
+					objects.pop();
+				}
 				text = null;
 				currentState = STATE_READY;
 				break;
@@ -641,6 +754,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	}
 
 	class LoadPatternReferenced0101Impl extends AbstractLoadPatternImpl {
+		String featureName = null;
 		InternalEObject proxy = null;
 
 		public LoadPatternReferenced0101Impl(EObject anchorEObject, EStructuralFeature feature) {
@@ -650,6 +764,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		public void startElement(String namespace, String xmlName) {
 			switch (currentState) {
 			case STATE_READY:
+				featureName = xmlName;
 				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
@@ -668,7 +783,11 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				text = new StringBuffer(); // record all strings
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				if (featureName.equals(xmlName)) {
+					currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
@@ -688,7 +807,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
 				// TODO: Use uri converter instead
@@ -702,7 +821,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
@@ -722,6 +841,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 
 	class LoadPatternReferenced1001Impl extends AbstractLoadPatternImpl {
 		InternalEObject proxy = null;
+		String featureWrapperName = null;
 
 		public LoadPatternReferenced1001Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -730,6 +850,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		public void startElement(String namespace, String xmlName) {
 			switch (currentState) {
 			case STATE_READY:
+				featureWrapperName = xmlName;
 				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
@@ -748,7 +869,11 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				text = new StringBuffer(); // record all strings
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				if (featureWrapperName.equals(xmlName)) {
+					currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
@@ -772,14 +897,18 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
 				// TODO: Use uri converter instead
-				handleProxy(proxy, resourceURI.toString() + "#" + text.toString());
+				if (null != proxy) {
+					objects.pop();
+					handleProxy(proxy, resourceURI.toString() + "#" + text.toString());
+				}
+
 				text = null;
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
+				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
 				break;
-			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
+			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
@@ -911,6 +1040,16 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					} else {
 						// TODO: handle error
 					}
+				} else if (activeDeserializationRule.needsDelegateSibling()) {
+					activeDeserializationRule = getLoadPattern(peekObject, prefix, name);
+					if (null != activeDeserializationRule) {
+						deserializationRuleStack.pop();
+						deserializationRuleStack.push(activeDeserializationRule);
+						activeDeserializationRule.startElement(namespace, name);
+					} else {
+						// TODO: handle error
+					}
+
 				}
 
 			}

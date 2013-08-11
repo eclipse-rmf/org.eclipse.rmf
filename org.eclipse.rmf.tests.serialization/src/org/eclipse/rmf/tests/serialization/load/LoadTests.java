@@ -438,6 +438,7 @@ public class LoadTests extends AbstractTestCase {
 
 		Object valueObject = node.eGet(feature);
 		assertNotNull(valueObject);
+		assertFalse(((EObject) valueObject).eIsProxy());
 		assertSame(node, valueObject);
 	}
 
