@@ -31,6 +31,8 @@ import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaData;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 
 public class XMLPersistenceMappingHandler extends SAXXMLHandler {
+	String xsiType;
+
 	interface LoadPattern {
 		public static int STATE_READY = 0;
 		public static int STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT = 1;
@@ -108,7 +110,6 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				}
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
@@ -129,7 +130,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
 				// this happens if there are no nested structures
-				objects.pop();
+				handleEndCreateObjectElement();
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
@@ -137,7 +138,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
 				// this happens if there are nested structures
-				objects.pop();
+				handleEndCreateObjectElement();
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
@@ -201,14 +202,14 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				objects.pop();
+				handleEndCreateObjectElement();
 				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
-				objects.pop();
+				handleEndCreateObjectElement();
 				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
@@ -236,7 +237,10 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			case STATE_READY:
 				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
 				featureName = xmlName;
-				text = new StringBuffer(); // record all strings
+				types.push(feature);
+				if (!isNull()) {
+					text = new StringBuffer();
+				}
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
 				// TODO handle error. no further elements expected here
@@ -456,6 +460,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
 				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+
 				createRMFObject(anchorEObject, feature, namespace, xmlName);
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
@@ -496,6 +501,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
 				// only the feature element was available => consider it as a null value;
+
 				if (feature.isMany()) {
 					@SuppressWarnings("unchecked")
 					EList<EObject> values = (EList<EObject>) anchorEObject.eGet(feature);
@@ -506,7 +512,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
-				objects.pop();
+				handleEndCreateObjectElement();
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
@@ -516,7 +522,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
-				objects.pop();
+				handleEndCreateObjectElement();
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
@@ -589,7 +595,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
-				objects.pop();
+				handleEndCreateObjectElement();
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
@@ -599,7 +605,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
-				objects.pop();
+				handleEndCreateObjectElement();
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
@@ -826,9 +832,6 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
-			case STATE_DELEGATE_CHILD_NEEDED:
-				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
-				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
 				// TODO handle error. something was wrong with delegate handshake
 				break;
@@ -938,19 +941,19 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		EFactory eFactory = rmfExtendedMetaData.getPackage(namespace).getEFactoryInstance();
 
 		if (null != eClassifier) {
-			EObject obj = helper.createObject(eFactory, eClassifier);
-			// TODO: add created type object validation
-			// obj = validateCreateObjectFromFactory(eFactory, typeXMLName, obj, feature);
-			if (null != obj) {
-				setFeatureValue(peekObject, feature, obj);
-				handleObjectAttribs(obj);
-				processObject(obj);
+			EObject obj = createObject(eFactory, eClassifier, false);
+			obj = validateCreateObjectFromFactory(eFactory, typeXMLName, obj, feature);
+			if (obj != null) {
+				if (contextFeature == null) {
+					setFeatureValue(peekObject, feature, obj);
+				} else {
+					contextFeature = null;
+				}
 			}
+			processObject(obj);
 			return obj;
 		} else {
-
 			error(new ClassNotFoundException(typeXMLName, eFactory, getLocation(), getLineNumber(), getColumnNumber()));
-
 			return null;
 		}
 	}
@@ -973,13 +976,41 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 
 		deserializationRuleStack = new MyStack<LoadPattern>();
+		xsiType = null;
 
+	}
+
+	@Override
+	public void characters(char[] ch, int start, int length) {
+		// TODO Auto-generated method stub
+		super.characters(ch, start, length);
 	}
 
 	@Override
 	public void endElement(String uri, String localName, String qName) {
 		if (null != rmfExtendedMetaData) {
 			elements.pop();
+
+			// from super.endElement()
+			Object type = types.pop();
+
+			/*
+			 * if (type == OBJECT_TYPE) { if (text == null) { objects.pop(); mixedTargets.pop(); } else { EObject object
+			 * = objects.popEObject(); if (mixedTargets.peek() != null && (object.eContainer() != null ||
+			 * suppressDocumentRoot || recordUnknownFeature && (eObjectToExtensionMap.containsValue(object) ||
+			 * ((InternalEObject) object).eDirectResource() != null))) { handleMixedText(); mixedTargets.pop(); } else {
+			 * if (text.length() != 0) { handleProxy((InternalEObject) object, text.toString().trim()); }
+			 * mixedTargets.pop(); text = null; } } } else if (isIDREF) { objects.pop(); mixedTargets.pop(); if (text !=
+			 * null) { setValueFromId(objects.peekEObject(), (EReference) type, text.toString()); text = null; } isIDREF
+			 * = false; } else if (isTextFeatureValue(type)) { EObject eObject = objects.popEObject();
+			 * mixedTargets.pop(); if (eObject == null) { eObject = objects.peekEObject(); } setFeatureValue(eObject,
+			 * (EStructuralFeature) type, text == null ? null : text.toString()); text = null; } if (isSimpleFeature) {
+			 * types.pop(); objects.pop(); mixedTargets.pop(); isSimpleFeature = false; }
+			 */
+			helper.popContext(prefixesToFactories);
+
+			// end from super.endElement
+
 			LoadPattern activeDeserializationRule = deserializationRuleStack.peek();
 			if (null != activeDeserializationRule) {
 				activeDeserializationRule.endElement(uri, localName);
@@ -1031,6 +1062,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			}
 
 			if (null != activeDeserializationRule) {
+				// TODO: use prefix instead of namespace
 				activeDeserializationRule.startElement(namespace, name);
 				if (activeDeserializationRule.needsDelegateChild()) {
 					activeDeserializationRule = getLoadPattern(peekObject, prefix, name);
@@ -1038,7 +1070,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 						deserializationRuleStack.push(activeDeserializationRule);
 						activeDeserializationRule.startElement(namespace, name);
 					} else {
-						// TODO: handle error
+						System.out.println("could not find load pattern for " + name + " in context of " + peekObject.eClass().getName());
 					}
 				} else if (activeDeserializationRule.needsDelegateSibling()) {
 					activeDeserializationRule = getLoadPattern(peekObject, prefix, name);
@@ -1077,6 +1109,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 						text = new StringBuffer();
 					} else {
 						createObject(peekObject, feature);
+						// child object is put on top of objects stack
+						// if an error occured, then types.peek is ERROR
+						//
 						EObject childObject = objects.peekEObject();
 						if (childObject != null) {
 							if (isContainment) {
@@ -1249,6 +1284,33 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		deserializationRuleStack = new MyStack<LoadPattern>();
 		// enforce use of new methods
 		useNewMethods = true;
+		xsiType = null;
+	}
+
+	// TODO:
+	@Override
+	protected String getXSIType() {
+		if (xsiType != null) {
+			return xsiType;
+		} else {
+			return super.getXSIType();
+		}
+	}
+
+	protected void handleEndCreateObjectElement() {
+		if (text == null) {
+			objects.pop();
+			mixedTargets.pop();
+		} else {
+			EObject object = objects.popEObject();
+			if (mixedTargets.peek() != null
+					&& (object.eContainer() != null || suppressDocumentRoot || recordUnknownFeature
+							&& (eObjectToExtensionMap.containsValue(object) || ((InternalEObject) object).eDirectResource() != null))) {
+				handleMixedText();
+				mixedTargets.pop();
+			}
+		}
+
 	}
 
 }

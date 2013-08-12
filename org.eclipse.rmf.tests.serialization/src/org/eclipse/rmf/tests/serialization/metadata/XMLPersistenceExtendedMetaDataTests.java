@@ -148,7 +148,8 @@ public class XMLPersistenceExtendedMetaDataTests {
 
 		EStructuralFeature feature = NodesPackage.eINSTANCE.getNode_EReference_NoAnnotationSingle();
 		int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
-		assertSame(XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED, featureSerializationStructure);
+		// assume standard EMF serialization if not specified explicitly
+		assertSame(XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT, featureSerializationStructure);
 	}
 
 	@Test
@@ -167,7 +168,8 @@ public class XMLPersistenceExtendedMetaDataTests {
 
 		EStructuralFeature feature = NodesPackage.eINSTANCE.getNode_EReference_NoAnnotationMany();
 		int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
-		assertSame(XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED, featureSerializationStructure);
+		// use default: standard emf serialization structure
+		assertSame(XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT, featureSerializationStructure);
 	}
 
 	@Test
@@ -344,7 +346,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
-		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "eReference_NoAnnotationManys");
+		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "eReference_NoAnnotationMany");
 		assertSame(NodesPackage.eINSTANCE.getNode_EReference_NoAnnotationMany(), feature);
 	}
 

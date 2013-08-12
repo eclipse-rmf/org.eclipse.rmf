@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
 
 public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMetaData implements XMLPersistenceMappingExtendedMetaData {
@@ -372,7 +373,10 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 									}
 								} else if (classifier instanceof EClass) {
 									EClass eClass = (EClass) classifier;
-									if (eClass.getEAllSuperTypes().contains(feature.getEType())) {
+									// check if the identified is a sub-type of the eType of the reference
+									// note: EObject is not listed in EAllSuperTypes
+									if (feature.getEType() == EcorePackage.eINSTANCE.getEObject()
+											|| eClass.getEAllSuperTypes().contains(feature.getEType())) {
 										if (isIdentifiedByClassifierWrapper(feature)) {
 											possibleResult = feature;
 										} else {
@@ -401,7 +405,10 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 								}
 							} else if (classifier instanceof EClass) {
 								EClass eClass = (EClass) classifier;
-								if (eClass.getEAllSuperTypes().contains(feature.getEType())) {
+								// check if the identified is a sub-type of the eType of the reference
+								// note: EObject is not listed in EAllSuperTypes
+								if (feature.getEType() == EcorePackage.eINSTANCE.getEObject()
+										|| eClass.getEAllSuperTypes().contains(feature.getEType())) {
 									if (isIdentifiedByClassifier(feature)) {
 										possibleResult = feature;
 									} else if (isEReference_Contained0000(feature)) {
@@ -760,7 +767,8 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 			return fallbackSerializationConfiguration[result];
 
 		} else {
-			return SERIALIZATION_STRUCTURE__UNDEFINED;
+			// default to standard EMF serialization
+			return SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT;
 		}
 	}
 
