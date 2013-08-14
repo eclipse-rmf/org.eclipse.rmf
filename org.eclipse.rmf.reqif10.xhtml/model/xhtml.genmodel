@@ -6,7 +6,7 @@
     modelPluginClass="" editorPluginClass="" testsDirectory="" testSuiteClass="" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="5.0" copyrightFields="false" editPluginID="org.eclipse.rmf.reqif10.xhtml.edit"
     editorPluginID="org.eclipse.rmf.reqif10.xhtml.editor" testsPluginID="org.eclipse.rmf.reqif10.xhtml.editor"
-    runtimeVersion="2.7" language="">
+    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
   <foreignModel>xhtml.ecore</foreignModel>
   <foreignModel>datatypes.ecore</foreignModel>
   <genPackages prefix="Xhtml" basePackage="org.eclipse.rmf.reqif10" resource="XML"

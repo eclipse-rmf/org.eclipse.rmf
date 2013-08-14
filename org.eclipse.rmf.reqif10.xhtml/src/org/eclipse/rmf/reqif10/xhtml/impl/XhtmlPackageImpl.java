@@ -536,6 +536,7 @@ public class XhtmlPackageImpl extends EPackageImpl implements XhtmlPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
+		XMLNamespacePackage.eINSTANCE.eClass();
 		XMLTypePackage.eINSTANCE.eClass();
 		XMLNamespacePackage.eINSTANCE.eClass();
 
