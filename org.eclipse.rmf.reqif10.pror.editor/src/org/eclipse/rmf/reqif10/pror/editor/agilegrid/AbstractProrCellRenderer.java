@@ -33,6 +33,7 @@ import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
@@ -83,7 +84,9 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 	protected int doDrawCellContentDefault(GC gc, Rectangle rect, Object value) {
 		String stringValue;
 		Image img = null;
+		boolean defaultValue = false;
 		if (value instanceof AttributeValue) {
+			defaultValue = ((AttributeValue) value).eContainer() == null;
 			Object v = ReqIF10Util.getTheValue((AttributeValue) value);
 			if (v instanceof XMLGregorianCalendar) {
 				XMLGregorianCalendar cal = (XMLGregorianCalendar) v;
@@ -107,7 +110,7 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 					img = IMG_WARN_TRUE;
 				}
 			} else if (value instanceof AttributeValueBoolean) {
-				if (((AttributeValue) value).eContainer() == null) {
+				if (!((AttributeValueBoolean) value).isSetTheValue()) {
 					stringValue = "";
 				} else {
 					stringValue = (Boolean) v ? "\u2612" : "\u2610";
@@ -122,6 +125,7 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 
 		int alignment = getAlignment();
 		String wrappedText = wrapText(gc, stringValue, rect.width);
+		gc.setForeground(defaultValue ? COLOR_LINE_DARKGRAY : COLOR_TEXT);
 		drawTextImage(gc, wrappedText, alignment, img, alignment, rect.x + 3,
 				rect.y + 2, rect.width - 6, rect.height - 4);
 		

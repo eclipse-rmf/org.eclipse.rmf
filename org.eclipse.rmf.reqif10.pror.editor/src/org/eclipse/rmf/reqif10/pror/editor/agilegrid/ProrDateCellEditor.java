@@ -23,14 +23,13 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.ICellEditorValidator;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
 public class ProrDateCellEditor extends ProrCellEditor {
 
 	public ProrDateCellEditor(AgileGrid agileGrid, EditingDomain editingDomain,
-			SpecElementWithAttributes parent,
+			Object parent,
 			Object affectedObject) {
 		super(agileGrid, editingDomain, parent, affectedObject);
 		this.setValidator(new ICellEditorValidator() {

@@ -75,6 +75,7 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
 		registerCommandStackListener();
+		
 	}
 
 	/**

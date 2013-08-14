@@ -21,7 +21,6 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
-import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.pror.editor.preferences.PreferenceConstants;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
@@ -38,7 +37,7 @@ public class ProrXhtmlSimplifiedCellEditor extends ProrCellEditor {
 	private AttributeValueXHTML attributeValue;
 
 	public ProrXhtmlSimplifiedCellEditor(AgileGrid agileGrid,
-			EditingDomain editingDomain, SpecElementWithAttributes parent,
+			EditingDomain editingDomain, Object parent,
 			Object affectedObject) {
 		super(agileGrid, editingDomain, parent, SWT.WRAP);
 		this.parent = parent;
