@@ -471,6 +471,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		isInited = true;
 
 		// Initialize simple dependencies
+		XMLNamespacePackage.eINSTANCE.eClass();
 		XMLTypePackage.eINSTANCE.eClass();
 		XMLNamespacePackage.eINSTANCE.eClass();
 
@@ -1933,7 +1934,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 
 		// Obtain other dependent packages
 		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
-		XMLNamespacePackage theXMLNamespacePackage = (XMLNamespacePackage)EPackage.Registry.INSTANCE.getEPackage(XMLNamespacePackage.eNS_URI);
+		XMLNamespacePackage theXMLNamespacePackage_1 = (XMLNamespacePackage)EPackage.Registry.INSTANCE.getEPackage(XMLNamespacePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -2020,7 +2021,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		initEReference(getReqIFContent_SpecRelationGroups(), this.getRelationGroup(), null, "specRelationGroups", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(reqIFEClass, ReqIF.class, "ReqIF", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReqIF_Lang(), theXMLNamespacePackage.getLangType(), "lang", null, 0, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReqIF_Lang(), theXMLNamespacePackage_1.getLangType(), "lang", null, 0, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getReqIF_TheHeader(), this.getReqIFHeader(), null, "theHeader", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getReqIF_CoreContent(), this.getReqIFContent(), null, "coreContent", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getReqIF_ToolExtensions(), this.getReqIFToolExtension(), null, "toolExtensions", null, 0, -1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
