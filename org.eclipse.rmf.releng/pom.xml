@@ -16,17 +16,24 @@
 
 	<build>
 		<plugins>
-		   <!-- TODO: enforce build with Java 1.5 
-		   <plugin>
-              <groupId>org.sonatype.tycho</groupId>
-              <artifactId>maven-osgi-compiler-plugin</artifactId>
-              <version>${tycho-version}</version>
-              <configuration>
-                 <source>1.5</source>
-                 <target>1.5</target>
-              </configuration>
-            </plugin>
-            -->
+			<plugin>
+				<!-- Use compiler plugin with tycho as the adapter to the JDT compiler. -->
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+					<compilerId>jdt</compilerId>
+				</configuration>
+				<dependencies>
+					<!-- This dependency provides the implementation of compiler "jdt": -->
+					<dependency>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-compiler-jdt</artifactId>
+						<version>${tycho-version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 			<plugin>
 				<!-- enable tycho build extension -->
 				<groupId>org.eclipse.tycho</groupId>
@@ -52,7 +59,8 @@
 										<echo
 											message="Replacing @build@ token within about.mappings with build id." />
 										<replace file="about.mappings">
-											<replacefilter token="@build@" value="${unqualifiedVersion}.${buildQualifier}" />
+											<replacefilter token="@build@"
+												value="${unqualifiedVersion}.${buildQualifier}" />
 										</replace>
 									</then>
 								</if>
@@ -62,7 +70,8 @@
 										<echo
 											message="Replacing @build@ token within javadocOptions.txt with build id." />
 										<replace file="javadocOptions.txt">
-											<replacefilter token="@build@" value="${unqualifiedVersion}.${buildQualifier}" />
+											<replacefilter token="@build@"
+												value="${unqualifiedVersion}.${buildQualifier}" />
 										</replace>
 									</then>
 								</if>
@@ -85,7 +94,8 @@
 										<echo
 											message="Replacing back build id within about.mappings with @build@ token." />
 										<replace file="about.mappings">
-											<replacefilter token="${unqualifiedVersion}.${buildQualifier}" value="@build@" />
+											<replacefilter token="${unqualifiedVersion}.${buildQualifier}"
+												value="@build@" />
 										</replace>
 									</then>
 								</if>
@@ -95,7 +105,8 @@
 										<echo
 											message="Replacing back build id within javadocOptions.txt with @build@ token." />
 										<replace file="javadocOptions.txt">
-											<replacefilter token="${unqualifiedVersion}.${buildQualifier}" value="@build@" />
+											<replacefilter token="${unqualifiedVersion}.${buildQualifier}"
+												value="@build@" />
 										</replace>
 									</then>
 								</if>
@@ -216,7 +227,7 @@
 					</plugin>
 				</plugins>
 			</build>
-		</profile>		
+		</profile>
 		<profile>
 			<id>KEPLER_4_3_0.target</id>
 			<build>
@@ -266,7 +277,86 @@
 					</plugin>
 				</plugins>
 			</build>
-		</profile>		
+		</profile>
+		<profile>
+			<id>DEFAULT</id>
+			<activation>
+				<property>
+					<name>!NEW_SERIALIZATION</name>
+				</property>
+			</activation>
+			<modules>
+				<module>../org.eclipse.rmf.releng.target</module>
+				<module>../org.eclipse.rmf.releng.repository</module>
+				<module>../org.eclipse.rmf.releng.product</module>
+
+				<!-- ReqIF Core -->
+				<module>../org.eclipse.rmf.reqif10</module>
+				<module>../org.eclipse.rmf.reqif10.common</module>
+				<module>../org.eclipse.rmf.serialization</module>
+				<module>../org.eclipse.rmf.reqif10.feature</module>
+				<module>../org.eclipse.rmf.reqif10.sdk.feature</module>
+				<module>../org.eclipse.rmf.reqif10.tests</module>
+				<module>../org.eclipse.rmf.reqif10.tests.feature</module>
+
+				<!-- ReqIF UI ProR -->
+				<module>../org.eclipse.rmf.reqif10.pror</module>
+				<module>../org.eclipse.rmf.reqif10.pror.edit</module>
+				<module>../org.eclipse.rmf.reqif10.pror.editor</module>
+				<module>../org.eclipse.rmf.reqif10.pror.editor.tests</module>
+				<module>../org.eclipse.rmf.reqif10.pror.presentation.headline</module>
+				<module>../org.eclipse.rmf.reqif10.pror.presentation.id</module>
+				<module>../org.eclipse.rmf.reqif10.pror.presentation.linewrap</module>
+				<module>../org.eclipse.rmf.reqif10.pror.help.ui</module>
+				<module>../org.eclipse.rmf.reqif10.pror.genhtml</module>
+				<module>../org.eclipse.rmf.reqif10.pror.feature</module>
+				<module>../org.eclipse.rmf.reqif10.pror.sdk.feature</module>
+
+				<module>../org.eclipse.rmf.reqif10.pror.tests</module>
+				<!-- <module>../org.eclipse.rmf.reqif10.pror.presentation.id.tests</module> -->
+
+
+				<!-- RMF Examples Plugins -->
+				<module>../org.eclipse.rmf.examples.installer</module>
+				<module>../org.eclipse.rmf.examples.feature</module>
+
+
+				<!-- legacy plugins -->
+				<module>../org.eclipse.rmf.emf.ecore.converter</module>
+				<module>../org.eclipse.rmf.rif11.model</module>
+				<module>../org.eclipse.rmf.rif11.xsd.model</module>
+				<module>../org.eclipse.rmf.rif11.resource</module>
+				<!-- deactivated for kepler build <module>../org.eclipse.rmf.rif11.model.test</module> -->
+
+				<module>../org.eclipse.rmf.rif12.model</module>
+				<module>../org.eclipse.rmf.rif12.xsd.model</module>
+				<module>../org.eclipse.rmf.rif12.resource</module>
+				<!-- deactivated for kepler build <module>../org.eclipse.rmf.rif12.model.test</module> -->
+			</modules>
+
+		</profile>
+		<profile>
+			<id>NEW_SERIALIZATION</id>
+			<activation>
+				<property>
+					<name>NEW_SERIALIZATION</name>
+				</property>
+			</activation>
+			<modules>
+				<module>../org.eclipse.rmf.releng.target</module>
+
+				<!-- updated Core only -->
+				<module>../org.eclipse.rmf.reqif10_2</module>
+				<module>../org.eclipse.rmf.reqif10_2.edit</module>
+				<module>../org.eclipse.rmf.reqif10.xhtml</module>
+				<module>../org.eclipse.rmf.reqif10.xhtml.edit</module>
+				<module>../org.eclipse.rmf.serialization2</module>
+				<module>../org.eclipse.rmf.tests.serialization</module>
+				<module>../org.eclipse.rmf.tests.serialization.reqif10</module>
+			</modules>
+
+		</profile>
+
 	</profiles>
 
 	<pluginRepositories>
@@ -275,66 +365,5 @@
 			<url>http://maven.eclipse.org/nexus/content/groups/public/</url>
 		</pluginRepository>
 	</pluginRepositories>
-
-	<modules>
-		<module>../org.eclipse.rmf.releng.target</module>
-		<module>../org.eclipse.rmf.releng.repository</module>
-		<module>../org.eclipse.rmf.releng.product</module>
-		
-		<!-- ReqIF Core -->
-		<module>../org.eclipse.rmf.reqif10</module>
-		<module>../org.eclipse.rmf.reqif10_2</module>
-		<module>../org.eclipse.rmf.reqif10_2.edit</module>
-		<module>../org.eclipse.rmf.reqif10.xhtml</module>
-		<module>../org.eclipse.rmf.reqif10.xhtml.edit</module>
-		<module>../org.eclipse.rmf.reqif10.common</module>
-		<module>../org.eclipse.rmf.serialization</module>
-		<module>../org.eclipse.rmf.serialization2</module>
-		<module>../org.eclipse.rmf.reqif10.feature</module>
-		<module>../org.eclipse.rmf.reqif10.sdk.feature</module>
-		
-		<module>../org.eclipse.rmf.reqif10.tests</module> 
-		<module>../org.eclipse.rmf.reqif10.tests.feature</module>
-		<module>../org.eclipse.rmf.tests.serialization</module>
-		
-		<!-- ReqIF UI ProR -->		
-		<module>../org.eclipse.rmf.reqif10.pror</module>
-		<module>../org.eclipse.rmf.reqif10.pror.edit</module>
-		<module>../org.eclipse.rmf.reqif10.pror.editor</module>
-		<module>../org.eclipse.rmf.reqif10.pror.editor.tests</module>
-		<module>../org.eclipse.rmf.reqif10.pror.presentation.headline</module>
-		<module>../org.eclipse.rmf.reqif10.pror.presentation.id</module>
-		<module>../org.eclipse.rmf.reqif10.pror.presentation.linewrap</module>
-		<module>../org.eclipse.rmf.reqif10.pror.help.ui</module>
-		<module>../org.eclipse.rmf.reqif10.pror.genhtml</module>
-		<module>../org.eclipse.rmf.reqif10.pror.feature</module>
-		<module>../org.eclipse.rmf.reqif10.pror.sdk.feature</module>
-			
-        <module>../org.eclipse.rmf.reqif10.pror.tests</module>
-        <!-- <module>../org.eclipse.rmf.reqif10.pror.presentation.id.tests</module> -->
-        
-        
-        <!-- RMF Examples Plugins -->
-		<module>../org.eclipse.rmf.examples.installer</module>
-		<module>../org.eclipse.rmf.examples.feature</module>
-
-		
-		<!-- legacy plugins -->
-		<module>../org.eclipse.rmf.emf.ecore.converter</module>
-		<module>../org.eclipse.rmf.rif11.model</module>		
-		<module>../org.eclipse.rmf.rif11.xsd.model</module>
-		<module>../org.eclipse.rmf.rif11.resource</module>
-		<!-- deactivated for kepler build
-		<module>../org.eclipse.rmf.rif11.model.test</module>
-		-->
-		
-		<module>../org.eclipse.rmf.rif12.model</module>
-		<module>../org.eclipse.rmf.rif12.xsd.model</module>
-		<module>../org.eclipse.rmf.rif12.resource</module>
-		<!-- deactivated for kepler build
-		<module>../org.eclipse.rmf.rif12.model.test</module>
-		-->		
-		
-	</modules>
 
 </project>
