@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.SAXXMLHandler;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaData;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 
 public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	String xsiType;
@@ -937,23 +939,28 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		assert null != namespace;
 		assert null != typeXMLName;
 
-		EClassifier eClassifier = rmfExtendedMetaData.getTypeByXMLName(namespace, typeXMLName, feature);
-		EFactory eFactory = rmfExtendedMetaData.getPackage(namespace).getEFactoryInstance();
+		EPackage ePackage = getPackageForURI(namespace);
+		if (null != ePackage) {
+			EClassifier eClassifier = rmfExtendedMetaData.getTypeByXMLName(namespace, typeXMLName, feature);
+			EFactory eFactory = ePackage.getEFactoryInstance();
 
-		if (null != eClassifier) {
-			EObject obj = createObject(eFactory, eClassifier, false);
-			obj = validateCreateObjectFromFactory(eFactory, typeXMLName, obj, feature);
-			if (obj != null) {
-				if (contextFeature == null) {
-					setFeatureValue(peekObject, feature, obj);
-				} else {
-					contextFeature = null;
+			if (null != eClassifier) {
+				EObject obj = createObject(eFactory, eClassifier, false);
+				obj = validateCreateObjectFromFactory(eFactory, typeXMLName, obj, feature);
+				if (obj != null) {
+					if (contextFeature == null) {
+						setFeatureValue(peekObject, feature, obj);
+					} else {
+						contextFeature = null;
+					}
 				}
+				processObject(obj);
+				return obj;
+			} else {
+				error(new ClassNotFoundException(typeXMLName, eFactory, getLocation(), getLineNumber(), getColumnNumber()));
+				return null;
 			}
-			processObject(obj);
-			return obj;
 		} else {
-			error(new ClassNotFoundException(typeXMLName, eFactory, getLocation(), getLineNumber(), getColumnNumber()));
 			return null;
 		}
 	}
@@ -977,6 +984,11 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 
 		deserializationRuleStack = new MyStack<LoadPattern>();
 		xsiType = null;
+
+		// TODO: xhtml.a.type/@href conflicts with this attribute and results in proxy resolution which can in turn
+		// result in long delays during load.
+		// TODO: find a smarter way of how to detect href proxy attributes
+		hrefAttribute = XMLPersistenceMappingResource.HREF;
 
 	}
 
@@ -1276,6 +1288,8 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	public void reset() {
 		super.reset();
 		deserializationRuleStack = null;
+		hrefAttribute = XMLPersistenceMappingResource.HREF;
+
 	};
 
 	@Override
@@ -1312,5 +1326,33 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 
 	}
+
+	/*
+	 * TODO: remove this block
+	 * @Override protected void handleProxy(InternalEObject proxy, String uriLiteral) {
+	 * System.out.println("Handling proxy: " + proxy.eClass().getName() + " -> " + uriLiteral); super.handleProxy(proxy,
+	 * uriLiteral); }
+	 * @Override protected Object setAttributes(Object attributes) { System.out.println("setAttributes: " + attributes);
+	 * return super.setAttributes(attributes); }
+	 * @Override protected EObject createObjectByType(String prefix, String name, boolean top) {
+	 * System.out.println("createObjectByType prefix=" + prefix + ", name=" + name + ", top=" + top); return
+	 * super.createObjectByType(prefix, name, top); }
+	 * @Override protected void createObject(EObject peekObject, EStructuralFeature feature) {
+	 * System.out.println("createObjecte peekObject=" + peekObject + ", feature=" + feature);
+	 * super.createObject(peekObject, feature); }
+	 * @Override protected EObject createObjectFromTypeName(EObject peekObject, String typeQName, EStructuralFeature
+	 * feature) { System.out.println("createObjectFromTypeName peekObject=" + peekObject + ", typeQName=" + typeQName +
+	 * ", feature=" + feature); return super.createObjectFromTypeName(peekObject, typeQName, feature); }
+	 * @Override protected EObject createObjectFromFeatureType(EObject peekObject, EStructuralFeature feature) {
+	 * System.out.println("createObjectFromFeatureType peekObject=" + peekObject + ", feature=" + feature); return
+	 * super.createObjectFromFeatureType(peekObject, feature); }
+	 * @Override protected EObject createObjectFromFactory(EFactory factory, String typeName) { // TODO Auto-generated
+	 * method stub return super.createObjectFromFactory(factory, typeName); }
+	 * @Override protected EObject createObject(EFactory eFactory, EClassifier type, boolean documentRoot) {
+	 * System.out.println("createObject eFactory=" + eFactory + ", type=" + type + ", documentRoot=" + documentRoot);
+	 * return super.createObject(eFactory, type, documentRoot); }
+	 * @Override public void startElement(String uri, String localName, String name) {
+	 * System.out.println("startElement " + name); super.startElement(uri, localName, name); }
+	 */
 
 }

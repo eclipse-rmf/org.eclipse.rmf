@@ -32,7 +32,7 @@ public class ReferenceDataTests extends AbstractTestCase {
 		}
 	}
 
-	@Test
+    @Test
 	public void testSchemaCompliance() {
 		File folder = new File(INPUT_DIR);
 		if (folder.exists() && folder.isDirectory()) {
@@ -59,7 +59,7 @@ public class ReferenceDataTests extends AbstractTestCase {
 					// System.out.println("validating input file");
 					// validateAgainstSchema(INPUT_DIR + IPath.SEPARATOR + fileName);
 					System.out.println("reading input file");
-					ReqIF reqIF = loadReqIFFile(INPUT_DIR + IPath.SEPARATOR + fileName);
+					EObject reqIF = loadFile(INPUT_DIR + IPath.SEPARATOR + fileName, false);
 					// check for unresolved proxies
 					assertTrue(checkUnresolvedProxies(reqIF));
 					System.out.println("writing file");
@@ -74,7 +74,7 @@ public class ReferenceDataTests extends AbstractTestCase {
 		}
 	}
 
-	protected boolean checkUnresolvedProxies(ReqIF reqif) {
+	protected boolean checkUnresolvedProxies(EObject reqif) {
 
 		Map<EObject, Collection<Setting>> map = EcoreUtil.UnresolvedProxyCrossReferencer.find(reqif);
 		for (EObject eObject : map.keySet()) {

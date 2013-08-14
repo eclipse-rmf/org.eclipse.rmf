@@ -1419,252 +1419,288 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-REFERENCED-0000-SINGLE"
+			 "name", "EREFERENCE-REFERENCED-0000-SINGLE",
+			 "kind", "element"
 		   });				
 		addAnnotation
 		  (getNode_EReference_Contained0001Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-0001-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0001-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0010Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-0010-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0010-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0011Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-0011-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0011-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0100Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-0100-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0100-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0101Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-0101-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0101-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0110Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-0110-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0110-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0111Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-0111-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-0111-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1000Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-1000-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1000-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1001Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-1001-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1001-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1010Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-1010-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1010-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1011Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-1011-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1011-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1100Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-1100-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1100-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1101Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-1101-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1101-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1110Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-1110-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1110-SINGLE",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1111Single(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "EREFERENCE-CONTAINED-1111-SINGLE"
+			 "name", "EREFERENCE-CONTAINED-1111-SINGLE",
+			 "kind", "element"
 		   });				
 		addAnnotation
 		  (getNode_EReference_Contained0000Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0000-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-0000-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0001Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0001-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-0001-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0010Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0010-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-0010-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0011Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0011-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-0011-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0100Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0100-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-0100-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0101Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0101-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-0101-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0110Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0110-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-0110-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained0111Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-0111-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-0111-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1000Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1000-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-1000-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1001Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1001-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-1001-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1010Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1010-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-1010-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1011Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1011-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-1011-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1100Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1100-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-1100-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1101Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1101-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-1101-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1110Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1110-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-1110-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_Contained1111Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-SERIALIZATION-1111-MULTI"
+			 "name", "FEATURE-WITH-SERIALIZATION-1111-MULTI",
+			 "kind", "element"
 		   });				
 		addAnnotation
 		  (getNode_EReference_WithTypeEObject_Contained0001Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI"
+			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_WithTypeEObject_Contained0010Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTI"
+			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_WithTypeEObject_Contained0100Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI"
+			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI",
+			 "kind", "element"
 		   });			
 		addAnnotation
 		  (getNode_EReference_WithTypeEObject_Contained1000Many(), 
 		   source, 
 		   new String[] {
 			 "namespace", "##targetNamespace",
-			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTI"
+			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTI",
+			 "kind", "element"
 		   });		
 		addAnnotation
 		  (getNode_EReference_Referenced0000Single(), 

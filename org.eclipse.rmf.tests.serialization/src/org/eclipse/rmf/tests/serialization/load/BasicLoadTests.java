@@ -25,7 +25,7 @@ import org.junit.Test;
 
 // Junit 3.8 test 
 @SuppressWarnings("nls")
-public class LoadTests extends AbstractTestCase {
+public class BasicLoadTests extends AbstractTestCase {
 
 	static final String INPUT_PATH = "org.eclipse.rmf.tests.serialization.load/";
 

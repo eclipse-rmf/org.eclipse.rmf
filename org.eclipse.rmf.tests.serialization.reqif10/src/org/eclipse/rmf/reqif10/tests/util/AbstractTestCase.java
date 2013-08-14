@@ -244,7 +244,7 @@ public abstract class AbstractTestCase {
 
 	}
 
-	protected static void saveReqIFFile(ReqIF reqif, String fileName) throws IOException {
+	protected static void saveReqIFFile(EObject reqif, String fileName) throws IOException {
 		ResourceSetImpl resourceSet = getResourceSet();
 
 		URI emfURI = createEMFURI(fileName);
@@ -259,12 +259,15 @@ public abstract class AbstractTestCase {
 	}
 
 	protected static ReqIF loadReqIFFile(String fileName, boolean validateOnLoad) throws IOException {
+		return (ReqIF)loadFile(fileName, validateOnLoad);
+	}
+	protected static EObject loadFile(String fileName, boolean validateOnLoad) throws IOException {
 		ResourceSetImpl resourceSet = getReqIFResourceSet();
 
 		URI emfURI = createEMFURI(fileName);
 		XMLPersistenceMappingResourceImpl resource = (XMLPersistenceMappingResourceImpl) resourceSet.createResource(emfURI);
 		if (validateOnLoad) {
-			//resource.enableSchemaValidation = true;
+			resource.enableSchemaValidation = true;
 			resource.initDefaultOptions();
 			resource.enableSchemaValidation = false;
 		}
@@ -275,7 +278,7 @@ public abstract class AbstractTestCase {
 		if (rootObjects.isEmpty()) {
 			return null;
 		} else {
-			return (ReqIF) rootObjects.get(0);
+			return rootObjects.get(0);
 		}
 	}
 

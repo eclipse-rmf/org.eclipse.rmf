@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes:NODE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:nodes="http://www.eclipse.org/rmf/serialization/model/nodes.ecore">
+  <nodes:FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI xsi:type="ecore:EPackage" name="EPackage1">
+    <eClassifiers xsi:type="ecore:EClass" name="EClass11">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="myEClass22" eType="//@eReference_WithTypeEObject_Contained0100Many.1/EClass22"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EClass12"/>
+  </nodes:FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI>
+  <nodes:FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI xsi:type="ecore:EPackage" name="EPackage2">
+    <eClassifiers xsi:type="ecore:EClass" name="EClass21"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EClass22"/>
+  </nodes:FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI>
+</nodes:NODE>
