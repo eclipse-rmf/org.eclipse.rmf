@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.rmf.examples.feature"
       label="RMF Examples Feature (Incubation)"
-      version="0.7.1.qualifier"
+      version="0.8.0.qualifier"
       provider-name="Eclipse Modeling Project">
 
    <description>
