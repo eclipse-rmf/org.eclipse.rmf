@@ -1,0 +1,31 @@
+<project name="getReqIFSchema" default="patchCmof" basedir="../.." xmlns:qvto="http://www.eclipse.org/qvt/1.0.0/Operational">
+	<description>
+        Get the ReqIF XML schema and the XHTML Schema fragments
+    </description>
+	<property file="./ant/reqif10/generate.properties">
+	</property>
+
+	<property name="retries" value="40" />
+	
+	<target name="clean">
+		<delete dir="${GEN_FOLDER}/reqif.cmof" />
+	</target>
+
+	<target name="download" depends="clean">
+		<mkdir dir="${GEN_FOLDER}" />
+		<get src="http://www.omg.org/spec/ReqIF/20101201/reqif.cmof" dest="${GEN_FOLDER}/reqif.cmof" retries="${retries}" usetimestamp="true" />
+	</target>
+
+	<target name="patchCmof" depends="download">
+		<replace file="${GEN_FOLDER}/reqif.cmof" token="http://schema.omg.org/spec/MOF/2.0/cmof.xml#" value="http://schema.omg.org/spec/UML/2.0/uml.xml#" />
+	</target>
+
+	<target name="generateReqIF" depends="patchCmof">
+		<echo>Precondition for further steps: EMF SDK, UML2 (Extender) SDK, QVTO SDK</echo>
+		<echo>Reload ${GEN_FOLDER}/xhtml.genmodel (right-click on the file / Reload...)</echo>
+		<echo>Select xhtml.ecore and datatypes.ecore</echo>
+		<echo>Update the base-directory of datatypes and xhtml to 'org.eclipse.rmf.reqif10'</echo>
+		<echo>Generate all (=model and edit)</echo>
+	</target>
+
+</project>

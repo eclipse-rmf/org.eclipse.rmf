@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.rmf.reqif10.pror.presentation.id.tests
-Bundle-Version: 0.7.1.qualifier
+Bundle-Version: 0.8.0.qualifier
 Bundle-Localization: plugin
 Fragment-Host: org.eclipse.rmf.reqif10.pror.presentation.id
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: %providerName
-Require-Bundle: org.eclipse.rmf.reqif10.pror.tests;bundle-version="0.7.1",
+Require-Bundle: org.eclipse.rmf.reqif10.pror.tests;bundle-version="0.8.0",
  org.junit;bundle-version="4.8.2"

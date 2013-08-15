@@ -25,7 +25,6 @@ import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
-import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Control;
@@ -36,11 +35,11 @@ public class ProrEnumerationSingleValueCellEditor extends CellEditor {
 	private ArrayList<EnumValue> itemList;
 	private final EditingDomain editingDomain;
 	private AttributeValueEnumeration attributeValue;
-	private SpecElementWithAttributes parent;
+	private Object parent;
 
 	public ProrEnumerationSingleValueCellEditor(AgileGrid agileGrid,
 			DatatypeDefinitionEnumeration dde,
-			SpecElementWithAttributes parent, EditingDomain editingDomain,
+			Object parent, EditingDomain editingDomain,
 			AdapterFactory adapterFactory) {
 		super(agileGrid);
 		this.editingDomain = editingDomain;

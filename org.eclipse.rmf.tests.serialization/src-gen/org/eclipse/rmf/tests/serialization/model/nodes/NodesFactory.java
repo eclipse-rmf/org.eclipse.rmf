@@ -40,6 +40,15 @@ public interface NodesFactory extends EFactory {
 	Node createNode();
 
 	/**
+	 * Returns a new object of class '<em>Sub Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sub Node</em>'.
+	 * @generated
+	 */
+	SubNode createSubNode();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

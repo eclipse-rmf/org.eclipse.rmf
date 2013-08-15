@@ -68,18 +68,6 @@ Contributors:
                value="pror-about.png">
          </property>
          <property
-               name="startupForegroundColor"
-               value="0C3C68">
-         </property>
-         <property
-               name="startupProgressRect"
-               value="0,261,500,15">
-         </property>
-         <property
-               name="startupMessageRect"
-               value="10,280,480,20">
-         </property>
-         <property
                name="appName"
                value="RMF ProR Standalone">
          </property>
@@ -92,6 +80,17 @@ Contributors:
                value="ProR - Requirements Management Platform&#x0A;&#x0A;part of the &#x0A;&#x0A;Eclipse Requirements Management Framework (RMF)&#x0A;&#x0A;Version: (Incubation Submission)&#x0A;&#x0A;(c) Copyright Formal Mind GmbH, itemis AG and others 2011.  All rights reserved.&#x0A;Visit http://eclipse.org/rmf">
          </property>
       </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.splashHandlers">
+      <splashHandler
+            class="org.eclipse.rmf.reqif10.pror.splashHandlers.BrowserSplashHandler"
+            id="org.eclipse.rmf.reqif10.pror.splashHandlers.browser">
+      </splashHandler>
+      <splashHandlerProductBinding
+            productId="org.eclipse.rmf.reqif10.pror.product"
+            splashId="org.eclipse.rmf.reqif10.pror.splashHandlers.browser">
+      </splashHandlerProductBinding>
    </extension>
 
 </plugin>

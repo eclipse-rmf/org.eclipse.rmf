@@ -29,12 +29,12 @@ import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
 
-public class ProrCellRenderer extends AbstractProrCellRenderer {
+public class ProrCellRenderer extends AbstractProrSpecCellRenderer {
 
 	private final Image specHierarchyIcon;
 	private final Image specObjectIcon;
 	private final Image specRelationIcon;
-
+	
 	/**
 	 * Create a ProRCellRenderer. Note that the associated ContentProvider must
 	 * be a {@link ProrAgileGridContentProvider}.
@@ -58,7 +58,7 @@ public class ProrCellRenderer extends AbstractProrCellRenderer {
 				Reqif10EditPlugin.INSTANCE
 						.getImage("full/obj16/SpecRelation.png"));
 	}
-
+	
 	@Override
 	protected void doDrawCellContent(GC gc, Rectangle rect, int row, int col) {
 

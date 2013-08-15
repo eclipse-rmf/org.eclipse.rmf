@@ -1,0 +1,95 @@
+<html>
+<body>
+<h2>TC1200FormatedContent</h2> 
+<h3>Purpose</h3> 
+The purpose of TC1200 is to check the capability of importing and exporting formated text that is stored as XHTML in reqif.
+<h3>Description of Reference Data</h3> 
+<h4>ReqIFHeader</h4>
+The ReqIF Header contains all data that is mandatory according to the reqif XML schema.
+<h4>ReqIFToolExtension</h4> 
+No ReqIF Tool Extensions are contained in the reqif file  
+<h4>ReqIFContent</h4>
+<table border="1" cellspacing="0" cellpadding="0">
+ <thead>
+	<tr>
+   <th>ReqIF element name</th>
+   <th>Multiplicity</th>
+   <th>Description</th>
+ </tr>
+ </thead>
+ <tfoot>
+ </tfoot>
+ <tbody>
+ <tr>
+   <td>SpecObjectType</td>
+   <td>1</td>
+   <td>one SpecObjectType with two attributes: a description and the formated text</td>
+ </tr>
+ <tr>
+   <td>SpecificationType</td>
+   <td>1</td>
+   <td>one SpecificationType with no additional attributes</td>
+ </tr>
+ <tr>
+   <td>Specification</td>
+   <td>1</td>
+   <td>one Specification for all SpecObjects</td>
+ </tr>
+ <tr>
+   <td>SpecHierarchy</td>
+   <td>*</td>
+   <td>ONe SpecHierarchy per SpecObject, Specification is structured as a flat list</td>
+ </tr>
+ <tr>
+   <td>SpecObject</td>
+   <td>*</td>
+   <td>one specObject per ComplexType in XHTML XML schema</td>
+ </tr>
+ <tr>
+   <td>AttributeDefinition / AttributeValue / DatatypeDefinition</td>
+   <td colspan="2">See chapter SpecObjectType (for AttributeDefinitions).  
+   See chapter SpecObjects (with attribute values) for Attribute Values</td>
+ </tr>
+ </tbody>
+</table>
+
+<h5>SpecObjectType</h5>
+<table border="1" cellspacing="0" cellpadding="0">
+ <thead>
+	<tr>
+   <th>Attribute Name</th>
+   <th>Attribute Type (ReqIF AttributeDefinition...)</th>
+   <th>Properties</th>
+   <th>Description</th>
+ </tr>
+ </thead>
+ <tfoot>
+ </tfoot>
+ <tbody>
+ <tr>
+   <td>TC1200 AttributeDefinitionString</td>
+   <td>String</td>
+   <td>maxLength=255</td>
+   <td>Short description of the formated text</td>
+ </tr>
+ <tr>
+   <td>TC1200 AttributeDefinitionXHTML</td>
+   <td>XHTML</td>
+   <td>&nbsp;</td>
+   <td>The formated text</td>
+ </tr>
+ </tbody>
+</table>
+<h5>SpecObjects</h5>
+The set of SpecObjects shall follow the following rules:
+<ul>
+ <li>One SpecObject per ComplexType that occurs in the XHTML XML schema. 
+     Within this SpecObject all XHTML sub elements and attributes of the 
+     XHTML ComplexType are set.</li>
+ <li>If the XHTML ComplexType is a mixed type, then dummy text is added between all XML elements</li>
+ <li>The formated text starts with an "p" element or a "div" element</li>
+ <li>The shortest possible XML path is used</li>
+ <li>If the XHTML XML schema enforces sub elements, then only mandatory data is set for the sub elements</li> 
+</ul>
+</body>
+</html>

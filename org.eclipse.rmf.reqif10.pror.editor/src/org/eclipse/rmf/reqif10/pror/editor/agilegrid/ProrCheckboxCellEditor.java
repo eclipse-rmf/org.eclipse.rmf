@@ -20,7 +20,6 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.AttributeValueBoolean;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
-import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Control;
 
@@ -39,10 +38,10 @@ public class ProrCheckboxCellEditor extends CellEditor {
 
 	private EditingDomain domain;
 	private AttributeValueBoolean attributeValue;
-	private SpecElementWithAttributes parent;
+	private Object parent;
 
 	public ProrCheckboxCellEditor(AgileGrid agileGrid, EditingDomain domain,
-			SpecElementWithAttributes parent) {
+			Object parent) {
 		super(agileGrid, SWT.NONE);
 		this.domain = domain;
 		this.parent = parent;

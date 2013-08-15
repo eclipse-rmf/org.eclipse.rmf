@@ -24,8 +24,6 @@ main() {
 	reqIfModel.objectsOfType(ECORE::EAttribute)->map setMetadata();
 	reqIfModel.objectsOfType(ECORE::EAttribute)->map makeId();
 	reqIfModel.objectsOfType(ECORE::EAttribute)->map removeIsPrefix();
-	reqIfModel.objectsOfType(ECORE::EAttribute)->map makeEBigInteger();
-	reqIfModel.objectsOfType(ECORE::EAttribute)->map makeEFloat(); 
 	reqIfModel.objectsOfType(ECORE::EAttribute)->map makeDateTime();
 
 	reqIfModel.objectsOfType(ECORE::EAttribute)->map fixReqIFLang();
@@ -39,6 +37,8 @@ main() {
 	
 	// allow any xml inside of element REQ-IF-TOOL-EXTENSION 
 	reqIfModel.objectsOfType(ECORE::EClass)->map fixReqIFToolExtension();
+	reqIfModel.objectsOfType(ECORE::EClass)->map fixXhtmlContent();
+	reqIfModel.objectsOfType(ECORE::EReference)->map fixXhtmlContent();
 	
 	// cleanup
 	reqIfModel.objectsOfType(ECORE::EDataType)->map removeDataTypeFloat();
@@ -61,20 +61,58 @@ when {self.name.toLower()="id"}
 	self.name :="ID";
 }
 
+
 mapping inout ECORE::EClass :: fixReqIFToolExtension ()
 when {self.name.toLower()="reqiftoolextension"} 
 {
-	self.eStructuralFeatures += object EAttribute {
-		name := "any";
-		eType := ECORE::EFeatureMapEntry.oclAsType(ECORE::EClassifier);
-		eAnnotations += getAnyExtendedMetadata();
-	}
+	var extensions:EReference := object EReference {
+		name := "extensions";
+		eType := ECORE::EObject.oclAsType(ECORE::EClassifier);
+		containment := true;
+		upperBound := -1;
+		lowerBound := 0;
+		unsettable := true;
+	};
+	extensions.eAnnotations := extensions.getElementFeatureExtendedMetadata("element");
+	extensions.eAnnotations += extensions.getElementFeatureXMLMappingExtendedMetadata_Contained0001();
+	self.eStructuralFeatures += extensions;
 }
 
-mapping inout ECORE::EAttribute :: makeEFloat ()
-when {self.eType.name.toLower()="float"} 
+mapping inout ECORE::EClass :: fixXhtmlContent()
+when {self.name.toLower()="xhtmlcontent"} 
 {
-	self.eType := ECORE::EDouble.oclAsType(ECORE::EClassifier);
+	var xhtml:EReference := object EReference {
+		name := "xhtml";
+		eType := ECORE::EObject.oclAsType(ECORE::EClassifier);
+		containment := true;
+		upperBound := 1;
+		lowerBound := 0;
+		unsettable := true;
+	};
+	var xhtmlSource:EAttribute := object EAttribute {
+		name := "xhtmlSource";
+		eType := ECORE::EString.oclAsType(ECORE::EClassifier);
+		upperBound := 1;
+		lowerBound := 0;
+		unsettable := true;
+		transient := true;
+		_derived := true;
+		volatile := false;
+	};
+	xhtmlSource.eAnnotations := xhtmlSource.getElementFeatureExtendedMetadata("attribute");
+	xhtmlSource.eAnnotations += xhtmlSource.getElementFeatureXMLMappingExtendedMetadata();
+	xhtml.eAnnotations := xhtml.getElementFeatureExtendedMetadata("element");
+	xhtml.eAnnotations += xhtml.getElementFeatureXMLMappingExtendedMetadata_Contained0001();
+	self.eStructuralFeatures += xhtml;
+	self.eStructuralFeatures += xhtmlSource;
+}
+
+mapping inout ECORE::EReference :: fixXhtmlContent()
+when {self.eType.name.toLower()="xhtmlcontent"} 
+{
+	self.eAnnotations->removeElements();
+	self.eAnnotations := self.getElementFeatureExtendedMetadata("element");
+	self.eAnnotations += self.getElementFeatureXMLMappingExtendedMetadata_Contained0100();
 }
 
 mapping inout ECORE::EDataType :: removeDataTypeFloat ()
@@ -143,7 +181,7 @@ when {self.name="ReqIF"}
 	
 }
 
-// set namespace prefix to "" in order to serialized with default namespace
+
 mapping inout ECORE::EPackage :: setNamespaceData() 
 when {self.name.toLower()="reqif"}
 {
@@ -170,31 +208,29 @@ when {self.name.startsWith("is") and self.eType = ECORE::EBoolean}{
 	self.name := self.name.trimLeadingIs();
 }
 
-// xsd:integer refers to unlimited integers. Therefore EInt is not sufficient
-// TODO: it is questionable to have a Real.accuracy or Sting.maxLength of unlimited
-mapping inout ECORE::EAttribute :: makeEBigInteger() 
-when {self.eType = ECORE::EInt}{
-	self.eType := ECORE::EBigInteger.oclAsType(ECORE::EClassifier);
-}
 
 // sets the XML name and attribute/element serialization information
 // all Eattributes except most Eattributes of ReqIfHeader are serialized as attributes
 mapping inout ECORE::EAttribute :: setMetadata() {
     if (self.eContainingClass.name = "ReqIFHeader" and self.name != "identifier") then {
 		self.eAnnotations := self.getElementFeatureExtendedMetadata("element");
+		self.eAnnotations += self.getElementFeatureXMLMappingExtendedMetadata();
 	} else { 
 		self.eAnnotations := self.getAttributeFeatureExtendedMetadata("attribute");
+		self.eAnnotations += self.getElementFeatureXMLMappingExtendedMetadata();
 	} endif;
 }
 
 // sets the XML name and attribute/element serialization information
 mapping inout ECORE::EReference :: setMetadata() {
 	self.eAnnotations := self.getElementFeatureExtendedMetadata("element");
+	self.eAnnotations += self.getElementFeatureXMLMappingExtendedMetadata();
 }
 
 // sets the XML name and attribute/element serialization information
 mapping inout ECORE::EClass :: setMetadata() {
 	self.eAnnotations := self.getClassExtendedMetadata("elementOnly");
+	self.eAnnotations += self.getElementFeatureXMLMappingExtendedMetadata();
 }
 
 
@@ -225,6 +261,144 @@ query ECORE::ENamedElement :: getElementFeatureExtendedMetadata(kind : String) :
 		details += object ECORE::EStringToStringMapEntry {
 			key := "namespace";
 			value := "##targetNamespace";
+		};
+	}
+}
+
+query ECORE::EReference :: getElementFeatureXMLMappingExtendedMetadata() : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "wrapperName";
+			value := self.getXMLName();
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "featureWrapperElement";
+			if (self.many) then {
+				value := "true";
+			} else {
+			    value := "false";
+			} endif;	 
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "featureElement";
+			if (self.many) then {
+				value := "false";
+			} else {
+			    value := "true";
+			} endif;	 
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "classifierWrapperElement";
+			value := "false";	 
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "classifierElement";
+			value := "true";	 
+		};
+		if (not self.containment) then {
+		details += object ECORE::EStringToStringMapEntry {
+			key := "classifierNameSuffix";
+			value := "-REF";
+		};	
+		} endif;
+		
+	}
+}
+
+query ECORE::EReference :: getElementFeatureXMLMappingExtendedMetadata_Contained0001() : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "wrapperName";
+			value := self.getXMLName();
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "featureWrapperElement";
+			value := "false";	 
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "featureElement";
+			value := "false";
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "classifierWrapperElement";
+			value := "false";	 
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "classifierElement";
+			value := "true";	 
+		};
+	}
+}
+
+query ECORE::EReference :: getElementFeatureXMLMappingExtendedMetadata_Contained0100() : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "wrapperName";
+			value := self.getXMLName();
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "featureWrapperElement";
+			value := "false";	 
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "featureElement";
+			value := "true";
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "classifierWrapperElement";
+			value := "false";	 
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "classifierElement";
+			value := "false";	 
+		};
+	}
+}
+
+
+query ECORE::EAttribute :: getElementFeatureXMLMappingExtendedMetadata() : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "wrapperName";
+			value := self.getXMLName();
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "featureWrapperElement";
+			if (self.many) then {
+				value := "true";
+			} else {
+			    value := "false";
+			} endif;	 
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "featureElement";
+			if (self.many) then {
+				value := "false";
+			} else {
+			    value := "true";
+			} endif;	 
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "classifierWrapperElement";
+			value := "false";	 
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "classifierElement";
+			value := "false";	 
+		};
+	}
+}
+
+query ECORE::EClass :: getElementFeatureXMLMappingExtendedMetadata() : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "wrapperName";
+			value := self.getXMLName();
 		};
 	}
 }

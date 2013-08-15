@@ -28,13 +28,12 @@ import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
 
-public class ProrLinkCellRenderer extends AbstractProrCellRenderer {
+public class ProrLinkCellRenderer extends AbstractProrSpecCellRenderer {
 
 	private Set<SpecRelation> incoming;
 	private Set<SpecRelation> outgoing;
 	
 	private final Image specRelationConnectorIcon;
-
 
 	public ProrLinkCellRenderer(AgileGrid agileGrid,
 			AdapterFactory adapterFactory) {
@@ -45,7 +44,7 @@ public class ProrLinkCellRenderer extends AbstractProrCellRenderer {
 						Reqif10EditorPlugin.INSTANCE
 								.getImage("full/obj16/SpecRelationConnector.png"));
 	}
-
+	
 	@Override
 	protected void doDrawCellContent(GC gc, Rectangle rect, int row, int col) {
 		Object content = agileGrid.getContentAt(row, col);

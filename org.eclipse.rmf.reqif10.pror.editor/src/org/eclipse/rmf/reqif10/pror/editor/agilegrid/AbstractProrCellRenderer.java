@@ -20,7 +20,6 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.Cell;
 import org.agilemore.agilegrid.IContentProvider;
 import org.agilemore.agilegrid.SWTResourceManager;
-import org.agilemore.agilegrid.SWTX;
 import org.agilemore.agilegrid.renderers.TextCellRenderer;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
@@ -84,7 +83,10 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 
 	protected int doDrawCellContentDefault(GC gc, Rectangle rect, Object value) {
 		String stringValue;
+		Image img = null;
+		boolean defaultValue = false;
 		if (value instanceof AttributeValue) {
+			defaultValue = ((AttributeValue) value).eContainer() == null;
 			Object v = ReqIF10Util.getTheValue((AttributeValue) value);
 			if (v instanceof XMLGregorianCalendar) {
 				XMLGregorianCalendar cal = (XMLGregorianCalendar) v;
@@ -99,10 +101,16 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 				AttributeValueXHTML atrXhtml = (AttributeValueXHTML) value;
 				stringValue = ProrXhtmlSimplifiedHelper
 						.xhtmlToSimplifiedString(xhtmlContent);
-				gc.drawImage(atrXhtml.isSimplified() ? IMG_WARN_TRUE
-						: IMG_WARN_FALSE, rect.x + rect.width - 20, rect.y + 5);
+				boolean formattedAttribute = ProrXhtmlSimplifiedHelper
+						.isFormattedAttribute(xhtmlContent);
+				if (!atrXhtml.isSetSimplified() && formattedAttribute) {
+					img = IMG_WARN_FALSE;
+				} else if (atrXhtml.isSetSimplified()
+						&& atrXhtml.getTheOriginalValue() != null) {
+					img = IMG_WARN_TRUE;
+				}
 			} else if (value instanceof AttributeValueBoolean) {
-				if (((AttributeValue) value).eContainer() == null) {
+				if (!((AttributeValueBoolean) value).isSetTheValue()) {
 					stringValue = "";
 				} else {
 					stringValue = (Boolean) v ? "\u2612" : "\u2610";
@@ -117,8 +125,10 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 
 		int alignment = getAlignment();
 		String wrappedText = wrapText(gc, stringValue, rect.width);
-		drawTextImage(gc, wrappedText, alignment, null, alignment, rect.x + 3,
+		gc.setForeground(defaultValue ? COLOR_LINE_DARKGRAY : COLOR_TEXT);
+		drawTextImage(gc, wrappedText, alignment, img, alignment, rect.x + 3,
 				rect.y + 2, rect.width - 6, rect.height - 4);
+		
 		return gc.textExtent(wrappedText).y;
 	}
 
@@ -149,33 +159,6 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		if (agileGrid.isCellSelected(row, col)) {
 			background = SWTResourceManager.getColor(223, 227, 237);
 		}
-	}
-
-	@Override
-	protected void drawGridLines(GC gc, Rectangle rect, int row, int col) {
-		Color vBorderColor = COLOR_LINE_LIGHTGRAY;
-		Color hBorderColor = COLOR_LINE_LIGHTGRAY;
-
-		if (agileGrid instanceof ProrAgileGrid) {
-			ProrAgileGrid grid = (ProrAgileGrid) agileGrid;
-			if (grid.dndHoverCell != null
-					&& row == grid.dndHoverCell.row
-					&& grid.dndHoverDropMode == ProrAgileGrid.DND_DROP_AS_SIBLING) {
-				hBorderColor = COLOR_LINE_DARKGRAY;
-			}
-		}
-
-		if ((style & INDICATION_SELECTION_ROW) != 0) {
-			vBorderColor = COLOR_BGROWSELECTION;
-			hBorderColor = COLOR_BGROWSELECTION;
-		}
-
-		if ((agileGrid.getStyle() & SWTX.NOT_SHOW_GRID_LINE) == SWTX.NOT_SHOW_GRID_LINE) {
-			vBorderColor = COLOR_BACKGROUND;
-			hBorderColor = COLOR_BACKGROUND;
-		}
-
-		drawDefaultCellLine(gc, rect, vBorderColor, hBorderColor);
 	}
 
 	@Override
@@ -226,8 +209,8 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 							mousePointer.y);
 					Rectangle cellRect = agileGrid.getCellRect(cell.row,
 							cell.column);
-					Rectangle rectNew = new Rectangle(cellRect.width
-							+ cellRect.x - 25, cellRect.y, 25, 25);
+					Rectangle rectNew = new Rectangle(cellRect.x, cellRect.y
+							+ (cellRect.height / 2) - 12, 25, 25);
 					if (rectNew.contains(mousePointer)) {
 						if (xhtmlSimplifiedToolTip != null
 								&& !xhtmlSimplifiedToolTip.isDisposed())
@@ -244,7 +227,8 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 
 							String msg = "_UI_Reqif10XhtmlIsSimplifiedFalse";
 
-							if (atrXhtml.isSimplified())
+							if (atrXhtml.isSimplified()
+									&& atrXhtml.getTheOriginalValue() != null)
 								msg = "_UI_Reqif10XhtmlIsSimplifiedTrue";
 
 							xhtmlSimplifiedToolTip = showTooltip(Display

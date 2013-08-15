@@ -139,11 +139,11 @@
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AlternativeID">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AlternativeID/identifier"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionBoolean">
+    <genClasses provider="Stateful" image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionBoolean">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionBoolean/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionBoolean/defaultValue"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionBoolean/defaultValue"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionSimple"/>
+    <genClasses provider="Stateful" image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionSimple"/>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinitionBoolean"/>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinitionSimple"/>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeValueBoolean">
@@ -151,9 +151,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeValueBoolean/definition"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeValueSimple"/>
-    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionDate">
+    <genClasses provider="Stateful" image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionDate">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionDate/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionDate/defaultValue"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionDate/defaultValue"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinitionDate"/>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeValueDate">
@@ -179,9 +179,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeValueEnumeration/values"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeValueEnumeration/definition"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionInteger">
+    <genClasses provider="Stateful" image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionInteger">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionInteger/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionInteger/defaultValue"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionInteger/defaultValue"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinitionInteger">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinitionInteger/max"/>
@@ -191,9 +191,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeValueInteger/theValue"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeValueInteger/definition"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionReal">
+    <genClasses provider="Stateful" image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionReal">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionReal/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionReal/defaultValue"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionReal/defaultValue"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinitionReal">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinitionReal/accuracy"/>
@@ -204,9 +204,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeValueReal/theValue"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeValueReal/definition"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionString">
+    <genClasses provider="Stateful" image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionString">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionString/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionString/defaultValue"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionString/defaultValue"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinitionString">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinitionString/maxLength"/>

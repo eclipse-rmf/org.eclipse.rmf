@@ -88,6 +88,14 @@ public class NodesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case NodesPackage.SUB_NODE: {
+				SubNode subNode = (SubNode)theEObject;
+				T result = caseSubNode(subNode);
+				if (result == null) result = caseNode(subNode);
+				if (result == null) result = caseAbstractNode(subNode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -119,6 +127,21 @@ public class NodesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAbstractNode(AbstractNode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sub Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sub Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubNode(SubNode object) {
 		return null;
 	}
 

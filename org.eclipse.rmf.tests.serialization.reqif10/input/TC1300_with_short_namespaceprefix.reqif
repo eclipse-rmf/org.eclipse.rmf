@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<r:REQ-IF xmlns:r="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd">
+  <r:THE-HEADER>
+    <r:REQ-IF-HEADER IDENTIFIER="ID_TC1300_ReqIfHeader">
+      <r:CREATION-TIME>2012-04-12T21:47:12.485+02:00</r:CREATION-TIME>
+      <r:REQ-IF-TOOL-ID>RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)</r:REQ-IF-TOOL-ID>
+      <r:REQ-IF-VERSION>1.0</r:REQ-IF-VERSION>
+      <r:SOURCE-TOOL-ID>RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)</r:SOURCE-TOOL-ID>
+      <r:TITLE>TC 1300 'SpecRelation'</r:TITLE>
+    </r:REQ-IF-HEADER>
+  </r:THE-HEADER>
+  <r:CORE-CONTENT>
+    <r:REQ-IF-CONTENT>
+      <r:DATATYPES>
+        <r:DATATYPE-DEFINITION-STRING IDENTIFIER="ID_TC1300_DatatypeDefinitionString" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="ReqIF.Name" MAX-LENGTH="256"/>
+      </r:DATATYPES>
+      <r:SPEC-TYPES>
+        <r:SPEC-OBJECT-TYPE IDENTIFIER="ID_TC1300_SpecObjectType" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1300 SpecObjectType">
+          <r:SPEC-ATTRIBUTES>
+            <r:ATTRIBUTE-DEFINITION-STRING IDENTIFIER="ID_TC1000_AttributeDefinitionString" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1000 String">
+              <r:TYPE>
+                <r:DATATYPE-DEFINITION-STRING-REF>ID_TC1300_DatatypeDefinitionString</r:DATATYPE-DEFINITION-STRING-REF>
+              </r:TYPE>
+            </r:ATTRIBUTE-DEFINITION-STRING>
+          </r:SPEC-ATTRIBUTES>
+        </r:SPEC-OBJECT-TYPE>
+        <r:SPECIFICATION-TYPE IDENTIFIER="ID_TC1300_SpecificationType" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1300 SpecificationType"/>
+        <r:SPEC-RELATION-TYPE IDENTIFIER="ID_TC1300_SpecRelationType" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC 1300 SpecRelationType"/>
+        <r:RELATION-GROUP-TYPE IDENTIFIER="ID_TC1300_SpecRelationGroupType" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC 1300 SpecRelationGroupType"/>
+      </r:SPEC-TYPES>
+      <r:SPEC-OBJECTS>
+        <r:SPEC-OBJECT IDENTIFIER="ID_TC1300_SpecObject1" LAST-CHANGE="2012-04-07T01:51:37.112+02:00">
+          <r:VALUES>
+            <r:ATTRIBUTE-VALUE-STRING THE-VALUE="Requirement 1">
+              <r:DEFINITION>
+                <r:ATTRIBUTE-DEFINITION-STRING-REF>ID_TC1000_AttributeDefinitionString</r:ATTRIBUTE-DEFINITION-STRING-REF>
+              </r:DEFINITION>
+            </r:ATTRIBUTE-VALUE-STRING>
+          </r:VALUES>
+          <r:TYPE>
+            <r:SPEC-OBJECT-TYPE-REF>ID_TC1300_SpecObjectType</r:SPEC-OBJECT-TYPE-REF>
+          </r:TYPE>
+        </r:SPEC-OBJECT>
+        <r:SPEC-OBJECT IDENTIFIER="ID_TC1300_SpecObject2" LAST-CHANGE="2012-04-07T01:51:37.112+02:00">
+          <r:VALUES>
+            <r:ATTRIBUTE-VALUE-STRING THE-VALUE="Requirement 2">
+              <r:DEFINITION>
+                <r:ATTRIBUTE-DEFINITION-STRING-REF>ID_TC1000_AttributeDefinitionString</r:ATTRIBUTE-DEFINITION-STRING-REF>
+              </r:DEFINITION>
+            </r:ATTRIBUTE-VALUE-STRING>
+          </r:VALUES>
+          <r:TYPE>
+            <r:SPEC-OBJECT-TYPE-REF>ID_TC1300_SpecObjectType</r:SPEC-OBJECT-TYPE-REF>
+          </r:TYPE>
+        </r:SPEC-OBJECT>
+      </r:SPEC-OBJECTS>
+      <r:SPEC-RELATIONS>
+        <r:SPEC-RELATION IDENTIFIER="ID_TC1300_SpecRelation" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC 1300 SpecRelation">
+          <r:TARGET>
+            <r:SPEC-OBJECT-REF>ID_TC1300_SpecObject2</r:SPEC-OBJECT-REF>
+          </r:TARGET>
+          <r:SOURCE>
+            <r:SPEC-OBJECT-REF>ID_TC1300_SpecObject1</r:SPEC-OBJECT-REF>
+          </r:SOURCE>
+          <r:TYPE>
+            <r:SPEC-RELATION-TYPE-REF>ID_TC1300_SpecRelationType</r:SPEC-RELATION-TYPE-REF>
+          </r:TYPE>
+        </r:SPEC-RELATION>
+      </r:SPEC-RELATIONS>
+      <r:SPECIFICATIONS>
+        <r:SPECIFICATION IDENTIFIER="ID_TC1300_Specification" LAST-CHANGE="2012-04-07T01:51:37.112+02:00">
+          <r:TYPE>
+            <r:SPECIFICATION-TYPE-REF>ID_TC1300_SpecificationType</r:SPECIFICATION-TYPE-REF>
+          </r:TYPE>
+          <r:CHILDREN>
+            <r:SPEC-HIERARCHY IDENTIFIER="ID_TC1300_SpecHierarchy1" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1300 SpecHierarchy1">
+              <r:OBJECT>
+                <r:SPEC-OBJECT-REF>ID_TC1300_SpecObject1</r:SPEC-OBJECT-REF>
+              </r:OBJECT>
+            </r:SPEC-HIERARCHY>
+            <r:SPEC-HIERARCHY IDENTIFIER="ID_TC1300_SpecHierarchy2" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1300 SpecHierarchy2">
+              <r:OBJECT>
+                <r:SPEC-OBJECT-REF>ID_TC1300_SpecObject2</r:SPEC-OBJECT-REF>
+              </r:OBJECT>
+            </r:SPEC-HIERARCHY>
+          </r:CHILDREN>
+        </r:SPECIFICATION>
+      </r:SPECIFICATIONS>
+      <r:SPEC-RELATION-GROUPS>
+        <r:RELATION-GROUP IDENTIFIER="ID_TC1300_SpecRelationGroup" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC 1300 SpecRelationGroup">
+          <r:SPEC-RELATIONS>
+            <r:SPEC-RELATION-REF>ID_TC1300_SpecRelation</r:SPEC-RELATION-REF>
+          </r:SPEC-RELATIONS>
+          <r:TYPE>
+            <r:RELATION-GROUP-TYPE-REF>ID_TC1300_SpecRelationGroupType</r:RELATION-GROUP-TYPE-REF>
+          </r:TYPE>
+          <r:SOURCE-SPECIFICATION>
+            <r:SPECIFICATION-REF>ID_TC1300_Specification</r:SPECIFICATION-REF>
+          </r:SOURCE-SPECIFICATION>
+          <r:TARGET-SPECIFICATION>
+            <r:SPECIFICATION-REF>ID_TC1300_Specification</r:SPECIFICATION-REF>
+          </r:TARGET-SPECIFICATION>
+        </r:RELATION-GROUP>
+      </r:SPEC-RELATION-GROUPS>
+    </r:REQ-IF-CONTENT>
+  </r:CORE-CONTENT>
+</r:REQ-IF>

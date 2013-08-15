@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
 
@@ -83,11 +84,54 @@ public class ProrXhtmlSimplifiedHelper {
 	public static XhtmlDivType stringToSimplifiedXhtml(String str) {
 		XhtmlDivType div = XhtmlFactory.eINSTANCE.createXhtmlDivType();
 		String[] split = str.split("\\r\\n|\\r|\\n");
-		for (String br : split) {
+		for (int i = 0; i < split.length; i++) {
+			String br = split[i];
 			FeatureMapUtil.addText(div.getMixed(), br);
-			div.getBr().add(XhtmlFactory.eINSTANCE.createXhtmlBrType());
+			if (i < split.length - 1)
+				div.getBr().add(XhtmlFactory.eINSTANCE.createXhtmlBrType());
 		}
 		return div;
+	}
+
+	/**
+	 * 
+	 * A very simplified version to check if the given {@link XhtmlContent}
+	 * object is a formatted attribute. Or in other words: This method checks if
+	 * the {@link XhtmlContent} object comes from ProR, if so return that the
+	 * object is no formatted attribute.
+	 * 
+	 * @param xhtmlContent
+	 * @return
+	 */
+	public static boolean isFormattedAttribute(XhtmlContent xhtmlContent) {
+
+		try {
+			String xhtmlString = ReqIF10XhtmlUtil.getXhtmlString(xhtmlContent);
+
+			if (xhtmlString != null) {
+
+				String stringValue = xhtmlString.replaceAll("\\<xhtml:br/\\>",
+						"");
+				stringValue = stringValue
+						.replaceAll(
+								"\\<xhtml:div xmlns:xhtml=\"http://www.w3.org/1999/xhtml\"\\>",
+								" ");
+				stringValue = stringValue.replaceAll("\\</xhtml:div\\>", "");
+				stringValue = stringValue.replaceAll(newLine, "");
+				stringValue = stringValue.replaceAll(" ", "");
+
+				if (stringValue.contains("<xhtml:"))
+					return true;
+
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return false;
+
 	}
 
 }
