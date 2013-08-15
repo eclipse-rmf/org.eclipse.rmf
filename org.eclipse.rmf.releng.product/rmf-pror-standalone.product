@@ -72,6 +72,7 @@ All rights reserved.   This program and the accompanying materials are made avai
       <feature id="org.eclipse.rcp"/>
       <feature id="org.eclipse.rmf.reqif10.pror.feature"/>
       <feature id="org.eclipse.rmf.reqif10.feature"/>
+      <feature id="org.eclipse.rmf.examples.feature"/>
    </features>
 
    <configurations>
