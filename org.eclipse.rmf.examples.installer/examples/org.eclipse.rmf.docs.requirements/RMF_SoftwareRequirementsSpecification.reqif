@@ -1451,6 +1451,33 @@
             <SPEC-OBJECT-TYPE-REF>rmf-e7aa3d46-6556-45bd-969b-d7534fa97ad1</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-31e51914-9b1f-4b75-8857-56807e9474a5" LAST-CHANGE="2013-08-16T10:28:36+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="sws_52">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b029ab42-aeb9-420e-ba50-95038d07b56d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Preserve identifiers">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-0b23aa34-c242-41a0-9157-6062df61ff98</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="RMF shall preserve existing identifiers that are contained in reqif file. If identifiers are missing, RMF may set them.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-150a04f0-8369-4faa-b884-b1477b1764e8</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Ensure that contents of reqif files that are edited by RMF are still linkable without the need for reading or updating the specrelations.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-865b84f0-9116-4b14-a2b9-034ece715cfe</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-e7aa3d46-6556-45bd-969b-d7534fa97ad1</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
       </SPEC-OBJECTS>
       <SPECIFICATIONS>
         <SPECIFICATION IDENTIFIER="rmf-d1e0c2eb-4e9a-4b8a-bdf0-069b011d480e" LONG-NAME="Specification Document">
@@ -1627,6 +1654,11 @@
                         <SPEC-HIERARCHY IDENTIFIER="rmf-60c1f129-8d68-4ac8-83f2-e0328f92922b">
                           <OBJECT>
                             <SPEC-OBJECT-REF>rmf-ed717550-6fad-43e1-accc-a6e85805eb4c</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="rmf-1ba5218a-4f85-416d-a3d5-b3f259d0afb1" LAST-CHANGE="2013-08-16T10:28:36+02:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>rmf-31e51914-9b1f-4b75-8857-56807e9474a5</SPEC-OBJECT-REF>
                           </OBJECT>
                         </SPEC-HIERARCHY>
                       </CHILDREN>
@@ -1841,7 +1873,7 @@
           <configuration:ProrPresentationConfigurations>
             <configuration:presentationConfigurations>
               <headline:HeadlineConfiguration configuration:datatype="rmf-95898f85-f196-475f-8d35-f8db9d9e2dd0"/>
-              <id:IdConfiguration configuration:datatype="rmf-1d2c140f-97e9-4d11-9554-63b2bee2dc3c" id:prefix="sws_" id:count="51"/>
+              <id:IdConfiguration configuration:datatype="rmf-1d2c140f-97e9-4d11-9554-63b2bee2dc3c" id:prefix="sws_" id:count="52"/>
             </configuration:presentationConfigurations>
           </configuration:ProrPresentationConfigurations>
         </configuration:presentationConfigurations>
