@@ -18,7 +18,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 import org.eclipse.rmf.tests.serialization.internal.Activator;
+import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
 
 @SuppressWarnings("nls")
 public abstract class AbstractTestCase extends org.eclipse.sphinx.testutils.AbstractTestCase {
@@ -35,6 +37,9 @@ public abstract class AbstractTestCase extends org.eclipse.sphinx.testutils.Abst
 	protected EObject loadInputFile(String inputFileName, ResourceFactoryImpl resourceFactory, Map<?, ?> options) throws Exception {
 		URI emfURI = URI.createURI("resources/input/" + inputFileName, true);
 		XMLResource resource = (XMLResource) resourceFactory.createResource(emfURI);
+		if (resource instanceof XMLPersistenceMappingResource) {
+			((XMLPersistenceMappingResource) resource).getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
+		}
 		resource.load(options);
 
 		ResourceSet resourceSet = createDefaultResourceSet();

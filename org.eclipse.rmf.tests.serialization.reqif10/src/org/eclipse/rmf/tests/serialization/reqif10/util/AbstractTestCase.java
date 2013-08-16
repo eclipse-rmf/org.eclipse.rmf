@@ -266,6 +266,7 @@ public abstract class AbstractTestCase {
 
 		URI emfURI = createEMFURI(fileName);
 		XMLPersistenceMappingResourceImpl resource = (XMLPersistenceMappingResourceImpl) resourceSet.createResource(emfURI);
+		resource.getCreateIdForPackageSet().add(ReqIF10Package.eINSTANCE);
 		if (validateOnLoad) {
 			resource.enableSchemaValidation = true;
 			resource.initDefaultOptions();

@@ -13,7 +13,9 @@ package org.eclipse.rmf.serialization;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 import javax.xml.XMLConstants;
@@ -25,6 +27,7 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -45,6 +48,7 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 	// TODO: let implementation get the value from preferences and set it to false by default
 	// This is a temporal HACK
 	public boolean enableSchemaValidation = false;
+	protected Collection<EPackage> createIdForPackages;
 
 	class IdAdapter extends EContentAdapter {
 		public IdAdapter() {
@@ -176,16 +180,18 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 
 		void handleNewObject(EObject objectWithId) {
 			assert null != objectWithId;
-			EAttribute idAttribute = objectWithId.eClass().getEIDAttribute();
-			if (null != idAttribute) {
-				String id = (String) objectWithId.eGet(idAttribute);
-				if (id == null || 0 == id.length()) {
-					id = EcoreUtil.generateUUID();
-					objectWithId.eSet(idAttribute, id);
-					// id map gets updated by notification on setId
-				} else {
-					eObjectToIDMap.put(objectWithId, id);
-					idToEObjectMap.put(id, objectWithId);
+			if (createIdForPackages.contains(objectWithId.eClass().getEPackage())) {
+				EAttribute idAttribute = objectWithId.eClass().getEIDAttribute();
+				if (null != idAttribute) {
+					String id = (String) objectWithId.eGet(idAttribute);
+					if (id == null || 0 == id.length()) {
+						id = EcoreUtil.generateUUID();
+						objectWithId.eSet(idAttribute, id);
+						// id map gets updated by notification on setId
+					} else {
+						eObjectToIDMap.put(objectWithId, id);
+						idToEObjectMap.put(id, objectWithId);
+					}
 				}
 			}
 		}
@@ -221,16 +227,7 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 		}
 
 		public void postLoad(XMLResource resource, InputStream inputStream, Map<?, ?> options) {
-			// register ContentAdapter for setting IDs and updating the intrinsic Id to EObject map
-			System.out.println("postLoadActions");
-			/*
-			 * EList<EObject> contents = resource.getContents(); int size = contents.size(); for (int i = 0; i < size;
-			 * i++) { contents.get(i).eAdapters().add(idAdapter); } // set the id maps TreeIterator<EObject> iterator =
-			 * resource.getAllContents(); Map<String, EObject> id2eObjectMap = getIDToEObjectMap(); Map<EObject, String>
-			 * eObject2IdMap = getEObjectToIDMap(); while (iterator.hasNext()) { EObject eObject = iterator.next();
-			 * String id = EcoreUtil.getID(eObject); if (null != id && 0 < id.length()) { id2eObjectMap.put(id,
-			 * eObject); eObject2IdMap.put(eObject, id); } }
-			 */
+			// NOP
 		}
 
 		public void preSave(XMLResource resource, OutputStream outputStream, Map<?, ?> options) {
@@ -295,7 +292,7 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 		idToEObjectMap = new HashMap<String, EObject>();
 		eObjectToIDMap = new HashMap<EObject, String>();
 		eAdapters().add(new IdAdapter());
-
+		createIdForPackages = new HashSet<EPackage>();
 	}
 
 	public void initDefaultOptions() {
@@ -375,6 +372,13 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 
 		loadOptions.put(XMLResource.OPTION_XML_OPTIONS, xmlOptions);
 
+	}
+
+	public Collection<EPackage> getCreateIdForPackageSet() {
+		// TODO find better name for this set
+		// TODO might be even better to find a global way for configuration. Similiar to the different levels of
+		// registries.
+		return createIdForPackages;
 	}
 
 }

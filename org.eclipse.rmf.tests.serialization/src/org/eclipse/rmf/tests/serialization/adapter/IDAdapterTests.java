@@ -15,8 +15,8 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
@@ -151,7 +151,8 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testAddNewElementToEmptyResource() {
-		Resource resource = new XMLPersistenceMappingResourceImpl();
+		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
+		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
 		Node node = NodesFactory.eINSTANCE.createNode();
 		Node subNode = NodesFactory.eINSTANCE.createNode();
 		node.getEReference_Contained0100Many().add(subNode);
@@ -165,7 +166,8 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testIdMapSet() {
-		XMLResource resource = new XMLPersistenceMappingResourceImpl();
+		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
+		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
 		String nodeName = "root";
 		String subNodeName = "subNode";
 		Node node = NodesFactory.eINSTANCE.createNode();
@@ -189,7 +191,8 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testIdMapAdd() {
-		XMLResource resource = new XMLPersistenceMappingResourceImpl();
+		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
+		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
 		String nodeName = "root";
 		String subNodeName = "subNode";
 		Node node = NodesFactory.eINSTANCE.createNode();
@@ -213,7 +216,8 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testIdMapAddMany() {
-		XMLResource resource = new XMLPersistenceMappingResourceImpl();
+		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
+		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
 		String node1Name = "node1";
 		String node2Name = "node2";
 		Node node1 = NodesFactory.eINSTANCE.createNode();
@@ -240,7 +244,8 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testIdMapMove() {
-		XMLResource resource = new XMLPersistenceMappingResourceImpl();
+		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
+		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
 		String nodeName = "root";
 		String subNodeName = "subNode";
 		Node node = NodesFactory.eINSTANCE.createNode();
@@ -269,7 +274,9 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testIdMapRemove() {
-		XMLResource resource = new XMLPersistenceMappingResourceImpl();
+		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
+		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
+
 		String nodeName = "root";
 		String subNodeName = "subNode";
 		Node node = NodesFactory.eINSTANCE.createNode();
@@ -304,7 +311,8 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testIdMapRename() {
-		XMLResource resource = new XMLPersistenceMappingResourceImpl();
+		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
+		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
 		String nodeName = "root";
 		String newNodeName = "new_root";
 		Node node = NodesFactory.eINSTANCE.createNode();

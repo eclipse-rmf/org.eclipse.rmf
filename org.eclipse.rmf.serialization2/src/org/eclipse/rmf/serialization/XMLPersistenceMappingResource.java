@@ -10,6 +10,9 @@
  */
 package org.eclipse.rmf.serialization;
 
+import java.util.Collection;
+
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 
 public interface XMLPersistenceMappingResource extends XMLResource {
@@ -22,4 +25,6 @@ public interface XMLPersistenceMappingResource extends XMLResource {
 	 */
 	//String OPTION_RMF_EXTENDED_META_DATA = "RMF_EXTENDED_META_DATA"; //$NON-NLS-1$
 	public static final String HREF = "_href";
+
+	public Collection<EPackage> getCreateIdForPackageSet();
 }
