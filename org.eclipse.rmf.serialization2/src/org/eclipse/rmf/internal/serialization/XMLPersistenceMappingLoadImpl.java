@@ -10,6 +10,8 @@
  */
 package org.eclipse.rmf.internal.serialization;
 
+import java.io.IOException;
+
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -44,6 +46,11 @@ public class XMLPersistenceMappingLoadImpl extends XMLLoadImpl {
 		 */
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		return factory.newSAXParser();
+	}
+
+	@Override
+	protected void handleErrors() throws IOException {
+		// avoid throwing exception even if errors occur during load
 	}
 
 }

@@ -49,6 +49,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		public static int STATE_DELEGATE_PARENT_NEEDED = -2;
 		public static int STATE_DELEGATE_SIBLING_NEEDED = -3;
 
+		public static int STATE_UNEXPECTED_ELEMENT = -100;
+		public static int STATE_INVALID_CLASSIFIER_ELEMENT = -101;
+
 		void startElement(String namespace, String xmlName);
 
 		void endElement(String namespace, String xmlName);
@@ -73,15 +76,15 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 
 		public boolean needsDelegateChild() {
-			return currentState == STATE_DELEGATE_CHILD_NEEDED;
+			return STATE_DELEGATE_CHILD_NEEDED == currentState;
 		}
 
 		public boolean needsDelegateParent() {
-			return currentState == STATE_DELEGATE_PARENT_NEEDED;
+			return STATE_DELEGATE_PARENT_NEEDED == currentState;
 		}
 
 		public boolean needsDelegateSibling() {
-			return currentState == STATE_DELEGATE_SIBLING_NEEDED;
+			return STATE_DELEGATE_SIBLING_NEEDED == currentState;
 		}
 
 	}
@@ -111,17 +114,8 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					currentState = STATE_DELEGATE_SIBLING_NEEDED;
 				}
 				break;
-			case STATE_DELEGATE_CHILD_NEEDED:
-				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-			case STATE_DELEGATE_SIBLING_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-
 			default:
-				// TODO: handle error
+				assert false; // we should not get here
 			}
 		}
 
@@ -143,15 +137,8 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				handleEndCreateObjectElement();
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-			case STATE_DELEGATE_SIBLING_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-
 			default:
-				// TODO: handle error
+				assert false; // we should not get here
 			}
 		}
 	}
@@ -214,21 +201,16 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				handleEndCreateObjectElement();
 				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-			case STATE_DELEGATE_SIBLING_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-
 			default:
-				// TODO: handle error
+				assert false; // we should not get here
 			}
 		}
 	}
 
 	class LoadPatternAttribute0100Impl extends AbstractLoadPatternImpl {
-		String featureName = null;;
+		String featureName = null;
+		int depthsOfUnknownElements = 0;
+		String value = null;
 
 		public LoadPatternAttribute0100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -245,7 +227,14 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				}
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				// TODO handle error. no further elements expected here
+				currentState = STATE_UNEXPECTED_ELEMENT;
+				depthsOfUnknownElements = 1;
+				types.push(ERROR_TYPE);
+				// TODO: replace by another exception
+				error(new FeatureNotFoundException(xmlName, null, getLocation(), getLineNumber(), getColumnNumber()));
+				break;
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements++;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				if (featureName.equals(xmlName)) {
@@ -256,15 +245,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					currentState = STATE_DELEGATE_SIBLING_NEEDED;
 				}
 				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-			case STATE_DELEGATE_SIBLING_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
 
 			default:
-				// TODO: handle error
+				assert false : "Configuration Error: No 'startElement' allowed after final state " + currentState;
 			}
 		}
 
@@ -285,15 +268,13 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-			case STATE_DELEGATE_SIBLING_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements--;
+				if (0 > depthsOfUnknownElements) {
+					currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
+				}
 			default:
-				// TODO: handle error
+				assert false : "Configuration Error: No 'endElement' allowed after final state " + currentState;
 			}
 		}
 	}
@@ -481,18 +462,8 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					currentState = STATE_DELEGATE_SIBLING_NEEDED;
 				}
 				break;
-			case STATE_DELEGATE_CHILD_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-			case STATE_DELEGATE_SIBLING_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-
 			default:
-				// TODO: handle error
+				assert false; // we should net get here
 			}
 		}
 
@@ -527,12 +498,8 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				handleEndCreateObjectElement();
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-
 			default:
-				// TODO: handle error
+				assert false; // we should net get here
 			}
 		}
 	}
