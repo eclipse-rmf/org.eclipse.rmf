@@ -41,7 +41,7 @@ public class LoadPatternAttribute0100RobustnessTests extends AbstractTestCase {
 	public void testEAttribute_Attribute0100_Single_NestedElements() {
 		String inputFileName = INPUT_PATH + "EAttribute_Attribute0100Single_NestedElements.xml";
 		try {
-			Resource resource = LoadSaveUtil.loadResource("resources/input/" + inputFileName, new XMLPersistenceMappingResourceFactoryImpl());
+			Resource resource = LoadSaveUtil.loadResource("resources/input/" + inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
 			assertSame(1, resource.getErrors().size());
 			assertTrue(resource.getErrors().get(0) instanceof FeatureNotFoundException);
 			validateEAttributeSingle(resource, NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0100Single(),
@@ -55,7 +55,7 @@ public class LoadPatternAttribute0100RobustnessTests extends AbstractTestCase {
 	public void testEAttribute_Attribute0100_Many_NestedElements() {
 		String inputFileName = INPUT_PATH + "EAttribute_Attribute0100Many_NestedElements.xml";
 		try {
-			Resource resource = LoadSaveUtil.loadResource("resources/input/" + inputFileName, new XMLPersistenceMappingResourceFactoryImpl());
+			Resource resource = LoadSaveUtil.loadResource("resources/input/" + inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
 			assertSame(1, resource.getErrors().size());
 			assertTrue(resource.getErrors().get(0) instanceof FeatureNotFoundException);
 			validateEAttributeSingle(resource, NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0100Many(),

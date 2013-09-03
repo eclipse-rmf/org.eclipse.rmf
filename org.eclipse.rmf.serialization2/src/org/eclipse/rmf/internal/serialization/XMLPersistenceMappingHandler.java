@@ -11,10 +11,14 @@
 
 package org.eclipse.rmf.internal.serialization;
 
+import java.io.File;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import org.apache.xerces.impl.Constants;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
@@ -34,6 +38,10 @@ import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 
 public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	String xsiType;
+	IProgressMonitor progressMonitor = null;
+	long chunksRead = 0;
+	int bufferSize = 2048; // default buffer size of xerces parser
+	int lastStart = 0;
 
 	interface LoadPattern {
 		public static int STATE_READY = 0;
@@ -938,15 +946,40 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	public XMLPersistenceMappingHandler(XMLResource xmlResource, XMLHelper helper, Map<?, ?> options) {
 		super(xmlResource, helper, options);
 		Object extendedMetaDataOption = options.get(XMLResource.OPTION_EXTENDED_META_DATA);
-		if (extendedMetaDataOption instanceof Boolean) {
-			if (extendedMetaDataOption.equals(Boolean.TRUE)) {
-				rmfExtendedMetaData = xmlResource == null || xmlResource.getResourceSet() == null ? XMLPersistenceMappingExtendedMetaData.INSTANCE
-						: new XMLPersistenceMappingExtendedMetaDataImpl(xmlResource.getResourceSet().getPackageRegistry());
+		if (null != extendedMetaDataOption) {
+			if (extendedMetaDataOption instanceof Boolean) {
+				if (extendedMetaDataOption.equals(Boolean.TRUE)) {
+					rmfExtendedMetaData = xmlResource == null || xmlResource.getResourceSet() == null ? XMLPersistenceMappingExtendedMetaData.INSTANCE
+							: new XMLPersistenceMappingExtendedMetaDataImpl(xmlResource.getResourceSet().getPackageRegistry());
+					extendedMetaData = rmfExtendedMetaData;
+				}
+			} else if (extendedMetaDataOption instanceof XMLPersistenceMappingExtendedMetaData) {
+				rmfExtendedMetaData = (XMLPersistenceMappingExtendedMetaData) options.get(XMLResource.OPTION_EXTENDED_META_DATA);
 				extendedMetaData = rmfExtendedMetaData;
 			}
-		} else if (extendedMetaDataOption instanceof XMLPersistenceMappingExtendedMetaData) {
-			rmfExtendedMetaData = (XMLPersistenceMappingExtendedMetaData) options.get(XMLResource.OPTION_EXTENDED_META_DATA);
-			extendedMetaData = rmfExtendedMetaData;
+		}
+
+		Object parserPropertiesObject = options.get(XMLResource.OPTION_PARSER_PROPERTIES);
+		if (null != parserPropertiesObject && parserPropertiesObject instanceof Map<?, ?>) {
+			@SuppressWarnings("unchecked")
+			Map<String, Object> parserProperties = (Map<String, Object>) parserPropertiesObject;
+			Object bufferSizeObject = parserProperties.get(Constants.XERCES_PROPERTY_PREFIX + Constants.BUFFER_SIZE_PROPERTY);
+			if (bufferSizeObject instanceof Integer) {
+				bufferSize = (Integer) bufferSizeObject;
+			} else {
+				// use xerces default (2K)
+				bufferSize = 2048;
+			}
+		} else {
+			// use xerces default (2K)
+			bufferSize = 2048;
+		}
+
+		Object progressMonitor = options.get(XMLPersistenceMappingResource.OPTION_PROGRESS_MONITOR);
+		if (progressMonitor instanceof IProgressMonitor) {
+			this.progressMonitor = (IProgressMonitor) progressMonitor;
+		} else {
+			// ignore
 		}
 
 		deserializationRuleStack = new MyStack<LoadPattern>();
@@ -961,8 +994,14 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 
 	@Override
 	public void characters(char[] ch, int start, int length) {
-		// TODO Auto-generated method stub
 		super.characters(ch, start, length);
+		if (null != progressMonitor) {
+			if (start < lastStart) {
+				chunksRead += 1;
+				progressMonitor.worked(1);
+			}
+			lastStart = start;
+		}
 	}
 
 	@Override
@@ -1291,7 +1330,41 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				mixedTargets.pop();
 			}
 		}
+	}
 
+	@Override
+	public void startDocument() {
+		super.startDocument();
+		// initialize the progress monitor
+		if (null != progressMonitor) {
+			chunksRead = 0;
+			lastStart = 0;
+			progressMonitor.beginTask("Reading resource '" + resourceURI + "'", getProgressMonitorTotalWork());
+		}
+
+	}
+
+	@Override
+	public void endDocument() {
+		super.endDocument();
+		// finalize the progress monitor
+		if (null != progressMonitor) {
+			progressMonitor.done();
+		}
+	}
+
+	protected int getProgressMonitorTotalWork() {
+		int totalWork = IProgressMonitor.UNKNOWN;
+		URI uri = xmlResource.getURI();
+		if (null != uri && uri.isFile()) {
+			String filePath = uri.toFileString();
+			if (null != filePath) {
+				File file = new File(filePath);
+				long numberOfBytes = file.length();
+				totalWork = (int) (numberOfBytes / bufferSize);
+			}
+		}
+		return totalWork;
 	}
 
 	/*

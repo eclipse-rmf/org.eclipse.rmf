@@ -347,6 +347,8 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 		// for available properties and their details)
 		Map<String, Object> parserProperties = new HashMap<String, Object>();
 
+		parserProperties.put(Constants.XERCES_PROPERTY_PREFIX + Constants.BUFFER_SIZE_PROPERTY, 1024 * 8);
+
 		// Perform namespace processing (prefixes will be stripped off element and attribute names and replaced with the
 		// corresponding namespace URIs) but do not report attributes used for namespace declarations, and do not report
 		// original prefixed names

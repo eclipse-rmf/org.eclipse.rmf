@@ -25,6 +25,8 @@ public interface XMLPersistenceMappingResource extends XMLResource {
 	 */
 	//String OPTION_RMF_EXTENDED_META_DATA = "RMF_EXTENDED_META_DATA"; //$NON-NLS-1$
 	public static final String HREF = "_href";
+	public static final String OPTION_PROGRESS_MONITOR = "progress monitor";
 
 	public Collection<EPackage> getCreateIdForPackageSet();
+
 }
