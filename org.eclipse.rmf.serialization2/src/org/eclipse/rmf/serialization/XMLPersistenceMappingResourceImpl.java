@@ -180,20 +180,16 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 
 		void handleNewObject(EObject objectWithId) {
 			assert null != objectWithId;
-			if (createIdForPackages.contains(objectWithId.eClass().getEPackage()) && !objectWithId.eIsProxy()) {
-				EAttribute idAttribute = objectWithId.eClass().getEIDAttribute();
-				if (null != idAttribute) {
-					String id = (String) objectWithId.eGet(idAttribute);
-					if (id == null || 0 == id.length()) {
-						System.out.println("updating id " + objectWithId);
-						id = EcoreUtil.generateUUID();
-						objectWithId.eSet(idAttribute, id);
-						// id map gets updated by notification on setId
-						System.out.println("updated id " + objectWithId);
-					} else {
-						eObjectToIDMap.put(objectWithId, id);
-						idToEObjectMap.put(id, objectWithId);
-					}
+			EAttribute idAttribute = objectWithId.eClass().getEIDAttribute();
+			if (null != idAttribute) {
+				String id = (String) objectWithId.eGet(idAttribute);
+				if ((id == null || 0 == id.length()) && createIdForPackages.contains(objectWithId.eClass().getEPackage())) {
+					id = EcoreUtil.generateUUID();
+					objectWithId.eSet(idAttribute, id);
+					// id map gets updated by notification on setId
+				} else {
+					eObjectToIDMap.put(objectWithId, id);
+					idToEObjectMap.put(id, objectWithId);
 				}
 			}
 		}
@@ -320,11 +316,12 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 		// get XML names and attribute/value information from extended metadata
 		loadOptions.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
 
-		// TODO: why do we need this setting?
+		// comments and CDATA will be preserved in any mixed text processing. Required to support extensions
 		loadOptions.put(XMLResource.OPTION_USE_LEXICAL_HANDLER, Boolean.TRUE);
-		// Use deprecated methods - the default is true. To improve deserialization performance turn this option to
-		// false.
+		// Improve deserialization performance
 		loadOptions.put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.FALSE);
+		// All EObject references will be uniformly encoded as one or more QName URI pairs, where the QName is optional
+		// depending on whether the referenced object's type is not identicle to that of the feature.
 		loadOptions.put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.FALSE);
 
 		// options for handling unknown tool extensions

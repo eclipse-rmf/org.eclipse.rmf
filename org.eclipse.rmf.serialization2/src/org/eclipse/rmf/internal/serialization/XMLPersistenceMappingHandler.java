@@ -917,6 +917,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		assert null != namespace;
 		assert null != typeXMLName;
 
+		// make sure, that information about feature is available for handleMissingPackage
 		contextFeature = feature;
 		EPackage ePackage = getPackageForURI(namespace);
 		contextFeature = null;
@@ -924,6 +925,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		if (null != ePackage) {
 			EClassifier eClassifier;
 			if (rmfExtendedMetaData.demandedPackages().contains(ePackage)) {
+				// demand package requires demand type
 				eClassifier = rmfExtendedMetaData.demandType(namespace, typeXMLName);
 			} else {
 				eClassifier = rmfExtendedMetaData.getTypeByXMLName(namespace, typeXMLName, feature);
@@ -933,14 +935,10 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 
 			if (null != eClassifier) {
 				EObject obj = createObject(eFactory, eClassifier, false);
-				;
-
 				obj = validateCreateObjectFromFactory(eFactory, typeXMLName, obj, feature);
 				if (obj != null) {
 					setFeatureValue(peekObject, feature, obj);
-
 					processObject(obj);
-
 				}
 				return obj;
 			} else {
@@ -1426,7 +1424,6 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		xsiType = null;
 	}
 
-	// TODO:
 	@Override
 	protected String getXSIType() {
 		if (xsiType != null) {
