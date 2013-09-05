@@ -320,9 +320,8 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 		loadOptions.put(XMLResource.OPTION_USE_LEXICAL_HANDLER, Boolean.TRUE);
 		// Improve deserialization performance
 		loadOptions.put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.FALSE);
-		// All EObject references will be uniformly encoded as one or more QName URI pairs, where the QName is optional
-		// depending on whether the referenced object's type is not identicle to that of the feature.
-		loadOptions.put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.FALSE);
+		// avoids creation of href attributes for non containment references
+		loadOptions.put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.TRUE);
 
 		// options for handling unknown tool extensions
 		loadOptions.put(XMLResource.OPTION_RECORD_ANY_TYPE_NAMESPACE_DECLARATIONS, Boolean.TRUE);

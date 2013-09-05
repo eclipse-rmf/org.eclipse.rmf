@@ -37,12 +37,11 @@ import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaData;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 
 /**
- * TODO: write down assumptions as asserts
- * 
  * @author broerkens
  */
 public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 	XMLPersistenceMappingExtendedMetaData rmfExtendedMetaData = null;
+	static final String TRUE = "true"; //$NON-NLS-1$
 
 	final StringBuffer buffer = new StringBuffer();
 
@@ -574,7 +573,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		assert null != helper.getValue(o, f);
 
 		if (null != rmfExtendedMetaData && null != extendedMetaData) {
-			// TODO: check for null values
 			EObject remote = (EObject) helper.getValue(o, f);
 			if (null != remote) {
 
@@ -647,8 +645,9 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	@Override
 	protected void saveElementReferenceMany(EObject o, EStructuralFeature f) {
+		assert f.isMany() : "saveElementReferenceMany is applicable for references with true == isMany()"; //$NON-NLS-1$
 		if (null != rmfExtendedMetaData && null != extendedMetaData) {
-			// TODO: check for null values
+			@SuppressWarnings("unchecked")
 			InternalEList<? extends EObject> values = (InternalEList<? extends EObject>) helper.getValue(o, f);
 			int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(f);
 
@@ -684,7 +683,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		int size = values.size();
 		String qname = getFeatureQName(f);
 		for (int i = 0; i < size; i++) {
-			// TODO: what is the difference between get and basicGet?
 			saveReferencedHREF(f, values.basicGet(i), qname, true);
 		}
 	}
@@ -718,8 +716,8 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	@Override
 	protected void saveDataTypeElementSingle(EObject o, EStructuralFeature f) {
+		assert !f.isMany() : "saveElementReferenceMany is applicable for references with false == isMany()"; //$NON-NLS-1$
 		if (null != rmfExtendedMetaData && null != extendedMetaData) {
-			// TODO: check for null values
 			String svalue = getDatatypeValue(helper.getValue(o, f), f, false);
 			int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(f);
 
@@ -794,7 +792,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		String name = getClassifierQName(f.getEType());
 		if (value == null) {
 			doc.startElement(name);
-			doc.addAttribute(XSI_NIL, "true");
+			doc.addAttribute(XSI_NIL, TRUE);
 			doc.endEmptyElement();
 			declareXSI = true;
 		} else {
@@ -810,7 +808,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		String name = getClassifierWrapperQName(f.getEType());
 		if (value == null) {
 			doc.startElement(name);
-			doc.addAttribute(XSI_NIL, "true");
+			doc.addAttribute(XSI_NIL, TRUE);
 			doc.endEmptyElement();
 			declareXSI = true;
 		} else {
@@ -835,7 +833,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		String name = getFeatureQName(f);
 		if (value == null) {
 			doc.startElement(name);
-			doc.addAttribute(XSI_NIL, "true");
+			doc.addAttribute(XSI_NIL, TRUE);
 			doc.endEmptyElement();
 			declareXSI = true;
 		} else {
@@ -879,7 +877,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		String name = getFeatureWrapperQName(f);
 		if (value == null) {
 			doc.startElement(name);
-			doc.addAttribute(XSI_NIL, "true");
+			doc.addAttribute(XSI_NIL, TRUE);
 			doc.endEmptyElement();
 			declareXSI = true;
 		} else {
@@ -962,7 +960,9 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	@Override
 	protected void saveDataTypeMany(EObject o, EStructuralFeature f) {
+		assert f.isMany() : "saveElementReferenceMany is applicable for references with true == isMany()"; //$NON-NLS-1$
 		if (null != rmfExtendedMetaData && null != extendedMetaData) {
+			@SuppressWarnings("unchecked")
 			InternalEList<? extends EObject> values = (InternalEList<? extends EObject>) helper.getValue(o, f);
 			if (null != values && !values.isEmpty()) {
 				int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(f);
@@ -1068,7 +1068,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 			Object value = values.get(i);
 			if (value == null) {
 				doc.startElement(name);
-				doc.addAttribute(XSI_NIL, "true");
+				doc.addAttribute(XSI_NIL, TRUE);
 				doc.endEmptyElement();
 				declareXSI = true;
 			} else {
@@ -1115,7 +1115,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 			Object value = values.get(i);
 			if (value == null) {
 				doc.startElement(name);
-				doc.addAttribute(XSI_NIL, "true");
+				doc.addAttribute(XSI_NIL, TRUE);
 				doc.endEmptyElement();
 				declareXSI = true;
 			} else {
@@ -1143,7 +1143,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 			doc.startElement(getFeatureQName(f));
 			if (value == null) {
 				doc.startElement(name);
-				doc.addAttribute(XSI_NIL, "true");
+				doc.addAttribute(XSI_NIL, TRUE);
 				doc.endEmptyElement();
 				declareXSI = true;
 			} else {

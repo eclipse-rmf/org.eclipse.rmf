@@ -42,9 +42,9 @@ import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	String xsiType;
 	IProgressMonitor progressMonitor = null;
-	long chunksRead = 0;
-	int bufferSize = 2048; // default buffer size of xerces parser
-	int lastStart = 0;
+	long progressMonitorChunksRead = 0;
+	int progressMonitorChunkSize = 2048; // default buffer size of xerces parser
+	int progressMonitorLastStartInChunk = 0;
 
 	interface LoadPattern {
 		public static int STATE_READY = 0;
@@ -61,7 +61,6 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		public static int STATE_DELEGATE_SIBLING_NEEDED = -3;
 
 		public static int STATE_UNEXPECTED_ELEMENT = -100;
-		public static int STATE_INVALID_CLASSIFIER_ELEMENT = -101;
 
 		void startElement(String namespace, String xmlName);
 
@@ -112,7 +111,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			case STATE_READY:
 				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
 				classifierName = xmlName;
-				createRMFObject(anchorEObject, feature, namespace, xmlName);
+				createObjectFromNamespaceAndType(anchorEObject, feature, namespace, xmlName);
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
 				currentState = STATE_DELEGATE_CHILD_NEEDED;
@@ -120,13 +119,18 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
 				if (xmlName.equals(classifierName)) {
 					currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
-					createRMFObject(anchorEObject, feature, namespace, xmlName);
+					createObjectFromNamespaceAndType(anchorEObject, feature, namespace, xmlName);
 				} else {
 					currentState = STATE_DELEGATE_SIBLING_NEEDED;
 				}
 				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
 			default:
-				assert false; // we should not get here
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 
@@ -148,8 +152,12 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				handleEndCreateObjectElement();
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
 				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
 			default:
-				assert false; // we should not get here
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 	}
@@ -181,18 +189,13 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				}
 
 				break;
-			case STATE_DELEGATE_CHILD_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
 			case STATE_DELEGATE_SIBLING_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 				break;
-
 			default:
-				// TODO: handle error
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 
@@ -212,8 +215,178 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				handleEndCreateObjectElement();
 				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
 			default:
-				assert false; // we should not get here
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+			}
+		}
+	}
+
+	class LoadPatternContained0101Impl extends AbstractLoadPatternImpl {
+		String featureName = null;
+
+		public LoadPatternContained0101Impl(EObject anchorEObject, EStructuralFeature feature) {
+			super(anchorEObject, feature);
+		}
+
+		public void startElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				featureName = xmlName;
+				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+
+				createObjectFromNamespaceAndType(anchorEObject, feature, namespace, xmlName);
+				break;
+			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				currentState = STATE_DELEGATE_CHILD_NEEDED;
+				break;
+			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
+				// for robustness: we allow multiple classiefier elements in a feature element. a warning should be
+				// created
+				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				createObjectFromNamespaceAndType(anchorEObject, feature, namespace, xmlName);
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
+				if (featureName.equals(xmlName)) {
+					currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
+			default:
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+			}
+		}
+
+		public void endElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
+				// only the feature element was available => consider it as a null value;
+
+				if (feature.isMany()) {
+					@SuppressWarnings("unchecked")
+					EList<EObject> values = (EList<EObject>) anchorEObject.eGet(feature);
+					values.clear();
+				} else {
+					setFeatureValue(anchorEObject, feature, null);
+				}
+				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				handleEndCreateObjectElement();
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
+				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_DELEGATE_CHILD_NEEDED:
+				handleEndCreateObjectElement();
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
+			default:
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+			}
+		}
+	}
+
+	class LoadPatternContained1001Impl extends AbstractLoadPatternImpl {
+		String featureWrapperName = null;
+
+		public LoadPatternContained1001Impl(EObject anchorEObject, EStructuralFeature feature) {
+			super(anchorEObject, feature);
+		}
+
+		public void startElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				featureWrapperName = xmlName;
+				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				createObjectFromNamespaceAndType(anchorEObject, feature, namespace, xmlName);
+				break;
+			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				currentState = STATE_DELEGATE_CHILD_NEEDED;
+				break;
+			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				createObjectFromNamespaceAndType(anchorEObject, feature, namespace, xmlName);
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
+				if (featureWrapperName.equals(xmlName)) {
+					currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
+			default:
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+			}
+		}
+
+		public void endElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
+				// only the feature element was available => consider it as a null value;
+				if (feature.isMany()) {
+					@SuppressWarnings("unchecked")
+					EList<EObject> values = (EList<EObject>) anchorEObject.eGet(feature);
+					values.clear();
+				} else {
+					setFeatureValue(anchorEObject, feature, null);
+				}
+				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				handleEndCreateObjectElement();
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
+				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_DELEGATE_CHILD_NEEDED:
+				handleEndCreateObjectElement();
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
+			default:
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 	}
@@ -241,7 +414,6 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_UNEXPECTED_ELEMENT;
 				depthsOfUnknownElements = 1;
 				types.push(ERROR_TYPE);
-				// TODO: replace by another exception
 				error(new FeatureNotFoundException(xmlName, null, getLocation(), getLineNumber(), getColumnNumber()));
 				break;
 			case STATE_UNEXPECTED_ELEMENT:
@@ -257,8 +429,13 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				}
 				break;
 
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
 			default:
-				assert false : "Configuration Error: No 'startElement' allowed after final state " + currentState;
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 
@@ -285,14 +462,20 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				}
 				break;
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
 			default:
-				assert false : "Configuration Error: No 'endElement' allowed after final state " + currentState;
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 	}
 
 	class LoadPatternAttribute1000Impl extends AbstractLoadPatternImpl {
 		String featureWrapperName = null;
+		int depthsOfUnknownElements = 0;
 
 		public LoadPatternAttribute1000Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -306,7 +489,13 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				text = new StringBuffer(); // record all strings
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
-				// TODO handle error. no further elements expected here
+				currentState = STATE_UNEXPECTED_ELEMENT;
+				depthsOfUnknownElements = 1;
+				types.push(ERROR_TYPE);
+				error(new FeatureNotFoundException(xmlName, null, getLocation(), getLineNumber(), getColumnNumber()));
+				break;
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements++;
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
 				if (featureWrapperName.equals(xmlName)) {
@@ -317,15 +506,13 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					currentState = STATE_DELEGATE_SIBLING_NEEDED;
 				}
 				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
 			case STATE_DELEGATE_SIBLING_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 				break;
-
 			default:
-				// TODO: handle error
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 
@@ -352,21 +539,26 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements--;
+				if (0 > depthsOfUnknownElements) {
+					currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
+				}
 				break;
+			case STATE_DELEGATE_CHILD_NEEDED:
 			case STATE_DELEGATE_SIBLING_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 				break;
-
 			default:
-				// TODO: handle error
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 	}
 
 	class LoadPatternAttribute1100Impl extends AbstractLoadPatternImpl {
 		String featureWrapperName = null;
+		int depthsOfUnknownElements = 0;
 
 		public LoadPatternAttribute1100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -383,7 +575,10 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				text = new StringBuffer(); // record all strings
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				// TODO handle error. no further elements expected here
+				currentState = STATE_UNEXPECTED_ELEMENT;
+				depthsOfUnknownElements = 1;
+				types.push(ERROR_TYPE);
+				error(new FeatureNotFoundException(xmlName, null, getLocation(), getLineNumber(), getColumnNumber()));
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
 				if (featureWrapperName == xmlName) {
@@ -396,15 +591,13 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
 				text = new StringBuffer(); // record all strings
 				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
 			case STATE_DELEGATE_SIBLING_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 				break;
-
 			default:
-				// TODO: handle error
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 
@@ -427,174 +620,19 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
 				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements--;
+				if (0 > depthsOfUnknownElements) {
+					currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
+				}
 				break;
+			case STATE_DELEGATE_CHILD_NEEDED:
 			case STATE_DELEGATE_SIBLING_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-
-			default:
-				// TODO: handle error
-			}
-		}
-	}
-
-	class LoadPatternContained0101Impl extends AbstractLoadPatternImpl {
-		String featureName = null;
-
-		public LoadPatternContained0101Impl(EObject anchorEObject, EStructuralFeature feature) {
-			super(anchorEObject, feature);
-		}
-
-		public void startElement(String namespace, String xmlName) {
-			switch (currentState) {
-			case STATE_READY:
-				featureName = xmlName;
-				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
-
-				createRMFObject(anchorEObject, feature, namespace, xmlName);
-				break;
-			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
-				currentState = STATE_DELEGATE_CHILD_NEEDED;
-				break;
-			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				// for robustness: we allow multiple classiefier elements in a feature element. a warning should be
-				// created
-				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
-				createRMFObject(anchorEObject, feature, namespace, xmlName);
-				break;
-			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
-				if (featureName.equals(xmlName)) {
-					currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
-				} else {
-					currentState = STATE_DELEGATE_SIBLING_NEEDED;
-				}
-				break;
-			default:
-				assert false; // we should net get here
-			}
-		}
-
-		public void endElement(String namespace, String xmlName) {
-			switch (currentState) {
-			case STATE_READY:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
-				break;
-			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				// only the feature element was available => consider it as a null value;
-
-				if (feature.isMany()) {
-					@SuppressWarnings("unchecked")
-					EList<EObject> values = (EList<EObject>) anchorEObject.eGet(feature);
-					values.clear();
-				} else {
-					setFeatureValue(anchorEObject, feature, null);
-				}
-				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
-				handleEndCreateObjectElement();
-				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
-				break;
-			case STATE_DELEGATE_CHILD_NEEDED:
-				handleEndCreateObjectElement();
-				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
-				break;
-			default:
-				assert false; // we should net get here
-			}
-		}
-	}
-
-	class LoadPatternContained1001Impl extends AbstractLoadPatternImpl {
-		String featureWrapperName = null;
-
-		public LoadPatternContained1001Impl(EObject anchorEObject, EStructuralFeature feature) {
-			super(anchorEObject, feature);
-		}
-
-		public void startElement(String namespace, String xmlName) {
-			switch (currentState) {
-			case STATE_READY:
-				featureWrapperName = xmlName;
-				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
-				createRMFObject(anchorEObject, feature, namespace, xmlName);
-				break;
-			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
-				currentState = STATE_DELEGATE_CHILD_NEEDED;
-				break;
-			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
-				createRMFObject(anchorEObject, feature, namespace, xmlName);
-				break;
-			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
-				if (featureWrapperName.equals(xmlName)) {
-					currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
-				} else {
-					currentState = STATE_DELEGATE_SIBLING_NEEDED;
-				}
-				break;
-			case STATE_DELEGATE_CHILD_NEEDED:
-				// nothing todo
-				break;
 			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 				break;
-
 			default:
-				// TODO: handle error
-			}
-		}
-
-		public void endElement(String namespace, String xmlName) {
-			switch (currentState) {
-			case STATE_READY:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
-				break;
-			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
-				// only the feature element was available => consider it as a null value;
-				if (feature.isMany()) {
-					@SuppressWarnings("unchecked")
-					EList<EObject> values = (EList<EObject>) anchorEObject.eGet(feature);
-					values.clear();
-				} else {
-					setFeatureValue(anchorEObject, feature, null);
-				}
-				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
-				handleEndCreateObjectElement();
-				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
-				break;
-			case STATE_DELEGATE_CHILD_NEEDED:
-				handleEndCreateObjectElement();
-				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
-				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-
-			default:
-				// TODO: handle error
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 	}
@@ -602,6 +640,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	class LoadPatternReferenced0100Impl extends AbstractLoadPatternImpl {
 		String featureName = null;
 		InternalEObject proxy;
+		int depthsOfUnknownElements = 0;
 
 		public LoadPatternReferenced0100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -617,7 +656,10 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				featureName = xmlName;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				// TODO handle error. no further elements expected here
+				currentState = STATE_UNEXPECTED_ELEMENT;
+				depthsOfUnknownElements = 1;
+				types.push(ERROR_TYPE);
+				error(new FeatureNotFoundException(xmlName, null, getLocation(), getLineNumber(), getColumnNumber()));
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				if (featureName.equals(xmlName)) {
@@ -629,12 +671,13 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					currentState = STATE_DELEGATE_SIBLING_NEEDED;
 				}
 				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_CHILD_NEEDED:
 			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 				break;
-
 			default:
-				// TODO: handle error
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 
@@ -655,12 +698,200 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements--;
+				if (0 > depthsOfUnknownElements) {
+					currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
+				}
 				break;
-
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
 			default:
-				// TODO: handle error
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+			}
+		}
+	}
+
+	class LoadPatternReferenced0101Impl extends AbstractLoadPatternImpl {
+		String featureName = null;
+		InternalEObject proxy = null;
+		int depthsOfUnknownElements = 0;
+
+		public LoadPatternReferenced0101Impl(EObject anchorEObject, EStructuralFeature feature) {
+			super(anchorEObject, feature);
+		}
+
+		public void startElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				featureName = xmlName;
+				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				proxy = (InternalEObject) createObjectFromNamespaceAndType(anchorEObject, feature, namespace, xmlName);
+				text = new StringBuffer(); // record all strings
+				break;
+			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				currentState = STATE_UNEXPECTED_ELEMENT;
+				depthsOfUnknownElements = 1;
+				types.push(ERROR_TYPE);
+				error(new FeatureNotFoundException(xmlName, null, getLocation(), getLineNumber(), getColumnNumber()));
+				break;
+			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
+				// for robustness: we allow multiple classifier elements in a feature element. a warning should be
+				// created
+				proxy = (InternalEObject) createObjectFromNamespaceAndType(anchorEObject, feature, namespace, xmlName);
+				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				text = new StringBuffer(); // record all strings
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
+				if (featureName.equals(xmlName)) {
+					currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
+			default:
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+			}
+		}
+
+		public void endElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
+				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				if (null != proxy) {
+					handleProxy(proxy, resourceURI.toString() + "#" + text.toString());
+					objects.pop();
+				} else {
+					// TODO: handle error: could not create object
+				}
+				text = null;
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
+				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements--;
+				if (0 > depthsOfUnknownElements) {
+					currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
+				}
+				break;
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
+			default:
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+			}
+		}
+	}
+
+	class LoadPatternReferenced1001Impl extends AbstractLoadPatternImpl {
+		InternalEObject proxy = null;
+		String featureWrapperName = null;
+		int depthsOfUnknownElements = 0;
+
+		public LoadPatternReferenced1001Impl(EObject anchorEObject, EStructuralFeature feature) {
+			super(anchorEObject, feature);
+		}
+
+		public void startElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				featureWrapperName = xmlName;
+				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				proxy = (InternalEObject) createObjectFromNamespaceAndType(anchorEObject, feature, namespace, xmlName);
+				text = new StringBuffer(); // record all strings
+				break;
+			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				currentState = STATE_UNEXPECTED_ELEMENT;
+				depthsOfUnknownElements = 1;
+				types.push(ERROR_TYPE);
+				error(new FeatureNotFoundException(xmlName, null, getLocation(), getLineNumber(), getColumnNumber()));
+				break;
+			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
+				// for robustness: we allow multiple classiefier elements in a feature element. a warning should be
+				// created
+				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
+				proxy = (InternalEObject) createObjectFromNamespaceAndType(anchorEObject, feature, namespace, xmlName);
+				text = new StringBuffer(); // record all strings
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
+				if (featureWrapperName.equals(xmlName)) {
+					currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
+				} else {
+					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+				}
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
+			default:
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+			}
+		}
+
+		public void endElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
+				if (null != proxy) {
+					objects.pop();
+					handleProxy(proxy, resourceURI.toString() + "#" + text.toString());
+				}
+
+				text = null;
+				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
+				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
+				break;
+			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements--;
+				if (0 > depthsOfUnknownElements) {
+					currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
+				}
+				break;
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
+			default:
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 	}
@@ -668,6 +899,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	class LoadPatternReferenced1100Impl extends AbstractLoadPatternImpl {
 		String featureWrapperName = null;
 		EObject proxy;
+		int depthsOfUnknownElements = 0;
 
 		public LoadPatternReferenced1100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
@@ -685,7 +917,10 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				text = new StringBuffer(); // record all strings
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				// TODO handle error. no further elements expected here
+				currentState = STATE_UNEXPECTED_ELEMENT;
+				depthsOfUnknownElements = 1;
+				types.push(ERROR_TYPE);
+				error(new FeatureNotFoundException(xmlName, null, getLocation(), getLineNumber(), getColumnNumber()));
 				break;
 			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
 				if (featureWrapperName.equals(xmlName)) {
@@ -699,12 +934,13 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				createObject(anchorEObject, feature);
 				text = new StringBuffer(); // record all strings
 				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_CHILD_NEEDED:
 			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 				break;
-
 			default:
-				// TODO: handle error
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 
@@ -730,180 +966,19 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
 				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
 				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-
-			default:
-				// TODO: handle error
-			}
-		}
-	}
-
-	class LoadPatternReferenced0101Impl extends AbstractLoadPatternImpl {
-		String featureName = null;
-		InternalEObject proxy = null;
-
-		public LoadPatternReferenced0101Impl(EObject anchorEObject, EStructuralFeature feature) {
-			super(anchorEObject, feature);
-		}
-
-		public void startElement(String namespace, String xmlName) {
-			switch (currentState) {
-			case STATE_READY:
-				featureName = xmlName;
-				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
-				proxy = (InternalEObject) createRMFObject(anchorEObject, feature, namespace, xmlName);
-				text = new StringBuffer(); // record all strings
-				break;
-			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
-				currentState = STATE_DELEGATE_CHILD_NEEDED;
-				break;
-			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				// for robustness: we allow multiple classifier elements in a feature element. a warning should be
-				// created
-				proxy = (InternalEObject) createRMFObject(anchorEObject, feature, namespace, xmlName);
-				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
-				text = new StringBuffer(); // record all strings
-				break;
-			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
-				if (featureName.equals(xmlName)) {
-					currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
-				} else {
-					currentState = STATE_DELEGATE_SIBLING_NEEDED;
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements--;
+				if (0 > depthsOfUnknownElements) {
+					currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				}
 				break;
 			case STATE_DELEGATE_CHILD_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
 			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 				break;
-
 			default:
-				// TODO: handle error
-			}
-		}
-
-		public void endElement(String namespace, String xmlName) {
-			switch (currentState) {
-			case STATE_READY:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
-				break;
-			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
-				// TODO: Use uri converter instead
-				if (null != proxy) {
-					handleProxy(proxy, resourceURI.toString() + "#" + text.toString());
-					objects.pop();
-				} else {
-					// TODO: handle error: could not create object
-				}
-				text = null;
-				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_END_FEATURE_ELEMENT:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
-				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-
-			default:
-				// TODO: handle error
-			}
-		}
-	}
-
-	class LoadPatternReferenced1001Impl extends AbstractLoadPatternImpl {
-		InternalEObject proxy = null;
-		String featureWrapperName = null;
-
-		public LoadPatternReferenced1001Impl(EObject anchorEObject, EStructuralFeature feature) {
-			super(anchorEObject, feature);
-		}
-
-		public void startElement(String namespace, String xmlName) {
-			switch (currentState) {
-			case STATE_READY:
-				featureWrapperName = xmlName;
-				currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
-				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
-				proxy = (InternalEObject) createRMFObject(anchorEObject, feature, namespace, xmlName);
-				text = new StringBuffer(); // record all strings
-				break;
-			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
-				currentState = STATE_DELEGATE_CHILD_NEEDED;
-				break;
-			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				// for robustness: we allow multiple classiefier elements in a feature element. a warning should be
-				// created
-				currentState = STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT;
-				proxy = (InternalEObject) createRMFObject(anchorEObject, feature, namespace, xmlName);
-				text = new StringBuffer(); // record all strings
-				break;
-			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
-				if (featureWrapperName.equals(xmlName)) {
-					currentState = STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT;
-				} else {
-					currentState = STATE_DELEGATE_SIBLING_NEEDED;
-				}
-				break;
-			case STATE_DELEGATE_CHILD_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-
-			default:
-				// TODO: handle error
-			}
-		}
-
-		public void endElement(String namespace, String xmlName) {
-			switch (currentState) {
-			case STATE_READY:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
-				break;
-			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
-				break;
-			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
-				// TODO: Use uri converter instead
-				if (null != proxy) {
-					objects.pop();
-					handleProxy(proxy, resourceURI.toString() + "#" + text.toString());
-				}
-
-				text = null;
-				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT:
-				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
-				break;
-			case STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
-				break;
-			case STATE_DELEGATE_CHILD_NEEDED:
-				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
-				break;
-			case STATE_DELEGATE_PARENT_NEEDED:
-				// TODO handle error. something was wrong with delegate handshake
-				break;
-
-			default:
-				// TODO: handle error
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 	}
@@ -911,7 +986,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	/**
 	 * Create an object based on the given feature and attributes.
 	 */
-	protected EObject createRMFObject(EObject peekObject, EStructuralFeature feature, String namespace, String typeXMLName) {
+	protected EObject createObjectFromNamespaceAndType(EObject peekObject, EStructuralFeature feature, String namespace, String typeXMLName) {
 		assert null != rmfExtendedMetaData;
 		assert null != peekObject;
 		assert null != feature;
@@ -1077,14 +1152,14 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			Map<String, Object> parserProperties = (Map<String, Object>) parserPropertiesObject;
 			Object bufferSizeObject = parserProperties.get(Constants.XERCES_PROPERTY_PREFIX + Constants.BUFFER_SIZE_PROPERTY);
 			if (bufferSizeObject instanceof Integer) {
-				bufferSize = (Integer) bufferSizeObject;
+				progressMonitorChunkSize = (Integer) bufferSizeObject;
 			} else {
 				// use xerces default (2K)
-				bufferSize = 2048;
+				progressMonitorChunkSize = 2048;
 			}
 		} else {
 			// use xerces default (2K)
-			bufferSize = 2048;
+			progressMonitorChunkSize = 2048;
 		}
 
 		Object progressMonitor = options.get(XMLPersistenceMappingResource.OPTION_PROGRESS_MONITOR);
@@ -1097,9 +1172,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		deserializationRuleStack = new MyStack<LoadPattern>();
 		xsiType = null;
 
-		// TODO: xhtml.a.type/@href conflicts with this attribute and results in proxy resolution which can in turn
+		// redefine href attribute since e.g.:
+		// xhtml.a.type/@href conflicts with this attribute and results in proxy resolution which can in turn
 		// result in long delays during load.
-		// TODO: find a smarter way of how to detect href proxy attributes
 		hrefAttribute = XMLPersistenceMappingResource.HREF;
 
 	}
@@ -1108,11 +1183,11 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	public void characters(char[] ch, int start, int length) {
 		super.characters(ch, start, length);
 		if (null != progressMonitor) {
-			if (start < lastStart) {
-				chunksRead += 1;
+			if (start < progressMonitorLastStartInChunk) {
+				progressMonitorChunksRead += 1;
 				progressMonitor.worked(1);
 			}
-			lastStart = start;
+			progressMonitorLastStartInChunk = start;
 		}
 	}
 
@@ -1120,23 +1195,8 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	public void endElement(String uri, String localName, String qName) {
 		if (null != rmfExtendedMetaData) {
 			elements.pop();
+			types.pop();
 
-			// from super.endElement()
-			Object type = types.pop();
-
-			/*
-			 * if (type == OBJECT_TYPE) { if (text == null) { objects.pop(); mixedTargets.pop(); } else { EObject object
-			 * = objects.popEObject(); if (mixedTargets.peek() != null && (object.eContainer() != null ||
-			 * suppressDocumentRoot || recordUnknownFeature && (eObjectToExtensionMap.containsValue(object) ||
-			 * ((InternalEObject) object).eDirectResource() != null))) { handleMixedText(); mixedTargets.pop(); } else {
-			 * if (text.length() != 0) { handleProxy((InternalEObject) object, text.toString().trim()); }
-			 * mixedTargets.pop(); text = null; } } } else if (isIDREF) { objects.pop(); mixedTargets.pop(); if (text !=
-			 * null) { setValueFromId(objects.peekEObject(), (EReference) type, text.toString()); text = null; } isIDREF
-			 * = false; } else if (isTextFeatureValue(type)) { EObject eObject = objects.popEObject();
-			 * mixedTargets.pop(); if (eObject == null) { eObject = objects.peekEObject(); } setFeatureValue(eObject,
-			 * (EStructuralFeature) type, text == null ? null : text.toString()); text = null; } if (isSimpleFeature) {
-			 * types.pop(); objects.pop(); mixedTargets.pop(); isSimpleFeature = false; }
-			 */
 			helper.popContext(prefixesToFactories);
 
 			// end from super.endElement
@@ -1177,7 +1237,6 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 
 		if (null != rmfExtendedMetaData) {
-			// TODO: why do we need the prefix indirection?
 			String namespace = helper.getNamespaceURI(prefix);
 			LoadPattern activeDeserializationRule = deserializationRuleStack.peek();
 			if (null == activeDeserializationRule) {
@@ -1192,7 +1251,6 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			}
 
 			if (null != activeDeserializationRule) {
-				// TODO: use prefix instead of namespace
 				activeDeserializationRule.startElement(namespace, name);
 				if (activeDeserializationRule.needsDelegateChild()) {
 					activeDeserializationRule = getLoadPattern(peekObject, prefix, name);
@@ -1453,8 +1511,8 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		super.startDocument();
 		// initialize the progress monitor
 		if (null != progressMonitor) {
-			chunksRead = 0;
-			lastStart = 0;
+			progressMonitorChunksRead = 0;
+			progressMonitorLastStartInChunk = 0;
 			progressMonitor.beginTask("Reading resource '" + resourceURI + "'", getProgressMonitorTotalWork());
 		}
 
@@ -1477,39 +1535,11 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			if (null != filePath) {
 				File file = new File(filePath);
 				long numberOfBytes = file.length();
-				totalWork = (int) (numberOfBytes / bufferSize);
+				totalWork = (int) (numberOfBytes / progressMonitorChunkSize);
 			}
 		}
 		return totalWork;
 	}
-
-	/*
-	 * TODO: remove this block
-	 * @Override protected void handleProxy(InternalEObject proxy, String uriLiteral) {
-	 * System.out.println("Handling proxy: " + proxy.eClass().getName() + " -> " + uriLiteral); super.handleProxy(proxy,
-	 * uriLiteral); }
-	 * @Override protected Object setAttributes(Object attributes) { System.out.println("setAttributes: " + attributes);
-	 * return super.setAttributes(attributes); }
-	 * @Override protected EObject createObjectByType(String prefix, String name, boolean top) {
-	 * System.out.println("createObjectByType prefix=" + prefix + ", name=" + name + ", top=" + top); return
-	 * super.createObjectByType(prefix, name, top); }
-	 * @Override protected void createObject(EObject peekObject, EStructuralFeature feature) {
-	 * System.out.println("createObjecte peekObject=" + peekObject + ", feature=" + feature);
-	 * super.createObject(peekObject, feature); }
-	 * @Override protected EObject createObjectFromTypeName(EObject peekObject, String typeQName, EStructuralFeature
-	 * feature) { System.out.println("createObjectFromTypeName peekObject=" + peekObject + ", typeQName=" + typeQName +
-	 * ", feature=" + feature); return super.createObjectFromTypeName(peekObject, typeQName, feature); }
-	 * @Override protected EObject createObjectFromFeatureType(EObject peekObject, EStructuralFeature feature) {
-	 * System.out.println("createObjectFromFeatureType peekObject=" + peekObject + ", feature=" + feature); return
-	 * super.createObjectFromFeatureType(peekObject, feature); }
-	 * @Override protected EObject createObjectFromFactory(EFactory factory, String typeName) { // TODO Auto-generated
-	 * method stub return super.createObjectFromFactory(factory, typeName); }
-	 * @Override protected EObject createObject(EFactory eFactory, EClassifier type, boolean documentRoot) {
-	 * System.out.println("createObject eFactory=" + eFactory + ", type=" + type + ", documentRoot=" + documentRoot);
-	 * return super.createObject(eFactory, type, documentRoot); }
-	 * @Override public void startElement(String uri, String localName, String name) {
-	 * System.out.println("startElement " + name); super.startElement(uri, localName, name); }
-	 */
 
 	@Override
 	protected EPackage handleMissingPackage(String uriString) {

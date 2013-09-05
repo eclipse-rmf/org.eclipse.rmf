@@ -15,7 +15,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
@@ -49,7 +48,6 @@ public class ReqIFXMLHelperImpl extends XMLHelperImpl implements XMLHelper {
 		} else {
 			return getIDREF(obj);
 		}
-
 	}
 
 	@Override
@@ -70,25 +68,5 @@ public class ReqIFXMLHelperImpl extends XMLHelperImpl implements XMLHelper {
 		} else {
 			return getQName(ePackage, getName(feature));
 		}
-
 	}
-
-	@Override
-	public String getQName(EClass c) {
-		// TODO Auto-generated method stub
-		return super.getQName(c);
-	}
-
-	@Override
-	public String getQName(EDataType c) {
-		// TODO Auto-generated method stub
-		return super.getQName(c);
-	}
-
-	@Override
-	public void setValue(EObject object, EStructuralFeature feature, Object value, int position) {
-		// TODO Auto-generated method stub
-		super.setValue(object, feature, value, position);
-	}
-
 }
