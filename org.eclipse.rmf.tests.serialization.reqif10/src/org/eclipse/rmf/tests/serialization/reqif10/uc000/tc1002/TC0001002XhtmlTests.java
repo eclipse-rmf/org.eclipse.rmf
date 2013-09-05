@@ -12,6 +12,7 @@ import java.io.IOException;
 import junit.framework.Assert;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.util.FeatureMap.Entry;
@@ -77,7 +78,7 @@ public class TC0001002XhtmlTests extends AbstractTestCase {
 	@Test
 	public void testResave() throws IOException {
 		try {
-			saveReqIFFile(loadedReqIF, EXPORT_DATA_FILENAME);
+			saveReqIFFile(EcoreUtil.copy(loadedReqIF), EXPORT_DATA_FILENAME);
 		} catch (IOException ioe) {
 			Assert.assertFalse("We shall be able to save without exception. However the following exception occurred: " + ioe.toString(), true);
 		}

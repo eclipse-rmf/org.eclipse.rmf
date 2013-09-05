@@ -40,7 +40,7 @@ public class TC1250ExternalFilesTest extends AbstractTestCase {
 				"powerpoint.pptx", "rmf-logo-300.png" };
 
 		// // save as reqifz
-		saveReqIFsToZip(originalReqIFs, REFERENCE_DATA_ARCHIVE_FILENAME);
+		saveReqIFsToZip(originalReqIFs, REFERENCE_DATA_ARCHIVE_FILENAME, getXMLPersistenceMappingResourceSet());
 		//
 		// // add the required files to the zip
 		saveFilesToZip(REFERENCE_DATA_ARCHIVE_FILENAME, originalReqIF, fileNames);

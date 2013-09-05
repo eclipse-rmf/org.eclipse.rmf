@@ -44,7 +44,7 @@ public class TC1300SpecRelationTests extends AbstractTestCase implements CommonS
 	@Test
 	public void testResave() throws IOException {
 		try {
-			saveReqIFFile(loadedReqIF, EXPORT_DATA_FILENAME);
+			saveReqIFFile(EcoreUtil.copy(loadedReqIF), EXPORT_DATA_FILENAME);
 		} catch (IOException ioe) {
 			Assert.assertFalse("We shall be able to save without exception. However the following exception occurred: " + ioe.toString(), true);
 		}

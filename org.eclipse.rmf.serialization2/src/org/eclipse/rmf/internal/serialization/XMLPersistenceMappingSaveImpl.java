@@ -1033,7 +1033,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected String getAttributeString(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 
 		EDataType d = (EDataType) f.getEType();
 		EPackage ePackage = d.getEPackage();
@@ -1057,7 +1056,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute0001Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1085,7 +1083,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute0010Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1095,7 +1092,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute0011Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1107,7 +1103,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 	protected void saveAttribute0100Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		// this is the default EMF behaviour
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1135,7 +1130,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute0101Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1165,7 +1159,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute0110Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1177,7 +1170,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute0111Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1188,7 +1180,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute1000Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1198,7 +1189,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute1001Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1209,7 +1199,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute1010Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1220,7 +1209,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute1011Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1231,7 +1219,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute1100Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1242,7 +1229,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute1101Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1253,7 +1239,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute1110Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1264,7 +1249,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveAttribute1111Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1351,7 +1335,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveContained0000Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		for (EObject value : values) {
 			saveFeatures(value, SerializationType.elementsOnly, true);
 		}
@@ -1359,7 +1342,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveContained0001Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1371,7 +1353,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveContained0010Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 
@@ -1484,7 +1465,6 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected void saveContained1001Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
-		assert !values.isEmpty();
 		assert null != rmfExtendedMetaData;
 		assert null != extendedMetaData;
 

@@ -59,7 +59,7 @@ public class ReferenceDataTests extends AbstractTestCase {
 					// System.out.println("validating input file");
 					// validateAgainstSchema(INPUT_DIR + IPath.SEPARATOR + fileName);
 					System.out.println("reading input file");
-					EObject reqIF = loadFile(INPUT_DIR + IPath.SEPARATOR + fileName, false);
+					EObject reqIF = loadFile(INPUT_DIR + IPath.SEPARATOR + fileName, false, getXMLPersistenceMappingResourceSet());
 					// check for unresolved proxies
 					assertTrue(checkUnresolvedProxies(reqIF));
 					System.out.println("writing file");

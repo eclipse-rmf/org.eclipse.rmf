@@ -34,7 +34,6 @@ public class TC0004001ToolExtensionWithCustomRuntimeCreatedMetamodelTests extend
 		while (iterator.hasNext()) {
 
 			EObject eObject = iterator.next();
-			System.out.println("checking element " + eObject);
 			assertFalse(eObject instanceof AnyType);
 		}
 	}

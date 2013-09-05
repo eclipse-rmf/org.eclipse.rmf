@@ -46,6 +46,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
@@ -66,6 +67,8 @@ import org.w3c.dom.ls.LSResourceResolver;
 public abstract class AbstractTestCase {
 	private static final String WORKING_DIRECTORY = "work";
 	static Map<String, Object> backupRegistry = null;
+	static XMLPersistenceMappingResourceSetImpl loadXMLPersistenceMappingResourceSet = null;
+	static XMLPersistenceMappingResourceSetImpl saveXMLPersistenceMappingResourceSet = null;
 
 	static final DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 	static final DateFormat timeFormat = new SimpleDateFormat("HHmm");
@@ -176,10 +179,13 @@ public abstract class AbstractTestCase {
 		EPackage.Registry.INSTANCE.put(DatatypesPackage.eNS_URI, DatatypesPackage.eINSTANCE);
 		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		EPackage.Registry.INSTANCE.put(EcorePackage.eNS_URI, EcorePackage.eINSTANCE);
-
-		// TODO: me might be able to live without the last package
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
-		// System.out.println("BeforeClass: reset to: " + EPackage.Registry.INSTANCE.keySet());
+		
+		loadXMLPersistenceMappingResourceSet = new XMLPersistenceMappingResourceSetImpl();
+		loadXMLPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
+
+		saveXMLPersistenceMappingResourceSet = new XMLPersistenceMappingResourceSetImpl();
+		saveXMLPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLPersistenceMappingResourceFactoryImpl());		
 	}
 
 	@AfterClass
@@ -188,7 +194,6 @@ public abstract class AbstractTestCase {
 			EPackage.Registry.INSTANCE.clear();
 			EPackage.Registry.INSTANCE.putAll(backupRegistry);
 		}
-		// System.out.println("AfterClass: reset to: " + EPackage.Registry.INSTANCE.keySet());
 	}
 
 	protected static String getWorkingDirectoryFileName() {
@@ -201,7 +206,6 @@ public abstract class AbstractTestCase {
 
 	protected void validateAgainstSchema(String filename) throws Exception {
 		final String schemaFolderName = "../org.eclipse.rmf.reqif10_2/schema/";
-		File schemaFolder = new File(schemaFolderName);
 
 		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource("../org.eclipse.rmf.reqif10_2/schema/reqif.xsd") };
 		Source instanceDocument = new StreamSource(filename);
@@ -245,28 +249,40 @@ public abstract class AbstractTestCase {
 	}
 
 	protected static void saveReqIFFile(EObject reqif, String fileName) throws IOException {
-		ResourceSetImpl resourceSet = getResourceSet();
-
+		ResourceSetImpl resourceSet = getXMLPersistenceMappingResourceSet();
+		saveReqIFFile(reqif, fileName, resourceSet);
+	}
+	
+	protected static void saveReqIFFile(EObject reqif, String fileName, ResourceSet resourceSet) throws IOException {
 		URI emfURI = createEMFURI(fileName);
 		Resource resource = resourceSet.createResource(emfURI);
-
 		resource.getContents().add(reqif);
 		resource.save(null);
 	}
 
 	protected static ReqIF loadReqIFFile(String fileName) throws IOException {
-		return loadReqIFFile(fileName, false);
+		ResourceSetImpl resourceSet = getXMLPersistenceMappingResourceSet();
+		return loadReqIFFile(fileName, false, resourceSet);
+	}
+	
+	protected static ReqIF loadReqIFFile(String fileName, ResourceSet resourceSet) throws IOException {
+		return loadReqIFFile(fileName, false, resourceSet);
+	}
+	
+	protected static XMLPersistenceMappingResourceSetImpl getXMLPersistenceMappingResourceSet() {
+		XMLPersistenceMappingResourceSetImpl xmlPersistenceMappingResourceSet = new XMLPersistenceMappingResourceSetImpl();
+		xmlPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
+		return xmlPersistenceMappingResourceSet;
+
 	}
 
-	protected static ReqIF loadReqIFFile(String fileName, boolean validateOnLoad) throws IOException {
-		return (ReqIF)loadFile(fileName, validateOnLoad);
+	protected static ReqIF loadReqIFFile(String fileName, boolean validateOnLoad, ResourceSet resourceSet) throws IOException {
+		return (ReqIF)loadFile(fileName, validateOnLoad, resourceSet);
 	}
-	protected static EObject loadFile(String fileName, boolean validateOnLoad) throws IOException {
-		ResourceSetImpl resourceSet = getReqIFResourceSet();
+	protected static EObject loadFile(String fileName, boolean validateOnLoad, ResourceSet resourceSet) throws IOException {
 
 		URI emfURI = createEMFURI(fileName);
 		XMLPersistenceMappingResourceImpl resource = (XMLPersistenceMappingResourceImpl) resourceSet.createResource(emfURI);
-		//resource.getCreateIdForPackageSet().add(ReqIF10Package.eINSTANCE);
 		if (validateOnLoad) {
 			resource.enableSchemaValidation = true;
 			resource.initDefaultOptions();
@@ -283,19 +299,6 @@ public abstract class AbstractTestCase {
 		}
 	}
 
-	private static XMLPersistenceMappingResourceSetImpl getReqIFResourceSet() {
-		XMLPersistenceMappingResourceSetImpl resourceSet = new XMLPersistenceMappingResourceSetImpl();
-
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
-		return resourceSet;
-	}
-
-	private static ResourceSetImpl getResourceSet() {
-		ResourceSetImpl resourceSet = new ResourceSetImpl();
-
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
-		return resourceSet;
-	}
 
 	private static URI createEMFURI(String fileName) {
 		return URI.createURI(fileName, true);
@@ -374,11 +377,10 @@ public abstract class AbstractTestCase {
 		return stringBuffer.toString();
 	}
 
-	public static List<ReqIF> loadReqIFFromZip(String zipSourceFileName) throws IOException, URISyntaxException {
+	public static List<ReqIF> loadReqIFFromZip(String zipSourceFileName, ResourceSetImpl resourceSet) throws IOException, URISyntaxException {
 		ZipFile zipSourceFile = new ZipFile(zipSourceFileName);
 		List<ReqIF> reqIFs = new ArrayList<ReqIF>();
 		Enumeration<? extends ZipEntry> zipFileEntries = zipSourceFile.entries();
-		XMLPersistenceMappingResourceSetImpl resourceSet = getReqIFResourceSet();
 
 		while (zipFileEntries.hasMoreElements()) {
 			ZipEntry entry = zipFileEntries.nextElement();
@@ -401,11 +403,11 @@ public abstract class AbstractTestCase {
 			}
 
 		}
+		zipSourceFile.close();
 		return reqIFs;
 	}
 
-	public static void saveReqIFsToZip(List<ReqIF> reqIFs, String zipFileName) throws IOException {
-		XMLPersistenceMappingResourceSetImpl resourceSet = getReqIFResourceSet();
+	public static void saveReqIFsToZip(List<ReqIF> reqIFs, String zipFileName, ResourceSetImpl resourceSet) throws IOException {
 		for (ReqIF reqIF : reqIFs) {
 			XMLResource resource = new XMLPersistenceMappingResourceImpl();
 			resource.getContents().add(reqIF);

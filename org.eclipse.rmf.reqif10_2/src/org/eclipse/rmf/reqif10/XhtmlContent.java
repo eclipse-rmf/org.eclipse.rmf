@@ -46,7 +46,7 @@ public interface XhtmlContent extends EObject {
 	 * @see #setXhtml(EObject)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getXhtmlContent_Xhtml()
 	 * @model containment="true" unsettable="true"
-	 *        extendedMetaData="name='XHTML' kind='element' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='XHTML' kind='elementWildcard' namespace='##targetNamespace' precessing='lax' wildcards='http://www.w3.org/1999/xhtml'"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='XHTML' featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
@@ -101,7 +101,7 @@ public interface XhtmlContent extends EObject {
 	 * @see #setXhtmlSource(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getXhtmlContent_XhtmlSource()
 	 * @model unsettable="true" transient="true" derived="true"
-	 *        extendedMetaData="name='XHTML-SOURCE' kind='attribute' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='XHTML-SOURCE' kind='element' namespace='##targetNamespace'"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='XHTML-SOURCE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */

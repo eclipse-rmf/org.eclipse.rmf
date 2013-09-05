@@ -394,15 +394,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lang" ordered="false" eType="ecore:EDataType http://www.w3.org/XML/1998/namespace#//LangType"
         unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="name" value="LANG"/>
+        <details key="name" value="lang"/>
         <details key="kind" value="attribute"/>
-      </eAnnotations>
-      <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
-        <details key="wrapperName" value="LANG"/>
-        <details key="featureWrapperElement" value="false"/>
-        <details key="featureElement" value="true"/>
-        <details key="classifierWrapperElement" value="false"/>
-        <details key="classifierElement" value="false"/>
+        <details key="namespace" value="http://www.w3.org/XML/1998/namespace"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="theHeader" ordered="false"
@@ -597,8 +591,10 @@
         containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="EXTENSIONS"/>
-        <details key="kind" value="element"/>
+        <details key="kind" value="elementWildcard"/>
         <details key="namespace" value="##targetNamespace"/>
+        <details key="precessing" value="lax"/>
+        <details key="wildcards" value="##other"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="wrapperName" value="EXTENSIONS"/>
@@ -1711,8 +1707,10 @@
         unsettable="true" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="XHTML"/>
-        <details key="kind" value="element"/>
+        <details key="kind" value="elementWildcard"/>
         <details key="namespace" value="##targetNamespace"/>
+        <details key="precessing" value="lax"/>
+        <details key="wildcards" value="http://www.w3.org/1999/xhtml"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
         <details key="wrapperName" value="XHTML"/>
@@ -1726,7 +1724,7 @@
         transient="true" unsettable="true" derived="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="XHTML-SOURCE"/>
-        <details key="kind" value="attribute"/>
+        <details key="kind" value="element"/>
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
       <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">

@@ -26,8 +26,6 @@ main() {
 	reqIfModel.objectsOfType(ECORE::EAttribute)->map removeIsPrefix();
 	reqIfModel.objectsOfType(ECORE::EAttribute)->map makeDateTime();
 
-	reqIfModel.objectsOfType(ECORE::EAttribute)->map fixReqIFLang();
-	
 	reqIfModel.objectsOfType(ECORE::EReference)->map setMetadata();
 	reqIfModel.objectsOfType(ECORE::EClass)->map removeBackLinkages();
 	reqIfModel.objectsOfType(ECORE::EClass)->map setMetadata();
@@ -39,6 +37,7 @@ main() {
 	reqIfModel.objectsOfType(ECORE::EClass)->map fixReqIFToolExtension();
 	reqIfModel.objectsOfType(ECORE::EClass)->map fixXhtmlContent();
 	reqIfModel.objectsOfType(ECORE::EReference)->map fixXhtmlContent();
+	reqIfModel.objectsOfType(ECORE::EAttribute)->map fixReqIFLang();
 	
 	// cleanup
 	reqIfModel.objectsOfType(ECORE::EDataType)->map removeDataTypeFloat();
@@ -73,7 +72,7 @@ when {self.name.toLower()="reqiftoolextension"}
 		lowerBound := 0;
 		unsettable := true;
 	};
-	extensions.eAnnotations := extensions.getElementFeatureExtendedMetadata("element");
+	extensions.eAnnotations := extensions.getWildcardElementFeatureExtendedMetadata("elementWildcard", "##other");
 	extensions.eAnnotations += extensions.getElementFeatureXMLMappingExtendedMetadata_Contained0001();
 	self.eStructuralFeatures += extensions;
 }
@@ -99,9 +98,9 @@ when {self.name.toLower()="xhtmlcontent"}
 		_derived := true;
 		volatile := false;
 	};
-	xhtmlSource.eAnnotations := xhtmlSource.getElementFeatureExtendedMetadata("attribute");
+	xhtmlSource.eAnnotations := xhtmlSource.getElementFeatureExtendedMetadata("element");
 	xhtmlSource.eAnnotations += xhtmlSource.getElementFeatureXMLMappingExtendedMetadata();
-	xhtml.eAnnotations := xhtml.getElementFeatureExtendedMetadata("element");
+	xhtml.eAnnotations := xhtml.getWildcardElementFeatureExtendedMetadata("elementWildcard", "http://www.w3.org/1999/xhtml");
 	xhtml.eAnnotations += xhtml.getElementFeatureXMLMappingExtendedMetadata_Contained0001();
 	self.eStructuralFeatures += xhtml;
 	self.eStructuralFeatures += xhtmlSource;
@@ -144,11 +143,26 @@ mapping inout ECORE::EModelElement :: removeElement ()
 	reqIfModel.removeElement(self);
 }
 
-// TODO: not sure if we really want to use this. might be better to take an enum with predefined values
 mapping inout ECORE::EAttribute :: fixReqIFLang ()
 when {self.name.toLower()="lang"} 
 {
 	self.eType := NAMESPACE::LangType.oclAsType(ECORE::EClassifier);
+	self.eAnnotations:= object ECORE::EAnnotation {
+		source := "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "name";
+			value := "lang";
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "kind";
+			value := "attribute";
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "namespace";
+			value := 'http://www.w3.org/XML/1998/namespace';
+		};
+	}
+	
 }
 
 mapping inout ECORE::EPackage :: flattenDatatypesPackage() 
@@ -261,6 +275,32 @@ query ECORE::ENamedElement :: getElementFeatureExtendedMetadata(kind : String) :
 		details += object ECORE::EStringToStringMapEntry {
 			key := "namespace";
 			value := "##targetNamespace";
+		};
+	}
+}
+
+query ECORE::ENamedElement :: getWildcardElementFeatureExtendedMetadata(kind : String, wildcards : String) : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "name";
+			value := self.getXMLName();
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "kind";
+			value := kind;
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "namespace";
+			value := "##targetNamespace";
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "precessing";
+			value := "lax";
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "wildcards";
+			value := wildcards;
 		};
 	}
 }

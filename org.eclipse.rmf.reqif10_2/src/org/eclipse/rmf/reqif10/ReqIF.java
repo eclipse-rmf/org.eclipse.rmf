@@ -50,8 +50,7 @@ public interface ReqIF extends EObject {
 	 * @see #setLang(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIF_Lang()
 	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.namespace.LangType" ordered="false"
-	 *        extendedMetaData="name='LANG' kind='attribute'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='LANG' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="name='lang' kind='attribute' namespace='http://www.w3.org/XML/1998/namespace'"
 	 * @generated
 	 */
 	String getLang();

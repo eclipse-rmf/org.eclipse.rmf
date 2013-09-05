@@ -4,7 +4,7 @@
     modelDirectory="/org.eclipse.rmf.reqif10_2/src" editorDirectory="" modelPluginID="org.eclipse.rmf.reqif10_2"
     modelName="Reqif10" editorPluginClass="" testsDirectory="" testSuiteClass="" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="5.0" copyrightFields="false" editorPluginID="org.eclipse.rmf.reqif10_2.editor"
-    testsPluginID="org.eclipse.rmf.reqif10_2.editor" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
+    testsPluginID="org.eclipse.rmf.reqif10_2.editor">
   <foreignModel>reqif10.ecore</foreignModel>
   <genPackages prefix="ReqIF10" basePackage="org.eclipse.rmf" disposableProviderFactory="true"
       contentTypeIdentifier="org.eclipse.rmf.reqif10.reqif10XMLFile" fileExtensions="reqif"

@@ -37,7 +37,7 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	 */
 	public static ReqIF10Factory init() {
 		try {
-			ReqIF10Factory theReqIF10Factory = (ReqIF10Factory)EPackage.Registry.INSTANCE.getEFactory(ReqIF10Package.eNS_URI);
+			ReqIF10Factory theReqIF10Factory = (ReqIF10Factory)EPackage.Registry.INSTANCE.getEFactory("http://www.omg.org/spec/ReqIF/20110401/reqif.xsd"); 
 			if (theReqIF10Factory != null) {
 				return theReqIF10Factory;
 			}

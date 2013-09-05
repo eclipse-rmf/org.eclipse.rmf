@@ -50,14 +50,17 @@ public class TC1700SpecRelationMultifileTests extends AbstractTestCase {
 		originalReqIFs.add(originalReqIF2);
 
 		// save as reqifz
-		saveReqIFsToZip(originalReqIFs, REFERENCE_DATA_ARCHIVE_FILENAME);
-		loadedReqIFs = loadReqIFFromZip(REFERENCE_DATA_ARCHIVE_FILENAME);
+		saveReqIFsToZip(originalReqIFs, REFERENCE_DATA_ARCHIVE_FILENAME, getXMLPersistenceMappingResourceSet());
+		loadedReqIFs = loadReqIFFromZip(REFERENCE_DATA_ARCHIVE_FILENAME, getXMLPersistenceMappingResourceSet());
 
 		// save as separate reqif files
-		saveReqIFFile(originalReqIF1, REFERENCE_DATA_FILENAME1);
-		saveReqIFFile(originalReqIF2, REFERENCE_DATA_FILENAME2);
-		loadedReqIF1 = loadReqIFFile(REFERENCE_DATA_FILENAME1);
-		loadedReqIF2 = loadReqIFFile(REFERENCE_DATA_FILENAME1);
+		ResourceSet saveResourceSet = getXMLPersistenceMappingResourceSet();
+		saveReqIFFile(originalReqIF1, REFERENCE_DATA_FILENAME1, saveResourceSet);
+		saveReqIFFile(originalReqIF2, REFERENCE_DATA_FILENAME2, saveResourceSet);
+		
+		ResourceSet loadResourceSet = getXMLPersistenceMappingResourceSet();
+		loadedReqIF1 = loadReqIFFile(REFERENCE_DATA_FILENAME1, loadResourceSet);
+		loadedReqIF2 = loadReqIFFile(REFERENCE_DATA_FILENAME1, loadResourceSet);
 	}
 
 	@Test
@@ -71,20 +74,24 @@ public class TC1700SpecRelationMultifileTests extends AbstractTestCase {
 	}
 
 	@Test
-	public void testResave() throws IOException {
-		try {
-			saveReqIFsToZip(loadedReqIFs, EXPORT_DATA_ARCHIVE_FILENAME);
-		} catch (IOException ioe) {
-			Assert.assertFalse("We shall be able to save without exception. However the following exception occurred: " + ioe.toString(), true);
-		}
-	}
-
-	@Test
 	public void testNoProxies() throws IOException {
 		ResourceSet resourceSet = loadedReqIFs.get(0).eResource().getResourceSet();
 		EcoreUtil.resolveAll(resourceSet);
 		Map<EObject, Collection<Setting>> map = EcoreUtil.ProxyCrossReferencer.find(loadedReqIFs);
 		assertEquals(0, map.size());
+	}
+	
+	@Test
+	public void testResave() throws IOException {
+		try {
+			List<ReqIF> clonedReqIFs = new ArrayList<ReqIF>();
+			for (ReqIF reqIF: loadedReqIFs) {
+				clonedReqIFs.add(EcoreUtil.copy(reqIF));
+			}
+			saveReqIFsToZip(clonedReqIFs, EXPORT_DATA_ARCHIVE_FILENAME, getXMLPersistenceMappingResourceSet());
+		} catch (IOException ioe) {
+			Assert.assertFalse("We shall be able to save without exception. However the following exception occurred: " + ioe.toString(), true);
+		}
 	}
 
 }

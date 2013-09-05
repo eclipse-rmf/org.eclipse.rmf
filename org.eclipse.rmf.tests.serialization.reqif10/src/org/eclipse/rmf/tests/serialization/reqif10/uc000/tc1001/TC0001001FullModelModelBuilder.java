@@ -268,6 +268,7 @@ public class TC0001001FullModelModelBuilder extends SimpleModelBuilder {
 		specObjectTypeAttributeDefinitionBoolean.setType(datatypeDefinitionBoolean);
 		AttributeValueBoolean attributeValueBoolean = ReqIF10Factory.eINSTANCE.createAttributeValueBoolean();
 		attributeValueBoolean.setTheValue(false);
+		attributeValueBoolean.setDefinition(specObjectTypeAttributeDefinitionBoolean);
 		specObjectTypeAttributeDefinitionBoolean.setDefaultValue(attributeValueBoolean);
 		alternativeID = ReqIF10Factory.eINSTANCE.createAlternativeID();
 		alternativeID.setIdentifier("ID_TC0001001_specObjectTypeAttributeDefinitionBoolean_AlternativeID");
@@ -283,6 +284,7 @@ public class TC0001001FullModelModelBuilder extends SimpleModelBuilder {
 		AttributeValueInteger attributeValueInteger = ReqIF10Factory.eINSTANCE.createAttributeValueInteger();
 		attributeValueInteger
 				.setTheValue(new BigInteger("012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789"));
+		attributeValueInteger.setDefinition(specObjectTypeAttributeDefinitionInteger);
 		specObjectTypeAttributeDefinitionInteger.setDefaultValue(attributeValueInteger);
 		alternativeID = ReqIF10Factory.eINSTANCE.createAlternativeID();
 		alternativeID.setIdentifier("ID_TC0001001_specObjectTypeAttributeDefinitionInteger_AlternativeID");
@@ -297,6 +299,7 @@ public class TC0001001FullModelModelBuilder extends SimpleModelBuilder {
 		specObjectTypeAttributeDefinitionString.setType(datatypeDefinitionString);
 		AttributeValueString attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 		attributeValueString.setTheValue("");
+		attributeValueString.setDefinition(specObjectTypeAttributeDefinitionString);
 		specObjectTypeAttributeDefinitionString.setDefaultValue(attributeValueString);
 		alternativeID = ReqIF10Factory.eINSTANCE.createAlternativeID();
 		alternativeID.setIdentifier("ID_TC0001001_specObjectTypeAttributeDefinitionString_AlternativeID");
@@ -311,6 +314,7 @@ public class TC0001001FullModelModelBuilder extends SimpleModelBuilder {
 		specObjectTypeAttributeDefinitionReal.setType(datatypeDefinitionReal);
 		AttributeValueReal attributeValueReal = ReqIF10Factory.eINSTANCE.createAttributeValueReal();
 		attributeValueReal.setTheValue(0.0);
+		attributeValueReal.setDefinition(specObjectTypeAttributeDefinitionReal);
 		specObjectTypeAttributeDefinitionReal.setDefaultValue(attributeValueReal);
 		alternativeID = ReqIF10Factory.eINSTANCE.createAlternativeID();
 		alternativeID.setIdentifier("ID_TC0001001_specObjectTypeAttributeDefinitionReal_AlternativeID");
@@ -325,6 +329,7 @@ public class TC0001001FullModelModelBuilder extends SimpleModelBuilder {
 		specObjectTypeAttributeDefinitionDate.setType(datatypeDefinitionDate);
 		AttributeValueDate attributeValueDate = ReqIF10Factory.eINSTANCE.createAttributeValueDate();
 		attributeValueDate.setTheValue(toDate(LAST_CHANGE_STRING));
+		attributeValueDate.setDefinition(specObjectTypeAttributeDefinitionDate);
 		specObjectTypeAttributeDefinitionDate.setDefaultValue(attributeValueDate);
 		alternativeID = ReqIF10Factory.eINSTANCE.createAlternativeID();
 		alternativeID.setIdentifier("ID_TC0001001_specObjectTypeAttributeDefinitionDate_AlternativeID");
@@ -342,6 +347,7 @@ public class TC0001001FullModelModelBuilder extends SimpleModelBuilder {
 		attributeValueEnumeration.getValues().add(enumValueGreen);
 		attributeValueEnumeration.getValues().add(enumValueRed);
 		attributeValueEnumeration.getValues().add(enumValueYellow);
+		attributeValueEnumeration.setDefinition(specObjectTypeAttributeDefinitionEnumeration);
 		specObjectTypeAttributeDefinitionEnumeration.setDefaultValue(attributeValueEnumeration);
 		alternativeID = ReqIF10Factory.eINSTANCE.createAlternativeID();
 		alternativeID.setIdentifier("ID_TC0001001_specObjectTypeAttributeDefinitionEnumeration_AlternativeID");
@@ -391,6 +397,7 @@ public class TC0001001FullModelModelBuilder extends SimpleModelBuilder {
 		specificationTypeAttributeDefinitionString.setType(datatypeDefinitionString);
 		AttributeValueString attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 		attributeValueString.setTheValue("  ");
+		attributeValueString.setDefinition(specificationTypeAttributeDefinitionString);
 		specificationTypeAttributeDefinitionString.setDefaultValue(attributeValueString);
 		alternativeID = ReqIF10Factory.eINSTANCE.createAlternativeID();
 		alternativeID.setIdentifier("ID_TC0001001_specificationTypeAttributeDefinitionString_AlternativeID");
@@ -607,6 +614,7 @@ public class TC0001001FullModelModelBuilder extends SimpleModelBuilder {
 		specRelationTypeAttributeDefinitionString.setType(datatypeDefinitionString);
 		AttributeValueString attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 		attributeValueString.setTheValue("  ");
+		attributeValueString.setDefinition(specRelationTypeAttributeDefinitionString);
 		specRelationTypeAttributeDefinitionString.setDefaultValue(attributeValueString);
 		alternativeID = ReqIF10Factory.eINSTANCE.createAlternativeID();
 		alternativeID.setIdentifier("ID_TC0001001_specRelationTypeAttributeDefinitionString_AlternativeID");
@@ -639,6 +647,7 @@ public class TC0001001FullModelModelBuilder extends SimpleModelBuilder {
 		relationGroupTypeAttributeDefinitionString.setType(datatypeDefinitionString);
 		AttributeValueString attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 		attributeValueString.setTheValue("  ");
+		attributeValueString.setDefinition(relationGroupTypeAttributeDefinitionString);
 		relationGroupTypeAttributeDefinitionString.setDefaultValue(attributeValueString);
 		alternativeID = ReqIF10Factory.eINSTANCE.createAlternativeID();
 		alternativeID.setIdentifier("ID_TC0001001_relationGroupTypeAttributeDefinitionString_AlternativeID");

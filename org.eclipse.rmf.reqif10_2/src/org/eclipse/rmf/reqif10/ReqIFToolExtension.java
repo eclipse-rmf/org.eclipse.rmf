@@ -47,7 +47,7 @@ public interface ReqIFToolExtension extends EObject {
 	 * @see #unsetExtensions()
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFToolExtension_Extensions()
 	 * @model containment="true" unsettable="true"
-	 *        extendedMetaData="name='EXTENSIONS' kind='element' namespace='##targetNamespace'"
+	 *        extendedMetaData="name='EXTENSIONS' kind='elementWildcard' namespace='##targetNamespace' precessing='lax' wildcards='##other'"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='EXTENSIONS' featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */

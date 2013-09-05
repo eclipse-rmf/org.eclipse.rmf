@@ -284,6 +284,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				if (0 > depthsOfUnknownElements) {
 					currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
 				}
+				break;
 			default:
 				assert false : "Configuration Error: No 'endElement' allowed after final state " + currentState;
 			}
@@ -1395,7 +1396,6 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	@Override
 	protected EStructuralFeature getFeature(EObject object, String prefix, String name, boolean isElement) {
 		assert null != object;
-		assert null != prefix;
 		assert null != name;
 		EStructuralFeature result = null;
 		if (isElement && null != rmfExtendedMetaData) {

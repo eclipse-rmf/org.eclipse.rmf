@@ -1,6 +1,6 @@
 (0)
-download the spec files from w3c and omg:
-=> run ant script 'ant/reqif10/0_downloadAndPatchReqifCmof.xml'
+download and patch the reqif.cmof file from OMG:
+=> run ant script 'ant/reqif10/0_prepare.xml' using the launch config /launch/ReqIF - 00 Prepare.launch 
 The patch will make sure, that primitive types in cmof are properly found
 
 (1) 
