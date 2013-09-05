@@ -1676,7 +1676,9 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI",
-			 "kind", "element"
+			 "kind", "elementWildcard",
+			 "processing", "lax",
+			 "wildcards", "##other"
 		   });			
 		addAnnotation
 		  (getNode_EReference_WithTypeEObject_Contained0010Many(), 
@@ -1684,7 +1686,9 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTI",
-			 "kind", "element"
+			 "kind", "elementWildcard",
+			 "processing", "lax",
+			 "wildcards", "##other"
 		   });			
 		addAnnotation
 		  (getNode_EReference_WithTypeEObject_Contained0100Many(), 
@@ -1692,7 +1696,9 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI",
-			 "kind", "element"
+			 "kind", "elementWildcard",
+			 "processing", "lax",
+			 "wildcards", "##other"
 		   });			
 		addAnnotation
 		  (getNode_EReference_WithTypeEObject_Contained1000Many(), 
@@ -1700,7 +1706,9 @@ public class NodesPackageImpl extends EPackageImpl implements NodesPackage {
 		   new String[] {
 			 "namespace", "##targetNamespace",
 			 "name", "FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTI",
-			 "kind", "element"
+			 "kind", "elementWildcard",
+			 "processing", "lax",
+			 "wildcards", "##other"
 		   });		
 		addAnnotation
 		  (getNode_EReference_Referenced0000Single(), 

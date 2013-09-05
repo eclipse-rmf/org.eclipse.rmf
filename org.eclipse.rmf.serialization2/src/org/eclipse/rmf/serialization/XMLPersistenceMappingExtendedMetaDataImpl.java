@@ -393,7 +393,16 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 					}
 					if (null == possibleResult) {
 						// search by type name (assuming type not type of feature)
-						EClassifier classifier = getTypeByXMLName(namespace, xmlElementName);
+						EClassifier classifier;
+						EPackage ePackage = getPackage(namespace);
+						if (null == ePackage) {
+							// unregistered package
+							classifier = demandType(namespace, xmlElementName);
+						} else {
+							// registered package
+							classifier = getTypeByXMLName(namespace, xmlElementName);
+						}
+
 						if (null != classifier) {
 							if (feature.getEType().equals(classifier)) {
 								if (isIdentifiedByClassifier(feature)) {
@@ -442,7 +451,7 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 				int size = results.size();
 				if (1 == size) {
 					result = results.get(0);
-				} else if (0 < size) {
+				} else if (1 < size) {
 					// rule 1 we like the features that are explicitly selected
 					List<EStructuralFeature> identifiedFeatures = new ArrayList<EStructuralFeature>();
 					List<EStructuralFeature> noneFeatures = new ArrayList<EStructuralFeature>();
@@ -679,12 +688,6 @@ public class XMLPersistenceMappingExtendedMetaDataImpl extends BasicExtendedMeta
 	public EPackage getPackage(String namespace) {
 		EPackage ePackage = registry.getEPackage(namespace);
 		return ePackage;
-	}
-
-	@Override
-	public EStructuralFeature getAttribute(EClass eClass, String namespace, String name) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public EStructuralFeature getFeatureByXMLElementName(EClass eClass, String namespace, String xmlElementName) {

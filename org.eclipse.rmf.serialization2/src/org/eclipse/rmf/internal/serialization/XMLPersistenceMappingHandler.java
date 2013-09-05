@@ -12,6 +12,8 @@
 package org.eclipse.rmf.internal.serialization;
 
 import java.io.File;
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -32,6 +34,7 @@ import org.eclipse.emf.ecore.xmi.FeatureNotFoundException;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.SAXXMLHandler;
+import org.eclipse.emf.ecore.xml.type.AnyType;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaData;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
@@ -914,30 +917,139 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		assert null != namespace;
 		assert null != typeXMLName;
 
+		contextFeature = feature;
 		EPackage ePackage = getPackageForURI(namespace);
+		contextFeature = null;
+
 		if (null != ePackage) {
-			EClassifier eClassifier = rmfExtendedMetaData.getTypeByXMLName(namespace, typeXMLName, feature);
+			EClassifier eClassifier;
+			if (rmfExtendedMetaData.demandedPackages().contains(ePackage)) {
+				eClassifier = rmfExtendedMetaData.demandType(namespace, typeXMLName);
+			} else {
+				eClassifier = rmfExtendedMetaData.getTypeByXMLName(namespace, typeXMLName, feature);
+			}
+
 			EFactory eFactory = ePackage.getEFactoryInstance();
 
 			if (null != eClassifier) {
 				EObject obj = createObject(eFactory, eClassifier, false);
+				;
+
 				obj = validateCreateObjectFromFactory(eFactory, typeXMLName, obj, feature);
 				if (obj != null) {
-					if (contextFeature == null) {
-						setFeatureValue(peekObject, feature, obj);
-					} else {
-						contextFeature = null;
-					}
+					setFeatureValue(peekObject, feature, obj);
+
+					processObject(obj);
+
 				}
-				processObject(obj);
 				return obj;
 			} else {
 				error(new ClassNotFoundException(typeXMLName, eFactory, getLocation(), getLineNumber(), getColumnNumber()));
 				return null;
 			}
+
 		} else {
 			return null;
 		}
+	}
+
+	@Override
+	protected EObject validateCreateObjectFromFactory(EFactory factory, String typeName, EObject newObject, EStructuralFeature feature) {
+		if (newObject != null) {
+			if (extendedMetaData != null) {
+				Collection<EPackage> demandedPackages = extendedMetaData.demandedPackages();
+				if (!demandedPackages.isEmpty() && demandedPackages.contains(newObject.eClass().getEPackage())) {
+					if (rmfExtendedMetaData.isXMLPersistenceMappingEnabled(feature)) {
+						List<String> wildcards = rmfExtendedMetaData.getWildcards(feature);
+						if (rmfExtendedMetaData.matches(wildcards, newObject.eClass().getEPackage().getNsURI())) {
+							return newObject;
+						} else {
+							return null;
+						}
+					} else {
+						// the new object resulted from a demanded package
+						if (recordUnknownFeature) {
+							// recordUnknownFeature
+							EObject peekObject = objects.peekEObject();
+							if (!(peekObject instanceof AnyType)) {
+								AnyType anyType = getExtension(objects.peekEObject());
+								EStructuralFeature entryFeature = extendedMetaData.demandFeature(extendedMetaData.getNamespace(feature),
+										extendedMetaData.getName(feature), true);
+								anyType.getAny().add(entryFeature, newObject);
+								contextFeature = entryFeature;
+							}
+							return newObject;
+						} else {
+							// reportUnknowFeature
+							String namespace = extendedMetaData.getNamespace(feature);
+							String name = extendedMetaData.getName(feature);
+							EStructuralFeature wildcardFeature = extendedMetaData.getElementWildcardAffiliation(objects.peekEObject().eClass(),
+									namespace, name);
+							if (wildcardFeature != null) {
+								int processingKind = laxWildcardProcessing ? ExtendedMetaData.LAX_PROCESSING : extendedMetaData
+										.getProcessingKind(wildcardFeature);
+								switch (processingKind) {
+								case ExtendedMetaData.LAX_PROCESSING:
+								case ExtendedMetaData.SKIP_PROCESSING: {
+									return newObject;
+								}
+								}
+							}
+						}
+
+						newObject = null;
+					}
+				}
+			}
+		} else if (feature != null && factory != null && extendedMetaData != null) {
+			// processing unknown feature with xsi:type (xmi:type)
+			if (recordUnknownFeature || processAnyXML) {
+
+				EObject result = null;
+				String namespace = extendedMetaData.getNamespace(factory.getEPackage());
+				if (namespace == null) {
+					usedNullNamespacePackage = true;
+				}
+
+				EClassifier type = extendedMetaData.demandType(namespace, typeName);
+				result = createObject(type.getEPackage().getEFactoryInstance(), type, false);
+
+				EObject peekObject = objects.peekEObject();
+				if (!(peekObject instanceof AnyType)) {
+					// add as extension to an existing eobject
+					AnyType anyType = getExtension(peekObject);
+					EStructuralFeature entryFeature = extendedMetaData.demandFeature(extendedMetaData.getNamespace(feature),
+							extendedMetaData.getName(feature), true);
+					anyType.getAny().add(entryFeature, result);
+					contextFeature = entryFeature;
+				}
+				return result;
+			} else {
+				String namespace = extendedMetaData.getNamespace(feature);
+				String name = extendedMetaData.getName(feature);
+				EStructuralFeature wildcardFeature = extendedMetaData.getElementWildcardAffiliation(objects.peekEObject().eClass(), namespace, name);
+				if (wildcardFeature != null) {
+					int processingKind = laxWildcardProcessing ? ExtendedMetaData.LAX_PROCESSING : extendedMetaData
+							.getProcessingKind(wildcardFeature);
+					switch (processingKind) {
+					case ExtendedMetaData.LAX_PROCESSING:
+					case ExtendedMetaData.SKIP_PROCESSING: {
+						// EATM Demand create metadata; needs to depend on processing mode...
+						String factoryNamespace = extendedMetaData.getNamespace(factory.getEPackage());
+						if (factoryNamespace == null) {
+							usedNullNamespacePackage = true;
+						}
+						EClassifier type = extendedMetaData.demandType(factoryNamespace, typeName);
+						return createObject(type.getEPackage().getEFactoryInstance(), type, false);
+					}
+					}
+				}
+			}
+		}
+
+		validateCreateObjectFromFactory(factory, typeName, newObject);
+
+		return newObject;
 	}
 
 	XMLPersistenceMappingExtendedMetaData rmfExtendedMetaData = null;
@@ -957,6 +1069,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				rmfExtendedMetaData = (XMLPersistenceMappingExtendedMetaData) options.get(XMLResource.OPTION_EXTENDED_META_DATA);
 				extendedMetaData = rmfExtendedMetaData;
 			}
+			helper.setExtendedMetaData(rmfExtendedMetaData);
 		}
 
 		Object parserPropertiesObject = options.get(XMLResource.OPTION_PARSER_PROPERTIES);
@@ -1088,7 +1201,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 						deserializationRuleStack.push(activeDeserializationRule);
 						activeDeserializationRule.startElement(namespace, name);
 					} else {
-						System.out.println("could not find load pattern for " + name + " in context of " + peekObject.eClass().getName());
+						System.out.println("could not find load pattern for element '" + name + "' for type '" + peekObject.eClass().getName() + "'");
 					}
 				} else if (activeDeserializationRule.needsDelegateSibling()) {
 					activeDeserializationRule = getLoadPattern(peekObject, prefix, name);
@@ -1200,75 +1313,81 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 
 		LoadPattern deserializationRule = null;
 
-		EStructuralFeature feature = getFeature(eObject, prefix, name, true);
-		if (null != feature) {
-			int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(feature);
-			if (feature instanceof EReference) {
-				EReference reference = (EReference) feature;
-				if (reference.isContainment()) {
-					switch (featureSerializationStructure) {
-					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
-						deserializationRule = new LoadPatternContained0001Impl(eObject, feature);
-						break;
-					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
-						deserializationRule = new LoadPatternContained0100Impl(eObject, feature);
-						break;
-					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-						deserializationRule = new LoadPatternContained0101Impl(eObject, feature);
-						break;
-					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-						deserializationRule = new LoadPatternContained1001Impl(eObject, feature);
-						break;
-					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
-						deserializationRule = new LoadPatternContained0100Impl(eObject, feature);
-						break;
-					default:
-						deserializationRule = new LoadPatternContained1001Impl(eObject, feature);
-						break;
+		if (eObject instanceof AnyType) {
+			// handle any type using standard emf serialization
+			EStructuralFeature feature = super.getFeature(eObject, prefix, name, true);
+			deserializationRule = new LoadPatternContained0100Impl(eObject, feature);
+		} else {
+			EStructuralFeature feature = getFeature(eObject, prefix, name, true);
+			if (null != feature) {
+				int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(feature);
+				if (feature instanceof EReference) {
+					EReference reference = (EReference) feature;
+					if (reference.isContainment()) {
+						switch (featureSerializationStructure) {
+						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
+							deserializationRule = new LoadPatternContained0001Impl(eObject, feature);
+							break;
+						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+							deserializationRule = new LoadPatternContained0100Impl(eObject, feature);
+							break;
+						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+							deserializationRule = new LoadPatternContained0101Impl(eObject, feature);
+							break;
+						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+							deserializationRule = new LoadPatternContained1001Impl(eObject, feature);
+							break;
+						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
+							deserializationRule = new LoadPatternContained0100Impl(eObject, feature);
+							break;
+						default:
+							deserializationRule = new LoadPatternContained1001Impl(eObject, feature);
+							break;
+						}
+					} else {
+						switch (featureSerializationStructure) {
+						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
+							deserializationRule = new LoadPatternReferenced0100Impl(eObject, feature);
+							break;
+						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
+							deserializationRule = new LoadPatternReferenced0101Impl(eObject, feature);
+							break;
+						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
+							deserializationRule = new LoadPatternReferenced1001Impl(eObject, feature);
+							break;
+						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
+							deserializationRule = new LoadPatternReferenced0100Impl(eObject, feature);
+							break;
+						default:
+							deserializationRule = new LoadPatternReferenced1001Impl(eObject, feature);
+							break;
+						}
 					}
 				} else {
+					// feature is an EAttribute
 					switch (featureSerializationStructure) {
 					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
-						deserializationRule = new LoadPatternReferenced0100Impl(eObject, feature);
+						deserializationRule = new LoadPatternAttribute0100Impl(eObject, feature);
 						break;
-					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-						deserializationRule = new LoadPatternReferenced0101Impl(eObject, feature);
+					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1000__FEATURE_WRAPPER_ELEMENT:
+						deserializationRule = new LoadPatternAttribute1000Impl(eObject, feature);
 						break;
-					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-						deserializationRule = new LoadPatternReferenced1001Impl(eObject, feature);
+					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
+						deserializationRule = new LoadPatternAttribute1100Impl(eObject, feature);
 						break;
 					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
-						deserializationRule = new LoadPatternReferenced0100Impl(eObject, feature);
+						deserializationRule = new LoadPatternAttribute0100Impl(eObject, feature);
 						break;
+
 					default:
-						deserializationRule = new LoadPatternReferenced1001Impl(eObject, feature);
+						deserializationRule = new LoadPatternAttribute0100Impl(eObject, feature);
 						break;
 					}
+
 				}
 			} else {
-				// feature is an EAttribute
-				switch (featureSerializationStructure) {
-				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
-					deserializationRule = new LoadPatternAttribute0100Impl(eObject, feature);
-					break;
-				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1000__FEATURE_WRAPPER_ELEMENT:
-					deserializationRule = new LoadPatternAttribute1000Impl(eObject, feature);
-					break;
-				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
-					deserializationRule = new LoadPatternAttribute1100Impl(eObject, feature);
-					break;
-				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
-					deserializationRule = new LoadPatternAttribute0100Impl(eObject, feature);
-					break;
-
-				default:
-					deserializationRule = new LoadPatternAttribute0100Impl(eObject, feature);
-					break;
-				}
-
+				// handle error, feature not found
 			}
-		} else {
-			// handle error, feature not found
 		}
 
 		return deserializationRule;
@@ -1394,5 +1513,15 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	 * @Override public void startElement(String uri, String localName, String name) {
 	 * System.out.println("startElement " + name); super.startElement(uri, localName, name); }
 	 */
+
+	@Override
+	protected EPackage handleMissingPackage(String uriString) {
+		if (null != contextFeature && null != rmfExtendedMetaData && rmfExtendedMetaData.isXMLPersistenceMappingEnabled(contextFeature)) {
+			return rmfExtendedMetaData.demandPackage(uriString);
+
+		} else {
+			return super.handleMissingPackage(uriString);
+		}
+	}
 
 }

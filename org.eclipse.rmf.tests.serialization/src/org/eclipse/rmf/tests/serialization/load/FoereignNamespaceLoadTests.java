@@ -10,19 +10,12 @@
  */
 package org.eclipse.rmf.tests.serialization.load;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.xerces.impl.Constants;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.xmi.XMLOptions;
-import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMLOptionsImpl;
 import org.eclipse.emf.ecore.xml.type.AnyType;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
@@ -33,7 +26,7 @@ import org.junit.Test;
 
 // Junit 3.8 test 
 @SuppressWarnings("nls")
-public class FoereignNamespaceLoadTests_DEACTIVATED extends AbstractTestCase {
+public class FoereignNamespaceLoadTests extends AbstractTestCase {
 
 	static final String INPUT_PATH = "org.eclipse.rmf.tests.serialization.load/";
 
@@ -58,54 +51,35 @@ public class FoereignNamespaceLoadTests_DEACTIVATED extends AbstractTestCase {
 	}
 
 	@Test
-	public void testEReference_Contained0100_Many_RegisteredPackage_XMLResource() {
-		String inputFileName = INPUT_PATH + "EReference_WithTypeEObject_Contained0100Many_KnownNamespace.xml";
-		try {
-			Map<String, Object> options = new HashMap<String, Object>();
-			options.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
-			EObject modelRoot = loadInputFile(inputFileName, new XMIResourceFactoryImpl(), options);
-			validateEPackageModelMany(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_WithTypeEObject_Contained0001Many());
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			assertTrue(ex.getMessage(), false);
-		}
-	}
-
-	@Test
-	public void testEReference_Contained0100_Many_UnknownPackage_XMLResource() {
-		String inputFileName = INPUT_PATH + "EReference_WithTypeEObject_Contained0100Many_UnknownNamespace.xml";
-		try {
-			Map<String, Object> options = new HashMap<String, Object>();
-			options.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
-			options.put(XMLResource.OPTION_RECORD_ANY_TYPE_NAMESPACE_DECLARATIONS, Boolean.TRUE);
-			Map<String, Boolean> parserFeatures = new HashMap<String, Boolean>();
-			// Perform namespace processing (prefixes will be stripped off element and attribute names and replaced with
-			// the
-			// corresponding namespace URIs) but do not report attributes used for namespace declarations, and do not
-			// report
-			// original prefixed names
-			parserFeatures.put(Constants.SAX_FEATURE_PREFIX + Constants.NAMESPACES_FEATURE, true);
-			parserFeatures.put(Constants.SAX_FEATURE_PREFIX + Constants.NAMESPACE_PREFIXES_FEATURE, false);
-			options.put(XMLResource.OPTION_PARSER_FEATURES, parserFeatures);
-			XMLOptions xmlOptions = new XMLOptionsImpl();
-			xmlOptions.setProcessAnyXML(true);
-			options.put(XMLResource.OPTION_XML_OPTIONS, xmlOptions);
-			options.put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.FALSE);
-
-			EObject modelRoot = loadInputFile(inputFileName, new XMIResourceFactoryImpl(), options);
-			validateUnknownModelMany(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_WithTypeEObject_Contained0001Many());
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			assertTrue(ex.getMessage(), false);
-		}
-	}
-
-	@Test
 	public void testEReference_Contained0001_Many_UnknownPackage() {
 		String inputFileName = INPUT_PATH + "EReference_WithTypeEObject_Contained0001Many_UnknownNamespace.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
 			validateUnknownModelMany(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_WithTypeEObject_Contained0001Many());
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained0100_Many_RegisteredPackage() {
+		String inputFileName = INPUT_PATH + "EReference_WithTypeEObject_Contained0100Many_KnownNamespace.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateEPackageModelMany(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_WithTypeEObject_Contained0100Many());
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
+	public void testEReference_Contained0100_Many_UnknownPackage() {
+		String inputFileName = INPUT_PATH + "EReference_WithTypeEObject_Contained0100Many_UnknownNamespace.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateUnknownModelMany(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_WithTypeEObject_Contained0100Many());
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -140,9 +114,38 @@ public class FoereignNamespaceLoadTests_DEACTIVATED extends AbstractTestCase {
 		assert topFeature.isMany();
 		// check root node
 		assertNotNull(modelRoot);
-		assertTrue(modelRoot instanceof AnyType);
-		AnyType rootObject = (AnyType) modelRoot;
-		assertEquals("NODE", rootObject.eClass().getName());
+		assertSame(NodesPackage.eINSTANCE.getNode(), modelRoot.eClass());
+		Node node = (Node) modelRoot;
+
+		// check intermediate nodes
+		EList<Object> packages = (EList<Object>) node.eGet(topFeature);
+		assertSame(2, packages.size());
+
+		Object packageObject1 = packages.get(0);
+		assertTrue(packageObject1 instanceof AnyType);
+		AnyType package1 = (AnyType) packageObject1;
+		EClass ePackageClass1 = package1.eClass();
+		assertEquals("EPackage", ePackageClass1.getName());
+		assertSame(3, ePackageClass1.getFeatureCount());
+		assertSame(1, package1.getAnyAttribute().size());
+		assertSame(2, package1.getAny().size());
+		assertEquals("EPackage1", package1.getAnyAttribute().getValue(0));
+		assertEquals("eClassifiers", package1.getAny().get(0).getEStructuralFeature().getName());
+		assertEquals("EClass11", ((AnyType) package1.getAny().get(0).getValue()).getAnyAttribute().getValue(0));
+		assertEquals("EClass12", ((AnyType) package1.getAny().get(1).getValue()).getAnyAttribute().getValue(0));
+
+		Object packageObject2 = packages.get(1);
+		assertTrue(packageObject2 instanceof AnyType);
+		AnyType package2 = (AnyType) packageObject2;
+		EClass ePackageClass2 = package2.eClass();
+		assertEquals("EPackage", ePackageClass2.getName());
+		assertSame(3, ePackageClass2.getFeatureCount());
+		assertSame(1, package2.getAnyAttribute().size());
+		assertSame(2, package2.getAny().size());
+		assertEquals("EPackage2", package2.getAnyAttribute().getValue(0));
+		assertEquals("eClassifiers", package2.getAny().get(0).getEStructuralFeature().getName());
+		assertEquals("EClass21", ((AnyType) package2.getAny().get(0).getValue()).getAnyAttribute().getValue(0));
+		assertEquals("EClass22", ((AnyType) package2.getAny().get(1).getValue()).getAnyAttribute().getValue(0));
 
 	}
 

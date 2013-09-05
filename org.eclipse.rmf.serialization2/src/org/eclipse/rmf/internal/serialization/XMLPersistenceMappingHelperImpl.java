@@ -14,9 +14,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
@@ -49,5 +51,18 @@ public class XMLPersistenceMappingHelperImpl extends XMLHelperImpl implements XM
 		} else {
 			return super.convertToString(factory, dataType, value);
 		}
+	}
+
+	@Override
+	public EClassifier getType(EFactory eFactory, String typeName) {
+		EClassifier eClassifier;
+		EPackage ePackage = eFactory.getEPackage();
+		if (extendedMetaData.demandedPackages().contains(ePackage)) {
+			eClassifier = extendedMetaData.demandType(ePackage.getNsURI(), typeName);
+		} else {
+			eClassifier = super.getType(eFactory, typeName);
+		}
+		return eClassifier;
+
 	}
 }

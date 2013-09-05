@@ -516,7 +516,9 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI"/>
-        <details key="kind" value="element"/>
+        <details key="kind" value="elementWildcard"/>
+        <details key="processing" value="lax"/>
+        <details key="wildcards" value="##other"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_WithTypeEObject_Contained0010Many"
@@ -532,7 +534,9 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTI"/>
-        <details key="kind" value="element"/>
+        <details key="kind" value="elementWildcard"/>
+        <details key="processing" value="lax"/>
+        <details key="wildcards" value="##other"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_WithTypeEObject_Contained0100Many"
@@ -548,7 +552,9 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI"/>
-        <details key="kind" value="element"/>
+        <details key="kind" value="elementWildcard"/>
+        <details key="processing" value="lax"/>
+        <details key="wildcards" value="##other"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_WithTypeEObject_Contained1000Many"
@@ -564,7 +570,9 @@
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="namespace" value="##targetNamespace"/>
         <details key="name" value="FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTI"/>
-        <details key="kind" value="element"/>
+        <details key="kind" value="elementWildcard"/>
+        <details key="processing" value="lax"/>
+        <details key="wildcards" value="##other"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eReference_Referenced0000Single"

@@ -1927,7 +1927,7 @@ public interface Node extends AbstractNode {
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_WithTypeEObject_Contained0001Many()
 	 * @model containment="true" unsettable="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='false' classifierElement='true' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTIS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI' kind='element'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0001-MULTI' kind='elementWildcard' processing='lax' wildcards='##other'"
 	 * @generated
 	 */
 	EList<EObject> getEReference_WithTypeEObject_Contained0001Many();
@@ -1968,7 +1968,7 @@ public interface Node extends AbstractNode {
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_WithTypeEObject_Contained0010Many()
 	 * @model containment="true" unsettable="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='false' classifierWrapperElement='true' classifierElement='false' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTIS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTI' kind='element'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0010-MULTI' kind='elementWildcard' processing='lax' wildcards='##other'"
 	 * @generated
 	 */
 	EList<EObject> getEReference_WithTypeEObject_Contained0010Many();
@@ -2009,7 +2009,7 @@ public interface Node extends AbstractNode {
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_WithTypeEObject_Contained0100Many()
 	 * @model containment="true" unsettable="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTIS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI' kind='element'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI' kind='elementWildcard' processing='lax' wildcards='##other'"
 	 * @generated
 	 */
 	EList<EObject> getEReference_WithTypeEObject_Contained0100Many();
@@ -2050,7 +2050,7 @@ public interface Node extends AbstractNode {
 	 * @see org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage#getNode_EReference_WithTypeEObject_Contained1000Many()
 	 * @model containment="true" unsettable="true"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='false' wrapperName='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTIS'"
-	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTI' kind='element'"
+	 *        extendedMetaData="namespace='##targetNamespace' name='FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-1000-MULTI' kind='elementWildcard' processing='lax' wildcards='##other'"
 	 * @generated
 	 */
 	EList<EObject> getEReference_WithTypeEObject_Contained1000Many();

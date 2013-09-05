@@ -180,14 +180,16 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 
 		void handleNewObject(EObject objectWithId) {
 			assert null != objectWithId;
-			if (createIdForPackages.contains(objectWithId.eClass().getEPackage())) {
+			if (createIdForPackages.contains(objectWithId.eClass().getEPackage()) && !objectWithId.eIsProxy()) {
 				EAttribute idAttribute = objectWithId.eClass().getEIDAttribute();
 				if (null != idAttribute) {
 					String id = (String) objectWithId.eGet(idAttribute);
 					if (id == null || 0 == id.length()) {
+						System.out.println("updating id " + objectWithId);
 						id = EcoreUtil.generateUUID();
 						objectWithId.eSet(idAttribute, id);
 						// id map gets updated by notification on setId
+						System.out.println("updated id " + objectWithId);
 					} else {
 						eObjectToIDMap.put(objectWithId, id);
 						idToEObjectMap.put(id, objectWithId);
@@ -327,7 +329,7 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 
 		// options for handling unknown tool extensions
 		loadOptions.put(XMLResource.OPTION_RECORD_ANY_TYPE_NAMESPACE_DECLARATIONS, Boolean.TRUE);
-		// loadOptions.put(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
+		loadOptions.put(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.FALSE);
 
 		// Performance enhancement
 		loadOptions.put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
