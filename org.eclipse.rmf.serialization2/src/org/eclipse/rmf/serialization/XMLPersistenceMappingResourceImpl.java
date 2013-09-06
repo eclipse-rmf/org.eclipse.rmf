@@ -284,8 +284,8 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 	 */
 	@Override
 	protected void init() {
-		encoding = "UTF-8";
-		xmlVersion = "1.0";
+		encoding = "UTF-8"; //$NON-NLS-1$
+		xmlVersion = "1.0"; //$NON-NLS-1$
 		// enable id creation and maintenance
 		idToEObjectMap = new HashMap<String, EObject>();
 		eObjectToIDMap = new HashMap<EObject, String>();

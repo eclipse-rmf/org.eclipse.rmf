@@ -23,9 +23,9 @@ public interface XMLPersistenceMappingResource extends XMLResource {
 	 * 
 	 * @see org.eclipse.rmf.serialization.RMFExtendedMetaData
 	 */
-	//String OPTION_RMF_EXTENDED_META_DATA = "RMF_EXTENDED_META_DATA"; //$NON-NLS-1$
-	public static final String HREF = "_href";
-	public static final String OPTION_PROGRESS_MONITOR = "progress monitor";
+	public static final String HREF = "_href"; //$NON-NLS-1$
+	public static final String OPTION_PROGRESS_MONITOR = "progress monitor"; //$NON-NLS-1$
+	public static final String OPTION_NAMEPSACE_TO_PREFIX_MAP = "prefix map"; //$NON-NLS-1$
 
 	public Collection<EPackage> getCreateIdForPackageSet();
 

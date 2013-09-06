@@ -39,11 +39,23 @@ import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaData;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 
+// TODO: add javadoc for each state chart
+// TODO: add pool that reuses loadpatterns (reduces GC overhead)
+// TODO: assert that extended metadata is available. 
+// TODO: assert that xmlMap is never used
+// TODO: check for correct handling of types, object stacks.
+// TODO: consider using symboltyble and replace .equals by ==
+// TODO: create assertions in case the Handler is not used corretly. e.g. extennded metadata has incorrect format
+// TODO: log info if options are used that are not supported
 public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	String xsiType;
+
+	XMLPersistenceMappingExtendedMetaData xmlPersistenceMappingExtendedMetaData = null;
+	MyStack<LoadPattern> loadPatternStack = null;
+
 	IProgressMonitor progressMonitor = null;
 	long progressMonitorChunksRead = 0;
-	int progressMonitorChunkSize = 2048; // default buffer size of xerces parser
+	int progressMonitorChunkSize = 2048;
 	int progressMonitorLastStartInChunk = 0;
 
 	interface LoadPattern {
@@ -391,6 +403,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
+	/**
+	 * This class implements.... <img src="doc-files/LoadPatternEAttributeContained0100.png">
+	 */
 	class LoadPatternAttribute0100Impl extends AbstractLoadPatternImpl {
 		String featureName = null;
 		int depthsOfUnknownElements = 0;
@@ -591,6 +606,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_HAS_SEEN_START_FEATURE_ELEMENT;
 				text = new StringBuffer(); // record all strings
 				break;
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements++;
+				break;
 			case STATE_DELEGATE_SIBLING_NEEDED:
 			case STATE_DELEGATE_CHILD_NEEDED:
 			case STATE_DELEGATE_PARENT_NEEDED:
@@ -671,6 +689,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					currentState = STATE_DELEGATE_SIBLING_NEEDED;
 				}
 				break;
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements++;
+				break;
 			case STATE_DELEGATE_SIBLING_NEEDED:
 			case STATE_DELEGATE_CHILD_NEEDED:
 			case STATE_DELEGATE_PARENT_NEEDED:
@@ -687,10 +708,11 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
-				// TODO: Use uri converter instead
 				if (null != proxy) {
-					handleProxy(proxy, resourceURI.toString() + "#" + text.toString());
+					handleProxy(proxy, resourceURI.toString() + "#" + text.toString()); //$NON-NLS-1$
 					objects.pop();
+				} else {
+					// NOP: error already handled during startElement()
 				}
 				text = null;
 				currentState = STATE_HAS_SEEN_END_FEATURE_ELEMENT;
@@ -755,6 +777,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					currentState = STATE_DELEGATE_SIBLING_NEEDED;
 				}
 				break;
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements++;
+				break;
 			case STATE_DELEGATE_SIBLING_NEEDED:
 			case STATE_DELEGATE_CHILD_NEEDED:
 			case STATE_DELEGATE_PARENT_NEEDED:
@@ -775,10 +800,10 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
 				if (null != proxy) {
-					handleProxy(proxy, resourceURI.toString() + "#" + text.toString());
+					handleProxy(proxy, resourceURI.toString() + "#" + text.toString()); //$NON-NLS-1$
 					objects.pop();
 				} else {
-					// TODO: handle error: could not create object
+					// NOP: error already handled during startElement
 				}
 				text = null;
 				currentState = STATE_HAS_SEEN_END_CLASSIFIER_ELEMENT;
@@ -846,6 +871,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					currentState = STATE_DELEGATE_SIBLING_NEEDED;
 				}
 				break;
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements++;
+				break;
 			case STATE_DELEGATE_SIBLING_NEEDED:
 			case STATE_DELEGATE_CHILD_NEEDED:
 			case STATE_DELEGATE_PARENT_NEEDED:
@@ -867,7 +895,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
 				if (null != proxy) {
 					objects.pop();
-					handleProxy(proxy, resourceURI.toString() + "#" + text.toString());
+					handleProxy(proxy, resourceURI.toString() + "#" + text.toString()); //$NON-NLS-1$
 				}
 
 				text = null;
@@ -954,7 +982,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_ELEMENT:
 				if (null != proxy) {
-					handleProxy((InternalEObject) objects.peekEObject(), resourceURI.toString() + "#" + text.toString());
+					handleProxy((InternalEObject) objects.peekEObject(), resourceURI.toString() + "#" + text.toString()); //$NON-NLS-1$
 					objects.pop();
 				}
 				text = null;
@@ -983,11 +1011,114 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
+	class LoadPatternUnknownImpl extends AbstractLoadPatternImpl {
+		int depthsOfUnknownElements = 0;
+
+		public LoadPatternUnknownImpl(EObject anchorEObject, EStructuralFeature feature) {
+			super(anchorEObject, feature);
+		}
+
+		public void startElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_UNEXPECTED_ELEMENT;
+				depthsOfUnknownElements = 1;
+				types.push(ERROR_TYPE);
+				error(new FeatureNotFoundException(xmlName, null, getLocation(), getLineNumber(), getColumnNumber()));
+				break;
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements++;
+				break;
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
+			default:
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+			}
+		}
+
+		public void endElement(String namespace, String xmlName) {
+			switch (currentState) {
+			case STATE_READY:
+				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				break;
+			case STATE_UNEXPECTED_ELEMENT:
+				depthsOfUnknownElements--;
+				if (0 > depthsOfUnknownElements) {
+					currentState = STATE_DELEGATE_PARENT_NEEDED;
+				}
+				break;
+			case STATE_DELEGATE_CHILD_NEEDED:
+			case STATE_DELEGATE_SIBLING_NEEDED:
+			case STATE_DELEGATE_PARENT_NEEDED:
+				assert false : "handshake error: the dispatcher should have switched to another load pattern instance (state=" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+				break;
+			default:
+				assert false : "state machine error: unsupported state (state =" + currentState + ", startElement)"; //$NON-NLS-1$ //$NON-NLS-2$
+			}
+		}
+	}
+
+	public XMLPersistenceMappingHandler(XMLResource xmlResource, XMLHelper helper, Map<?, ?> options) {
+		super(xmlResource, helper, options);
+
+		// set extended meta data
+		Object extendedMetaDataOption = options.get(XMLResource.OPTION_EXTENDED_META_DATA);
+		if (null != extendedMetaDataOption && extendedMetaDataOption instanceof XMLPersistenceMappingExtendedMetaData) {
+			xmlPersistenceMappingExtendedMetaData = (XMLPersistenceMappingExtendedMetaData) options.get(XMLResource.OPTION_EXTENDED_META_DATA);
+			extendedMetaData = xmlPersistenceMappingExtendedMetaData;
+		} else {
+			// default
+			xmlPersistenceMappingExtendedMetaData = xmlResource == null || xmlResource.getResourceSet() == null ? XMLPersistenceMappingExtendedMetaData.INSTANCE
+					: new XMLPersistenceMappingExtendedMetaDataImpl(xmlResource.getResourceSet().getPackageRegistry());
+			extendedMetaData = xmlPersistenceMappingExtendedMetaData;
+		}
+		helper.setExtendedMetaData(xmlPersistenceMappingExtendedMetaData);
+
+		// initialize progress monitor
+		Object progressMonitor = options.get(XMLPersistenceMappingResource.OPTION_PROGRESS_MONITOR);
+		if (progressMonitor instanceof IProgressMonitor) {
+			this.progressMonitor = (IProgressMonitor) progressMonitor;
+		} else {
+			// ignore
+		}
+
+		// get chunk size of xml parser, that is required for calculation of progress monitor ticks
+		Object parserPropertiesObject = options.get(XMLResource.OPTION_PARSER_PROPERTIES);
+		if (null != parserPropertiesObject && parserPropertiesObject instanceof Map<?, ?>) {
+			@SuppressWarnings("unchecked")
+			Map<String, Object> parserProperties = (Map<String, Object>) parserPropertiesObject;
+			Object bufferSizeObject = parserProperties.get(Constants.XERCES_PROPERTY_PREFIX + Constants.BUFFER_SIZE_PROPERTY);
+			if (bufferSizeObject instanceof Integer) {
+				progressMonitorChunkSize = (Integer) bufferSizeObject;
+			} else {
+				// use default;
+			}
+		} else {
+			// use default;
+		}
+
+		loadPatternStack = new MyStack<LoadPattern>();
+		xsiType = null;
+
+		// redefine href attribute since e.g.:
+		// xhtml.a.type/@href conflicts with this attribute and results in proxy resolution which can in turn
+		// result in long delays during load.
+		hrefAttribute = XMLPersistenceMappingResource.HREF;
+
+		// postconditions
+		assert null != xmlPersistenceMappingExtendedMetaData;
+		assert null != extendedMetaData;
+
+	}
+
 	/**
 	 * Create an object based on the given feature and attributes.
 	 */
 	protected EObject createObjectFromNamespaceAndType(EObject peekObject, EStructuralFeature feature, String namespace, String typeXMLName) {
-		assert null != rmfExtendedMetaData;
+		assert null != xmlPersistenceMappingExtendedMetaData;
 		assert null != peekObject;
 		assert null != feature;
 		assert null != namespace;
@@ -1000,11 +1131,11 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 
 		if (null != ePackage) {
 			EClassifier eClassifier;
-			if (rmfExtendedMetaData.demandedPackages().contains(ePackage)) {
+			if (xmlPersistenceMappingExtendedMetaData.demandedPackages().contains(ePackage)) {
 				// demand package requires demand type
-				eClassifier = rmfExtendedMetaData.demandType(namespace, typeXMLName);
+				eClassifier = xmlPersistenceMappingExtendedMetaData.demandType(namespace, typeXMLName);
 			} else {
-				eClassifier = rmfExtendedMetaData.getTypeByXMLName(namespace, typeXMLName, feature);
+				eClassifier = xmlPersistenceMappingExtendedMetaData.getTypeByXMLName(namespace, typeXMLName, feature);
 			}
 
 			EFactory eFactory = ePackage.getEFactoryInstance();
@@ -1033,9 +1164,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			if (extendedMetaData != null) {
 				Collection<EPackage> demandedPackages = extendedMetaData.demandedPackages();
 				if (!demandedPackages.isEmpty() && demandedPackages.contains(newObject.eClass().getEPackage())) {
-					if (rmfExtendedMetaData.isXMLPersistenceMappingEnabled(feature)) {
-						List<String> wildcards = rmfExtendedMetaData.getWildcards(feature);
-						if (rmfExtendedMetaData.matches(wildcards, newObject.eClass().getEPackage().getNsURI())) {
+					if (xmlPersistenceMappingExtendedMetaData.isXMLPersistenceMappingEnabled(feature)) {
+						List<String> wildcards = xmlPersistenceMappingExtendedMetaData.getWildcards(feature);
+						if (xmlPersistenceMappingExtendedMetaData.matches(wildcards, newObject.eClass().getEPackage().getNsURI())) {
 							return newObject;
 						} else {
 							return null;
@@ -1126,59 +1257,6 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		return newObject;
 	}
 
-	XMLPersistenceMappingExtendedMetaData rmfExtendedMetaData = null;
-	MyStack<LoadPattern> deserializationRuleStack = null;
-
-	public XMLPersistenceMappingHandler(XMLResource xmlResource, XMLHelper helper, Map<?, ?> options) {
-		super(xmlResource, helper, options);
-		Object extendedMetaDataOption = options.get(XMLResource.OPTION_EXTENDED_META_DATA);
-		if (null != extendedMetaDataOption) {
-			if (extendedMetaDataOption instanceof Boolean) {
-				if (extendedMetaDataOption.equals(Boolean.TRUE)) {
-					rmfExtendedMetaData = xmlResource == null || xmlResource.getResourceSet() == null ? XMLPersistenceMappingExtendedMetaData.INSTANCE
-							: new XMLPersistenceMappingExtendedMetaDataImpl(xmlResource.getResourceSet().getPackageRegistry());
-					extendedMetaData = rmfExtendedMetaData;
-				}
-			} else if (extendedMetaDataOption instanceof XMLPersistenceMappingExtendedMetaData) {
-				rmfExtendedMetaData = (XMLPersistenceMappingExtendedMetaData) options.get(XMLResource.OPTION_EXTENDED_META_DATA);
-				extendedMetaData = rmfExtendedMetaData;
-			}
-			helper.setExtendedMetaData(rmfExtendedMetaData);
-		}
-
-		Object parserPropertiesObject = options.get(XMLResource.OPTION_PARSER_PROPERTIES);
-		if (null != parserPropertiesObject && parserPropertiesObject instanceof Map<?, ?>) {
-			@SuppressWarnings("unchecked")
-			Map<String, Object> parserProperties = (Map<String, Object>) parserPropertiesObject;
-			Object bufferSizeObject = parserProperties.get(Constants.XERCES_PROPERTY_PREFIX + Constants.BUFFER_SIZE_PROPERTY);
-			if (bufferSizeObject instanceof Integer) {
-				progressMonitorChunkSize = (Integer) bufferSizeObject;
-			} else {
-				// use xerces default (2K)
-				progressMonitorChunkSize = 2048;
-			}
-		} else {
-			// use xerces default (2K)
-			progressMonitorChunkSize = 2048;
-		}
-
-		Object progressMonitor = options.get(XMLPersistenceMappingResource.OPTION_PROGRESS_MONITOR);
-		if (progressMonitor instanceof IProgressMonitor) {
-			this.progressMonitor = (IProgressMonitor) progressMonitor;
-		} else {
-			// ignore
-		}
-
-		deserializationRuleStack = new MyStack<LoadPattern>();
-		xsiType = null;
-
-		// redefine href attribute since e.g.:
-		// xhtml.a.type/@href conflicts with this attribute and results in proxy resolution which can in turn
-		// result in long delays during load.
-		hrefAttribute = XMLPersistenceMappingResource.HREF;
-
-	}
-
 	@Override
 	public void characters(char[] ch, int start, int length) {
 		super.characters(ch, start, length);
@@ -1193,7 +1271,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 
 	@Override
 	public void endElement(String uri, String localName, String qName) {
-		if (null != rmfExtendedMetaData) {
+		if (null != xmlPersistenceMappingExtendedMetaData) {
 			elements.pop();
 			types.pop();
 
@@ -1201,12 +1279,12 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 
 			// end from super.endElement
 
-			LoadPattern activeDeserializationRule = deserializationRuleStack.peek();
+			LoadPattern activeDeserializationRule = loadPatternStack.peek();
 			if (null != activeDeserializationRule) {
 				activeDeserializationRule.endElement(uri, localName);
 				if (activeDeserializationRule.needsDelegateParent()) {
-					deserializationRuleStack.pop();
-					activeDeserializationRule = deserializationRuleStack.peek();
+					loadPatternStack.pop();
+					activeDeserializationRule = loadPatternStack.peek();
 					if (null != activeDeserializationRule) {
 						// this happens if we return to the root object
 						activeDeserializationRule.endElement(uri, localName);
@@ -1236,40 +1314,30 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 			return;
 		}
 
-		if (null != rmfExtendedMetaData) {
+		if (null != xmlPersistenceMappingExtendedMetaData) {
 			String namespace = helper.getNamespaceURI(prefix);
-			LoadPattern activeDeserializationRule = deserializationRuleStack.peek();
+			LoadPattern activeDeserializationRule = loadPatternStack.peek();
 			if (null == activeDeserializationRule) {
 				activeDeserializationRule = getLoadPattern(peekObject, prefix, name);
-				if (null != activeDeserializationRule) {
-					deserializationRuleStack.push(activeDeserializationRule);
-				} else {
-					// TODO: handle error
-					System.out.println("Could not find deserialization rule for " + prefix + ":" + name + " in context of "
-							+ peekObject.eClass().getName());
-				}
+				assert null != activeDeserializationRule : "getLoadPattern() should never return null"; //$NON-NLS-1$
+				loadPatternStack.push(activeDeserializationRule);
 			}
 
 			if (null != activeDeserializationRule) {
 				activeDeserializationRule.startElement(namespace, name);
 				if (activeDeserializationRule.needsDelegateChild()) {
 					activeDeserializationRule = getLoadPattern(peekObject, prefix, name);
-					if (null != activeDeserializationRule) {
-						deserializationRuleStack.push(activeDeserializationRule);
-						activeDeserializationRule.startElement(namespace, name);
-					} else {
-						System.out.println("could not find load pattern for element '" + name + "' for type '" + peekObject.eClass().getName() + "'");
-					}
+					assert null != activeDeserializationRule : "getLoadPattern() should never return null"; //$NON-NLS-1$
+					loadPatternStack.push(activeDeserializationRule);
+					activeDeserializationRule.startElement(namespace, name);
 				} else if (activeDeserializationRule.needsDelegateSibling()) {
 					activeDeserializationRule = getLoadPattern(peekObject, prefix, name);
-					if (null != activeDeserializationRule) {
-						deserializationRuleStack.pop();
-						deserializationRuleStack.push(activeDeserializationRule);
-						activeDeserializationRule.startElement(namespace, name);
-					} else {
-						// TODO: handle error
-					}
-
+					assert null != activeDeserializationRule : "getLoadPattern() should never return null"; //$NON-NLS-1$
+					loadPatternStack.pop();
+					loadPatternStack.push(activeDeserializationRule);
+					activeDeserializationRule.startElement(namespace, name);
+				} else {
+					// normal operation, no need for switching to another load pattern
 				}
 
 			}
@@ -1366,7 +1434,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	}
 
 	protected LoadPattern getLoadPattern(EObject eObject, String prefix, String name) {
-		assert null != rmfExtendedMetaData;
+		assert null != xmlPersistenceMappingExtendedMetaData;
 
 		LoadPattern deserializationRule = null;
 
@@ -1377,7 +1445,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		} else {
 			EStructuralFeature feature = getFeature(eObject, prefix, name, true);
 			if (null != feature) {
-				int featureSerializationStructure = rmfExtendedMetaData.getFeatureSerializationStructure(feature);
+				int featureSerializationStructure = xmlPersistenceMappingExtendedMetaData.getFeatureSerializationStructure(feature);
 				if (feature instanceof EReference) {
 					EReference reference = (EReference) feature;
 					if (reference.isContainment()) {
@@ -1443,10 +1511,11 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 
 				}
 			} else {
-				// handle error, feature not found
+				deserializationRule = new LoadPatternUnknownImpl(eObject, feature);
 			}
 		}
 
+		assert null != deserializationRule : "getLoadPattern() should always return a LoadPattern (!=null)"; //$NON-NLS-1$
 		return deserializationRule;
 
 	}
@@ -1456,9 +1525,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		assert null != object;
 		assert null != name;
 		EStructuralFeature result = null;
-		if (isElement && null != rmfExtendedMetaData) {
+		if (isElement && null != xmlPersistenceMappingExtendedMetaData) {
 			String namespace = helper.getNamespaceURI(prefix);
-			result = rmfExtendedMetaData.getFeatureByXMLElementName(object.eClass(), namespace, name);
+			result = xmlPersistenceMappingExtendedMetaData.getFeatureByXMLElementName(object.eClass(), namespace, name);
 		} else {
 			result = super.getFeature(object, prefix, name, isElement);
 		}
@@ -1468,7 +1537,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	@Override
 	public void reset() {
 		super.reset();
-		deserializationRuleStack = null;
+		loadPatternStack = null;
 		hrefAttribute = XMLPersistenceMappingResource.HREF;
 
 	};
@@ -1476,7 +1545,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	@Override
 	public void prepare(XMLResource resource, XMLHelper helper, Map<?, ?> options) {
 		super.prepare(resource, helper, options);
-		deserializationRuleStack = new MyStack<LoadPattern>();
+		loadPatternStack = new MyStack<LoadPattern>();
 		// enforce use of new methods
 		useNewMethods = true;
 		xsiType = null;
@@ -1513,7 +1582,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		if (null != progressMonitor) {
 			progressMonitorChunksRead = 0;
 			progressMonitorLastStartInChunk = 0;
-			progressMonitor.beginTask("Reading resource '" + resourceURI + "'", getProgressMonitorTotalWork());
+			progressMonitor.beginTask("Reading resource '" + resourceURI + "'", getProgressMonitorTotalWork()); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 	}
@@ -1543,8 +1612,9 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 
 	@Override
 	protected EPackage handleMissingPackage(String uriString) {
-		if (null != contextFeature && null != rmfExtendedMetaData && rmfExtendedMetaData.isXMLPersistenceMappingEnabled(contextFeature)) {
-			return rmfExtendedMetaData.demandPackage(uriString);
+		if (null != contextFeature && null != xmlPersistenceMappingExtendedMetaData
+				&& xmlPersistenceMappingExtendedMetaData.isXMLPersistenceMappingEnabled(contextFeature)) {
+			return xmlPersistenceMappingExtendedMetaData.demandPackage(uriString);
 
 		} else {
 			return super.handleMissingPackage(uriString);

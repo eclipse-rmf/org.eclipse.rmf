@@ -36,6 +36,11 @@ import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaData;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 
+// TODO: add javadoc with images
+// TODO: deactivate or implement dom support 
+// TODO: implement prefix overwrite
+// TODO: overwrite all explicitly not used methods from super-class and use asserts to show that it is not allowed to go there
+// TODO: konsider using the "kind" mechanism for switching between different savepatterns
 /**
  * @author broerkens
  */
