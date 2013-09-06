@@ -44,6 +44,7 @@ import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingHelperImpl;
 import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingLoadImpl;
 import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingSaveImpl;
 
+// TODO: make sure that helper and handler share the same instance of extended metadata
 public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implements XMLPersistenceMappingResource {
 	// TODO: let implementation get the value from preferences and set it to false by default
 	// This is a temporal HACK
