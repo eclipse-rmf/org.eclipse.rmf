@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NODE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore_Unknown" xmlns="http://www.eclipse.org/rmf/serialization/model/nodes.ecore">
+  <FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI xsi:type="ecore:EPackage" name="EPackage1">
+    <eClassifiers xmlns="http://www.eclipse.org/emf/2002/Ecore_Unknown" xsi:type="ecore:EClass" name="EClass11">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="myEClass22" eType="//@eReference_WithTypeEObject_Contained0100Many.1/EClass22"/>
+    </eClassifiers>
+    <eClassifiers xmlns="http://www.eclipse.org/emf/2002/Ecore_Unknown" xsi:type="ecore:EClass" name="EClass12"/>
+  </FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI>
+  <FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI xsi:type="ecore:EPackage" name="EPackage2">
+    <eClassifiers xmlns="http://www.eclipse.org/emf/2002/Ecore_Unknown" xsi:type="ecore:EClass" name="EClass21"/>
+    <eClassifiers xmlns="http://www.eclipse.org/emf/2002/Ecore_Unknown" xsi:type="ecore:EClass" name="EClass22"/>
+  </FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI>
+</NODE>
