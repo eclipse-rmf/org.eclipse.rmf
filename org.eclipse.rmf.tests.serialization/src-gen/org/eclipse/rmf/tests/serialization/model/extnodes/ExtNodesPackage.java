@@ -1023,6 +1023,24 @@ public interface ExtNodesPackage extends EPackage {
 	int EXTENDED_NODE__EATTRIBUTE_ATTRIBUTE1111_MANY = NodesPackage.SUB_NODE__EATTRIBUTE_ATTRIBUTE1111_MANY;
 
 	/**
+	 * The feature id for the '<em><b>Reqif eReference Referenced0101 Single</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENDED_NODE__REQIF_EREFERENCE_REFERENCED0101_SINGLE = NodesPackage.SUB_NODE__REQIF_EREFERENCE_REFERENCED0101_SINGLE;
+
+	/**
+	 * The feature id for the '<em><b>Reqif eReference Referenced1001 Many</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENDED_NODE__REQIF_EREFERENCE_REFERENCED1001_MANY = NodesPackage.SUB_NODE__REQIF_EREFERENCE_REFERENCED1001_MANY;
+
+	/**
 	 * The feature id for the '<em><b>Altenative Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

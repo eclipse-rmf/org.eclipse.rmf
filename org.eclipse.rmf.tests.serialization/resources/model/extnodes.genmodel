@@ -7,7 +7,7 @@
     testSuiteClass="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
     copyrightFields="false" editPluginID="org.eclipse.rmf.tests.serialization.edit"
     editorPluginID="org.eclipse.rmf.tests.serialization.edit" testsPluginID="org.eclipse.rmf.tests.serialization.edit"
-    usedGenPackages="nodes.genmodel#//nodes" operationReflection="true" importOrganizing="true">
+    usedGenPackages="nodes.genmodel#//nodes" operationReflection="true">
   <foreignModel>extnodes.ecore</foreignModel>
   <genPackages prefix="ExtNodes" basePackage="org.eclipse.rmf.tests.serialization.model"
       resource="XML" disposableProviderFactory="true" ecorePackage="extnodes.ecore#/">

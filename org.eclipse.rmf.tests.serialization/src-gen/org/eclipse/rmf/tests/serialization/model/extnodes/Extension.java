@@ -44,6 +44,7 @@ public interface Extension extends EObject {
 	 * @return the value of the '<em>Extensions</em>' containment reference list.
 	 * @see org.eclipse.rmf.tests.serialization.model.extnodes.ExtNodesPackage#getExtension_Extensions()
 	 * @model containment="true"
+	 *        extendedMetaData="namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<ExtendedNode> getExtensions();

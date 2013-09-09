@@ -14,12 +14,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
@@ -35,6 +37,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaData;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 
 // TODO: add javadoc with images
 // TODO: deactivate or implement dom support 
@@ -47,7 +50,7 @@ import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 	XMLPersistenceMappingExtendedMetaData xmlPersistenceMappingExtendedMetaData = null;
 	static final String TRUE = "true"; //$NON-NLS-1$
-	Map<String, String> namespaceUriToPrefixMap = null;
+	Map<String, String> redefinedNamespaceUriToPrefixMap = null;
 
 	final StringBuffer buffer = new StringBuffer();
 
@@ -1706,6 +1709,28 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 			extendedMetaData = xmlPersistenceMappingExtendedMetaData;
 		}
 		helper.setExtendedMetaData(xmlPersistenceMappingExtendedMetaData);
+
+		Object namespaceToPrefixMapObject = options.get(XMLPersistenceMappingResource.OPTION_NAMEPSACE_TO_PREFIX_MAP);
+		if (null != namespaceToPrefixMapObject && namespaceToPrefixMapObject instanceof Map<?, ?>) {
+			@SuppressWarnings("unchecked")
+			Map<Object, Object> namespaceToPrefixMap = (Map<Object, Object>) namespaceToPrefixMapObject;
+			EMap<String, String> prefixToNamespaceMap = helper.getPrefixToNamespaceMap();
+			for (Map.Entry<Object, Object> entry : namespaceToPrefixMap.entrySet()) {
+				Object namespace = entry.getKey();
+				Object prefix = entry.getValue();
+				if (namespace instanceof String && prefix instanceof String) {
+					if (prefixToNamespaceMap.contains(prefix)) {
+						// TODO: handle namespace redefinitions
+						if (null == redefinedNamespaceUriToPrefixMap) {
+							redefinedNamespaceUriToPrefixMap = new HashMap<String, String>();
+						}
+						redefinedNamespaceUriToPrefixMap.put((String) namespace, (String) prefix);
+					} else {
+						prefixToNamespaceMap.put((String) prefix, (String) namespace);
+					}
+				}
+			}
+		}
 
 		assert null != xmlPersistenceMappingExtendedMetaData : "xmlPersistenceMappingExtendedMetaData should never be null"; //$NON-NLS-1$
 		assert null != extendedMetaData : "extendedMetaData should never be null"; //$NON-NLS-1$
