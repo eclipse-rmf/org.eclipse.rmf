@@ -67,7 +67,7 @@ public class FoereignNamespaceLoadTests extends AbstractTestCase {
 		String inputFileName = INPUT_PATH + "EReference_WithTypeEObject_Contained0001Many_RedefinedEmptyUnknownNamespace.xml";
 		try {
 			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
-			validateUnknownModelManyRedefinedNamespace(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_WithTypeEObject_Contained0001Many());
+			validateUnknownModelMany(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_WithTypeEObject_Contained0001Many());
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			assertTrue(ex.getMessage(), false);
@@ -199,7 +199,6 @@ public class FoereignNamespaceLoadTests extends AbstractTestCase {
 		EClass ePackageClass1 = package1.eClass();
 		assertEquals("EPackage", ePackageClass1.getName());
 		assertSame(3, ePackageClass1.getFeatureCount());
-		assertSame(1, package1.getAnyAttribute().size());
 		assertSame(2, package1.getAny().size());
 		assertEquals("EPackage1", package1.getAnyAttribute().getValue(0));
 		assertEquals("eClassifiers", package1.getAny().get(0).getEStructuralFeature().getName());
@@ -212,46 +211,6 @@ public class FoereignNamespaceLoadTests extends AbstractTestCase {
 		EClass ePackageClass2 = package2.eClass();
 		assertEquals("EPackage", ePackageClass2.getName());
 		assertSame(3, ePackageClass2.getFeatureCount());
-		assertSame(1, package2.getAnyAttribute().size());
-		assertSame(2, package2.getAny().size());
-		assertEquals("EPackage2", package2.getAnyAttribute().getValue(0));
-		assertEquals("eClassifiers", package2.getAny().get(0).getEStructuralFeature().getName());
-		assertEquals("EClass21", ((AnyType) package2.getAny().get(0).getValue()).getAnyAttribute().getValue(0));
-		assertEquals("EClass22", ((AnyType) package2.getAny().get(1).getValue()).getAnyAttribute().getValue(0));
-	}
-
-	@SuppressWarnings("unchecked")
-	protected void validateUnknownModelManyRedefinedNamespace(EObject modelRoot, EStructuralFeature topFeature) {
-		assert topFeature.isMany();
-		// check root node
-		assertNotNull(modelRoot);
-		assertSame(NodesPackage.eINSTANCE.getNode(), modelRoot.eClass());
-		Node node = (Node) modelRoot;
-
-		// check intermediate nodes
-		EList<Object> packages = (EList<Object>) node.eGet(topFeature);
-		assertSame(2, packages.size());
-
-		Object packageObject1 = packages.get(0);
-		assertTrue(packageObject1 instanceof AnyType);
-		AnyType package1 = (AnyType) packageObject1;
-		EClass ePackageClass1 = package1.eClass();
-		assertEquals("EPackage", ePackageClass1.getName());
-		assertSame(3, ePackageClass1.getFeatureCount());
-		assertSame(2, package1.getAnyAttribute().size());
-		assertSame(2, package1.getAny().size());
-		assertEquals("EPackage1", package1.getAnyAttribute().getValue(0));
-		assertEquals("eClassifiers", package1.getAny().get(0).getEStructuralFeature().getName());
-		assertEquals("EClass11", ((AnyType) package1.getAny().get(0).getValue()).getAnyAttribute().getValue(0));
-		assertEquals("EClass12", ((AnyType) package1.getAny().get(1).getValue()).getAnyAttribute().getValue(0));
-
-		Object packageObject2 = packages.get(1);
-		assertTrue(packageObject2 instanceof AnyType);
-		AnyType package2 = (AnyType) packageObject2;
-		EClass ePackageClass2 = package2.eClass();
-		assertEquals("EPackage", ePackageClass2.getName());
-		assertSame(3, ePackageClass2.getFeatureCount());
-		assertSame(2, package2.getAnyAttribute().size());
 		assertSame(2, package2.getAny().size());
 		assertEquals("EPackage2", package2.getAnyAttribute().getValue(0));
 		assertEquals("eClassifiers", package2.getAny().get(0).getEStructuralFeature().getName());

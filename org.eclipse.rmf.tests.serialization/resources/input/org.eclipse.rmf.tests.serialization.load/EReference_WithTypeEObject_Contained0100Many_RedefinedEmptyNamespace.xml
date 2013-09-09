@@ -6,8 +6,8 @@
     </eClassifiers>
     <eClassifiers xmlns="http://www.eclipse.org/emf/2002/Ecore" xsi:type="ecore:EClass" name="EClass12"/>
   </FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI>
-  <FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI xsi:type="ecore:EPackage" name="EPackage2">
-    <eClassifiers xmlns="http://www.eclipse.org/emf/2002/Ecore" xsi:type="ecore:EClass" name="EClass21"/>
-    <eClassifiers xmlns="http://www.eclipse.org/emf/2002/Ecore" xsi:type="ecore:EClass" name="EClass22"/>
+  <FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI xmlns="http://www.eclipse.org/emf/2002/Ecore" xsi:type="EPackage" name="EPackage2">
+    <eClassifiers xsi:type="EClass" name="EClass21"/>
+    <eClassifiers xsi:type="EClass" name="EClass22"/>
   </FEATURE-WITH-TYPE-EOBJECT-AND-SERIALIZATION-0100-MULTI>
 </NODE>
