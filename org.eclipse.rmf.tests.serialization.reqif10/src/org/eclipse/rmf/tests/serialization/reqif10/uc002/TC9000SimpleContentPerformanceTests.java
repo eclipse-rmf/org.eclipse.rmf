@@ -9,7 +9,7 @@
  *     Mark Broerkens - initial API and implementation
  * 
  */
-package org.eclipse.rmf.tests.serialization.reqif10.uc001;
+package org.eclipse.rmf.tests.serialization.reqif10.uc002;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -21,7 +21,7 @@ import org.eclipse.rmf.tests.serialization.reqif10.util.TC9000ModelBuilder;
 import org.junit.Test;
 
 @SuppressWarnings("nls")
-public class TC9000SimpleContentPerformanceTest extends AbstractTestCase {
+public class TC9000SimpleContentPerformanceTests extends AbstractTestCase {
 	private static final String WORKING_DIRECTORY = "work";
 
 	@Test
