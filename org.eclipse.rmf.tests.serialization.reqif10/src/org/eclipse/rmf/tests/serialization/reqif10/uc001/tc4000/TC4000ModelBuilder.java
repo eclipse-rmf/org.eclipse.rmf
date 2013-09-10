@@ -74,7 +74,7 @@ public class TC4000ModelBuilder extends SimpleModelBuilder {
 	 * 
 	 */
 	public TC4000ModelBuilder(int specHierarchiesCount) throws Exception {
-		super("ID_TC4000_ReqIfHeader", "TC 4000 'Tool Extensions'");
+		super("ID_TC4000_ReqIfHeader", "TC 4000 'Big Model'");
 		this.specHierarchiesCount = specHierarchiesCount;
 	}
 
@@ -305,38 +305,4 @@ public class TC4000ModelBuilder extends SimpleModelBuilder {
 		return specObject;
 
 	}
-
-	/*
-	@Override
-	public void createToolExtensions() throws Exception {
-		// TODO: remove dependency to ProR
-		ProrToolExtension prorToolExtension = ConfigurationFactory.eINSTANCE.createProrToolExtension();
-
-		ProrSpecViewConfiguration prorSpecViewConfiguration;
-		prorSpecViewConfiguration = ConfigurationFactory.eINSTANCE.createProrSpecViewConfiguration();
-		prorToolExtension.getSpecViewConfigurations().add(prorSpecViewConfiguration);
-		prorSpecViewConfiguration = ConfigurationFactory.eINSTANCE.createProrSpecViewConfiguration();
-		prorToolExtension.getSpecViewConfigurations().add(prorSpecViewConfiguration);
-
-		ProrGeneralConfiguration prorGeneralConfiguration = ConfigurationFactory.eINSTANCE.createProrGeneralConfiguration();
-		prorToolExtension.setGeneralConfiguration(prorGeneralConfiguration);
-		LabelConfiguration labelConfiguration = ConfigurationFactory.eINSTANCE.createLabelConfiguration();
-		prorGeneralConfiguration.setLabelConfiguration(labelConfiguration);
-
-		ProrPresentationConfigurations prorPresentationConfigurations;
-		HeadlineConfiguration headlineConfiguration;
-		prorPresentationConfigurations = ConfigurationFactory.eINSTANCE.createProrPresentationConfigurations();
-		prorToolExtension.setPresentationConfigurations(prorPresentationConfigurations);
-		headlineConfiguration = HeadlineFactory.eINSTANCE.createHeadlineConfiguration();
-		prorPresentationConfigurations.getPresentationConfigurations().add(headlineConfiguration);
-		headlineConfiguration.setDatatype(datatypeDefinitionString);
-
-		prorToolExtension.setPresentationConfigurations(prorPresentationConfigurations);
-		headlineConfiguration = HeadlineFactory.eINSTANCE.createHeadlineConfiguration();
-		prorPresentationConfigurations.getPresentationConfigurations().add(headlineConfiguration);
-		headlineConfiguration.setDatatype(datatypeDefinitionString);
-
-		ReqIFToolExtensionUtil.addToolExtension(getReqIF(), prorToolExtension);
-	}
-	*/
 }
