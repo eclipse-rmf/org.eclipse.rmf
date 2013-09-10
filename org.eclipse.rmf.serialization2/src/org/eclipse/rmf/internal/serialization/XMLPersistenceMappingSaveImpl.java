@@ -43,7 +43,7 @@ import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 // TODO: deactivate or implement dom support 
 // TODO: implement prefix overwrite
 // TODO: overwrite all explicitly not used methods from super-class and use asserts to show that it is not allowed to go there
-// TODO: konsider using the "kind" mechanism for switching between different savepatterns
+// TODO: consider using the "kind" mechanism for switching between different savepatterns
 /**
  * @author broerkens
  */
@@ -1756,6 +1756,12 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	protected boolean isXMLPersistenceMappingEnabled(EStructuralFeature feature) {
 		return xmlPersistenceMappingExtendedMetaData.isXMLPersistenceMappingEnabled(feature);
+	}
+
+	@Override
+	protected void saveElementID(EObject o) {
+		// avoid writing the ID since this is already written as usual attribute
+		saveFeatures(o);
 	}
 
 }
