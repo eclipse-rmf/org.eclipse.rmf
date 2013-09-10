@@ -7,7 +7,8 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
- *     Lukas Ladenberger - ProR GUI     
+ *     Lukas Ladenberger - ProR GUI 
+ *     Mark Broerkens - Xhtml access methods   
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.common.util;
 
@@ -21,8 +22,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.rmf.reqif10.XhtmlContent;
-import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
-import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
 import org.w3c.dom.Document;
 
 /**
@@ -49,12 +48,8 @@ public class ReqIF10XhtmlUtil {
 	 */
 	public static EObject getXhtmlRootObject(XhtmlContent xhtmlContent) {
 		EObject root = null;
-		if (xhtmlContent != null) {
-			if (xhtmlContent.getDiv() != null) {
-				root = xhtmlContent.getDiv();
-			} else if (xhtmlContent.getP() != null) {
-				root = xhtmlContent.getP();
-			}
+		if (null != xhtmlContent) {
+			root = xhtmlContent.getXhtml();
 		}
 		return root;
 	}

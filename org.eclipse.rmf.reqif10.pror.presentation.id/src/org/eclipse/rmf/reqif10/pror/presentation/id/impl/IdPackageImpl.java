@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
-import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
+
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration;
 import org.eclipse.rmf.reqif10.pror.presentation.id.IdFactory;
 import org.eclipse.rmf.reqif10.pror.presentation.id.IdPackage;
 import org.eclipse.rmf.reqif10.pror.presentation.id.IdVerticalAlign;
-import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -95,8 +95,6 @@ public class IdPackageImpl extends EPackageImpl implements IdPackage {
 		// Initialize simple dependencies
 		ConfigurationPackage.eINSTANCE.eClass();
 		ReqIF10Package.eINSTANCE.eClass();
-		XhtmlPackage.eINSTANCE.eClass();
-		DatatypesPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theIdPackage.createPackageContents();

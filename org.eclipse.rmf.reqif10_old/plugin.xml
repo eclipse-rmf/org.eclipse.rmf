@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2012 itemis AG.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Mark Broerkens - initial API and implementation
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd"
+            class="org.eclipse.rmf.reqif10.ReqIF10Package"
+            genModel="model/reqif10.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="reqif"
+            id="org.eclipse.rmf.reqif10.reqif10XMLFile"
+            name="%_UI_ReqIF10_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.w3.org/1999/xhtml"
+            class="org.eclipse.rmf.reqif10.xhtml.XhtmlPackage"
+            genModel="model/reqif10.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="xhtml"
+            class="org.eclipse.rmf.reqif10.xhtml.util.XhtmlResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.w3.org/1999/xhtml/datatypes/"
+            class="org.eclipse.rmf.reqif10.datatypes.DatatypesPackage"
+            genModel="model/reqif10.genmodel"/>
+   </extension>
+
+</plugin>

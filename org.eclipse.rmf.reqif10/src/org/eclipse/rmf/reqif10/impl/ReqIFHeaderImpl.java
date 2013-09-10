@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,8 +10,6 @@
  * 
  */
 package org.eclipse.rmf.reqif10.impl;
-
-import java.util.UUID;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -281,13 +279,10 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	protected ReqIFHeaderImpl() {
 		super();
-		// FIXME (mj) Hard-coded ID-Generation, until we have an extension point for ID generators
-		setIdentifier("rmf-" + UUID.randomUUID());
-
 	}
 
 	/**

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecType()
  * @model abstract="true"
  *        extendedMetaData="name='SPEC-TYPE' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-TYPE'"
  * @generated
  */
 public interface SpecType extends Identifiable {
@@ -46,6 +47,7 @@ public interface SpecType extends Identifiable {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecType_SpecAttributes()
 	 * @model containment="true" unsettable="true" ordered="false"
 	 *        extendedMetaData="name='SPEC-ATTRIBUTES' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-ATTRIBUTES' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<AttributeDefinition> getSpecAttributes();

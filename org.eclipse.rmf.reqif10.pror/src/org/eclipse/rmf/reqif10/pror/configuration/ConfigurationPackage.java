@@ -76,22 +76,13 @@ public interface ConfigurationPackage extends EPackage {
 	int PROR_TOOL_EXTENSION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Any</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROR_TOOL_EXTENSION__ANY = ReqIF10Package.REQ_IF_TOOL_EXTENSION__ANY;
-
-	/**
 	 * The feature id for the '<em><b>Spec View Configurations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS = ReqIF10Package.REQ_IF_TOOL_EXTENSION_FEATURE_COUNT + 0;
+	int PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS = 0;
 
 	/**
 	 * The feature id for the '<em><b>General Configuration</b></em>' containment reference.
@@ -100,7 +91,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION = ReqIF10Package.REQ_IF_TOOL_EXTENSION_FEATURE_COUNT + 1;
+	int PROR_TOOL_EXTENSION__GENERAL_CONFIGURATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Presentation Configurations</b></em>' containment reference.
@@ -109,7 +100,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS = ReqIF10Package.REQ_IF_TOOL_EXTENSION_FEATURE_COUNT + 2;
+	int PROR_TOOL_EXTENSION__PRESENTATION_CONFIGURATIONS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Pror Tool Extension</em>' class.
@@ -118,7 +109,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROR_TOOL_EXTENSION_FEATURE_COUNT = ReqIF10Package.REQ_IF_TOOL_EXTENSION_FEATURE_COUNT + 3;
+	int PROR_TOOL_EXTENSION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.pror.configuration.impl.ProrSpecViewConfigurationImpl <em>Pror Spec View Configuration</em>}' class.

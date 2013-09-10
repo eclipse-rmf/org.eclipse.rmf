@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -30,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecHierarchy()
  * @model extendedMetaData="name='SPEC-HIERARCHY' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-HIERARCHY'"
  * @generated
  */
 public interface SpecHierarchy extends AccessControlledElement {
@@ -48,6 +49,7 @@ public interface SpecHierarchy extends AccessControlledElement {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecHierarchy_TableInternal()
 	 * @model unsettable="true" ordered="false"
 	 *        extendedMetaData="name='IS-TABLE-INTERNAL' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='IS-TABLE-INTERNAL' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	boolean isTableInternal();
@@ -102,6 +104,7 @@ public interface SpecHierarchy extends AccessControlledElement {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecHierarchy_Object()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='OBJECT' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='OBJECT' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	SpecObject getObject();
@@ -156,6 +159,7 @@ public interface SpecHierarchy extends AccessControlledElement {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecHierarchy_Children()
 	 * @model containment="true" unsettable="true"
 	 *        extendedMetaData="name='CHILDREN' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='CHILDREN' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<SpecHierarchy> getChildren();
@@ -196,6 +200,7 @@ public interface SpecHierarchy extends AccessControlledElement {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecHierarchy_EditableAtts()
 	 * @model unsettable="true" ordered="false"
 	 *        extendedMetaData="name='EDITABLE-ATTS' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='EDITABLE-ATTS' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	EList<AttributeDefinition> getEditableAtts();

@@ -16,12 +16,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
-import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineConfiguration;
 import org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineFactory;
 import org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlinePackage;
-import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -86,8 +84,6 @@ public class HeadlinePackageImpl extends EPackageImpl implements HeadlinePackage
 		// Initialize simple dependencies
 		ConfigurationPackage.eINSTANCE.eClass();
 		ReqIF10Package.eINSTANCE.eClass();
-		XhtmlPackage.eINSTANCE.eClass();
-		DatatypesPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theHeadlinePackage.createPackageContents();

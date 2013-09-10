@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -29,6 +29,7 @@ package org.eclipse.rmf.reqif10;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueXHTML()
  * @model extendedMetaData="name='ATTRIBUTE-VALUE-XHTML' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-VALUE-XHTML'"
  * @generated
  */
 public interface AttributeValueXHTML extends AttributeValue {
@@ -47,6 +48,7 @@ public interface AttributeValueXHTML extends AttributeValue {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueXHTML_Simplified()
 	 * @model unsettable="true" ordered="false"
 	 *        extendedMetaData="name='IS-SIMPLIFIED' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='IS-SIMPLIFIED' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	boolean isSimplified();
@@ -101,6 +103,7 @@ public interface AttributeValueXHTML extends AttributeValue {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueXHTML_Definition()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='DEFINITION' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DEFINITION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	AttributeDefinitionXHTML getDefinition();
@@ -155,6 +158,7 @@ public interface AttributeValueXHTML extends AttributeValue {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueXHTML_TheOriginalValue()
 	 * @model containment="true" unsettable="true" ordered="false"
 	 *        extendedMetaData="name='THE-ORIGINAL-VALUE' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-ORIGINAL-VALUE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	XhtmlContent getTheOriginalValue();
@@ -209,6 +213,7 @@ public interface AttributeValueXHTML extends AttributeValue {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueXHTML_TheValue()
 	 * @model containment="true" unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='THE-VALUE' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-VALUE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	XhtmlContent getTheValue();

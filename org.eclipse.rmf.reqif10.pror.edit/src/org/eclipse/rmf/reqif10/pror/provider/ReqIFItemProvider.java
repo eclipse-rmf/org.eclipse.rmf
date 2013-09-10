@@ -213,11 +213,6 @@ public class ReqIFItemProvider
 			(createChildParameter
 				(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
 				 ReqIF10Factory.eINSTANCE.createReqIFToolExtension()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
-				 ConfigurationFactory.eINSTANCE.createProrToolExtension()));
 	}
 
 	/**

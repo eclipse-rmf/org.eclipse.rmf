@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecification()
  * @model extendedMetaData="name='SPECIFICATION' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPECIFICATION'"
  * @generated
  */
 public interface Specification extends SpecElementWithAttributes {
@@ -46,6 +47,7 @@ public interface Specification extends SpecElementWithAttributes {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecification_Type()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='TYPE' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='TYPE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	SpecificationType getType();
@@ -100,6 +102,7 @@ public interface Specification extends SpecElementWithAttributes {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecification_Children()
 	 * @model containment="true" unsettable="true"
 	 *        extendedMetaData="name='CHILDREN' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='CHILDREN' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<SpecHierarchy> getChildren();

@@ -181,12 +181,14 @@ public abstract class AbstractTestCase {
 		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		EPackage.Registry.INSTANCE.put(EcorePackage.eNS_URI, EcorePackage.eINSTANCE);
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
-		
+
 		loadXMLPersistenceMappingResourceSet = new XMLPersistenceMappingResourceSetImpl();
-		loadXMLPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
+		loadXMLPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
+				.put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
 
 		saveXMLPersistenceMappingResourceSet = new XMLPersistenceMappingResourceSetImpl();
-		saveXMLPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLPersistenceMappingResourceFactoryImpl());		
+		saveXMLPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
+				.put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
 	}
 
 	@AfterClass
@@ -206,9 +208,9 @@ public abstract class AbstractTestCase {
 	}
 
 	protected void validateAgainstSchema(String filename) throws Exception {
-		final String schemaFolderName = "../org.eclipse.rmf.reqif10_2/schema/";
+		final String schemaFolderName = "../org.eclipse.rmf.reqif10/schema/";
 
-		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource("../org.eclipse.rmf.reqif10_2/schema/reqif.xsd") };
+		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource("../org.eclipse.rmf.reqif10/schema/reqif.xsd") };
 		Source instanceDocument = new StreamSource(filename);
 
 		// the resolver is required to map the schema references to the reqif sub schema files to the local locations
@@ -253,7 +255,7 @@ public abstract class AbstractTestCase {
 		ResourceSetImpl resourceSet = getXMLPersistenceMappingResourceSet();
 		saveReqIFFile(reqif, fileName, resourceSet);
 	}
-	
+
 	protected static void saveReqIFFile(EObject reqif, String fileName, ResourceSet resourceSet) throws IOException {
 		URI emfURI = createEMFURI(fileName);
 		Resource resource = resourceSet.createResource(emfURI);
@@ -265,21 +267,23 @@ public abstract class AbstractTestCase {
 		ResourceSetImpl resourceSet = getXMLPersistenceMappingResourceSet();
 		return loadReqIFFile(fileName, false, resourceSet);
 	}
-	
+
 	protected static ReqIF loadReqIFFile(String fileName, ResourceSet resourceSet) throws IOException {
 		return loadReqIFFile(fileName, false, resourceSet);
 	}
-	
+
 	protected static XMLPersistenceMappingResourceSetImpl getXMLPersistenceMappingResourceSet() {
 		XMLPersistenceMappingResourceSetImpl xmlPersistenceMappingResourceSet = new XMLPersistenceMappingResourceSetImpl();
-		xmlPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
+		xmlPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
+				.put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
 		return xmlPersistenceMappingResourceSet;
 
 	}
 
 	protected static ReqIF loadReqIFFile(String fileName, boolean validateOnLoad, ResourceSet resourceSet) throws IOException {
-		return (ReqIF)loadFile(fileName, validateOnLoad, resourceSet);
+		return (ReqIF) loadFile(fileName, validateOnLoad, resourceSet);
 	}
+
 	protected static EObject loadFile(String fileName, boolean validateOnLoad, ResourceSet resourceSet) throws IOException {
 
 		URI emfURI = createEMFURI(fileName);
@@ -300,19 +304,14 @@ public abstract class AbstractTestCase {
 		}
 	}
 
-
 	private static URI createEMFURI(String fileName) {
 		return URI.createURI(fileName, true);
 	}
 
 	/**
-	 * Creates the file name of reference test data.
+	 * Creates the file name of reference test data. The name pattern as defined by the ReqIF Implementor Forum.
+	 * #TestCaseID#_E0000_S10_Reference_#yyyyMMdd#_#HHmm# #NameOfHumanCreator#.<reqif/reqifz>
 	 * 
-	 * The name pattern as defined by the ReqIF Implementor Forum.
-	 * #TestCaseID#_E0000_S10_Reference_#yyyyMMdd#_#HHmm#
-	 * #NameOfHumanCreator#.<reqif/reqifz>
-	 * 
-	 *
 	 * @param testCaseId
 	 * @return
 	 */
@@ -321,13 +320,9 @@ public abstract class AbstractTestCase {
 	}
 
 	/**
-	 * Creates the file name of reference test data.
+	 * Creates the file name of reference test data. The name pattern as defined by the ReqIF Implementor Forum.
+	 * #TestCaseID#_E0001_S21_Reference_#yyyyMMdd#_#HHmm# #NameOfHumanCreator#.<reqif/reqifz>
 	 * 
-	 * The name pattern as defined by the ReqIF Implementor Forum.
-	 * #TestCaseID#_E0001_S21_Reference_#yyyyMMdd#_#HHmm#
-	 * #NameOfHumanCreator#.<reqif/reqifz>
-	 * 
-	 *
 	 * @param testCaseId
 	 * @return
 	 */
@@ -336,12 +331,10 @@ public abstract class AbstractTestCase {
 	}
 
 	/**
-	 * Creates the file name according to the ReqIF Implementor Forum naming conventions.
-	 * 
-	 * The name pattern as defined by the ReqIF Implementor Forum.
+	 * Creates the file name according to the ReqIF Implementor Forum naming conventions. The name pattern as defined by
+	 * the ReqIF Implementor Forum.
 	 * #TestCaseID#_E#NumberOfExports#_S#TestStep#_#Tool#_#yyyyMMdd#_#HHmm#_#NameOfHumanCreator#.#reqif/reqifz#
 	 * 
-	 *
 	 * @param testCaseId
 	 * @return
 	 */
@@ -438,7 +431,7 @@ public abstract class AbstractTestCase {
 
 		zipOutputStream.close();
 	}
-	
+
 	private static Map<Object, Object> getSaveOptions() {
 		Map<Object, Object> options = new HashMap<Object, Object>();
 		options.put(XMLPersistenceMappingResource.OPTION_NAMEPSACE_TO_PREFIX_MAP, getNamespaceToPrefixMap());

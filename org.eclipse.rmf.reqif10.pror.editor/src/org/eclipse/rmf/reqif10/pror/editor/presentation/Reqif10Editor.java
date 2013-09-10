@@ -111,7 +111,8 @@ import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.provider.VirtualDatatypeDefinitionItemProvider;
 import org.eclipse.rmf.reqif10.pror.provider.VirtualSpecTypeItemProvider;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
-import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;
@@ -750,7 +751,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		// Create the editing domain with a special command stack.
 		//
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
-				commandStack, new ReqIFResourceSetImpl());
+				commandStack, new XMLPersistenceMappingResourceSetImpl());
 		// FIXME (mj) this got diabled for now, due to Bug 381494
 		// System.out.println("XXX");
 		// commandStack.setEditingDomain(editingDomain);
@@ -1048,7 +1049,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 					editingDomain
 							.getResourceSet()
 							.getLoadOptions()
-							.put(ReqIFResourceSetImpl.PROGRESS_MONITOR, monitor);
+							.put(XMLPersistenceMappingResource.OPTION_PROGRESS_MONITOR, monitor);
 					createModel();
 					monitor.done();
 				}

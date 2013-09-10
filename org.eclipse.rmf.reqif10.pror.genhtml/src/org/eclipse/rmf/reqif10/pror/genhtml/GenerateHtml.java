@@ -35,9 +35,9 @@ import org.eclipse.rmf.reqif10.pror.presentation.headline.util.HeadlineAdapterFa
 import org.eclipse.rmf.reqif10.pror.presentation.id.util.IdAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.presentation.linewrap.util.LinewrapAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
-import org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl;
-import org.eclipse.rmf.serialization.ReqIFResourceImpl;
-import org.eclipse.rmf.serialization.ReqIFResourceSetImpl;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
 
 /**
  * Standalone-executable class that is used to non-interactively generate HTML
@@ -73,7 +73,7 @@ public class GenerateHtml {
 		
 		BasicCommandStack commandStack = new BasicCommandStack();
 		AdapterFactoryEditingDomain editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
-				commandStack, new ReqIFResourceSetImpl());
+				commandStack, new XMLPersistenceMappingResourceSetImpl());
 		
 		// iterate reqif dump folder
 		File f = new File("dump/reqif");
@@ -134,12 +134,12 @@ public class GenerateHtml {
 	public static ReqIF loadData(File file) throws FileNotFoundException,
 			IOException {
 		
-		ReqIFResourceSetImpl resourceSet = new ReqIFResourceSetImpl();
+		XMLPersistenceMappingResourceSetImpl resourceSet = new XMLPersistenceMappingResourceSetImpl();
 
 		Map<String, Object> extensionToFactoryMap = resourceSet
 				.getResourceFactoryRegistry().getExtensionToFactoryMap();
 
-		extensionToFactoryMap.put("reqif", new ReqIFResourceFactoryImpl());
+		extensionToFactoryMap.put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
 		resourceSet.getPackageRegistry().put(ReqIF10Package.eNS_URI,
 				ReqIF10Package.eINSTANCE);
 		resourceSet.getPackageRegistry().put(
@@ -147,7 +147,7 @@ public class GenerateHtml {
 
 		URI fileURI = URI.createFileURI(file.getPath());
 
-		ReqIFResourceImpl resource = (ReqIFResourceImpl) resourceSet
+		XMLPersistenceMappingResourceImpl resource = (XMLPersistenceMappingResourceImpl) resourceSet
 				.createResource(fileURI);
 		
 		resource.load(extensionToFactoryMap);

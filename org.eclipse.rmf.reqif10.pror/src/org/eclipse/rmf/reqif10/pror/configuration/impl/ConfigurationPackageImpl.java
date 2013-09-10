@@ -16,11 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
-import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
-import org.eclipse.rmf.reqif10.datatypes.impl.DatatypesPackageImpl;
-import org.eclipse.rmf.reqif10.impl.ReqIF10PackageImpl;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
@@ -30,8 +26,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
-import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
-import org.eclipse.rmf.reqif10.xhtml.impl.XhtmlPackageImpl;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -136,28 +131,13 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		isInited = true;
 
 		// Initialize simple dependencies
-		XMLNamespacePackage.eINSTANCE.eClass();
-
-		// Obtain or create and register interdependencies
-		ReqIF10PackageImpl theReqIF10Package = (ReqIF10PackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI) instanceof ReqIF10PackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI) : ReqIF10Package.eINSTANCE);
-		XhtmlPackageImpl theXhtmlPackage = (XhtmlPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI) instanceof XhtmlPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI) : XhtmlPackage.eINSTANCE);
-		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) : DatatypesPackage.eINSTANCE);
-
-		// Load packages
-		theXhtmlPackage.loadPackage();
+		ReqIF10Package.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theConfigurationPackage.createPackageContents();
-		theReqIF10Package.createPackageContents();
-		theDatatypesPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theConfigurationPackage.initializePackageContents();
-		theReqIF10Package.initializePackageContents();
-		theDatatypesPackage.initializePackageContents();
-
-		// Fix loaded packages
-		theXhtmlPackage.fixPackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theConfigurationPackage.freeze();
@@ -425,7 +405,6 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		prorToolExtensionEClass.getESuperTypes().add(theReqIF10Package.getReqIFToolExtension());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(prorToolExtensionEClass, ProrToolExtension.class, "ProrToolExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

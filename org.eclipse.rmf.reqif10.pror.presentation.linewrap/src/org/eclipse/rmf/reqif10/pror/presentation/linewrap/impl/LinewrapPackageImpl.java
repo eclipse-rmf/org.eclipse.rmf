@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
-import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.presentation.linewrap.LinewrapConfiguration;
 import org.eclipse.rmf.reqif10.pror.presentation.linewrap.LinewrapFactory;
@@ -84,7 +83,6 @@ public class LinewrapPackageImpl extends EPackageImpl implements LinewrapPackage
 		// Initialize simple dependencies
 		ConfigurationPackage.eINSTANCE.eClass();
 		ReqIF10Package.eINSTANCE.eClass();
-		DatatypesPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theLinewrapPackage.createPackageContents();
@@ -165,14 +163,14 @@ public class LinewrapPackageImpl extends EPackageImpl implements LinewrapPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ConfigurationPackage theConfigPackage = (ConfigurationPackage)EPackage.Registry.INSTANCE.getEPackage(ConfigurationPackage.eNS_URI);
+		ConfigurationPackage theConfigurationPackage = (ConfigurationPackage)EPackage.Registry.INSTANCE.getEPackage(ConfigurationPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		linewrapConfigurationEClass.getESuperTypes().add(theConfigPackage.getProrPresentationConfiguration());
+		linewrapConfigurationEClass.getESuperTypes().add(theConfigurationPackage.getProrPresentationConfiguration());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(linewrapConfigurationEClass, LinewrapConfiguration.class, "LinewrapConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

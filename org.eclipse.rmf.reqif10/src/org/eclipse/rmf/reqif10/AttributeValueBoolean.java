@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,6 +27,7 @@ package org.eclipse.rmf.reqif10;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueBoolean()
  * @model extendedMetaData="name='ATTRIBUTE-VALUE-BOOLEAN' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-VALUE-BOOLEAN'"
  * @generated
  */
 public interface AttributeValueBoolean extends AttributeValueSimple {
@@ -45,6 +46,7 @@ public interface AttributeValueBoolean extends AttributeValueSimple {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueBoolean_TheValue()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='THE-VALUE' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-VALUE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	boolean isTheValue();
@@ -99,6 +101,7 @@ public interface AttributeValueBoolean extends AttributeValueSimple {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueBoolean_Definition()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='DEFINITION' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DEFINITION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	AttributeDefinitionBoolean getDefinition();

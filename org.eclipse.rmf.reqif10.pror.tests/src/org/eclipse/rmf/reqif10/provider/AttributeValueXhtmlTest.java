@@ -12,6 +12,7 @@ package org.eclipse.rmf.reqif10.provider;
 
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -46,8 +47,7 @@ public class AttributeValueXhtmlTest extends AttributeValueTest {
 
 	@Override
 	public Object getValueObject() {
-		// FIXME (mj) broken unit test
-		return null;
+		return XhtmlFactory.eINSTANCE.createXhtmlPType();
 	}
 
 } //AttributeValueComplexTest

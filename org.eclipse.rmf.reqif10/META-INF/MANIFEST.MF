@@ -8,16 +8,9 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.rmf.reqif10,
- org.eclipse.rmf.reqif10.datatypes,
- org.eclipse.rmf.reqif10.datatypes.impl,
- org.eclipse.rmf.reqif10.datatypes.util,
  org.eclipse.rmf.reqif10.impl,
- org.eclipse.rmf.reqif10.util,
- org.eclipse.rmf.reqif10.xhtml,
- org.eclipse.rmf.reqif10.xhtml.impl,
- org.eclipse.rmf.reqif10.xhtml.util
+ org.eclipse.rmf.reqif10.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Bundle-Activator: org.eclipse.rmf.reqif10.util.Activator$Implementation

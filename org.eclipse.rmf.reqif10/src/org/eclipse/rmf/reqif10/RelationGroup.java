@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -30,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getRelationGroup()
  * @model extendedMetaData="name='RELATION-GROUP' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='RELATION-GROUP'"
  * @generated
  */
 public interface RelationGroup extends Identifiable {
@@ -48,6 +49,7 @@ public interface RelationGroup extends Identifiable {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getRelationGroup_SpecRelations()
 	 * @model unsettable="true" ordered="false"
 	 *        extendedMetaData="name='SPEC-RELATIONS' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-RELATIONS' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	EList<SpecRelation> getSpecRelations();
@@ -88,6 +90,7 @@ public interface RelationGroup extends Identifiable {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getRelationGroup_Type()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='TYPE' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='TYPE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	RelationGroupType getType();
@@ -142,6 +145,7 @@ public interface RelationGroup extends Identifiable {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getRelationGroup_SourceSpecification()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='SOURCE-SPECIFICATION' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SOURCE-SPECIFICATION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	Specification getSourceSpecification();
@@ -196,6 +200,7 @@ public interface RelationGroup extends Identifiable {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getRelationGroup_TargetSpecification()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='TARGET-SPECIFICATION' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='TARGET-SPECIFICATION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	Specification getTargetSpecification();

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable()
  * @model abstract="true"
  *        extendedMetaData="name='IDENTIFIABLE' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='IDENTIFIABLE'"
  * @generated
  */
 public interface Identifiable extends EObject {
@@ -52,6 +53,7 @@ public interface Identifiable extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_Desc()
 	 * @model unsettable="true" ordered="false"
 	 *        extendedMetaData="name='DESC' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DESC' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getDesc();
@@ -106,6 +108,7 @@ public interface Identifiable extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_Identifier()
 	 * @model unsettable="true" id="true" dataType="org.eclipse.rmf.reqif10.ID" required="true" ordered="false"
 	 *        extendedMetaData="name='IDENTIFIER' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='IDENTIFIER' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getIdentifier();
@@ -160,6 +163,7 @@ public interface Identifiable extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_LastChange()
 	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.DateTime" required="true" ordered="false"
 	 *        extendedMetaData="name='LAST-CHANGE' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='LAST-CHANGE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	XMLGregorianCalendar getLastChange();
@@ -214,6 +218,7 @@ public interface Identifiable extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_LongName()
 	 * @model unsettable="true" ordered="false"
 	 *        extendedMetaData="name='LONG-NAME' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='LONG-NAME' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getLongName();
@@ -268,6 +273,7 @@ public interface Identifiable extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_AlternativeID()
 	 * @model containment="true" unsettable="true" ordered="false"
 	 *        extendedMetaData="name='ALTERNATIVE-ID' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ALTERNATIVE-ID' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	AlternativeID getAlternativeID();

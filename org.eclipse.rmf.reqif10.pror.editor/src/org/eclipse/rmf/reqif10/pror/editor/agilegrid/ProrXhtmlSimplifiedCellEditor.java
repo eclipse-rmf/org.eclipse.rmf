@@ -111,11 +111,9 @@ public class ProrXhtmlSimplifiedCellEditor extends ProrCellEditor {
 		// Command for setting new simplified version
 		Command setTheValueCmd = SetCommand.create(editingDomain,
 				origTheValue,
-				ReqIF10Package.Literals.XHTML_CONTENT__DIV, div);
-		Command removePCmd = SetCommand.create(editingDomain,
-				origTheValue, ReqIF10Package.Literals.XHTML_CONTENT__P, null);
+				ReqIF10Package.Literals.XHTML_CONTENT__XHTML, div);
+		
 		compoundCommand.append(setTheValueCmd);
-		compoundCommand.append(removePCmd);
 		editingDomain.getCommandStack().execute(compoundCommand);
 
 		return attributeValue;

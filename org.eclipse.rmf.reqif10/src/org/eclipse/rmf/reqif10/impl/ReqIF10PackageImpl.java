@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -73,14 +73,6 @@ import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
 import org.eclipse.rmf.reqif10.XhtmlContent;
-
-import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
-
-import org.eclipse.rmf.reqif10.datatypes.impl.DatatypesPackageImpl;
-
-import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
-
-import org.eclipse.rmf.reqif10.xhtml.impl.XhtmlPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -479,27 +471,14 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		isInited = true;
 
 		// Initialize simple dependencies
-		XMLNamespacePackage.eINSTANCE.eClass();
 		XMLTypePackage.eINSTANCE.eClass();
 		XMLNamespacePackage.eINSTANCE.eClass();
 
-		// Obtain or create and register interdependencies
-		XhtmlPackageImpl theXhtmlPackage = (XhtmlPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI) instanceof XhtmlPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI) : XhtmlPackage.eINSTANCE);
-		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) : DatatypesPackage.eINSTANCE);
-
-		// Load packages
-		theXhtmlPackage.loadPackage();
-
 		// Create package meta-data objects
 		theReqIF10Package.createPackageContents();
-		theDatatypesPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theReqIF10Package.initializePackageContents();
-		theDatatypesPackage.initializePackageContents();
-
-		// Fix loaded packages
-		theXhtmlPackage.fixPackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theReqIF10Package.freeze();
@@ -911,8 +890,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReqIFToolExtension_Any() {
-		return (EAttribute)reqIFToolExtensionEClass.getEStructuralFeatures().get(0);
+	public EReference getReqIFToolExtension_Extensions() {
+		return (EReference)reqIFToolExtensionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1694,7 +1673,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getXhtmlContent_P() {
+	public EReference getXhtmlContent_Xhtml() {
 		return (EReference)xhtmlContentEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1703,8 +1682,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getXhtmlContent_Div() {
-		return (EReference)xhtmlContentEClass.getEStructuralFeatures().get(1);
+	public EAttribute getXhtmlContent_XhtmlSource() {
+		return (EAttribute)xhtmlContentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1799,7 +1778,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		createEAttribute(reqIFHeaderEClass, REQ_IF_HEADER__TITLE);
 
 		reqIFToolExtensionEClass = createEClass(REQ_IF_TOOL_EXTENSION);
-		createEAttribute(reqIFToolExtensionEClass, REQ_IF_TOOL_EXTENSION__ANY);
+		createEReference(reqIFToolExtensionEClass, REQ_IF_TOOL_EXTENSION__EXTENSIONS);
 
 		specObjectEClass = createEClass(SPEC_OBJECT);
 		createEReference(specObjectEClass, SPEC_OBJECT__TYPE);
@@ -1922,8 +1901,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		createEReference(attributeValueStringEClass, ATTRIBUTE_VALUE_STRING__DEFINITION);
 
 		xhtmlContentEClass = createEClass(XHTML_CONTENT);
-		createEReference(xhtmlContentEClass, XHTML_CONTENT__P);
-		createEReference(xhtmlContentEClass, XHTML_CONTENT__DIV);
+		createEReference(xhtmlContentEClass, XHTML_CONTENT__XHTML);
+		createEAttribute(xhtmlContentEClass, XHTML_CONTENT__XHTML_SOURCE);
 
 		// Create data types
 		idEDataType = createEDataType(ID);
@@ -1954,8 +1933,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 
 		// Obtain other dependent packages
 		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
-		XMLNamespacePackage theXMLNamespacePackage_1 = (XMLNamespacePackage)EPackage.Registry.INSTANCE.getEPackage(XMLNamespacePackage.eNS_URI);
-		XhtmlPackage theXhtmlPackage = (XhtmlPackage)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI);
+		XMLNamespacePackage theXMLNamespacePackage = (XMLNamespacePackage)EPackage.Registry.INSTANCE.getEPackage(XMLNamespacePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -2042,7 +2020,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		initEReference(getReqIFContent_SpecRelationGroups(), this.getRelationGroup(), null, "specRelationGroups", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(reqIFEClass, ReqIF.class, "ReqIF", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReqIF_Lang(), theXMLNamespacePackage_1.getLangType(), "lang", null, 0, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReqIF_Lang(), theXMLNamespacePackage.getLangType(), "lang", null, 0, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getReqIF_TheHeader(), this.getReqIFHeader(), null, "theHeader", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getReqIF_CoreContent(), this.getReqIFContent(), null, "coreContent", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getReqIF_ToolExtensions(), this.getReqIFToolExtension(), null, "toolExtensions", null, 0, -1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2058,7 +2036,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		initEAttribute(getReqIFHeader_Title(), ecorePackage.getEString(), "title", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(reqIFToolExtensionEClass, ReqIFToolExtension.class, "ReqIFToolExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReqIFToolExtension_Any(), ecorePackage.getEFeatureMapEntry(), "any", null, 0, 1, ReqIFToolExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReqIFToolExtension_Extensions(), ecorePackage.getEObject(), null, "extensions", null, 0, -1, ReqIFToolExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(specObjectEClass, SpecObject.class, "SpecObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSpecObject_Type(), this.getSpecObjectType(), null, "type", null, 1, 1, SpecObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2181,8 +2159,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		initEReference(getAttributeValueString_Definition(), this.getAttributeDefinitionString(), null, "definition", null, 1, 1, AttributeValueString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(xhtmlContentEClass, XhtmlContent.class, "XhtmlContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getXhtmlContent_P(), theXhtmlPackage.getXhtmlPType(), null, "p", null, 0, 1, XhtmlContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXhtmlContent_Div(), theXhtmlPackage.getXhtmlDivType(), null, "div", null, 0, 1, XhtmlContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXhtmlContent_Xhtml(), ecorePackage.getEObject(), null, "xhtml", null, 0, 1, XhtmlContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXhtmlContent_XhtmlSource(), ecorePackage.getEString(), "xhtmlSource", null, 0, 1, XhtmlContent.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(idEDataType, String.class, "ID", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -2193,6 +2171,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		// Create annotations
 		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
 		createExtendedMetaDataAnnotations();
+		// http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData
+		createXMLPersistenceMappingExtendedMetaDataAnnotations();
 	}
 
 	/**
@@ -2209,49 +2189,49 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		   new String[] {
 			 "name", "ACCESS-CONTROLLED-ELEMENT",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAccessControlledElement_Editable(), 
 		   source, 
 		   new String[] {
 			 "name", "IS-EDITABLE",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (identifiableEClass, 
 		   source, 
 		   new String[] {
 			 "name", "IDENTIFIABLE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getIdentifiable_Desc(), 
 		   source, 
 		   new String[] {
 			 "name", "DESC",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getIdentifiable_Identifier(), 
 		   source, 
 		   new String[] {
 			 "name", "IDENTIFIER",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getIdentifiable_LastChange(), 
 		   source, 
 		   new String[] {
 			 "name", "LAST-CHANGE",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getIdentifiable_LongName(), 
 		   source, 
 		   new String[] {
 			 "name", "LONG-NAME",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getIdentifiable_AlternativeID(), 
 		   source, 
@@ -2259,21 +2239,21 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "ALTERNATIVE-ID",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeValueXHTMLEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-VALUE-XHTML",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueXHTML_Simplified(), 
 		   source, 
 		   new String[] {
 			 "name", "IS-SIMPLIFIED",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueXHTML_Definition(), 
 		   source, 
@@ -2281,7 +2261,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFINITION",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueXHTML_TheOriginalValue(), 
 		   source, 
@@ -2289,7 +2269,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "THE-ORIGINAL-VALUE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueXHTML_TheValue(), 
 		   source, 
@@ -2297,21 +2277,21 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "THE-VALUE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeValueEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-VALUE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (specElementWithAttributesEClass, 
 		   source, 
 		   new String[] {
 			 "name", "SPEC-ELEMENT-WITH-ATTRIBUTES",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getSpecElementWithAttributes_Values(), 
 		   source, 
@@ -2319,14 +2299,14 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "VALUES",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeDefinitionXHTMLEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-DEFINITION-XHTML",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionXHTML_Type(), 
 		   source, 
@@ -2334,7 +2314,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TYPE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionXHTML_DefaultValue(), 
 		   source, 
@@ -2342,21 +2322,21 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFAULT-VALUE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeDefinitionEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-DEFINITION",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (specTypeEClass, 
 		   source, 
 		   new String[] {
 			 "name", "SPEC-TYPE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getSpecType_SpecAttributes(), 
 		   source, 
@@ -2364,14 +2344,14 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "SPEC-ATTRIBUTES",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (reqIFContentEClass, 
 		   source, 
 		   new String[] {
 			 "name", "REQ-IF-CONTENT",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFContent_Datatypes(), 
 		   source, 
@@ -2379,7 +2359,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DATATYPES",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFContent_SpecTypes(), 
 		   source, 
@@ -2387,7 +2367,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "SPEC-TYPES",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFContent_SpecObjects(), 
 		   source, 
@@ -2395,7 +2375,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "SPEC-OBJECTS",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFContent_SpecRelations(), 
 		   source, 
@@ -2403,7 +2383,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "SPEC-RELATIONS",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFContent_Specifications(), 
 		   source, 
@@ -2411,7 +2391,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "SPECIFICATIONS",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFContent_SpecRelationGroups(), 
 		   source, 
@@ -2419,20 +2399,21 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "SPEC-RELATION-GROUPS",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (reqIFEClass, 
 		   source, 
 		   new String[] {
 			 "name", "REQ-IF",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIF_Lang(), 
 		   source, 
 		   new String[] {
-			 "name", "LANG",
-			 "kind", "attribute"
+			 "name", "lang",
+			 "kind", "attribute",
+			 "namespace", "http://www.w3.org/XML/1998/namespace"
 		   });		
 		addAnnotation
 		  (getReqIF_TheHeader(), 
@@ -2441,7 +2422,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "THE-HEADER",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIF_CoreContent(), 
 		   source, 
@@ -2449,7 +2430,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "CORE-CONTENT",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIF_ToolExtensions(), 
 		   source, 
@@ -2457,14 +2438,14 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TOOL-EXTENSIONS",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (reqIFHeaderEClass, 
 		   source, 
 		   new String[] {
 			 "name", "REQ-IF-HEADER",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFHeader_Comment(), 
 		   source, 
@@ -2472,7 +2453,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "COMMENT",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFHeader_CreationTime(), 
 		   source, 
@@ -2480,14 +2461,14 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "CREATION-TIME",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFHeader_Identifier(), 
 		   source, 
 		   new String[] {
 			 "name", "IDENTIFIER",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFHeader_RepositoryId(), 
 		   source, 
@@ -2495,7 +2476,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "REPOSITORY-ID",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFHeader_ReqIFToolId(), 
 		   source, 
@@ -2503,7 +2484,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "REQ-IF-TOOL-ID",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFHeader_ReqIFVersion(), 
 		   source, 
@@ -2511,7 +2492,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "REQ-IF-VERSION",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFHeader_SourceToolId(), 
 		   source, 
@@ -2519,7 +2500,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "SOURCE-TOOL-ID",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getReqIFHeader_Title(), 
 		   source, 
@@ -2527,30 +2508,31 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TITLE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (reqIFToolExtensionEClass, 
 		   source, 
 		   new String[] {
 			 "name", "REQ-IF-TOOL-EXTENSION",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
-		  (getReqIFToolExtension_Any(), 
+		  (getReqIFToolExtension_Extensions(), 
 		   source, 
 		   new String[] {
+			 "name", "EXTENSIONS",
 			 "kind", "elementWildcard",
-			 "wildcards", "##other",
-			 "name", ":0",
-			 "processing", "lax"
-		   });		
+			 "namespace", "##targetNamespace",
+			 "precessing", "lax",
+			 "wildcards", "##other"
+		   });			
 		addAnnotation
 		  (specObjectEClass, 
 		   source, 
 		   new String[] {
 			 "name", "SPEC-OBJECT",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getSpecObject_Type(), 
 		   source, 
@@ -2558,21 +2540,21 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TYPE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (specObjectTypeEClass, 
 		   source, 
 		   new String[] {
 			 "name", "SPEC-OBJECT-TYPE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (specificationEClass, 
 		   source, 
 		   new String[] {
 			 "name", "SPECIFICATION",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getSpecification_Type(), 
 		   source, 
@@ -2580,7 +2562,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TYPE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getSpecification_Children(), 
 		   source, 
@@ -2588,28 +2570,28 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "CHILDREN",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (specificationTypeEClass, 
 		   source, 
 		   new String[] {
 			 "name", "SPECIFICATION-TYPE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (specHierarchyEClass, 
 		   source, 
 		   new String[] {
 			 "name", "SPEC-HIERARCHY",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getSpecHierarchy_TableInternal(), 
 		   source, 
 		   new String[] {
 			 "name", "IS-TABLE-INTERNAL",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getSpecHierarchy_Object(), 
 		   source, 
@@ -2617,7 +2599,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "OBJECT",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getSpecHierarchy_Children(), 
 		   source, 
@@ -2625,7 +2607,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "CHILDREN",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getSpecHierarchy_EditableAtts(), 
 		   source, 
@@ -2633,21 +2615,21 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "EDITABLE-ATTS",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (datatypeDefinitionEClass, 
 		   source, 
 		   new String[] {
 			 "name", "DATATYPE-DEFINITION",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (specRelationEClass, 
 		   source, 
 		   new String[] {
 			 "name", "SPEC-RELATION",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getSpecRelation_Target(), 
 		   source, 
@@ -2655,7 +2637,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TARGET",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getSpecRelation_Source(), 
 		   source, 
@@ -2663,7 +2645,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "SOURCE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getSpecRelation_Type(), 
 		   source, 
@@ -2671,21 +2653,21 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TYPE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (specRelationTypeEClass, 
 		   source, 
 		   new String[] {
 			 "name", "SPEC-RELATION-TYPE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (relationGroupEClass, 
 		   source, 
 		   new String[] {
 			 "name", "RELATION-GROUP",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getRelationGroup_SpecRelations(), 
 		   source, 
@@ -2693,7 +2675,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "SPEC-RELATIONS",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getRelationGroup_Type(), 
 		   source, 
@@ -2701,7 +2683,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TYPE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getRelationGroup_SourceSpecification(), 
 		   source, 
@@ -2709,7 +2691,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "SOURCE-SPECIFICATION",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getRelationGroup_TargetSpecification(), 
 		   source, 
@@ -2717,42 +2699,42 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TARGET-SPECIFICATION",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (relationGroupTypeEClass, 
 		   source, 
 		   new String[] {
 			 "name", "RELATION-GROUP-TYPE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (datatypeDefinitionXHTMLEClass, 
 		   source, 
 		   new String[] {
 			 "name", "DATATYPE-DEFINITION-XHTML",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (alternativeIDEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ALTERNATIVE-ID",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAlternativeID_Identifier(), 
 		   source, 
 		   new String[] {
 			 "name", "IDENTIFIER",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeDefinitionBooleanEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-DEFINITION-BOOLEAN",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionBoolean_Type(), 
 		   source, 
@@ -2760,7 +2742,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TYPE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionBoolean_DefaultValue(), 
 		   source, 
@@ -2768,42 +2750,42 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFAULT-VALUE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeDefinitionSimpleEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-DEFINITION-SIMPLE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (datatypeDefinitionBooleanEClass, 
 		   source, 
 		   new String[] {
 			 "name", "DATATYPE-DEFINITION-BOOLEAN",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (datatypeDefinitionSimpleEClass, 
 		   source, 
 		   new String[] {
 			 "name", "DATATYPE-DEFINITION-SIMPLE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeValueBooleanEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-VALUE-BOOLEAN",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueBoolean_TheValue(), 
 		   source, 
 		   new String[] {
 			 "name", "THE-VALUE",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueBoolean_Definition(), 
 		   source, 
@@ -2811,21 +2793,21 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFINITION",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeValueSimpleEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-VALUE-SIMPLE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeDefinitionDateEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-DEFINITION-DATE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionDate_Type(), 
 		   source, 
@@ -2833,7 +2815,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TYPE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionDate_DefaultValue(), 
 		   source, 
@@ -2841,28 +2823,28 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFAULT-VALUE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (datatypeDefinitionDateEClass, 
 		   source, 
 		   new String[] {
 			 "name", "DATATYPE-DEFINITION-DATE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeValueDateEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-VALUE-DATE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueDate_TheValue(), 
 		   source, 
 		   new String[] {
 			 "name", "THE-VALUE",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueDate_Definition(), 
 		   source, 
@@ -2870,21 +2852,21 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFINITION",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeDefinitionEnumerationEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-DEFINITION-ENUMERATION",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionEnumeration_MultiValued(), 
 		   source, 
 		   new String[] {
 			 "name", "MULTI-VALUED",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionEnumeration_Type(), 
 		   source, 
@@ -2892,7 +2874,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TYPE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionEnumeration_DefaultValue(), 
 		   source, 
@@ -2900,14 +2882,14 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFAULT-VALUE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (datatypeDefinitionEnumerationEClass, 
 		   source, 
 		   new String[] {
 			 "name", "DATATYPE-DEFINITION-ENUMERATION",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getDatatypeDefinitionEnumeration_SpecifiedValues(), 
 		   source, 
@@ -2915,14 +2897,14 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "SPECIFIED-VALUES",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (enumValueEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ENUM-VALUE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getEnumValue_Properties(), 
 		   source, 
@@ -2930,35 +2912,35 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "PROPERTIES",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (embeddedValueEClass, 
 		   source, 
 		   new String[] {
 			 "name", "EMBEDDED-VALUE",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getEmbeddedValue_Key(), 
 		   source, 
 		   new String[] {
 			 "name", "KEY",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getEmbeddedValue_OtherContent(), 
 		   source, 
 		   new String[] {
 			 "name", "OTHER-CONTENT",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeValueEnumerationEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-VALUE-ENUMERATION",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueEnumeration_Values(), 
 		   source, 
@@ -2966,7 +2948,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "VALUES",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueEnumeration_Definition(), 
 		   source, 
@@ -2974,14 +2956,14 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFINITION",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeDefinitionIntegerEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-DEFINITION-INTEGER",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionInteger_Type(), 
 		   source, 
@@ -2989,7 +2971,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TYPE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionInteger_DefaultValue(), 
 		   source, 
@@ -2997,42 +2979,42 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFAULT-VALUE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (datatypeDefinitionIntegerEClass, 
 		   source, 
 		   new String[] {
 			 "name", "DATATYPE-DEFINITION-INTEGER",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getDatatypeDefinitionInteger_Max(), 
 		   source, 
 		   new String[] {
 			 "name", "MAX",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getDatatypeDefinitionInteger_Min(), 
 		   source, 
 		   new String[] {
 			 "name", "MIN",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeValueIntegerEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-VALUE-INTEGER",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueInteger_TheValue(), 
 		   source, 
 		   new String[] {
 			 "name", "THE-VALUE",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueInteger_Definition(), 
 		   source, 
@@ -3040,14 +3022,14 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFINITION",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeDefinitionRealEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-DEFINITION-REAL",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionReal_Type(), 
 		   source, 
@@ -3055,7 +3037,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TYPE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionReal_DefaultValue(), 
 		   source, 
@@ -3063,49 +3045,49 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFAULT-VALUE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (datatypeDefinitionRealEClass, 
 		   source, 
 		   new String[] {
 			 "name", "DATATYPE-DEFINITION-REAL",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getDatatypeDefinitionReal_Accuracy(), 
 		   source, 
 		   new String[] {
 			 "name", "ACCURACY",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getDatatypeDefinitionReal_Max(), 
 		   source, 
 		   new String[] {
 			 "name", "MAX",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getDatatypeDefinitionReal_Min(), 
 		   source, 
 		   new String[] {
 			 "name", "MIN",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeValueRealEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-VALUE-REAL",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueReal_TheValue(), 
 		   source, 
 		   new String[] {
 			 "name", "THE-VALUE",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueReal_Definition(), 
 		   source, 
@@ -3113,14 +3095,14 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFINITION",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeDefinitionStringEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-DEFINITION-STRING",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionString_Type(), 
 		   source, 
@@ -3128,7 +3110,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "TYPE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeDefinitionString_DefaultValue(), 
 		   source, 
@@ -3136,35 +3118,35 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFAULT-VALUE",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (datatypeDefinitionStringEClass, 
 		   source, 
 		   new String[] {
 			 "name", "DATATYPE-DEFINITION-STRING",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getDatatypeDefinitionString_MaxLength(), 
 		   source, 
 		   new String[] {
 			 "name", "MAX-LENGTH",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (attributeValueStringEClass, 
 		   source, 
 		   new String[] {
 			 "name", "ATTRIBUTE-VALUE-STRING",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueString_TheValue(), 
 		   source, 
 		   new String[] {
 			 "name", "THE-VALUE",
 			 "kind", "attribute"
-		   });		
+		   });			
 		addAnnotation
 		  (getAttributeValueString_Definition(), 
 		   source, 
@@ -3172,29 +3154,1195 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 			 "name", "DEFINITION",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });		
+		   });			
 		addAnnotation
 		  (xhtmlContentEClass, 
 		   source, 
 		   new String[] {
 			 "name", "XHTML-CONTENT",
 			 "kind", "elementOnly"
-		   });		
+		   });			
 		addAnnotation
-		  (getXhtmlContent_P(), 
+		  (getXhtmlContent_Xhtml(), 
 		   source, 
 		   new String[] {
-			 "name", "p",
-			 "kind", "element",
-			 "namespace", "http://www.w3.org/1999/xhtml"
-		   });		
+			 "name", "XHTML",
+			 "kind", "elementWildcard",
+			 "namespace", "##targetNamespace",
+			 "precessing", "lax",
+			 "wildcards", "http://www.w3.org/1999/xhtml"
+		   });			
 		addAnnotation
-		  (getXhtmlContent_Div(), 
+		  (getXhtmlContent_XhtmlSource(), 
 		   source, 
 		   new String[] {
-			 "name", "div",
+			 "name", "XHTML-SOURCE",
 			 "kind", "element",
-			 "namespace", "http://www.w3.org/1999/xhtml"
+			 "namespace", "##targetNamespace"
+		   });	
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createXMLPersistenceMappingExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";			
+		addAnnotation
+		  (accessControlledElementEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ACCESS-CONTROLLED-ELEMENT"
+		   });			
+		addAnnotation
+		  (getAccessControlledElement_Editable(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "IS-EDITABLE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (identifiableEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "IDENTIFIABLE"
+		   });			
+		addAnnotation
+		  (getIdentifiable_Desc(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DESC",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getIdentifiable_Identifier(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "IDENTIFIER",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getIdentifiable_LastChange(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "LAST-CHANGE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getIdentifiable_LongName(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "LONG-NAME",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getIdentifiable_AlternativeID(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ALTERNATIVE-ID",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (attributeValueXHTMLEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-VALUE-XHTML"
+		   });			
+		addAnnotation
+		  (getAttributeValueXHTML_Simplified(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "IS-SIMPLIFIED",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getAttributeValueXHTML_Definition(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFINITION",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getAttributeValueXHTML_TheOriginalValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "THE-ORIGINAL-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getAttributeValueXHTML_TheValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "THE-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (attributeValueEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-VALUE"
+		   });			
+		addAnnotation
+		  (specElementWithAttributesEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPEC-ELEMENT-WITH-ATTRIBUTES"
+		   });			
+		addAnnotation
+		  (getSpecElementWithAttributes_Values(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "VALUES",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (attributeDefinitionXHTMLEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-DEFINITION-XHTML"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionXHTML_Type(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TYPE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionXHTML_DefaultValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFAULT-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (attributeDefinitionEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-DEFINITION"
+		   });			
+		addAnnotation
+		  (specTypeEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPEC-TYPE"
+		   });			
+		addAnnotation
+		  (getSpecType_SpecAttributes(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPEC-ATTRIBUTES",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (reqIFContentEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "REQ-IF-CONTENT"
+		   });			
+		addAnnotation
+		  (getReqIFContent_Datatypes(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DATATYPES",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getReqIFContent_SpecTypes(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPEC-TYPES",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getReqIFContent_SpecObjects(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPEC-OBJECTS",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getReqIFContent_SpecRelations(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPEC-RELATIONS",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getReqIFContent_Specifications(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPECIFICATIONS",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getReqIFContent_SpecRelationGroups(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPEC-RELATION-GROUPS",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (reqIFEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "REQ-IF"
+		   });				
+		addAnnotation
+		  (getReqIF_TheHeader(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "THE-HEADER",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getReqIF_CoreContent(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "CORE-CONTENT",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getReqIF_ToolExtensions(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TOOL-EXTENSIONS",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (reqIFHeaderEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "REQ-IF-HEADER"
+		   });			
+		addAnnotation
+		  (getReqIFHeader_Comment(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "COMMENT",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getReqIFHeader_CreationTime(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "CREATION-TIME",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getReqIFHeader_Identifier(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "IDENTIFIER",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getReqIFHeader_RepositoryId(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "REPOSITORY-ID",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getReqIFHeader_ReqIFToolId(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "REQ-IF-TOOL-ID",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getReqIFHeader_ReqIFVersion(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "REQ-IF-VERSION",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getReqIFHeader_SourceToolId(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SOURCE-TOOL-ID",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getReqIFHeader_Title(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TITLE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (reqIFToolExtensionEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "REQ-IF-TOOL-EXTENSION"
+		   });			
+		addAnnotation
+		  (getReqIFToolExtension_Extensions(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "EXTENSIONS",
+			 "featureWrapperElement", "false",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (specObjectEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPEC-OBJECT"
+		   });			
+		addAnnotation
+		  (getSpecObject_Type(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TYPE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (specObjectTypeEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPEC-OBJECT-TYPE"
+		   });			
+		addAnnotation
+		  (specificationEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPECIFICATION"
+		   });			
+		addAnnotation
+		  (getSpecification_Type(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TYPE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getSpecification_Children(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "CHILDREN",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (specificationTypeEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPECIFICATION-TYPE"
+		   });			
+		addAnnotation
+		  (specHierarchyEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPEC-HIERARCHY"
+		   });			
+		addAnnotation
+		  (getSpecHierarchy_TableInternal(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "IS-TABLE-INTERNAL",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getSpecHierarchy_Object(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "OBJECT",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getSpecHierarchy_Children(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "CHILDREN",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getSpecHierarchy_EditableAtts(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "EDITABLE-ATTS",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (datatypeDefinitionEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DATATYPE-DEFINITION"
+		   });			
+		addAnnotation
+		  (specRelationEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPEC-RELATION"
+		   });			
+		addAnnotation
+		  (getSpecRelation_Target(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TARGET",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getSpecRelation_Source(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SOURCE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getSpecRelation_Type(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TYPE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (specRelationTypeEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPEC-RELATION-TYPE"
+		   });			
+		addAnnotation
+		  (relationGroupEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "RELATION-GROUP"
+		   });			
+		addAnnotation
+		  (getRelationGroup_SpecRelations(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPEC-RELATIONS",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getRelationGroup_Type(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TYPE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getRelationGroup_SourceSpecification(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SOURCE-SPECIFICATION",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getRelationGroup_TargetSpecification(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TARGET-SPECIFICATION",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (relationGroupTypeEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "RELATION-GROUP-TYPE"
+		   });			
+		addAnnotation
+		  (datatypeDefinitionXHTMLEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DATATYPE-DEFINITION-XHTML"
+		   });			
+		addAnnotation
+		  (alternativeIDEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ALTERNATIVE-ID"
+		   });			
+		addAnnotation
+		  (getAlternativeID_Identifier(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "IDENTIFIER",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (attributeDefinitionBooleanEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-DEFINITION-BOOLEAN"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionBoolean_Type(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TYPE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionBoolean_DefaultValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFAULT-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (attributeDefinitionSimpleEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-DEFINITION-SIMPLE"
+		   });			
+		addAnnotation
+		  (datatypeDefinitionBooleanEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DATATYPE-DEFINITION-BOOLEAN"
+		   });			
+		addAnnotation
+		  (datatypeDefinitionSimpleEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DATATYPE-DEFINITION-SIMPLE"
+		   });			
+		addAnnotation
+		  (attributeValueBooleanEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-VALUE-BOOLEAN"
+		   });			
+		addAnnotation
+		  (getAttributeValueBoolean_TheValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "THE-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getAttributeValueBoolean_Definition(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFINITION",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (attributeValueSimpleEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-VALUE-SIMPLE"
+		   });			
+		addAnnotation
+		  (attributeDefinitionDateEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-DEFINITION-DATE"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionDate_Type(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TYPE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionDate_DefaultValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFAULT-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (datatypeDefinitionDateEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DATATYPE-DEFINITION-DATE"
+		   });			
+		addAnnotation
+		  (attributeValueDateEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-VALUE-DATE"
+		   });			
+		addAnnotation
+		  (getAttributeValueDate_TheValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "THE-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getAttributeValueDate_Definition(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFINITION",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (attributeDefinitionEnumerationEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-DEFINITION-ENUMERATION"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionEnumeration_MultiValued(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "MULTI-VALUED",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionEnumeration_Type(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TYPE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionEnumeration_DefaultValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFAULT-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (datatypeDefinitionEnumerationEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DATATYPE-DEFINITION-ENUMERATION"
+		   });			
+		addAnnotation
+		  (getDatatypeDefinitionEnumeration_SpecifiedValues(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "SPECIFIED-VALUES",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (enumValueEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ENUM-VALUE"
+		   });			
+		addAnnotation
+		  (getEnumValue_Properties(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "PROPERTIES",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (embeddedValueEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "EMBEDDED-VALUE"
+		   });			
+		addAnnotation
+		  (getEmbeddedValue_Key(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "KEY",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getEmbeddedValue_OtherContent(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "OTHER-CONTENT",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (attributeValueEnumerationEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-VALUE-ENUMERATION"
+		   });			
+		addAnnotation
+		  (getAttributeValueEnumeration_Values(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "VALUES",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getAttributeValueEnumeration_Definition(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFINITION",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (attributeDefinitionIntegerEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-DEFINITION-INTEGER"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionInteger_Type(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TYPE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionInteger_DefaultValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFAULT-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (datatypeDefinitionIntegerEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DATATYPE-DEFINITION-INTEGER"
+		   });			
+		addAnnotation
+		  (getDatatypeDefinitionInteger_Max(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "MAX",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getDatatypeDefinitionInteger_Min(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "MIN",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (attributeValueIntegerEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-VALUE-INTEGER"
+		   });			
+		addAnnotation
+		  (getAttributeValueInteger_TheValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "THE-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getAttributeValueInteger_Definition(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFINITION",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (attributeDefinitionRealEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-DEFINITION-REAL"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionReal_Type(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TYPE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionReal_DefaultValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFAULT-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (datatypeDefinitionRealEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DATATYPE-DEFINITION-REAL"
+		   });			
+		addAnnotation
+		  (getDatatypeDefinitionReal_Accuracy(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ACCURACY",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getDatatypeDefinitionReal_Max(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "MAX",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getDatatypeDefinitionReal_Min(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "MIN",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (attributeValueRealEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-VALUE-REAL"
+		   });			
+		addAnnotation
+		  (getAttributeValueReal_TheValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "THE-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getAttributeValueReal_Definition(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFINITION",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (attributeDefinitionStringEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-DEFINITION-STRING"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionString_Type(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "TYPE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (getAttributeDefinitionString_DefaultValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFAULT-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (datatypeDefinitionStringEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DATATYPE-DEFINITION-STRING"
+		   });			
+		addAnnotation
+		  (getDatatypeDefinitionString_MaxLength(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "MAX-LENGTH",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (attributeValueStringEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "ATTRIBUTE-VALUE-STRING"
+		   });			
+		addAnnotation
+		  (getAttributeValueString_TheValue(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "THE-VALUE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
+		   });			
+		addAnnotation
+		  (getAttributeValueString_Definition(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "DEFINITION",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true",
+			 "classifierNameSuffix", "-REF"
+		   });			
+		addAnnotation
+		  (xhtmlContentEClass, 
+		   source, 
+		   new String[] {
+			 "wrapperName", "XHTML-CONTENT"
+		   });			
+		addAnnotation
+		  (getXhtmlContent_Xhtml(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "XHTML",
+			 "featureWrapperElement", "false",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getXhtmlContent_XhtmlSource(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "XHTML-SOURCE",
+			 "featureWrapperElement", "false",
+			 "featureElement", "true",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "false"
 		   });
 	}
 

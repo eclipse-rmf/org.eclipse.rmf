@@ -76,7 +76,7 @@ public class ProgressMonitorTests extends AbstractTestCase {
 					.loadResource("resources/input/" + inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), options);
 			assertSame(1, beginTaskCount);
 			assertSame(4, myTotalWork);
-			assertSame(4, worked);
+			assertSame(0, worked);
 			assertSame(1, doneCount);
 		} catch (Exception ex) {
 			assertTrue(ex.getMessage(), false);

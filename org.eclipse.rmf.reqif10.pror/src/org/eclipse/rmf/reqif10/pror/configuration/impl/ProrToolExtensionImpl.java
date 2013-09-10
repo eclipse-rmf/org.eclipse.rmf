@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.rmf.reqif10.impl.ReqIFToolExtensionImpl;
@@ -43,7 +44,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
  *
  * @generated
  */
-public class ProrToolExtensionImpl extends ReqIFToolExtensionImpl implements ProrToolExtension {
+public class ProrToolExtensionImpl extends EObjectImpl implements ProrToolExtension {
 	/**
 	 * The cached value of the '{@link #getSpecViewConfigurations() <em>Spec View Configurations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

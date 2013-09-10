@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,6 +27,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionEnumeration()
  * @model extendedMetaData="name='DATATYPE-DEFINITION-ENUMERATION' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DATATYPE-DEFINITION-ENUMERATION'"
  * @generated
  */
 public interface DatatypeDefinitionEnumeration extends DatatypeDefinition {
@@ -45,6 +46,7 @@ public interface DatatypeDefinitionEnumeration extends DatatypeDefinition {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionEnumeration_SpecifiedValues()
 	 * @model containment="true" unsettable="true"
 	 *        extendedMetaData="name='SPECIFIED-VALUES' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPECIFIED-VALUES' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<EnumValue> getSpecifiedValues();

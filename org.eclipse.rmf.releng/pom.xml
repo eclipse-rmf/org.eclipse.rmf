@@ -292,11 +292,15 @@
 
 				<!-- ReqIF Core -->
 				<module>../org.eclipse.rmf.reqif10</module>
+				<module>../org.eclipse.rmf.reqif10.edit</module>
+				<module>../org.eclipse.rmf.reqif10.xhtml</module>
+				<module>../org.eclipse.rmf.reqif10.xhtml.edit</module>
 				<module>../org.eclipse.rmf.reqif10.common</module>
 				<module>../org.eclipse.rmf.serialization</module>
 				<module>../org.eclipse.rmf.reqif10.feature</module>
 				<module>../org.eclipse.rmf.reqif10.sdk.feature</module>
-				<module>../org.eclipse.rmf.reqif10.tests</module>
+				<module>../org.eclipse.rmf.tests.serialization</module>
+				<module>../org.eclipse.rmf.tests.serialization.reqif10</module>
 				<module>../org.eclipse.rmf.reqif10.tests.feature</module>
 
 				<!-- ReqIF UI ProR -->
@@ -335,27 +339,7 @@
 			</modules>
 
 		</profile>
-		<profile>
-			<id>NEW_SERIALIZATION</id>
-			<activation>
-				<property>
-					<name>NEW_SERIALIZATION</name>
-				</property>
-			</activation>
-			<modules>
-				<module>../org.eclipse.rmf.releng.target</module>
 
-				<!-- updated Core only -->
-				<module>../org.eclipse.rmf.reqif10_2</module>
-				<module>../org.eclipse.rmf.reqif10_2.edit</module>
-				<module>../org.eclipse.rmf.reqif10.xhtml</module>
-				<module>../org.eclipse.rmf.reqif10.xhtml.edit</module>
-				<module>../org.eclipse.rmf.serialization2</module>
-				<module>../org.eclipse.rmf.tests.serialization</module>
-				<module>../org.eclipse.rmf.tests.serialization.reqif10</module>
-			</modules>
-
-		</profile>
 
 	</profiles>
 
