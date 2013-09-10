@@ -55,6 +55,7 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
+import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
@@ -257,7 +258,7 @@ public abstract class AbstractTestCase {
 		URI emfURI = createEMFURI(fileName);
 		Resource resource = resourceSet.createResource(emfURI);
 		resource.getContents().add(reqif);
-		resource.save(null);
+		resource.save(getSaveOptions());
 	}
 
 	protected static ReqIF loadReqIFFile(String fileName) throws IOException {
@@ -432,10 +433,22 @@ public abstract class AbstractTestCase {
 			ZipEntry zipEntry = new ZipEntry(entryName + "_" + i + ".reqif");
 
 			zipOutputStream.putNextEntry(zipEntry);
-			resource.save(zipOutputStream, null);
+			resource.save(zipOutputStream, getSaveOptions());
 		}
 
 		zipOutputStream.close();
+	}
+	
+	private static Map<Object, Object> getSaveOptions() {
+		Map<Object, Object> options = new HashMap<Object, Object>();
+		options.put(XMLPersistenceMappingResource.OPTION_NAMEPSACE_TO_PREFIX_MAP, getNamespaceToPrefixMap());
+		return options;
+	}
+
+	private static Map<String, String> getNamespaceToPrefixMap() {
+		Map<String, String> namespaceToPrefixMap = new HashMap<String, String>();
+		namespaceToPrefixMap.put(ReqIF10Package.eNS_URI, "");
+		return namespaceToPrefixMap;
 	}
 
 }

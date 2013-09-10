@@ -19,11 +19,15 @@ import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
+import org.eclipse.rmf.tests.serialization.reqif10.model.toolextension.Extension;
+import org.eclipse.rmf.tests.serialization.reqif10.model.toolextension.SpecObjectExtension;
+import org.eclipse.rmf.tests.serialization.reqif10.model.toolextension.ToolextensionFactory;
 import org.eclipse.rmf.tests.serialization.reqif10.util.SimpleModelBuilder;
 
 @SuppressWarnings("nls")
@@ -136,37 +140,25 @@ public class TC3000ToolExtensionsModelBuilder extends SimpleModelBuilder {
 
 	}
 
-	/*
+
 	@Override
 	public void createToolExtensions() throws Exception {
-		// TODO: remove dependency to ProR
-		ProrToolExtension prorToolExtension = ConfigurationFactory.eINSTANCE.createProrToolExtension();
-
-		ProrSpecViewConfiguration prorSpecViewConfiguration;
-		prorSpecViewConfiguration = ConfigurationFactory.eINSTANCE.createProrSpecViewConfiguration();
-		prorToolExtension.getSpecViewConfigurations().add(prorSpecViewConfiguration);
-		prorSpecViewConfiguration = ConfigurationFactory.eINSTANCE.createProrSpecViewConfiguration();
-		prorToolExtension.getSpecViewConfigurations().add(prorSpecViewConfiguration);
-
-		ProrGeneralConfiguration prorGeneralConfiguration = ConfigurationFactory.eINSTANCE.createProrGeneralConfiguration();
-		prorToolExtension.setGeneralConfiguration(prorGeneralConfiguration);
-		LabelConfiguration labelConfiguration = ConfigurationFactory.eINSTANCE.createLabelConfiguration();
-		prorGeneralConfiguration.setLabelConfiguration(labelConfiguration);
-
-		ProrPresentationConfigurations prorPresentationConfigurations;
-		HeadlineConfiguration headlineConfiguration;
-		prorPresentationConfigurations = ConfigurationFactory.eINSTANCE.createProrPresentationConfigurations();
-		prorToolExtension.setPresentationConfigurations(prorPresentationConfigurations);
-		headlineConfiguration = HeadlineFactory.eINSTANCE.createHeadlineConfiguration();
-		prorPresentationConfigurations.getPresentationConfigurations().add(headlineConfiguration);
-		headlineConfiguration.setDatatype(datatypeDefinitionString);
-
-		prorToolExtension.setPresentationConfigurations(prorPresentationConfigurations);
-		headlineConfiguration = HeadlineFactory.eINSTANCE.createHeadlineConfiguration();
-		prorPresentationConfigurations.getPresentationConfigurations().add(headlineConfiguration);
-		headlineConfiguration.setDatatype(datatypeDefinitionString);
-
-		ReqIFToolExtensionUtil.addToolExtension(getReqIF(), prorToolExtension);
+		Extension extension = ToolextensionFactory.eINSTANCE.createExtension();
+		
+		SpecObjectExtension specObjectExtension1 = ToolextensionFactory.eINSTANCE.createSpecObjectExtension();
+		specObjectExtension1.setExtendedDesc("This is an extended description of a SpecObject");
+		specObjectExtension1.setExtendedSpecObject(specObject);
+		
+		SpecObjectExtension specObjectExtension2 = ToolextensionFactory.eINSTANCE.createSpecObjectExtension();
+		specObjectExtension2.setExtendedDesc("This is another extended description of a SpecObject");
+		specObjectExtension2.setExtendedSpecObject(specObject);
+		
+		extension.getSpecObjectExtensions().add(specObjectExtension1);
+		extension.getSpecObjectExtensions().add(specObjectExtension2);
+		
+		ReqIFToolExtension reqIFToolExtension = ReqIF10Factory.eINSTANCE.createReqIFToolExtension();
+		reqIFToolExtension.getExtensions().add(extension);
+		
+		getReqIF().getToolExtensions().add(reqIFToolExtension);
 	}
-	*/
 }
