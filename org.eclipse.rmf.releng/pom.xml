@@ -299,10 +299,11 @@
 				<module>../org.eclipse.rmf.reqif10.serialization</module>
 				<module>../org.eclipse.rmf.serialization</module>
 				<module>../org.eclipse.rmf.reqif10.feature</module>
+				<module>../org.eclipse.rmf.reqif10.thirdparty.feature</module>
 				<module>../org.eclipse.rmf.reqif10.sdk.feature</module>
 				<module>../org.eclipse.rmf.tests.serialization</module>
-				<module>../org.eclipse.rmf.tests.serialization.reqif10</module>
-				<module>../org.eclipse.rmf.reqif10.tests.feature</module>
+				<module>../org.eclipse.rmf.tests.reqif10.serialization</module>
+				<module>../org.eclipse.rmf.tests.reqif10.feature</module>
 
 				<!-- ReqIF UI ProR -->
 				<module>../org.eclipse.rmf.reqif10.pror</module>

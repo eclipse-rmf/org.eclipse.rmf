@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Export-Package: org.eclipse.rmf.reqif10.serialization
+Require-Bundle: org.eclipse.rmf.serialization;bundle-version="0.8.0",o
+ rg.eclipse.rmf.reqif10;bundle-version="0.8.0",org.eclipse.rmf.reqif10
+ .xhtml;bundle-version="0.8.0"
+Bundle-Vendor: %providerName
+Bundle-Version: 0.8.0.201309111411
+Bundle-Name: %pluginName
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.rmf.reqif10.serialization
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+
