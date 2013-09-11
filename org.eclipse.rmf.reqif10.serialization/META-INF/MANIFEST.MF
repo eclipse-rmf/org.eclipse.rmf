@@ -9,3 +9,4 @@ Require-Bundle: org.eclipse.rmf.serialization;bundle-version="0.8.0",
  org.eclipse.rmf.reqif10.xhtml;bundle-version="0.8.0"
 Export-Package: org.eclipse.rmf.reqif10.serialization
 Bundle-Vendor: %providerName
+Bundle-Localization: plugin

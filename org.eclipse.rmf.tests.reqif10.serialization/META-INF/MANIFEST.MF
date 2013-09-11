@@ -11,3 +11,4 @@ Require-Bundle: org.junit,
  org.eclipse.rmf.reqif10.serialization;bundle-version="0.8.0",
  org.eclipse.rmf.serialization;bundle-version="0.8.0"
 Bundle-Vendor: %providerName
+Bundle-Localization: plugin
