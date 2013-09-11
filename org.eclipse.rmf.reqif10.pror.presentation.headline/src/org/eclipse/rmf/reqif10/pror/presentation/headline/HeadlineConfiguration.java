@@ -41,9 +41,11 @@ public interface HeadlineConfiguration extends ProrPresentationConfiguration {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Size</em>' attribute.
+	 * @see #isSetSize()
+	 * @see #unsetSize()
 	 * @see #setSize(int)
 	 * @see org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlinePackage#getHeadlineConfiguration_Size()
-	 * @model default="14" required="true"
+	 * @model default="14" unsettable="true" required="true"
 	 * @generated
 	 */
 	int getSize();
@@ -53,9 +55,34 @@ public interface HeadlineConfiguration extends ProrPresentationConfiguration {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Size</em>' attribute.
+	 * @see #isSetSize()
+	 * @see #unsetSize()
 	 * @see #getSize()
 	 * @generated
 	 */
 	void setSize(int value);
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineConfiguration#getSize <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetSize()
+	 * @see #getSize()
+	 * @see #setSize(int)
+	 * @generated
+	 */
+	void unsetSize();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.pror.presentation.headline.HeadlineConfiguration#getSize <em>Size</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Size</em>' attribute is set.
+	 * @see #unsetSize()
+	 * @see #getSize()
+	 * @see #setSize(int)
+	 * @generated
+	 */
+	boolean isSetSize();
 
 } // HeadlineConfiguration

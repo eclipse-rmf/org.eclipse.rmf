@@ -40,9 +40,11 @@ public interface ProrPresentationConfiguration extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Datatype</em>' reference.
+	 * @see #isSetDatatype()
+	 * @see #unsetDatatype()
 	 * @see #setDatatype(DatatypeDefinition)
 	 * @see org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage#getProrPresentationConfiguration_Datatype()
-	 * @model required="true"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	DatatypeDefinition getDatatype();
@@ -52,9 +54,34 @@ public interface ProrPresentationConfiguration extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Datatype</em>' reference.
+	 * @see #isSetDatatype()
+	 * @see #unsetDatatype()
 	 * @see #getDatatype()
 	 * @generated
 	 */
 	void setDatatype(DatatypeDefinition value);
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration#getDatatype <em>Datatype</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetDatatype()
+	 * @see #getDatatype()
+	 * @see #setDatatype(DatatypeDefinition)
+	 * @generated
+	 */
+	void unsetDatatype();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration#getDatatype <em>Datatype</em>}' reference is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Datatype</em>' reference is set.
+	 * @see #unsetDatatype()
+	 * @see #getDatatype()
+	 * @see #setDatatype(DatatypeDefinition)
+	 * @generated
+	 */
+	boolean isSetDatatype();
 
 } // ProrPresentationConfiguration

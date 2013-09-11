@@ -54,6 +54,15 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	protected String label = LABEL_EDEFAULT;
 
 	/**
+	 * This is true if the Label attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean labelESet;
+
+	/**
 	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,6 +81,15 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	 * @ordered
 	 */
 	protected int width = WIDTH_EDEFAULT;
+
+	/**
+	 * This is true if the Width attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean widthESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,8 +127,33 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
+		boolean oldLabelESet = labelESet;
+		labelESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.COLUMN__LABEL, oldLabel, label));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.COLUMN__LABEL, oldLabel, label, !oldLabelESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetLabel() {
+		String oldLabel = label;
+		boolean oldLabelESet = labelESet;
+		label = LABEL_EDEFAULT;
+		labelESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ConfigurationPackage.COLUMN__LABEL, oldLabel, LABEL_EDEFAULT, oldLabelESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetLabel() {
+		return labelESet;
 	}
 
 	/**
@@ -130,8 +173,33 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	public void setWidth(int newWidth) {
 		int oldWidth = width;
 		width = newWidth;
+		boolean oldWidthESet = widthESet;
+		widthESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.COLUMN__WIDTH, oldWidth, width));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.COLUMN__WIDTH, oldWidth, width, !oldWidthESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetWidth() {
+		int oldWidth = width;
+		boolean oldWidthESet = widthESet;
+		width = WIDTH_EDEFAULT;
+		widthESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ConfigurationPackage.COLUMN__WIDTH, oldWidth, WIDTH_EDEFAULT, oldWidthESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetWidth() {
+		return widthESet;
 	}
 
 	/**
@@ -177,10 +245,10 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ConfigurationPackage.COLUMN__LABEL:
-				setLabel(LABEL_EDEFAULT);
+				unsetLabel();
 				return;
 			case ConfigurationPackage.COLUMN__WIDTH:
-				setWidth(WIDTH_EDEFAULT);
+				unsetWidth();
 				return;
 		}
 		super.eUnset(featureID);
@@ -195,9 +263,9 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ConfigurationPackage.COLUMN__LABEL:
-				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+				return isSetLabel();
 			case ConfigurationPackage.COLUMN__WIDTH:
-				return width != WIDTH_EDEFAULT;
+				return isSetWidth();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -213,9 +281,9 @@ public class ColumnImpl extends EObjectImpl implements Column {
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (label: ");
-		result.append(label);
+		if (labelESet) result.append(label); else result.append("<unset>");
 		result.append(", width: ");
-		result.append(width);
+		if (widthESet) result.append(width); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

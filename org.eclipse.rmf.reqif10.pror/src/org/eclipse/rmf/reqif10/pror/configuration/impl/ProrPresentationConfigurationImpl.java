@@ -46,6 +46,15 @@ public abstract class ProrPresentationConfigurationImpl extends EObjectImpl impl
 	protected DatatypeDefinition datatype;
 
 	/**
+	 * This is true if the Datatype reference has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean datatypeESet;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -98,8 +107,33 @@ public abstract class ProrPresentationConfigurationImpl extends EObjectImpl impl
 	public void setDatatype(DatatypeDefinition newDatatype) {
 		DatatypeDefinition oldDatatype = datatype;
 		datatype = newDatatype;
+		boolean oldDatatypeESet = datatypeESet;
+		datatypeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE, oldDatatype, datatype));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE, oldDatatype, datatype, !oldDatatypeESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetDatatype() {
+		DatatypeDefinition oldDatatype = datatype;
+		boolean oldDatatypeESet = datatypeESet;
+		datatype = null;
+		datatypeESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE, oldDatatype, null, oldDatatypeESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetDatatype() {
+		return datatypeESet;
 	}
 
 	/**
@@ -141,7 +175,7 @@ public abstract class ProrPresentationConfigurationImpl extends EObjectImpl impl
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE:
-				setDatatype((DatatypeDefinition)null);
+				unsetDatatype();
 				return;
 		}
 		super.eUnset(featureID);
@@ -156,7 +190,7 @@ public abstract class ProrPresentationConfigurationImpl extends EObjectImpl impl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION__DATATYPE:
-				return datatype != null;
+				return isSetDatatype();
 		}
 		return super.eIsSet(featureID);
 	}

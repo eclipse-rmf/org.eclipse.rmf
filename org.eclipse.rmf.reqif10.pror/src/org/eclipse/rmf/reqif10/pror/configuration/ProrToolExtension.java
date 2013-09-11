@@ -13,7 +13,6 @@ package org.eclipse.rmf.reqif10.pror.configuration;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,11 +43,36 @@ public interface ProrToolExtension extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Spec View Configurations</em>' containment reference list.
+	 * @see #isSetSpecViewConfigurations()
+	 * @see #unsetSpecViewConfigurations()
 	 * @see org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage#getProrToolExtension_SpecViewConfigurations()
-	 * @model containment="true"
+	 * @model containment="true" unsettable="true"
+	 *        extendedMetaData="name='specViewConfigurations' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='specViewConfigurations' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<ProrSpecViewConfiguration> getSpecViewConfigurations();
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension#getSpecViewConfigurations <em>Spec View Configurations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetSpecViewConfigurations()
+	 * @see #getSpecViewConfigurations()
+	 * @generated
+	 */
+	void unsetSpecViewConfigurations();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension#getSpecViewConfigurations <em>Spec View Configurations</em>}' containment reference list is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Spec View Configurations</em>' containment reference list is set.
+	 * @see #unsetSpecViewConfigurations()
+	 * @see #getSpecViewConfigurations()
+	 * @generated
+	 */
+	boolean isSetSpecViewConfigurations();
 
 	/**
 	 * Returns the value of the '<em><b>General Configuration</b></em>' containment reference.
@@ -59,9 +83,13 @@ public interface ProrToolExtension extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>General Configuration</em>' containment reference.
+	 * @see #isSetGeneralConfiguration()
+	 * @see #unsetGeneralConfiguration()
 	 * @see #setGeneralConfiguration(ProrGeneralConfiguration)
 	 * @see org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage#getProrToolExtension_GeneralConfiguration()
-	 * @model containment="true" required="true"
+	 * @model containment="true" unsettable="true" required="true"
+	 *        extendedMetaData="name='generalConfiguration' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='generalConfiguration' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	ProrGeneralConfiguration getGeneralConfiguration();
@@ -71,10 +99,35 @@ public interface ProrToolExtension extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>General Configuration</em>' containment reference.
+	 * @see #isSetGeneralConfiguration()
+	 * @see #unsetGeneralConfiguration()
 	 * @see #getGeneralConfiguration()
 	 * @generated
 	 */
 	void setGeneralConfiguration(ProrGeneralConfiguration value);
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension#getGeneralConfiguration <em>General Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetGeneralConfiguration()
+	 * @see #getGeneralConfiguration()
+	 * @see #setGeneralConfiguration(ProrGeneralConfiguration)
+	 * @generated
+	 */
+	void unsetGeneralConfiguration();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension#getGeneralConfiguration <em>General Configuration</em>}' containment reference is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>General Configuration</em>' containment reference is set.
+	 * @see #unsetGeneralConfiguration()
+	 * @see #getGeneralConfiguration()
+	 * @see #setGeneralConfiguration(ProrGeneralConfiguration)
+	 * @generated
+	 */
+	boolean isSetGeneralConfiguration();
 
 	/**
 	 * Returns the value of the '<em><b>Presentation Configurations</b></em>' containment reference.
@@ -85,9 +138,13 @@ public interface ProrToolExtension extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Presentation Configurations</em>' containment reference.
+	 * @see #isSetPresentationConfigurations()
+	 * @see #unsetPresentationConfigurations()
 	 * @see #setPresentationConfigurations(ProrPresentationConfigurations)
 	 * @see org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage#getProrToolExtension_PresentationConfigurations()
-	 * @model containment="true" required="true"
+	 * @model containment="true" unsettable="true" required="true"
+	 *        extendedMetaData="name='presentationConfigurations' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='presentationConfigurations' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	ProrPresentationConfigurations getPresentationConfigurations();
@@ -97,9 +154,34 @@ public interface ProrToolExtension extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Presentation Configurations</em>' containment reference.
+	 * @see #isSetPresentationConfigurations()
+	 * @see #unsetPresentationConfigurations()
 	 * @see #getPresentationConfigurations()
 	 * @generated
 	 */
 	void setPresentationConfigurations(ProrPresentationConfigurations value);
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension#getPresentationConfigurations <em>Presentation Configurations</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetPresentationConfigurations()
+	 * @see #getPresentationConfigurations()
+	 * @see #setPresentationConfigurations(ProrPresentationConfigurations)
+	 * @generated
+	 */
+	void unsetPresentationConfigurations();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension#getPresentationConfigurations <em>Presentation Configurations</em>}' containment reference is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Presentation Configurations</em>' containment reference is set.
+	 * @see #unsetPresentationConfigurations()
+	 * @see #getPresentationConfigurations()
+	 * @see #setPresentationConfigurations(ProrPresentationConfigurations)
+	 * @generated
+	 */
+	boolean isSetPresentationConfigurations();
 
 } // ProrToolExtension

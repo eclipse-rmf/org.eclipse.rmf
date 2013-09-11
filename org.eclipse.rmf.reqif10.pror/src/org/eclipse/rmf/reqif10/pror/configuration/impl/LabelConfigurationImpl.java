@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.configuration.LabelConfiguration;
 
@@ -70,9 +71,27 @@ public class LabelConfigurationImpl extends EObjectImpl implements LabelConfigur
 	 */
 	public EList<String> getDefaultLabel() {
 		if (defaultLabel == null) {
-			defaultLabel = new EDataTypeUniqueEList<String>(String.class, this, ConfigurationPackage.LABEL_CONFIGURATION__DEFAULT_LABEL);
+			defaultLabel = new EDataTypeUniqueEList.Unsettable<String>(String.class, this, ConfigurationPackage.LABEL_CONFIGURATION__DEFAULT_LABEL);
 		}
 		return defaultLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetDefaultLabel() {
+		if (defaultLabel != null) ((InternalEList.Unsettable<?>)defaultLabel).unset();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetDefaultLabel() {
+		return defaultLabel != null && ((InternalEList.Unsettable<?>)defaultLabel).isSet();
 	}
 
 	/**
@@ -115,7 +134,7 @@ public class LabelConfigurationImpl extends EObjectImpl implements LabelConfigur
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ConfigurationPackage.LABEL_CONFIGURATION__DEFAULT_LABEL:
-				getDefaultLabel().clear();
+				unsetDefaultLabel();
 				return;
 		}
 		super.eUnset(featureID);
@@ -130,7 +149,7 @@ public class LabelConfigurationImpl extends EObjectImpl implements LabelConfigur
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ConfigurationPackage.LABEL_CONFIGURATION__DEFAULT_LABEL:
-				return defaultLabel != null && !defaultLabel.isEmpty();
+				return isSetDefaultLabel();
 		}
 		return super.eIsSet(featureID);
 	}

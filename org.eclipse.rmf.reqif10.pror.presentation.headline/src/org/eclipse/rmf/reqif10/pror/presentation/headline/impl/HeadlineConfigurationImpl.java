@@ -53,6 +53,15 @@ public class HeadlineConfigurationImpl extends ProrPresentationConfigurationImpl
 	protected int size = SIZE_EDEFAULT;
 
 	/**
+	 * This is true if the Size attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean sizeESet;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -88,8 +97,33 @@ public class HeadlineConfigurationImpl extends ProrPresentationConfigurationImpl
 	public void setSize(int newSize) {
 		int oldSize = size;
 		size = newSize;
+		boolean oldSizeESet = sizeESet;
+		sizeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, HeadlinePackage.HEADLINE_CONFIGURATION__SIZE, oldSize, size));
+			eNotify(new ENotificationImpl(this, Notification.SET, HeadlinePackage.HEADLINE_CONFIGURATION__SIZE, oldSize, size, !oldSizeESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetSize() {
+		int oldSize = size;
+		boolean oldSizeESet = sizeESet;
+		size = SIZE_EDEFAULT;
+		sizeESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, HeadlinePackage.HEADLINE_CONFIGURATION__SIZE, oldSize, SIZE_EDEFAULT, oldSizeESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetSize() {
+		return sizeESet;
 	}
 
 	/**
@@ -130,7 +164,7 @@ public class HeadlineConfigurationImpl extends ProrPresentationConfigurationImpl
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case HeadlinePackage.HEADLINE_CONFIGURATION__SIZE:
-				setSize(SIZE_EDEFAULT);
+				unsetSize();
 				return;
 		}
 		super.eUnset(featureID);
@@ -145,7 +179,7 @@ public class HeadlineConfigurationImpl extends ProrPresentationConfigurationImpl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case HeadlinePackage.HEADLINE_CONFIGURATION__SIZE:
-				return size != SIZE_EDEFAULT;
+				return isSetSize();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -161,7 +195,7 @@ public class HeadlineConfigurationImpl extends ProrPresentationConfigurationImpl
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (size: ");
-		result.append(size);
+		if (sizeESet) result.append(size); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

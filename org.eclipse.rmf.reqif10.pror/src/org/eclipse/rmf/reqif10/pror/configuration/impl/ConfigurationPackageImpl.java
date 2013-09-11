@@ -16,7 +16,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.impl.ReqIF10PackageImpl;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
@@ -131,13 +133,18 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		isInited = true;
 
 		// Initialize simple dependencies
-		ReqIF10Package.eINSTANCE.eClass();
+		XMLNamespacePackage.eINSTANCE.eClass();
+
+		// Obtain or create and register interdependencies
+		ReqIF10PackageImpl theReqIF10Package = (ReqIF10PackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI) instanceof ReqIF10PackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI) : ReqIF10Package.eINSTANCE);
 
 		// Create package meta-data objects
 		theConfigurationPackage.createPackageContents();
+		theReqIF10Package.createPackageContents();
 
 		// Initialize created meta-data
 		theConfigurationPackage.initializePackageContents();
+		theReqIF10Package.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theConfigurationPackage.freeze();
@@ -408,33 +415,185 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(prorToolExtensionEClass, ProrToolExtension.class, "ProrToolExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProrToolExtension_SpecViewConfigurations(), this.getProrSpecViewConfiguration(), null, "specViewConfigurations", null, 0, -1, ProrToolExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProrToolExtension_GeneralConfiguration(), this.getProrGeneralConfiguration(), null, "generalConfiguration", null, 1, 1, ProrToolExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProrToolExtension_PresentationConfigurations(), this.getProrPresentationConfigurations(), null, "presentationConfigurations", null, 1, 1, ProrToolExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProrToolExtension_SpecViewConfigurations(), this.getProrSpecViewConfiguration(), null, "specViewConfigurations", null, 0, -1, ProrToolExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProrToolExtension_GeneralConfiguration(), this.getProrGeneralConfiguration(), null, "generalConfiguration", null, 1, 1, ProrToolExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProrToolExtension_PresentationConfigurations(), this.getProrPresentationConfigurations(), null, "presentationConfigurations", null, 1, 1, ProrToolExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(prorSpecViewConfigurationEClass, ProrSpecViewConfiguration.class, "ProrSpecViewConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProrSpecViewConfiguration_Specification(), theReqIF10Package.getSpecification(), null, "specification", null, 1, 1, ProrSpecViewConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProrSpecViewConfiguration_Columns(), this.getColumn(), null, "columns", null, 0, -1, ProrSpecViewConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProrSpecViewConfiguration_LeftHeaderColumn(), this.getColumn(), null, "leftHeaderColumn", null, 1, 1, ProrSpecViewConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProrSpecViewConfiguration_Specification(), theReqIF10Package.getSpecification(), null, "specification", null, 1, 1, ProrSpecViewConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProrSpecViewConfiguration_Columns(), this.getColumn(), null, "columns", null, 0, -1, ProrSpecViewConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProrSpecViewConfiguration_LeftHeaderColumn(), this.getColumn(), null, "leftHeaderColumn", null, 1, 1, ProrSpecViewConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getColumn_Label(), ecorePackage.getEString(), "label", "<PLEASE SET LABEL>", 1, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getColumn_Width(), ecorePackage.getEInt(), "width", "100", 1, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumn_Label(), ecorePackage.getEString(), "label", "<PLEASE SET LABEL>", 1, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumn_Width(), ecorePackage.getEInt(), "width", "100", 1, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(prorPresentationConfigurationsEClass, ProrPresentationConfigurations.class, "ProrPresentationConfigurations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProrPresentationConfigurations_PresentationConfigurations(), this.getProrPresentationConfiguration(), null, "presentationConfigurations", null, 0, -1, ProrPresentationConfigurations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProrPresentationConfigurations_PresentationConfigurations(), this.getProrPresentationConfiguration(), null, "presentationConfigurations", null, 0, -1, ProrPresentationConfigurations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(prorPresentationConfigurationEClass, ProrPresentationConfiguration.class, "ProrPresentationConfiguration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProrPresentationConfiguration_Datatype(), theReqIF10Package.getDatatypeDefinition(), null, "datatype", null, 1, 1, ProrPresentationConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProrPresentationConfiguration_Datatype(), theReqIF10Package.getDatatypeDefinition(), null, "datatype", null, 1, 1, ProrPresentationConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(prorGeneralConfigurationEClass, ProrGeneralConfiguration.class, "ProrGeneralConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProrGeneralConfiguration_LabelConfiguration(), this.getLabelConfiguration(), null, "labelConfiguration", null, 1, 1, ProrGeneralConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProrGeneralConfiguration_LabelConfiguration(), this.getLabelConfiguration(), null, "labelConfiguration", null, 1, 1, ProrGeneralConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(labelConfigurationEClass, LabelConfiguration.class, "LabelConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLabelConfiguration_DefaultLabel(), ecorePackage.getEString(), "defaultLabel", null, 0, -1, LabelConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabelConfiguration_DefaultLabel(), ecorePackage.getEString(), "defaultLabel", null, 0, -1, LabelConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+		createExtendedMetaDataAnnotations();
+		// http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData
+		createXMLPersistenceMappingExtendedMetaDataAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
+		addAnnotation
+		  (getProrToolExtension_SpecViewConfigurations(), 
+		   source, 
+		   new String[] {
+			 "name", "specViewConfigurations",
+			 "kind", "element",
+			 "namespace", "##targetNamespace"
+		   });			
+		addAnnotation
+		  (getProrToolExtension_GeneralConfiguration(), 
+		   source, 
+		   new String[] {
+			 "name", "generalConfiguration",
+			 "kind", "element",
+			 "namespace", "##targetNamespace"
+		   });			
+		addAnnotation
+		  (getProrToolExtension_PresentationConfigurations(), 
+		   source, 
+		   new String[] {
+			 "name", "presentationConfigurations",
+			 "kind", "element",
+			 "namespace", "##targetNamespace"
+		   });			
+		addAnnotation
+		  (getProrSpecViewConfiguration_Columns(), 
+		   source, 
+		   new String[] {
+			 "name", "columns",
+			 "kind", "element",
+			 "namespace", "##targetNamespace"
+		   });			
+		addAnnotation
+		  (getProrSpecViewConfiguration_LeftHeaderColumn(), 
+		   source, 
+		   new String[] {
+			 "name", "leftHeaderColumn",
+			 "kind", "element",
+			 "namespace", "##targetNamespace"
+		   });			
+		addAnnotation
+		  (getProrPresentationConfigurations_PresentationConfigurations(), 
+		   source, 
+		   new String[] {
+			 "name", "presentationConfigurations",
+			 "kind", "element",
+			 "namespace", "##targetNamespace"
+		   });			
+		addAnnotation
+		  (getProrGeneralConfiguration_LabelConfiguration(), 
+		   source, 
+		   new String[] {
+			 "name", "labelConfiguration",
+			 "kind", "element",
+			 "namespace", "##targetNamespace"
+		   });	
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createXMLPersistenceMappingExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";			
+		addAnnotation
+		  (getProrToolExtension_SpecViewConfigurations(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "specViewConfigurations",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getProrToolExtension_GeneralConfiguration(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "generalConfiguration",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getProrToolExtension_PresentationConfigurations(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "presentationConfigurations",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getProrSpecViewConfiguration_Columns(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "columns",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getProrSpecViewConfiguration_LeftHeaderColumn(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "leftHeaderColumn",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getProrPresentationConfigurations_PresentationConfigurations(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "presentationConfigurations",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });			
+		addAnnotation
+		  (getProrGeneralConfiguration_LabelConfiguration(), 
+		   source, 
+		   new String[] {
+			 "wrapperName", "labelConfiguration",
+			 "featureWrapperElement", "true",
+			 "featureElement", "false",
+			 "classifierWrapperElement", "false",
+			 "classifierElement", "true"
+		   });
 	}
 
 } //ConfigPackageImpl

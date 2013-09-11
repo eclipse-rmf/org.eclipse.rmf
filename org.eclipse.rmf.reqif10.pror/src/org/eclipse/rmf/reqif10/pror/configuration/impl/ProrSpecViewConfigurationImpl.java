@@ -55,6 +55,15 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	protected Specification specification;
 
 	/**
+	 * This is true if the Specification reference has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean specificationESet;
+
+	/**
 	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,6 +82,15 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	 * @ordered
 	 */
 	protected Column leftHeaderColumn;
+
+	/**
+	 * This is true if the Left Header Column containment reference has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean leftHeaderColumnESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -127,8 +145,33 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	public void setSpecification(Specification newSpecification) {
 		Specification oldSpecification = specification;
 		specification = newSpecification;
+		boolean oldSpecificationESet = specificationESet;
+		specificationESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION, oldSpecification, specification));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION, oldSpecification, specification, !oldSpecificationESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetSpecification() {
+		Specification oldSpecification = specification;
+		boolean oldSpecificationESet = specificationESet;
+		specification = null;
+		specificationESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION, oldSpecification, null, oldSpecificationESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetSpecification() {
+		return specificationESet;
 	}
 
 	/**
@@ -138,9 +181,27 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	 */
 	public EList<Column> getColumns() {
 		if (columns == null) {
-			columns = new EObjectContainmentEList<Column>(Column.class, this, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS);
+			columns = new EObjectContainmentEList.Unsettable<Column>(Column.class, this, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS);
 		}
 		return columns;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetColumns() {
+		if (columns != null) ((InternalEList.Unsettable<?>)columns).unset();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetColumns() {
+		return columns != null && ((InternalEList.Unsettable<?>)columns).isSet();
 	}
 
 	/**
@@ -160,8 +221,10 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	public NotificationChain basicSetLeftHeaderColumn(Column newLeftHeaderColumn, NotificationChain msgs) {
 		Column oldLeftHeaderColumn = leftHeaderColumn;
 		leftHeaderColumn = newLeftHeaderColumn;
+		boolean oldLeftHeaderColumnESet = leftHeaderColumnESet;
+		leftHeaderColumnESet = true;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, oldLeftHeaderColumn, newLeftHeaderColumn);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, oldLeftHeaderColumn, newLeftHeaderColumn, !oldLeftHeaderColumnESet);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -182,8 +245,58 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 			msgs = basicSetLeftHeaderColumn(newLeftHeaderColumn, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, newLeftHeaderColumn, newLeftHeaderColumn));
+		else {
+			boolean oldLeftHeaderColumnESet = leftHeaderColumnESet;
+			leftHeaderColumnESet = true;
+			if (eNotificationRequired())
+				eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, newLeftHeaderColumn, newLeftHeaderColumn, !oldLeftHeaderColumnESet));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicUnsetLeftHeaderColumn(NotificationChain msgs) {
+		Column oldLeftHeaderColumn = leftHeaderColumn;
+		leftHeaderColumn = null;
+		boolean oldLeftHeaderColumnESet = leftHeaderColumnESet;
+		leftHeaderColumnESet = false;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, oldLeftHeaderColumn, null, oldLeftHeaderColumnESet);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetLeftHeaderColumn() {
+		if (leftHeaderColumn != null) {
+			NotificationChain msgs = null;
+			msgs = ((InternalEObject)leftHeaderColumn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, null, msgs);
+			msgs = basicUnsetLeftHeaderColumn(msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else {
+			boolean oldLeftHeaderColumnESet = leftHeaderColumnESet;
+			leftHeaderColumnESet = false;
+			if (eNotificationRequired())
+				eNotify(new ENotificationImpl(this, Notification.UNSET, ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN, null, null, oldLeftHeaderColumnESet));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetLeftHeaderColumn() {
+		return leftHeaderColumnESet;
 	}
 
 	/**
@@ -197,7 +310,7 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
 				return ((InternalEList<?>)getColumns()).basicRemove(otherEnd, msgs);
 			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
-				return basicSetLeftHeaderColumn(null, msgs);
+				return basicUnsetLeftHeaderColumn(msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -253,13 +366,13 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION:
-				setSpecification((Specification)null);
+				unsetSpecification();
 				return;
 			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
-				getColumns().clear();
+				unsetColumns();
 				return;
 			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
-				setLeftHeaderColumn((Column)null);
+				unsetLeftHeaderColumn();
 				return;
 		}
 		super.eUnset(featureID);
@@ -274,11 +387,11 @@ public class ProrSpecViewConfigurationImpl extends EObjectImpl implements ProrSp
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__SPECIFICATION:
-				return specification != null;
+				return isSetSpecification();
 			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS:
-				return columns != null && !columns.isEmpty();
+				return isSetColumns();
 			case ConfigurationPackage.PROR_SPEC_VIEW_CONFIGURATION__LEFT_HEADER_COLUMN:
-				return leftHeaderColumn != null;
+				return isSetLeftHeaderColumn();
 		}
 		return super.eIsSet(featureID);
 	}

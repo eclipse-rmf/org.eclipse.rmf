@@ -4,40 +4,133 @@
     nsPrefix="configuration">
   <eClassifiers xsi:type="ecore:EClass" name="ProrToolExtension">
     <eStructuralFeatures xsi:type="ecore:EReference" name="specViewConfigurations"
-        upperBound="-1" eType="#//ProrSpecViewConfiguration" containment="true"/>
+        upperBound="-1" eType="#//ProrSpecViewConfiguration" unsettable="true" containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="specViewConfigurations"/>
+        <details key="kind" value="element"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
+        <details key="wrapperName" value="specViewConfigurations"/>
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="generalConfiguration" lowerBound="1"
-        eType="#//ProrGeneralConfiguration" containment="true"/>
+        eType="#//ProrGeneralConfiguration" unsettable="true" containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="generalConfiguration"/>
+        <details key="kind" value="element"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
+        <details key="wrapperName" value="generalConfiguration"/>
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="presentationConfigurations"
-        lowerBound="1" eType="#//ProrPresentationConfigurations" containment="true"/>
+        lowerBound="1" eType="#//ProrPresentationConfigurations" unsettable="true"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="presentationConfigurations"/>
+        <details key="kind" value="element"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
+        <details key="wrapperName" value="presentationConfigurations"/>
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProrSpecViewConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="specification" lowerBound="1"
-        eType="ecore:EClass reqif10.ecore#//Specification"/>
+        eType="ecore:EClass ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//Specification" unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
-        eType="#//Column" containment="true"/>
+        eType="#//Column" unsettable="true" containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="columns"/>
+        <details key="kind" value="element"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
+        <details key="wrapperName" value="columns"/>
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftHeaderColumn" lowerBound="1"
-        eType="#//Column" containment="true"/>
+        eType="#//Column" unsettable="true" containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="leftHeaderColumn"/>
+        <details key="kind" value="element"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
+        <details key="wrapperName" value="leftHeaderColumn"/>
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="&lt;PLEASE SET LABEL>"/>
+        defaultValueLiteral="&lt;PLEASE SET LABEL>" unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="100"/>
+        defaultValueLiteral="100" unsettable="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProrPresentationConfigurations">
     <eStructuralFeatures xsi:type="ecore:EReference" name="presentationConfigurations"
-        upperBound="-1" eType="#//ProrPresentationConfiguration" containment="true"/>
+        upperBound="-1" eType="#//ProrPresentationConfiguration" unsettable="true"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="presentationConfigurations"/>
+        <details key="kind" value="element"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
+        <details key="wrapperName" value="presentationConfigurations"/>
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProrPresentationConfiguration" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" lowerBound="1"
-        eType="ecore:EClass reqif10.ecore#//DatatypeDefinition"/>
+        eType="ecore:EClass ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinition" unsettable="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProrGeneralConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelConfiguration" lowerBound="1"
-        eType="#//LabelConfiguration" containment="true"/>
+        eType="#//LabelConfiguration" unsettable="true" containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="labelConfiguration"/>
+        <details key="kind" value="element"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData">
+        <details key="wrapperName" value="labelConfiguration"/>
+        <details key="featureWrapperElement" value="true"/>
+        <details key="featureElement" value="false"/>
+        <details key="classifierWrapperElement" value="false"/>
+        <details key="classifierElement" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LabelConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultLabel" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" unsettable="true"/>
   </eClassifiers>
 </ecore:EPackage>

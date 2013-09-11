@@ -185,7 +185,7 @@ public class HeadlinePackageImpl extends EPackageImpl implements HeadlinePackage
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(headlineConfigurationEClass, HeadlineConfiguration.class, "HeadlineConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getHeadlineConfiguration_Size(), ecorePackage.getEInt(), "size", "14", 1, 1, HeadlineConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHeadlineConfiguration_Size(), ecorePackage.getEInt(), "size", "14", 1, 1, HeadlineConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

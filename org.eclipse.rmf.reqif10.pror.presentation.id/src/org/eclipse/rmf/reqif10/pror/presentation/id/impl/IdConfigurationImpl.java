@@ -7,7 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
- *     Kay Münch       - vertical alignment of the spec objects id
+ *     Kay M??nch       - vertical alignment of the spec objects id
  ******************************************************************************/
 
 package org.eclipse.rmf.reqif10.pror.presentation.id.impl;
@@ -62,6 +62,15 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	protected String prefix = PREFIX_EDEFAULT;
 
 	/**
+	 * This is true if the Prefix attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean prefixESet;
+
+	/**
 	 * The default value of the '{@link #getCount() <em>Count</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,6 +91,15 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	protected int count = COUNT_EDEFAULT;
 
 	/**
+	 * This is true if the Count attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean countESet;
+
+	/**
 	 * The default value of the '{@link #getVerticalAlign() <em>Vertical Align</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,6 +118,15 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	 * @ordered
 	 */
 	protected IdVerticalAlign verticalAlign = VERTICAL_ALIGN_EDEFAULT;
+
+	/**
+	 * This is true if the Vertical Align attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean verticalAlignESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,8 +164,33 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	public void setPrefix(String newPrefix) {
 		String oldPrefix = prefix;
 		prefix = newPrefix;
+		boolean oldPrefixESet = prefixESet;
+		prefixESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IdPackage.ID_CONFIGURATION__PREFIX, oldPrefix, prefix));
+			eNotify(new ENotificationImpl(this, Notification.SET, IdPackage.ID_CONFIGURATION__PREFIX, oldPrefix, prefix, !oldPrefixESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetPrefix() {
+		String oldPrefix = prefix;
+		boolean oldPrefixESet = prefixESet;
+		prefix = PREFIX_EDEFAULT;
+		prefixESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, IdPackage.ID_CONFIGURATION__PREFIX, oldPrefix, PREFIX_EDEFAULT, oldPrefixESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetPrefix() {
+		return prefixESet;
 	}
 
 	/**
@@ -158,8 +210,33 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	public void setCount(int newCount) {
 		int oldCount = count;
 		count = newCount;
+		boolean oldCountESet = countESet;
+		countESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IdPackage.ID_CONFIGURATION__COUNT, oldCount, count));
+			eNotify(new ENotificationImpl(this, Notification.SET, IdPackage.ID_CONFIGURATION__COUNT, oldCount, count, !oldCountESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetCount() {
+		int oldCount = count;
+		boolean oldCountESet = countESet;
+		count = COUNT_EDEFAULT;
+		countESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, IdPackage.ID_CONFIGURATION__COUNT, oldCount, COUNT_EDEFAULT, oldCountESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetCount() {
+		return countESet;
 	}
 
 	/**
@@ -179,8 +256,33 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	public void setVerticalAlign(IdVerticalAlign newVerticalAlign) {
 		IdVerticalAlign oldVerticalAlign = verticalAlign;
 		verticalAlign = newVerticalAlign == null ? VERTICAL_ALIGN_EDEFAULT : newVerticalAlign;
+		boolean oldVerticalAlignESet = verticalAlignESet;
+		verticalAlignESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IdPackage.ID_CONFIGURATION__VERTICAL_ALIGN, oldVerticalAlign, verticalAlign));
+			eNotify(new ENotificationImpl(this, Notification.SET, IdPackage.ID_CONFIGURATION__VERTICAL_ALIGN, oldVerticalAlign, verticalAlign, !oldVerticalAlignESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetVerticalAlign() {
+		IdVerticalAlign oldVerticalAlign = verticalAlign;
+		boolean oldVerticalAlignESet = verticalAlignESet;
+		verticalAlign = VERTICAL_ALIGN_EDEFAULT;
+		verticalAlignESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, IdPackage.ID_CONFIGURATION__VERTICAL_ALIGN, oldVerticalAlign, VERTICAL_ALIGN_EDEFAULT, oldVerticalAlignESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetVerticalAlign() {
+		return verticalAlignESet;
 	}
 
 	/**
@@ -231,13 +333,13 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case IdPackage.ID_CONFIGURATION__PREFIX:
-				setPrefix(PREFIX_EDEFAULT);
+				unsetPrefix();
 				return;
 			case IdPackage.ID_CONFIGURATION__COUNT:
-				setCount(COUNT_EDEFAULT);
+				unsetCount();
 				return;
 			case IdPackage.ID_CONFIGURATION__VERTICAL_ALIGN:
-				setVerticalAlign(VERTICAL_ALIGN_EDEFAULT);
+				unsetVerticalAlign();
 				return;
 		}
 		super.eUnset(featureID);
@@ -252,11 +354,11 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case IdPackage.ID_CONFIGURATION__PREFIX:
-				return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
+				return isSetPrefix();
 			case IdPackage.ID_CONFIGURATION__COUNT:
-				return count != COUNT_EDEFAULT;
+				return isSetCount();
 			case IdPackage.ID_CONFIGURATION__VERTICAL_ALIGN:
-				return verticalAlign != VERTICAL_ALIGN_EDEFAULT;
+				return isSetVerticalAlign();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -272,11 +374,11 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (prefix: ");
-		result.append(prefix);
+		if (prefixESet) result.append(prefix); else result.append("<unset>");
 		result.append(", count: ");
-		result.append(count);
+		if (countESet) result.append(count); else result.append("<unset>");
 		result.append(", verticalAlign: ");
-		result.append(verticalAlign);
+		if (verticalAlignESet) result.append(verticalAlign); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}
