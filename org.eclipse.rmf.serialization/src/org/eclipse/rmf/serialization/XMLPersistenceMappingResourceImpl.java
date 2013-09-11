@@ -15,24 +15,15 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 import javax.xml.XMLConstants;
 
 import org.apache.xerces.impl.Constants;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLLoad;
 import org.eclipse.emf.ecore.xmi.XMLOptions;
@@ -44,176 +35,11 @@ import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingHelperImpl;
 import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingLoadImpl;
 import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingSaveImpl;
 
-// TODO: make sure that helper and handler share the same instance of extended metadata
 public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implements XMLPersistenceMappingResource {
 	// TODO: let implementation get the value from preferences and set it to false by default
 	// This is a temporal HACK
 	public boolean enableSchemaValidation = false;
 	protected Collection<EPackage> createIdForPackages;
-
-	class IdAdapter extends EContentAdapter {
-		public IdAdapter() {
-			super();
-		}
-
-		@Override
-		public boolean isAdapterForType(Object type) {
-			// TODO Auto-generated method stub
-			return super.isAdapterForType(type);
-		}
-
-		@Override
-		public void notifyChanged(Notification n) {
-			assert null != n.getNotifier();
-			super.notifyChanged(n); // the superclass handles adding/removing this Adapter to new Books
-
-			Object notifier_ = n.getNotifier();
-			if (!n.isTouch()) {
-				if (notifier_ instanceof EObject) {
-					Object feature = n.getFeature();
-					if (feature instanceof EAttribute) {
-						// handle changed id
-						EAttribute attribute = (EAttribute) feature;
-						if (attribute.isID()) {
-							String newId = n.getNewStringValue();
-							String oldId = n.getOldStringValue();
-							EObject objectWithId = (EObject) n.getNotifier();
-							switch (n.getEventType()) {
-							case Notification.SET:
-								if (null == newId) {
-									eObjectToIDMap.remove(objectWithId);
-								} else {
-									eObjectToIDMap.put(objectWithId, newId);
-									idToEObjectMap.put(newId, objectWithId);
-								}
-
-								if (null != oldId) {
-									idToEObjectMap.remove(oldId);
-								}
-								break;
-							case Notification.UNSET:
-								eObjectToIDMap.remove(objectWithId);
-								idToEObjectMap.remove(oldId);
-								break;
-							}
-						}
-					} else {
-						// handle removed or added objects
-						EReference reference = (EReference) feature;
-						if (reference.isContainment()) {
-
-							switch (n.getEventType()) {
-							case Notification.SET:
-							case Notification.ADD:
-								handleNewObjectAndSubObjects((EObject) n.getNewValue());
-								break;
-							case Notification.ADD_MANY:
-								EList<EObject> newObjects = (EList<EObject>) n.getNewValue();
-								int size = newObjects.size();
-								for (int i = 0; i < size; i++) {
-									handleNewObjectAndSubObjects(newObjects.get(i));
-								}
-								break;
-							case Notification.UNSET:
-							case Notification.REMOVE:
-								handleRemoveObjectAndSubObjects((EObject) n.getOldValue());
-								break;
-							case Notification.REMOVE_MANY:
-								EList<EObject> removeObjects = (EList<EObject>) n.getOldValue();
-								size = removeObjects.size();
-								for (int i = 0; i < size; i++) {
-									handleRemoveObjectAndSubObjects(removeObjects.get(i));
-								}
-								break;
-							}
-
-						}
-					}
-
-				} else if (notifier_ instanceof Resource) {
-					// feature is null
-					int featureID = n.getFeatureID(Resource.class);
-					if (Resource.RESOURCE__CONTENTS == featureID) {
-						switch (n.getEventType()) {
-						case Notification.SET:
-						case Notification.ADD:
-							handleNewObjectAndSubObjects((EObject) n.getNewValue());
-							break;
-						case Notification.ADD_MANY:
-							EList<EObject> newObjects = (EList<EObject>) n.getNewValue();
-							int size = newObjects.size();
-							for (int i = 0; i < size; i++) {
-								handleNewObjectAndSubObjects(newObjects.get(i));
-							}
-							break;
-						case Notification.UNSET:
-						case Notification.REMOVE:
-							handleRemoveObjectAndSubObjects((EObject) n.getOldValue());
-							break;
-						case Notification.REMOVE_MANY:
-							EList<EObject> removeObjects = (EList<EObject>) n.getOldValue();
-							size = removeObjects.size();
-							for (int i = 0; i < size; i++) {
-								handleRemoveObjectAndSubObjects(removeObjects.get(i));
-							}
-							break;
-						}
-					}
-				} else if (notifier_ instanceof ResourceSet) {
-					// NOP
-				} else {
-					// NOP
-				}
-
-			} // end if isTouch
-
-		}// end notifyChanged
-
-		void handleNewObjectAndSubObjects(EObject objectWithId) {
-			if (null != objectWithId) {
-				handleNewObject(objectWithId);
-			}
-			TreeIterator<EObject> iterator = objectWithId.eAllContents();
-			while (iterator.hasNext()) {
-				handleNewObject(iterator.next());
-			}
-		}
-
-		void handleNewObject(EObject objectWithId) {
-			assert null != objectWithId;
-			EAttribute idAttribute = objectWithId.eClass().getEIDAttribute();
-			if (null != idAttribute) {
-				String id = (String) objectWithId.eGet(idAttribute);
-				if ((id == null || 0 == id.length()) && createIdForPackages.contains(objectWithId.eClass().getEPackage())) {
-					id = EcoreUtil.generateUUID();
-					objectWithId.eSet(idAttribute, id);
-					// id map gets updated by notification on setId
-				} else {
-					eObjectToIDMap.put(objectWithId, id);
-					idToEObjectMap.put(id, objectWithId);
-				}
-			}
-		}
-
-		void handleRemoveObjectAndSubObjects(EObject objectWithId) {
-			if (null != objectWithId) {
-				handleRemoveObject(objectWithId);
-			}
-			TreeIterator<EObject> iterator = objectWithId.eAllContents();
-			while (iterator.hasNext()) {
-				handleRemoveObject(iterator.next());
-			}
-		}
-
-		void handleRemoveObject(EObject objectWithId) {
-			assert null != objectWithId;
-			String id = eObjectToIDMap.remove(objectWithId);
-			if (null != id) {
-				idToEObjectMap.remove(id);
-			}
-		}
-
-	}
 
 	class ResourceHandlerImpl implements ResourceHandler {
 
@@ -287,11 +113,7 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 	protected void init() {
 		encoding = "UTF-8"; //$NON-NLS-1$
 		xmlVersion = "1.0"; //$NON-NLS-1$
-		// enable id creation and maintenance
-		idToEObjectMap = new HashMap<String, EObject>();
-		eObjectToIDMap = new HashMap<EObject, String>();
-		eAdapters().add(new IdAdapter());
-		createIdForPackages = new HashSet<EPackage>();
+
 	}
 
 	public void initDefaultOptions() {
@@ -372,14 +194,6 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 		// xmlOptions.setProcessSchemaLocations(true);
 
 		loadOptions.put(XMLResource.OPTION_XML_OPTIONS, xmlOptions);
-
-	}
-
-	public Collection<EPackage> getCreateIdForPackageSet() {
-		// TODO find better name for this set
-		// TODO might be even better to find a global way for configuration. Similiar to the different levels of
-		// registries.
-		return createIdForPackages;
 	}
 
 }

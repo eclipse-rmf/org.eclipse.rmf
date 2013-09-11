@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesFactory;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
+import org.eclipse.rmf.tests.serialization.model.nodes.serialization.NodesResourceFactoryImpl;
+import org.eclipse.rmf.tests.serialization.model.nodes.serialization.NodesResourceImpl;
 import org.eclipse.rmf.tests.serialization.util.AbstractTestCase;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +43,7 @@ public class IDAdapterTests extends AbstractTestCase {
 	public void testIdOnLoad() {
 		String inputFileName = INPUT_PATH + "minimal.xml";
 		try {
-			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			EObject modelRoot = loadInputFile(inputFileName, new NodesResourceFactoryImpl(), null);
 			assertTrue(modelRoot instanceof Node);
 			Node rootNode = (Node) modelRoot;
 			assertTrue(rootNode.eIsSet(NodesPackage.eINSTANCE.getNode_Name()));
@@ -58,7 +58,7 @@ public class IDAdapterTests extends AbstractTestCase {
 	public void testIdOnLoadNotModified() {
 		String inputFileName = INPUT_PATH + "minimalWithId.xml";
 		try {
-			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			EObject modelRoot = loadInputFile(inputFileName, new NodesResourceFactoryImpl(), null);
 			assertTrue(modelRoot instanceof Node);
 			Node rootNode = (Node) modelRoot;
 			assertEquals("root", rootNode.getName());
@@ -73,7 +73,7 @@ public class IDAdapterTests extends AbstractTestCase {
 	public void testIdForNewObjectsAfterLoad1() {
 		String inputFileName = INPUT_PATH + "minimal.xml";
 		try {
-			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			EObject modelRoot = loadInputFile(inputFileName, new NodesResourceFactoryImpl(), null);
 			assertTrue(modelRoot instanceof Node);
 			Node rootNode = (Node) modelRoot;
 			assertTrue(rootNode.eIsSet(NodesPackage.eINSTANCE.getNode_Name()));
@@ -110,7 +110,7 @@ public class IDAdapterTests extends AbstractTestCase {
 	public void testIdForNewObjectsAfterLoad2() {
 		String inputFileName = INPUT_PATH + "minimal.xml";
 		try {
-			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			EObject modelRoot = loadInputFile(inputFileName, new NodesResourceFactoryImpl(), null);
 			assertTrue(modelRoot instanceof Node);
 			Node rootNode = (Node) modelRoot;
 			assertTrue(rootNode.eIsSet(NodesPackage.eINSTANCE.getNode_Name()));
@@ -151,8 +151,7 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testAddNewElementToEmptyResource() {
-		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
-		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
+		XMLPersistenceMappingResource resource = new NodesResourceImpl();
 		Node node = NodesFactory.eINSTANCE.createNode();
 		Node subNode = NodesFactory.eINSTANCE.createNode();
 		node.getEReference_Contained0100Many().add(subNode);
@@ -166,8 +165,7 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testIdMapSet() {
-		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
-		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
+		XMLPersistenceMappingResource resource = new NodesResourceImpl();
 		String nodeName = "root";
 		String subNodeName = "subNode";
 		Node node = NodesFactory.eINSTANCE.createNode();
@@ -191,8 +189,7 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testIdMapAdd() {
-		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
-		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
+		XMLPersistenceMappingResource resource = new NodesResourceImpl();
 		String nodeName = "root";
 		String subNodeName = "subNode";
 		Node node = NodesFactory.eINSTANCE.createNode();
@@ -216,8 +213,7 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testIdMapAddMany() {
-		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
-		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
+		XMLPersistenceMappingResource resource = new NodesResourceImpl();
 		String node1Name = "node1";
 		String node2Name = "node2";
 		Node node1 = NodesFactory.eINSTANCE.createNode();
@@ -244,8 +240,7 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testIdMapMove() {
-		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
-		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
+		XMLPersistenceMappingResource resource = new NodesResourceImpl();
 		String nodeName = "root";
 		String subNodeName = "subNode";
 		Node node = NodesFactory.eINSTANCE.createNode();
@@ -274,8 +269,7 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testIdMapRemove() {
-		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
-		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
+		XMLPersistenceMappingResource resource = new NodesResourceImpl();
 
 		String nodeName = "root";
 		String subNodeName = "subNode";
@@ -311,8 +305,7 @@ public class IDAdapterTests extends AbstractTestCase {
 
 	@Test
 	public void testIdMapRename() {
-		XMLPersistenceMappingResource resource = new XMLPersistenceMappingResourceImpl();
-		resource.getCreateIdForPackageSet().add(NodesPackage.eINSTANCE);
+		XMLPersistenceMappingResource resource = new NodesResourceImpl();
 		String nodeName = "root";
 		String newNodeName = "new_root";
 		Node node = NodesFactory.eINSTANCE.createNode();

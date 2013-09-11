@@ -10,9 +10,6 @@
  */
 package org.eclipse.rmf.serialization;
 
-import java.util.Collection;
-
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 
 public interface XMLPersistenceMappingResource extends XMLResource {
@@ -26,7 +23,5 @@ public interface XMLPersistenceMappingResource extends XMLResource {
 	public static final String HREF = "_href"; //$NON-NLS-1$
 	public static final String OPTION_PROGRESS_MONITOR = "progress monitor"; //$NON-NLS-1$
 	public static final String OPTION_NAMEPSACE_TO_PREFIX_MAP = "namespace to prefix map"; //$NON-NLS-1$
-
-	public Collection<EPackage> getCreateIdForPackageSet();
 
 }

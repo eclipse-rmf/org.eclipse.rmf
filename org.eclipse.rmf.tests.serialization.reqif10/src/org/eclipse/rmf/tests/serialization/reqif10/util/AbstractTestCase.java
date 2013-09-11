@@ -54,9 +54,9 @@ import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
+import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
 import org.junit.AfterClass;
@@ -183,12 +183,10 @@ public abstract class AbstractTestCase {
 		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
 
 		loadXMLPersistenceMappingResourceSet = new XMLPersistenceMappingResourceSetImpl();
-		loadXMLPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-				.put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
+		loadXMLPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new ReqIF10ResourceFactoryImpl());
 
 		saveXMLPersistenceMappingResourceSet = new XMLPersistenceMappingResourceSetImpl();
-		saveXMLPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-				.put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
+		saveXMLPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new ReqIF10ResourceFactoryImpl());
 	}
 
 	@AfterClass
@@ -274,8 +272,7 @@ public abstract class AbstractTestCase {
 
 	protected static XMLPersistenceMappingResourceSetImpl getXMLPersistenceMappingResourceSet() {
 		XMLPersistenceMappingResourceSetImpl xmlPersistenceMappingResourceSet = new XMLPersistenceMappingResourceSetImpl();
-		xmlPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-				.put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
+		xmlPersistenceMappingResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new ReqIF10ResourceFactoryImpl());
 		return xmlPersistenceMappingResourceSet;
 
 	}

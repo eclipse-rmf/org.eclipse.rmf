@@ -71,6 +71,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
+import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
 import org.eclipse.swt.SWT;
@@ -355,7 +356,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 							XMLPersistenceMappingResourceSetImpl resourceSet = new XMLPersistenceMappingResourceSetImpl();
 
 							// (mj) Sollte nicht notwendig sein, uebernommmen von Mark's Unit Test
-							resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
+							resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new ReqIF10ResourceFactoryImpl());
 							resourceSet.getPackageRegistry().put(ReqIF10Package.eNS_URI, ReqIF10Package.eINSTANCE);
 
 							// Get the URI of the model file.

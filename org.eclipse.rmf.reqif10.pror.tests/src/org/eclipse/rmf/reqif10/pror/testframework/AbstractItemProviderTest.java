@@ -39,6 +39,7 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.pror.configuration.util.ConfigurationAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.testdata.TestData;
+import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
 import org.junit.After;
@@ -107,7 +108,7 @@ abstract public class AbstractItemProviderTest {
 
 		editingDomain.getResourceSet().getResourceFactoryRegistry()
 				.getExtensionToFactoryMap()
-				.put("reqif", new XMLPersistenceMappingResourceFactoryImpl());
+				.put("reqif", new ReqIF10ResourceFactoryImpl());
 
 		listener = new INotifyChangedListener() {
 			public void notifyChanged(Notification notification) {
