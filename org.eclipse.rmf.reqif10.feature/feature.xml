@@ -25,9 +25,9 @@ Contributors:
       %license
    </license>
 
-   <requires>
-      <import feature="org.eclipse.rmf.reqif10.thirdparty.feature" version="1.0.0.qualifier"/>
-   </requires>
+   <includes
+         id="org.eclipse.rmf.reqif10.thirdparty.feature"
+         version="0.0.0"/>
 
    <plugin
          id="org.eclipse.rmf.reqif10"
