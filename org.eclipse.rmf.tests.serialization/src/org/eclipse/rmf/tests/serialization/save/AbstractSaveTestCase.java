@@ -1,5 +1,7 @@
 package org.eclipse.rmf.tests.serialization.save;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.StringReader;
 import java.util.Iterator;
 import java.util.Map;
@@ -11,9 +13,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.eclipse.core.runtime.Plugin;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
-import org.eclipse.rmf.tests.serialization.internal.Activator;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
 import org.eclipse.rmf.tests.serialization.util.AbstractTestCase;
 import org.junit.Before;
@@ -61,7 +61,6 @@ public abstract class AbstractSaveTestCase extends AbstractTestCase {
 	@Override
 	@Before
 	public void setUp() throws Exception {
-		super.setUp();
 		XPathFactory factory = XPathFactory.newInstance();
 		xpath = factory.newXPath();
 		xpath.setNamespaceContext(new MyNamespaceContext());
@@ -81,8 +80,4 @@ public abstract class AbstractSaveTestCase extends AbstractTestCase {
 		return root;
 	}
 
-	@Override
-	protected Plugin getTestPlugin() {
-		return new Activator.Implementation();
-	}
 }

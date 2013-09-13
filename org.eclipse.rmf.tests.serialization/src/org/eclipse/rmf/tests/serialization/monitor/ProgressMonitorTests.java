@@ -10,6 +10,9 @@
  */
 package org.eclipse.rmf.tests.serialization.monitor;
 
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +28,6 @@ import org.eclipse.rmf.tests.serialization.util.LoadSaveUtil;
 import org.junit.Before;
 import org.junit.Test;
 
-// Junit 3.8 test 
 @SuppressWarnings("nls")
 public class ProgressMonitorTests extends AbstractTestCase {
 

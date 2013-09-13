@@ -350,40 +350,12 @@ public class XMLPersistenceExtendedMetaDataTests {
 		assertSame(NodesPackage.eINSTANCE.getNode_EReference_NoAnnotationMany(), feature);
 	}
 
-	/*
-	 * for robustness tests
-	 * @Test public void testGetFeatureByXMLElementName_EAttribute_Attribute0000Many() {
-	 * XMLPersistenceMappingExtendedMetaData metadata = new
-	 * XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration); EClass nodeEClass =
-	 * NodesPackage.eINSTANCE.getNode(); EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass,
-	 * NodesPackage.eNS_URI, "ATTRIBUTE-FROM-NESTED-CLASS");
-	 * assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0000Many(), feature); }
-	 */
-	@Test
-	public void testGetFeatureByXMLElementName_EAttribute_Attribute0001Many() {
-		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
-
-		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
-		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, EcorePackage.eNS_URI, "EString");
-		System.out.println(metadata.getXMLName(feature.getEType()));
-		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0001Many(), feature);
-	}
-
 	@Test
 	public void testGetFeatureByXMLElementName_EAttribute_Attribute0010Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
 		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, NodesPackage.eNS_URI, "EStrings");
-		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0010Many(), feature);
-	}
-
-	@Test
-	public void testGetFeatureByXMLElementName_EAttribute_Attribute0010Many2() {
-		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
-
-		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
-		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, EcorePackage.eNS_URI, "EStrings");
 		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0010Many(), feature);
 	}
 
@@ -398,13 +370,12 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetFeatureByXMLElementName_EAttribute_Attribute0011Many2() {
+	public void testGetFeatureByXMLElementName_EReference_WithTypeEObject_Contained0001Many() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
 		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, EcorePackage.eNS_URI, "EStrings");
-		// we assume 0010 here since there is no look ahead implemented to avoid ambiguity
-		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0010Many(), feature);
+		assertSame(NodesPackage.eINSTANCE.getNode_EReference_WithTypeEObject_Contained0001Many(), feature);
 	}
 
 	@Test

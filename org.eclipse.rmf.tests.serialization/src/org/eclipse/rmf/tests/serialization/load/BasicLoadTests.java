@@ -10,6 +10,12 @@
  */
 package org.eclipse.rmf.tests.serialization.load;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -23,7 +29,6 @@ import org.eclipse.rmf.tests.serialization.util.AbstractTestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-// Junit 3.8 test 
 @SuppressWarnings("nls")
 public class BasicLoadTests extends AbstractTestCase {
 

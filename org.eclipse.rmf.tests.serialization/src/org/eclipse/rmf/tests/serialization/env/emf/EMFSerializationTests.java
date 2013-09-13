@@ -10,6 +10,8 @@
  */
 package org.eclipse.rmf.tests.serialization.env.emf;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.HashMap;
 import java.util.Map;
 

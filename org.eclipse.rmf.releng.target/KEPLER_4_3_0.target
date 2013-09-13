@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="JUNO_4_2_2" sequenceNumber="14">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20130604-2047"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.0.v20130610-0406"/>
+<unit id="org.eclipse.emf.compare.source.feature.group" version="2.1.0.201306101322"/>
+<unit id="org.eclipse.xsd.sdk.feature.group" version="2.9.0.v20130610-0406"/>
+<unit id="org.eclipse.jdt.feature.group" version="3.9.0.v20130605-2000"/>
+<repository location="http://download.eclipse.org/releases/kepler/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.sphinx.core.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.sphinx.testutils.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/sphinx/updates/interim"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.agilemore.agilegrid.feature.feature.group" version="1.3.3"/>
+<repository location="http://agilegrid.sourceforge.net/agilegrid/updatesite-rmf/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.apache.poi" version="3.9.0.v201303080712"/>
+<unit id="org.apache.xerces" version="2.9.0.v201101211617"/>
+<unit id="com.google.guava" version="10.0.1.v201203051515"/>
+<unit id="org.junit" version="4.7.0.v4_7_0_v20130308-0411"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
+</location>
+</locations>
+</target>
