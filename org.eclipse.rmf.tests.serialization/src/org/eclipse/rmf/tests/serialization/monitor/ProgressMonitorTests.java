@@ -23,13 +23,12 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
-import org.eclipse.rmf.tests.serialization.util.AbstractTestCase;
 import org.eclipse.rmf.tests.serialization.util.LoadSaveUtil;
 import org.junit.Before;
 import org.junit.Test;
 
 @SuppressWarnings("nls")
-public class ProgressMonitorTests extends AbstractTestCase {
+public class ProgressMonitorTests {
 
 	static final String INPUT_PATH = "org.eclipse.rmf.tests.serialization.progressmonitor/";
 	int beginTaskCount = 0;
@@ -37,10 +36,8 @@ public class ProgressMonitorTests extends AbstractTestCase {
 	int doneCount = 0;
 	int myTotalWork;
 
-	@Override
 	@Before
 	public void setUp() throws Exception {
-		super.setUp();
 		EPackage.Registry.INSTANCE.put(NodesPackage.eNS_URI, NodesPackage.eINSTANCE);
 	}
 
