@@ -33,6 +33,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 	@BeforeClass
 	public static void setup() {
 		EPackage.Registry.INSTANCE.put(NodesPackage.eNS_URI, NodesPackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(EcorePackage.eNS_URI, EcorePackage.eINSTANCE);
 	}
 
 	@Test
@@ -370,12 +371,12 @@ public class XMLPersistenceExtendedMetaDataTests {
 	}
 
 	@Test
-	public void testGetFeatureByXMLElementName_EReference_WithTypeEObject_Contained0001Many() {
+	public void testGetFeatureByXMLElementName_EAttribute_Attribute0010Many2() {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EClass nodeEClass = NodesPackage.eINSTANCE.getNode();
 		EStructuralFeature feature = metadata.getFeatureByXMLElementName(nodeEClass, EcorePackage.eNS_URI, "EStrings");
-		assertSame(NodesPackage.eINSTANCE.getNode_EReference_WithTypeEObject_Contained0001Many(), feature);
+		assertSame(NodesPackage.eINSTANCE.getNode_EAttribute_Attribute0010Many(), feature);
 	}
 
 	@Test

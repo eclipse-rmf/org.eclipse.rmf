@@ -62,7 +62,7 @@ public abstract class AbstractTestCase {
 	}
 
 	protected String loadWorkingFileAsString(String fileName) throws Exception {
-		URI emfURI = URI.createURI("working-dir" + fileName, true);
+		URI emfURI = URI.createURI("working-dir/" + fileName, true);
 		return loadFileAsString(URIConverter.INSTANCE.createInputStream(emfURI));
 	}
 
@@ -72,7 +72,7 @@ public abstract class AbstractTestCase {
 	}
 
 	protected void saveWorkingFile(String fileName, EObject modelRoot, ResourceFactoryImpl resourceFactory, Map<?, ?> options) throws Exception {
-		URI emfURI = URI.createURI("working-dir" + fileName, true);
+		URI emfURI = URI.createURI("working-dir/" + fileName, true);
 		XMLResource resource = (XMLResource) resourceFactory.createResource(emfURI);
 		resource.getContents().add(modelRoot);
 		resource.save(options);
