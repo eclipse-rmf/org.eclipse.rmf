@@ -152,6 +152,7 @@ public class SpecObjectItemProvider
 					notification.getNotifier(), true, true));
 			return;
 		case ReqIF10Package.SPEC_OBJECT__VALUES:
+		case ReqIF10Package.SPEC_OBJECT__LAST_CHANGE:
 			notifyReferencingSpecHierarchies((SpecObject) notification.getNotifier());
 		}
 		super.notifyChanged(notification);
