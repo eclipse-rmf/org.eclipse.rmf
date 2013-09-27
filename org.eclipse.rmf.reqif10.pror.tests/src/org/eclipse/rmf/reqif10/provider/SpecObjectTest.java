@@ -101,7 +101,7 @@ public class SpecObjectTest extends SpecElementWithAttributesTest {
 		ip.addListener(listener);
 		assertEquals(0, notifications.size());		
 		ProrUtil.setTheValue(specObject.getValues().get(0), "newDescription", editingDomain);
-		assertEquals(1, notifications.size());
+		assertEquals(2, notifications.size());
 		assertEquals(specHierarchy, notifications.get(0).getNotifier());
 		assertEquals(ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT, notifications.get(0).getFeature());
 	}
