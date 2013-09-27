@@ -240,6 +240,17 @@ public class BasicLoadTests extends AbstractTestCase {
 	}
 
 	@Test
+	public void testEReference_Referenced1001_Many_Empty() {
+		String inputFileName = INPUT_PATH + "EReference_Referenced1001Many_Empty.xml";
+		try {
+			EObject modelRoot = loadInputFile(inputFileName, new XMLPersistenceMappingResourceFactoryImpl(), null);
+			validateReferencedMany_Empty(modelRoot, NodesPackage.eINSTANCE.getNode_EReference_Referenced1001Many());
+		} catch (Exception ex) {
+			assertTrue(ex.getMessage(), false);
+		}
+	}
+
+	@Test
 	public void testEReference_Referenced1001_Single() {
 		String inputFileName = INPUT_PATH + "EReference_Referenced1001Single.xml";
 		try {
@@ -433,6 +444,21 @@ public class BasicLoadTests extends AbstractTestCase {
 
 		assertSame(childNode1, values.get(0));
 		assertSame(childNode2, values.get(1));
+	}
+
+	@SuppressWarnings("unchecked")
+	protected void validateReferencedMany_Empty(EObject modelRoot, EReference feature) {
+		// check root node
+		assertNotNull(modelRoot);
+		assertSame(NodesPackage.eINSTANCE.getNode(), modelRoot.eClass());
+		Node node = (Node) modelRoot;
+
+		EList<Node> childNodes = node.getEReference_Contained0100Many();
+		assertSame(2, childNodes.size());
+
+		EList<Object> values = (EList<Object>) node.eGet(feature);
+		assertSame(0, values.size());
+		assertTrue(node.eIsSet(feature));
 	}
 
 	protected void validateReferencedSingle(EObject modelRoot, EReference feature) {

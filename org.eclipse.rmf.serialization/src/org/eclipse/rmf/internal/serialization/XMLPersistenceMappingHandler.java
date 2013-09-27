@@ -114,10 +114,10 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 
 	}
 
-	class LoadPatternContained0001Impl extends AbstractLoadPatternImpl {
+	class LoadPatternEReferenceContained0001Impl extends AbstractLoadPatternImpl {
 		String classifierName = null;
 
-		public LoadPatternContained0001Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternEReferenceContained0001Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -177,10 +177,10 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	class LoadPatternContained0100Impl extends AbstractLoadPatternImpl {
+	class LoadPatternEReferenceContained0100Impl extends AbstractLoadPatternImpl {
 		String featureName;
 
-		public LoadPatternContained0100Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternEReferenceContained0100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -240,10 +240,10 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	class LoadPatternContained0101Impl extends AbstractLoadPatternImpl {
+	class LoadPatternEReferenceContained0101Impl extends AbstractLoadPatternImpl {
 		String featureName = null;
 
-		public LoadPatternContained0101Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternEReferenceContained0101Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -325,10 +325,10 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	class LoadPatternContained1001Impl extends AbstractLoadPatternImpl {
+	class LoadPatternEReferenceContained1001Impl extends AbstractLoadPatternImpl {
 		String featureWrapperName = null;
 
-		public LoadPatternContained1001Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternEReferenceContained1001Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -409,12 +409,12 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	/**
 	 * This class implements.... <img src="doc-files/LoadPatternEAttributeContained0100.png">
 	 */
-	class LoadPatternAttribute0100Impl extends AbstractLoadPatternImpl {
+	class LoadPatternEAttributeContained0100Impl extends AbstractLoadPatternImpl {
 		String featureName = null;
 		int depthsOfUnknownElements = 0;
 		String value = null;
 
-		public LoadPatternAttribute0100Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternEAttributeContained0100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -491,11 +491,11 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	class LoadPatternAttribute1000Impl extends AbstractLoadPatternImpl {
+	class LoadPatternEAttributeContained1000Impl extends AbstractLoadPatternImpl {
 		String featureWrapperName = null;
 		int depthsOfUnknownElements = 0;
 
-		public LoadPatternAttribute1000Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternEAttributeContained1000Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -574,11 +574,11 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	class LoadPatternAttribute1100Impl extends AbstractLoadPatternImpl {
+	class LoadPatternEAttributeContained1100Impl extends AbstractLoadPatternImpl {
 		String featureWrapperName = null;
 		int depthsOfUnknownElements = 0;
 
-		public LoadPatternAttribute1100Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternEAttributeContained1100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -658,12 +658,12 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	class LoadPatternReferenced0100Impl extends AbstractLoadPatternImpl {
+	class LoadPatternEReferenceReferenced0100Impl extends AbstractLoadPatternImpl {
 		String featureName = null;
 		InternalEObject proxy;
 		int depthsOfUnknownElements = 0;
 
-		public LoadPatternReferenced0100Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternEReferenceReferenced0100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -740,12 +740,12 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	class LoadPatternReferenced0101Impl extends AbstractLoadPatternImpl {
+	class LoadPatternEReferenceReferenced0101Impl extends AbstractLoadPatternImpl {
 		String featureName = null;
 		InternalEObject proxy = null;
 		int depthsOfUnknownElements = 0;
 
-		public LoadPatternReferenced0101Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternEReferenceReferenced0101Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -834,12 +834,12 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	class LoadPatternReferenced1001Impl extends AbstractLoadPatternImpl {
+	class LoadPatternEReferenceReferenced1001Impl extends AbstractLoadPatternImpl {
 		InternalEObject proxy = null;
 		String featureWrapperName = null;
 		int depthsOfUnknownElements = 0;
 
-		public LoadPatternReferenced1001Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternEReferenceReferenced1001Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -893,7 +893,15 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 				currentState = STATE_DELEGATE_PARENT_NEEDED;
 				break;
 			case STATE_HAS_SEEN_START_FEATURE_WRAPPER_ELEMENT:
-				currentState = STATE_DELEGATE_PARENT_NEEDED;
+				// only the feature element was available => consider it as a null value;
+				if (feature.isMany()) {
+					@SuppressWarnings("unchecked")
+					EList<EObject> values = (EList<EObject>) anchorEObject.eGet(feature);
+					values.clear();
+				} else {
+					setFeatureValue(anchorEObject, feature, null);
+				}
+				currentState = STATE_HAS_SEEN_END_FEATURE_WRAPPER_ELEMENT;
 				break;
 			case STATE_HAS_SEEN_START_CLASSIFIER_ELEMENT:
 				if (null != proxy) {
@@ -927,12 +935,12 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		}
 	}
 
-	class LoadPatternReferenced1100Impl extends AbstractLoadPatternImpl {
+	class LoadPatternEReferenceReferenced1100Impl extends AbstractLoadPatternImpl {
 		String featureWrapperName = null;
 		EObject proxy;
 		int depthsOfUnknownElements = 0;
 
-		public LoadPatternReferenced1100Impl(EObject anchorEObject, EStructuralFeature feature) {
+		public LoadPatternEReferenceReferenced1100Impl(EObject anchorEObject, EStructuralFeature feature) {
 			super(anchorEObject, feature);
 		}
 
@@ -1447,7 +1455,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		if (eObject instanceof AnyType) {
 			// handle any type using standard emf serialization
 			EStructuralFeature feature = super.getFeature(eObject, prefix, name, true);
-			deserializationRule = new LoadPatternContained0100Impl(eObject, feature);
+			deserializationRule = new LoadPatternEReferenceContained0100Impl(eObject, feature);
 		} else {
 			EStructuralFeature feature = getFeature(eObject, prefix, name, true);
 			if (null != feature) {
@@ -1457,40 +1465,40 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					if (reference.isContainment()) {
 						switch (featureSerializationStructure) {
 						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
-							deserializationRule = new LoadPatternContained0001Impl(eObject, feature);
+							deserializationRule = new LoadPatternEReferenceContained0001Impl(eObject, feature);
 							break;
 						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
-							deserializationRule = new LoadPatternContained0100Impl(eObject, feature);
+							deserializationRule = new LoadPatternEReferenceContained0100Impl(eObject, feature);
 							break;
 						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-							deserializationRule = new LoadPatternContained0101Impl(eObject, feature);
+							deserializationRule = new LoadPatternEReferenceContained0101Impl(eObject, feature);
 							break;
 						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-							deserializationRule = new LoadPatternContained1001Impl(eObject, feature);
+							deserializationRule = new LoadPatternEReferenceContained1001Impl(eObject, feature);
 							break;
 						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
-							deserializationRule = new LoadPatternContained0100Impl(eObject, feature);
+							deserializationRule = new LoadPatternEReferenceContained0100Impl(eObject, feature);
 							break;
 						default:
-							deserializationRule = new LoadPatternContained1001Impl(eObject, feature);
+							deserializationRule = new LoadPatternEReferenceContained1001Impl(eObject, feature);
 							break;
 						}
 					} else {
 						switch (featureSerializationStructure) {
 						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
-							deserializationRule = new LoadPatternReferenced0100Impl(eObject, feature);
+							deserializationRule = new LoadPatternEReferenceReferenced0100Impl(eObject, feature);
 							break;
 						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-							deserializationRule = new LoadPatternReferenced0101Impl(eObject, feature);
+							deserializationRule = new LoadPatternEReferenceReferenced0101Impl(eObject, feature);
 							break;
 						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-							deserializationRule = new LoadPatternReferenced1001Impl(eObject, feature);
+							deserializationRule = new LoadPatternEReferenceReferenced1001Impl(eObject, feature);
 							break;
 						case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
-							deserializationRule = new LoadPatternReferenced0100Impl(eObject, feature);
+							deserializationRule = new LoadPatternEReferenceReferenced0100Impl(eObject, feature);
 							break;
 						default:
-							deserializationRule = new LoadPatternReferenced1001Impl(eObject, feature);
+							deserializationRule = new LoadPatternEReferenceReferenced1001Impl(eObject, feature);
 							break;
 						}
 					}
@@ -1498,20 +1506,20 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 					// feature is an EAttribute
 					switch (featureSerializationStructure) {
 					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
-						deserializationRule = new LoadPatternAttribute0100Impl(eObject, feature);
+						deserializationRule = new LoadPatternEAttributeContained0100Impl(eObject, feature);
 						break;
 					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1000__FEATURE_WRAPPER_ELEMENT:
-						deserializationRule = new LoadPatternAttribute1000Impl(eObject, feature);
+						deserializationRule = new LoadPatternEAttributeContained1000Impl(eObject, feature);
 						break;
 					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
-						deserializationRule = new LoadPatternAttribute1100Impl(eObject, feature);
+						deserializationRule = new LoadPatternEAttributeContained1100Impl(eObject, feature);
 						break;
 					case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
-						deserializationRule = new LoadPatternAttribute0100Impl(eObject, feature);
+						deserializationRule = new LoadPatternEAttributeContained0100Impl(eObject, feature);
 						break;
 
 					default:
-						deserializationRule = new LoadPatternAttribute0100Impl(eObject, feature);
+						deserializationRule = new LoadPatternEAttributeContained0100Impl(eObject, feature);
 						break;
 					}
 

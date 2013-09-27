@@ -592,20 +592,20 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
 				// default EMF mapping
-				saveReferenced0100Single(remote, f);
+				saveEReferenceReferenced0100Single(remote, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-				saveReferenced0101Single(remote, f);
+				saveEReferenceReferenced0101Single(remote, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-				saveReferenced1001Single(remote, f);
+				saveEReferenceReferenced1001Single(remote, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
 				// if undefined, use the standard EMF mechanism
 				super.saveElementReferenceSingle(o, f);
 				break;
 			default:
-				saveReferenced1001Single(remote, f);
+				saveEReferenceReferenced1001Single(remote, f);
 				break;
 			}
 		}
@@ -629,19 +629,19 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveReferenced0100Single(EObject remote, EStructuralFeature f) {
+	protected void saveEReferenceReferenced0100Single(EObject remote, EStructuralFeature f) {
 		String qname = getFeatureQName(f);
 		saveReferencedHREF(f, remote, qname, true);
 	}
 
-	protected void saveReferenced0101Single(EObject remote, EStructuralFeature f) {
+	protected void saveEReferenceReferenced0101Single(EObject remote, EStructuralFeature f) {
 		doc.startElement(getFeatureQName(f));
 		String qname = getClassifierQName(remote.eClass(), f);
 		saveReferencedHREF(f, remote, qname, false);
 		doc.endElement();
 	}
 
-	protected void saveReferenced1001Single(EObject remote, EStructuralFeature f) {
+	protected void saveEReferenceReferenced1001Single(EObject remote, EStructuralFeature f) {
 		doc.startElement(getFeatureWrapperQName(f));
 		String qname = getClassifierQName(remote.eClass(), f);
 		saveReferencedHREF(f, remote, qname, false);
@@ -661,26 +661,26 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
 			// default EMF mapping
-			saveReferenced0100Many(values, f);
+			saveEReferenceReferenced0100Many(values, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-			saveReferenced0101Many(values, f);
+			saveEReferenceReferenced0101Many(values, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-			saveReferenced1001Many(values, f);
+			saveEReferenceReferenced1001Many(values, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
 			// if undefined, use the standard EMF mechanism
 			super.saveHRefMany(o, f);
 			break;
 		default:
-			saveReferenced1001Many(values, f);
+			saveEReferenceReferenced1001Many(values, f);
 			break;
 		}
 
 	}
 
-	protected void saveReferenced0100Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEReferenceReferenced0100Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		int size = values.size();
 		String qname = getFeatureQName(f);
 		for (int i = 0; i < size; i++) {
@@ -688,7 +688,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveReferenced0101Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEReferenceReferenced0101Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		int size = values.size();
 		String qname;
 		EObject value;
@@ -702,7 +702,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	}
 
-	protected void saveReferenced1001Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEReferenceReferenced1001Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		int size = values.size();
 		String qname;
 		EObject value;
@@ -726,62 +726,62 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 			// not allowed - ignore;
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
-			saveAttribute0001Single(svalue, f);
+			saveEAttributeContained0001Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0010__CLASSIFIER_WRAPPER_ELEMENT:
-			saveAttribute0010Single(svalue, f);
+			saveEAttributeContained0010Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0011__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-			saveAttribute0011Single(svalue, f);
+			saveEAttributeContained0011Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
-			saveAttribute0100Single(svalue, f);
+			saveEAttributeContained0100Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-			saveAttribute0101Single(svalue, f);
+			saveEAttributeContained0101Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0110__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
-			saveAttribute0110Single(svalue, f);
+			saveEAttributeContained0110Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0111__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-			saveAttribute0111Single(svalue, f);
+			saveEAttributeContained0111Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1000__FEATURE_WRAPPER_ELEMENT:
-			saveAttribute1000Single(svalue, f);
+			saveEAttributeContained1000Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-			saveAttribute1001Single(svalue, f);
+			saveEAttributeContained1001Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1010__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
-			saveAttribute1010Single(svalue, f);
+			saveEAttributeContained1010Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1011__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-			saveAttribute1011Single(svalue, f);
+			saveEAttributeContained1011Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
-			saveAttribute1100Single(svalue, f);
+			saveEAttributeContained1100Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1101__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-			saveAttribute1101Single(svalue, f);
+			saveEAttributeContained1101Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1110__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
-			saveAttribute1110Single(svalue, f);
+			saveEAttributeContained1110Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1111__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-			saveAttribute1111Single(svalue, f);
+			saveEAttributeContained1111Single(svalue, f);
 			break;
 		case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
 			// if undefined, use the standard EMF mechanism
 			super.saveDataTypeMany(o, f);
 			break;
 		default:
-			saveAttribute1001Single(svalue, f);
+			saveEAttributeContained1001Single(svalue, f);
 			break;
 		}
 
 	}
 
-	protected void saveAttribute0001Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained0001Single(String value, EStructuralFeature f) {
 		String name = getClassifierQName(f.getEType());
 		if (value == null) {
 			doc.startElement(name);
@@ -794,7 +794,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	}
 
-	protected void saveAttribute0010Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained0010Single(String value, EStructuralFeature f) {
 		String name = getClassifierWrapperQName(f.getEType());
 		if (value == null) {
 			doc.startElement(name);
@@ -806,13 +806,13 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveAttribute0011Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained0011Single(String value, EStructuralFeature f) {
 		doc.startElement(getClassifierWrapperQName(f.getEType()));
-		saveAttribute0001Single(value, f);
+		saveEAttributeContained0001Single(value, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute0100Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained0100Single(String value, EStructuralFeature f) {
 		// this is the default EMF behaviour
 		String name = getFeatureQName(f);
 		if (value == null) {
@@ -825,27 +825,27 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveAttribute0101Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained0101Single(String value, EStructuralFeature f) {
 		doc.startElement(getFeatureQName(f));
-		saveAttribute0001Single(value, f);
+		saveEAttributeContained0001Single(value, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute0110Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained0110Single(String value, EStructuralFeature f) {
 		doc.startElement(getFeatureQName(f));
-		saveAttribute0010Single(value, f);
+		saveEAttributeContained0010Single(value, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute0111Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained0111Single(String value, EStructuralFeature f) {
 		doc.startElement(getFeatureQName(f));
 		doc.startElement(getClassifierWrapperQName(f.getEType()));
-		saveAttribute0001Single(value, f);
+		saveEAttributeContained0001Single(value, f);
 		doc.endElement();
 		doc.endElement();
 	}
 
-	protected void saveAttribute1000Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained1000Single(String value, EStructuralFeature f) {
 		String name = getFeatureWrapperQName(f);
 		if (value == null) {
 			doc.startElement(name);
@@ -857,53 +857,53 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveAttribute1001Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained1001Single(String value, EStructuralFeature f) {
 		doc.startElement(getFeatureWrapperQName(f));
-		saveAttribute0001Single(value, f);
+		saveEAttributeContained0001Single(value, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute1010Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained1010Single(String value, EStructuralFeature f) {
 		doc.startElement(getFeatureWrapperQName(f));
-		saveAttribute0010Single(value, f);
+		saveEAttributeContained0010Single(value, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute1011Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained1011Single(String value, EStructuralFeature f) {
 		doc.startElement(getFeatureWrapperQName(f));
 		doc.startElement(getClassifierWrapperQName(f.getEType()));
-		saveAttribute0001Single(value, f);
+		saveEAttributeContained0001Single(value, f);
 		doc.endElement();
 		doc.endElement();
 	}
 
-	protected void saveAttribute1100Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained1100Single(String value, EStructuralFeature f) {
 		doc.startElement(getFeatureWrapperQName(f));
-		saveAttribute0100Single(value, f);
+		saveEAttributeContained0100Single(value, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute1101Single(String value, EStructuralFeature f) {
-		doc.startElement(getFeatureWrapperQName(f));
-		doc.startElement(getFeatureQName(f));
-		saveAttribute0001Single(value, f);
-		doc.endElement();
-		doc.endElement();
-	}
-
-	protected void saveAttribute1110Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained1101Single(String value, EStructuralFeature f) {
 		doc.startElement(getFeatureWrapperQName(f));
 		doc.startElement(getFeatureQName(f));
-		saveAttribute0010Single(value, f);
+		saveEAttributeContained0001Single(value, f);
 		doc.endElement();
 		doc.endElement();
 	}
 
-	protected void saveAttribute1111Single(String value, EStructuralFeature f) {
+	protected void saveEAttributeContained1110Single(String value, EStructuralFeature f) {
+		doc.startElement(getFeatureWrapperQName(f));
+		doc.startElement(getFeatureQName(f));
+		saveEAttributeContained0010Single(value, f);
+		doc.endElement();
+		doc.endElement();
+	}
+
+	protected void saveEAttributeContained1111Single(String value, EStructuralFeature f) {
 		doc.startElement(getFeatureWrapperQName(f));
 		doc.startElement(getFeatureQName(f));
 		doc.startElement(getClassifierWrapperQName(f.getEType()));
-		saveAttribute0001Single(value, f);
+		saveEAttributeContained0001Single(value, f);
 		doc.endElement();
 		doc.endElement();
 		doc.endElement();
@@ -923,56 +923,56 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 				// not allowed - ignore;
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
-				saveAttribute0001Many(values, f);
+				saveEAttributeContained0001Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0010__CLASSIFIER_WRAPPER_ELEMENT:
-				saveAttribute0010Many(values, f);
+				saveEAttributeContained0010Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0011__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-				saveAttribute0011Many(values, f);
+				saveEAttributeContained0011Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
-				saveAttribute0100Many(values, f);
+				saveEAttributeContained0100Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-				saveAttribute0101Many(values, f);
+				saveEAttributeContained0101Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0110__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
-				saveAttribute0110Many(values, f);
+				saveEAttributeContained0110Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0111__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-				saveAttribute0111Many(values, f);
+				saveEAttributeContained0111Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1000__FEATURE_WRAPPER_ELEMENT:
-				saveAttribute1000Many(values, f);
+				saveEAttributeContained1000Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-				saveAttribute1001Many(values, f);
+				saveEAttributeContained1001Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1010__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
-				saveAttribute1010Many(values, f);
+				saveEAttributeContained1010Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1011__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-				saveAttribute1011Many(values, f);
+				saveEAttributeContained1011Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
-				saveAttribute1100Many(values, f);
+				saveEAttributeContained1100Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1101__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-				saveAttribute1101Many(values, f);
+				saveEAttributeContained1101Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1110__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
-				saveAttribute1110Many(values, f);
+				saveEAttributeContained1110Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1111__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-				saveAttribute1111Many(values, f);
+				saveEAttributeContained1111Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
 				// if undefined, use the standard EMF mechanism
-				saveAttribute0100Many(values, f);
+				saveEAttributeContained0100Many(values, f);
 				break;
 			default:
-				saveAttribute1001Many(values, f);
+				saveEAttributeContained1001Many(values, f);
 				break;
 			}
 		}
@@ -1001,7 +1001,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		return buffer.toString();
 	}
 
-	protected void saveAttribute0001Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained0001Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		EDataType d = (EDataType) f.getEType();
@@ -1026,22 +1026,22 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveAttribute0010Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained0010Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		String name = getClassifierWrapperQName(f.getEType());
 		doc.saveDataValueElement(name, getAttributeString(values, f));
 	}
 
-	protected void saveAttribute0011Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained0011Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		doc.startElement(getClassifierWrapperQName(f.getEType()));
-		saveAttribute0001Many(values, f);
+		saveEAttributeContained0001Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute0100Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained0100Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		// this is the default EMF behaviour
 		assert null != values;
 
@@ -1067,7 +1067,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveAttribute0101Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained0101Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		EDataType d = (EDataType) f.getEType();
@@ -1094,83 +1094,83 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveAttribute0110Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained0110Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		doc.startElement(getFeatureQName(f));
-		saveAttribute0010Many(values, f);
+		saveEAttributeContained0010Many(values, f);
 		doc.endElement();
 
 	}
 
-	protected void saveAttribute0111Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained0111Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		doc.startElement(getFeatureQName(f));
-		saveAttribute0011Many(values, f);
+		saveEAttributeContained0011Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute1000Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained1000Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		String name = getFeatureWrapperQName(f);
 		doc.saveDataValueElement(name, getAttributeString(values, f));
 	}
 
-	protected void saveAttribute1001Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained1001Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveAttribute0001Many(values, f);
+		saveEAttributeContained0001Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute1010Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained1010Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveAttribute0010Many(values, f);
+		saveEAttributeContained0010Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute1011Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained1011Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveAttribute0011Many(values, f);
+		saveEAttributeContained0011Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute1100Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained1100Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveAttribute0100Many(values, f);
+		saveEAttributeContained0100Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute1101Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained1101Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveAttribute0101Many(values, f);
+		saveEAttributeContained0101Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute1110Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained1110Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveAttribute0110Many(values, f);
+		saveEAttributeContained0110Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveAttribute1111Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
+	protected void saveEAttributeContained1111Many(InternalEList<? extends EObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveAttribute0111Many(values, f);
+		saveEAttributeContained0111Many(values, f);
 		doc.endElement();
 	}
 
@@ -1186,59 +1186,59 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 			switch (featureSerializationStructure) {
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
-				saveContained0000Many(values, f);
+				saveEReferenceContained0000Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
-				saveContained0001Many(values, f);
+				saveEReferenceContained0001Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0010__CLASSIFIER_WRAPPER_ELEMENT:
-				saveContained0010Many(values, f);
+				saveEReferenceContained0010Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0011__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-				saveContained0011Many(values, f);
+				saveEReferenceContained0011Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
-				saveContained0100Many(values, f);
+				saveEReferenceContained0100Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-				saveContained0101Many(values, f);
+				saveEReferenceContained0101Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0110__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
-				saveContained0110Many(values, f);
+				saveEReferenceContained0110Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0111__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-				saveContained0111Many(values, f);
+				saveEReferenceContained0111Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1000__FEATURE_WRAPPER_ELEMENT:
-				saveContained1000Many(values, f);
+				saveEReferenceContained1000Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-				saveContained1001Many(values, f);
+				saveEReferenceContained1001Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1010__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
-				saveContained1010Many(values, f);
+				saveEReferenceContained1010Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1011__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-				saveContained1011Many(values, f);
+				saveEReferenceContained1011Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
-				saveContained1100Many(values, f);
+				saveEReferenceContained1100Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1101__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-				saveContained1101Many(values, f);
+				saveEReferenceContained1101Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1110__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
-				saveContained1110Many(values, f);
+				saveEReferenceContained1110Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1111__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-				saveContained1111Many(values, f);
+				saveEReferenceContained1111Many(values, f);
 				break;
 			case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
 				// if undefined, use the standard EMF mechanism
-				saveContained0100Many(values, f);
+				saveEReferenceContained0100Many(values, f);
 				break;
 			default:
-				saveContained1001Many(values, f);
+				saveEReferenceContained1001Many(values, f);
 				break;
 			}
 
@@ -1246,14 +1246,14 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	}
 
-	protected void saveContained0000Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained0000Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		for (EObject value : values) {
 			saveFeatures(value, SerializationType.elementsOnly, true);
 		}
 	}
 
-	protected void saveContained0001Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained0001Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		for (EObject value : values) {
@@ -1262,7 +1262,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveContained0010Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained0010Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		for (EClass eClass : getOrderedClasses(values)) {
@@ -1276,7 +1276,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveContained0011Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained0011Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 
@@ -1292,7 +1292,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveContained0100Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained0100Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		// this is the default EMF behaviour
 		assert null != values;
 		assert !values.isEmpty();
@@ -1302,7 +1302,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveContained0101Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained0101Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 
@@ -1314,7 +1314,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveContained0110Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained0110Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 
@@ -1332,7 +1332,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	}
 
-	protected void saveContained0111Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained0111Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 
@@ -1350,75 +1350,75 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		doc.endElement();
 	}
 
-	protected void saveContained1000Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained1000Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0000Many(values, f);
+		saveEReferenceContained0000Many(values, f);
 		doc.endElement();
 		// last end is written by caller
 	}
 
-	protected void saveContained1001Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained1001Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0001Many(values, f);
+		saveEReferenceContained0001Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveContained1010Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained1010Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0010Many(values, f);
+		saveEReferenceContained0010Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveContained1011Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained1011Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0011Many(values, f);
+		saveEReferenceContained0011Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveContained1100Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained1100Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0100Many(values, f);
+		saveEReferenceContained0100Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveContained1101Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained1101Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0101Many(values, f);
+		saveEReferenceContained0101Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveContained1110Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained1110Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0110Many(values, f);
+		saveEReferenceContained0110Many(values, f);
 		doc.endElement();
 	}
 
-	protected void saveContained1111Many(List<? extends InternalEObject> values, EStructuralFeature f) {
+	protected void saveEReferenceContained1111Many(List<? extends InternalEObject> values, EStructuralFeature f) {
 		assert null != values;
 		assert !values.isEmpty();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0111Many(values, f);
+		saveEReferenceContained0111Many(values, f);
 		doc.endElement();
 	}
 
@@ -1434,59 +1434,59 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 				switch (featureSerializationStructure) {
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0000__NONE:
-					saveContained0000Single(value, f);
+					saveEReferenceContained0000Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0001__CLASSIFIER_ELEMENT:
-					saveContained0001Single(value, f);
+					saveEReferenceContained0001Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0010__CLASSIFIER_WRAPPER_ELEMENT:
-					saveContained0010Single(value, f);
+					saveEReferenceContained0010Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0011__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-					saveContained0011Single(value, f);
+					saveEReferenceContained0011Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT:
-					saveContained0100Single(value, f);
+					saveEReferenceContained0100Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0101__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-					saveContained0101Single(value, f);
+					saveEReferenceContained0101Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0110__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
-					saveContained0110Single(value, f);
+					saveEReferenceContained0110Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0111__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-					saveContained0111Single(value, f);
+					saveEReferenceContained0111Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1000__FEATURE_WRAPPER_ELEMENT:
-					saveContained1000Single(value, f);
+					saveEReferenceContained1000Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-					saveContained1001Single(value, f);
+					saveEReferenceContained1001Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1010__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
-					saveContained1010Single(value, f);
+					saveEReferenceContained1010Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1011__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-					saveContained1011Single(value, f);
+					saveEReferenceContained1011Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1100__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT:
-					saveContained1100Single(value, f);
+					saveEReferenceContained1100Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1101__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_ELEMENT:
-					saveContained1101Single(value, f);
+					saveEReferenceContained1101Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1110__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT:
-					saveContained1110Single(value, f);
+					saveEReferenceContained1110Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1111__FEATURE_WRAPPER_ELEMENT__FEATURE_ELEMENT__CLASSIFIER_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT:
-					saveContained1111Single(value, f);
+					saveEReferenceContained1111Single(value, f);
 					break;
 				case XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__UNDEFINED:
 					// if undefined, use the standard EMF mechanism
 					super.saveContainedSingle(o, f);
 					break;
 				default:
-					saveContained1001Single(value, f);
+					saveEReferenceContained1001Single(value, f);
 					break;
 				}
 
@@ -1497,14 +1497,14 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		}
 	}
 
-	protected void saveContained0000Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained0000Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
 		saveFeatures(value, SerializationType.elementsOnly, true);
 	}
 
-	protected void saveContained0001Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained0001Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
@@ -1513,7 +1513,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	}
 
-	protected void saveContained0010Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained0010Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
@@ -1522,7 +1522,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		saveFeatures(value);
 	}
 
-	protected void saveContained0011Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained0011Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
@@ -1534,14 +1534,14 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	}
 
-	protected void saveContained0100Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained0100Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
 		saveElement(value, f);
 	}
 
-	protected void saveContained0101Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained0101Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
@@ -1552,7 +1552,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		doc.endElement();
 	}
 
-	protected void saveContained0110Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained0110Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
@@ -1564,7 +1564,7 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 
 	}
 
-	protected void saveContained0111Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained0111Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
@@ -1577,76 +1577,76 @@ public class XMLPersistenceMappingSaveImpl extends XMLSaveImpl {
 		doc.endElement();
 	}
 
-	protected void saveContained1000Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained1000Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0000Single(value, f);
+		saveEReferenceContained0000Single(value, f);
 		doc.endElement();
 		// last end is written by caller
 	}
 
-	protected void saveContained1001Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained1001Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0001Single(value, f);
+		saveEReferenceContained0001Single(value, f);
 		doc.endElement();
 	}
 
-	protected void saveContained1010Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained1010Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0010Single(value, f);
+		saveEReferenceContained0010Single(value, f);
 		doc.endElement();
 	}
 
-	protected void saveContained1011Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained1011Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0011Single(value, f);
+		saveEReferenceContained0011Single(value, f);
 		doc.endElement();
 	}
 
-	protected void saveContained1100Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained1100Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0100Single(value, f);
+		saveEReferenceContained0100Single(value, f);
 		doc.endElement();
 	}
 
-	protected void saveContained1101Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained1101Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0101Single(value, f);
+		saveEReferenceContained0101Single(value, f);
 		doc.endElement();
 	}
 
-	protected void saveContained1110Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained1110Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0110Single(value, f);
+		saveEReferenceContained0110Single(value, f);
 		doc.endElement();
 	}
 
-	protected void saveContained1111Single(EObject value, EStructuralFeature f) {
+	protected void saveEReferenceContained1111Single(EObject value, EStructuralFeature f) {
 		assert null != value;
 		assert !f.isMany();
 
 		doc.startElement(getFeatureWrapperQName(f));
-		saveContained0111Single(value, f);
+		saveEReferenceContained0111Single(value, f);
 		doc.endElement();
 	}
 
