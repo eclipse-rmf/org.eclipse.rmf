@@ -13,6 +13,7 @@ package org.eclipse.rmf.reqif10.provider;
 import static org.junit.Assert.assertEquals;
 
 import java.net.URISyntaxException;
+import java.util.GregorianCalendar;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -74,9 +75,9 @@ public abstract class AttributeValueTest extends AbstractItemProviderTest {
 		ReqIF reqif = getTestReqif("simple.reqif");
 		SpecObject specObject = reqif.getCoreContent().getSpecObjects().get(0);
 		specObject.getValues().add(getFixture());
-		XMLGregorianCalendar lastChangeBefore = specObject.getLastChange();
+		GregorianCalendar lastChangeBefore = specObject.getLastChange();
 		ProrUtil.setTheValue(getFixture(), getValueObject(), editingDomain);
-		XMLGregorianCalendar lastChangeAfter = specObject.getLastChange();
+		GregorianCalendar lastChangeAfter = specObject.getLastChange();
 		Assert.assertNotSame(lastChangeAfter, lastChangeBefore);
 	}
 	

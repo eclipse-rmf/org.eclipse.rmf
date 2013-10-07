@@ -11,16 +11,9 @@
  */
 package org.eclipse.rmf.tests.reqif10.serialization.util;
 
-import java.util.Date;
 import java.util.GregorianCalendar;
 
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
-
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
 import org.eclipse.rmf.reqif10.XhtmlContent;
@@ -30,7 +23,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
 @SuppressWarnings("nls")
 public class SimpleModelBuilder extends ReqIFContentModelBuilder {
 	private final String comment;
-	private final XMLGregorianCalendar creationTime;
+	private final GregorianCalendar creationTime;
 	private final String identifier;
 	private final String repositoryId;
 	private final String reqIfToolId;
@@ -55,7 +48,7 @@ public class SimpleModelBuilder extends ReqIFContentModelBuilder {
 	 * @param reqIfToolId
 	 * @param sourceToolId
 	 * @param title
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public SimpleModelBuilder(String creationTimeString, String identifier, String reqIfToolId, String sourceToolId, String title) throws Exception {
 		this(null, creationTimeString, identifier, null, reqIfToolId, sourceToolId, title);
@@ -71,7 +64,7 @@ public class SimpleModelBuilder extends ReqIFContentModelBuilder {
 	 * @param reqIfToolId
 	 * @param sourceToolId
 	 * @param title
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public SimpleModelBuilder(String comment, String creationTimeString, String identifier, String repositoryId, String reqIfToolId,
 			String sourceToolId, String title) throws Exception {
@@ -162,20 +155,6 @@ public class SimpleModelBuilder extends ReqIFContentModelBuilder {
 
 	@Override
 	public void createToolExtensions() throws Exception {
-	}
-
-	@Override
-	public XMLGregorianCalendar getCurrentDate() throws DatatypeConfigurationException {
-		GregorianCalendar calendar = new GregorianCalendar();
-		calendar.setTime(new Date());
-		XMLGregorianCalendar xmlGregoriaCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
-		return xmlGregoriaCalendar;
-	}
-
-	@Override
-	public XMLGregorianCalendar toDate(String date) throws DatatypeConfigurationException {
-		XMLGregorianCalendar xmlGregoriaCalendar = (XMLGregorianCalendar) EcoreUtil.createFromString(XMLTypePackage.eINSTANCE.getDateTime(), date);
-		return xmlGregoriaCalendar;
 	}
 
 	public static XhtmlContent createXhtmlValue(String value) {

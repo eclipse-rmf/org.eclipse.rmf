@@ -157,9 +157,9 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 	public void testObj03() throws Exception {
 		SpecObject[] so = getObjectsByName("Obj-03");
 
-		assertTrue(so[0].getLastChange().toGregorianCalendar().getTimeInMillis() < so[1].getLastChange().toGregorianCalendar().getTimeInMillis());
-		assertTrue(so[1].getLastChange().toGregorianCalendar().getTimeInMillis() < so[2].getLastChange().toGregorianCalendar().getTimeInMillis());
-		assertTrue(so[2].getLastChange().toGregorianCalendar().getTimeInMillis() < so[3].getLastChange().toGregorianCalendar().getTimeInMillis());
+		assertTrue(so[0].getLastChange().getTimeInMillis() < so[1].getLastChange().getTimeInMillis());
+		assertTrue(so[1].getLastChange().getTimeInMillis() < so[2].getLastChange().getTimeInMillis());
+		assertTrue(so[2].getLastChange().getTimeInMillis() < so[3].getLastChange().getTimeInMillis());
 
 		// Check values
 		assertEquals("O3.A1 initial", ReqIFUtil.getTheValue(ReqIFUtil.getAttributeValueForLabel(so[0], "A1")));
@@ -239,7 +239,7 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 			assertNull(findInSpec("Spec1", so[i]));
 			SpecHierarchy shx = findInSpec("Spec2", so[i]);
 			assertNotNull(shx);
-			assertTrue(sh0.getLastChange().toGregorianCalendar().getTimeInMillis() < shx.getLastChange().toGregorianCalendar().getTimeInMillis());
+			assertTrue(sh0.getLastChange().getTimeInMillis() < shx.getLastChange().getTimeInMillis());
 
 		}
 	}

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -223,7 +224,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		ReqIFHeader header = reqif10Factory.createReqIFHeader();
 		root.setTheHeader(header);
 
-		XMLGregorianCalendar reqIFLastChange = ReqIF10Util.getReqIFLastChange();
+		GregorianCalendar reqIFLastChange = ReqIF10Util.getReqIFLastChange();
 
 		header.setCreationTime(reqIFLastChange);
 		header.setSourceToolId("ProR (http://pror.org)");

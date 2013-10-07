@@ -13,9 +13,9 @@ package org.eclipse.rmf.reqif10.pror.provider;
 
 
 import java.util.Collection;
+import java.util.GregorianCalendar;
 import java.util.List;
 
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -134,7 +134,7 @@ public class AttributeValueDateItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		XMLGregorianCalendar labelValue = ((AttributeValueDate)object).getTheValue();
+		GregorianCalendar labelValue = ((AttributeValueDate)object).getTheValue();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AttributeValueDate_type") :

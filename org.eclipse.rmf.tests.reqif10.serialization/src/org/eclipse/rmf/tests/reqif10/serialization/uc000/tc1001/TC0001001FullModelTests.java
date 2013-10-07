@@ -26,7 +26,6 @@ import junit.framework.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
@@ -49,6 +48,7 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionReal;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
@@ -72,7 +72,7 @@ public class TC0001001FullModelTests extends AbstractTestCase {
 		saveReqIFFile(originalReqIF, REFERENCE_DATA_FILENAME);
 		loadedReqIF = loadReqIFFile(REFERENCE_DATA_FILENAME);
 	}
-	
+
 	@Test
 	public void testSchemaCompliance() throws Exception {
 		validateAgainstSchema(REFERENCE_DATA_FILENAME);
@@ -124,8 +124,7 @@ public class TC0001001FullModelTests extends AbstractTestCase {
 		assertTrue(loadedReqIF.getTheHeader().isSetTitle());
 
 		assertEquals(originalReqIF.getTheHeader().getComment(), loadedReqIF.getTheHeader().getComment());
-		assertEquals(originalReqIF.getTheHeader().getCreationTime().toGregorianCalendar(), loadedReqIF.getTheHeader().getCreationTime()
-				.toGregorianCalendar());
+		assertEquals(originalReqIF.getTheHeader().getCreationTime(), loadedReqIF.getTheHeader().getCreationTime());
 		assertEquals(originalReqIF.getTheHeader().getIdentifier(), loadedReqIF.getTheHeader().getIdentifier());
 		assertEquals(originalReqIF.getTheHeader().getRepositoryId(), loadedReqIF.getTheHeader().getRepositoryId());
 		assertEquals(originalReqIF.getTheHeader().getReqIFToolId(), loadedReqIF.getTheHeader().getReqIFToolId());
@@ -282,7 +281,7 @@ public class TC0001001FullModelTests extends AbstractTestCase {
 		assertTrue(attributeValue instanceof AttributeValueDate);
 		AttributeValueDate attributeValueDate = (AttributeValueDate) attributeValue;
 		assertTrue(attributeValueDate.isSetTheValue());
-		assertEquals(EcoreUtil.createFromString(XMLTypePackage.eINSTANCE.getDateTime(), "2002-05-30T09:30:10+06:00"),
+		assertEquals(EcoreUtil.createFromString(ReqIF10Package.eINSTANCE.getDateTime(), "2002-05-30T09:30:10+06:00"),
 				attributeValueDate.getTheValue());
 
 	}

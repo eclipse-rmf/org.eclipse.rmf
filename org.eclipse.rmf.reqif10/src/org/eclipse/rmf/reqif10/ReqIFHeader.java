@@ -11,6 +11,7 @@
  */
 package org.eclipse.rmf.reqif10;
 
+import java.util.GregorianCalendar;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.ecore.EObject;
@@ -106,14 +107,14 @@ public interface ReqIFHeader extends EObject {
 	 * @return the value of the '<em>Creation Time</em>' attribute.
 	 * @see #isSetCreationTime()
 	 * @see #unsetCreationTime()
-	 * @see #setCreationTime(XMLGregorianCalendar)
+	 * @see #setCreationTime(GregorianCalendar)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_CreationTime()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.DateTime" required="true" ordered="false"
+	 * @model unsettable="true" dataType="org.eclipse.rmf.reqif10.DateTime" required="true" ordered="false"
 	 *        extendedMetaData="name='CREATION-TIME' kind='element' namespace='##targetNamespace'"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='CREATION-TIME' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
-	XMLGregorianCalendar getCreationTime();
+	GregorianCalendar getCreationTime();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getCreationTime <em>Creation Time</em>}' attribute.
@@ -125,7 +126,7 @@ public interface ReqIFHeader extends EObject {
 	 * @see #getCreationTime()
 	 * @generated
 	 */
-	void setCreationTime(XMLGregorianCalendar value);
+	void setCreationTime(GregorianCalendar value);
 
 	/**
 	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getCreationTime <em>Creation Time</em>}' attribute.
@@ -133,7 +134,7 @@ public interface ReqIFHeader extends EObject {
 	 * <!-- end-user-doc -->
 	 * @see #isSetCreationTime()
 	 * @see #getCreationTime()
-	 * @see #setCreationTime(XMLGregorianCalendar)
+	 * @see #setCreationTime(GregorianCalendar)
 	 * @generated
 	 */
 	void unsetCreationTime();
@@ -145,7 +146,7 @@ public interface ReqIFHeader extends EObject {
 	 * @return whether the value of the '<em>Creation Time</em>' attribute is set.
 	 * @see #unsetCreationTime()
 	 * @see #getCreationTime()
-	 * @see #setCreationTime(XMLGregorianCalendar)
+	 * @see #setCreationTime(GregorianCalendar)
 	 * @generated
 	 */
 	boolean isSetCreationTime();

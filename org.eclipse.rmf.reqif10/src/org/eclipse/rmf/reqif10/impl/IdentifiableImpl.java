@@ -11,25 +11,20 @@
  */
 package org.eclipse.rmf.reqif10.impl;
 
-import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.GregorianCalendar;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.rmf.reqif10.AlternativeID;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Identifiable</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Identifiable</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -45,9 +40,9 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
  */
 public abstract class IdentifiableImpl extends EObjectImpl implements Identifiable {
 	/**
-	 * The default value of the '{@link #getDesc() <em>Desc</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getDesc() <em>Desc</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getDesc()
 	 * @generated
 	 * @ordered
@@ -55,9 +50,9 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	protected static final String DESC_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDesc() <em>Desc</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDesc() <em>Desc</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getDesc()
 	 * @generated
 	 * @ordered
@@ -66,8 +61,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * This is true if the Desc attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -75,8 +69,8 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -85,8 +79,8 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -95,8 +89,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * This is true if the Identifier attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -104,28 +97,27 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * The default value of the '{@link #getLastChange() <em>Last Change</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getLastChange()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final XMLGregorianCalendar LAST_CHANGE_EDEFAULT = null;
+	protected static final GregorianCalendar LAST_CHANGE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getLastChange() <em>Last Change</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getLastChange()
 	 * @generated
 	 * @ordered
 	 */
-	protected XMLGregorianCalendar lastChange = LAST_CHANGE_EDEFAULT;
+	protected GregorianCalendar lastChange = LAST_CHANGE_EDEFAULT;
 
 	/**
 	 * This is true if the Last Change attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -133,8 +125,8 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * The default value of the '{@link #getLongName() <em>Long Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getLongName()
 	 * @generated
 	 * @ordered
@@ -143,8 +135,8 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * The cached value of the '{@link #getLongName() <em>Long Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getLongName()
 	 * @generated
 	 * @ordered
@@ -153,17 +145,16 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * This is true if the Long Name attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean longNameESet;
 
 	/**
-	 * The cached value of the '{@link #getAlternativeID() <em>Alternative ID</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getAlternativeID() <em>Alternative ID</em>}' containment reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getAlternativeID()
 	 * @generated
 	 * @ordered
@@ -171,17 +162,16 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	protected AlternativeID alternativeID;
 
 	/**
-	 * This is true if the Alternative ID containment reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Alternative ID containment reference has been set. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean alternativeIDESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IdentifiableImpl() {
@@ -189,8 +179,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -199,8 +188,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getDesc() {
@@ -208,8 +196,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDesc(String newDesc) {
@@ -222,8 +209,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetDesc() {
@@ -236,8 +222,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetDesc() {
@@ -245,8 +230,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getIdentifier() {
@@ -254,8 +238,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setIdentifier(String newIdentifier) {
@@ -268,8 +251,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetIdentifier() {
@@ -282,8 +264,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetIdentifier() {
@@ -291,21 +272,19 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLGregorianCalendar getLastChange() {
+	public GregorianCalendar getLastChange() {
 		return lastChange;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLastChange(XMLGregorianCalendar newLastChange) {
-		XMLGregorianCalendar oldLastChange = lastChange;
+	public void setLastChange(GregorianCalendar newLastChange) {
+		GregorianCalendar oldLastChange = lastChange;
 		lastChange = newLastChange;
 		boolean oldLastChangeESet = lastChangeESet;
 		lastChangeESet = true;
@@ -314,12 +293,11 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetLastChange() {
-		XMLGregorianCalendar oldLastChange = lastChange;
+		GregorianCalendar oldLastChange = lastChange;
 		boolean oldLastChangeESet = lastChangeESet;
 		lastChange = LAST_CHANGE_EDEFAULT;
 		lastChangeESet = false;
@@ -328,8 +306,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetLastChange() {
@@ -337,8 +314,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getLongName() {
@@ -346,8 +322,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setLongName(String newLongName) {
@@ -360,8 +335,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetLongName() {
@@ -374,8 +348,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetLongName() {
@@ -383,8 +356,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public AlternativeID getAlternativeID() {
@@ -392,8 +364,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetAlternativeID(AlternativeID newAlternativeID, NotificationChain msgs) {
@@ -409,8 +380,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setAlternativeID(AlternativeID newAlternativeID) {
@@ -432,8 +402,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicUnsetAlternativeID(NotificationChain msgs) {
@@ -449,8 +418,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetAlternativeID() {
@@ -469,8 +437,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetAlternativeID() {
@@ -478,8 +445,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -492,8 +458,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -514,8 +479,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -528,7 +492,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 				setIdentifier((String)newValue);
 				return;
 			case ReqIF10Package.IDENTIFIABLE__LAST_CHANGE:
-				setLastChange((XMLGregorianCalendar)newValue);
+				setLastChange((GregorianCalendar)newValue);
 				return;
 			case ReqIF10Package.IDENTIFIABLE__LONG_NAME:
 				setLongName((String)newValue);
@@ -541,8 +505,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -568,8 +531,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -590,8 +552,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -611,4 +572,4 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 		return result.toString();
 	}
 
-} //IdentifiableImpl
+} // IdentifiableImpl

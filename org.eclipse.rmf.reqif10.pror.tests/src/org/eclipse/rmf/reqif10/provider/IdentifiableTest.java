@@ -12,6 +12,7 @@
 package org.eclipse.rmf.reqif10.provider;
 
 import java.net.URISyntaxException;
+import java.util.GregorianCalendar;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
@@ -60,7 +61,7 @@ public abstract class IdentifiableTest extends AbstractItemProviderTest {
 		Assert.assertEquals(1, notifications.size());
 		getFixture().setIdentifier("new id");
 		Assert.assertEquals(2, notifications.size());
-		getFixture().setLastChange(DatatypeFactory.newInstance().newXMLGregorianCalendar());
+		getFixture().setLastChange(new GregorianCalendar());
 		Assert.assertEquals(3, notifications.size());
 		getFixture().setLongName("new Long Name");
 		Assert.assertEquals(4, notifications.size());

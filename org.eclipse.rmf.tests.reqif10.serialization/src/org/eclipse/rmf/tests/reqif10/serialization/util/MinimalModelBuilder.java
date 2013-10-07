@@ -15,13 +15,11 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 public class MinimalModelBuilder {
 	private ReqIF reqIF;
@@ -58,16 +56,15 @@ public class MinimalModelBuilder {
 	public void postProcessing() throws Exception {
 	}
 
-	public XMLGregorianCalendar getCurrentDate() throws DatatypeConfigurationException {
+	public GregorianCalendar getCurrentDate() throws DatatypeConfigurationException {
 		GregorianCalendar calendar = new GregorianCalendar();
 		calendar.setTime(new Date());
-		XMLGregorianCalendar xmlGregoriaCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
-		return xmlGregoriaCalendar;
+		return calendar;
 	}
 
-	public XMLGregorianCalendar toDate(String date) throws DatatypeConfigurationException {
-		XMLGregorianCalendar xmlGregoriaCalendar = (XMLGregorianCalendar) EcoreUtil.createFromString(XMLTypePackage.eINSTANCE.getDateTime(), date);
-		return xmlGregoriaCalendar;
+	public GregorianCalendar toDate(String date) throws DatatypeConfigurationException {
+		GregorianCalendar gregorianCalendar = (GregorianCalendar) EcoreUtil.createFromString(ReqIF10Package.eINSTANCE.getDateTime(), date);
+		return gregorianCalendar;
 	}
 
 	public ReqIF getReqIF() throws Exception {

@@ -18,9 +18,8 @@ import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_OBJECT__TYPE;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.GregorianCalendar;
 import java.util.List;
-
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -457,7 +456,7 @@ public class SpecHierarchyItemProvider extends
 		commandList.add(super.createMoveCommand(domain, owner, feature, value,
 				index));
 
-		XMLGregorianCalendar lastChange = ReqIF10Util.getReqIFLastChange();
+		GregorianCalendar lastChange = ReqIF10Util.getReqIFLastChange();
 		if (value instanceof SpecHierarchy) {
 			SetCommand sc = new SetCommand(domain, (SpecHierarchy) value,
 					ReqIF10Package.eINSTANCE.getIdentifiable_LastChange(),

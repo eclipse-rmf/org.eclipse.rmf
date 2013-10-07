@@ -3299,6 +3299,16 @@ public interface ReqIF10Package extends EPackage {
 	int XHTML_CONTENT_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '<em>Date Time</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.GregorianCalendar
+	 * @see org.eclipse.rmf.reqif10.impl.ReqIF10PackageImpl#getDateTime()
+	 * @generated
+	 */
+	int DATE_TIME = 48;
+
+	/**
 	 * The meta object id for the '<em>ID</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3306,7 +3316,7 @@ public interface ReqIF10Package extends EPackage {
 	 * @see org.eclipse.rmf.reqif10.impl.ReqIF10PackageImpl#getID()
 	 * @generated
 	 */
-	int ID = 48;
+	int ID = 49;
 
 
 	/**
@@ -4725,6 +4735,17 @@ public interface ReqIF10Package extends EPackage {
 	EAttribute getXhtmlContent_XhtmlSource();
 
 	/**
+	 * Returns the meta object for data type '{@link java.util.GregorianCalendar <em>Date Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Date Time</em>'.
+	 * @see java.util.GregorianCalendar
+	 * @model instanceClass="java.util.GregorianCalendar"
+	 * @generated
+	 */
+	EDataType getDateTime();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.String <em>ID</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5916,6 +5937,16 @@ public interface ReqIF10Package extends EPackage {
 		 * @generated
 		 */
 		EAttribute XHTML_CONTENT__XHTML_SOURCE = eINSTANCE.getXhtmlContent_XhtmlSource();
+
+		/**
+		 * The meta object literal for the '<em>Date Time</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.GregorianCalendar
+		 * @see org.eclipse.rmf.reqif10.impl.ReqIF10PackageImpl#getDateTime()
+		 * @generated
+		 */
+		EDataType DATE_TIME = eINSTANCE.getDateTime();
 
 		/**
 		 * The meta object literal for the '<em>ID</em>' data type.

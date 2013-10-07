@@ -12,8 +12,7 @@
 package org.eclipse.rmf.tests.reqif10.serialization.uc001.tc4000;
 
 import java.math.BigInteger;
-
-import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.GregorianCalendar;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.rmf.reqif10.AlternativeID;
@@ -70,8 +69,7 @@ public class TC4000ModelBuilder extends SimpleModelBuilder {
 	SpecObject specObject;
 
 	/**
-	 * @throws Exception 
-	 * 
+	 * @throws Exception
 	 */
 	public TC4000ModelBuilder(int specHierarchiesCount) throws Exception {
 		super("ID_TC4000_ReqIfHeader", "TC 4000 'Big Model'");
@@ -267,11 +265,11 @@ public class TC4000ModelBuilder extends SimpleModelBuilder {
 
 	}
 
-	public SpecObject createTC4000SpecObject(String identifier, XMLGregorianCalendar lastChangeDate, boolean tc4000_boolean,
-			BigInteger tc4000_integer, String tc4000_text, Double tc4000_real, XMLGregorianCalendar tc4000_lastChangeDate) throws Exception {
+	public SpecObject createTC4000SpecObject(String identifier, GregorianCalendar gregorianCalendar, boolean tc4000_boolean,
+			BigInteger tc4000_integer, String tc4000_text, Double tc4000_real, GregorianCalendar gregorianCalendar2) throws Exception {
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		specObject.setIdentifier(identifier);
-		specObject.setLastChange(tc4000_lastChangeDate);
+		specObject.setLastChange(gregorianCalendar2);
 		specObject.setType(specObjectType);
 
 		AttributeValueBoolean attributeValueBooleanTc4000t = ReqIF10Factory.eINSTANCE.createAttributeValueBoolean();
@@ -292,7 +290,7 @@ public class TC4000ModelBuilder extends SimpleModelBuilder {
 
 		AttributeValueDate attributeValueDate = ReqIF10Factory.eINSTANCE.createAttributeValueDate();
 		attributeValueDate.setDefinition(attributeDefinitionDate);
-		attributeValueDate.setTheValue(tc4000_lastChangeDate);
+		attributeValueDate.setTheValue(gregorianCalendar2);
 
 		specObject.getValues().add(attributeValueBooleanTc4000t);
 		specObject.getValues().add(attributeValueInteger);

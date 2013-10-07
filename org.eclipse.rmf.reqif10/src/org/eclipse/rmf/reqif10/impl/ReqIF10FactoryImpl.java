@@ -11,137 +11,225 @@
  */
 package org.eclipse.rmf.reqif10.impl;
 
+import java.util.GregorianCalendar;
+
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.rmf.reqif10.*;
+import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
+import org.eclipse.rmf.reqif10.AlternativeID;
+import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
+import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
+import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
+import org.eclipse.rmf.reqif10.AttributeDefinitionInteger;
+import org.eclipse.rmf.reqif10.AttributeDefinitionReal;
+import org.eclipse.rmf.reqif10.AttributeDefinitionString;
+import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
+import org.eclipse.rmf.reqif10.AttributeValueBoolean;
+import org.eclipse.rmf.reqif10.AttributeValueDate;
+import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
+import org.eclipse.rmf.reqif10.AttributeValueInteger;
+import org.eclipse.rmf.reqif10.AttributeValueReal;
+import org.eclipse.rmf.reqif10.AttributeValueString;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionBoolean;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionDate;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionReal;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML;
+import org.eclipse.rmf.reqif10.EmbeddedValue;
+import org.eclipse.rmf.reqif10.EnumValue;
+import org.eclipse.rmf.reqif10.RelationGroup;
+import org.eclipse.rmf.reqif10.RelationGroupType;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
+import org.eclipse.rmf.reqif10.ReqIFHeader;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
+import org.eclipse.rmf.reqif10.SpecObject;
+import org.eclipse.rmf.reqif10.SpecObjectType;
+import org.eclipse.rmf.reqif10.SpecRelation;
+import org.eclipse.rmf.reqif10.SpecRelationType;
+import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.SpecificationType;
+import org.eclipse.rmf.reqif10.XhtmlContent;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Factory</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
+	DatatypeFactory datatypeFactory;
+
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static ReqIF10Factory init() {
 		try {
-			ReqIF10Factory theReqIF10Factory = (ReqIF10Factory)EPackage.Registry.INSTANCE.getEFactory("http://www.omg.org/spec/ReqIF/20110401/reqif.xsd"); 
+			ReqIF10Factory theReqIF10Factory = (ReqIF10Factory) EPackage.Registry.INSTANCE.getEFactory(ReqIF10Package.eNS_URI);
 			if (theReqIF10Factory != null) {
 				return theReqIF10Factory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new ReqIF10FactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	public ReqIF10FactoryImpl() {
 		super();
+		try {
+			datatypeFactory = DatatypeFactory.newInstance();
+		} catch (DatatypeConfigurationException e) {
+			datatypeFactory = null;
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML: return createAttributeValueXHTML();
-			case ReqIF10Package.ATTRIBUTE_DEFINITION_XHTML: return createAttributeDefinitionXHTML();
-			case ReqIF10Package.REQ_IF_CONTENT: return createReqIFContent();
-			case ReqIF10Package.REQ_IF: return createReqIF();
-			case ReqIF10Package.REQ_IF_HEADER: return createReqIFHeader();
-			case ReqIF10Package.REQ_IF_TOOL_EXTENSION: return createReqIFToolExtension();
-			case ReqIF10Package.SPEC_OBJECT: return createSpecObject();
-			case ReqIF10Package.SPEC_OBJECT_TYPE: return createSpecObjectType();
-			case ReqIF10Package.SPECIFICATION: return createSpecification();
-			case ReqIF10Package.SPECIFICATION_TYPE: return createSpecificationType();
-			case ReqIF10Package.SPEC_HIERARCHY: return createSpecHierarchy();
-			case ReqIF10Package.SPEC_RELATION: return createSpecRelation();
-			case ReqIF10Package.SPEC_RELATION_TYPE: return createSpecRelationType();
-			case ReqIF10Package.RELATION_GROUP: return createRelationGroup();
-			case ReqIF10Package.RELATION_GROUP_TYPE: return createRelationGroupType();
-			case ReqIF10Package.DATATYPE_DEFINITION_XHTML: return createDatatypeDefinitionXHTML();
-			case ReqIF10Package.ALTERNATIVE_ID: return createAlternativeID();
-			case ReqIF10Package.ATTRIBUTE_DEFINITION_BOOLEAN: return createAttributeDefinitionBoolean();
-			case ReqIF10Package.DATATYPE_DEFINITION_BOOLEAN: return createDatatypeDefinitionBoolean();
-			case ReqIF10Package.ATTRIBUTE_VALUE_BOOLEAN: return createAttributeValueBoolean();
-			case ReqIF10Package.ATTRIBUTE_DEFINITION_DATE: return createAttributeDefinitionDate();
-			case ReqIF10Package.DATATYPE_DEFINITION_DATE: return createDatatypeDefinitionDate();
-			case ReqIF10Package.ATTRIBUTE_VALUE_DATE: return createAttributeValueDate();
-			case ReqIF10Package.ATTRIBUTE_DEFINITION_ENUMERATION: return createAttributeDefinitionEnumeration();
-			case ReqIF10Package.DATATYPE_DEFINITION_ENUMERATION: return createDatatypeDefinitionEnumeration();
-			case ReqIF10Package.ENUM_VALUE: return createEnumValue();
-			case ReqIF10Package.EMBEDDED_VALUE: return createEmbeddedValue();
-			case ReqIF10Package.ATTRIBUTE_VALUE_ENUMERATION: return createAttributeValueEnumeration();
-			case ReqIF10Package.ATTRIBUTE_DEFINITION_INTEGER: return createAttributeDefinitionInteger();
-			case ReqIF10Package.DATATYPE_DEFINITION_INTEGER: return createDatatypeDefinitionInteger();
-			case ReqIF10Package.ATTRIBUTE_VALUE_INTEGER: return createAttributeValueInteger();
-			case ReqIF10Package.ATTRIBUTE_DEFINITION_REAL: return createAttributeDefinitionReal();
-			case ReqIF10Package.DATATYPE_DEFINITION_REAL: return createDatatypeDefinitionReal();
-			case ReqIF10Package.ATTRIBUTE_VALUE_REAL: return createAttributeValueReal();
-			case ReqIF10Package.ATTRIBUTE_DEFINITION_STRING: return createAttributeDefinitionString();
-			case ReqIF10Package.DATATYPE_DEFINITION_STRING: return createDatatypeDefinitionString();
-			case ReqIF10Package.ATTRIBUTE_VALUE_STRING: return createAttributeValueString();
-			case ReqIF10Package.XHTML_CONTENT: return createXhtmlContent();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML:
+			return createAttributeValueXHTML();
+		case ReqIF10Package.ATTRIBUTE_DEFINITION_XHTML:
+			return createAttributeDefinitionXHTML();
+		case ReqIF10Package.REQ_IF_CONTENT:
+			return createReqIFContent();
+		case ReqIF10Package.REQ_IF:
+			return createReqIF();
+		case ReqIF10Package.REQ_IF_HEADER:
+			return createReqIFHeader();
+		case ReqIF10Package.REQ_IF_TOOL_EXTENSION:
+			return createReqIFToolExtension();
+		case ReqIF10Package.SPEC_OBJECT:
+			return createSpecObject();
+		case ReqIF10Package.SPEC_OBJECT_TYPE:
+			return createSpecObjectType();
+		case ReqIF10Package.SPECIFICATION:
+			return createSpecification();
+		case ReqIF10Package.SPECIFICATION_TYPE:
+			return createSpecificationType();
+		case ReqIF10Package.SPEC_HIERARCHY:
+			return createSpecHierarchy();
+		case ReqIF10Package.SPEC_RELATION:
+			return createSpecRelation();
+		case ReqIF10Package.SPEC_RELATION_TYPE:
+			return createSpecRelationType();
+		case ReqIF10Package.RELATION_GROUP:
+			return createRelationGroup();
+		case ReqIF10Package.RELATION_GROUP_TYPE:
+			return createRelationGroupType();
+		case ReqIF10Package.DATATYPE_DEFINITION_XHTML:
+			return createDatatypeDefinitionXHTML();
+		case ReqIF10Package.ALTERNATIVE_ID:
+			return createAlternativeID();
+		case ReqIF10Package.ATTRIBUTE_DEFINITION_BOOLEAN:
+			return createAttributeDefinitionBoolean();
+		case ReqIF10Package.DATATYPE_DEFINITION_BOOLEAN:
+			return createDatatypeDefinitionBoolean();
+		case ReqIF10Package.ATTRIBUTE_VALUE_BOOLEAN:
+			return createAttributeValueBoolean();
+		case ReqIF10Package.ATTRIBUTE_DEFINITION_DATE:
+			return createAttributeDefinitionDate();
+		case ReqIF10Package.DATATYPE_DEFINITION_DATE:
+			return createDatatypeDefinitionDate();
+		case ReqIF10Package.ATTRIBUTE_VALUE_DATE:
+			return createAttributeValueDate();
+		case ReqIF10Package.ATTRIBUTE_DEFINITION_ENUMERATION:
+			return createAttributeDefinitionEnumeration();
+		case ReqIF10Package.DATATYPE_DEFINITION_ENUMERATION:
+			return createDatatypeDefinitionEnumeration();
+		case ReqIF10Package.ENUM_VALUE:
+			return createEnumValue();
+		case ReqIF10Package.EMBEDDED_VALUE:
+			return createEmbeddedValue();
+		case ReqIF10Package.ATTRIBUTE_VALUE_ENUMERATION:
+			return createAttributeValueEnumeration();
+		case ReqIF10Package.ATTRIBUTE_DEFINITION_INTEGER:
+			return createAttributeDefinitionInteger();
+		case ReqIF10Package.DATATYPE_DEFINITION_INTEGER:
+			return createDatatypeDefinitionInteger();
+		case ReqIF10Package.ATTRIBUTE_VALUE_INTEGER:
+			return createAttributeValueInteger();
+		case ReqIF10Package.ATTRIBUTE_DEFINITION_REAL:
+			return createAttributeDefinitionReal();
+		case ReqIF10Package.DATATYPE_DEFINITION_REAL:
+			return createDatatypeDefinitionReal();
+		case ReqIF10Package.ATTRIBUTE_VALUE_REAL:
+			return createAttributeValueReal();
+		case ReqIF10Package.ATTRIBUTE_DEFINITION_STRING:
+			return createAttributeDefinitionString();
+		case ReqIF10Package.DATATYPE_DEFINITION_STRING:
+			return createDatatypeDefinitionString();
+		case ReqIF10Package.ATTRIBUTE_VALUE_STRING:
+			return createAttributeValueString();
+		case ReqIF10Package.XHTML_CONTENT:
+			return createXhtmlContent();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case ReqIF10Package.ID:
-				return createIDFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		case ReqIF10Package.DATE_TIME:
+			return createDateTimeFromString(eDataType, initialValue);
+		case ReqIF10Package.ID:
+			return createIDFromString(eDataType, initialValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case ReqIF10Package.ID:
-				return convertIDToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		case ReqIF10Package.DATE_TIME:
+			return convertDateTimeToString(eDataType, instanceValue);
+		case ReqIF10Package.ID:
+			return convertIDToString(eDataType, instanceValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeValueXHTML createAttributeValueXHTML() {
@@ -150,8 +238,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeDefinitionXHTML createAttributeDefinitionXHTML() {
@@ -160,8 +248,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ReqIFContent createReqIFContent() {
@@ -170,8 +258,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ReqIF createReqIF() {
@@ -180,8 +268,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ReqIFHeader createReqIFHeader() {
@@ -190,8 +278,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ReqIFToolExtension createReqIFToolExtension() {
@@ -200,8 +288,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecObject createSpecObject() {
@@ -210,8 +298,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecObjectType createSpecObjectType() {
@@ -220,8 +308,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Specification createSpecification() {
@@ -230,8 +318,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecificationType createSpecificationType() {
@@ -240,8 +328,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecHierarchy createSpecHierarchy() {
@@ -250,8 +338,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecRelation createSpecRelation() {
@@ -260,8 +348,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecRelationType createSpecRelationType() {
@@ -270,8 +358,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public RelationGroup createRelationGroup() {
@@ -280,8 +368,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public RelationGroupType createRelationGroupType() {
@@ -290,8 +378,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DatatypeDefinitionXHTML createDatatypeDefinitionXHTML() {
@@ -300,8 +388,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AlternativeID createAlternativeID() {
@@ -310,8 +398,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeDefinitionBoolean createAttributeDefinitionBoolean() {
@@ -320,8 +408,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DatatypeDefinitionBoolean createDatatypeDefinitionBoolean() {
@@ -330,8 +418,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeValueBoolean createAttributeValueBoolean() {
@@ -340,8 +428,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeDefinitionDate createAttributeDefinitionDate() {
@@ -350,8 +438,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DatatypeDefinitionDate createDatatypeDefinitionDate() {
@@ -360,8 +448,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeValueDate createAttributeValueDate() {
@@ -370,8 +458,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeDefinitionEnumeration createAttributeDefinitionEnumeration() {
@@ -380,8 +468,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DatatypeDefinitionEnumeration createDatatypeDefinitionEnumeration() {
@@ -390,8 +478,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EnumValue createEnumValue() {
@@ -400,8 +488,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EmbeddedValue createEmbeddedValue() {
@@ -410,8 +498,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeValueEnumeration createAttributeValueEnumeration() {
@@ -420,8 +508,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeDefinitionInteger createAttributeDefinitionInteger() {
@@ -430,8 +518,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DatatypeDefinitionInteger createDatatypeDefinitionInteger() {
@@ -440,8 +528,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeValueInteger createAttributeValueInteger() {
@@ -450,8 +538,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeDefinitionReal createAttributeDefinitionReal() {
@@ -460,8 +548,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DatatypeDefinitionReal createDatatypeDefinitionReal() {
@@ -470,8 +558,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeValueReal createAttributeValueReal() {
@@ -480,8 +568,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeDefinitionString createAttributeDefinitionString() {
@@ -490,8 +578,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DatatypeDefinitionString createDatatypeDefinitionString() {
@@ -500,8 +588,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeValueString createAttributeValueString() {
@@ -510,8 +598,8 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlContent createXhtmlContent() {
@@ -520,17 +608,41 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
-	public String createIDFromString(EDataType eDataType, String initialValue) {
-		return (String)super.createFromString(eDataType, initialValue);
+	public GregorianCalendar createDateTimeFromString(EDataType eDataType, String initialValue) {
+		XMLGregorianCalendar xmlGregorianCalendar = XMLTypeFactory.eINSTANCE.createDateTime(initialValue);
+		return null == xmlGregorianCalendar ? null : xmlGregorianCalendar.toGregorianCalendar();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public String convertDateTimeToString(EDataType eDataType, Object instanceValue) {
+		if (null != datatypeFactory && null != instanceValue && instanceValue instanceof GregorianCalendar) {
+			XMLGregorianCalendar xmlGregorianCalendar = datatypeFactory.newXMLGregorianCalendar((GregorianCalendar) instanceValue);
+			return XMLTypeFactory.eINSTANCE.convertDateTime(xmlGregorianCalendar);
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String createIDFromString(EDataType eDataType, String initialValue) {
+		return (String) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertIDToString(EDataType eDataType, Object instanceValue) {
@@ -538,17 +650,17 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ReqIF10Package getReqIF10Package() {
-		return (ReqIF10Package)getEPackage();
+		return (ReqIF10Package) getEPackage();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -557,4 +669,4 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 		return ReqIF10Package.eINSTANCE;
 	}
 
-} //ReqIF10FactoryImpl
+} // ReqIF10FactoryImpl

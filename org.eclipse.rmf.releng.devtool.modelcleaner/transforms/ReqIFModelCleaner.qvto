@@ -24,7 +24,7 @@ main() {
 	reqIfModel.objectsOfType(ECORE::EAttribute)->map setMetadata();
 	reqIfModel.objectsOfType(ECORE::EAttribute)->map makeId();
 	reqIfModel.objectsOfType(ECORE::EAttribute)->map removeIsPrefix();
-	reqIfModel.objectsOfType(ECORE::EAttribute)->map makeDateTime();
+	reqIfModel.objectsOfType(ECORE::EDataType)->map fixDateTime();
 
 	reqIfModel.objectsOfType(ECORE::EReference)->map setMetadata();
 	reqIfModel.objectsOfType(ECORE::EClass)->map removeBackLinkages();
@@ -42,15 +42,14 @@ main() {
 	// cleanup
 	reqIfModel.objectsOfType(ECORE::EDataType)->map removeDataTypeFloat();
 	reqIfModel.objectsOfType(ECORE::EPackage)->map removePackageDatatype();
-	reqIfModel.objectsOfType(ECORE::EDataType)->map removeDataTypeDateTime();
 }
 
 
 
-mapping inout ECORE::EAttribute :: makeDateTime ()
-when {self.eType.name.toLower()="datetime"} 
+mapping inout ECORE::EDataType :: fixDateTime ()
+when {self.name="DateTime"} 
 {
-	self.eType := XSD::DateTime.oclAsType(ECORE::EClassifier);
+	self.instanceClassName:="java.util.GregorianCalendar";	
 }
 
 mapping inout ECORE::EDataType :: fixDatatypeID ()

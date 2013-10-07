@@ -1,14 +1,15 @@
 package org.eclipse.rmf.tests.reqif10.serialization.uc003.tc18xx;
 
+import java.util.GregorianCalendar;
+
 import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecObject;
 
 @SuppressWarnings("nls")
@@ -49,9 +50,9 @@ public class TC1802HISExchangeProcessModelBuilder {
 		return reqIF;
 	}
 
-	public static XMLGregorianCalendar toDate(String date) throws DatatypeConfigurationException {
-		XMLGregorianCalendar xmlGregoriaCalendar = (XMLGregorianCalendar) EcoreUtil.createFromString(XMLTypePackage.eINSTANCE.getDateTime(), date);
-		return xmlGregoriaCalendar;
+	public GregorianCalendar toDate(String date) throws DatatypeConfigurationException {
+		GregorianCalendar gregorianCalendar = (GregorianCalendar) EcoreUtil.createFromString(ReqIF10Package.eINSTANCE.getDateTime(), date);
+		return gregorianCalendar;
 	}
 
 }

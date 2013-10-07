@@ -63,8 +63,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastChange" ordered="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"
-        unsettable="true">
+        lowerBound="1" eType="#//DateTime" unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="LAST-CHANGE"/>
         <details key="kind" value="attribute"/>
@@ -469,8 +468,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationTime" ordered="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"
-        unsettable="true">
+        lowerBound="1" eType="#//DateTime" unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="CREATION-TIME"/>
         <details key="kind" value="element"/>
@@ -1126,8 +1124,7 @@
       <details key="wrapperName" value="ATTRIBUTE-VALUE-DATE"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="theValue" ordered="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"
-        unsettable="true">
+        lowerBound="1" eType="#//DateTime" unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="THE-VALUE"/>
         <details key="kind" value="attribute"/>
@@ -1736,5 +1733,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="DateTime" instanceClassName="java.util.GregorianCalendar"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ID" instanceClassName="java.lang.String"/>
 </ecore:EPackage>

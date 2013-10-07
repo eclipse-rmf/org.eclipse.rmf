@@ -26,7 +26,6 @@ import junit.framework.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueBoolean;
 import org.eclipse.rmf.reqif10.AttributeValueDate;
@@ -35,6 +34,7 @@ import org.eclipse.rmf.reqif10.AttributeValueInteger;
 import org.eclipse.rmf.reqif10.AttributeValueReal;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
@@ -104,8 +104,7 @@ public class TC1000SimpleContentTests extends AbstractTestCase {
 		assertTrue(loadedReqIF.getTheHeader().isSetSourceToolId());
 		assertTrue(loadedReqIF.getTheHeader().isSetTitle());
 
-		assertEquals(originalReqIF.getTheHeader().getCreationTime().toGregorianCalendar(), loadedReqIF.getTheHeader().getCreationTime()
-				.toGregorianCalendar());
+		assertEquals(originalReqIF.getTheHeader().getCreationTime().getTime(), loadedReqIF.getTheHeader().getCreationTime().getTime());
 		assertEquals(originalReqIF.getTheHeader().getIdentifier(), loadedReqIF.getTheHeader().getIdentifier());
 		assertEquals(originalReqIF.getTheHeader().getReqIFToolId(), loadedReqIF.getTheHeader().getReqIFToolId());
 		assertEquals(originalReqIF.getTheHeader().getReqIFVersion(), loadedReqIF.getTheHeader().getReqIFVersion());
@@ -236,7 +235,7 @@ public class TC1000SimpleContentTests extends AbstractTestCase {
 		assertTrue(attributeValue instanceof AttributeValueDate);
 		AttributeValueDate attributeValueDate = (AttributeValueDate) attributeValue;
 		assertTrue(attributeValueDate.isSetTheValue());
-		assertEquals(EcoreUtil.createFromString(XMLTypePackage.eINSTANCE.getDateTime(), "2002-05-30T09:30:10+06:00"),
+		assertEquals(EcoreUtil.createFromString(ReqIF10Package.eINSTANCE.getDateTime(), "2002-05-30T09:30:10+06:00"),
 				attributeValueDate.getTheValue());
 
 	}

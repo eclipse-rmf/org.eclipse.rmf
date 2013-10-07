@@ -11,6 +11,7 @@
  */
 package org.eclipse.rmf.reqif10;
 
+import java.util.GregorianCalendar;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.ecore.EObject;
@@ -159,14 +160,14 @@ public interface Identifiable extends EObject {
 	 * @return the value of the '<em>Last Change</em>' attribute.
 	 * @see #isSetLastChange()
 	 * @see #unsetLastChange()
-	 * @see #setLastChange(XMLGregorianCalendar)
+	 * @see #setLastChange(GregorianCalendar)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_LastChange()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.DateTime" required="true" ordered="false"
+	 * @model unsettable="true" dataType="org.eclipse.rmf.reqif10.DateTime" required="true" ordered="false"
 	 *        extendedMetaData="name='LAST-CHANGE' kind='attribute'"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='LAST-CHANGE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
-	XMLGregorianCalendar getLastChange();
+	GregorianCalendar getLastChange();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.Identifiable#getLastChange <em>Last Change</em>}' attribute.
@@ -178,7 +179,7 @@ public interface Identifiable extends EObject {
 	 * @see #getLastChange()
 	 * @generated
 	 */
-	void setLastChange(XMLGregorianCalendar value);
+	void setLastChange(GregorianCalendar value);
 
 	/**
 	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.Identifiable#getLastChange <em>Last Change</em>}' attribute.
@@ -186,7 +187,7 @@ public interface Identifiable extends EObject {
 	 * <!-- end-user-doc -->
 	 * @see #isSetLastChange()
 	 * @see #getLastChange()
-	 * @see #setLastChange(XMLGregorianCalendar)
+	 * @see #setLastChange(GregorianCalendar)
 	 * @generated
 	 */
 	void unsetLastChange();
@@ -198,7 +199,7 @@ public interface Identifiable extends EObject {
 	 * @return whether the value of the '<em>Last Change</em>' attribute is set.
 	 * @see #unsetLastChange()
 	 * @see #getLastChange()
-	 * @see #setLastChange(XMLGregorianCalendar)
+	 * @see #setLastChange(GregorianCalendar)
 	 * @generated
 	 */
 	boolean isSetLastChange();

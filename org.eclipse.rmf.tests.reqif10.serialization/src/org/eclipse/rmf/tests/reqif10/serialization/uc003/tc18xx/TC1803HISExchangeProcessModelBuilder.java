@@ -1,10 +1,10 @@
 package org.eclipse.rmf.tests.reqif10.serialization.uc003.tc18xx;
 
+import java.util.GregorianCalendar;
+
 import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
@@ -13,9 +13,11 @@ import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
+import org.eclipse.rmf.tests.reqif10.serialization.util.SimpleModelBuilder;
 
 @SuppressWarnings("nls")
 public class TC1803HISExchangeProcessModelBuilder {
@@ -60,7 +62,7 @@ public class TC1803HISExchangeProcessModelBuilder {
 
 		attributeValueXhtml = ReqIF10Factory.eINSTANCE.createAttributeValueXHTML();
 		attributeValueXhtml.setDefinition((AttributeDefinitionXHTML) specObjectType.getSpecAttributes().get(0));
-		attributeValueXhtml.setTheValue(TC1800HISExchangeProcessModelBuilder.createXhtmlValue("Obj-05"));
+		attributeValueXhtml.setTheValue(SimpleModelBuilder.createXhtmlValue("Obj-05"));
 		specObject.getValues().add(attributeValueXhtml);
 
 		attributeValueString = ReqIF10Factory.eINSTANCE.createAttributeValueString();
@@ -113,9 +115,9 @@ public class TC1803HISExchangeProcessModelBuilder {
 		return reqIF;
 	}
 
-	public XMLGregorianCalendar toDate(String date) throws DatatypeConfigurationException {
-		XMLGregorianCalendar xmlGregoriaCalendar = (XMLGregorianCalendar) EcoreUtil.createFromString(XMLTypePackage.eINSTANCE.getDateTime(), date);
-		return xmlGregoriaCalendar;
+	public GregorianCalendar toDate(String date) throws DatatypeConfigurationException {
+		GregorianCalendar gregorianCalendar = (GregorianCalendar) EcoreUtil.createFromString(ReqIF10Package.eINSTANCE.getDateTime(), date);
+		return gregorianCalendar;
 	}
 
 }

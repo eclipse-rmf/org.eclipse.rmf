@@ -12,8 +12,7 @@
 package org.eclipse.rmf.tests.reqif10.serialization.uc001.tc1000;
 
 import java.math.BigInteger;
-
-import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.GregorianCalendar;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
@@ -79,8 +78,7 @@ public class TC1000SimpleContentModelBuilder extends SimpleModelBuilder {
 	SpecObject specObject;
 
 	/**
-	 * @throws Exception 
-	 * 
+	 * @throws Exception
 	 */
 	public TC1000SimpleContentModelBuilder() throws Exception {
 		super("ID_TC1000_ReqIfHeader", "TC 1000 'Simple Content'");
@@ -325,8 +323,8 @@ public class TC1000SimpleContentModelBuilder extends SimpleModelBuilder {
 
 	}
 
-	public SpecObject createTC1000SpecObject(String identifier, XMLGregorianCalendar lastChangeDate, boolean tc1000t, boolean tc1000f,
-			BigInteger tc1000_integer, String tc1000_text, Double tc1000_real, XMLGregorianCalendar tc1000_lastChangeDate, EnumValue tc1000_enumvalue) {
+	public SpecObject createTC1000SpecObject(String identifier, GregorianCalendar lastChangeDate, boolean tc1000t, boolean tc1000f,
+			BigInteger tc1000_integer, String tc1000_text, Double tc1000_real, GregorianCalendar tc1000_lastChangeDate, EnumValue tc1000_enumvalue) {
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		specObject.setIdentifier(identifier);
 		specObject.setLastChange(tc1000_lastChangeDate);

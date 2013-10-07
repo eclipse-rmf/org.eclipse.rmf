@@ -11,22 +11,17 @@
  */
 package org.eclipse.rmf.reqif10.impl;
 
-import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.GregorianCalendar;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Req IF Header</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Req IF Header</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -46,8 +41,8 @@ import org.eclipse.rmf.reqif10.ReqIFHeader;
 public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	/**
 	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getComment()
 	 * @generated
 	 * @ordered
@@ -56,8 +51,8 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getComment()
 	 * @generated
 	 * @ordered
@@ -66,8 +61,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * This is true if the Comment attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -81,7 +75,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final XMLGregorianCalendar CREATION_TIME_EDEFAULT = null;
+	protected static final GregorianCalendar CREATION_TIME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getCreationTime() <em>Creation Time</em>}' attribute.
@@ -91,12 +85,11 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	 * @generated
 	 * @ordered
 	 */
-	protected XMLGregorianCalendar creationTime = CREATION_TIME_EDEFAULT;
+	protected GregorianCalendar creationTime = CREATION_TIME_EDEFAULT;
 
 	/**
 	 * This is true if the Creation Time attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -104,8 +97,8 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -114,8 +107,8 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -124,8 +117,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * This is true if the Identifier attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -153,8 +145,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * This is true if the Repository Id attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -182,8 +173,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * This is true if the Req IF Tool Id attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -211,8 +201,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * This is true if the Req IF Version attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -240,8 +229,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * This is true if the Source Tool Id attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -249,8 +237,8 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -258,9 +246,9 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected static final String TITLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -269,16 +257,14 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * This is true if the Title attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean titleESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ReqIFHeaderImpl() {
@@ -286,8 +272,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -296,8 +281,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getComment() {
@@ -305,8 +289,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setComment(String newComment) {
@@ -319,8 +302,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetComment() {
@@ -333,8 +315,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetComment() {
@@ -342,21 +323,19 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLGregorianCalendar getCreationTime() {
+	public GregorianCalendar getCreationTime() {
 		return creationTime;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCreationTime(XMLGregorianCalendar newCreationTime) {
-		XMLGregorianCalendar oldCreationTime = creationTime;
+	public void setCreationTime(GregorianCalendar newCreationTime) {
+		GregorianCalendar oldCreationTime = creationTime;
 		creationTime = newCreationTime;
 		boolean oldCreationTimeESet = creationTimeESet;
 		creationTimeESet = true;
@@ -365,12 +344,11 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetCreationTime() {
-		XMLGregorianCalendar oldCreationTime = creationTime;
+		GregorianCalendar oldCreationTime = creationTime;
 		boolean oldCreationTimeESet = creationTimeESet;
 		creationTime = CREATION_TIME_EDEFAULT;
 		creationTimeESet = false;
@@ -379,8 +357,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetCreationTime() {
@@ -388,8 +365,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getIdentifier() {
@@ -397,8 +373,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setIdentifier(String newIdentifier) {
@@ -411,8 +386,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetIdentifier() {
@@ -425,8 +399,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetIdentifier() {
@@ -434,8 +407,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getRepositoryId() {
@@ -443,8 +415,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRepositoryId(String newRepositoryId) {
@@ -457,8 +428,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetRepositoryId() {
@@ -471,8 +441,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetRepositoryId() {
@@ -480,8 +449,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getReqIFToolId() {
@@ -489,8 +457,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setReqIFToolId(String newReqIFToolId) {
@@ -503,8 +470,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetReqIFToolId() {
@@ -517,8 +483,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetReqIFToolId() {
@@ -526,8 +491,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getReqIFVersion() {
@@ -535,8 +499,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setReqIFVersion(String newReqIFVersion) {
@@ -549,8 +512,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetReqIFVersion() {
@@ -563,8 +525,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetReqIFVersion() {
@@ -572,8 +533,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getSourceToolId() {
@@ -581,8 +541,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSourceToolId(String newSourceToolId) {
@@ -595,8 +554,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetSourceToolId() {
@@ -609,8 +567,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetSourceToolId() {
@@ -618,8 +575,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTitle() {
@@ -627,8 +583,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTitle(String newTitle) {
@@ -641,8 +596,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetTitle() {
@@ -655,8 +609,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetTitle() {
@@ -664,8 +617,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -692,8 +644,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -703,7 +654,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 				setComment((String)newValue);
 				return;
 			case ReqIF10Package.REQ_IF_HEADER__CREATION_TIME:
-				setCreationTime((XMLGregorianCalendar)newValue);
+				setCreationTime((GregorianCalendar)newValue);
 				return;
 			case ReqIF10Package.REQ_IF_HEADER__IDENTIFIER:
 				setIdentifier((String)newValue);
@@ -728,8 +679,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -764,8 +714,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -792,8 +741,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -821,4 +769,4 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		return result.toString();
 	}
 
-} //ReqIFHeaderImpl
+} // ReqIFHeaderImpl

@@ -15,9 +15,9 @@ package org.eclipse.rmf.reqif10.pror.provider;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.GregorianCalendar;
 import java.util.List;
 
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
@@ -277,7 +277,7 @@ public class ReqIFContentItemProvider
 		List<Command> commandList = new ArrayList<Command>();
 		commandList.add(super.createAddCommand(domain, owner, feature,
 				collection, index));
-		XMLGregorianCalendar lastChange = ReqIF10Util.getReqIFLastChange();
+		GregorianCalendar lastChange = ReqIF10Util.getReqIFLastChange();
 		for (Object c : collection) {
 			if (c instanceof Identifiable) {
 				SetCommand sc = new SetCommand(domain, (Identifiable) c,

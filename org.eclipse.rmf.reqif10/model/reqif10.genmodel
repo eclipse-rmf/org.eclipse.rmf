@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2013 itemis AG.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    Mark Broerkens - initial API and implementation&#xA;"
-    modelDirectory="/org.eclipse.rmf.reqif10_2/src" editorDirectory="" modelPluginID="org.eclipse.rmf.reqif10_2"
-    modelName="Reqif10" editorPluginClass="" testsDirectory="" testSuiteClass="" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="5.0" copyrightFields="false" editorPluginID="org.eclipse.rmf.reqif10_2.editor"
-    testsPluginID="org.eclipse.rmf.reqif10_2.editor">
+    modelDirectory="/org.eclipse.rmf.reqif10/src" editDirectory="/org.eclipse.rmf.reqif10.edit/src"
+    editorDirectory="" modelPluginID="org.eclipse.rmf.reqif10" modelName="Reqif10"
+    editorPluginClass="" testsDirectory="" testSuiteClass="" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.eclipse.rmf.reqif10.edit"
+    editorPluginID="org.eclipse.rmf.reqif10.editor" testsPluginID="org.eclipse.rmf.reqif10.editor">
   <foreignModel>reqif10.ecore</foreignModel>
   <genPackages prefix="ReqIF10" basePackage="org.eclipse.rmf" disposableProviderFactory="true"
       contentTypeIdentifier="org.eclipse.rmf.reqif10.reqif10XMLFile" fileExtensions="reqif"
       ecorePackage="reqif10.ecore#/">
+    <genDataTypes ecoreDataType="reqif10.ecore#//DateTime"/>
     <genDataTypes ecoreDataType="reqif10.ecore#//ID"/>
     <genClasses image="false" ecoreClass="reqif10.ecore#//AccessControlledElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqif10.ecore#//AccessControlledElement/editable"/>
