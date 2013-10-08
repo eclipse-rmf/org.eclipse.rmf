@@ -50,6 +50,7 @@ import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServ
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.Descriptor;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertyContentProvider.PropertyRow;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
+import org.eclipse.rmf.reqif10.pror.util.PresentationEditInterface;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
@@ -116,8 +117,8 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 			if (config != null) {
 				ItemProviderAdapter ip = ProrUtil.getItemProvider(
 						adapterFactory, config);
-				if (ip instanceof PresentationEditorInterface) {
-					return ((PresentationEditorInterface) ip).canEdit();
+				if (ip instanceof PresentationEditInterface) {
+					return ((PresentationEditInterface) ip).canEdit();
 				}
 			}
 
