@@ -23,6 +23,7 @@ import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow.ProrRowSpecHierarch
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
+import org.eclipse.rmf.reqif10.pror.util.PresentationEditInterface;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
 public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
@@ -109,8 +110,8 @@ public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 		if (config != null) {
 			ItemProviderAdapter ip = ProrUtil.getItemProvider(adapterFactory,
 					config);
-			if (ip instanceof PresentationEditorInterface) {
-				return ((PresentationEditorInterface) ip).canEdit();
+			if (ip instanceof PresentationEditInterface) {
+				return ((PresentationEditInterface) ip).canEdit();
 			}
 		}
 		return true;
