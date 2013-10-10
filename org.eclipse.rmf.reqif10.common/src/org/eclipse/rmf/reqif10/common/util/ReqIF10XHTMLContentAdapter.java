@@ -27,12 +27,15 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLSave;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
 import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
 public class ReqIF10XHTMLContentAdapter extends EContentAdapter {
@@ -54,6 +57,12 @@ public class ReqIF10XHTMLContentAdapter extends EContentAdapter {
 		updateXhtmlObjects(xhtmlString);
 		// the xhtml String is updated automatically from updated xhtml objects
 		// TODO: analyze if it would be sufficient not to recreate the xhtml string from the xhtml object structure
+	}
+
+	public void setXhtmlPlainTextString(String plainText) {
+		XhtmlDivType xhtmlDivType = XhtmlFactory.eINSTANCE.createXhtmlDivType();
+		xhtmlDivType.getMixed().add(FeatureMapUtil.createTextEntry(plainText));
+		xhtmlContent.setXhtml(xhtmlDivType);
 	}
 
 	public EList<Diagnostic> getErrors() {
@@ -168,6 +177,7 @@ public class ReqIF10XHTMLContentAdapter extends EContentAdapter {
 
 		@Override
 		protected void init() {
+			super.init();
 			// make sure that the xhtml package is registered
 			Object dummy = XhtmlPackage.eINSTANCE;
 			setEncoding(UTF8);
@@ -194,7 +204,7 @@ public class ReqIF10XHTMLContentAdapter extends EContentAdapter {
 			saveOptions.put(XMLResource.OPTION_SAVE_TYPE_INFORMATION, Boolean.FALSE);
 			saveOptions.put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.TRUE);
 			saveOptions.put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.FALSE);
-			super.init();
+
 		}
 	}
 

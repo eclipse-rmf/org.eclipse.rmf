@@ -96,6 +96,17 @@ public class ReqIF10XHTMLContentAdapterTests {
 		assertTrue(xhtmlContent.getXhtml() instanceof XhtmlDivType);
 	}
 
+	@Test
+	public void testXhtmlPlainTextString() {
+		XhtmlContent xhtmlContent = getEmptyXhtmlContent();
+		ReqIF10XHTMLContentAdapter adapter = (ReqIF10XHTMLContentAdapter) factory.adapt(xhtmlContent, ReqIF10XHTMLContentAdapter.class);
+		adapter.setXhtmlPlainTextString("<div>hello  \u67e5\u770b\u5168\u90e8\u00e8,.-");
+		assertEquals("<div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;div>hello  \u67e5\u770b\u5168\u90e8\u00e8,.-</div>\n", adapter.getXhtmlString());
+		assertTrue(xhtmlContent.isSetXhtml());
+		assertEquals(0, adapter.getErrors().size());
+		assertTrue(xhtmlContent.getXhtml() instanceof XhtmlDivType);
+	}
+
 	XhtmlContent getEmptyXhtmlContent() {
 		return ReqIF10Factory.eINSTANCE.createXhtmlContent();
 	}
