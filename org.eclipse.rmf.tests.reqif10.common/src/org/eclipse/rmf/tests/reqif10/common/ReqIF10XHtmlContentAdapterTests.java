@@ -18,7 +18,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 @SuppressWarnings("nls")
-public class ReqIF10XHTMLContentAdapterTests {
+public class ReqIF10XHtmlContentAdapterTests {
 	ReqIF10XHtmlContentAdapterFactory factory = new ReqIF10XHtmlContentAdapterFactory();
 
 	@Before
