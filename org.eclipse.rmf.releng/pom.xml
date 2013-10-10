@@ -303,6 +303,7 @@
 				<module>../org.eclipse.rmf.reqif10.sdk.feature</module>
 				<module>../org.eclipse.rmf.tests.serialization</module>
 				<module>../org.eclipse.rmf.tests.reqif10.serialization</module>
+				<module>../org.eclipse.rmf.tests.reqif10.common</module>
 				<module>../org.eclipse.rmf.tests.reqif10.feature</module>
 
 				<!-- ReqIF UI ProR -->
