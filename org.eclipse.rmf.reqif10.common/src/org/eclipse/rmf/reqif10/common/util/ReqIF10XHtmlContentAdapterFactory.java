@@ -16,7 +16,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.rmf.reqif10.util.ReqIF10AdapterFactory;
 
-public class ReqIF10XHTMLContentAdapterFactory extends ReqIF10AdapterFactory {
+public class ReqIF10XHtmlContentAdapterFactory extends ReqIF10AdapterFactory {
 
 	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}. <!--
@@ -31,15 +31,15 @@ public class ReqIF10XHTMLContentAdapterFactory extends ReqIF10AdapterFactory {
 	 * 
 	 * @generated
 	 */
-	public ReqIF10XHTMLContentAdapterFactory() {
-		supportedTypes.add(ReqIF10XHTMLContentAdapter.class);
+	public ReqIF10XHtmlContentAdapterFactory() {
+		supportedTypes.add(ReqIF10XHtmlContentAdapter.class);
 	}
 
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.XhtmlContent} instances. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 */
-	protected ReqIF10XHTMLContentAdapter xhtmlContentAdapter;
+	protected ReqIF10XHtmlContentAdapter xhtmlContentAdapter;
 
 	/**
 	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.XhtmlContent}. <!-- begin-user-doc --> <!--
@@ -47,7 +47,7 @@ public class ReqIF10XHTMLContentAdapterFactory extends ReqIF10AdapterFactory {
 	 */
 	@Override
 	public Adapter createXhtmlContentAdapter() {
-		return new ReqIF10XHTMLContentAdapter();
+		return new ReqIF10XHtmlContentAdapter();
 	}
 
 	@Override

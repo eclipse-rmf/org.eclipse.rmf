@@ -38,7 +38,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
-public class ReqIF10XHTMLContentAdapter extends EContentAdapter {
+public class ReqIF10XHtmlContentAdapter extends EContentAdapter {
 	String xmlString = null;
 	XMLResource resource = null;
 	static final String UTF8 = "UTF-8"; //$NON-NLS-1$
@@ -75,7 +75,7 @@ public class ReqIF10XHTMLContentAdapter extends EContentAdapter {
 
 	@Override
 	public boolean isAdapterForType(Object type) {
-		return ReqIF10XHTMLContentAdapter.class == type;
+		return ReqIF10XHtmlContentAdapter.class == type;
 	}
 
 	@Override
