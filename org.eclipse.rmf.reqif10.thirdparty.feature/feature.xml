@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.rmf.reqif10.thirdparty.feature"
       label="RMF ReqIF 1.0 Thirdparty Feature (Incubation)"
-      version="0.8.0.qualifier"
+      version="0.9.0.qualifier"
       provider-name="Eclipse Modeling Project">
 
    <description url="http://www.eclipse.org/rmf">
