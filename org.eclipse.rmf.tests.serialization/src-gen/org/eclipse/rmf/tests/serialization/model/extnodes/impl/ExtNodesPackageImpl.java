@@ -223,6 +223,26 @@ public class ExtNodesPackageImpl extends EPackageImpl implements ExtNodesPackage
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+		createExtendedMetaDataAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
+		addAnnotation
+		  (getExtension_Extensions(), 
+		   source, 
+		   new String[] {
+			 "namespace", "##targetNamespace"
+		   });
 	}
 
 } //ExtNodesPackageImpl

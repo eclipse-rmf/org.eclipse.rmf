@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.rmf.reqif10.feature"
-      label="RMF ReqIf 1.0 Feature (Incubation)"
-      version="0.8.0.qualifier"
+      label="RMF Core ReqIF Feature (Incubation)"
+      version="0.9.0.qualifier"
       provider-name="Eclipse Modeling Project"
       plugin="org.eclipse.rmf.reqif10">
 
@@ -25,6 +25,10 @@ Contributors:
       %license
    </license>
 
+   <includes
+         id="org.eclipse.rmf.reqif10.thirdparty.feature"
+         version="0.0.0"/>
+
    <plugin
          id="org.eclipse.rmf.reqif10"
          download-size="0"
@@ -40,35 +44,21 @@ Contributors:
          unpack="false"/>
 
    <plugin
-         id="org.apache.xerces"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="javax.xml"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.apache.xml.resolver"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.apache.xml.serializer"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.rmf.reqif10.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.serialization"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.xhtml"
          download-size="0"
          install-size="0"
          version="0.0.0"

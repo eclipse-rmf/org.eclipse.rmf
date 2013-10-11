@@ -17,6 +17,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -25,10 +27,13 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
 
 /*******************************************************************************
@@ -70,8 +75,31 @@ public class XhtmlContentItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addXhtmlSourcePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Xhtml Source feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addXhtmlSourcePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XhtmlContent_xhtmlSource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlContent_xhtmlSource_feature", "_UI_XhtmlContent_type"),
+				 ReqIF10Package.Literals.XHTML_CONTENT__XHTML_SOURCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -86,8 +114,7 @@ public class XhtmlContentItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ReqIF10Package.Literals.XHTML_CONTENT__P);
-			childrenFeatures.add(ReqIF10Package.Literals.XHTML_CONTENT__DIV);
+			childrenFeatures.add(ReqIF10Package.Literals.XHTML_CONTENT__XHTML);
 		}
 		return childrenFeatures;
 	}
@@ -123,7 +150,10 @@ public class XhtmlContentItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_XhtmlContent_type");
+		String label = ((XhtmlContent)object).getXhtmlSource();
+		return label == null || label.length() == 0 ?
+			getString("_UI_XhtmlContent_type") :
+			getString("_UI_XhtmlContent_type") + " " + label;
 	}
 
 	@Override
@@ -157,8 +187,7 @@ public class XhtmlContentItemProvider
 		}
 
 		switch (notification.getFeatureID(XhtmlContent.class)) {
-			case ReqIF10Package.XHTML_CONTENT__P:
-			case ReqIF10Package.XHTML_CONTENT__DIV:
+			case ReqIF10Package.XHTML_CONTENT__XHTML:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -178,13 +207,228 @@ public class XhtmlContentItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ReqIF10Package.Literals.XHTML_CONTENT__P,
-				 XhtmlFactory.eINSTANCE.createXhtmlPType()));
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueXHTML()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ReqIF10Package.Literals.XHTML_CONTENT__DIV,
-				 XhtmlFactory.eINSTANCE.createXhtmlDivType()));
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createReqIFContent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createReqIF()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createReqIFHeader()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createReqIFToolExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createSpecObject()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createSpecObjectType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createSpecificationType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createSpecHierarchy()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createSpecRelation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createSpecRelationType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createRelationGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createRelationGroupType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionXHTML()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAlternativeID()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionBoolean()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionBoolean()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueBoolean()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionDate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionDate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueDate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionEnumeration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionEnumeration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createEnumValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createEmbeddedValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueEnumeration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionInteger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionInteger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueInteger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionReal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionReal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueReal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionString()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueString()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ReqIF10Factory.eINSTANCE.createXhtmlContent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ConfigurationFactory.eINSTANCE.createProrToolExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ConfigurationFactory.eINSTANCE.createProrSpecViewConfiguration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ConfigurationFactory.eINSTANCE.createColumn()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ConfigurationFactory.eINSTANCE.createProrPresentationConfigurations()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ConfigurationFactory.eINSTANCE.createProrGeneralConfiguration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 ConfigurationFactory.eINSTANCE.createLabelConfiguration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.XHTML_CONTENT__XHTML,
+				 XMLTypeFactory.eINSTANCE.createAnyType()));
 	}
 
 	/**

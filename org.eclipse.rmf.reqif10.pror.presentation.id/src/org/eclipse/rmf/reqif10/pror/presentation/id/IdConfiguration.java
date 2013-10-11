@@ -7,7 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
- *     Kay Münch       - vertical alignment of the spec objects id
+ *     Kay M??nch       - vertical alignment of the spec objects id
  ******************************************************************************/
 
 package org.eclipse.rmf.reqif10.pror.presentation.id;
@@ -44,9 +44,11 @@ public interface IdConfiguration extends ProrPresentationConfiguration {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Prefix</em>' attribute.
+	 * @see #isSetPrefix()
+	 * @see #unsetPrefix()
 	 * @see #setPrefix(String)
 	 * @see org.eclipse.rmf.reqif10.pror.presentation.id.IdPackage#getIdConfiguration_Prefix()
-	 * @model default="REQ-" required="true"
+	 * @model default="REQ-" unsettable="true" required="true"
 	 * @generated
 	 */
 	String getPrefix();
@@ -56,10 +58,35 @@ public interface IdConfiguration extends ProrPresentationConfiguration {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Prefix</em>' attribute.
+	 * @see #isSetPrefix()
+	 * @see #unsetPrefix()
 	 * @see #getPrefix()
 	 * @generated
 	 */
 	void setPrefix(String value);
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration#getPrefix <em>Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetPrefix()
+	 * @see #getPrefix()
+	 * @see #setPrefix(String)
+	 * @generated
+	 */
+	void unsetPrefix();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration#getPrefix <em>Prefix</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Prefix</em>' attribute is set.
+	 * @see #unsetPrefix()
+	 * @see #getPrefix()
+	 * @see #setPrefix(String)
+	 * @generated
+	 */
+	boolean isSetPrefix();
 
 	/**
 	 * Returns the value of the '<em><b>Count</b></em>' attribute.
@@ -70,9 +97,11 @@ public interface IdConfiguration extends ProrPresentationConfiguration {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Count</em>' attribute.
+	 * @see #isSetCount()
+	 * @see #unsetCount()
 	 * @see #setCount(int)
 	 * @see org.eclipse.rmf.reqif10.pror.presentation.id.IdPackage#getIdConfiguration_Count()
-	 * @model required="true"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	int getCount();
@@ -82,10 +111,35 @@ public interface IdConfiguration extends ProrPresentationConfiguration {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Count</em>' attribute.
+	 * @see #isSetCount()
+	 * @see #unsetCount()
 	 * @see #getCount()
 	 * @generated
 	 */
 	void setCount(int value);
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration#getCount <em>Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetCount()
+	 * @see #getCount()
+	 * @see #setCount(int)
+	 * @generated
+	 */
+	void unsetCount();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration#getCount <em>Count</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Count</em>' attribute is set.
+	 * @see #unsetCount()
+	 * @see #getCount()
+	 * @see #setCount(int)
+	 * @generated
+	 */
+	boolean isSetCount();
 
 	/**
 	 * Returns the value of the '<em><b>Vertical Align</b></em>' attribute.
@@ -99,9 +153,11 @@ public interface IdConfiguration extends ProrPresentationConfiguration {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Vertical Align</em>' attribute.
 	 * @see org.eclipse.rmf.reqif10.pror.presentation.id.IdVerticalAlign
+	 * @see #isSetVerticalAlign()
+	 * @see #unsetVerticalAlign()
 	 * @see #setVerticalAlign(IdVerticalAlign)
 	 * @see org.eclipse.rmf.reqif10.pror.presentation.id.IdPackage#getIdConfiguration_VerticalAlign()
-	 * @model default="Top"
+	 * @model default="Top" unsettable="true"
 	 * @generated
 	 */
 	IdVerticalAlign getVerticalAlign();
@@ -112,9 +168,34 @@ public interface IdConfiguration extends ProrPresentationConfiguration {
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Vertical Align</em>' attribute.
 	 * @see org.eclipse.rmf.reqif10.pror.presentation.id.IdVerticalAlign
+	 * @see #isSetVerticalAlign()
+	 * @see #unsetVerticalAlign()
 	 * @see #getVerticalAlign()
 	 * @generated
 	 */
 	void setVerticalAlign(IdVerticalAlign value);
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration#getVerticalAlign <em>Vertical Align</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetVerticalAlign()
+	 * @see #getVerticalAlign()
+	 * @see #setVerticalAlign(IdVerticalAlign)
+	 * @generated
+	 */
+	void unsetVerticalAlign();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration#getVerticalAlign <em>Vertical Align</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Vertical Align</em>' attribute is set.
+	 * @see #unsetVerticalAlign()
+	 * @see #getVerticalAlign()
+	 * @see #setVerticalAlign(IdVerticalAlign)
+	 * @generated
+	 */
+	boolean isSetVerticalAlign();
 
 } // IdConfiguration

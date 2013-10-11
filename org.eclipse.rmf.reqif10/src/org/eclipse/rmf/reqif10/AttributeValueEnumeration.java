@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueEnumeration()
  * @model extendedMetaData="name='ATTRIBUTE-VALUE-ENUMERATION' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-VALUE-ENUMERATION'"
  * @generated
  */
 public interface AttributeValueEnumeration extends AttributeValue {
@@ -46,6 +47,7 @@ public interface AttributeValueEnumeration extends AttributeValue {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueEnumeration_Values()
 	 * @model unsettable="true" ordered="false"
 	 *        extendedMetaData="name='VALUES' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='VALUES' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	EList<EnumValue> getValues();
@@ -86,6 +88,7 @@ public interface AttributeValueEnumeration extends AttributeValue {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueEnumeration_Definition()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='DEFINITION' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DEFINITION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	AttributeDefinitionEnumeration getDefinition();

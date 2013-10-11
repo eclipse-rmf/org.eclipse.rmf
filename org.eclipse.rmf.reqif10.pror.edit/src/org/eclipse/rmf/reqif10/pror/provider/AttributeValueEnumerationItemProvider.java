@@ -14,9 +14,9 @@ package org.eclipse.rmf.reqif10.pror.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.GregorianCalendar;
 import java.util.List;
 
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -192,7 +192,7 @@ public class AttributeValueEnumerationItemProvider
 		commandList.add(super.createAddCommand(domain, owner, feature,
 				collection, index));
 
-		XMLGregorianCalendar lastChange = ReqIF10Util.getReqIFLastChange();
+		GregorianCalendar lastChange = ReqIF10Util.getReqIFLastChange();
 
 		if (owner instanceof AttributeValueEnumeration) {
 			EObject c = owner.eContainer();

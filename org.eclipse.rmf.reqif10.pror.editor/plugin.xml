@@ -206,7 +206,7 @@ Contributors:
  <extension
        point="org.eclipse.emf.ecore.extension_parser">
     <parser
-          class="org.eclipse.rmf.serialization.ReqIFResourceFactoryImpl"
+          class="org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl"
           type="reqif">
     </parser>
  </extension>

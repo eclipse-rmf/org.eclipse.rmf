@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -28,6 +28,7 @@ import java.math.BigInteger;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueInteger()
  * @model extendedMetaData="name='ATTRIBUTE-VALUE-INTEGER' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-VALUE-INTEGER'"
  * @generated
  */
 public interface AttributeValueInteger extends AttributeValueSimple {
@@ -46,6 +47,7 @@ public interface AttributeValueInteger extends AttributeValueSimple {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueInteger_TheValue()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='THE-VALUE' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-VALUE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	BigInteger getTheValue();
@@ -100,6 +102,7 @@ public interface AttributeValueInteger extends AttributeValueSimple {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueInteger_Definition()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='DEFINITION' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DEFINITION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	AttributeDefinitionInteger getDefinition();

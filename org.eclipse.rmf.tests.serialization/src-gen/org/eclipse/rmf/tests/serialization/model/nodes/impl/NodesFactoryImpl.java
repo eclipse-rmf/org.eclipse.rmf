@@ -36,7 +36,7 @@ public class NodesFactoryImpl extends EFactoryImpl implements NodesFactory {
 	 */
 	public static NodesFactory init() {
 		try {
-			NodesFactory theNodesFactory = (NodesFactory)EPackage.Registry.INSTANCE.getEFactory(NodesPackage.eNS_URI);
+			NodesFactory theNodesFactory = (NodesFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.eclipse.org/rmf/serialization/model/nodes.ecore"); 
 			if (theNodesFactory != null) {
 				return theNodesFactory;
 			}

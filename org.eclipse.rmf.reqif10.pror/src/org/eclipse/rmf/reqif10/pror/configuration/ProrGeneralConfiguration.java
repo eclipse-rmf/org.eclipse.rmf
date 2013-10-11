@@ -39,9 +39,13 @@ public interface ProrGeneralConfiguration extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label Configuration</em>' containment reference.
+	 * @see #isSetLabelConfiguration()
+	 * @see #unsetLabelConfiguration()
 	 * @see #setLabelConfiguration(LabelConfiguration)
 	 * @see org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage#getProrGeneralConfiguration_LabelConfiguration()
-	 * @model containment="true" required="true"
+	 * @model containment="true" unsettable="true" required="true"
+	 *        extendedMetaData="name='labelConfiguration' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='labelConfiguration' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	LabelConfiguration getLabelConfiguration();
@@ -51,9 +55,34 @@ public interface ProrGeneralConfiguration extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Label Configuration</em>' containment reference.
+	 * @see #isSetLabelConfiguration()
+	 * @see #unsetLabelConfiguration()
 	 * @see #getLabelConfiguration()
 	 * @generated
 	 */
 	void setLabelConfiguration(LabelConfiguration value);
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.ProrGeneralConfiguration#getLabelConfiguration <em>Label Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetLabelConfiguration()
+	 * @see #getLabelConfiguration()
+	 * @see #setLabelConfiguration(LabelConfiguration)
+	 * @generated
+	 */
+	void unsetLabelConfiguration();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.ProrGeneralConfiguration#getLabelConfiguration <em>Label Configuration</em>}' containment reference is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Label Configuration</em>' containment reference is set.
+	 * @see #unsetLabelConfiguration()
+	 * @see #getLabelConfiguration()
+	 * @see #setLabelConfiguration(LabelConfiguration)
+	 * @generated
+	 */
+	boolean isSetLabelConfiguration();
 
 } // ProrGeneralConfiguration

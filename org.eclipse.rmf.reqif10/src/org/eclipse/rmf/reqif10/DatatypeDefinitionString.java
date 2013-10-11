@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,6 +27,7 @@ import java.math.BigInteger;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionString()
  * @model extendedMetaData="name='DATATYPE-DEFINITION-STRING' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DATATYPE-DEFINITION-STRING'"
  * @generated
  */
 public interface DatatypeDefinitionString extends DatatypeDefinitionSimple {
@@ -45,6 +46,7 @@ public interface DatatypeDefinitionString extends DatatypeDefinitionSimple {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionString_MaxLength()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='MAX-LENGTH' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='MAX-LENGTH' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	BigInteger getMaxLength();

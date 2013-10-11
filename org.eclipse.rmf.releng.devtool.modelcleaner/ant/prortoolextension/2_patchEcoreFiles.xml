@@ -1,0 +1,54 @@
+<project name="getReqIFSchema" default="patchFiles" basedir="../.." xmlns:qvto="http://www.eclipse.org/qvt/1.0.0/Operational">
+	<description>
+        Get the ReqIF XML schema and the XHTML Schema fragments
+    </description>
+	<property file="./ant/prortoolextension/generate.properties">
+	</property>
+
+	<property name="retries" value="40" />
+
+	<target name="clean">
+		<delete dir="${GEN_FOLDER}" />
+	</target>
+
+	<target name="download" depends="clean">
+		<copy overwrite="true" todir="${GEN_FOLDER}">
+			<fileset dir="..">
+				<include name="*pror*/model/*.ecore" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="patchFiles" depends="download">
+		<property name="configuration.ecore" value="${GEN_FOLDER}/org.eclipse.rmf.reqif10.pror/model/configuration.ecore" />
+		<qvto:transformation uri="transforms/ProRModelCleaner.qvto">
+			<inout uri="${configuration.ecore}" />
+		</qvto:transformation>
+		<replace file="${configuration.ecore}" token="ecore:EClass /org.eclipse.rmf.releng.devtools.modelcleaner/gen/prortoolextension/org.eclipse.rmf.reqif10.pror/model/configuration.ecore#" value="ecore:EClass #" />
+		<replace file="${configuration.ecore}" token=" reqif10.ecore#" value=" ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#" />
+        <echo>Copy the patched '${configuration.ecore}' to its original plugin, reload genmodel and create model code</echo>
+
+		<property name="Headline.ecore" value="${GEN_FOLDER}/org.eclipse.rmf.reqif10.pror.presentation.headline/model/Headline.ecore" />
+		<qvto:transformation uri="transforms/ProRModelCleaner.qvto">
+			<inout uri="${Headline.ecore}" />
+		</qvto:transformation>
+		<replace file="${Headline.ecore}" token="ecore:EClass /org.eclipse.rmf.releng.devtools.modelcleaner/gen/prortoolextension/org.eclipse.rmf.reqif10.pror/model/Headline.ecore#" value="ecore:EClass #" />
+		<echo>Copy the patched '${Headline.ecore}' to its original plugin, reload genmodel and create model code</echo>
+
+		<property name="ID.ecore" value="${GEN_FOLDER}/org.eclipse.rmf.reqif10.pror.presentation.id/model/ID.ecore" />
+		<qvto:transformation uri="transforms/ProRModelCleaner.qvto">
+			<inout uri="${ID.ecore}" />
+		</qvto:transformation>
+		<replace file="${ID.ecore}" token="ecore:EClass /org.eclipse.rmf.releng.devtools.modelcleaner/gen/prortoolextension/org.eclipse.rmf.reqif10.pror/model/ID.ecore#" value="ecore:EClass #" />
+		<echo>Copy the patched '${ID.ecore}' to its original plugin, reload genmodel and create model code</echo>
+
+		<property name="linewrap.ecore" value="${GEN_FOLDER}/org.eclipse.rmf.reqif10.pror.presentation.linewrap/model/linewrap.ecore" />
+		<qvto:transformation uri="transforms/ProRModelCleaner.qvto">
+			<inout uri="${linewrap.ecore}" />
+		</qvto:transformation>
+		<replace file="${linewrap.ecore}" token="ecore:EClass /org.eclipse.rmf.releng.devtools.modelcleaner/gen/prortoolextension/org.eclipse.rmf.reqif10.pror/model/linewrap.ecore#" value="ecore:EClass #" />
+		<echo>Copy the patched '${linewrap.ecore}' to its original plugin, reload genmodel and create model code</echo>
+	</target>
+
+
+</project>

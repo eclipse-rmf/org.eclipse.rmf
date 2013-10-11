@@ -10,6 +10,9 @@
  */
 package org.eclipse.rmf.tests.serialization.save;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.io.StringReader;
 
 import javax.xml.namespace.QName;
@@ -31,7 +34,6 @@ import org.eclipse.rmf.tests.serialization.model.nodes.SubNode;
 import org.junit.Test;
 import org.xml.sax.InputSource;
 
-// caution: Sphinx Abstract Test Case is JUnit 3.8
 @SuppressWarnings("nls")
 public class BasicSaveTests extends AbstractSaveTestCase {
 

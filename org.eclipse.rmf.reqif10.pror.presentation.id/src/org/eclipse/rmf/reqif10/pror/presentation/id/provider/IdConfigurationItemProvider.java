@@ -7,7 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
- *     Kay Münch       - vertical alignment of the spec objects id
+ *     Kay M??nch       - vertical alignment of the spec objects id
  ******************************************************************************/
 
 package org.eclipse.rmf.reqif10.pror.presentation.id.provider;
@@ -65,12 +65,7 @@ import org.eclipse.rmf.reqif10.pror.presentation.ui.IdLabelCellRenderer;
 public class IdConfigurationItemProvider
 	extends ProrPresentationConfigurationItemProvider
 	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource,
-		PresentationEditorInterface {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

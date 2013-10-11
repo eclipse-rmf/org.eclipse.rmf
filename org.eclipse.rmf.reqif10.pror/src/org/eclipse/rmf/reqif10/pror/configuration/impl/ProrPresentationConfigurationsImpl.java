@@ -74,9 +74,27 @@ public class ProrPresentationConfigurationsImpl extends EObjectImpl implements P
 	 */
 	public EList<ProrPresentationConfiguration> getPresentationConfigurations() {
 		if (presentationConfigurations == null) {
-			presentationConfigurations = new EObjectContainmentEList<ProrPresentationConfiguration>(ProrPresentationConfiguration.class, this, ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS);
+			presentationConfigurations = new EObjectContainmentEList.Unsettable<ProrPresentationConfiguration>(ProrPresentationConfiguration.class, this, ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS);
 		}
 		return presentationConfigurations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetPresentationConfigurations() {
+		if (presentationConfigurations != null) ((InternalEList.Unsettable<?>)presentationConfigurations).unset();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetPresentationConfigurations() {
+		return presentationConfigurations != null && ((InternalEList.Unsettable<?>)presentationConfigurations).isSet();
 	}
 
 	/**
@@ -133,7 +151,7 @@ public class ProrPresentationConfigurationsImpl extends EObjectImpl implements P
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
-				getPresentationConfigurations().clear();
+				unsetPresentationConfigurations();
 				return;
 		}
 		super.eUnset(featureID);
@@ -148,7 +166,7 @@ public class ProrPresentationConfigurationsImpl extends EObjectImpl implements P
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS:
-				return presentationConfigurations != null && !presentationConfigurations.isEmpty();
+				return isSetPresentationConfigurations();
 		}
 		return super.eIsSet(featureID);
 	}

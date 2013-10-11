@@ -1,0 +1,115 @@
+/**
+ * Copyright (c) 2012 itemis GmbH.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Mark Broerkens - initial API and implementation
+ * 
+ */
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype XSD uses 'http://www.eclipse.org/emf/2003/XMLType';
+modeltype NAMESPACE uses 'http://www.w3.org/XML/1998/namespace';
+
+transformation ReqIfModelCleaner(inout reqIfModel : ECORE);
+
+
+main() {
+	reqIfModel.objectsOfType(ECORE::EModelElement)->map removeAnnotations();
+	reqIfModel.objectsOfType(ECORE::EStructuralFeature)->map makeUnsettable();
+	reqIfModel.objectsOfType(ECORE::EReference)->map setContainmentReferenceMetadata();
+}
+
+
+
+mapping inout ECORE::EModelElement :: removeAnnotations ()
+{
+	self.eAnnotations.map removeElements();
+}
+
+
+
+mapping inout ECORE::EModelElement :: removeElements ()
+{
+	self.allSubobjects()[ECORE::EModelElement]->map removeElement();
+	self->map removeElement();
+}
+
+mapping inout ECORE::EModelElement :: removeElement ()
+{
+	reqIfModel.removeElement(self);
+}
+
+mapping inout ECORE::EStructuralFeature :: makeUnsettable() {
+	self.unsettable := true;
+}
+
+
+mapping inout ECORE::EReference :: setContainmentReferenceMetadata() 
+when {self.containment}
+{
+	self.eAnnotations := self.getElementFeatureExtendedMetadata("element");
+    self.eAnnotations += self.getElementFeatureXMLMappingExtendedMetadata();
+}
+
+
+
+query ECORE::ENamedElement :: getElementFeatureExtendedMetadata(kind : String) : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "name";
+			value := self.name;
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "kind";
+			value := kind;
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "namespace";
+			value := "##targetNamespace";
+		};
+	}
+}
+
+
+query ECORE::EReference :: getElementFeatureXMLMappingExtendedMetadata() : ECORE::EAnnotation {
+	return object ECORE::EAnnotation {
+		source := "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";
+		details += object ECORE::EStringToStringMapEntry {
+			key := "wrapperName";
+			value := self.name;
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "featureWrapperElement";
+			value := "true";
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "featureElement";
+			value := "false"; 
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "classifierWrapperElement";
+			value := "false";	 
+		};
+		details += object ECORE::EStringToStringMapEntry {
+			key := "classifierElement";
+			value := "true";	 
+		};
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+	

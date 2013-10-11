@@ -19,6 +19,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -27,8 +28,10 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFToolExtension;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.ReqIFToolExtension} object.
@@ -81,7 +84,7 @@ public class ReqIFToolExtensionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__ANY);
+			childrenFeatures.add(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS);
 		}
 		return childrenFeatures;
 	}
@@ -140,7 +143,7 @@ public class ReqIFToolExtensionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ReqIFToolExtension.class)) {
-			case ReqIF10Package.REQ_IF_TOOL_EXTENSION__ANY:
+			case ReqIF10Package.REQ_IF_TOOL_EXTENSION__EXTENSIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -157,6 +160,231 @@ public class ReqIFToolExtensionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueXHTML()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createReqIFContent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createReqIF()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createReqIFHeader()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createReqIFToolExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createSpecObject()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createSpecObjectType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createSpecificationType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createSpecHierarchy()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createSpecRelation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createSpecRelationType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createRelationGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createRelationGroupType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionXHTML()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAlternativeID()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionBoolean()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionBoolean()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueBoolean()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionDate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionDate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueDate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionEnumeration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionEnumeration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createEnumValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createEmbeddedValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueEnumeration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionInteger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionInteger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueInteger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionReal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionReal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueReal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeDefinitionString()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createAttributeValueString()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ReqIF10Factory.eINSTANCE.createXhtmlContent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ConfigurationFactory.eINSTANCE.createProrToolExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ConfigurationFactory.eINSTANCE.createProrSpecViewConfiguration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ConfigurationFactory.eINSTANCE.createColumn()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ConfigurationFactory.eINSTANCE.createProrPresentationConfigurations()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ConfigurationFactory.eINSTANCE.createProrGeneralConfiguration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 ConfigurationFactory.eINSTANCE.createLabelConfiguration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReqIF10Package.Literals.REQ_IF_TOOL_EXTENSION__EXTENSIONS,
+				 XMLTypeFactory.eINSTANCE.createAnyType()));
 	}
 
 	/**

@@ -1,5 +1,8 @@
 package org.eclipse.rmf.tests.serialization.save;
 
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
 import javax.xml.xpath.XPathConstants;
 
 import org.eclipse.emf.common.util.EList;

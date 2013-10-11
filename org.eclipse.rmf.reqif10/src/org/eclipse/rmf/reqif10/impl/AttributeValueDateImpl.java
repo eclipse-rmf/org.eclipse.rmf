@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,23 +11,19 @@
  */
 package org.eclipse.rmf.reqif10.impl;
 
-import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.GregorianCalendar;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
 import org.eclipse.rmf.reqif10.AttributeValueDate;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Attribute Value Date</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Attribute Value Date</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -41,28 +37,27 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements AttributeValueDate {
 	/**
 	 * The default value of the '{@link #getTheValue() <em>The Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getTheValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final XMLGregorianCalendar THE_VALUE_EDEFAULT = null;
+	protected static final GregorianCalendar THE_VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getTheValue() <em>The Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getTheValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected XMLGregorianCalendar theValue = THE_VALUE_EDEFAULT;
+	protected GregorianCalendar theValue = THE_VALUE_EDEFAULT;
 
 	/**
 	 * This is true if the The Value attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -70,8 +65,8 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 
 	/**
 	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getDefinition()
 	 * @generated
 	 * @ordered
@@ -80,16 +75,14 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 
 	/**
 	 * This is true if the Definition reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean definitionESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected AttributeValueDateImpl() {
@@ -97,8 +90,7 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -107,21 +99,19 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLGregorianCalendar getTheValue() {
+	public GregorianCalendar getTheValue() {
 		return theValue;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTheValue(XMLGregorianCalendar newTheValue) {
-		XMLGregorianCalendar oldTheValue = theValue;
+	public void setTheValue(GregorianCalendar newTheValue) {
+		GregorianCalendar oldTheValue = theValue;
 		theValue = newTheValue;
 		boolean oldTheValueESet = theValueESet;
 		theValueESet = true;
@@ -130,12 +120,11 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetTheValue() {
-		XMLGregorianCalendar oldTheValue = theValue;
+		GregorianCalendar oldTheValue = theValue;
 		boolean oldTheValueESet = theValueESet;
 		theValue = THE_VALUE_EDEFAULT;
 		theValueESet = false;
@@ -144,8 +133,7 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetTheValue() {
@@ -153,8 +141,7 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public AttributeDefinitionDate getDefinition() {
@@ -170,8 +157,7 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public AttributeDefinitionDate basicGetDefinition() {
@@ -179,8 +165,7 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDefinition(AttributeDefinitionDate newDefinition) {
@@ -193,8 +178,7 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetDefinition() {
@@ -207,8 +191,7 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetDefinition() {
@@ -216,8 +199,7 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -233,15 +215,14 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ReqIF10Package.ATTRIBUTE_VALUE_DATE__THE_VALUE:
-				setTheValue((XMLGregorianCalendar)newValue);
+				setTheValue((GregorianCalendar)newValue);
 				return;
 			case ReqIF10Package.ATTRIBUTE_VALUE_DATE__DEFINITION:
 				setDefinition((AttributeDefinitionDate)newValue);
@@ -251,8 +232,7 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -269,8 +249,7 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -285,8 +264,7 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -300,4 +278,4 @@ public class AttributeValueDateImpl extends AttributeValueSimpleImpl implements 
 		return result.toString();
 	}
 
-} //AttributeValueDateImpl
+} // AttributeValueDateImpl

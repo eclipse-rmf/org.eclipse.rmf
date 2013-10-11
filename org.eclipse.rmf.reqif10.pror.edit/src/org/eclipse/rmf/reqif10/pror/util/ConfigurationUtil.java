@@ -116,14 +116,16 @@ public class ConfigurationUtil {
 	 * If it doesn't exist yet, it is created.
 	 * <p>
 	 */
-	public static ProrToolExtension createProrToolExtension(ReqIF reqif, EditingDomain domain) {
+	public static ProrToolExtension createProrToolExtension(ReqIF reqif,
+			EditingDomain domain) {
 		ProrToolExtension extension = getProrToolExtension(reqif);
-		if (extension != null)
-			return extension;
-		extension = ConfigurationFactory.eINSTANCE.createProrToolExtension();
-		domain.getCommandStack().execute(
-				ReqIFToolExtensionUtil.getAddToolExtensionCommand(reqif,
-						extension));
+		if (null == extension) {
+			extension = ConfigurationFactory.eINSTANCE
+					.createProrToolExtension();
+			domain.getCommandStack().execute(
+					ReqIFToolExtensionUtil.getAddToolExtensionCommand(reqif,
+							extension));
+		}
 		return extension;
 	}
 

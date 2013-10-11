@@ -7,7 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
- *     Kay Münch       - vertical alignment of the spec objects id
+ *     Kay M??nch       - vertical alignment of the spec objects id
  ******************************************************************************/
 
 package org.eclipse.rmf.reqif10.pror.presentation.id.util;
@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.reqif10.pror.presentation.id.*;
 import org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration;
 import org.eclipse.rmf.reqif10.pror.presentation.id.IdPackage;
 

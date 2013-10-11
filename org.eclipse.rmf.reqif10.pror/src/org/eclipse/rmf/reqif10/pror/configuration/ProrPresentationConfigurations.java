@@ -41,10 +41,35 @@ public interface ProrPresentationConfigurations extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Presentation Configurations</em>' containment reference list.
+	 * @see #isSetPresentationConfigurations()
+	 * @see #unsetPresentationConfigurations()
 	 * @see org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage#getProrPresentationConfigurations_PresentationConfigurations()
-	 * @model containment="true"
+	 * @model containment="true" unsettable="true"
+	 *        extendedMetaData="name='presentationConfigurations' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='presentationConfigurations' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<ProrPresentationConfiguration> getPresentationConfigurations();
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations#getPresentationConfigurations <em>Presentation Configurations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetPresentationConfigurations()
+	 * @see #getPresentationConfigurations()
+	 * @generated
+	 */
+	void unsetPresentationConfigurations();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations#getPresentationConfigurations <em>Presentation Configurations</em>}' containment reference list is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Presentation Configurations</em>' containment reference list is set.
+	 * @see #unsetPresentationConfigurations()
+	 * @see #getPresentationConfigurations()
+	 * @generated
+	 */
+	boolean isSetPresentationConfigurations();
 
 } // ProrPresentationConfigurations

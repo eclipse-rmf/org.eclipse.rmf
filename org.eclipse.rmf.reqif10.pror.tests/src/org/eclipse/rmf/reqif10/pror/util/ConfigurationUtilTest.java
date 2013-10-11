@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
@@ -45,10 +46,13 @@ public class ConfigurationUtilTest extends AbstractItemProviderTest {
 	@Test
 	public void testGetProrToolExtensionAlreadyThere() throws URISyntaxException {
 		ReqIF reqif = getTestReqif("simple.reqif");
+		assertEquals(0, reqif.getToolExtensions().size());
+		// create a tool extension
 		ProrToolExtension extension = ConfigurationFactory.eINSTANCE.createProrToolExtension();
 		commandStack.execute(ReqIFToolExtensionUtil.getAddToolExtensionCommand(reqif, extension));
 		assertEquals(1, reqif.getToolExtensions().size());
 		
+		// get the tool extension. This should return the previously created extensions instead of creating a new one.
 		ProrToolExtension retrieved = ConfigurationUtil.createProrToolExtension(reqif, editingDomain);
 		assertEquals(1, reqif.getToolExtensions().size());
 		assertSame(extension, retrieved);
@@ -104,9 +108,12 @@ public class ConfigurationUtilTest extends AbstractItemProviderTest {
 		ReqIF reqif = ReqIF10Factory.eINSTANCE.createReqIF();
 		assertNull(ConfigurationUtil.getPresentationConfigurations(reqif));
 
+		ReqIFToolExtension reqIFToolExtension = ReqIF10Factory.eINSTANCE.createReqIFToolExtension();
 		ProrToolExtension toolExtension = ConfigurationFactory.eINSTANCE
 				.createProrToolExtension();
-		reqif.getToolExtensions().add(toolExtension);
+		reqIFToolExtension.getExtensions().add(toolExtension);
+		
+		reqif.getToolExtensions().add(reqIFToolExtension);
 		setViaCommand(reqif, ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,
 				toolExtension);
 		assertNull(ConfigurationUtil.getPresentationConfigurations(reqif));

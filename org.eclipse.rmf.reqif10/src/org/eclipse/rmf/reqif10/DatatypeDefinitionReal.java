@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -29,6 +29,7 @@ import java.math.BigInteger;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionReal()
  * @model extendedMetaData="name='DATATYPE-DEFINITION-REAL' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DATATYPE-DEFINITION-REAL'"
  * @generated
  */
 public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
@@ -47,6 +48,7 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionReal_Accuracy()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='ACCURACY' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ACCURACY' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	BigInteger getAccuracy();
@@ -101,6 +103,7 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionReal_Max()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='MAX' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='MAX' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	double getMax();
@@ -155,6 +158,7 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionReal_Min()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='MIN' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='MIN' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	double getMin();

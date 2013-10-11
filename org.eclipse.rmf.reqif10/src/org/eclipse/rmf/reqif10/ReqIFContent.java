@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFContent()
  * @model extendedMetaData="name='REQ-IF-CONTENT' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REQ-IF-CONTENT'"
  * @generated
  */
 public interface ReqIFContent extends EObject {
@@ -52,6 +53,7 @@ public interface ReqIFContent extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFContent_Datatypes()
 	 * @model containment="true" unsettable="true" ordered="false"
 	 *        extendedMetaData="name='DATATYPES' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DATATYPES' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<DatatypeDefinition> getDatatypes();
@@ -92,6 +94,7 @@ public interface ReqIFContent extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFContent_SpecTypes()
 	 * @model containment="true" unsettable="true" ordered="false"
 	 *        extendedMetaData="name='SPEC-TYPES' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-TYPES' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<SpecType> getSpecTypes();
@@ -132,6 +135,7 @@ public interface ReqIFContent extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFContent_SpecObjects()
 	 * @model containment="true" unsettable="true" ordered="false"
 	 *        extendedMetaData="name='SPEC-OBJECTS' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-OBJECTS' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<SpecObject> getSpecObjects();
@@ -172,6 +176,7 @@ public interface ReqIFContent extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFContent_SpecRelations()
 	 * @model containment="true" unsettable="true" ordered="false"
 	 *        extendedMetaData="name='SPEC-RELATIONS' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-RELATIONS' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<SpecRelation> getSpecRelations();
@@ -212,6 +217,7 @@ public interface ReqIFContent extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFContent_Specifications()
 	 * @model containment="true" unsettable="true" ordered="false"
 	 *        extendedMetaData="name='SPECIFICATIONS' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPECIFICATIONS' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<Specification> getSpecifications();
@@ -252,6 +258,7 @@ public interface ReqIFContent extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFContent_SpecRelationGroups()
 	 * @model containment="true" unsettable="true" ordered="false"
 	 *        extendedMetaData="name='SPEC-RELATION-GROUPS' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-RELATION-GROUPS' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<RelationGroup> getSpecRelationGroups();

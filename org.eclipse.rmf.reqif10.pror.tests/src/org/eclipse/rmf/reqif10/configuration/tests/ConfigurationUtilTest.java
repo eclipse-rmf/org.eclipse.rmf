@@ -13,13 +13,17 @@ package org.eclipse.rmf.reqif10.configuration.tests;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap.ValueListIterator;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.rmf.reqif10.impl.ReqIFToolExtensionImpl;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
+import org.eclipse.rmf.reqif10.pror.configuration.impl.ProrToolExtensionImpl;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.junit.Test;
@@ -65,16 +69,14 @@ public class ConfigurationUtilTest extends AbstractItemProviderTest {
 	/**
 	 * Mocks a {@link ProrToolExtension}. (mj) I am not too happy about this
 	 * rather fragilie mocking.
-	 * 
+	 * (mbr) replaced by simplified integration of tool extensions. Hope, that makes the mock more stable
 	 * @return
 	 */
 	private ReqIFToolExtension buildMockToolExtension() {
-		ReqIFToolExtension mockToolExtension = mock(ReqIFToolExtensionImpl.class);
-		FeatureMap featureMap = mock(FeatureMap.class);
-		@SuppressWarnings("unchecked")
-		ValueListIterator<Object> valueListIterator = mock(ValueListIterator.class);
-		when(featureMap.valueListIterator()).thenReturn(valueListIterator);
-		when(mockToolExtension.getAny()).thenReturn(featureMap);
+		ReqIFToolExtension mockToolExtension = ReqIF10Factory.eINSTANCE.createReqIFToolExtension();
+		EPackage ePackage = EcoreFactory.eINSTANCE.createEPackage();
+		ePackage.setName("myExtension");
+		mockToolExtension.getExtensions().add(ePackage);
 		return mockToolExtension;
 	}
 

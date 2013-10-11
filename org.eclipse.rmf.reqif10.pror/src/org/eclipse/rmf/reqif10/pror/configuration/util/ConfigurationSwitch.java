@@ -14,8 +14,14 @@ package org.eclipse.rmf.reqif10.pror.configuration.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipse.rmf.reqif10.ReqIFToolExtension;
-import org.eclipse.rmf.reqif10.pror.configuration.*;
+import org.eclipse.rmf.reqif10.pror.configuration.Column;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
+import org.eclipse.rmf.reqif10.pror.configuration.LabelConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrGeneralConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 
 
 /**
@@ -78,7 +84,6 @@ public class ConfigurationSwitch<T> extends Switch<T> {
 			case ConfigurationPackage.PROR_TOOL_EXTENSION: {
 				ProrToolExtension prorToolExtension = (ProrToolExtension)theEObject;
 				T result = caseProrToolExtension(prorToolExtension);
-				if (result == null) result = caseReqIFToolExtension(prorToolExtension);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -224,21 +229,6 @@ public class ConfigurationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLabelConfiguration(LabelConfiguration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Req IF Tool Extension</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Req IF Tool Extension</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseReqIFToolExtension(ReqIFToolExtension object) {
 		return null;
 	}
 

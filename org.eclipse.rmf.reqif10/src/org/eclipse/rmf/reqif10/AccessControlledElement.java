@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,6 +27,7 @@ package org.eclipse.rmf.reqif10;
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAccessControlledElement()
  * @model abstract="true"
  *        extendedMetaData="name='ACCESS-CONTROLLED-ELEMENT' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ACCESS-CONTROLLED-ELEMENT'"
  * @generated
  */
 public interface AccessControlledElement extends Identifiable {
@@ -45,6 +46,7 @@ public interface AccessControlledElement extends Identifiable {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAccessControlledElement_Editable()
 	 * @model unsettable="true" ordered="false"
 	 *        extendedMetaData="name='IS-EDITABLE' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='IS-EDITABLE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	boolean isEditable();

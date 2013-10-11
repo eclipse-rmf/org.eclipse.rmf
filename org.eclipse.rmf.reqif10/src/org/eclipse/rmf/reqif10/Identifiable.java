@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,6 +11,7 @@
  */
 package org.eclipse.rmf.reqif10;
 
+import java.util.GregorianCalendar;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.ecore.EObject;
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable()
  * @model abstract="true"
  *        extendedMetaData="name='IDENTIFIABLE' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='IDENTIFIABLE'"
  * @generated
  */
 public interface Identifiable extends EObject {
@@ -52,6 +54,7 @@ public interface Identifiable extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_Desc()
 	 * @model unsettable="true" ordered="false"
 	 *        extendedMetaData="name='DESC' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DESC' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getDesc();
@@ -106,6 +109,7 @@ public interface Identifiable extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_Identifier()
 	 * @model unsettable="true" id="true" dataType="org.eclipse.rmf.reqif10.ID" required="true" ordered="false"
 	 *        extendedMetaData="name='IDENTIFIER' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='IDENTIFIER' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getIdentifier();
@@ -156,13 +160,14 @@ public interface Identifiable extends EObject {
 	 * @return the value of the '<em>Last Change</em>' attribute.
 	 * @see #isSetLastChange()
 	 * @see #unsetLastChange()
-	 * @see #setLastChange(XMLGregorianCalendar)
+	 * @see #setLastChange(GregorianCalendar)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_LastChange()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.DateTime" required="true" ordered="false"
+	 * @model unsettable="true" dataType="org.eclipse.rmf.reqif10.DateTime" required="true" ordered="false"
 	 *        extendedMetaData="name='LAST-CHANGE' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='LAST-CHANGE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
-	XMLGregorianCalendar getLastChange();
+	GregorianCalendar getLastChange();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.Identifiable#getLastChange <em>Last Change</em>}' attribute.
@@ -174,7 +179,7 @@ public interface Identifiable extends EObject {
 	 * @see #getLastChange()
 	 * @generated
 	 */
-	void setLastChange(XMLGregorianCalendar value);
+	void setLastChange(GregorianCalendar value);
 
 	/**
 	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.Identifiable#getLastChange <em>Last Change</em>}' attribute.
@@ -182,7 +187,7 @@ public interface Identifiable extends EObject {
 	 * <!-- end-user-doc -->
 	 * @see #isSetLastChange()
 	 * @see #getLastChange()
-	 * @see #setLastChange(XMLGregorianCalendar)
+	 * @see #setLastChange(GregorianCalendar)
 	 * @generated
 	 */
 	void unsetLastChange();
@@ -194,7 +199,7 @@ public interface Identifiable extends EObject {
 	 * @return whether the value of the '<em>Last Change</em>' attribute is set.
 	 * @see #unsetLastChange()
 	 * @see #getLastChange()
-	 * @see #setLastChange(XMLGregorianCalendar)
+	 * @see #setLastChange(GregorianCalendar)
 	 * @generated
 	 */
 	boolean isSetLastChange();
@@ -214,6 +219,7 @@ public interface Identifiable extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_LongName()
 	 * @model unsettable="true" ordered="false"
 	 *        extendedMetaData="name='LONG-NAME' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='LONG-NAME' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getLongName();
@@ -268,6 +274,7 @@ public interface Identifiable extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getIdentifiable_AlternativeID()
 	 * @model containment="true" unsettable="true" ordered="false"
 	 *        extendedMetaData="name='ALTERNATIVE-ID' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ALTERNATIVE-ID' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	AlternativeID getAlternativeID();

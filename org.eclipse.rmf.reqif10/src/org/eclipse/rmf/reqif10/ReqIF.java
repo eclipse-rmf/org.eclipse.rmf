@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIF()
  * @model extendedMetaData="name='REQ-IF' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REQ-IF'"
  * @generated
  */
 public interface ReqIF extends EObject {
@@ -49,7 +50,7 @@ public interface ReqIF extends EObject {
 	 * @see #setLang(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIF_Lang()
 	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.namespace.LangType" ordered="false"
-	 *        extendedMetaData="name='LANG' kind='attribute'"
+	 *        extendedMetaData="name='lang' kind='attribute' namespace='http://www.w3.org/XML/1998/namespace'"
 	 * @generated
 	 */
 	String getLang();
@@ -104,6 +105,7 @@ public interface ReqIF extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIF_TheHeader()
 	 * @model containment="true" unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='THE-HEADER' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-HEADER' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	ReqIFHeader getTheHeader();
@@ -144,46 +146,6 @@ public interface ReqIF extends EObject {
 	boolean isSetTheHeader();
 
 	/**
-	 * Returns the value of the '<em><b>Tool Extensions</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.rmf.reqif10.ReqIFToolExtension}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Tool Extensions</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tool Extensions</em>' containment reference list.
-	 * @see #isSetToolExtensions()
-	 * @see #unsetToolExtensions()
-	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIF_ToolExtensions()
-	 * @model containment="true" unsettable="true" ordered="false"
-	 *        extendedMetaData="name='TOOL-EXTENSIONS' kind='element' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ReqIFToolExtension> getToolExtensions();
-
-	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIF#getToolExtensions <em>Tool Extensions</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetToolExtensions()
-	 * @see #getToolExtensions()
-	 * @generated
-	 */
-	void unsetToolExtensions();
-
-	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIF#getToolExtensions <em>Tool Extensions</em>}' containment reference list is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Tool Extensions</em>' containment reference list is set.
-	 * @see #unsetToolExtensions()
-	 * @see #getToolExtensions()
-	 * @generated
-	 */
-	boolean isSetToolExtensions();
-
-	/**
 	 * Returns the value of the '<em><b>Core Content</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -198,6 +160,7 @@ public interface ReqIF extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIF_CoreContent()
 	 * @model containment="true" unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='CORE-CONTENT' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='CORE-CONTENT' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	ReqIFContent getCoreContent();
@@ -236,5 +199,46 @@ public interface ReqIF extends EObject {
 	 * @generated
 	 */
 	boolean isSetCoreContent();
+
+	/**
+	 * Returns the value of the '<em><b>Tool Extensions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.rmf.reqif10.ReqIFToolExtension}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tool Extensions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tool Extensions</em>' containment reference list.
+	 * @see #isSetToolExtensions()
+	 * @see #unsetToolExtensions()
+	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIF_ToolExtensions()
+	 * @model containment="true" unsettable="true" ordered="false"
+	 *        extendedMetaData="name='TOOL-EXTENSIONS' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='TOOL-EXTENSIONS' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
+	 * @generated
+	 */
+	EList<ReqIFToolExtension> getToolExtensions();
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIF#getToolExtensions <em>Tool Extensions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetToolExtensions()
+	 * @see #getToolExtensions()
+	 * @generated
+	 */
+	void unsetToolExtensions();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIF#getToolExtensions <em>Tool Extensions</em>}' containment reference list is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Tool Extensions</em>' containment reference list is set.
+	 * @see #unsetToolExtensions()
+	 * @see #getToolExtensions()
+	 * @generated
+	 */
+	boolean isSetToolExtensions();
 
 } // ReqIF

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -28,6 +28,7 @@ package org.eclipse.rmf.reqif10;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecRelation()
  * @model extendedMetaData="name='SPEC-RELATION' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-RELATION'"
  * @generated
  */
 public interface SpecRelation extends SpecElementWithAttributes {
@@ -46,6 +47,7 @@ public interface SpecRelation extends SpecElementWithAttributes {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecRelation_Target()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='TARGET' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='TARGET' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	SpecObject getTarget();
@@ -100,6 +102,7 @@ public interface SpecRelation extends SpecElementWithAttributes {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecRelation_Source()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='SOURCE' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SOURCE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	SpecObject getSource();
@@ -154,6 +157,7 @@ public interface SpecRelation extends SpecElementWithAttributes {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecRelation_Type()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='TYPE' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='TYPE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	SpecRelationType getType();

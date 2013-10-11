@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,6 +11,7 @@
  */
 package org.eclipse.rmf.reqif10;
 
+import java.util.GregorianCalendar;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.ecore.EObject;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader()
  * @model extendedMetaData="name='REQ-IF-HEADER' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REQ-IF-HEADER'"
  * @generated
  */
 public interface ReqIFHeader extends EObject {
@@ -54,6 +56,7 @@ public interface ReqIFHeader extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_Comment()
 	 * @model unsettable="true" ordered="false"
 	 *        extendedMetaData="name='COMMENT' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='COMMENT' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getComment();
@@ -104,13 +107,14 @@ public interface ReqIFHeader extends EObject {
 	 * @return the value of the '<em>Creation Time</em>' attribute.
 	 * @see #isSetCreationTime()
 	 * @see #unsetCreationTime()
-	 * @see #setCreationTime(XMLGregorianCalendar)
+	 * @see #setCreationTime(GregorianCalendar)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_CreationTime()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.DateTime" required="true" ordered="false"
+	 * @model unsettable="true" dataType="org.eclipse.rmf.reqif10.DateTime" required="true" ordered="false"
 	 *        extendedMetaData="name='CREATION-TIME' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='CREATION-TIME' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
-	XMLGregorianCalendar getCreationTime();
+	GregorianCalendar getCreationTime();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getCreationTime <em>Creation Time</em>}' attribute.
@@ -122,7 +126,7 @@ public interface ReqIFHeader extends EObject {
 	 * @see #getCreationTime()
 	 * @generated
 	 */
-	void setCreationTime(XMLGregorianCalendar value);
+	void setCreationTime(GregorianCalendar value);
 
 	/**
 	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getCreationTime <em>Creation Time</em>}' attribute.
@@ -130,7 +134,7 @@ public interface ReqIFHeader extends EObject {
 	 * <!-- end-user-doc -->
 	 * @see #isSetCreationTime()
 	 * @see #getCreationTime()
-	 * @see #setCreationTime(XMLGregorianCalendar)
+	 * @see #setCreationTime(GregorianCalendar)
 	 * @generated
 	 */
 	void unsetCreationTime();
@@ -142,7 +146,7 @@ public interface ReqIFHeader extends EObject {
 	 * @return whether the value of the '<em>Creation Time</em>' attribute is set.
 	 * @see #unsetCreationTime()
 	 * @see #getCreationTime()
-	 * @see #setCreationTime(XMLGregorianCalendar)
+	 * @see #setCreationTime(GregorianCalendar)
 	 * @generated
 	 */
 	boolean isSetCreationTime();
@@ -162,6 +166,7 @@ public interface ReqIFHeader extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_Identifier()
 	 * @model unsettable="true" id="true" dataType="org.eclipse.rmf.reqif10.ID" required="true" ordered="false"
 	 *        extendedMetaData="name='IDENTIFIER' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='IDENTIFIER' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getIdentifier();
@@ -216,6 +221,7 @@ public interface ReqIFHeader extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_RepositoryId()
 	 * @model unsettable="true" ordered="false"
 	 *        extendedMetaData="name='REPOSITORY-ID' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REPOSITORY-ID' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getRepositoryId();
@@ -270,6 +276,7 @@ public interface ReqIFHeader extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_ReqIFToolId()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='REQ-IF-TOOL-ID' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REQ-IF-TOOL-ID' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getReqIFToolId();
@@ -324,6 +331,7 @@ public interface ReqIFHeader extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_ReqIFVersion()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='REQ-IF-VERSION' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REQ-IF-VERSION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getReqIFVersion();
@@ -378,6 +386,7 @@ public interface ReqIFHeader extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_SourceToolId()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='SOURCE-TOOL-ID' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SOURCE-TOOL-ID' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getSourceToolId();
@@ -432,6 +441,7 @@ public interface ReqIFHeader extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_Title()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='TITLE' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='TITLE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getTitle();

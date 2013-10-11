@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,6 +11,7 @@
  */
 package org.eclipse.rmf.reqif10;
 
+import java.util.GregorianCalendar;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
@@ -28,6 +29,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueDate()
  * @model extendedMetaData="name='ATTRIBUTE-VALUE-DATE' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-VALUE-DATE'"
  * @generated
  */
 public interface AttributeValueDate extends AttributeValueSimple {
@@ -42,13 +44,14 @@ public interface AttributeValueDate extends AttributeValueSimple {
 	 * @return the value of the '<em>The Value</em>' attribute.
 	 * @see #isSetTheValue()
 	 * @see #unsetTheValue()
-	 * @see #setTheValue(XMLGregorianCalendar)
+	 * @see #setTheValue(GregorianCalendar)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueDate_TheValue()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.DateTime" required="true" ordered="false"
+	 * @model unsettable="true" dataType="org.eclipse.rmf.reqif10.DateTime" required="true" ordered="false"
 	 *        extendedMetaData="name='THE-VALUE' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-VALUE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
-	XMLGregorianCalendar getTheValue();
+	GregorianCalendar getTheValue();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getTheValue <em>The Value</em>}' attribute.
@@ -60,7 +63,7 @@ public interface AttributeValueDate extends AttributeValueSimple {
 	 * @see #getTheValue()
 	 * @generated
 	 */
-	void setTheValue(XMLGregorianCalendar value);
+	void setTheValue(GregorianCalendar value);
 
 	/**
 	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getTheValue <em>The Value</em>}' attribute.
@@ -68,7 +71,7 @@ public interface AttributeValueDate extends AttributeValueSimple {
 	 * <!-- end-user-doc -->
 	 * @see #isSetTheValue()
 	 * @see #getTheValue()
-	 * @see #setTheValue(XMLGregorianCalendar)
+	 * @see #setTheValue(GregorianCalendar)
 	 * @generated
 	 */
 	void unsetTheValue();
@@ -80,7 +83,7 @@ public interface AttributeValueDate extends AttributeValueSimple {
 	 * @return whether the value of the '<em>The Value</em>' attribute is set.
 	 * @see #unsetTheValue()
 	 * @see #getTheValue()
-	 * @see #setTheValue(XMLGregorianCalendar)
+	 * @see #setTheValue(GregorianCalendar)
 	 * @generated
 	 */
 	boolean isSetTheValue();
@@ -100,6 +103,7 @@ public interface AttributeValueDate extends AttributeValueSimple {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueDate_Definition()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='DEFINITION' kind='element' namespace='##targetNamespace'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DEFINITION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	AttributeDefinitionDate getDefinition();

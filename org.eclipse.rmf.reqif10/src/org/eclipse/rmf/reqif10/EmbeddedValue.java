@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getEmbeddedValue()
  * @model extendedMetaData="name='EMBEDDED-VALUE' kind='elementOnly'"
+ *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='EMBEDDED-VALUE'"
  * @generated
  */
 public interface EmbeddedValue extends EObject {
@@ -48,6 +49,7 @@ public interface EmbeddedValue extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getEmbeddedValue_Key()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='KEY' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='KEY' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	BigInteger getKey();
@@ -102,6 +104,7 @@ public interface EmbeddedValue extends EObject {
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getEmbeddedValue_OtherContent()
 	 * @model unsettable="true" required="true" ordered="false"
 	 *        extendedMetaData="name='OTHER-CONTENT' kind='attribute'"
+	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='OTHER-CONTENT' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getOtherContent();

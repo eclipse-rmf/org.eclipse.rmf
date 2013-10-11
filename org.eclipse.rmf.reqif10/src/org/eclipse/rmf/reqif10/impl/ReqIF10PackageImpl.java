@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,18 +11,15 @@
  */
 package org.eclipse.rmf.reqif10.impl;
 
+import java.util.GregorianCalendar;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
-
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
-
 import org.eclipse.rmf.reqif10.AccessControlledElement;
 import org.eclipse.rmf.reqif10.AlternativeID;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
@@ -74,374 +71,370 @@ import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
 import org.eclipse.rmf.reqif10.XhtmlContent;
 
-import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
-
-import org.eclipse.rmf.reqif10.datatypes.impl.DatatypesPackageImpl;
-
-import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
-
-import org.eclipse.rmf.reqif10.xhtml.impl.XhtmlPackageImpl;
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Package</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass accessControlledElementEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass identifiableEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeValueXHTMLEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeValueEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass specElementWithAttributesEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeDefinitionXHTMLEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeDefinitionEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass specTypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass reqIFContentEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass reqIFEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass reqIFHeaderEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass reqIFToolExtensionEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass specObjectEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass specObjectTypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass specificationEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass specificationTypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass specHierarchyEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass datatypeDefinitionEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass specRelationEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass specRelationTypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass relationGroupEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass relationGroupTypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass datatypeDefinitionXHTMLEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass alternativeIDEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeDefinitionBooleanEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeDefinitionSimpleEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass datatypeDefinitionBooleanEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass datatypeDefinitionSimpleEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeValueBooleanEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeValueSimpleEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeDefinitionDateEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass datatypeDefinitionDateEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeValueDateEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeDefinitionEnumerationEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass datatypeDefinitionEnumerationEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass enumValueEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass embeddedValueEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeValueEnumerationEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeDefinitionIntegerEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass datatypeDefinitionIntegerEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeValueIntegerEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeDefinitionRealEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass datatypeDefinitionRealEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeValueRealEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeDefinitionStringEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass datatypeDefinitionStringEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeValueStringEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass xhtmlContentEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType dateTimeEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType idEDataType = null;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
-	 * factory method {@link #init init()}, which also performs
-	 * initialization of the package, or returns the registered package,
-	 * if one already exists.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
+	 * EPackage.Registry} by the package package URI value.
+	 * <p>
+	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also
+	 * performs initialization of the package, or returns the registered package, if one already exists. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#eNS_URI
 	 * @see #init()
@@ -452,67 +445,55 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * <p>
+	 * This method is used to initialize {@link ReqIF10Package#eINSTANCE} when that field is accessed. Clients should
+	 * not invoke it directly. Instead, they should simply access that field to obtain the package. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
-	 * <p>This method is used to initialize {@link ReqIF10Package#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static ReqIF10Package init() {
-		if (isInited) return (ReqIF10Package)EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI);
+		if (isInited) {
+			return (ReqIF10Package) EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI);
+		}
 
 		// Obtain or create and register package
-		ReqIF10PackageImpl theReqIF10Package = (ReqIF10PackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ReqIF10PackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ReqIF10PackageImpl());
+		ReqIF10PackageImpl theReqIF10Package = (ReqIF10PackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ReqIF10PackageImpl ? EPackage.Registry.INSTANCE
+				.get(eNS_URI) : new ReqIF10PackageImpl());
 
 		isInited = true;
 
 		// Initialize simple dependencies
 		XMLNamespacePackage.eINSTANCE.eClass();
-		XMLTypePackage.eINSTANCE.eClass();
-		XMLNamespacePackage.eINSTANCE.eClass();
-
-		// Obtain or create and register interdependencies
-		XhtmlPackageImpl theXhtmlPackage = (XhtmlPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI) instanceof XhtmlPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI) : XhtmlPackage.eINSTANCE);
-		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) : DatatypesPackage.eINSTANCE);
-
-		// Load packages
-		theXhtmlPackage.loadPackage();
 
 		// Create package meta-data objects
 		theReqIF10Package.createPackageContents();
-		theDatatypesPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theReqIF10Package.initializePackageContents();
-		theDatatypesPackage.initializePackageContents();
-
-		// Fix loaded packages
-		theXhtmlPackage.fixPackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theReqIF10Package.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(ReqIF10Package.eNS_URI, theReqIF10Package);
 		return theReqIF10Package;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAccessControlledElement() {
@@ -520,17 +501,17 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getAccessControlledElement_Editable() {
-		return (EAttribute)accessControlledElementEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) accessControlledElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getIdentifiable() {
@@ -538,53 +519,53 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getIdentifiable_Desc() {
-		return (EAttribute)identifiableEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) identifiableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getIdentifiable_Identifier() {
-		return (EAttribute)identifiableEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) identifiableEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getIdentifiable_LastChange() {
-		return (EAttribute)identifiableEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) identifiableEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getIdentifiable_LongName() {
-		return (EAttribute)identifiableEClass.getEStructuralFeatures().get(3);
+		return (EAttribute) identifiableEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getIdentifiable_AlternativeID() {
-		return (EReference)identifiableEClass.getEStructuralFeatures().get(4);
+		return (EReference) identifiableEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeValueXHTML() {
@@ -592,44 +573,44 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getAttributeValueXHTML_Simplified() {
-		return (EAttribute)attributeValueXHTMLEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) attributeValueXHTMLEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeValueXHTML_Definition() {
-		return (EReference)attributeValueXHTMLEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeValueXHTMLEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeValueXHTML_TheOriginalValue() {
-		return (EReference)attributeValueXHTMLEClass.getEStructuralFeatures().get(2);
+		return (EReference) attributeValueXHTMLEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeValueXHTML_TheValue() {
-		return (EReference)attributeValueXHTMLEClass.getEStructuralFeatures().get(3);
+		return (EReference) attributeValueXHTMLEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeValue() {
@@ -637,8 +618,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getSpecElementWithAttributes() {
@@ -646,17 +627,17 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getSpecElementWithAttributes_Values() {
-		return (EReference)specElementWithAttributesEClass.getEStructuralFeatures().get(0);
+		return (EReference) specElementWithAttributesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeDefinitionXHTML() {
@@ -664,26 +645,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionXHTML_Type() {
-		return (EReference)attributeDefinitionXHTMLEClass.getEStructuralFeatures().get(0);
+		return (EReference) attributeDefinitionXHTMLEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionXHTML_DefaultValue() {
-		return (EReference)attributeDefinitionXHTMLEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeDefinitionXHTMLEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeDefinition() {
@@ -691,8 +672,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getSpecType() {
@@ -700,17 +681,17 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getSpecType_SpecAttributes() {
-		return (EReference)specTypeEClass.getEStructuralFeatures().get(0);
+		return (EReference) specTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getReqIFContent() {
@@ -718,62 +699,62 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getReqIFContent_Datatypes() {
-		return (EReference)reqIFContentEClass.getEStructuralFeatures().get(0);
+		return (EReference) reqIFContentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getReqIFContent_SpecTypes() {
-		return (EReference)reqIFContentEClass.getEStructuralFeatures().get(1);
+		return (EReference) reqIFContentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getReqIFContent_SpecObjects() {
-		return (EReference)reqIFContentEClass.getEStructuralFeatures().get(2);
+		return (EReference) reqIFContentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getReqIFContent_SpecRelations() {
-		return (EReference)reqIFContentEClass.getEStructuralFeatures().get(3);
+		return (EReference) reqIFContentEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getReqIFContent_Specifications() {
-		return (EReference)reqIFContentEClass.getEStructuralFeatures().get(4);
+		return (EReference) reqIFContentEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getReqIFContent_SpecRelationGroups() {
-		return (EReference)reqIFContentEClass.getEStructuralFeatures().get(5);
+		return (EReference) reqIFContentEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getReqIF() {
@@ -781,44 +762,44 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getReqIF_Lang() {
-		return (EAttribute)reqIFEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) reqIFEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getReqIF_TheHeader() {
-		return (EReference)reqIFEClass.getEStructuralFeatures().get(1);
+		return (EReference) reqIFEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getReqIF_CoreContent() {
-		return (EReference)reqIFEClass.getEStructuralFeatures().get(2);
+		return (EReference) reqIFEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getReqIF_ToolExtensions() {
-		return (EReference)reqIFEClass.getEStructuralFeatures().get(3);
+		return (EReference) reqIFEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getReqIFHeader() {
@@ -826,80 +807,80 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getReqIFHeader_Comment() {
-		return (EAttribute)reqIFHeaderEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) reqIFHeaderEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getReqIFHeader_CreationTime() {
-		return (EAttribute)reqIFHeaderEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) reqIFHeaderEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getReqIFHeader_Identifier() {
-		return (EAttribute)reqIFHeaderEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) reqIFHeaderEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getReqIFHeader_RepositoryId() {
-		return (EAttribute)reqIFHeaderEClass.getEStructuralFeatures().get(3);
+		return (EAttribute) reqIFHeaderEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getReqIFHeader_ReqIFToolId() {
-		return (EAttribute)reqIFHeaderEClass.getEStructuralFeatures().get(4);
+		return (EAttribute) reqIFHeaderEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getReqIFHeader_ReqIFVersion() {
-		return (EAttribute)reqIFHeaderEClass.getEStructuralFeatures().get(5);
+		return (EAttribute) reqIFHeaderEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getReqIFHeader_SourceToolId() {
-		return (EAttribute)reqIFHeaderEClass.getEStructuralFeatures().get(6);
+		return (EAttribute) reqIFHeaderEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getReqIFHeader_Title() {
-		return (EAttribute)reqIFHeaderEClass.getEStructuralFeatures().get(7);
+		return (EAttribute) reqIFHeaderEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getReqIFToolExtension() {
@@ -907,17 +888,17 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public EAttribute getReqIFToolExtension_Any() {
-		return (EAttribute)reqIFToolExtensionEClass.getEStructuralFeatures().get(0);
+	public EReference getReqIFToolExtension_Extensions() {
+		return (EReference) reqIFToolExtensionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getSpecObject() {
@@ -925,17 +906,17 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getSpecObject_Type() {
-		return (EReference)specObjectEClass.getEStructuralFeatures().get(0);
+		return (EReference) specObjectEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getSpecObjectType() {
@@ -943,8 +924,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getSpecification() {
@@ -952,26 +933,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getSpecification_Type() {
-		return (EReference)specificationEClass.getEStructuralFeatures().get(0);
+		return (EReference) specificationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getSpecification_Children() {
-		return (EReference)specificationEClass.getEStructuralFeatures().get(1);
+		return (EReference) specificationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getSpecificationType() {
@@ -979,8 +960,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getSpecHierarchy() {
@@ -988,44 +969,44 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getSpecHierarchy_TableInternal() {
-		return (EAttribute)specHierarchyEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) specHierarchyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getSpecHierarchy_Object() {
-		return (EReference)specHierarchyEClass.getEStructuralFeatures().get(1);
+		return (EReference) specHierarchyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getSpecHierarchy_Children() {
-		return (EReference)specHierarchyEClass.getEStructuralFeatures().get(2);
+		return (EReference) specHierarchyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getSpecHierarchy_EditableAtts() {
-		return (EReference)specHierarchyEClass.getEStructuralFeatures().get(3);
+		return (EReference) specHierarchyEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getDatatypeDefinition() {
@@ -1033,8 +1014,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getSpecRelation() {
@@ -1042,35 +1023,35 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getSpecRelation_Target() {
-		return (EReference)specRelationEClass.getEStructuralFeatures().get(0);
+		return (EReference) specRelationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getSpecRelation_Source() {
-		return (EReference)specRelationEClass.getEStructuralFeatures().get(1);
+		return (EReference) specRelationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getSpecRelation_Type() {
-		return (EReference)specRelationEClass.getEStructuralFeatures().get(2);
+		return (EReference) specRelationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getSpecRelationType() {
@@ -1078,8 +1059,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getRelationGroup() {
@@ -1087,44 +1068,44 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getRelationGroup_SpecRelations() {
-		return (EReference)relationGroupEClass.getEStructuralFeatures().get(0);
+		return (EReference) relationGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getRelationGroup_Type() {
-		return (EReference)relationGroupEClass.getEStructuralFeatures().get(1);
+		return (EReference) relationGroupEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getRelationGroup_SourceSpecification() {
-		return (EReference)relationGroupEClass.getEStructuralFeatures().get(2);
+		return (EReference) relationGroupEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getRelationGroup_TargetSpecification() {
-		return (EReference)relationGroupEClass.getEStructuralFeatures().get(3);
+		return (EReference) relationGroupEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getRelationGroupType() {
@@ -1132,8 +1113,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getDatatypeDefinitionXHTML() {
@@ -1141,8 +1122,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAlternativeID() {
@@ -1150,17 +1131,17 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getAlternativeID_Identifier() {
-		return (EAttribute)alternativeIDEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) alternativeIDEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeDefinitionBoolean() {
@@ -1168,26 +1149,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionBoolean_Type() {
-		return (EReference)attributeDefinitionBooleanEClass.getEStructuralFeatures().get(0);
+		return (EReference) attributeDefinitionBooleanEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionBoolean_DefaultValue() {
-		return (EReference)attributeDefinitionBooleanEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeDefinitionBooleanEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeDefinitionSimple() {
@@ -1195,8 +1176,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getDatatypeDefinitionBoolean() {
@@ -1204,8 +1185,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getDatatypeDefinitionSimple() {
@@ -1213,8 +1194,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeValueBoolean() {
@@ -1222,26 +1203,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getAttributeValueBoolean_TheValue() {
-		return (EAttribute)attributeValueBooleanEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) attributeValueBooleanEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeValueBoolean_Definition() {
-		return (EReference)attributeValueBooleanEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeValueBooleanEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeValueSimple() {
@@ -1249,8 +1230,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeDefinitionDate() {
@@ -1258,26 +1239,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionDate_Type() {
-		return (EReference)attributeDefinitionDateEClass.getEStructuralFeatures().get(0);
+		return (EReference) attributeDefinitionDateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionDate_DefaultValue() {
-		return (EReference)attributeDefinitionDateEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeDefinitionDateEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getDatatypeDefinitionDate() {
@@ -1285,8 +1266,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeValueDate() {
@@ -1294,26 +1275,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getAttributeValueDate_TheValue() {
-		return (EAttribute)attributeValueDateEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) attributeValueDateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeValueDate_Definition() {
-		return (EReference)attributeValueDateEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeValueDateEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeDefinitionEnumeration() {
@@ -1321,35 +1302,35 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getAttributeDefinitionEnumeration_MultiValued() {
-		return (EAttribute)attributeDefinitionEnumerationEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) attributeDefinitionEnumerationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionEnumeration_Type() {
-		return (EReference)attributeDefinitionEnumerationEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeDefinitionEnumerationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionEnumeration_DefaultValue() {
-		return (EReference)attributeDefinitionEnumerationEClass.getEStructuralFeatures().get(2);
+		return (EReference) attributeDefinitionEnumerationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getDatatypeDefinitionEnumeration() {
@@ -1357,17 +1338,17 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getDatatypeDefinitionEnumeration_SpecifiedValues() {
-		return (EReference)datatypeDefinitionEnumerationEClass.getEStructuralFeatures().get(0);
+		return (EReference) datatypeDefinitionEnumerationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getEnumValue() {
@@ -1375,17 +1356,17 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getEnumValue_Properties() {
-		return (EReference)enumValueEClass.getEStructuralFeatures().get(0);
+		return (EReference) enumValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getEmbeddedValue() {
@@ -1393,26 +1374,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getEmbeddedValue_Key() {
-		return (EAttribute)embeddedValueEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) embeddedValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getEmbeddedValue_OtherContent() {
-		return (EAttribute)embeddedValueEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) embeddedValueEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeValueEnumeration() {
@@ -1420,26 +1401,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeValueEnumeration_Values() {
-		return (EReference)attributeValueEnumerationEClass.getEStructuralFeatures().get(0);
+		return (EReference) attributeValueEnumerationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeValueEnumeration_Definition() {
-		return (EReference)attributeValueEnumerationEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeValueEnumerationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeDefinitionInteger() {
@@ -1447,26 +1428,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionInteger_Type() {
-		return (EReference)attributeDefinitionIntegerEClass.getEStructuralFeatures().get(0);
+		return (EReference) attributeDefinitionIntegerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionInteger_DefaultValue() {
-		return (EReference)attributeDefinitionIntegerEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeDefinitionIntegerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getDatatypeDefinitionInteger() {
@@ -1474,26 +1455,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getDatatypeDefinitionInteger_Max() {
-		return (EAttribute)datatypeDefinitionIntegerEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) datatypeDefinitionIntegerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getDatatypeDefinitionInteger_Min() {
-		return (EAttribute)datatypeDefinitionIntegerEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) datatypeDefinitionIntegerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeValueInteger() {
@@ -1501,26 +1482,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getAttributeValueInteger_TheValue() {
-		return (EAttribute)attributeValueIntegerEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) attributeValueIntegerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeValueInteger_Definition() {
-		return (EReference)attributeValueIntegerEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeValueIntegerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeDefinitionReal() {
@@ -1528,26 +1509,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionReal_Type() {
-		return (EReference)attributeDefinitionRealEClass.getEStructuralFeatures().get(0);
+		return (EReference) attributeDefinitionRealEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionReal_DefaultValue() {
-		return (EReference)attributeDefinitionRealEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeDefinitionRealEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getDatatypeDefinitionReal() {
@@ -1555,35 +1536,35 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getDatatypeDefinitionReal_Accuracy() {
-		return (EAttribute)datatypeDefinitionRealEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) datatypeDefinitionRealEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getDatatypeDefinitionReal_Max() {
-		return (EAttribute)datatypeDefinitionRealEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) datatypeDefinitionRealEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getDatatypeDefinitionReal_Min() {
-		return (EAttribute)datatypeDefinitionRealEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) datatypeDefinitionRealEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeValueReal() {
@@ -1591,26 +1572,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getAttributeValueReal_TheValue() {
-		return (EAttribute)attributeValueRealEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) attributeValueRealEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeValueReal_Definition() {
-		return (EReference)attributeValueRealEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeValueRealEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeDefinitionString() {
@@ -1618,26 +1599,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionString_Type() {
-		return (EReference)attributeDefinitionStringEClass.getEStructuralFeatures().get(0);
+		return (EReference) attributeDefinitionStringEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeDefinitionString_DefaultValue() {
-		return (EReference)attributeDefinitionStringEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeDefinitionStringEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getDatatypeDefinitionString() {
@@ -1645,17 +1626,17 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getDatatypeDefinitionString_MaxLength() {
-		return (EAttribute)datatypeDefinitionStringEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) datatypeDefinitionStringEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getAttributeValueString() {
@@ -1663,26 +1644,26 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getAttributeValueString_TheValue() {
-		return (EAttribute)attributeValueStringEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) attributeValueStringEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getAttributeValueString_Definition() {
-		return (EReference)attributeValueStringEClass.getEStructuralFeatures().get(1);
+		return (EReference) attributeValueStringEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getXhtmlContent() {
@@ -1690,26 +1671,35 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public EReference getXhtmlContent_P() {
-		return (EReference)xhtmlContentEClass.getEStructuralFeatures().get(0);
+	public EReference getXhtmlContent_Xhtml() {
+		return (EReference) xhtmlContentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public EReference getXhtmlContent_Div() {
-		return (EReference)xhtmlContentEClass.getEStructuralFeatures().get(1);
+	public EAttribute getXhtmlContent_XhtmlSource() {
+		return (EAttribute) xhtmlContentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EDataType getDateTime() {
+		return dateTimeEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getID() {
@@ -1717,30 +1707,31 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ReqIF10Factory getReqIF10Factory() {
-		return (ReqIF10Factory)getEFactoryInstance();
+		return (ReqIF10Factory) getEFactoryInstance();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to have no affect on any invocation but
+	 * its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated) {
+			return;
+		}
 		isCreated = true;
 
 		// Create classes and their features
@@ -1799,7 +1790,7 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		createEAttribute(reqIFHeaderEClass, REQ_IF_HEADER__TITLE);
 
 		reqIFToolExtensionEClass = createEClass(REQ_IF_TOOL_EXTENSION);
-		createEAttribute(reqIFToolExtensionEClass, REQ_IF_TOOL_EXTENSION__ANY);
+		createEReference(reqIFToolExtensionEClass, REQ_IF_TOOL_EXTENSION__EXTENSIONS);
 
 		specObjectEClass = createEClass(SPEC_OBJECT);
 		createEReference(specObjectEClass, SPEC_OBJECT__TYPE);
@@ -1922,29 +1913,31 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		createEReference(attributeValueStringEClass, ATTRIBUTE_VALUE_STRING__DEFINITION);
 
 		xhtmlContentEClass = createEClass(XHTML_CONTENT);
-		createEReference(xhtmlContentEClass, XHTML_CONTENT__P);
-		createEReference(xhtmlContentEClass, XHTML_CONTENT__DIV);
+		createEReference(xhtmlContentEClass, XHTML_CONTENT__XHTML);
+		createEAttribute(xhtmlContentEClass, XHTML_CONTENT__XHTML_SOURCE);
 
 		// Create data types
+		dateTimeEDataType = createEDataType(DATE_TIME);
 		idEDataType = createEDataType(ID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This method is guarded to have no affect on any
+	 * invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized) {
+			return;
+		}
 		isInitialized = true;
 
 		// Initialize package
@@ -1953,238 +1946,364 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
-		XMLNamespacePackage theXMLNamespacePackage_1 = (XMLNamespacePackage)EPackage.Registry.INSTANCE.getEPackage(XMLNamespacePackage.eNS_URI);
-		XhtmlPackage theXhtmlPackage = (XhtmlPackage)EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI);
+		XMLNamespacePackage theXMLNamespacePackage = (XMLNamespacePackage) EPackage.Registry.INSTANCE.getEPackage(XMLNamespacePackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		accessControlledElementEClass.getESuperTypes().add(this.getIdentifiable());
-		attributeValueXHTMLEClass.getESuperTypes().add(this.getAttributeValue());
-		specElementWithAttributesEClass.getESuperTypes().add(this.getIdentifiable());
-		attributeDefinitionXHTMLEClass.getESuperTypes().add(this.getAttributeDefinition());
-		attributeDefinitionEClass.getESuperTypes().add(this.getAccessControlledElement());
-		specTypeEClass.getESuperTypes().add(this.getIdentifiable());
-		specObjectEClass.getESuperTypes().add(this.getSpecElementWithAttributes());
-		specObjectTypeEClass.getESuperTypes().add(this.getSpecType());
-		specificationEClass.getESuperTypes().add(this.getSpecElementWithAttributes());
-		specificationTypeEClass.getESuperTypes().add(this.getSpecType());
-		specHierarchyEClass.getESuperTypes().add(this.getAccessControlledElement());
-		datatypeDefinitionEClass.getESuperTypes().add(this.getIdentifiable());
-		specRelationEClass.getESuperTypes().add(this.getSpecElementWithAttributes());
-		specRelationTypeEClass.getESuperTypes().add(this.getSpecType());
-		relationGroupEClass.getESuperTypes().add(this.getIdentifiable());
-		relationGroupTypeEClass.getESuperTypes().add(this.getSpecType());
-		datatypeDefinitionXHTMLEClass.getESuperTypes().add(this.getDatatypeDefinition());
-		attributeDefinitionBooleanEClass.getESuperTypes().add(this.getAttributeDefinitionSimple());
-		attributeDefinitionSimpleEClass.getESuperTypes().add(this.getAttributeDefinition());
-		datatypeDefinitionBooleanEClass.getESuperTypes().add(this.getDatatypeDefinitionSimple());
-		datatypeDefinitionSimpleEClass.getESuperTypes().add(this.getDatatypeDefinition());
-		attributeValueBooleanEClass.getESuperTypes().add(this.getAttributeValueSimple());
-		attributeValueSimpleEClass.getESuperTypes().add(this.getAttributeValue());
-		attributeDefinitionDateEClass.getESuperTypes().add(this.getAttributeDefinitionSimple());
-		datatypeDefinitionDateEClass.getESuperTypes().add(this.getDatatypeDefinitionSimple());
-		attributeValueDateEClass.getESuperTypes().add(this.getAttributeValueSimple());
-		attributeDefinitionEnumerationEClass.getESuperTypes().add(this.getAttributeDefinition());
-		datatypeDefinitionEnumerationEClass.getESuperTypes().add(this.getDatatypeDefinition());
-		enumValueEClass.getESuperTypes().add(this.getIdentifiable());
-		attributeValueEnumerationEClass.getESuperTypes().add(this.getAttributeValue());
-		attributeDefinitionIntegerEClass.getESuperTypes().add(this.getAttributeDefinitionSimple());
-		datatypeDefinitionIntegerEClass.getESuperTypes().add(this.getDatatypeDefinitionSimple());
-		attributeValueIntegerEClass.getESuperTypes().add(this.getAttributeValueSimple());
-		attributeDefinitionRealEClass.getESuperTypes().add(this.getAttributeDefinitionSimple());
-		datatypeDefinitionRealEClass.getESuperTypes().add(this.getDatatypeDefinitionSimple());
-		attributeValueRealEClass.getESuperTypes().add(this.getAttributeValueSimple());
-		attributeDefinitionStringEClass.getESuperTypes().add(this.getAttributeDefinitionSimple());
-		datatypeDefinitionStringEClass.getESuperTypes().add(this.getDatatypeDefinitionSimple());
-		attributeValueStringEClass.getESuperTypes().add(this.getAttributeValueSimple());
+		accessControlledElementEClass.getESuperTypes().add(getIdentifiable());
+		attributeValueXHTMLEClass.getESuperTypes().add(getAttributeValue());
+		specElementWithAttributesEClass.getESuperTypes().add(getIdentifiable());
+		attributeDefinitionXHTMLEClass.getESuperTypes().add(getAttributeDefinition());
+		attributeDefinitionEClass.getESuperTypes().add(getAccessControlledElement());
+		specTypeEClass.getESuperTypes().add(getIdentifiable());
+		specObjectEClass.getESuperTypes().add(getSpecElementWithAttributes());
+		specObjectTypeEClass.getESuperTypes().add(getSpecType());
+		specificationEClass.getESuperTypes().add(getSpecElementWithAttributes());
+		specificationTypeEClass.getESuperTypes().add(getSpecType());
+		specHierarchyEClass.getESuperTypes().add(getAccessControlledElement());
+		datatypeDefinitionEClass.getESuperTypes().add(getIdentifiable());
+		specRelationEClass.getESuperTypes().add(getSpecElementWithAttributes());
+		specRelationTypeEClass.getESuperTypes().add(getSpecType());
+		relationGroupEClass.getESuperTypes().add(getIdentifiable());
+		relationGroupTypeEClass.getESuperTypes().add(getSpecType());
+		datatypeDefinitionXHTMLEClass.getESuperTypes().add(getDatatypeDefinition());
+		attributeDefinitionBooleanEClass.getESuperTypes().add(getAttributeDefinitionSimple());
+		attributeDefinitionSimpleEClass.getESuperTypes().add(getAttributeDefinition());
+		datatypeDefinitionBooleanEClass.getESuperTypes().add(getDatatypeDefinitionSimple());
+		datatypeDefinitionSimpleEClass.getESuperTypes().add(getDatatypeDefinition());
+		attributeValueBooleanEClass.getESuperTypes().add(getAttributeValueSimple());
+		attributeValueSimpleEClass.getESuperTypes().add(getAttributeValue());
+		attributeDefinitionDateEClass.getESuperTypes().add(getAttributeDefinitionSimple());
+		datatypeDefinitionDateEClass.getESuperTypes().add(getDatatypeDefinitionSimple());
+		attributeValueDateEClass.getESuperTypes().add(getAttributeValueSimple());
+		attributeDefinitionEnumerationEClass.getESuperTypes().add(getAttributeDefinition());
+		datatypeDefinitionEnumerationEClass.getESuperTypes().add(getDatatypeDefinition());
+		enumValueEClass.getESuperTypes().add(getIdentifiable());
+		attributeValueEnumerationEClass.getESuperTypes().add(getAttributeValue());
+		attributeDefinitionIntegerEClass.getESuperTypes().add(getAttributeDefinitionSimple());
+		datatypeDefinitionIntegerEClass.getESuperTypes().add(getDatatypeDefinitionSimple());
+		attributeValueIntegerEClass.getESuperTypes().add(getAttributeValueSimple());
+		attributeDefinitionRealEClass.getESuperTypes().add(getAttributeDefinitionSimple());
+		datatypeDefinitionRealEClass.getESuperTypes().add(getDatatypeDefinitionSimple());
+		attributeValueRealEClass.getESuperTypes().add(getAttributeValueSimple());
+		attributeDefinitionStringEClass.getESuperTypes().add(getAttributeDefinitionSimple());
+		datatypeDefinitionStringEClass.getESuperTypes().add(getDatatypeDefinitionSimple());
+		attributeValueStringEClass.getESuperTypes().add(getAttributeValueSimple());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(accessControlledElementEClass, AccessControlledElement.class, "AccessControlledElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAccessControlledElement_Editable(), ecorePackage.getEBoolean(), "editable", null, 0, 1, AccessControlledElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(accessControlledElementEClass, AccessControlledElement.class, "AccessControlledElement", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAccessControlledElement_Editable(), ecorePackage.getEBoolean(), "editable", null, 0, 1, AccessControlledElement.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(identifiableEClass, Identifiable.class, "Identifiable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIdentifiable_Desc(), ecorePackage.getEString(), "desc", null, 0, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getIdentifiable_Identifier(), this.getID(), "identifier", null, 1, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getIdentifiable_LastChange(), theXMLTypePackage.getDateTime(), "lastChange", null, 1, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getIdentifiable_LongName(), ecorePackage.getEString(), "longName", null, 0, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getIdentifiable_AlternativeID(), this.getAlternativeID(), null, "alternativeID", null, 0, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getIdentifiable_Desc(), ecorePackage.getEString(), "desc", null, 0, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getIdentifiable_Identifier(), getID(), "identifier", null, 1, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getIdentifiable_LastChange(), getDateTime(), "lastChange", null, 1, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getIdentifiable_LongName(), ecorePackage.getEString(), "longName", null, 0, 1, Identifiable.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getIdentifiable_AlternativeID(), getAlternativeID(), null, "alternativeID", null, 0, 1, Identifiable.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(attributeValueXHTMLEClass, AttributeValueXHTML.class, "AttributeValueXHTML", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeValueXHTML_Simplified(), ecorePackage.getEBoolean(), "simplified", null, 0, 1, AttributeValueXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueXHTML_Definition(), this.getAttributeDefinitionXHTML(), null, "definition", null, 1, 1, AttributeValueXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueXHTML_TheOriginalValue(), this.getXhtmlContent(), null, "theOriginalValue", null, 0, 1, AttributeValueXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueXHTML_TheValue(), this.getXhtmlContent(), null, "theValue", null, 1, 1, AttributeValueXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeValueXHTMLEClass, AttributeValueXHTML.class, "AttributeValueXHTML", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAttributeValueXHTML_Simplified(), ecorePackage.getEBoolean(), "simplified", null, 0, 1, AttributeValueXHTML.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeValueXHTML_Definition(), getAttributeDefinitionXHTML(), null, "definition", null, 1, 1, AttributeValueXHTML.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeValueXHTML_TheOriginalValue(), getXhtmlContent(), null, "theOriginalValue", null, 0, 1, AttributeValueXHTML.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeValueXHTML_TheValue(), getXhtmlContent(), null, "theValue", null, 1, 1, AttributeValueXHTML.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(attributeValueEClass, AttributeValue.class, "AttributeValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(specElementWithAttributesEClass, SpecElementWithAttributes.class, "SpecElementWithAttributes", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecElementWithAttributes_Values(), this.getAttributeValue(), null, "values", null, 0, -1, SpecElementWithAttributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(specElementWithAttributesEClass, SpecElementWithAttributes.class, "SpecElementWithAttributes", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSpecElementWithAttributes_Values(), getAttributeValue(), null, "values", null, 0, -1, SpecElementWithAttributes.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(attributeDefinitionXHTMLEClass, AttributeDefinitionXHTML.class, "AttributeDefinitionXHTML", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeDefinitionXHTML_Type(), this.getDatatypeDefinitionXHTML(), null, "type", null, 1, 1, AttributeDefinitionXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionXHTML_DefaultValue(), this.getAttributeValueXHTML(), null, "defaultValue", null, 0, 1, AttributeDefinitionXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionXHTMLEClass, AttributeDefinitionXHTML.class, "AttributeDefinitionXHTML", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttributeDefinitionXHTML_Type(), getDatatypeDefinitionXHTML(), null, "type", null, 1, 1, AttributeDefinitionXHTML.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeDefinitionXHTML_DefaultValue(), getAttributeValueXHTML(), null, "defaultValue", null, 0, 1,
+				AttributeDefinitionXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(attributeDefinitionEClass, AttributeDefinition.class, "AttributeDefinition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(attributeDefinitionEClass, AttributeDefinition.class, "AttributeDefinition", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(specTypeEClass, SpecType.class, "SpecType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecType_SpecAttributes(), this.getAttributeDefinition(), null, "specAttributes", null, 0, -1, SpecType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecType_SpecAttributes(), getAttributeDefinition(), null, "specAttributes", null, 0, -1, SpecType.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(reqIFContentEClass, ReqIFContent.class, "ReqIFContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReqIFContent_Datatypes(), this.getDatatypeDefinition(), null, "datatypes", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIFContent_SpecTypes(), this.getSpecType(), null, "specTypes", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIFContent_SpecObjects(), this.getSpecObject(), null, "specObjects", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIFContent_SpecRelations(), this.getSpecRelation(), null, "specRelations", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIFContent_Specifications(), this.getSpecification(), null, "specifications", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIFContent_SpecRelationGroups(), this.getRelationGroup(), null, "specRelationGroups", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getReqIFContent_Datatypes(), getDatatypeDefinition(), null, "datatypes", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getReqIFContent_SpecTypes(), getSpecType(), null, "specTypes", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getReqIFContent_SpecObjects(), getSpecObject(), null, "specObjects", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getReqIFContent_SpecRelations(), getSpecRelation(), null, "specRelations", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getReqIFContent_Specifications(), getSpecification(), null, "specifications", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getReqIFContent_SpecRelationGroups(), getRelationGroup(), null, "specRelationGroups", null, 0, -1, ReqIFContent.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(reqIFEClass, ReqIF.class, "ReqIF", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReqIF_Lang(), theXMLNamespacePackage_1.getLangType(), "lang", null, 0, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIF_TheHeader(), this.getReqIFHeader(), null, "theHeader", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIF_CoreContent(), this.getReqIFContent(), null, "coreContent", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIF_ToolExtensions(), this.getReqIFToolExtension(), null, "toolExtensions", null, 0, -1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReqIF_Lang(), theXMLNamespacePackage.getLangType(), "lang", null, 0, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getReqIF_TheHeader(), getReqIFHeader(), null, "theHeader", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getReqIF_CoreContent(), getReqIFContent(), null, "coreContent", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getReqIF_ToolExtensions(), getReqIFToolExtension(), null, "toolExtensions", null, 0, -1, ReqIF.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(reqIFHeaderEClass, ReqIFHeader.class, "ReqIFHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReqIFHeader_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_CreationTime(), theXMLTypePackage.getDateTime(), "creationTime", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_Identifier(), this.getID(), "identifier", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_RepositoryId(), ecorePackage.getEString(), "repositoryId", null, 0, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_ReqIFToolId(), ecorePackage.getEString(), "reqIFToolId", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_ReqIFVersion(), ecorePackage.getEString(), "reqIFVersion", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_SourceToolId(), ecorePackage.getEString(), "sourceToolId", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_Title(), ecorePackage.getEString(), "title", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReqIFHeader_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReqIFHeader_CreationTime(), getDateTime(), "creationTime", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReqIFHeader_Identifier(), getID(), "identifier", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReqIFHeader_RepositoryId(), ecorePackage.getEString(), "repositoryId", null, 0, 1, ReqIFHeader.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReqIFHeader_ReqIFToolId(), ecorePackage.getEString(), "reqIFToolId", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReqIFHeader_ReqIFVersion(), ecorePackage.getEString(), "reqIFVersion", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReqIFHeader_SourceToolId(), ecorePackage.getEString(), "sourceToolId", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReqIFHeader_Title(), ecorePackage.getEString(), "title", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(reqIFToolExtensionEClass, ReqIFToolExtension.class, "ReqIFToolExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReqIFToolExtension_Any(), ecorePackage.getEFeatureMapEntry(), "any", null, 0, 1, ReqIFToolExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReqIFToolExtension_Extensions(), ecorePackage.getEObject(), null, "extensions", null, 0, -1, ReqIFToolExtension.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(specObjectEClass, SpecObject.class, "SpecObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecObject_Type(), this.getSpecObjectType(), null, "type", null, 1, 1, SpecObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecObject_Type(), getSpecObjectType(), null, "type", null, 1, 1, SpecObject.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(specObjectTypeEClass, SpecObjectType.class, "SpecObjectType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(specificationEClass, Specification.class, "Specification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecification_Type(), this.getSpecificationType(), null, "type", null, 1, 1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecification_Children(), this.getSpecHierarchy(), null, "children", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecification_Type(), getSpecificationType(), null, "type", null, 1, 1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecification_Children(), getSpecHierarchy(), null, "children", null, 0, -1, Specification.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(specificationTypeEClass, SpecificationType.class, "SpecificationType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(specHierarchyEClass, SpecHierarchy.class, "SpecHierarchy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSpecHierarchy_TableInternal(), ecorePackage.getEBoolean(), "tableInternal", null, 0, 1, SpecHierarchy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecHierarchy_Object(), this.getSpecObject(), null, "object", null, 1, 1, SpecHierarchy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecHierarchy_Children(), this.getSpecHierarchy(), null, "children", null, 0, -1, SpecHierarchy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSpecHierarchy_EditableAtts(), this.getAttributeDefinition(), null, "editableAtts", null, 0, -1, SpecHierarchy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSpecHierarchy_TableInternal(), ecorePackage.getEBoolean(), "tableInternal", null, 0, 1, SpecHierarchy.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecHierarchy_Object(), getSpecObject(), null, "object", null, 1, 1, SpecHierarchy.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecHierarchy_Children(), getSpecHierarchy(), null, "children", null, 0, -1, SpecHierarchy.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecHierarchy_EditableAtts(), getAttributeDefinition(), null, "editableAtts", null, 0, -1, SpecHierarchy.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(datatypeDefinitionEClass, DatatypeDefinition.class, "DatatypeDefinition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(specRelationEClass, SpecRelation.class, "SpecRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecRelation_Target(), this.getSpecObject(), null, "target", null, 1, 1, SpecRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecRelation_Source(), this.getSpecObject(), null, "source", null, 1, 1, SpecRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecRelation_Type(), this.getSpecRelationType(), null, "type", null, 1, 1, SpecRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecRelation_Target(), getSpecObject(), null, "target", null, 1, 1, SpecRelation.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecRelation_Source(), getSpecObject(), null, "source", null, 1, 1, SpecRelation.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecRelation_Type(), getSpecRelationType(), null, "type", null, 1, 1, SpecRelation.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(specRelationTypeEClass, SpecRelationType.class, "SpecRelationType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(relationGroupEClass, RelationGroup.class, "RelationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRelationGroup_SpecRelations(), this.getSpecRelation(), null, "specRelations", null, 0, -1, RelationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRelationGroup_Type(), this.getRelationGroupType(), null, "type", null, 1, 1, RelationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRelationGroup_SourceSpecification(), this.getSpecification(), null, "sourceSpecification", null, 1, 1, RelationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRelationGroup_TargetSpecification(), this.getSpecification(), null, "targetSpecification", null, 1, 1, RelationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRelationGroup_SpecRelations(), getSpecRelation(), null, "specRelations", null, 0, -1, RelationGroup.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRelationGroup_Type(), getRelationGroupType(), null, "type", null, 1, 1, RelationGroup.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRelationGroup_SourceSpecification(), getSpecification(), null, "sourceSpecification", null, 1, 1, RelationGroup.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRelationGroup_TargetSpecification(), getSpecification(), null, "targetSpecification", null, 1, 1, RelationGroup.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(relationGroupTypeEClass, RelationGroupType.class, "RelationGroupType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(datatypeDefinitionXHTMLEClass, DatatypeDefinitionXHTML.class, "DatatypeDefinitionXHTML", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(datatypeDefinitionXHTMLEClass, DatatypeDefinitionXHTML.class, "DatatypeDefinitionXHTML", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(alternativeIDEClass, AlternativeID.class, "AlternativeID", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAlternativeID_Identifier(), ecorePackage.getEString(), "identifier", null, 1, 1, AlternativeID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getAlternativeID_Identifier(), ecorePackage.getEString(), "identifier", null, 1, 1, AlternativeID.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(attributeDefinitionBooleanEClass, AttributeDefinitionBoolean.class, "AttributeDefinitionBoolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeDefinitionBoolean_Type(), this.getDatatypeDefinitionBoolean(), null, "type", null, 1, 1, AttributeDefinitionBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionBoolean_DefaultValue(), this.getAttributeValueBoolean(), null, "defaultValue", null, 0, 1, AttributeDefinitionBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionBooleanEClass, AttributeDefinitionBoolean.class, "AttributeDefinitionBoolean", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttributeDefinitionBoolean_Type(), getDatatypeDefinitionBoolean(), null, "type", null, 1, 1,
+				AttributeDefinitionBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeDefinitionBoolean_DefaultValue(), getAttributeValueBoolean(), null, "defaultValue", null, 0, 1,
+				AttributeDefinitionBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(attributeDefinitionSimpleEClass, AttributeDefinitionSimple.class, "AttributeDefinitionSimple", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(attributeDefinitionSimpleEClass, AttributeDefinitionSimple.class, "AttributeDefinitionSimple", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(datatypeDefinitionBooleanEClass, DatatypeDefinitionBoolean.class, "DatatypeDefinitionBoolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(datatypeDefinitionBooleanEClass, DatatypeDefinitionBoolean.class, "DatatypeDefinitionBoolean", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(datatypeDefinitionSimpleEClass, DatatypeDefinitionSimple.class, "DatatypeDefinitionSimple", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(datatypeDefinitionSimpleEClass, DatatypeDefinitionSimple.class, "DatatypeDefinitionSimple", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(attributeValueBooleanEClass, AttributeValueBoolean.class, "AttributeValueBoolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeValueBoolean_TheValue(), ecorePackage.getEBoolean(), "theValue", null, 1, 1, AttributeValueBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueBoolean_Definition(), this.getAttributeDefinitionBoolean(), null, "definition", null, 1, 1, AttributeValueBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeValueBooleanEClass, AttributeValueBoolean.class, "AttributeValueBoolean", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAttributeValueBoolean_TheValue(), ecorePackage.getEBoolean(), "theValue", null, 1, 1, AttributeValueBoolean.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeValueBoolean_Definition(), getAttributeDefinitionBoolean(), null, "definition", null, 1, 1,
+				AttributeValueBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, !IS_ORDERED);
 
-		initEClass(attributeValueSimpleEClass, AttributeValueSimple.class, "AttributeValueSimple", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(attributeValueSimpleEClass, AttributeValueSimple.class, "AttributeValueSimple", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(attributeDefinitionDateEClass, AttributeDefinitionDate.class, "AttributeDefinitionDate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeDefinitionDate_Type(), this.getDatatypeDefinitionDate(), null, "type", null, 1, 1, AttributeDefinitionDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionDate_DefaultValue(), this.getAttributeValueDate(), null, "defaultValue", null, 0, 1, AttributeDefinitionDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionDateEClass, AttributeDefinitionDate.class, "AttributeDefinitionDate", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttributeDefinitionDate_Type(), getDatatypeDefinitionDate(), null, "type", null, 1, 1, AttributeDefinitionDate.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeDefinitionDate_DefaultValue(), getAttributeValueDate(), null, "defaultValue", null, 0, 1,
+				AttributeDefinitionDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(datatypeDefinitionDateEClass, DatatypeDefinitionDate.class, "DatatypeDefinitionDate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(datatypeDefinitionDateEClass, DatatypeDefinitionDate.class, "DatatypeDefinitionDate", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(attributeValueDateEClass, AttributeValueDate.class, "AttributeValueDate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeValueDate_TheValue(), theXMLTypePackage.getDateTime(), "theValue", null, 1, 1, AttributeValueDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueDate_Definition(), this.getAttributeDefinitionDate(), null, "definition", null, 1, 1, AttributeValueDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getAttributeValueDate_TheValue(), getDateTime(), "theValue", null, 1, 1, AttributeValueDate.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeValueDate_Definition(), getAttributeDefinitionDate(), null, "definition", null, 1, 1, AttributeValueDate.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(attributeDefinitionEnumerationEClass, AttributeDefinitionEnumeration.class, "AttributeDefinitionEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeDefinitionEnumeration_MultiValued(), ecorePackage.getEBoolean(), "multiValued", null, 1, 1, AttributeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionEnumeration_Type(), this.getDatatypeDefinitionEnumeration(), null, "type", null, 1, 1, AttributeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionEnumeration_DefaultValue(), this.getAttributeValueEnumeration(), null, "defaultValue", null, 0, 1, AttributeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionEnumerationEClass, AttributeDefinitionEnumeration.class, "AttributeDefinitionEnumeration", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAttributeDefinitionEnumeration_MultiValued(), ecorePackage.getEBoolean(), "multiValued", null, 1, 1,
+				AttributeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				!IS_ORDERED);
+		initEReference(getAttributeDefinitionEnumeration_Type(), getDatatypeDefinitionEnumeration(), null, "type", null, 1, 1,
+				AttributeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeDefinitionEnumeration_DefaultValue(), getAttributeValueEnumeration(), null, "defaultValue", null, 0, 1,
+				AttributeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(datatypeDefinitionEnumerationEClass, DatatypeDefinitionEnumeration.class, "DatatypeDefinitionEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDatatypeDefinitionEnumeration_SpecifiedValues(), this.getEnumValue(), null, "specifiedValues", null, 0, -1, DatatypeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(datatypeDefinitionEnumerationEClass, DatatypeDefinitionEnumeration.class, "DatatypeDefinitionEnumeration", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDatatypeDefinitionEnumeration_SpecifiedValues(), getEnumValue(), null, "specifiedValues", null, 0, -1,
+				DatatypeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumValueEClass, EnumValue.class, "EnumValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEnumValue_Properties(), this.getEmbeddedValue(), null, "properties", null, 1, 1, EnumValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getEnumValue_Properties(), getEmbeddedValue(), null, "properties", null, 1, 1, EnumValue.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(embeddedValueEClass, EmbeddedValue.class, "EmbeddedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEmbeddedValue_Key(), ecorePackage.getEBigInteger(), "key", null, 1, 1, EmbeddedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getEmbeddedValue_OtherContent(), ecorePackage.getEString(), "otherContent", null, 1, 1, EmbeddedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getEmbeddedValue_Key(), ecorePackage.getEBigInteger(), "key", null, 1, 1, EmbeddedValue.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getEmbeddedValue_OtherContent(), ecorePackage.getEString(), "otherContent", null, 1, 1, EmbeddedValue.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(attributeValueEnumerationEClass, AttributeValueEnumeration.class, "AttributeValueEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeValueEnumeration_Values(), this.getEnumValue(), null, "values", null, 0, -1, AttributeValueEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueEnumeration_Definition(), this.getAttributeDefinitionEnumeration(), null, "definition", null, 1, 1, AttributeValueEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeValueEnumerationEClass, AttributeValueEnumeration.class, "AttributeValueEnumeration", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttributeValueEnumeration_Values(), getEnumValue(), null, "values", null, 0, -1, AttributeValueEnumeration.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeValueEnumeration_Definition(), getAttributeDefinitionEnumeration(), null, "definition", null, 1, 1,
+				AttributeValueEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(attributeDefinitionIntegerEClass, AttributeDefinitionInteger.class, "AttributeDefinitionInteger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeDefinitionInteger_Type(), this.getDatatypeDefinitionInteger(), null, "type", null, 1, 1, AttributeDefinitionInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionInteger_DefaultValue(), this.getAttributeValueInteger(), null, "defaultValue", null, 0, 1, AttributeDefinitionInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionIntegerEClass, AttributeDefinitionInteger.class, "AttributeDefinitionInteger", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttributeDefinitionInteger_Type(), getDatatypeDefinitionInteger(), null, "type", null, 1, 1,
+				AttributeDefinitionInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeDefinitionInteger_DefaultValue(), getAttributeValueInteger(), null, "defaultValue", null, 0, 1,
+				AttributeDefinitionInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(datatypeDefinitionIntegerEClass, DatatypeDefinitionInteger.class, "DatatypeDefinitionInteger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDatatypeDefinitionInteger_Max(), ecorePackage.getEBigInteger(), "max", null, 1, 1, DatatypeDefinitionInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getDatatypeDefinitionInteger_Min(), ecorePackage.getEBigInteger(), "min", null, 1, 1, DatatypeDefinitionInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(datatypeDefinitionIntegerEClass, DatatypeDefinitionInteger.class, "DatatypeDefinitionInteger", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDatatypeDefinitionInteger_Max(), ecorePackage.getEBigInteger(), "max", null, 1, 1, DatatypeDefinitionInteger.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDatatypeDefinitionInteger_Min(), ecorePackage.getEBigInteger(), "min", null, 1, 1, DatatypeDefinitionInteger.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(attributeValueIntegerEClass, AttributeValueInteger.class, "AttributeValueInteger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeValueInteger_TheValue(), ecorePackage.getEBigInteger(), "theValue", null, 1, 1, AttributeValueInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueInteger_Definition(), this.getAttributeDefinitionInteger(), null, "definition", null, 1, 1, AttributeValueInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeValueIntegerEClass, AttributeValueInteger.class, "AttributeValueInteger", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAttributeValueInteger_TheValue(), ecorePackage.getEBigInteger(), "theValue", null, 1, 1, AttributeValueInteger.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeValueInteger_Definition(), getAttributeDefinitionInteger(), null, "definition", null, 1, 1,
+				AttributeValueInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, !IS_ORDERED);
 
-		initEClass(attributeDefinitionRealEClass, AttributeDefinitionReal.class, "AttributeDefinitionReal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeDefinitionReal_Type(), this.getDatatypeDefinitionReal(), null, "type", null, 1, 1, AttributeDefinitionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionReal_DefaultValue(), this.getAttributeValueReal(), null, "defaultValue", null, 0, 1, AttributeDefinitionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionRealEClass, AttributeDefinitionReal.class, "AttributeDefinitionReal", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttributeDefinitionReal_Type(), getDatatypeDefinitionReal(), null, "type", null, 1, 1, AttributeDefinitionReal.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeDefinitionReal_DefaultValue(), getAttributeValueReal(), null, "defaultValue", null, 0, 1,
+				AttributeDefinitionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(datatypeDefinitionRealEClass, DatatypeDefinitionReal.class, "DatatypeDefinitionReal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDatatypeDefinitionReal_Accuracy(), ecorePackage.getEBigInteger(), "accuracy", null, 1, 1, DatatypeDefinitionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getDatatypeDefinitionReal_Max(), ecorePackage.getEDouble(), "max", null, 1, 1, DatatypeDefinitionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getDatatypeDefinitionReal_Min(), ecorePackage.getEDouble(), "min", null, 1, 1, DatatypeDefinitionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(datatypeDefinitionRealEClass, DatatypeDefinitionReal.class, "DatatypeDefinitionReal", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDatatypeDefinitionReal_Accuracy(), ecorePackage.getEBigInteger(), "accuracy", null, 1, 1, DatatypeDefinitionReal.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDatatypeDefinitionReal_Max(), ecorePackage.getEDouble(), "max", null, 1, 1, DatatypeDefinitionReal.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDatatypeDefinitionReal_Min(), ecorePackage.getEDouble(), "min", null, 1, 1, DatatypeDefinitionReal.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(attributeValueRealEClass, AttributeValueReal.class, "AttributeValueReal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeValueReal_TheValue(), ecorePackage.getEDouble(), "theValue", null, 1, 1, AttributeValueReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueReal_Definition(), this.getAttributeDefinitionReal(), null, "definition", null, 1, 1, AttributeValueReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getAttributeValueReal_TheValue(), ecorePackage.getEDouble(), "theValue", null, 1, 1, AttributeValueReal.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeValueReal_Definition(), getAttributeDefinitionReal(), null, "definition", null, 1, 1, AttributeValueReal.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(attributeDefinitionStringEClass, AttributeDefinitionString.class, "AttributeDefinitionString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeDefinitionString_Type(), this.getDatatypeDefinitionString(), null, "type", null, 1, 1, AttributeDefinitionString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionString_DefaultValue(), this.getAttributeValueString(), null, "defaultValue", null, 0, 1, AttributeDefinitionString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionStringEClass, AttributeDefinitionString.class, "AttributeDefinitionString", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttributeDefinitionString_Type(), getDatatypeDefinitionString(), null, "type", null, 1, 1, AttributeDefinitionString.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeDefinitionString_DefaultValue(), getAttributeValueString(), null, "defaultValue", null, 0, 1,
+				AttributeDefinitionString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(datatypeDefinitionStringEClass, DatatypeDefinitionString.class, "DatatypeDefinitionString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDatatypeDefinitionString_MaxLength(), ecorePackage.getEBigInteger(), "maxLength", null, 1, 1, DatatypeDefinitionString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(datatypeDefinitionStringEClass, DatatypeDefinitionString.class, "DatatypeDefinitionString", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDatatypeDefinitionString_MaxLength(), ecorePackage.getEBigInteger(), "maxLength", null, 1, 1,
+				DatatypeDefinitionString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				!IS_ORDERED);
 
-		initEClass(attributeValueStringEClass, AttributeValueString.class, "AttributeValueString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeValueString_TheValue(), ecorePackage.getEString(), "theValue", null, 1, 1, AttributeValueString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueString_Definition(), this.getAttributeDefinitionString(), null, "definition", null, 1, 1, AttributeValueString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeValueStringEClass, AttributeValueString.class, "AttributeValueString", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAttributeValueString_TheValue(), ecorePackage.getEString(), "theValue", null, 1, 1, AttributeValueString.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAttributeValueString_Definition(), getAttributeDefinitionString(), null, "definition", null, 1, 1,
+				AttributeValueString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, !IS_ORDERED);
 
 		initEClass(xhtmlContentEClass, XhtmlContent.class, "XhtmlContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getXhtmlContent_P(), theXhtmlPackage.getXhtmlPType(), null, "p", null, 0, 1, XhtmlContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXhtmlContent_Div(), theXhtmlPackage.getXhtmlDivType(), null, "div", null, 0, 1, XhtmlContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXhtmlContent_Xhtml(), ecorePackage.getEObject(), null, "xhtml", null, 0, 1, XhtmlContent.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXhtmlContent_XhtmlSource(), ecorePackage.getEString(), "xhtmlSource", null, 0, 1, XhtmlContent.class, IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
+		initEDataType(dateTimeEDataType, GregorianCalendar.class, "DateTime", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(idEDataType, String.class, "ID", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
@@ -2193,1009 +2312,423 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		// Create annotations
 		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
 		createExtendedMetaDataAnnotations();
+		// http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData
+		createXMLPersistenceMappingExtendedMetaDataAnnotations();
 	}
 
 	/**
-	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
-		addAnnotation
-		  (accessControlledElementEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ACCESS-CONTROLLED-ELEMENT",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAccessControlledElement_Editable(), 
-		   source, 
-		   new String[] {
-			 "name", "IS-EDITABLE",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (identifiableEClass, 
-		   source, 
-		   new String[] {
-			 "name", "IDENTIFIABLE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getIdentifiable_Desc(), 
-		   source, 
-		   new String[] {
-			 "name", "DESC",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getIdentifiable_Identifier(), 
-		   source, 
-		   new String[] {
-			 "name", "IDENTIFIER",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getIdentifiable_LastChange(), 
-		   source, 
-		   new String[] {
-			 "name", "LAST-CHANGE",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getIdentifiable_LongName(), 
-		   source, 
-		   new String[] {
-			 "name", "LONG-NAME",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getIdentifiable_AlternativeID(), 
-		   source, 
-		   new String[] {
-			 "name", "ALTERNATIVE-ID",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (attributeValueXHTMLEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-VALUE-XHTML",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeValueXHTML_Simplified(), 
-		   source, 
-		   new String[] {
-			 "name", "IS-SIMPLIFIED",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getAttributeValueXHTML_Definition(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFINITION",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getAttributeValueXHTML_TheOriginalValue(), 
-		   source, 
-		   new String[] {
-			 "name", "THE-ORIGINAL-VALUE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getAttributeValueXHTML_TheValue(), 
-		   source, 
-		   new String[] {
-			 "name", "THE-VALUE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (attributeValueEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-VALUE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (specElementWithAttributesEClass, 
-		   source, 
-		   new String[] {
-			 "name", "SPEC-ELEMENT-WITH-ATTRIBUTES",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getSpecElementWithAttributes_Values(), 
-		   source, 
-		   new String[] {
-			 "name", "VALUES",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (attributeDefinitionXHTMLEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-DEFINITION-XHTML",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionXHTML_Type(), 
-		   source, 
-		   new String[] {
-			 "name", "TYPE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionXHTML_DefaultValue(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFAULT-VALUE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (attributeDefinitionEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-DEFINITION",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (specTypeEClass, 
-		   source, 
-		   new String[] {
-			 "name", "SPEC-TYPE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getSpecType_SpecAttributes(), 
-		   source, 
-		   new String[] {
-			 "name", "SPEC-ATTRIBUTES",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (reqIFContentEClass, 
-		   source, 
-		   new String[] {
-			 "name", "REQ-IF-CONTENT",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getReqIFContent_Datatypes(), 
-		   source, 
-		   new String[] {
-			 "name", "DATATYPES",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getReqIFContent_SpecTypes(), 
-		   source, 
-		   new String[] {
-			 "name", "SPEC-TYPES",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getReqIFContent_SpecObjects(), 
-		   source, 
-		   new String[] {
-			 "name", "SPEC-OBJECTS",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getReqIFContent_SpecRelations(), 
-		   source, 
-		   new String[] {
-			 "name", "SPEC-RELATIONS",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getReqIFContent_Specifications(), 
-		   source, 
-		   new String[] {
-			 "name", "SPECIFICATIONS",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getReqIFContent_SpecRelationGroups(), 
-		   source, 
-		   new String[] {
-			 "name", "SPEC-RELATION-GROUPS",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (reqIFEClass, 
-		   source, 
-		   new String[] {
-			 "name", "REQ-IF",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getReqIF_Lang(), 
-		   source, 
-		   new String[] {
-			 "name", "LANG",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getReqIF_TheHeader(), 
-		   source, 
-		   new String[] {
-			 "name", "THE-HEADER",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getReqIF_CoreContent(), 
-		   source, 
-		   new String[] {
-			 "name", "CORE-CONTENT",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getReqIF_ToolExtensions(), 
-		   source, 
-		   new String[] {
-			 "name", "TOOL-EXTENSIONS",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (reqIFHeaderEClass, 
-		   source, 
-		   new String[] {
-			 "name", "REQ-IF-HEADER",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getReqIFHeader_Comment(), 
-		   source, 
-		   new String[] {
-			 "name", "COMMENT",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getReqIFHeader_CreationTime(), 
-		   source, 
-		   new String[] {
-			 "name", "CREATION-TIME",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getReqIFHeader_Identifier(), 
-		   source, 
-		   new String[] {
-			 "name", "IDENTIFIER",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getReqIFHeader_RepositoryId(), 
-		   source, 
-		   new String[] {
-			 "name", "REPOSITORY-ID",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getReqIFHeader_ReqIFToolId(), 
-		   source, 
-		   new String[] {
-			 "name", "REQ-IF-TOOL-ID",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getReqIFHeader_ReqIFVersion(), 
-		   source, 
-		   new String[] {
-			 "name", "REQ-IF-VERSION",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getReqIFHeader_SourceToolId(), 
-		   source, 
-		   new String[] {
-			 "name", "SOURCE-TOOL-ID",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getReqIFHeader_Title(), 
-		   source, 
-		   new String[] {
-			 "name", "TITLE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (reqIFToolExtensionEClass, 
-		   source, 
-		   new String[] {
-			 "name", "REQ-IF-TOOL-EXTENSION",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getReqIFToolExtension_Any(), 
-		   source, 
-		   new String[] {
-			 "kind", "elementWildcard",
-			 "wildcards", "##other",
-			 "name", ":0",
-			 "processing", "lax"
-		   });		
-		addAnnotation
-		  (specObjectEClass, 
-		   source, 
-		   new String[] {
-			 "name", "SPEC-OBJECT",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getSpecObject_Type(), 
-		   source, 
-		   new String[] {
-			 "name", "TYPE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (specObjectTypeEClass, 
-		   source, 
-		   new String[] {
-			 "name", "SPEC-OBJECT-TYPE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (specificationEClass, 
-		   source, 
-		   new String[] {
-			 "name", "SPECIFICATION",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getSpecification_Type(), 
-		   source, 
-		   new String[] {
-			 "name", "TYPE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getSpecification_Children(), 
-		   source, 
-		   new String[] {
-			 "name", "CHILDREN",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (specificationTypeEClass, 
-		   source, 
-		   new String[] {
-			 "name", "SPECIFICATION-TYPE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (specHierarchyEClass, 
-		   source, 
-		   new String[] {
-			 "name", "SPEC-HIERARCHY",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getSpecHierarchy_TableInternal(), 
-		   source, 
-		   new String[] {
-			 "name", "IS-TABLE-INTERNAL",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getSpecHierarchy_Object(), 
-		   source, 
-		   new String[] {
-			 "name", "OBJECT",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getSpecHierarchy_Children(), 
-		   source, 
-		   new String[] {
-			 "name", "CHILDREN",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getSpecHierarchy_EditableAtts(), 
-		   source, 
-		   new String[] {
-			 "name", "EDITABLE-ATTS",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (datatypeDefinitionEClass, 
-		   source, 
-		   new String[] {
-			 "name", "DATATYPE-DEFINITION",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (specRelationEClass, 
-		   source, 
-		   new String[] {
-			 "name", "SPEC-RELATION",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getSpecRelation_Target(), 
-		   source, 
-		   new String[] {
-			 "name", "TARGET",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getSpecRelation_Source(), 
-		   source, 
-		   new String[] {
-			 "name", "SOURCE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getSpecRelation_Type(), 
-		   source, 
-		   new String[] {
-			 "name", "TYPE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (specRelationTypeEClass, 
-		   source, 
-		   new String[] {
-			 "name", "SPEC-RELATION-TYPE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (relationGroupEClass, 
-		   source, 
-		   new String[] {
-			 "name", "RELATION-GROUP",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getRelationGroup_SpecRelations(), 
-		   source, 
-		   new String[] {
-			 "name", "SPEC-RELATIONS",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getRelationGroup_Type(), 
-		   source, 
-		   new String[] {
-			 "name", "TYPE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getRelationGroup_SourceSpecification(), 
-		   source, 
-		   new String[] {
-			 "name", "SOURCE-SPECIFICATION",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getRelationGroup_TargetSpecification(), 
-		   source, 
-		   new String[] {
-			 "name", "TARGET-SPECIFICATION",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (relationGroupTypeEClass, 
-		   source, 
-		   new String[] {
-			 "name", "RELATION-GROUP-TYPE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (datatypeDefinitionXHTMLEClass, 
-		   source, 
-		   new String[] {
-			 "name", "DATATYPE-DEFINITION-XHTML",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (alternativeIDEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ALTERNATIVE-ID",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAlternativeID_Identifier(), 
-		   source, 
-		   new String[] {
-			 "name", "IDENTIFIER",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (attributeDefinitionBooleanEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-DEFINITION-BOOLEAN",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionBoolean_Type(), 
-		   source, 
-		   new String[] {
-			 "name", "TYPE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionBoolean_DefaultValue(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFAULT-VALUE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (attributeDefinitionSimpleEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-DEFINITION-SIMPLE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (datatypeDefinitionBooleanEClass, 
-		   source, 
-		   new String[] {
-			 "name", "DATATYPE-DEFINITION-BOOLEAN",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (datatypeDefinitionSimpleEClass, 
-		   source, 
-		   new String[] {
-			 "name", "DATATYPE-DEFINITION-SIMPLE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (attributeValueBooleanEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-VALUE-BOOLEAN",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeValueBoolean_TheValue(), 
-		   source, 
-		   new String[] {
-			 "name", "THE-VALUE",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getAttributeValueBoolean_Definition(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFINITION",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (attributeValueSimpleEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-VALUE-SIMPLE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (attributeDefinitionDateEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-DEFINITION-DATE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionDate_Type(), 
-		   source, 
-		   new String[] {
-			 "name", "TYPE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionDate_DefaultValue(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFAULT-VALUE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (datatypeDefinitionDateEClass, 
-		   source, 
-		   new String[] {
-			 "name", "DATATYPE-DEFINITION-DATE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (attributeValueDateEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-VALUE-DATE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeValueDate_TheValue(), 
-		   source, 
-		   new String[] {
-			 "name", "THE-VALUE",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getAttributeValueDate_Definition(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFINITION",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (attributeDefinitionEnumerationEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-DEFINITION-ENUMERATION",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionEnumeration_MultiValued(), 
-		   source, 
-		   new String[] {
-			 "name", "MULTI-VALUED",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionEnumeration_Type(), 
-		   source, 
-		   new String[] {
-			 "name", "TYPE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionEnumeration_DefaultValue(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFAULT-VALUE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (datatypeDefinitionEnumerationEClass, 
-		   source, 
-		   new String[] {
-			 "name", "DATATYPE-DEFINITION-ENUMERATION",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getDatatypeDefinitionEnumeration_SpecifiedValues(), 
-		   source, 
-		   new String[] {
-			 "name", "SPECIFIED-VALUES",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (enumValueEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ENUM-VALUE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getEnumValue_Properties(), 
-		   source, 
-		   new String[] {
-			 "name", "PROPERTIES",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (embeddedValueEClass, 
-		   source, 
-		   new String[] {
-			 "name", "EMBEDDED-VALUE",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getEmbeddedValue_Key(), 
-		   source, 
-		   new String[] {
-			 "name", "KEY",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getEmbeddedValue_OtherContent(), 
-		   source, 
-		   new String[] {
-			 "name", "OTHER-CONTENT",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (attributeValueEnumerationEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-VALUE-ENUMERATION",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeValueEnumeration_Values(), 
-		   source, 
-		   new String[] {
-			 "name", "VALUES",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getAttributeValueEnumeration_Definition(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFINITION",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (attributeDefinitionIntegerEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-DEFINITION-INTEGER",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionInteger_Type(), 
-		   source, 
-		   new String[] {
-			 "name", "TYPE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionInteger_DefaultValue(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFAULT-VALUE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (datatypeDefinitionIntegerEClass, 
-		   source, 
-		   new String[] {
-			 "name", "DATATYPE-DEFINITION-INTEGER",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getDatatypeDefinitionInteger_Max(), 
-		   source, 
-		   new String[] {
-			 "name", "MAX",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getDatatypeDefinitionInteger_Min(), 
-		   source, 
-		   new String[] {
-			 "name", "MIN",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (attributeValueIntegerEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-VALUE-INTEGER",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeValueInteger_TheValue(), 
-		   source, 
-		   new String[] {
-			 "name", "THE-VALUE",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getAttributeValueInteger_Definition(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFINITION",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (attributeDefinitionRealEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-DEFINITION-REAL",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionReal_Type(), 
-		   source, 
-		   new String[] {
-			 "name", "TYPE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionReal_DefaultValue(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFAULT-VALUE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (datatypeDefinitionRealEClass, 
-		   source, 
-		   new String[] {
-			 "name", "DATATYPE-DEFINITION-REAL",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getDatatypeDefinitionReal_Accuracy(), 
-		   source, 
-		   new String[] {
-			 "name", "ACCURACY",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getDatatypeDefinitionReal_Max(), 
-		   source, 
-		   new String[] {
-			 "name", "MAX",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getDatatypeDefinitionReal_Min(), 
-		   source, 
-		   new String[] {
-			 "name", "MIN",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (attributeValueRealEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-VALUE-REAL",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeValueReal_TheValue(), 
-		   source, 
-		   new String[] {
-			 "name", "THE-VALUE",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getAttributeValueReal_Definition(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFINITION",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (attributeDefinitionStringEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-DEFINITION-STRING",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionString_Type(), 
-		   source, 
-		   new String[] {
-			 "name", "TYPE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getAttributeDefinitionString_DefaultValue(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFAULT-VALUE",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (datatypeDefinitionStringEClass, 
-		   source, 
-		   new String[] {
-			 "name", "DATATYPE-DEFINITION-STRING",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getDatatypeDefinitionString_MaxLength(), 
-		   source, 
-		   new String[] {
-			 "name", "MAX-LENGTH",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (attributeValueStringEClass, 
-		   source, 
-		   new String[] {
-			 "name", "ATTRIBUTE-VALUE-STRING",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getAttributeValueString_TheValue(), 
-		   source, 
-		   new String[] {
-			 "name", "THE-VALUE",
-			 "kind", "attribute"
-		   });		
-		addAnnotation
-		  (getAttributeValueString_Definition(), 
-		   source, 
-		   new String[] {
-			 "name", "DEFINITION",
-			 "kind", "element",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (xhtmlContentEClass, 
-		   source, 
-		   new String[] {
-			 "name", "XHTML-CONTENT",
-			 "kind", "elementOnly"
-		   });		
-		addAnnotation
-		  (getXhtmlContent_P(), 
-		   source, 
-		   new String[] {
-			 "name", "p",
-			 "kind", "element",
-			 "namespace", "http://www.w3.org/1999/xhtml"
-		   });		
-		addAnnotation
-		  (getXhtmlContent_Div(), 
-		   source, 
-		   new String[] {
-			 "name", "div",
-			 "kind", "element",
-			 "namespace", "http://www.w3.org/1999/xhtml"
-		   });
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		addAnnotation(accessControlledElementEClass, source, new String[] { "name", "ACCESS-CONTROLLED-ELEMENT", "kind", "elementOnly" });
+		addAnnotation(getAccessControlledElement_Editable(), source, new String[] { "name", "IS-EDITABLE", "kind", "attribute" });
+		addAnnotation(identifiableEClass, source, new String[] { "name", "IDENTIFIABLE", "kind", "elementOnly" });
+		addAnnotation(getIdentifiable_Desc(), source, new String[] { "name", "DESC", "kind", "attribute" });
+		addAnnotation(getIdentifiable_Identifier(), source, new String[] { "name", "IDENTIFIER", "kind", "attribute" });
+		addAnnotation(getIdentifiable_LastChange(), source, new String[] { "name", "LAST-CHANGE", "kind", "attribute" });
+		addAnnotation(getIdentifiable_LongName(), source, new String[] { "name", "LONG-NAME", "kind", "attribute" });
+		addAnnotation(getIdentifiable_AlternativeID(), source, new String[] { "name", "ALTERNATIVE-ID", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(attributeValueXHTMLEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-XHTML", "kind", "elementOnly" });
+		addAnnotation(getAttributeValueXHTML_Simplified(), source, new String[] { "name", "IS-SIMPLIFIED", "kind", "attribute" });
+		addAnnotation(getAttributeValueXHTML_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getAttributeValueXHTML_TheOriginalValue(), source, new String[] { "name", "THE-ORIGINAL-VALUE", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getAttributeValueXHTML_TheValue(), source, new String[] { "name", "THE-VALUE", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(attributeValueEClass, source, new String[] { "name", "ATTRIBUTE-VALUE", "kind", "elementOnly" });
+		addAnnotation(specElementWithAttributesEClass, source, new String[] { "name", "SPEC-ELEMENT-WITH-ATTRIBUTES", "kind", "elementOnly" });
+		addAnnotation(getSpecElementWithAttributes_Values(), source, new String[] { "name", "VALUES", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(attributeDefinitionXHTMLEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-XHTML", "kind", "elementOnly" });
+		addAnnotation(getAttributeDefinitionXHTML_Type(), source,
+				new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getAttributeDefinitionXHTML_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(attributeDefinitionEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION", "kind", "elementOnly" });
+		addAnnotation(specTypeEClass, source, new String[] { "name", "SPEC-TYPE", "kind", "elementOnly" });
+		addAnnotation(getSpecType_SpecAttributes(), source, new String[] { "name", "SPEC-ATTRIBUTES", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(reqIFContentEClass, source, new String[] { "name", "REQ-IF-CONTENT", "kind", "elementOnly" });
+		addAnnotation(getReqIFContent_Datatypes(), source, new String[] { "name", "DATATYPES", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getReqIFContent_SpecTypes(), source, new String[] { "name", "SPEC-TYPES", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getReqIFContent_SpecObjects(), source, new String[] { "name", "SPEC-OBJECTS", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getReqIFContent_SpecRelations(), source, new String[] { "name", "SPEC-RELATIONS", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getReqIFContent_Specifications(), source, new String[] { "name", "SPECIFICATIONS", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getReqIFContent_SpecRelationGroups(), source, new String[] { "name", "SPEC-RELATION-GROUPS", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(reqIFEClass, source, new String[] { "name", "REQ-IF", "kind", "elementOnly" });
+		addAnnotation(getReqIF_Lang(), source, new String[] { "name", "lang", "kind", "attribute", "namespace",
+				"http://www.w3.org/XML/1998/namespace" });
+		addAnnotation(getReqIF_TheHeader(), source, new String[] { "name", "THE-HEADER", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getReqIF_CoreContent(), source, new String[] { "name", "CORE-CONTENT", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getReqIF_ToolExtensions(), source, new String[] { "name", "TOOL-EXTENSIONS", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(reqIFHeaderEClass, source, new String[] { "name", "REQ-IF-HEADER", "kind", "elementOnly" });
+		addAnnotation(getReqIFHeader_Comment(), source, new String[] { "name", "COMMENT", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getReqIFHeader_CreationTime(), source, new String[] { "name", "CREATION-TIME", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getReqIFHeader_Identifier(), source, new String[] { "name", "IDENTIFIER", "kind", "attribute" });
+		addAnnotation(getReqIFHeader_RepositoryId(), source, new String[] { "name", "REPOSITORY-ID", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getReqIFHeader_ReqIFToolId(), source, new String[] { "name", "REQ-IF-TOOL-ID", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getReqIFHeader_ReqIFVersion(), source, new String[] { "name", "REQ-IF-VERSION", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getReqIFHeader_SourceToolId(), source, new String[] { "name", "SOURCE-TOOL-ID", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getReqIFHeader_Title(), source, new String[] { "name", "TITLE", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(reqIFToolExtensionEClass, source, new String[] { "name", "REQ-IF-TOOL-EXTENSION", "kind", "elementOnly" });
+		addAnnotation(getReqIFToolExtension_Extensions(), source, new String[] { "name", "EXTENSIONS", "kind", "elementWildcard", "namespace",
+				"##targetNamespace", "precessing", "lax", "wildcards", "##other" });
+		addAnnotation(specObjectEClass, source, new String[] { "name", "SPEC-OBJECT", "kind", "elementOnly" });
+		addAnnotation(getSpecObject_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(specObjectTypeEClass, source, new String[] { "name", "SPEC-OBJECT-TYPE", "kind", "elementOnly" });
+		addAnnotation(specificationEClass, source, new String[] { "name", "SPECIFICATION", "kind", "elementOnly" });
+		addAnnotation(getSpecification_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getSpecification_Children(), source, new String[] { "name", "CHILDREN", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(specificationTypeEClass, source, new String[] { "name", "SPECIFICATION-TYPE", "kind", "elementOnly" });
+		addAnnotation(specHierarchyEClass, source, new String[] { "name", "SPEC-HIERARCHY", "kind", "elementOnly" });
+		addAnnotation(getSpecHierarchy_TableInternal(), source, new String[] { "name", "IS-TABLE-INTERNAL", "kind", "attribute" });
+		addAnnotation(getSpecHierarchy_Object(), source, new String[] { "name", "OBJECT", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getSpecHierarchy_Children(), source, new String[] { "name", "CHILDREN", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getSpecHierarchy_EditableAtts(), source, new String[] { "name", "EDITABLE-ATTS", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(datatypeDefinitionEClass, source, new String[] { "name", "DATATYPE-DEFINITION", "kind", "elementOnly" });
+		addAnnotation(specRelationEClass, source, new String[] { "name", "SPEC-RELATION", "kind", "elementOnly" });
+		addAnnotation(getSpecRelation_Target(), source, new String[] { "name", "TARGET", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getSpecRelation_Source(), source, new String[] { "name", "SOURCE", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getSpecRelation_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(specRelationTypeEClass, source, new String[] { "name", "SPEC-RELATION-TYPE", "kind", "elementOnly" });
+		addAnnotation(relationGroupEClass, source, new String[] { "name", "RELATION-GROUP", "kind", "elementOnly" });
+		addAnnotation(getRelationGroup_SpecRelations(), source, new String[] { "name", "SPEC-RELATIONS", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getRelationGroup_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getRelationGroup_SourceSpecification(), source, new String[] { "name", "SOURCE-SPECIFICATION", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getRelationGroup_TargetSpecification(), source, new String[] { "name", "TARGET-SPECIFICATION", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(relationGroupTypeEClass, source, new String[] { "name", "RELATION-GROUP-TYPE", "kind", "elementOnly" });
+		addAnnotation(datatypeDefinitionXHTMLEClass, source, new String[] { "name", "DATATYPE-DEFINITION-XHTML", "kind", "elementOnly" });
+		addAnnotation(alternativeIDEClass, source, new String[] { "name", "ALTERNATIVE-ID", "kind", "elementOnly" });
+		addAnnotation(getAlternativeID_Identifier(), source, new String[] { "name", "IDENTIFIER", "kind", "attribute" });
+		addAnnotation(attributeDefinitionBooleanEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-BOOLEAN", "kind", "elementOnly" });
+		addAnnotation(getAttributeDefinitionBoolean_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getAttributeDefinitionBoolean_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(attributeDefinitionSimpleEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-SIMPLE", "kind", "elementOnly" });
+		addAnnotation(datatypeDefinitionBooleanEClass, source, new String[] { "name", "DATATYPE-DEFINITION-BOOLEAN", "kind", "elementOnly" });
+		addAnnotation(datatypeDefinitionSimpleEClass, source, new String[] { "name", "DATATYPE-DEFINITION-SIMPLE", "kind", "elementOnly" });
+		addAnnotation(attributeValueBooleanEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-BOOLEAN", "kind", "elementOnly" });
+		addAnnotation(getAttributeValueBoolean_TheValue(), source, new String[] { "name", "THE-VALUE", "kind", "attribute" });
+		addAnnotation(getAttributeValueBoolean_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(attributeValueSimpleEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-SIMPLE", "kind", "elementOnly" });
+		addAnnotation(attributeDefinitionDateEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-DATE", "kind", "elementOnly" });
+		addAnnotation(getAttributeDefinitionDate_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getAttributeDefinitionDate_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(datatypeDefinitionDateEClass, source, new String[] { "name", "DATATYPE-DEFINITION-DATE", "kind", "elementOnly" });
+		addAnnotation(attributeValueDateEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-DATE", "kind", "elementOnly" });
+		addAnnotation(getAttributeValueDate_TheValue(), source, new String[] { "name", "THE-VALUE", "kind", "attribute" });
+		addAnnotation(getAttributeValueDate_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(attributeDefinitionEnumerationEClass, source,
+				new String[] { "name", "ATTRIBUTE-DEFINITION-ENUMERATION", "kind", "elementOnly" });
+		addAnnotation(getAttributeDefinitionEnumeration_MultiValued(), source, new String[] { "name", "MULTI-VALUED", "kind", "attribute" });
+		addAnnotation(getAttributeDefinitionEnumeration_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getAttributeDefinitionEnumeration_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element",
+				"namespace", "##targetNamespace" });
+		addAnnotation(datatypeDefinitionEnumerationEClass, source, new String[] { "name", "DATATYPE-DEFINITION-ENUMERATION", "kind", "elementOnly" });
+		addAnnotation(getDatatypeDefinitionEnumeration_SpecifiedValues(), source, new String[] { "name", "SPECIFIED-VALUES", "kind", "element",
+				"namespace", "##targetNamespace" });
+		addAnnotation(enumValueEClass, source, new String[] { "name", "ENUM-VALUE", "kind", "elementOnly" });
+		addAnnotation(getEnumValue_Properties(), source, new String[] { "name", "PROPERTIES", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(embeddedValueEClass, source, new String[] { "name", "EMBEDDED-VALUE", "kind", "elementOnly" });
+		addAnnotation(getEmbeddedValue_Key(), source, new String[] { "name", "KEY", "kind", "attribute" });
+		addAnnotation(getEmbeddedValue_OtherContent(), source, new String[] { "name", "OTHER-CONTENT", "kind", "attribute" });
+		addAnnotation(attributeValueEnumerationEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-ENUMERATION", "kind", "elementOnly" });
+		addAnnotation(getAttributeValueEnumeration_Values(), source, new String[] { "name", "VALUES", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getAttributeValueEnumeration_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(attributeDefinitionIntegerEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-INTEGER", "kind", "elementOnly" });
+		addAnnotation(getAttributeDefinitionInteger_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(getAttributeDefinitionInteger_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(datatypeDefinitionIntegerEClass, source, new String[] { "name", "DATATYPE-DEFINITION-INTEGER", "kind", "elementOnly" });
+		addAnnotation(getDatatypeDefinitionInteger_Max(), source, new String[] { "name", "MAX", "kind", "attribute" });
+		addAnnotation(getDatatypeDefinitionInteger_Min(), source, new String[] { "name", "MIN", "kind", "attribute" });
+		addAnnotation(attributeValueIntegerEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-INTEGER", "kind", "elementOnly" });
+		addAnnotation(getAttributeValueInteger_TheValue(), source, new String[] { "name", "THE-VALUE", "kind", "attribute" });
+		addAnnotation(getAttributeValueInteger_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(attributeDefinitionRealEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-REAL", "kind", "elementOnly" });
+		addAnnotation(getAttributeDefinitionReal_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getAttributeDefinitionReal_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(datatypeDefinitionRealEClass, source, new String[] { "name", "DATATYPE-DEFINITION-REAL", "kind", "elementOnly" });
+		addAnnotation(getDatatypeDefinitionReal_Accuracy(), source, new String[] { "name", "ACCURACY", "kind", "attribute" });
+		addAnnotation(getDatatypeDefinitionReal_Max(), source, new String[] { "name", "MAX", "kind", "attribute" });
+		addAnnotation(getDatatypeDefinitionReal_Min(), source, new String[] { "name", "MIN", "kind", "attribute" });
+		addAnnotation(attributeValueRealEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-REAL", "kind", "elementOnly" });
+		addAnnotation(getAttributeValueReal_TheValue(), source, new String[] { "name", "THE-VALUE", "kind", "attribute" });
+		addAnnotation(getAttributeValueReal_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(attributeDefinitionStringEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-STRING", "kind", "elementOnly" });
+		addAnnotation(getAttributeDefinitionString_Type(), source,
+				new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
+		addAnnotation(getAttributeDefinitionString_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(datatypeDefinitionStringEClass, source, new String[] { "name", "DATATYPE-DEFINITION-STRING", "kind", "elementOnly" });
+		addAnnotation(getDatatypeDefinitionString_MaxLength(), source, new String[] { "name", "MAX-LENGTH", "kind", "attribute" });
+		addAnnotation(attributeValueStringEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-STRING", "kind", "elementOnly" });
+		addAnnotation(getAttributeValueString_TheValue(), source, new String[] { "name", "THE-VALUE", "kind", "attribute" });
+		addAnnotation(getAttributeValueString_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
+				"##targetNamespace" });
+		addAnnotation(xhtmlContentEClass, source, new String[] { "name", "XHTML-CONTENT", "kind", "elementOnly" });
+		addAnnotation(getXhtmlContent_Xhtml(), source, new String[] { "name", "XHTML", "kind", "elementWildcard", "namespace", "##targetNamespace",
+				"precessing", "lax", "wildcards", "http://www.w3.org/1999/xhtml" });
+		addAnnotation(getXhtmlContent_XhtmlSource(), source, new String[] { "name", "XHTML-SOURCE", "kind", "element", "namespace",
+				"##targetNamespace" });
 	}
 
-} //ReqIF10PackageImpl
+	/**
+	 * Initializes the annotations for
+	 * <b>http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData</b>. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void createXMLPersistenceMappingExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";
+		addAnnotation(accessControlledElementEClass, source, new String[] { "wrapperName", "ACCESS-CONTROLLED-ELEMENT" });
+		addAnnotation(getAccessControlledElement_Editable(), source, new String[] { "wrapperName", "IS-EDITABLE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(identifiableEClass, source, new String[] { "wrapperName", "IDENTIFIABLE" });
+		addAnnotation(getIdentifiable_Desc(), source, new String[] { "wrapperName", "DESC", "featureWrapperElement", "false", "featureElement",
+				"true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getIdentifiable_Identifier(), source, new String[] { "wrapperName", "IDENTIFIER", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getIdentifiable_LastChange(), source, new String[] { "wrapperName", "LAST-CHANGE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getIdentifiable_LongName(), source, new String[] { "wrapperName", "LONG-NAME", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getIdentifiable_AlternativeID(), source, new String[] { "wrapperName", "ALTERNATIVE-ID", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(attributeValueXHTMLEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-XHTML" });
+		addAnnotation(getAttributeValueXHTML_Simplified(), source, new String[] { "wrapperName", "IS-SIMPLIFIED", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getAttributeValueXHTML_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getAttributeValueXHTML_TheOriginalValue(), source, new String[] { "wrapperName", "THE-ORIGINAL-VALUE", "featureWrapperElement",
+				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getAttributeValueXHTML_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(attributeValueEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE" });
+		addAnnotation(specElementWithAttributesEClass, source, new String[] { "wrapperName", "SPEC-ELEMENT-WITH-ATTRIBUTES" });
+		addAnnotation(getSpecElementWithAttributes_Values(), source, new String[] { "wrapperName", "VALUES", "featureWrapperElement", "true",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(attributeDefinitionXHTMLEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-XHTML" });
+		addAnnotation(getAttributeDefinitionXHTML_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getAttributeDefinitionXHTML_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", "featureWrapperElement",
+				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(attributeDefinitionEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION" });
+		addAnnotation(specTypeEClass, source, new String[] { "wrapperName", "SPEC-TYPE" });
+		addAnnotation(getSpecType_SpecAttributes(), source, new String[] { "wrapperName", "SPEC-ATTRIBUTES", "featureWrapperElement", "true",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(reqIFContentEClass, source, new String[] { "wrapperName", "REQ-IF-CONTENT" });
+		addAnnotation(getReqIFContent_Datatypes(), source, new String[] { "wrapperName", "DATATYPES", "featureWrapperElement", "true",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(getReqIFContent_SpecTypes(), source, new String[] { "wrapperName", "SPEC-TYPES", "featureWrapperElement", "true",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(getReqIFContent_SpecObjects(), source, new String[] { "wrapperName", "SPEC-OBJECTS", "featureWrapperElement", "true",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(getReqIFContent_SpecRelations(), source, new String[] { "wrapperName", "SPEC-RELATIONS", "featureWrapperElement", "true",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(getReqIFContent_Specifications(), source, new String[] { "wrapperName", "SPECIFICATIONS", "featureWrapperElement", "true",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(getReqIFContent_SpecRelationGroups(), source, new String[] { "wrapperName", "SPEC-RELATION-GROUPS", "featureWrapperElement",
+				"true", "featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(reqIFEClass, source, new String[] { "wrapperName", "REQ-IF" });
+		addAnnotation(getReqIF_TheHeader(), source, new String[] { "wrapperName", "THE-HEADER", "featureWrapperElement", "false", "featureElement",
+				"true", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(getReqIF_CoreContent(), source, new String[] { "wrapperName", "CORE-CONTENT", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(getReqIF_ToolExtensions(), source, new String[] { "wrapperName", "TOOL-EXTENSIONS", "featureWrapperElement", "true",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(reqIFHeaderEClass, source, new String[] { "wrapperName", "REQ-IF-HEADER" });
+		addAnnotation(getReqIFHeader_Comment(), source, new String[] { "wrapperName", "COMMENT", "featureWrapperElement", "false", "featureElement",
+				"true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getReqIFHeader_CreationTime(), source, new String[] { "wrapperName", "CREATION-TIME", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getReqIFHeader_Identifier(), source, new String[] { "wrapperName", "IDENTIFIER", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getReqIFHeader_RepositoryId(), source, new String[] { "wrapperName", "REPOSITORY-ID", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getReqIFHeader_ReqIFToolId(), source, new String[] { "wrapperName", "REQ-IF-TOOL-ID", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getReqIFHeader_ReqIFVersion(), source, new String[] { "wrapperName", "REQ-IF-VERSION", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getReqIFHeader_SourceToolId(), source, new String[] { "wrapperName", "SOURCE-TOOL-ID", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getReqIFHeader_Title(), source, new String[] { "wrapperName", "TITLE", "featureWrapperElement", "false", "featureElement",
+				"true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(reqIFToolExtensionEClass, source, new String[] { "wrapperName", "REQ-IF-TOOL-EXTENSION" });
+		addAnnotation(getReqIFToolExtension_Extensions(), source, new String[] { "wrapperName", "EXTENSIONS", "featureWrapperElement", "false",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(specObjectEClass, source, new String[] { "wrapperName", "SPEC-OBJECT" });
+		addAnnotation(getSpecObject_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false", "featureElement", "true",
+				"classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(specObjectTypeEClass, source, new String[] { "wrapperName", "SPEC-OBJECT-TYPE" });
+		addAnnotation(specificationEClass, source, new String[] { "wrapperName", "SPECIFICATION" });
+		addAnnotation(getSpecification_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false", "featureElement",
+				"true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getSpecification_Children(), source, new String[] { "wrapperName", "CHILDREN", "featureWrapperElement", "true",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(specificationTypeEClass, source, new String[] { "wrapperName", "SPECIFICATION-TYPE" });
+		addAnnotation(specHierarchyEClass, source, new String[] { "wrapperName", "SPEC-HIERARCHY" });
+		addAnnotation(getSpecHierarchy_TableInternal(), source, new String[] { "wrapperName", "IS-TABLE-INTERNAL", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getSpecHierarchy_Object(), source, new String[] { "wrapperName", "OBJECT", "featureWrapperElement", "false", "featureElement",
+				"true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getSpecHierarchy_Children(), source, new String[] { "wrapperName", "CHILDREN", "featureWrapperElement", "true",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(getSpecHierarchy_EditableAtts(), source, new String[] { "wrapperName", "EDITABLE-ATTS", "featureWrapperElement", "true",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(datatypeDefinitionEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION" });
+		addAnnotation(specRelationEClass, source, new String[] { "wrapperName", "SPEC-RELATION" });
+		addAnnotation(getSpecRelation_Target(), source, new String[] { "wrapperName", "TARGET", "featureWrapperElement", "false", "featureElement",
+				"true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getSpecRelation_Source(), source, new String[] { "wrapperName", "SOURCE", "featureWrapperElement", "false", "featureElement",
+				"true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getSpecRelation_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false", "featureElement",
+				"true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(specRelationTypeEClass, source, new String[] { "wrapperName", "SPEC-RELATION-TYPE" });
+		addAnnotation(relationGroupEClass, source, new String[] { "wrapperName", "RELATION-GROUP" });
+		addAnnotation(getRelationGroup_SpecRelations(), source, new String[] { "wrapperName", "SPEC-RELATIONS", "featureWrapperElement", "true",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getRelationGroup_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false", "featureElement",
+				"true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getRelationGroup_SourceSpecification(), source, new String[] { "wrapperName", "SOURCE-SPECIFICATION", "featureWrapperElement",
+				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getRelationGroup_TargetSpecification(), source, new String[] { "wrapperName", "TARGET-SPECIFICATION", "featureWrapperElement",
+				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(relationGroupTypeEClass, source, new String[] { "wrapperName", "RELATION-GROUP-TYPE" });
+		addAnnotation(datatypeDefinitionXHTMLEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-XHTML" });
+		addAnnotation(alternativeIDEClass, source, new String[] { "wrapperName", "ALTERNATIVE-ID" });
+		addAnnotation(getAlternativeID_Identifier(), source, new String[] { "wrapperName", "IDENTIFIER", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(attributeDefinitionBooleanEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-BOOLEAN" });
+		addAnnotation(getAttributeDefinitionBoolean_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getAttributeDefinitionBoolean_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", "featureWrapperElement",
+				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(attributeDefinitionSimpleEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-SIMPLE" });
+		addAnnotation(datatypeDefinitionBooleanEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-BOOLEAN" });
+		addAnnotation(datatypeDefinitionSimpleEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-SIMPLE" });
+		addAnnotation(attributeValueBooleanEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-BOOLEAN" });
+		addAnnotation(getAttributeValueBoolean_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getAttributeValueBoolean_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(attributeValueSimpleEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-SIMPLE" });
+		addAnnotation(attributeDefinitionDateEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-DATE" });
+		addAnnotation(getAttributeDefinitionDate_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getAttributeDefinitionDate_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", "featureWrapperElement",
+				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(datatypeDefinitionDateEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-DATE" });
+		addAnnotation(attributeValueDateEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-DATE" });
+		addAnnotation(getAttributeValueDate_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getAttributeValueDate_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(attributeDefinitionEnumerationEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-ENUMERATION" });
+		addAnnotation(getAttributeDefinitionEnumeration_MultiValued(), source, new String[] { "wrapperName", "MULTI-VALUED", "featureWrapperElement",
+				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getAttributeDefinitionEnumeration_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getAttributeDefinitionEnumeration_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE",
+				"featureWrapperElement", "false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(datatypeDefinitionEnumerationEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-ENUMERATION" });
+		addAnnotation(getDatatypeDefinitionEnumeration_SpecifiedValues(), source, new String[] { "wrapperName", "SPECIFIED-VALUES",
+				"featureWrapperElement", "true", "featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(enumValueEClass, source, new String[] { "wrapperName", "ENUM-VALUE" });
+		addAnnotation(getEnumValue_Properties(), source, new String[] { "wrapperName", "PROPERTIES", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(embeddedValueEClass, source, new String[] { "wrapperName", "EMBEDDED-VALUE" });
+		addAnnotation(getEmbeddedValue_Key(), source, new String[] { "wrapperName", "KEY", "featureWrapperElement", "false", "featureElement",
+				"true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getEmbeddedValue_OtherContent(), source, new String[] { "wrapperName", "OTHER-CONTENT", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(attributeValueEnumerationEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-ENUMERATION" });
+		addAnnotation(getAttributeValueEnumeration_Values(), source, new String[] { "wrapperName", "VALUES", "featureWrapperElement", "true",
+				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getAttributeValueEnumeration_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement",
+				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(attributeDefinitionIntegerEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-INTEGER" });
+		addAnnotation(getAttributeDefinitionInteger_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getAttributeDefinitionInteger_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", "featureWrapperElement",
+				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(datatypeDefinitionIntegerEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-INTEGER" });
+		addAnnotation(getDatatypeDefinitionInteger_Max(), source, new String[] { "wrapperName", "MAX", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getDatatypeDefinitionInteger_Min(), source, new String[] { "wrapperName", "MIN", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(attributeValueIntegerEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-INTEGER" });
+		addAnnotation(getAttributeValueInteger_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getAttributeValueInteger_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(attributeDefinitionRealEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-REAL" });
+		addAnnotation(getAttributeDefinitionReal_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getAttributeDefinitionReal_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", "featureWrapperElement",
+				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(datatypeDefinitionRealEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-REAL" });
+		addAnnotation(getDatatypeDefinitionReal_Accuracy(), source, new String[] { "wrapperName", "ACCURACY", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getDatatypeDefinitionReal_Max(), source, new String[] { "wrapperName", "MAX", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getDatatypeDefinitionReal_Min(), source, new String[] { "wrapperName", "MIN", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(attributeValueRealEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-REAL" });
+		addAnnotation(getAttributeValueReal_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getAttributeValueReal_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(attributeDefinitionStringEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-STRING" });
+		addAnnotation(getAttributeDefinitionString_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(getAttributeDefinitionString_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", "featureWrapperElement",
+				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(datatypeDefinitionStringEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-STRING" });
+		addAnnotation(getDatatypeDefinitionString_MaxLength(), source, new String[] { "wrapperName", "MAX-LENGTH", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(attributeValueStringEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-STRING" });
+		addAnnotation(getAttributeValueString_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		addAnnotation(getAttributeValueString_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
+		addAnnotation(xhtmlContentEClass, source, new String[] { "wrapperName", "XHTML-CONTENT" });
+		addAnnotation(getXhtmlContent_Xhtml(), source, new String[] { "wrapperName", "XHTML", "featureWrapperElement", "false", "featureElement",
+				"false", "classifierWrapperElement", "false", "classifierElement", "true" });
+		addAnnotation(getXhtmlContent_XhtmlSource(), source, new String[] { "wrapperName", "XHTML-SOURCE", "featureWrapperElement", "false",
+				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+	}
+
+} // ReqIF10PackageImpl

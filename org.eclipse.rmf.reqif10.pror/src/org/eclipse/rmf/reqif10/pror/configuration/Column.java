@@ -41,9 +41,11 @@ public interface Column extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label</em>' attribute.
+	 * @see #isSetLabel()
+	 * @see #unsetLabel()
 	 * @see #setLabel(String)
 	 * @see org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage#getColumn_Label()
-	 * @model default="<PLEASE SET LABEL>" required="true"
+	 * @model default="<PLEASE SET LABEL>" unsettable="true" required="true"
 	 * @generated
 	 */
 	String getLabel();
@@ -53,10 +55,35 @@ public interface Column extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Label</em>' attribute.
+	 * @see #isSetLabel()
+	 * @see #unsetLabel()
 	 * @see #getLabel()
 	 * @generated
 	 */
 	void setLabel(String value);
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.Column#getLabel <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetLabel()
+	 * @see #getLabel()
+	 * @see #setLabel(String)
+	 * @generated
+	 */
+	void unsetLabel();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.Column#getLabel <em>Label</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Label</em>' attribute is set.
+	 * @see #unsetLabel()
+	 * @see #getLabel()
+	 * @see #setLabel(String)
+	 * @generated
+	 */
+	boolean isSetLabel();
 
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' attribute.
@@ -68,9 +95,11 @@ public interface Column extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Width</em>' attribute.
+	 * @see #isSetWidth()
+	 * @see #unsetWidth()
 	 * @see #setWidth(int)
 	 * @see org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage#getColumn_Width()
-	 * @model default="100" required="true"
+	 * @model default="100" unsettable="true" required="true"
 	 * @generated
 	 */
 	int getWidth();
@@ -80,9 +109,34 @@ public interface Column extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Width</em>' attribute.
+	 * @see #isSetWidth()
+	 * @see #unsetWidth()
 	 * @see #getWidth()
 	 * @generated
 	 */
 	void setWidth(int value);
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.Column#getWidth <em>Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetWidth()
+	 * @see #getWidth()
+	 * @see #setWidth(int)
+	 * @generated
+	 */
+	void unsetWidth();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.pror.configuration.Column#getWidth <em>Width</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Width</em>' attribute is set.
+	 * @see #unsetWidth()
+	 * @see #getWidth()
+	 * @see #setWidth(int)
+	 * @generated
+	 */
+	boolean isSetWidth();
 
 } // Column

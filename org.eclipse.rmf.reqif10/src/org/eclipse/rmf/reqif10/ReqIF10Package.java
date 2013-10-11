@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -824,13 +824,13 @@ public interface ReqIF10Package extends EPackage {
 	int REQ_IF_TOOL_EXTENSION = 11;
 
 	/**
-	 * The feature id for the '<em><b>Any</b></em>' attribute list.
+	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQ_IF_TOOL_EXTENSION__ANY = 0;
+	int REQ_IF_TOOL_EXTENSION__EXTENSIONS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Req IF Tool Extension</em>' class.
@@ -3272,22 +3272,22 @@ public interface ReqIF10Package extends EPackage {
 	int XHTML_CONTENT = 47;
 
 	/**
-	 * The feature id for the '<em><b>P</b></em>' containment reference.
+	 * The feature id for the '<em><b>Xhtml</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XHTML_CONTENT__P = 0;
+	int XHTML_CONTENT__XHTML = 0;
 
 	/**
-	 * The feature id for the '<em><b>Div</b></em>' containment reference.
+	 * The feature id for the '<em><b>Xhtml Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XHTML_CONTENT__DIV = 1;
+	int XHTML_CONTENT__XHTML_SOURCE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Xhtml Content</em>' class.
@@ -3299,6 +3299,16 @@ public interface ReqIF10Package extends EPackage {
 	int XHTML_CONTENT_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '<em>Date Time</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.GregorianCalendar
+	 * @see org.eclipse.rmf.reqif10.impl.ReqIF10PackageImpl#getDateTime()
+	 * @generated
+	 */
+	int DATE_TIME = 48;
+
+	/**
 	 * The meta object id for the '<em>ID</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3306,7 +3316,7 @@ public interface ReqIF10Package extends EPackage {
 	 * @see org.eclipse.rmf.reqif10.impl.ReqIF10PackageImpl#getID()
 	 * @generated
 	 */
-	int ID = 48;
+	int ID = 49;
 
 
 	/**
@@ -3652,17 +3662,6 @@ public interface ReqIF10Package extends EPackage {
 	EReference getReqIF_TheHeader();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.reqif10.ReqIF#getToolExtensions <em>Tool Extensions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Tool Extensions</em>'.
-	 * @see org.eclipse.rmf.reqif10.ReqIF#getToolExtensions()
-	 * @see #getReqIF()
-	 * @generated
-	 */
-	EReference getReqIF_ToolExtensions();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.reqif10.ReqIF#getCoreContent <em>Core Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3672,6 +3671,17 @@ public interface ReqIF10Package extends EPackage {
 	 * @generated
 	 */
 	EReference getReqIF_CoreContent();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.reqif10.ReqIF#getToolExtensions <em>Tool Extensions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tool Extensions</em>'.
+	 * @see org.eclipse.rmf.reqif10.ReqIF#getToolExtensions()
+	 * @see #getReqIF()
+	 * @generated
+	 */
+	EReference getReqIF_ToolExtensions();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.rmf.reqif10.ReqIFHeader <em>Req IF Header</em>}'.
@@ -3782,15 +3792,15 @@ public interface ReqIF10Package extends EPackage {
 	EClass getReqIFToolExtension();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.eclipse.rmf.reqif10.ReqIFToolExtension#getAny <em>Any</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.rmf.reqif10.ReqIFToolExtension#getExtensions <em>Extensions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Any</em>'.
-	 * @see org.eclipse.rmf.reqif10.ReqIFToolExtension#getAny()
+	 * @return the meta object for the containment reference list '<em>Extensions</em>'.
+	 * @see org.eclipse.rmf.reqif10.ReqIFToolExtension#getExtensions()
 	 * @see #getReqIFToolExtension()
 	 * @generated
 	 */
-	EAttribute getReqIFToolExtension_Any();
+	EReference getReqIFToolExtension_Extensions();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.rmf.reqif10.SpecObject <em>Spec Object</em>}'.
@@ -4703,26 +4713,37 @@ public interface ReqIF10Package extends EPackage {
 	EClass getXhtmlContent();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.reqif10.XhtmlContent#getP <em>P</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.reqif10.XhtmlContent#getXhtml <em>Xhtml</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>P</em>'.
-	 * @see org.eclipse.rmf.reqif10.XhtmlContent#getP()
+	 * @return the meta object for the containment reference '<em>Xhtml</em>'.
+	 * @see org.eclipse.rmf.reqif10.XhtmlContent#getXhtml()
 	 * @see #getXhtmlContent()
 	 * @generated
 	 */
-	EReference getXhtmlContent_P();
+	EReference getXhtmlContent_Xhtml();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.rmf.reqif10.XhtmlContent#getDiv <em>Div</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.rmf.reqif10.XhtmlContent#getXhtmlSource <em>Xhtml Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Div</em>'.
-	 * @see org.eclipse.rmf.reqif10.XhtmlContent#getDiv()
+	 * @return the meta object for the attribute '<em>Xhtml Source</em>'.
+	 * @see org.eclipse.rmf.reqif10.XhtmlContent#getXhtmlSource()
 	 * @see #getXhtmlContent()
 	 * @generated
 	 */
-	EReference getXhtmlContent_Div();
+	EAttribute getXhtmlContent_XhtmlSource();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.GregorianCalendar <em>Date Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Date Time</em>'.
+	 * @see java.util.GregorianCalendar
+	 * @model instanceClass="java.util.GregorianCalendar"
+	 * @generated
+	 */
+	EDataType getDateTime();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.String <em>ID</em>}'.
@@ -5034,20 +5055,20 @@ public interface ReqIF10Package extends EPackage {
 		EReference REQ_IF__THE_HEADER = eINSTANCE.getReqIF_TheHeader();
 
 		/**
-		 * The meta object literal for the '<em><b>Tool Extensions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REQ_IF__TOOL_EXTENSIONS = eINSTANCE.getReqIF_ToolExtensions();
-
-		/**
 		 * The meta object literal for the '<em><b>Core Content</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference REQ_IF__CORE_CONTENT = eINSTANCE.getReqIF_CoreContent();
+
+		/**
+		 * The meta object literal for the '<em><b>Tool Extensions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REQ_IF__TOOL_EXTENSIONS = eINSTANCE.getReqIF_ToolExtensions();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl <em>Req IF Header</em>}' class.
@@ -5134,12 +5155,12 @@ public interface ReqIF10Package extends EPackage {
 		EClass REQ_IF_TOOL_EXTENSION = eINSTANCE.getReqIFToolExtension();
 
 		/**
-		 * The meta object literal for the '<em><b>Any</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Extensions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute REQ_IF_TOOL_EXTENSION__ANY = eINSTANCE.getReqIFToolExtension_Any();
+		EReference REQ_IF_TOOL_EXTENSION__EXTENSIONS = eINSTANCE.getReqIFToolExtension_Extensions();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.rmf.reqif10.impl.SpecObjectImpl <em>Spec Object</em>}' class.
@@ -5902,20 +5923,30 @@ public interface ReqIF10Package extends EPackage {
 		EClass XHTML_CONTENT = eINSTANCE.getXhtmlContent();
 
 		/**
-		 * The meta object literal for the '<em><b>P</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Xhtml</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference XHTML_CONTENT__P = eINSTANCE.getXhtmlContent_P();
+		EReference XHTML_CONTENT__XHTML = eINSTANCE.getXhtmlContent_Xhtml();
 
 		/**
-		 * The meta object literal for the '<em><b>Div</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Xhtml Source</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference XHTML_CONTENT__DIV = eINSTANCE.getXhtmlContent_Div();
+		EAttribute XHTML_CONTENT__XHTML_SOURCE = eINSTANCE.getXhtmlContent_XhtmlSource();
+
+		/**
+		 * The meta object literal for the '<em>Date Time</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.GregorianCalendar
+		 * @see org.eclipse.rmf.reqif10.impl.ReqIF10PackageImpl#getDateTime()
+		 * @generated
+		 */
+		EDataType DATE_TIME = eINSTANCE.getDateTime();
 
 		/**
 		 * The meta object literal for the '<em>ID</em>' data type.

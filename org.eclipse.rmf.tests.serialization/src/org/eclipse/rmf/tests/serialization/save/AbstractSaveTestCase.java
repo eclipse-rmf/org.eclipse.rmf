@@ -1,7 +1,10 @@
 package org.eclipse.rmf.tests.serialization.save;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.StringReader;
 import java.util.Iterator;
+import java.util.Map;
 
 import javax.xml.XMLConstants;
 import javax.xml.namespace.NamespaceContext;
@@ -10,9 +13,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.eclipse.core.runtime.Plugin;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
-import org.eclipse.rmf.tests.serialization.internal.Activator;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
 import org.eclipse.rmf.tests.serialization.util.AbstractTestCase;
 import org.junit.Before;
@@ -31,6 +32,8 @@ public abstract class AbstractSaveTestCase extends AbstractTestCase {
 				return "http://www.w3.org/2001/XMLSchema-instance";
 			} else if (prefix.equals("ecore")) {
 				return "http://www.eclipse.org/emf/2002/Ecore";
+			} else if (prefix.equals("extnodes")) {
+				return "http://www.eclipse.org/rmf/serialization/model/extnodes.ecore";
 			} else {
 				return XMLConstants.NULL_NS_URI;
 			}
@@ -43,6 +46,8 @@ public abstract class AbstractSaveTestCase extends AbstractTestCase {
 				return "xsi";
 			} else if (namespace.equals("http://www.eclipse.org/emf/2002/Ecore")) {
 				return "ecore";
+			} else if (namespace.equals("http://www.eclipse.org/rmf/serialization/model/extnodes.ecore")) {
+				return "extnodes";
 			} else {
 				return null;
 			}
@@ -56,14 +61,17 @@ public abstract class AbstractSaveTestCase extends AbstractTestCase {
 	@Override
 	@Before
 	public void setUp() throws Exception {
-		super.setUp();
 		XPathFactory factory = XPathFactory.newInstance();
 		xpath = factory.newXPath();
 		xpath.setNamespaceContext(new MyNamespaceContext());
 	}
 
 	protected org.w3c.dom.Node getXMLRootNode(String fileName, Node rootNode) throws Exception, XPathExpressionException {
-		saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), null);
+		return getXMLRootNode(fileName, rootNode, null);
+	}
+
+	protected org.w3c.dom.Node getXMLRootNode(String fileName, Node rootNode, Map<Object, Object> options) throws Exception, XPathExpressionException {
+		saveWorkingFile(fileName, rootNode, new XMLPersistenceMappingResourceFactoryImpl(), options);
 		String modelAsString = loadWorkingFileAsString(fileName);
 		InputSource source = new InputSource(new StringReader(modelAsString));
 		org.w3c.dom.NodeList rootNodes = (org.w3c.dom.NodeList) xpath.evaluate("/nodes:NODE", source, XPathConstants.NODESET);
@@ -72,8 +80,4 @@ public abstract class AbstractSaveTestCase extends AbstractTestCase {
 		return root;
 	}
 
-	@Override
-	protected Plugin getTestPlugin() {
-		return new Activator.Implementation();
-	}
 }

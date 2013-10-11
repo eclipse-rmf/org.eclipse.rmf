@@ -46,8 +46,7 @@ public class AttributeValueXhtmlTest extends AttributeValueTest {
 
 	@Override
 	public Object getValueObject() {
-		// FIXME (mj) broken unit test
-		return null;
+		return ReqIF10Factory.eINSTANCE.createXhtmlContent();
 	}
 
 } //AttributeValueComplexTest

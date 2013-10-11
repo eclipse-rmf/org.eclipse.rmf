@@ -14,17 +14,12 @@ package org.eclipse.rmf.reqif10.common.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
-import org.eclipse.emf.ecore.util.ExtendedMetaData;
-import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIFToolExtension;
@@ -44,15 +39,9 @@ public class ReqIFToolExtensionUtil {
 		final List<ReqIFToolExtension> reqIFToolExtensions = getReqIFToolExtensions(reqIF);
 		List<EObject> toolExtensions = new ArrayList<EObject>();
 		for (ReqIFToolExtension reqIFToolExtension : reqIFToolExtensions) {
-			FeatureMap featureMap = reqIFToolExtension.getAny();
-			Iterator<Object> iterator = featureMap.valueListIterator();
-			while (iterator.hasNext()) {
-				Object value = iterator.next();
-				if (null != value && value instanceof EObject) {
-					EObject eObject = (EObject) value;
-					if (eObject.eClass().getEPackage().getNsURI().equals(nsURI)) {
-						toolExtensions.add(eObject);
-					}
+			for (EObject extension : reqIFToolExtension.getExtensions()) {
+				if (extension.eClass().getEPackage().getNsURI().equals(nsURI)) {
+					toolExtensions.add(extension);
 				}
 			}
 		}
@@ -64,12 +53,9 @@ public class ReqIFToolExtensionUtil {
 		final List<ReqIFToolExtension> reqIFToolExtensions = getReqIFToolExtensions(reqIF);
 		List<T> toolExtensions = new ArrayList<T>();
 		for (ReqIFToolExtension reqIFToolExtension : reqIFToolExtensions) {
-			FeatureMap featureMap = reqIFToolExtension.getAny();
-			Iterator<Object> iterator = featureMap.valueListIterator();
-			while (iterator.hasNext()) {
-				Object value = iterator.next();
-				if (null != value && type.isInstance(value)) {
-					toolExtensions.add((T) value);
+			for (EObject extension : reqIFToolExtension.getExtensions()) {
+				if (type.isInstance(extension)) {
+					toolExtensions.add((T) extension);
 				}
 			}
 		}
@@ -81,29 +67,23 @@ public class ReqIFToolExtensionUtil {
 		if (null != reqIF && null != toolExtension) {
 			ReqIFToolExtension reqIFToolExtension = ReqIF10Factory.eINSTANCE.createReqIFToolExtension();
 			reqIF.getToolExtensions().add(reqIFToolExtension);
-
-			// add as any wildcard
-			ExtendedMetaData extendedMetaData = new BasicExtendedMetaData();
-			EStructuralFeature toolExtensionFeature = extendedMetaData.demandFeature(toolExtension.eClass().getEPackage().getNsURI(), "root", true, //$NON-NLS-1$
-					true);
-			reqIFToolExtension.eSet(toolExtensionFeature, toolExtension);
+			reqIFToolExtension.getExtensions().add(toolExtension);
 		}
 	}
 
 	public static Command getAddToolExtensionCommand(final ReqIF reqIF, final EObject toolExtension) {
 		Command command = new AbstractCommand() {
 			ReqIFToolExtension reqIFToolExtension;
-			EStructuralFeature toolExtensionFeature;
 
 			public void execute() {
 				reqIFToolExtension = ReqIF10Factory.eINSTANCE.createReqIFToolExtension();
 				reqIF.getToolExtensions().add(reqIFToolExtension);
-				reqIFToolExtension.eSet(toolExtensionFeature, toolExtension);
+				reqIFToolExtension.getExtensions().add(toolExtension);
 			}
 
 			public void redo() {
 				reqIF.getToolExtensions().add(reqIFToolExtension);
-				reqIFToolExtension.eSet(toolExtensionFeature, toolExtension);
+				reqIFToolExtension.getExtensions().add(toolExtension);
 			}
 
 			@Override
@@ -118,15 +98,7 @@ public class ReqIFToolExtensionUtil {
 
 			@Override
 			protected boolean prepare() {
-				final boolean prepare;
-				if (null != reqIF && null != toolExtension) {
-					ExtendedMetaData extendedMetaData = new BasicExtendedMetaData();
-					toolExtensionFeature = extendedMetaData.demandFeature(toolExtension.eClass().getEPackage().getNsURI(), "root", true, true); //$NON-NLS-1$
-					prepare = true;
-				} else {
-					prepare = false;
-				}
-				return prepare;
+				return true;
 			}
 
 		};

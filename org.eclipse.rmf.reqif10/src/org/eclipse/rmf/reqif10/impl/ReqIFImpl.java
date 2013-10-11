@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -292,36 +292,6 @@ public class ReqIFImpl extends EObjectImpl implements ReqIF {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ReqIFToolExtension> getToolExtensions() {
-		if (toolExtensions == null) {
-			toolExtensions = new EObjectContainmentEList.Unsettable<ReqIFToolExtension>(ReqIFToolExtension.class, this, ReqIF10Package.REQ_IF__TOOL_EXTENSIONS);
-		}
-		return toolExtensions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetToolExtensions() {
-		if (toolExtensions != null) ((InternalEList.Unsettable<?>)toolExtensions).unset();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetToolExtensions() {
-		return toolExtensions != null && ((InternalEList.Unsettable<?>)toolExtensions).isSet();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ReqIFContent getCoreContent() {
 		return coreContent;
 	}
@@ -410,6 +380,36 @@ public class ReqIFImpl extends EObjectImpl implements ReqIF {
 	 */
 	public boolean isSetCoreContent() {
 		return coreContentESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ReqIFToolExtension> getToolExtensions() {
+		if (toolExtensions == null) {
+			toolExtensions = new EObjectContainmentEList.Unsettable<ReqIFToolExtension>(ReqIFToolExtension.class, this, ReqIF10Package.REQ_IF__TOOL_EXTENSIONS);
+		}
+		return toolExtensions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetToolExtensions() {
+		if (toolExtensions != null) ((InternalEList.Unsettable<?>)toolExtensions).unset();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetToolExtensions() {
+		return toolExtensions != null && ((InternalEList.Unsettable<?>)toolExtensions).isSet();
 	}
 
 	/**

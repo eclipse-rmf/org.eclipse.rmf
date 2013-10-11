@@ -10,12 +10,13 @@
  */
 package org.eclipse.rmf.tests.serialization.env.emf;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.xerces.impl.Constants;
-import org.eclipse.core.runtime.Plugin;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -25,7 +26,6 @@ import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.DocumentRoot;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.MyreqifPackage;
 import org.eclipse.rmf.tests.serialization.env.emf.myreqif.util.MyreqifResourceFactoryImpl;
-import org.eclipse.rmf.tests.serialization.internal.Activator;
 import org.eclipse.rmf.tests.serialization.util.AbstractTestCase;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -105,11 +105,6 @@ public class EMFRoundtripTests extends AbstractTestCase {
 		options.put(XMLResource.OPTION_PARSER_PROPERTIES, parserProperties);
 		options.put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.FALSE);
 
-	}
-
-	@Override
-	protected Plugin getTestPlugin() {
-		return new Activator.Implementation();
 	}
 
 }

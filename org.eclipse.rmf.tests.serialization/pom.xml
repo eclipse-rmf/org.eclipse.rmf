@@ -19,12 +19,12 @@ Contributors:
 	<parent>
 		<groupId>org.eclipse.rmf</groupId>
 		<artifactId>org.eclipse.rmf.releng</artifactId>
-		<version>0.8.0-SNAPSHOT</version>
+		<version>0.9.0-SNAPSHOT</version>
 		<relativePath>../org.eclipse.rmf.releng/pom.xml</relativePath>
 	</parent>
 	<groupId>org.eclipse.rmf.plugins</groupId>
 	<artifactId>org.eclipse.rmf.tests.serialization</artifactId>
-	<version>0.8.0-SNAPSHOT</version>
+	<version>0.9.0-SNAPSHOT</version>
 	<properties>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	</properties>
@@ -38,7 +38,7 @@ Contributors:
 				</os>
 			</activation>
 			<properties>
-				<test.vmargs>-Xmx512m -XX:MaxPermSize=256m -XstartOnFirstThread</test.vmargs>
+				<test.vmargs>-Xmx512m -XX:MaxPermSize=256m -XstartOnFirstThread -ea</test.vmargs>
 			</properties>
 		</profile>
 		<profile>
@@ -49,7 +49,7 @@ Contributors:
 				</os>
 			</activation>
 			<properties>
-				<test.vmargs>-Xmx512m -XX:MaxPermSize=256m</test.vmargs>
+				<test.vmargs>-Xmx512m -XX:MaxPermSize=256m -ea</test.vmargs>
 			</properties>
 		</profile>
 	</profiles>
