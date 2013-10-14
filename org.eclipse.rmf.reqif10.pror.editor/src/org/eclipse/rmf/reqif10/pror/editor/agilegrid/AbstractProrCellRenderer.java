@@ -12,9 +12,8 @@ package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
-
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.Cell;
@@ -33,7 +32,6 @@ import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
@@ -88,9 +86,9 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		if (value instanceof AttributeValue) {
 			defaultValue = ((AttributeValue) value).eContainer() == null;
 			Object v = ReqIF10Util.getTheValue((AttributeValue) value);
-			if (v instanceof XMLGregorianCalendar) {
-				XMLGregorianCalendar cal = (XMLGregorianCalendar) v;
-				Date date = cal.toGregorianCalendar().getTime();
+			if (v instanceof GregorianCalendar) {
+				GregorianCalendar cal = (GregorianCalendar) v;
+				Date date = cal.getTime();
 				stringValue = DateFormat.getDateInstance().format(date);
 			} else if (v instanceof List<?>) {
 				stringValue = convertListToString((List<?>) v);
