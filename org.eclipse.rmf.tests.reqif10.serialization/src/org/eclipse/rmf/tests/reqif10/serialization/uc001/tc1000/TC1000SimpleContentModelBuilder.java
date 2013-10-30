@@ -72,7 +72,7 @@ public class TC1000SimpleContentModelBuilder extends SimpleModelBuilder {
 	AttributeDefinitionEnumeration attributeDefinitionEnumerationMultiValue;
 
 	// SpecificationTypes
-	SpecificationType specificationType;
+	protected SpecificationType specificationType;
 
 	// SpecObjects
 	SpecObject specObject;
