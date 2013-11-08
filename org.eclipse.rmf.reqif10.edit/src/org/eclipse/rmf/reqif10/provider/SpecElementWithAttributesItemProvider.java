@@ -11,7 +11,6 @@
  */
 package org.eclipse.rmf.reqif10.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -33,23 +32,16 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.SpecElementWithAttributes} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.SpecElementWithAttributes} object. <!--
+ * begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
-public class SpecElementWithAttributesItemProvider
-	extends IdentifiableItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class SpecElementWithAttributesItemProvider extends IdentifiableItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecElementWithAttributesItemProvider(AdapterFactory adapterFactory) {
@@ -57,9 +49,8 @@ public class SpecElementWithAttributesItemProvider
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -74,9 +65,9 @@ public class SpecElementWithAttributesItemProvider
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -89,8 +80,8 @@ public class SpecElementWithAttributesItemProvider
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -102,24 +93,22 @@ public class SpecElementWithAttributesItemProvider
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SpecElementWithAttributes)object).getLongName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SpecElementWithAttributes_type") : //$NON-NLS-1$
-			getString("_UI_SpecElementWithAttributes_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+		String label = ((SpecElementWithAttributes) object).getLongName();
+		return label == null || label.length() == 0 ? getString("_UI_SpecElementWithAttributes_type") : //$NON-NLS-1$
+				getString("_UI_SpecElementWithAttributes_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -127,58 +116,43 @@ public class SpecElementWithAttributesItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SpecElementWithAttributes.class)) {
-			case ReqIF10Package.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case ReqIF10Package.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
-				 ReqIF10Factory.eINSTANCE.createAttributeValueXHTML()));
+		newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+				ReqIF10Factory.eINSTANCE.createAttributeValueXHTML()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
-				 ReqIF10Factory.eINSTANCE.createAttributeValueBoolean()));
+		newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+				ReqIF10Factory.eINSTANCE.createAttributeValueBoolean()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
-				 ReqIF10Factory.eINSTANCE.createAttributeValueDate()));
+		newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+				ReqIF10Factory.eINSTANCE.createAttributeValueDate()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
-				 ReqIF10Factory.eINSTANCE.createAttributeValueEnumeration()));
+		newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+				ReqIF10Factory.eINSTANCE.createAttributeValueEnumeration()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
-				 ReqIF10Factory.eINSTANCE.createAttributeValueInteger()));
+		newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+				ReqIF10Factory.eINSTANCE.createAttributeValueInteger()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
-				 ReqIF10Factory.eINSTANCE.createAttributeValueReal()));
+		newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+				ReqIF10Factory.eINSTANCE.createAttributeValueReal()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
-				 ReqIF10Factory.eINSTANCE.createAttributeValueString()));
+		newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+				ReqIF10Factory.eINSTANCE.createAttributeValueString()));
 	}
 
 }

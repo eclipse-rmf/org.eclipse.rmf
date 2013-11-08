@@ -19,28 +19,27 @@ import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
 /**
- * This class contains helper methods to serialize and deserialize XML documents
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This class contains helper methods to serialize and deserialize XML documents <!-- begin-user-doc --> <!--
+ * end-user-doc -->
+ * 
  * @generated
  */
 public class XhtmlXMLProcessor extends XMLProcessor {
 
 	/**
-	 * Public constructor to instantiate the helper.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Public constructor to instantiate the helper. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlXMLProcessor() {
 		super((EPackage.Registry.INSTANCE));
 		XhtmlPackage.eINSTANCE.eClass();
 	}
-	
+
 	/**
-	 * Register for "*" and "xml" file extensions the XhtmlResourceFactoryImpl factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Register for "*" and "xml" file extensions the XhtmlResourceFactoryImpl factory. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -53,4 +52,4 @@ public class XhtmlXMLProcessor extends XMLProcessor {
 		return registrations;
 	}
 
-} //XhtmlXMLProcessor
+} // XhtmlXMLProcessor

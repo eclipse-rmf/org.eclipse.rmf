@@ -28,29 +28,27 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Ul Type</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Ul Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getLi <em>Li</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getLang <em>Lang</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getSpace <em>Space</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getStyle <em>Style</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getTitle <em>Title</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getLi <em>Li</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getClass_ <em>Class</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getId <em>Id</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getLang <em>Lang</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getSpace <em>Space</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getStyle <em>Style</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlUlTypeImpl#getTitle <em>Title</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	/**
-	 * The cached value of the '{@link #getLi() <em>Li</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getLi() <em>Li</em>}' containment reference list. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getLi()
 	 * @generated
 	 * @ordered
@@ -58,9 +56,9 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	protected EList<XhtmlLiType> li;
 
 	/**
-	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getClass_()
 	 * @generated
 	 * @ordered
@@ -68,9 +66,9 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	protected static final String CLASS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getClass_()
 	 * @generated
 	 * @ordered
@@ -78,9 +76,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	protected String class_ = CLASS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -88,9 +85,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -98,9 +94,9 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLang() <em>Lang</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getLang() <em>Lang</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getLang()
 	 * @generated
 	 * @ordered
@@ -108,9 +104,9 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	protected static final String LANG_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLang() <em>Lang</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getLang() <em>Lang</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getLang()
 	 * @generated
 	 * @ordered
@@ -118,9 +114,9 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	protected String lang = LANG_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSpace() <em>Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getSpace() <em>Space</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getSpace()
 	 * @generated
 	 * @ordered
@@ -128,9 +124,9 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	protected static final SpaceType SPACE_EDEFAULT = SpaceType.PRESERVE_LITERAL;
 
 	/**
-	 * The cached value of the '{@link #getSpace() <em>Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getSpace() <em>Space</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getSpace()
 	 * @generated
 	 * @ordered
@@ -138,18 +134,17 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	protected SpaceType space = SPACE_EDEFAULT;
 
 	/**
-	 * This is true if the Space attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Space attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean spaceESet;
 
 	/**
-	 * The default value of the '{@link #getStyle() <em>Style</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getStyle() <em>Style</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getStyle()
 	 * @generated
 	 * @ordered
@@ -157,9 +152,9 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	protected static final String STYLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getStyle() <em>Style</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getStyle() <em>Style</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getStyle()
 	 * @generated
 	 * @ordered
@@ -167,9 +162,9 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	protected String style = STYLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -177,9 +172,9 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	protected static final String TITLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -187,8 +182,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	protected String title = TITLE_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected XhtmlUlTypeImpl() {
@@ -196,8 +191,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -206,8 +201,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlLiType> getLi() {
@@ -218,8 +213,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getClass_() {
@@ -227,8 +222,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setClass(String newClass) {
@@ -239,8 +234,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getId() {
@@ -248,8 +243,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setId(String newId) {
@@ -260,8 +255,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getLang() {
@@ -269,8 +264,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setLang(String newLang) {
@@ -281,8 +276,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpaceType getSpace() {
@@ -290,8 +285,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSpace(SpaceType newSpace) {
@@ -304,8 +299,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetSpace() {
@@ -318,8 +313,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetSpace() {
@@ -327,8 +322,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getStyle() {
@@ -336,8 +331,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setStyle(String newStyle) {
@@ -348,8 +343,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getTitle() {
@@ -357,8 +352,8 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTitle(String newTitle) {
@@ -369,147 +364,148 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_UL_TYPE__LI:
-				return ((InternalEList<?>)getLi()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_UL_TYPE__LI:
+			return ((InternalEList<?>) getLi()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_UL_TYPE__LI:
-				return getLi();
-			case XhtmlPackage.XHTML_UL_TYPE__CLASS:
-				return getClass_();
-			case XhtmlPackage.XHTML_UL_TYPE__ID:
-				return getId();
-			case XhtmlPackage.XHTML_UL_TYPE__LANG:
-				return getLang();
-			case XhtmlPackage.XHTML_UL_TYPE__SPACE:
-				return getSpace();
-			case XhtmlPackage.XHTML_UL_TYPE__STYLE:
-				return getStyle();
-			case XhtmlPackage.XHTML_UL_TYPE__TITLE:
-				return getTitle();
+		case XhtmlPackage.XHTML_UL_TYPE__LI:
+			return getLi();
+		case XhtmlPackage.XHTML_UL_TYPE__CLASS:
+			return getClass_();
+		case XhtmlPackage.XHTML_UL_TYPE__ID:
+			return getId();
+		case XhtmlPackage.XHTML_UL_TYPE__LANG:
+			return getLang();
+		case XhtmlPackage.XHTML_UL_TYPE__SPACE:
+			return getSpace();
+		case XhtmlPackage.XHTML_UL_TYPE__STYLE:
+			return getStyle();
+		case XhtmlPackage.XHTML_UL_TYPE__TITLE:
+			return getTitle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_UL_TYPE__LI:
-				getLi().clear();
-				getLi().addAll((Collection<? extends XhtmlLiType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_UL_TYPE__CLASS:
-				setClass((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_UL_TYPE__ID:
-				setId((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_UL_TYPE__LANG:
-				setLang((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_UL_TYPE__SPACE:
-				setSpace((SpaceType)newValue);
-				return;
-			case XhtmlPackage.XHTML_UL_TYPE__STYLE:
-				setStyle((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_UL_TYPE__TITLE:
-				setTitle((String)newValue);
-				return;
+		case XhtmlPackage.XHTML_UL_TYPE__LI:
+			getLi().clear();
+			getLi().addAll((Collection<? extends XhtmlLiType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_UL_TYPE__CLASS:
+			setClass((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_UL_TYPE__ID:
+			setId((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_UL_TYPE__LANG:
+			setLang((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_UL_TYPE__SPACE:
+			setSpace((SpaceType) newValue);
+			return;
+		case XhtmlPackage.XHTML_UL_TYPE__STYLE:
+			setStyle((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_UL_TYPE__TITLE:
+			setTitle((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_UL_TYPE__LI:
-				getLi().clear();
-				return;
-			case XhtmlPackage.XHTML_UL_TYPE__CLASS:
-				setClass(CLASS_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_UL_TYPE__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_UL_TYPE__LANG:
-				setLang(LANG_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_UL_TYPE__SPACE:
-				unsetSpace();
-				return;
-			case XhtmlPackage.XHTML_UL_TYPE__STYLE:
-				setStyle(STYLE_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_UL_TYPE__TITLE:
-				setTitle(TITLE_EDEFAULT);
-				return;
+		case XhtmlPackage.XHTML_UL_TYPE__LI:
+			getLi().clear();
+			return;
+		case XhtmlPackage.XHTML_UL_TYPE__CLASS:
+			setClass(CLASS_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_UL_TYPE__ID:
+			setId(ID_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_UL_TYPE__LANG:
+			setLang(LANG_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_UL_TYPE__SPACE:
+			unsetSpace();
+			return;
+		case XhtmlPackage.XHTML_UL_TYPE__STYLE:
+			setStyle(STYLE_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_UL_TYPE__TITLE:
+			setTitle(TITLE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_UL_TYPE__LI:
-				return li != null && !li.isEmpty();
-			case XhtmlPackage.XHTML_UL_TYPE__CLASS:
-				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
-			case XhtmlPackage.XHTML_UL_TYPE__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case XhtmlPackage.XHTML_UL_TYPE__LANG:
-				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
-			case XhtmlPackage.XHTML_UL_TYPE__SPACE:
-				return isSetSpace();
-			case XhtmlPackage.XHTML_UL_TYPE__STYLE:
-				return STYLE_EDEFAULT == null ? style != null : !STYLE_EDEFAULT.equals(style);
-			case XhtmlPackage.XHTML_UL_TYPE__TITLE:
-				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+		case XhtmlPackage.XHTML_UL_TYPE__LI:
+			return li != null && !li.isEmpty();
+		case XhtmlPackage.XHTML_UL_TYPE__CLASS:
+			return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
+		case XhtmlPackage.XHTML_UL_TYPE__ID:
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+		case XhtmlPackage.XHTML_UL_TYPE__LANG:
+			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
+		case XhtmlPackage.XHTML_UL_TYPE__SPACE:
+			return isSetSpace();
+		case XhtmlPackage.XHTML_UL_TYPE__STYLE:
+			return STYLE_EDEFAULT == null ? style != null : !STYLE_EDEFAULT.equals(style);
+		case XhtmlPackage.XHTML_UL_TYPE__TITLE:
+			return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (class: "); //$NON-NLS-1$
@@ -519,7 +515,10 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 		result.append(", lang: "); //$NON-NLS-1$
 		result.append(lang);
 		result.append(", space: "); //$NON-NLS-1$
-		if (spaceESet) result.append(space); else result.append("<unset>"); //$NON-NLS-1$
+		if (spaceESet)
+			result.append(space);
+		else
+			result.append("<unset>"); //$NON-NLS-1$
 		result.append(", style: "); //$NON-NLS-1$
 		result.append(style);
 		result.append(", title: "); //$NON-NLS-1$
@@ -528,4 +527,4 @@ public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 		return result.toString();
 	}
 
-} //XhtmlUlTypeImpl
+} // XhtmlUlTypeImpl

@@ -11,7 +11,6 @@
  */
 package org.eclipse.rmf.reqif10.xhtml.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -35,23 +34,16 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlColType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.xhtml.XhtmlColType} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.xhtml.XhtmlColType} object. <!--
+ * begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
-public class XhtmlColTypeItemProvider
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class XhtmlColTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlColTypeItemProvider(AdapterFactory adapterFactory) {
@@ -59,9 +51,8 @@ public class XhtmlColTypeItemProvider
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -86,273 +77,152 @@ public class XhtmlColTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Align feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Align feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addAlignPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlColType_align_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_align_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 XhtmlPackage.eINSTANCE.getXhtmlColType_Align(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlColType_align_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_align_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlColType_Align(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Char feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Char feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addCharPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlColType_char_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_char_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 XhtmlPackage.eINSTANCE.getXhtmlColType_Char(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlColType_char_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_char_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlColType_Char(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Charoff feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Charoff feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addCharoffPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlColType_charoff_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_charoff_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 XhtmlPackage.eINSTANCE.getXhtmlColType_Charoff(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlColType_charoff_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_charoff_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlColType_Charoff(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Class feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Class feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addClassPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlColType_class_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_class_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 XhtmlPackage.eINSTANCE.getXhtmlColType_Class(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlColType_class_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_class_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlColType_Class(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Id feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlColType_id_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_id_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 XhtmlPackage.eINSTANCE.getXhtmlColType_Id(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlColType_id_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_id_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlColType_Id(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Lang feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Lang feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addLangPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlColType_lang_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_lang_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 XhtmlPackage.eINSTANCE.getXhtmlColType_Lang(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlColType_lang_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_lang_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlColType_Lang(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Space feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Space feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addSpacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlColType_space_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_space_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 XhtmlPackage.eINSTANCE.getXhtmlColType_Space(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlColType_space_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_space_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlColType_Space(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Span feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Span feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addSpanPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlColType_span_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_span_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 XhtmlPackage.eINSTANCE.getXhtmlColType_Span(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlColType_span_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_span_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlColType_Span(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Style feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Style feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addStylePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlColType_style_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_style_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 XhtmlPackage.eINSTANCE.getXhtmlColType_Style(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlColType_style_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_style_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlColType_Style(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Title feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Title feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlColType_title_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_title_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 XhtmlPackage.eINSTANCE.getXhtmlColType_Title(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlColType_title_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_title_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlColType_Title(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Valign feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Valign feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addValignPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlColType_valign_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_valign_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 XhtmlPackage.eINSTANCE.getXhtmlColType_Valign(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlColType_valign_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_valign_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlColType_Valign(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Width feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Width feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addWidthPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlColType_width_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_width_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 XhtmlPackage.eINSTANCE.getXhtmlColType_Width(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlColType_width_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColType_width_feature", "_UI_XhtmlColType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlColType_Width(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This returns XhtmlColType.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns XhtmlColType.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -361,24 +231,22 @@ public class XhtmlColTypeItemProvider
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XhtmlColType)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlColType_type") : //$NON-NLS-1$
-			getString("_UI_XhtmlColType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+		String label = ((XhtmlColType) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_XhtmlColType_type") : //$NON-NLS-1$
+				getString("_UI_XhtmlColType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -386,29 +254,28 @@ public class XhtmlColTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XhtmlColType.class)) {
-			case XhtmlPackage.XHTML_COL_TYPE__ALIGN:
-			case XhtmlPackage.XHTML_COL_TYPE__CHAR:
-			case XhtmlPackage.XHTML_COL_TYPE__CHAROFF:
-			case XhtmlPackage.XHTML_COL_TYPE__CLASS:
-			case XhtmlPackage.XHTML_COL_TYPE__ID:
-			case XhtmlPackage.XHTML_COL_TYPE__LANG:
-			case XhtmlPackage.XHTML_COL_TYPE__SPACE:
-			case XhtmlPackage.XHTML_COL_TYPE__SPAN:
-			case XhtmlPackage.XHTML_COL_TYPE__STYLE:
-			case XhtmlPackage.XHTML_COL_TYPE__TITLE:
-			case XhtmlPackage.XHTML_COL_TYPE__VALIGN:
-			case XhtmlPackage.XHTML_COL_TYPE__WIDTH:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case XhtmlPackage.XHTML_COL_TYPE__ALIGN:
+		case XhtmlPackage.XHTML_COL_TYPE__CHAR:
+		case XhtmlPackage.XHTML_COL_TYPE__CHAROFF:
+		case XhtmlPackage.XHTML_COL_TYPE__CLASS:
+		case XhtmlPackage.XHTML_COL_TYPE__ID:
+		case XhtmlPackage.XHTML_COL_TYPE__LANG:
+		case XhtmlPackage.XHTML_COL_TYPE__SPACE:
+		case XhtmlPackage.XHTML_COL_TYPE__SPAN:
+		case XhtmlPackage.XHTML_COL_TYPE__STYLE:
+		case XhtmlPackage.XHTML_COL_TYPE__TITLE:
+		case XhtmlPackage.XHTML_COL_TYPE__VALIGN:
+		case XhtmlPackage.XHTML_COL_TYPE__WIDTH:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -417,9 +284,8 @@ public class XhtmlColTypeItemProvider
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

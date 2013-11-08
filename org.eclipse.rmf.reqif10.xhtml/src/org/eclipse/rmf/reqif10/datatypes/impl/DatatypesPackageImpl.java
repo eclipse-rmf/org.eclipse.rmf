@@ -30,274 +30,271 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 import org.eclipse.rmf.reqif10.xhtml.impl.XhtmlPackageImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Package</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPackage {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EEnum frameTargetMember0EEnum = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType cdataEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType characterEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType charsetEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType charsetsEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType colorEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType colorMember1EDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType contentTypeEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType contentTypesEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType curieEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType curiEsEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType datetimeEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType fpiEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType frameTargetEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType frameTargetMember0ObjectEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType frameTargetMember1EDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType languageCodeEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType languageCodesEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType lengthEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType lengthMember1EDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType linkTypesEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType mediaDescEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType multiLengthEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType multiLengthMember1EDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType multiLengthsEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType numberEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType pixelsEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType safeCURIEEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType safeCURIEsEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType scriptEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType textEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType uriEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType urIorSafeCURIEEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType urIorSafeCURIEsEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType urirefEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType urIsEDataType = null;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
-	 * factory method {@link #init init()}, which also performs
-	 * initialization of the package, or returns the registered package,
-	 * if one already exists.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
+	 * EPackage.Registry} by the package package URI value.
+	 * <p>
+	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also
+	 * performs initialization of the package, or returns the registered package, if one already exists. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.rmf.reqif10.datatypes.DatatypesPackage#eNS_URI
 	 * @see #init()
@@ -308,29 +305,31 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * <p>
+	 * This method is used to initialize {@link DatatypesPackage#eINSTANCE} when that field is accessed. Clients should
+	 * not invoke it directly. Instead, they should simply access that field to obtain the package. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
-	 * <p>This method is used to initialize {@link DatatypesPackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static DatatypesPackage init() {
-		if (isInited) return (DatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
+		if (isInited)
+			return (DatatypesPackage) EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
 
 		// Obtain or create and register package
-		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DatatypesPackageImpl());
+		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE
+				.get(eNS_URI) : new DatatypesPackageImpl());
 
 		isInited = true;
 
@@ -338,7 +337,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		XMLNamespacePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		XhtmlPackageImpl theXhtmlPackage = (XhtmlPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI) instanceof XhtmlPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI) : XhtmlPackage.eINSTANCE);
+		XhtmlPackageImpl theXhtmlPackage = (XhtmlPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(XhtmlPackage.eNS_URI) instanceof XhtmlPackageImpl ? EPackage.Registry.INSTANCE
+				.getEPackage(XhtmlPackage.eNS_URI) : XhtmlPackage.eINSTANCE);
 
 		// Load packages
 		theXhtmlPackage.loadPackage();
@@ -353,26 +353,23 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		theXhtmlPackage.fixPackageContents();
 
 		// Register package validator
-		EValidator.Registry.INSTANCE.put
-			(theDatatypesPackage, 
-			 new EValidator.Descriptor() {
-				 public EValidator getEValidator() {
-					 return DatatypesValidator.INSTANCE;
-				 }
-			 });
+		EValidator.Registry.INSTANCE.put(theDatatypesPackage, new EValidator.Descriptor() {
+			public EValidator getEValidator() {
+				return DatatypesValidator.INSTANCE;
+			}
+		});
 
 		// Mark meta-data to indicate it can't be changed
 		theDatatypesPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DatatypesPackage.eNS_URI, theDatatypesPackage);
 		return theDatatypesPackage;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EEnum getFrameTargetMember0() {
@@ -380,8 +377,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getCDATA() {
@@ -389,8 +386,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getCharacter() {
@@ -398,8 +395,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getCharset() {
@@ -407,8 +404,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getCharsets() {
@@ -416,8 +413,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getColor() {
@@ -425,8 +422,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getColorMember1() {
@@ -434,8 +431,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getContentType() {
@@ -443,8 +440,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getContentTypes() {
@@ -452,8 +449,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getCURIE() {
@@ -461,8 +458,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getCURIEs() {
@@ -470,8 +467,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getDatetime() {
@@ -479,8 +476,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getFPI() {
@@ -488,8 +485,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getFrameTarget() {
@@ -497,8 +494,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getFrameTargetMember0Object() {
@@ -506,8 +503,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getFrameTargetMember1() {
@@ -515,8 +512,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getLanguageCode() {
@@ -524,8 +521,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getLanguageCodes() {
@@ -533,8 +530,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getLength() {
@@ -542,8 +539,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getLengthMember1() {
@@ -551,8 +548,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getLinkTypes() {
@@ -560,8 +557,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getMediaDesc() {
@@ -569,8 +566,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getMultiLength() {
@@ -578,8 +575,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getMultiLengthMember1() {
@@ -587,8 +584,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getMultiLengths() {
@@ -596,8 +593,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getNumber() {
@@ -605,8 +602,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getPixels() {
@@ -614,8 +611,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getSafeCURIE() {
@@ -623,8 +620,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getSafeCURIEs() {
@@ -632,8 +629,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getScript() {
@@ -641,8 +638,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getText() {
@@ -650,8 +647,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getURI() {
@@ -659,8 +656,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getURIorSafeCURIE() {
@@ -668,8 +665,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getURIorSafeCURIEs() {
@@ -677,8 +674,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getURIREF() {
@@ -686,8 +683,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getURIs() {
@@ -695,30 +692,30 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DatatypesFactory getDatatypesFactory() {
-		return (DatatypesFactory)getEFactoryInstance();
+		return (DatatypesFactory) getEFactoryInstance();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to have no affect on any invocation but
+	 * its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
 
 		// Create enums
@@ -763,21 +760,21 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This method is guarded to have no affect on any
+	 * invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -806,7 +803,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		initEDataType(datetimeEDataType, XMLGregorianCalendar.class, "Datetime", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(fpiEDataType, String.class, "FPI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(frameTargetEDataType, Object.class, "FrameTarget", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEDataType(frameTargetMember0ObjectEDataType, FrameTargetMember0.class, "FrameTargetMember0Object", IS_SERIALIZABLE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(frameTargetMember0ObjectEDataType, FrameTargetMember0.class,
+				"FrameTargetMember0Object", IS_SERIALIZABLE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(frameTargetMember1EDataType, String.class, "FrameTargetMember1", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(languageCodeEDataType, String.class, "LanguageCode", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(languageCodesEDataType, String.class, "LanguageCodes", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -838,275 +836,131 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	}
 
 	/**
-	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
 		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$			
-		addAnnotation
-		  (cdataEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "CDATA", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (characterEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "Character", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
-			 "length", "1" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (charsetEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "Charset", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (charsetsEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "Charsets", //$NON-NLS-1$ //$NON-NLS-2$
-			 "itemType", "Charset" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (colorEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "Color", //$NON-NLS-1$ //$NON-NLS-2$
-			 "memberTypes", "http://www.eclipse.org/emf/2003/XMLType#NMTOKEN Color_._member_._1" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (colorMember1EDataType, 
-		   source, 
-		   new String[] {
-			 "name", "Color_._member_._1", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#token", //$NON-NLS-1$ //$NON-NLS-2$
-			 "pattern", "#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (contentTypeEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "ContentType", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (contentTypesEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "ContentTypes", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (curieEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "CURIE", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
-			 "minLength", "1", //$NON-NLS-1$ //$NON-NLS-2$
-			 "pattern", "(([\\i-[:]][\\c-[:]]*)?:)?.+" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (curiEsEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "CURIEs", //$NON-NLS-1$ //$NON-NLS-2$
-			 "itemType", "CURIE" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (datetimeEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "Datetime", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#dateTime" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (fpiEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "FPI", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#normalizedString" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (frameTargetEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "FrameTarget", //$NON-NLS-1$ //$NON-NLS-2$
-			 "memberTypes", "FrameTarget_._member_._0 FrameTarget_._member_._1" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (frameTargetMember0EEnum, 
-		   source, 
-		   new String[] {
-			 "name", "FrameTarget_._member_._0" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (frameTargetMember0ObjectEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "FrameTarget_._member_._0:Object", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "FrameTarget_._member_._0" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (frameTargetMember1EDataType, 
-		   source, 
-		   new String[] {
-			 "name", "FrameTarget_._member_._1", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
-			 "pattern", "[a-zA-Z].*" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (languageCodeEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "LanguageCode", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#language" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (languageCodesEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "LanguageCodes", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (lengthEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "Length", //$NON-NLS-1$ //$NON-NLS-2$
-			 "memberTypes", "http://www.eclipse.org/emf/2003/XMLType#nonNegativeInteger Length_._member_._1" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (lengthMember1EDataType, 
-		   source, 
-		   new String[] {
-			 "name", "Length_._member_._1", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#token", //$NON-NLS-1$ //$NON-NLS-2$
-			 "pattern", "\\d+[%25]|\\d*\\.\\d+[%25]" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (linkTypesEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "LinkTypes", //$NON-NLS-1$ //$NON-NLS-2$
-			 "itemType", "http://www.eclipse.org/emf/2003/XMLType#NMTOKEN" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (mediaDescEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "MediaDesc", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (multiLengthEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "MultiLength", //$NON-NLS-1$ //$NON-NLS-2$
-			 "memberTypes", "Length MultiLength_._member_._1" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (multiLengthMember1EDataType, 
-		   source, 
-		   new String[] {
-			 "name", "MultiLength_._member_._1", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#token", //$NON-NLS-1$ //$NON-NLS-2$
-			 "pattern", "\\d*\\*" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (multiLengthsEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "MultiLengths", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (numberEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "Number", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#nonNegativeInteger" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (pixelsEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "Pixels", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#nonNegativeInteger" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (safeCURIEEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "SafeCURIE", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
-			 "minLength", "3", //$NON-NLS-1$ //$NON-NLS-2$
-			 "pattern", "\\[(([\\i-[:]][\\c-[:]]*)?:)?.+\\]" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (safeCURIEsEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "SafeCURIEs", //$NON-NLS-1$ //$NON-NLS-2$
-			 "itemType", "SafeCURIE" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (scriptEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "Script", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (textEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "Text", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (uriEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "URI", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#anyURI" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (urIorSafeCURIEEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "URIorSafeCURIE", //$NON-NLS-1$ //$NON-NLS-2$
-			 "memberTypes", "http://www.eclipse.org/emf/2003/XMLType#anyURI SafeCURIE" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (urIorSafeCURIEsEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "URIorSafeCURIEs", //$NON-NLS-1$ //$NON-NLS-2$
-			 "itemType", "URIorSafeCURIE" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (urirefEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "URIREF", //$NON-NLS-1$ //$NON-NLS-2$
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
-			 "minLength", "1", //$NON-NLS-1$ //$NON-NLS-2$
-			 "pattern", "#\\c*" //$NON-NLS-1$ //$NON-NLS-2$
-		   });		
-		addAnnotation
-		  (urIsEDataType, 
-		   source, 
-		   new String[] {
-			 "name", "URIs", //$NON-NLS-1$ //$NON-NLS-2$
-			 "itemType", "http://www.eclipse.org/emf/2003/XMLType#anyURI" //$NON-NLS-1$ //$NON-NLS-2$
-		   });
+		addAnnotation(cdataEDataType, source, new String[] { "name", "CDATA", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(characterEDataType, source, new String[] { "name", "Character", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+				"length", "1" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(charsetEDataType, source, new String[] { "name", "Charset", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(charsetsEDataType, source, new String[] { "name", "Charsets", //$NON-NLS-1$ //$NON-NLS-2$
+				"itemType", "Charset" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(colorEDataType, source, new String[] { "name", "Color", //$NON-NLS-1$ //$NON-NLS-2$
+				"memberTypes", "http://www.eclipse.org/emf/2003/XMLType#NMTOKEN Color_._member_._1" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(colorMember1EDataType, source, new String[] { "name", "Color_._member_._1", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#token", //$NON-NLS-1$ //$NON-NLS-2$
+				"pattern", "#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(contentTypeEDataType, source, new String[] { "name", "ContentType", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(contentTypesEDataType, source, new String[] { "name", "ContentTypes", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(curieEDataType, source, new String[] { "name", "CURIE", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+				"minLength", "1", //$NON-NLS-1$ //$NON-NLS-2$
+				"pattern", "(([\\i-[:]][\\c-[:]]*)?:)?.+" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(curiEsEDataType, source, new String[] { "name", "CURIEs", //$NON-NLS-1$ //$NON-NLS-2$
+				"itemType", "CURIE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datetimeEDataType, source, new String[] { "name", "Datetime", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#dateTime" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(fpiEDataType, source, new String[] { "name", "FPI", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#normalizedString" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(frameTargetEDataType, source, new String[] { "name", "FrameTarget", //$NON-NLS-1$ //$NON-NLS-2$
+				"memberTypes", "FrameTarget_._member_._0 FrameTarget_._member_._1" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(frameTargetMember0EEnum, source, new String[] { "name", "FrameTarget_._member_._0" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(frameTargetMember0ObjectEDataType, source, new String[] { "name", "FrameTarget_._member_._0:Object", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "FrameTarget_._member_._0" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(frameTargetMember1EDataType, source, new String[] { "name", "FrameTarget_._member_._1", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+				"pattern", "[a-zA-Z].*" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(languageCodeEDataType, source, new String[] { "name", "LanguageCode", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#language" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(languageCodesEDataType, source, new String[] { "name", "LanguageCodes", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(lengthEDataType, source, new String[] { "name", "Length", //$NON-NLS-1$ //$NON-NLS-2$
+				"memberTypes", "http://www.eclipse.org/emf/2003/XMLType#nonNegativeInteger Length_._member_._1" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(lengthMember1EDataType, source, new String[] { "name", "Length_._member_._1", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#token", //$NON-NLS-1$ //$NON-NLS-2$
+				"pattern", "\\d+[%25]|\\d*\\.\\d+[%25]" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(linkTypesEDataType, source, new String[] { "name", "LinkTypes", //$NON-NLS-1$ //$NON-NLS-2$
+				"itemType", "http://www.eclipse.org/emf/2003/XMLType#NMTOKEN" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(mediaDescEDataType, source, new String[] { "name", "MediaDesc", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(multiLengthEDataType, source, new String[] { "name", "MultiLength", //$NON-NLS-1$ //$NON-NLS-2$
+				"memberTypes", "Length MultiLength_._member_._1" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(multiLengthMember1EDataType, source, new String[] { "name", "MultiLength_._member_._1", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#token", //$NON-NLS-1$ //$NON-NLS-2$
+				"pattern", "\\d*\\*" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(multiLengthsEDataType, source, new String[] { "name", "MultiLengths", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(numberEDataType, source, new String[] { "name", "Number", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#nonNegativeInteger" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(pixelsEDataType, source, new String[] { "name", "Pixels", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#nonNegativeInteger" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(safeCURIEEDataType, source, new String[] { "name", "SafeCURIE", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+				"minLength", "3", //$NON-NLS-1$ //$NON-NLS-2$
+				"pattern", "\\[(([\\i-[:]][\\c-[:]]*)?:)?.+\\]" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(safeCURIEsEDataType, source, new String[] { "name", "SafeCURIEs", //$NON-NLS-1$ //$NON-NLS-2$
+				"itemType", "SafeCURIE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(scriptEDataType, source, new String[] { "name", "Script", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(textEDataType, source, new String[] { "name", "Text", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(uriEDataType, source, new String[] { "name", "URI", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#anyURI" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(urIorSafeCURIEEDataType, source, new String[] { "name", "URIorSafeCURIE", //$NON-NLS-1$ //$NON-NLS-2$
+				"memberTypes", "http://www.eclipse.org/emf/2003/XMLType#anyURI SafeCURIE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(urIorSafeCURIEsEDataType, source, new String[] { "name", "URIorSafeCURIEs", //$NON-NLS-1$ //$NON-NLS-2$
+				"itemType", "URIorSafeCURIE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(urirefEDataType, source, new String[] { "name", "URIREF", //$NON-NLS-1$ //$NON-NLS-2$
+				"baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+				"minLength", "1", //$NON-NLS-1$ //$NON-NLS-2$
+				"pattern", "#\\c*" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(urIsEDataType, source, new String[] { "name", "URIs", //$NON-NLS-1$ //$NON-NLS-2$
+				"itemType", "http://www.eclipse.org/emf/2003/XMLType#anyURI" //$NON-NLS-1$ //$NON-NLS-2$
+		});
 	}
 
-} //DatatypesPackageImpl
+} // DatatypesPackageImpl

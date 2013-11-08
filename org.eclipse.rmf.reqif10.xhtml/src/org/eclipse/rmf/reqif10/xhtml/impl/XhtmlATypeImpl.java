@@ -46,61 +46,60 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlStrongType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlVarType;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>AType</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>AType</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getXhtmlInlNoAnchorMix <em>Xhtml Inl No Anchor Mix</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getBr <em>Br</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getSpan <em>Span</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getEm <em>Em</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getStrong <em>Strong</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getDfn <em>Dfn</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getCode <em>Code</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getSamp <em>Samp</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getKbd <em>Kbd</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getVar <em>Var</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getCite <em>Cite</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getAbbr <em>Abbr</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getAcronym <em>Acronym</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getQ <em>Q</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getTt <em>Tt</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getI <em>I</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getB <em>B</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getBig <em>Big</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getSmall <em>Small</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getSub <em>Sub</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getSup <em>Sup</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getObject <em>Object</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getIns <em>Ins</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getDel <em>Del</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getAccesskey <em>Accesskey</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getCharset <em>Charset</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getHref <em>Href</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getHreflang <em>Hreflang</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getLang <em>Lang</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getRel <em>Rel</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getRev <em>Rev</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getSpace <em>Space</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getStyle <em>Style</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getTabindex <em>Tabindex</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getMixed <em>Mixed</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getXhtmlInlNoAnchorMix <em>Xhtml Inl No Anchor Mix</em>}
+ * </li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getBr <em>Br</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getSpan <em>Span</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getEm <em>Em</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getStrong <em>Strong</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getDfn <em>Dfn</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getCode <em>Code</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getSamp <em>Samp</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getKbd <em>Kbd</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getVar <em>Var</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getCite <em>Cite</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getAbbr <em>Abbr</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getAcronym <em>Acronym</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getQ <em>Q</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getTt <em>Tt</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getI <em>I</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getB <em>B</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getBig <em>Big</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getSmall <em>Small</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getSub <em>Sub</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getSup <em>Sup</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getObject <em>Object</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getIns <em>Ins</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getDel <em>Del</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getAccesskey <em>Accesskey</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getCharset <em>Charset</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getClass_ <em>Class</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getHref <em>Href</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getHreflang <em>Hreflang</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getId <em>Id</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getLang <em>Lang</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getRel <em>Rel</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getRev <em>Rev</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getSpace <em>Space</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getStyle <em>Style</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getTabindex <em>Tabindex</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getTitle <em>Title</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlATypeImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	/**
-	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getMixed()
 	 * @generated
 	 * @ordered
@@ -108,9 +107,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected FeatureMap mixed;
 
 	/**
-	 * The default value of the '{@link #getAccesskey() <em>Accesskey</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getAccesskey() <em>Accesskey</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getAccesskey()
 	 * @generated
 	 * @ordered
@@ -118,9 +117,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final String ACCESSKEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getAccesskey() <em>Accesskey</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getAccesskey() <em>Accesskey</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getAccesskey()
 	 * @generated
 	 * @ordered
@@ -128,9 +127,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected String accesskey = ACCESSKEY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCharset() <em>Charset</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getCharset() <em>Charset</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getCharset()
 	 * @generated
 	 * @ordered
@@ -138,9 +137,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final String CHARSET_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCharset() <em>Charset</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCharset() <em>Charset</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getCharset()
 	 * @generated
 	 * @ordered
@@ -148,9 +147,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected String charset = CHARSET_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getClass_()
 	 * @generated
 	 * @ordered
@@ -158,9 +157,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final String CLASS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getClass_()
 	 * @generated
 	 * @ordered
@@ -168,9 +167,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected String class_ = CLASS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getHref() <em>Href</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getHref() <em>Href</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getHref()
 	 * @generated
 	 * @ordered
@@ -178,9 +177,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final String HREF_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getHref() <em>Href</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getHref() <em>Href</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getHref()
 	 * @generated
 	 * @ordered
@@ -188,9 +187,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected String href = HREF_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getHreflang() <em>Hreflang</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getHreflang() <em>Hreflang</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getHreflang()
 	 * @generated
 	 * @ordered
@@ -198,9 +197,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final String HREFLANG_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getHreflang() <em>Hreflang</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getHreflang() <em>Hreflang</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getHreflang()
 	 * @generated
 	 * @ordered
@@ -208,9 +207,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected String hreflang = HREFLANG_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -218,9 +216,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -228,9 +225,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLang() <em>Lang</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getLang() <em>Lang</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getLang()
 	 * @generated
 	 * @ordered
@@ -238,9 +235,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final String LANG_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLang() <em>Lang</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getLang() <em>Lang</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getLang()
 	 * @generated
 	 * @ordered
@@ -248,9 +245,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected String lang = LANG_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRel() <em>Rel</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getRel() <em>Rel</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getRel()
 	 * @generated
 	 * @ordered
@@ -258,9 +255,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final List<String> REL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getRel() <em>Rel</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getRel() <em>Rel</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getRel()
 	 * @generated
 	 * @ordered
@@ -268,9 +264,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected List<String> rel = REL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRev() <em>Rev</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getRev() <em>Rev</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getRev()
 	 * @generated
 	 * @ordered
@@ -278,9 +274,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final List<String> REV_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getRev() <em>Rev</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getRev() <em>Rev</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getRev()
 	 * @generated
 	 * @ordered
@@ -288,9 +283,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected List<String> rev = REV_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSpace() <em>Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getSpace() <em>Space</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getSpace()
 	 * @generated
 	 * @ordered
@@ -298,9 +293,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final SpaceType SPACE_EDEFAULT = SpaceType.PRESERVE_LITERAL;
 
 	/**
-	 * The cached value of the '{@link #getSpace() <em>Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getSpace() <em>Space</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getSpace()
 	 * @generated
 	 * @ordered
@@ -308,18 +303,17 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected SpaceType space = SPACE_EDEFAULT;
 
 	/**
-	 * This is true if the Space attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Space attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean spaceESet;
 
 	/**
-	 * The default value of the '{@link #getStyle() <em>Style</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getStyle() <em>Style</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getStyle()
 	 * @generated
 	 * @ordered
@@ -327,9 +321,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final String STYLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getStyle() <em>Style</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getStyle() <em>Style</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getStyle()
 	 * @generated
 	 * @ordered
@@ -337,9 +331,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected String style = STYLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTabindex() <em>Tabindex</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getTabindex() <em>Tabindex</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getTabindex()
 	 * @generated
 	 * @ordered
@@ -347,9 +341,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final BigInteger TABINDEX_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTabindex() <em>Tabindex</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTabindex() <em>Tabindex</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getTabindex()
 	 * @generated
 	 * @ordered
@@ -357,9 +351,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected BigInteger tabindex = TABINDEX_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -367,9 +361,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final String TITLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -377,9 +371,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected String title = TITLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -387,9 +381,9 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected static final String TYPE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -397,8 +391,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	protected String type = TYPE_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected XhtmlATypeImpl() {
@@ -406,8 +400,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -416,8 +410,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public FeatureMap getMixed() {
@@ -428,17 +422,17 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public FeatureMap getXhtmlInlNoAnchorMix() {
-		return (FeatureMap)getMixed().<FeatureMap.Entry>list(XhtmlPackage.eINSTANCE.getXhtmlAType_XhtmlInlNoAnchorMix());
+		return (FeatureMap) getMixed().<FeatureMap.Entry> list(XhtmlPackage.eINSTANCE.getXhtmlAType_XhtmlInlNoAnchorMix());
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlBrType> getBr() {
@@ -446,8 +440,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlSpanType> getSpan() {
@@ -455,8 +449,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlEmType> getEm() {
@@ -464,8 +458,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlStrongType> getStrong() {
@@ -473,8 +467,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlDfnType> getDfn() {
@@ -482,8 +476,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlCodeType> getCode() {
@@ -491,8 +485,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlSampType> getSamp() {
@@ -500,8 +494,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlKbdType> getKbd() {
@@ -509,8 +503,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlVarType> getVar() {
@@ -518,8 +512,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlCiteType> getCite() {
@@ -527,8 +521,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlAbbrType> getAbbr() {
@@ -536,8 +530,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlAcronymType> getAcronym() {
@@ -545,8 +539,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlQType> getQ() {
@@ -554,8 +548,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlInlPresType> getTt() {
@@ -563,8 +557,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlInlPresType> getI() {
@@ -572,8 +566,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlInlPresType> getB() {
@@ -581,8 +575,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlInlPresType> getBig() {
@@ -590,8 +584,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlInlPresType> getSmall() {
@@ -599,8 +593,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlInlPresType> getSub() {
@@ -608,8 +602,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlInlPresType> getSup() {
@@ -617,8 +611,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlObjectType> getObject() {
@@ -626,8 +620,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlEditType> getIns() {
@@ -635,8 +629,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<XhtmlEditType> getDel() {
@@ -644,8 +638,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getAccesskey() {
@@ -653,8 +647,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setAccesskey(String newAccesskey) {
@@ -665,8 +659,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getCharset() {
@@ -674,8 +668,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCharset(String newCharset) {
@@ -686,8 +680,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getClass_() {
@@ -695,8 +689,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setClass(String newClass) {
@@ -707,8 +701,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getHref() {
@@ -716,8 +710,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setHref(String newHref) {
@@ -728,8 +722,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getHreflang() {
@@ -737,8 +731,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setHreflang(String newHreflang) {
@@ -749,8 +743,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getId() {
@@ -758,8 +752,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setId(String newId) {
@@ -770,8 +764,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getLang() {
@@ -779,8 +773,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setLang(String newLang) {
@@ -791,8 +785,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public List<String> getRel() {
@@ -800,8 +794,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRel(List<String> newRel) {
@@ -812,8 +806,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public List<String> getRev() {
@@ -821,8 +815,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRev(List<String> newRev) {
@@ -833,8 +827,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpaceType getSpace() {
@@ -842,8 +836,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSpace(SpaceType newSpace) {
@@ -856,8 +850,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetSpace() {
@@ -870,8 +864,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetSpace() {
@@ -879,8 +873,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getStyle() {
@@ -888,8 +882,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setStyle(String newStyle) {
@@ -900,8 +894,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BigInteger getTabindex() {
@@ -909,8 +903,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTabindex(BigInteger newTabindex) {
@@ -921,8 +915,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getTitle() {
@@ -930,8 +924,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTitle(String newTitle) {
@@ -942,8 +936,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getType() {
@@ -951,8 +945,8 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setType(String newType) {
@@ -963,539 +957,542 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_ATYPE__MIXED:
-				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__XHTML_INL_NO_ANCHOR_MIX:
-				return ((InternalEList<?>)getXhtmlInlNoAnchorMix()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__BR:
-				return ((InternalEList<?>)getBr()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__SPAN:
-				return ((InternalEList<?>)getSpan()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__EM:
-				return ((InternalEList<?>)getEm()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__STRONG:
-				return ((InternalEList<?>)getStrong()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__DFN:
-				return ((InternalEList<?>)getDfn()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__CODE:
-				return ((InternalEList<?>)getCode()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__SAMP:
-				return ((InternalEList<?>)getSamp()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__KBD:
-				return ((InternalEList<?>)getKbd()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__VAR:
-				return ((InternalEList<?>)getVar()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__CITE:
-				return ((InternalEList<?>)getCite()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__ABBR:
-				return ((InternalEList<?>)getAbbr()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__ACRONYM:
-				return ((InternalEList<?>)getAcronym()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__Q:
-				return ((InternalEList<?>)getQ()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__TT:
-				return ((InternalEList<?>)getTt()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__I:
-				return ((InternalEList<?>)getI()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__B:
-				return ((InternalEList<?>)getB()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__BIG:
-				return ((InternalEList<?>)getBig()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__SMALL:
-				return ((InternalEList<?>)getSmall()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__SUB:
-				return ((InternalEList<?>)getSub()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__SUP:
-				return ((InternalEList<?>)getSup()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__OBJECT:
-				return ((InternalEList<?>)getObject()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__INS:
-				return ((InternalEList<?>)getIns()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.XHTML_ATYPE__DEL:
-				return ((InternalEList<?>)getDel()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__MIXED:
+			return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__XHTML_INL_NO_ANCHOR_MIX:
+			return ((InternalEList<?>) getXhtmlInlNoAnchorMix()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__BR:
+			return ((InternalEList<?>) getBr()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__SPAN:
+			return ((InternalEList<?>) getSpan()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__EM:
+			return ((InternalEList<?>) getEm()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__STRONG:
+			return ((InternalEList<?>) getStrong()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__DFN:
+			return ((InternalEList<?>) getDfn()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__CODE:
+			return ((InternalEList<?>) getCode()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__SAMP:
+			return ((InternalEList<?>) getSamp()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__KBD:
+			return ((InternalEList<?>) getKbd()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__VAR:
+			return ((InternalEList<?>) getVar()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__CITE:
+			return ((InternalEList<?>) getCite()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__ABBR:
+			return ((InternalEList<?>) getAbbr()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__ACRONYM:
+			return ((InternalEList<?>) getAcronym()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__Q:
+			return ((InternalEList<?>) getQ()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__TT:
+			return ((InternalEList<?>) getTt()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__I:
+			return ((InternalEList<?>) getI()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__B:
+			return ((InternalEList<?>) getB()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__BIG:
+			return ((InternalEList<?>) getBig()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__SMALL:
+			return ((InternalEList<?>) getSmall()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__SUB:
+			return ((InternalEList<?>) getSub()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__SUP:
+			return ((InternalEList<?>) getSup()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__OBJECT:
+			return ((InternalEList<?>) getObject()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__INS:
+			return ((InternalEList<?>) getIns()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.XHTML_ATYPE__DEL:
+			return ((InternalEList<?>) getDel()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_ATYPE__MIXED:
-				if (coreType) return getMixed();
-				return ((FeatureMap.Internal)getMixed()).getWrapper();
-			case XhtmlPackage.XHTML_ATYPE__XHTML_INL_NO_ANCHOR_MIX:
-				if (coreType) return getXhtmlInlNoAnchorMix();
-				return ((FeatureMap.Internal)getXhtmlInlNoAnchorMix()).getWrapper();
-			case XhtmlPackage.XHTML_ATYPE__BR:
-				return getBr();
-			case XhtmlPackage.XHTML_ATYPE__SPAN:
-				return getSpan();
-			case XhtmlPackage.XHTML_ATYPE__EM:
-				return getEm();
-			case XhtmlPackage.XHTML_ATYPE__STRONG:
-				return getStrong();
-			case XhtmlPackage.XHTML_ATYPE__DFN:
-				return getDfn();
-			case XhtmlPackage.XHTML_ATYPE__CODE:
-				return getCode();
-			case XhtmlPackage.XHTML_ATYPE__SAMP:
-				return getSamp();
-			case XhtmlPackage.XHTML_ATYPE__KBD:
-				return getKbd();
-			case XhtmlPackage.XHTML_ATYPE__VAR:
-				return getVar();
-			case XhtmlPackage.XHTML_ATYPE__CITE:
-				return getCite();
-			case XhtmlPackage.XHTML_ATYPE__ABBR:
-				return getAbbr();
-			case XhtmlPackage.XHTML_ATYPE__ACRONYM:
-				return getAcronym();
-			case XhtmlPackage.XHTML_ATYPE__Q:
-				return getQ();
-			case XhtmlPackage.XHTML_ATYPE__TT:
-				return getTt();
-			case XhtmlPackage.XHTML_ATYPE__I:
-				return getI();
-			case XhtmlPackage.XHTML_ATYPE__B:
-				return getB();
-			case XhtmlPackage.XHTML_ATYPE__BIG:
-				return getBig();
-			case XhtmlPackage.XHTML_ATYPE__SMALL:
-				return getSmall();
-			case XhtmlPackage.XHTML_ATYPE__SUB:
-				return getSub();
-			case XhtmlPackage.XHTML_ATYPE__SUP:
-				return getSup();
-			case XhtmlPackage.XHTML_ATYPE__OBJECT:
-				return getObject();
-			case XhtmlPackage.XHTML_ATYPE__INS:
-				return getIns();
-			case XhtmlPackage.XHTML_ATYPE__DEL:
-				return getDel();
-			case XhtmlPackage.XHTML_ATYPE__ACCESSKEY:
-				return getAccesskey();
-			case XhtmlPackage.XHTML_ATYPE__CHARSET:
-				return getCharset();
-			case XhtmlPackage.XHTML_ATYPE__CLASS:
-				return getClass_();
-			case XhtmlPackage.XHTML_ATYPE__HREF:
-				return getHref();
-			case XhtmlPackage.XHTML_ATYPE__HREFLANG:
-				return getHreflang();
-			case XhtmlPackage.XHTML_ATYPE__ID:
-				return getId();
-			case XhtmlPackage.XHTML_ATYPE__LANG:
-				return getLang();
-			case XhtmlPackage.XHTML_ATYPE__REL:
-				return getRel();
-			case XhtmlPackage.XHTML_ATYPE__REV:
-				return getRev();
-			case XhtmlPackage.XHTML_ATYPE__SPACE:
-				return getSpace();
-			case XhtmlPackage.XHTML_ATYPE__STYLE:
-				return getStyle();
-			case XhtmlPackage.XHTML_ATYPE__TABINDEX:
-				return getTabindex();
-			case XhtmlPackage.XHTML_ATYPE__TITLE:
-				return getTitle();
-			case XhtmlPackage.XHTML_ATYPE__TYPE:
-				return getType();
+		case XhtmlPackage.XHTML_ATYPE__MIXED:
+			if (coreType)
+				return getMixed();
+			return ((FeatureMap.Internal) getMixed()).getWrapper();
+		case XhtmlPackage.XHTML_ATYPE__XHTML_INL_NO_ANCHOR_MIX:
+			if (coreType)
+				return getXhtmlInlNoAnchorMix();
+			return ((FeatureMap.Internal) getXhtmlInlNoAnchorMix()).getWrapper();
+		case XhtmlPackage.XHTML_ATYPE__BR:
+			return getBr();
+		case XhtmlPackage.XHTML_ATYPE__SPAN:
+			return getSpan();
+		case XhtmlPackage.XHTML_ATYPE__EM:
+			return getEm();
+		case XhtmlPackage.XHTML_ATYPE__STRONG:
+			return getStrong();
+		case XhtmlPackage.XHTML_ATYPE__DFN:
+			return getDfn();
+		case XhtmlPackage.XHTML_ATYPE__CODE:
+			return getCode();
+		case XhtmlPackage.XHTML_ATYPE__SAMP:
+			return getSamp();
+		case XhtmlPackage.XHTML_ATYPE__KBD:
+			return getKbd();
+		case XhtmlPackage.XHTML_ATYPE__VAR:
+			return getVar();
+		case XhtmlPackage.XHTML_ATYPE__CITE:
+			return getCite();
+		case XhtmlPackage.XHTML_ATYPE__ABBR:
+			return getAbbr();
+		case XhtmlPackage.XHTML_ATYPE__ACRONYM:
+			return getAcronym();
+		case XhtmlPackage.XHTML_ATYPE__Q:
+			return getQ();
+		case XhtmlPackage.XHTML_ATYPE__TT:
+			return getTt();
+		case XhtmlPackage.XHTML_ATYPE__I:
+			return getI();
+		case XhtmlPackage.XHTML_ATYPE__B:
+			return getB();
+		case XhtmlPackage.XHTML_ATYPE__BIG:
+			return getBig();
+		case XhtmlPackage.XHTML_ATYPE__SMALL:
+			return getSmall();
+		case XhtmlPackage.XHTML_ATYPE__SUB:
+			return getSub();
+		case XhtmlPackage.XHTML_ATYPE__SUP:
+			return getSup();
+		case XhtmlPackage.XHTML_ATYPE__OBJECT:
+			return getObject();
+		case XhtmlPackage.XHTML_ATYPE__INS:
+			return getIns();
+		case XhtmlPackage.XHTML_ATYPE__DEL:
+			return getDel();
+		case XhtmlPackage.XHTML_ATYPE__ACCESSKEY:
+			return getAccesskey();
+		case XhtmlPackage.XHTML_ATYPE__CHARSET:
+			return getCharset();
+		case XhtmlPackage.XHTML_ATYPE__CLASS:
+			return getClass_();
+		case XhtmlPackage.XHTML_ATYPE__HREF:
+			return getHref();
+		case XhtmlPackage.XHTML_ATYPE__HREFLANG:
+			return getHreflang();
+		case XhtmlPackage.XHTML_ATYPE__ID:
+			return getId();
+		case XhtmlPackage.XHTML_ATYPE__LANG:
+			return getLang();
+		case XhtmlPackage.XHTML_ATYPE__REL:
+			return getRel();
+		case XhtmlPackage.XHTML_ATYPE__REV:
+			return getRev();
+		case XhtmlPackage.XHTML_ATYPE__SPACE:
+			return getSpace();
+		case XhtmlPackage.XHTML_ATYPE__STYLE:
+			return getStyle();
+		case XhtmlPackage.XHTML_ATYPE__TABINDEX:
+			return getTabindex();
+		case XhtmlPackage.XHTML_ATYPE__TITLE:
+			return getTitle();
+		case XhtmlPackage.XHTML_ATYPE__TYPE:
+			return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_ATYPE__MIXED:
-				((FeatureMap.Internal)getMixed()).set(newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__XHTML_INL_NO_ANCHOR_MIX:
-				((FeatureMap.Internal)getXhtmlInlNoAnchorMix()).set(newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__BR:
-				getBr().clear();
-				getBr().addAll((Collection<? extends XhtmlBrType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__SPAN:
-				getSpan().clear();
-				getSpan().addAll((Collection<? extends XhtmlSpanType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__EM:
-				getEm().clear();
-				getEm().addAll((Collection<? extends XhtmlEmType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__STRONG:
-				getStrong().clear();
-				getStrong().addAll((Collection<? extends XhtmlStrongType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__DFN:
-				getDfn().clear();
-				getDfn().addAll((Collection<? extends XhtmlDfnType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__CODE:
-				getCode().clear();
-				getCode().addAll((Collection<? extends XhtmlCodeType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__SAMP:
-				getSamp().clear();
-				getSamp().addAll((Collection<? extends XhtmlSampType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__KBD:
-				getKbd().clear();
-				getKbd().addAll((Collection<? extends XhtmlKbdType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__VAR:
-				getVar().clear();
-				getVar().addAll((Collection<? extends XhtmlVarType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__CITE:
-				getCite().clear();
-				getCite().addAll((Collection<? extends XhtmlCiteType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__ABBR:
-				getAbbr().clear();
-				getAbbr().addAll((Collection<? extends XhtmlAbbrType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__ACRONYM:
-				getAcronym().clear();
-				getAcronym().addAll((Collection<? extends XhtmlAcronymType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__Q:
-				getQ().clear();
-				getQ().addAll((Collection<? extends XhtmlQType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__TT:
-				getTt().clear();
-				getTt().addAll((Collection<? extends XhtmlInlPresType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__I:
-				getI().clear();
-				getI().addAll((Collection<? extends XhtmlInlPresType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__B:
-				getB().clear();
-				getB().addAll((Collection<? extends XhtmlInlPresType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__BIG:
-				getBig().clear();
-				getBig().addAll((Collection<? extends XhtmlInlPresType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__SMALL:
-				getSmall().clear();
-				getSmall().addAll((Collection<? extends XhtmlInlPresType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__SUB:
-				getSub().clear();
-				getSub().addAll((Collection<? extends XhtmlInlPresType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__SUP:
-				getSup().clear();
-				getSup().addAll((Collection<? extends XhtmlInlPresType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__OBJECT:
-				getObject().clear();
-				getObject().addAll((Collection<? extends XhtmlObjectType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__INS:
-				getIns().clear();
-				getIns().addAll((Collection<? extends XhtmlEditType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__DEL:
-				getDel().clear();
-				getDel().addAll((Collection<? extends XhtmlEditType>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__ACCESSKEY:
-				setAccesskey((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__CHARSET:
-				setCharset((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__CLASS:
-				setClass((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__HREF:
-				setHref((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__HREFLANG:
-				setHreflang((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__ID:
-				setId((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__LANG:
-				setLang((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__REL:
-				setRel((List<String>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__REV:
-				setRev((List<String>)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__SPACE:
-				setSpace((SpaceType)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__STYLE:
-				setStyle((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__TABINDEX:
-				setTabindex((BigInteger)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__TITLE:
-				setTitle((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__TYPE:
-				setType((String)newValue);
-				return;
+		case XhtmlPackage.XHTML_ATYPE__MIXED:
+			((FeatureMap.Internal) getMixed()).set(newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__XHTML_INL_NO_ANCHOR_MIX:
+			((FeatureMap.Internal) getXhtmlInlNoAnchorMix()).set(newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__BR:
+			getBr().clear();
+			getBr().addAll((Collection<? extends XhtmlBrType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__SPAN:
+			getSpan().clear();
+			getSpan().addAll((Collection<? extends XhtmlSpanType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__EM:
+			getEm().clear();
+			getEm().addAll((Collection<? extends XhtmlEmType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__STRONG:
+			getStrong().clear();
+			getStrong().addAll((Collection<? extends XhtmlStrongType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__DFN:
+			getDfn().clear();
+			getDfn().addAll((Collection<? extends XhtmlDfnType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__CODE:
+			getCode().clear();
+			getCode().addAll((Collection<? extends XhtmlCodeType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__SAMP:
+			getSamp().clear();
+			getSamp().addAll((Collection<? extends XhtmlSampType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__KBD:
+			getKbd().clear();
+			getKbd().addAll((Collection<? extends XhtmlKbdType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__VAR:
+			getVar().clear();
+			getVar().addAll((Collection<? extends XhtmlVarType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__CITE:
+			getCite().clear();
+			getCite().addAll((Collection<? extends XhtmlCiteType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__ABBR:
+			getAbbr().clear();
+			getAbbr().addAll((Collection<? extends XhtmlAbbrType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__ACRONYM:
+			getAcronym().clear();
+			getAcronym().addAll((Collection<? extends XhtmlAcronymType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__Q:
+			getQ().clear();
+			getQ().addAll((Collection<? extends XhtmlQType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__TT:
+			getTt().clear();
+			getTt().addAll((Collection<? extends XhtmlInlPresType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__I:
+			getI().clear();
+			getI().addAll((Collection<? extends XhtmlInlPresType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__B:
+			getB().clear();
+			getB().addAll((Collection<? extends XhtmlInlPresType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__BIG:
+			getBig().clear();
+			getBig().addAll((Collection<? extends XhtmlInlPresType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__SMALL:
+			getSmall().clear();
+			getSmall().addAll((Collection<? extends XhtmlInlPresType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__SUB:
+			getSub().clear();
+			getSub().addAll((Collection<? extends XhtmlInlPresType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__SUP:
+			getSup().clear();
+			getSup().addAll((Collection<? extends XhtmlInlPresType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__OBJECT:
+			getObject().clear();
+			getObject().addAll((Collection<? extends XhtmlObjectType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__INS:
+			getIns().clear();
+			getIns().addAll((Collection<? extends XhtmlEditType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__DEL:
+			getDel().clear();
+			getDel().addAll((Collection<? extends XhtmlEditType>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__ACCESSKEY:
+			setAccesskey((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__CHARSET:
+			setCharset((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__CLASS:
+			setClass((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__HREF:
+			setHref((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__HREFLANG:
+			setHreflang((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__ID:
+			setId((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__LANG:
+			setLang((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__REL:
+			setRel((List<String>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__REV:
+			setRev((List<String>) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__SPACE:
+			setSpace((SpaceType) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__STYLE:
+			setStyle((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__TABINDEX:
+			setTabindex((BigInteger) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__TITLE:
+			setTitle((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__TYPE:
+			setType((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_ATYPE__MIXED:
-				getMixed().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__XHTML_INL_NO_ANCHOR_MIX:
-				getXhtmlInlNoAnchorMix().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__BR:
-				getBr().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__SPAN:
-				getSpan().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__EM:
-				getEm().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__STRONG:
-				getStrong().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__DFN:
-				getDfn().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__CODE:
-				getCode().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__SAMP:
-				getSamp().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__KBD:
-				getKbd().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__VAR:
-				getVar().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__CITE:
-				getCite().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__ABBR:
-				getAbbr().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__ACRONYM:
-				getAcronym().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__Q:
-				getQ().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__TT:
-				getTt().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__I:
-				getI().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__B:
-				getB().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__BIG:
-				getBig().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__SMALL:
-				getSmall().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__SUB:
-				getSub().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__SUP:
-				getSup().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__OBJECT:
-				getObject().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__INS:
-				getIns().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__DEL:
-				getDel().clear();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__ACCESSKEY:
-				setAccesskey(ACCESSKEY_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__CHARSET:
-				setCharset(CHARSET_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__CLASS:
-				setClass(CLASS_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__HREF:
-				setHref(HREF_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__HREFLANG:
-				setHreflang(HREFLANG_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__LANG:
-				setLang(LANG_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__REL:
-				setRel(REL_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__REV:
-				setRev(REV_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__SPACE:
-				unsetSpace();
-				return;
-			case XhtmlPackage.XHTML_ATYPE__STYLE:
-				setStyle(STYLE_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__TABINDEX:
-				setTabindex(TABINDEX_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__TITLE:
-				setTitle(TITLE_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_ATYPE__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
+		case XhtmlPackage.XHTML_ATYPE__MIXED:
+			getMixed().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__XHTML_INL_NO_ANCHOR_MIX:
+			getXhtmlInlNoAnchorMix().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__BR:
+			getBr().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__SPAN:
+			getSpan().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__EM:
+			getEm().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__STRONG:
+			getStrong().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__DFN:
+			getDfn().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__CODE:
+			getCode().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__SAMP:
+			getSamp().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__KBD:
+			getKbd().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__VAR:
+			getVar().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__CITE:
+			getCite().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__ABBR:
+			getAbbr().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__ACRONYM:
+			getAcronym().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__Q:
+			getQ().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__TT:
+			getTt().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__I:
+			getI().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__B:
+			getB().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__BIG:
+			getBig().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__SMALL:
+			getSmall().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__SUB:
+			getSub().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__SUP:
+			getSup().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__OBJECT:
+			getObject().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__INS:
+			getIns().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__DEL:
+			getDel().clear();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__ACCESSKEY:
+			setAccesskey(ACCESSKEY_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__CHARSET:
+			setCharset(CHARSET_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__CLASS:
+			setClass(CLASS_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__HREF:
+			setHref(HREF_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__HREFLANG:
+			setHreflang(HREFLANG_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__ID:
+			setId(ID_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__LANG:
+			setLang(LANG_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__REL:
+			setRel(REL_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__REV:
+			setRev(REV_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__SPACE:
+			unsetSpace();
+			return;
+		case XhtmlPackage.XHTML_ATYPE__STYLE:
+			setStyle(STYLE_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__TABINDEX:
+			setTabindex(TABINDEX_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__TITLE:
+			setTitle(TITLE_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_ATYPE__TYPE:
+			setType(TYPE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_ATYPE__MIXED:
-				return mixed != null && !mixed.isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__XHTML_INL_NO_ANCHOR_MIX:
-				return !getXhtmlInlNoAnchorMix().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__BR:
-				return !getBr().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__SPAN:
-				return !getSpan().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__EM:
-				return !getEm().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__STRONG:
-				return !getStrong().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__DFN:
-				return !getDfn().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__CODE:
-				return !getCode().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__SAMP:
-				return !getSamp().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__KBD:
-				return !getKbd().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__VAR:
-				return !getVar().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__CITE:
-				return !getCite().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__ABBR:
-				return !getAbbr().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__ACRONYM:
-				return !getAcronym().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__Q:
-				return !getQ().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__TT:
-				return !getTt().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__I:
-				return !getI().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__B:
-				return !getB().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__BIG:
-				return !getBig().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__SMALL:
-				return !getSmall().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__SUB:
-				return !getSub().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__SUP:
-				return !getSup().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__OBJECT:
-				return !getObject().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__INS:
-				return !getIns().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__DEL:
-				return !getDel().isEmpty();
-			case XhtmlPackage.XHTML_ATYPE__ACCESSKEY:
-				return ACCESSKEY_EDEFAULT == null ? accesskey != null : !ACCESSKEY_EDEFAULT.equals(accesskey);
-			case XhtmlPackage.XHTML_ATYPE__CHARSET:
-				return CHARSET_EDEFAULT == null ? charset != null : !CHARSET_EDEFAULT.equals(charset);
-			case XhtmlPackage.XHTML_ATYPE__CLASS:
-				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
-			case XhtmlPackage.XHTML_ATYPE__HREF:
-				return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT.equals(href);
-			case XhtmlPackage.XHTML_ATYPE__HREFLANG:
-				return HREFLANG_EDEFAULT == null ? hreflang != null : !HREFLANG_EDEFAULT.equals(hreflang);
-			case XhtmlPackage.XHTML_ATYPE__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case XhtmlPackage.XHTML_ATYPE__LANG:
-				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
-			case XhtmlPackage.XHTML_ATYPE__REL:
-				return REL_EDEFAULT == null ? rel != null : !REL_EDEFAULT.equals(rel);
-			case XhtmlPackage.XHTML_ATYPE__REV:
-				return REV_EDEFAULT == null ? rev != null : !REV_EDEFAULT.equals(rev);
-			case XhtmlPackage.XHTML_ATYPE__SPACE:
-				return isSetSpace();
-			case XhtmlPackage.XHTML_ATYPE__STYLE:
-				return STYLE_EDEFAULT == null ? style != null : !STYLE_EDEFAULT.equals(style);
-			case XhtmlPackage.XHTML_ATYPE__TABINDEX:
-				return TABINDEX_EDEFAULT == null ? tabindex != null : !TABINDEX_EDEFAULT.equals(tabindex);
-			case XhtmlPackage.XHTML_ATYPE__TITLE:
-				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-			case XhtmlPackage.XHTML_ATYPE__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+		case XhtmlPackage.XHTML_ATYPE__MIXED:
+			return mixed != null && !mixed.isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__XHTML_INL_NO_ANCHOR_MIX:
+			return !getXhtmlInlNoAnchorMix().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__BR:
+			return !getBr().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__SPAN:
+			return !getSpan().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__EM:
+			return !getEm().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__STRONG:
+			return !getStrong().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__DFN:
+			return !getDfn().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__CODE:
+			return !getCode().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__SAMP:
+			return !getSamp().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__KBD:
+			return !getKbd().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__VAR:
+			return !getVar().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__CITE:
+			return !getCite().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__ABBR:
+			return !getAbbr().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__ACRONYM:
+			return !getAcronym().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__Q:
+			return !getQ().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__TT:
+			return !getTt().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__I:
+			return !getI().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__B:
+			return !getB().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__BIG:
+			return !getBig().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__SMALL:
+			return !getSmall().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__SUB:
+			return !getSub().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__SUP:
+			return !getSup().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__OBJECT:
+			return !getObject().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__INS:
+			return !getIns().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__DEL:
+			return !getDel().isEmpty();
+		case XhtmlPackage.XHTML_ATYPE__ACCESSKEY:
+			return ACCESSKEY_EDEFAULT == null ? accesskey != null : !ACCESSKEY_EDEFAULT.equals(accesskey);
+		case XhtmlPackage.XHTML_ATYPE__CHARSET:
+			return CHARSET_EDEFAULT == null ? charset != null : !CHARSET_EDEFAULT.equals(charset);
+		case XhtmlPackage.XHTML_ATYPE__CLASS:
+			return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
+		case XhtmlPackage.XHTML_ATYPE__HREF:
+			return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT.equals(href);
+		case XhtmlPackage.XHTML_ATYPE__HREFLANG:
+			return HREFLANG_EDEFAULT == null ? hreflang != null : !HREFLANG_EDEFAULT.equals(hreflang);
+		case XhtmlPackage.XHTML_ATYPE__ID:
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+		case XhtmlPackage.XHTML_ATYPE__LANG:
+			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
+		case XhtmlPackage.XHTML_ATYPE__REL:
+			return REL_EDEFAULT == null ? rel != null : !REL_EDEFAULT.equals(rel);
+		case XhtmlPackage.XHTML_ATYPE__REV:
+			return REV_EDEFAULT == null ? rev != null : !REV_EDEFAULT.equals(rev);
+		case XhtmlPackage.XHTML_ATYPE__SPACE:
+			return isSetSpace();
+		case XhtmlPackage.XHTML_ATYPE__STYLE:
+			return STYLE_EDEFAULT == null ? style != null : !STYLE_EDEFAULT.equals(style);
+		case XhtmlPackage.XHTML_ATYPE__TABINDEX:
+			return TABINDEX_EDEFAULT == null ? tabindex != null : !TABINDEX_EDEFAULT.equals(tabindex);
+		case XhtmlPackage.XHTML_ATYPE__TITLE:
+			return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+		case XhtmlPackage.XHTML_ATYPE__TYPE:
+			return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (mixed: "); //$NON-NLS-1$
@@ -1519,7 +1516,10 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 		result.append(", rev: "); //$NON-NLS-1$
 		result.append(rev);
 		result.append(", space: "); //$NON-NLS-1$
-		if (spaceESet) result.append(space); else result.append("<unset>"); //$NON-NLS-1$
+		if (spaceESet)
+			result.append(space);
+		else
+			result.append("<unset>"); //$NON-NLS-1$
 		result.append(", style: "); //$NON-NLS-1$
 		result.append(style);
 		result.append(", tabindex: "); //$NON-NLS-1$
@@ -1532,4 +1532,4 @@ public class XhtmlATypeImpl extends MinimalEObjectImpl implements XhtmlAType {
 		return result.toString();
 	}
 
-} //XhtmlATypeImpl
+} // XhtmlATypeImpl

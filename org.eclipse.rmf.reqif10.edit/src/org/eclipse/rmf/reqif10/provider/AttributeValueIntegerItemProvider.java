@@ -11,7 +11,6 @@
  */
 package org.eclipse.rmf.reqif10.provider;
 
-
 import java.math.BigInteger;
 
 import java.util.Collection;
@@ -34,23 +33,16 @@ import org.eclipse.rmf.reqif10.AttributeValueInteger;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueInteger} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.AttributeValueInteger} object. <!--
+ * begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
-public class AttributeValueIntegerItemProvider
-	extends AttributeValueSimpleItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class AttributeValueIntegerItemProvider extends AttributeValueSimpleItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeValueIntegerItemProvider(AdapterFactory adapterFactory) {
@@ -58,9 +50,8 @@ public class AttributeValueIntegerItemProvider
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -75,53 +66,34 @@ public class AttributeValueIntegerItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the The Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the The Value feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addTheValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AttributeValueInteger_theValue_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueInteger_theValue_feature", "_UI_AttributeValueInteger_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_INTEGER__THE_VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_AttributeValueInteger_theValue_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueInteger_theValue_feature", "_UI_AttributeValueInteger_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				ReqIF10Package.Literals.ATTRIBUTE_VALUE_INTEGER__THE_VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Definition feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Definition feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addDefinitionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AttributeValueInteger_definition_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueInteger_definition_feature", "_UI_AttributeValueInteger_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_INTEGER__DEFINITION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_AttributeValueInteger_definition_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueInteger_definition_feature", "_UI_AttributeValueInteger_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				ReqIF10Package.Literals.ATTRIBUTE_VALUE_INTEGER__DEFINITION, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This returns AttributeValueInteger.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns AttributeValueInteger.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -130,25 +102,23 @@ public class AttributeValueIntegerItemProvider
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		BigInteger labelValue = ((AttributeValueInteger)object).getTheValue();
+		BigInteger labelValue = ((AttributeValueInteger) object).getTheValue();
 		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AttributeValueInteger_type") : //$NON-NLS-1$
-			getString("_UI_AttributeValueInteger_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+		return label == null || label.length() == 0 ? getString("_UI_AttributeValueInteger_type") : //$NON-NLS-1$
+				getString("_UI_AttributeValueInteger_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -156,18 +126,17 @@ public class AttributeValueIntegerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AttributeValueInteger.class)) {
-			case ReqIF10Package.ATTRIBUTE_VALUE_INTEGER__THE_VALUE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case ReqIF10Package.ATTRIBUTE_VALUE_INTEGER__THE_VALUE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
