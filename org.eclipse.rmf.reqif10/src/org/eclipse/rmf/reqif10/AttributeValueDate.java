@@ -12,52 +12,50 @@
 package org.eclipse.rmf.reqif10;
 
 import java.util.GregorianCalendar;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Attribute Value Date</b></em>'.
- * <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Attribute Value Date</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.AttributeValueDate#getTheValue <em>The Value</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.AttributeValueDate#getDefinition <em>Definition</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.AttributeValueDate#getTheValue <em>The Value</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.AttributeValueDate#getDefinition <em>Definition</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueDate()
- * @model extendedMetaData="name='ATTRIBUTE-VALUE-DATE' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-VALUE-DATE'"
+ * @model extendedMetaData="name='ATTRIBUTE-VALUE-DATE' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-VALUE-DATE'"
  * @generated
  */
 public interface AttributeValueDate extends AttributeValueSimple {
 	/**
-	 * Returns the value of the '<em><b>The Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>The Value</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>The Value</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>The Value</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>The Value</em>' attribute.
 	 * @see #isSetTheValue()
 	 * @see #unsetTheValue()
 	 * @see #setTheValue(GregorianCalendar)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueDate_TheValue()
 	 * @model unsettable="true" dataType="org.eclipse.rmf.reqif10.DateTime" required="true" ordered="false"
-	 *        extendedMetaData="name='THE-VALUE' kind='attribute'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-VALUE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="name='THE-VALUE' kind='attribute'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-VALUE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	GregorianCalendar getTheValue();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getTheValue <em>The Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>The Value</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getTheValue <em>The Value</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>The Value</em>' attribute.
 	 * @see #isSetTheValue()
 	 * @see #unsetTheValue()
 	 * @see #getTheValue()
@@ -66,9 +64,9 @@ public interface AttributeValueDate extends AttributeValueSimple {
 	void setTheValue(GregorianCalendar value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getTheValue <em>The Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getTheValue <em>The Value</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetTheValue()
 	 * @see #getTheValue()
 	 * @see #setTheValue(GregorianCalendar)
@@ -77,9 +75,9 @@ public interface AttributeValueDate extends AttributeValueSimple {
 	void unsetTheValue();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getTheValue <em>The Value</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getTheValue
+	 * <em>The Value</em>}' attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>The Value</em>' attribute is set.
 	 * @see #unsetTheValue()
 	 * @see #getTheValue()
@@ -89,30 +87,31 @@ public interface AttributeValueDate extends AttributeValueSimple {
 	boolean isSetTheValue();
 
 	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' reference.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Definition</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Definition</em>' reference isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Definition</em>' reference isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Definition</em>' reference.
 	 * @see #isSetDefinition()
 	 * @see #unsetDefinition()
 	 * @see #setDefinition(AttributeDefinitionDate)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueDate_Definition()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='DEFINITION' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DEFINITION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
+	 *        extendedMetaData="name='DEFINITION' kind='element' namespace='##targetNamespace'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DEFINITION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	AttributeDefinitionDate getDefinition();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getDefinition <em>Definition</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Definition</em>' reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getDefinition <em>Definition</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Definition</em>' reference.
 	 * @see #isSetDefinition()
 	 * @see #unsetDefinition()
 	 * @see #getDefinition()
@@ -121,9 +120,9 @@ public interface AttributeValueDate extends AttributeValueSimple {
 	void setDefinition(AttributeDefinitionDate value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getDefinition <em>Definition</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getDefinition <em>Definition</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetDefinition()
 	 * @see #getDefinition()
 	 * @see #setDefinition(AttributeDefinitionDate)
@@ -132,9 +131,9 @@ public interface AttributeValueDate extends AttributeValueSimple {
 	void unsetDefinition();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getDefinition <em>Definition</em>}' reference is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueDate#getDefinition
+	 * <em>Definition</em>}' reference is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Definition</em>' reference is set.
 	 * @see #unsetDefinition()
 	 * @see #getDefinition()

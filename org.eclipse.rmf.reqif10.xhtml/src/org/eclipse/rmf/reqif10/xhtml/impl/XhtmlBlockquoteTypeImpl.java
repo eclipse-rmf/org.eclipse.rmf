@@ -15,21 +15,15 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.emf.ecore.xml.namespace.SpaceType;
-
 import org.eclipse.rmf.reqif10.xhtml.XhtmlAddressType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlBlockquoteType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
@@ -87,7 +81,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
  *
  * @generated
  */
-public class XhtmlBlockquoteTypeImpl extends EObjectImpl implements XhtmlBlockquoteType {
+public class XhtmlBlockquoteTypeImpl extends MinimalEObjectImpl implements XhtmlBlockquoteType {
 	/**
 	 * The cached value of the '{@link #getXhtmlBlockMix() <em>Xhtml Block Mix</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -1000,21 +994,21 @@ public class XhtmlBlockquoteTypeImpl extends EObjectImpl implements XhtmlBlockqu
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (xhtmlBlockMix: ");
+		result.append(" (xhtmlBlockMix: "); //$NON-NLS-1$
 		result.append(xhtmlBlockMix);
-		result.append(", cite: ");
+		result.append(", cite: "); //$NON-NLS-1$
 		result.append(cite);
-		result.append(", class: ");
+		result.append(", class: "); //$NON-NLS-1$
 		result.append(class_);
-		result.append(", id: ");
+		result.append(", id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", lang: ");
+		result.append(", lang: "); //$NON-NLS-1$
 		result.append(lang);
-		result.append(", space: ");
-		if (spaceESet) result.append(space); else result.append("<unset>");
-		result.append(", style: ");
+		result.append(", space: "); //$NON-NLS-1$
+		if (spaceESet) result.append(space); else result.append("<unset>"); //$NON-NLS-1$
+		result.append(", style: "); //$NON-NLS-1$
 		result.append(style);
-		result.append(", title: ");
+		result.append(", title: "); //$NON-NLS-1$
 		result.append(title);
 		result.append(')');
 		return result.toString();

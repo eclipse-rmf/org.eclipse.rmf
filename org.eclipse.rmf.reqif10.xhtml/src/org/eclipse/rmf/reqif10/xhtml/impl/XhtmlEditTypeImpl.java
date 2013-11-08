@@ -17,21 +17,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.emf.ecore.xml.namespace.SpaceType;
-
 import org.eclipse.rmf.reqif10.xhtml.XhtmlAType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlAbbrType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlAcronymType;
@@ -129,7 +123,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlVarType;
  *
  * @generated
  */
-public class XhtmlEditTypeImpl extends EObjectImpl implements XhtmlEditType {
+public class XhtmlEditTypeImpl extends MinimalEObjectImpl implements XhtmlEditType {
 	/**
 	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -1599,23 +1593,23 @@ public class XhtmlEditTypeImpl extends EObjectImpl implements XhtmlEditType {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (mixed: ");
+		result.append(" (mixed: "); //$NON-NLS-1$
 		result.append(mixed);
-		result.append(", cite1: ");
+		result.append(", cite1: "); //$NON-NLS-1$
 		result.append(cite1);
-		result.append(", class: ");
+		result.append(", class: "); //$NON-NLS-1$
 		result.append(class_);
-		result.append(", datetime: ");
+		result.append(", datetime: "); //$NON-NLS-1$
 		result.append(datetime);
-		result.append(", id: ");
+		result.append(", id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", lang: ");
+		result.append(", lang: "); //$NON-NLS-1$
 		result.append(lang);
-		result.append(", space: ");
-		if (spaceESet) result.append(space); else result.append("<unset>");
-		result.append(", style: ");
+		result.append(", space: "); //$NON-NLS-1$
+		if (spaceESet) result.append(space); else result.append("<unset>"); //$NON-NLS-1$
+		result.append(", style: "); //$NON-NLS-1$
 		result.append(style);
-		result.append(", title: ");
+		result.append(", title: "); //$NON-NLS-1$
 		result.append(title);
 		result.append(')');
 		return result.toString();

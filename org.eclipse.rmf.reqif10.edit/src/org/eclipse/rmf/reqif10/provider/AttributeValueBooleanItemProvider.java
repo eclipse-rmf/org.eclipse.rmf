@@ -83,8 +83,8 @@ public class AttributeValueBooleanItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AttributeValueBoolean_theValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueBoolean_theValue_feature", "_UI_AttributeValueBoolean_type"),
+				 getString("_UI_AttributeValueBoolean_theValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueBoolean_theValue_feature", "_UI_AttributeValueBoolean_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_BOOLEAN__THE_VALUE,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class AttributeValueBooleanItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AttributeValueBoolean_definition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueBoolean_definition_feature", "_UI_AttributeValueBoolean_type"),
+				 getString("_UI_AttributeValueBoolean_definition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueBoolean_definition_feature", "_UI_AttributeValueBoolean_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_BOOLEAN__DEFINITION,
 				 true,
 				 false,
@@ -124,7 +124,7 @@ public class AttributeValueBooleanItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AttributeValueBoolean"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AttributeValueBoolean")); //$NON-NLS-1$
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class AttributeValueBooleanItemProvider
 	@Override
 	public String getText(Object object) {
 		AttributeValueBoolean attributeValueBoolean = (AttributeValueBoolean)object;
-		return getString("_UI_AttributeValueBoolean_type") + " " + attributeValueBoolean.isTheValue();
+		return getString("_UI_AttributeValueBoolean_type") + " " + attributeValueBoolean.isTheValue(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -15,21 +15,15 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.emf.ecore.xml.namespace.SpaceType;
-
 import org.eclipse.rmf.reqif10.xhtml.AlignType;
 import org.eclipse.rmf.reqif10.xhtml.ValignType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
@@ -62,7 +56,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlTrType;
  *
  * @generated
  */
-public class XhtmlTrTypeImpl extends EObjectImpl implements XhtmlTrType {
+public class XhtmlTrTypeImpl extends MinimalEObjectImpl implements XhtmlTrType {
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -844,28 +838,28 @@ public class XhtmlTrTypeImpl extends EObjectImpl implements XhtmlTrType {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (group: ");
+		result.append(" (group: "); //$NON-NLS-1$
 		result.append(group);
-		result.append(", align: ");
-		if (alignESet) result.append(align); else result.append("<unset>");
-		result.append(", char: ");
+		result.append(", align: "); //$NON-NLS-1$
+		if (alignESet) result.append(align); else result.append("<unset>"); //$NON-NLS-1$
+		result.append(", char: "); //$NON-NLS-1$
 		result.append(char_);
-		result.append(", charoff: ");
+		result.append(", charoff: "); //$NON-NLS-1$
 		result.append(charoff);
-		result.append(", class: ");
+		result.append(", class: "); //$NON-NLS-1$
 		result.append(class_);
-		result.append(", id: ");
+		result.append(", id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", lang: ");
+		result.append(", lang: "); //$NON-NLS-1$
 		result.append(lang);
-		result.append(", space: ");
-		if (spaceESet) result.append(space); else result.append("<unset>");
-		result.append(", style: ");
+		result.append(", space: "); //$NON-NLS-1$
+		if (spaceESet) result.append(space); else result.append("<unset>"); //$NON-NLS-1$
+		result.append(", style: "); //$NON-NLS-1$
 		result.append(style);
-		result.append(", title: ");
+		result.append(", title: "); //$NON-NLS-1$
 		result.append(title);
-		result.append(", valign: ");
-		if (valignESet) result.append(valign); else result.append("<unset>");
+		result.append(", valign: "); //$NON-NLS-1$
+		if (valignESet) result.append(valign); else result.append("<unset>"); //$NON-NLS-1$
 		result.append(')');
 		return result.toString();
 	}

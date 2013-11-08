@@ -11,17 +11,13 @@
  */
 package org.eclipse.rmf.reqif10;
 
-
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Attribute Value Simple</b></em>'.
- * <!-- end-user-doc -->
- *
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Attribute Value Simple</b></em>'. <!--
+ * end-user-doc -->
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueSimple()
- * @model abstract="true"
- *        extendedMetaData="name='ATTRIBUTE-VALUE-SIMPLE' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-VALUE-SIMPLE'"
+ * @model abstract="true" extendedMetaData="name='ATTRIBUTE-VALUE-SIMPLE' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-VALUE-SIMPLE'"
  * @generated
  */
 public interface AttributeValueSimple extends AttributeValue {

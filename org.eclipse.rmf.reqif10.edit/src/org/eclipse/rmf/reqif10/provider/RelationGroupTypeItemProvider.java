@@ -74,7 +74,7 @@ public class RelationGroupTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RelationGroupType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RelationGroupType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -87,8 +87,8 @@ public class RelationGroupTypeItemProvider
 	public String getText(Object object) {
 		String label = ((RelationGroupType)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RelationGroupType_type") :
-			getString("_UI_RelationGroupType_type") + " " + label;
+			getString("_UI_RelationGroupType_type") : //$NON-NLS-1$
+			getString("_UI_RelationGroupType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

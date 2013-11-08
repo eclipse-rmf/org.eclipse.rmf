@@ -18,7 +18,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.rmf.reqif10.AlternativeID;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
@@ -28,17 +28,17 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.IdentifiableImpl#getDesc <em>Desc</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.IdentifiableImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.IdentifiableImpl#getLastChange <em>Last Change</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.IdentifiableImpl#getLongName <em>Long Name</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.IdentifiableImpl#getAlternativeID <em>Alternative ID</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.IdentifiableImpl#getDesc <em>Desc</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.IdentifiableImpl#getIdentifier <em>Identifier</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.IdentifiableImpl#getLastChange <em>Last Change</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.IdentifiableImpl#getLongName <em>Long Name</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.IdentifiableImpl#getAlternativeID <em>Alternative ID</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
-public abstract class IdentifiableImpl extends EObjectImpl implements Identifiable {
+public abstract class IdentifiableImpl extends MinimalEObjectImpl implements Identifiable {
 	/**
 	 * The default value of the '{@link #getDesc() <em>Desc</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -60,17 +60,17 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	protected String desc = DESC_EDEFAULT;
 
 	/**
-	 * This is true if the Desc attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Desc attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean descESet;
 
 	/**
-	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -78,9 +78,9 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	protected static final String IDENTIFIER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -88,17 +88,17 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	protected String identifier = IDENTIFIER_EDEFAULT;
 
 	/**
-	 * This is true if the Identifier attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Identifier attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean identifierESet;
 
 	/**
-	 * The default value of the '{@link #getLastChange() <em>Last Change</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getLastChange() <em>Last Change</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getLastChange()
 	 * @generated
 	 * @ordered
@@ -106,9 +106,9 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	protected static final GregorianCalendar LAST_CHANGE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLastChange() <em>Last Change</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getLastChange() <em>Last Change</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getLastChange()
 	 * @generated
 	 * @ordered
@@ -116,17 +116,17 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	protected GregorianCalendar lastChange = LAST_CHANGE_EDEFAULT;
 
 	/**
-	 * This is true if the Last Change attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Last Change attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean lastChangeESet;
 
 	/**
-	 * The default value of the '{@link #getLongName() <em>Long Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getLongName() <em>Long Name</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getLongName()
 	 * @generated
 	 * @ordered
@@ -134,9 +134,9 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	protected static final String LONG_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLongName() <em>Long Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getLongName() <em>Long Name</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getLongName()
 	 * @generated
 	 * @ordered
@@ -144,8 +144,8 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	protected String longName = LONG_NAME_EDEFAULT;
 
 	/**
-	 * This is true if the Long Name attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Long Name attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -172,6 +172,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IdentifiableImpl() {
@@ -180,6 +181,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -189,6 +191,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getDesc() {
@@ -197,6 +200,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDesc(String newDesc) {
@@ -204,12 +208,14 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 		desc = newDesc;
 		boolean oldDescESet = descESet;
 		descESet = true;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.IDENTIFIABLE__DESC, oldDesc, desc, !oldDescESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetDesc() {
@@ -217,12 +223,14 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 		boolean oldDescESet = descESet;
 		desc = DESC_EDEFAULT;
 		descESet = false;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.IDENTIFIABLE__DESC, oldDesc, DESC_EDEFAULT, oldDescESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetDesc() {
@@ -231,6 +239,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getIdentifier() {
@@ -239,6 +248,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setIdentifier(String newIdentifier) {
@@ -246,12 +256,15 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 		identifier = newIdentifier;
 		boolean oldIdentifierESet = identifierESet;
 		identifierESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.IDENTIFIABLE__IDENTIFIER, oldIdentifier, identifier, !oldIdentifierESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.IDENTIFIABLE__IDENTIFIER, oldIdentifier, identifier,
+					!oldIdentifierESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetIdentifier() {
@@ -259,12 +272,15 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 		boolean oldIdentifierESet = identifierESet;
 		identifier = IDENTIFIER_EDEFAULT;
 		identifierESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.IDENTIFIABLE__IDENTIFIER, oldIdentifier, IDENTIFIER_EDEFAULT, oldIdentifierESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.IDENTIFIABLE__IDENTIFIER, oldIdentifier, IDENTIFIER_EDEFAULT,
+					oldIdentifierESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetIdentifier() {
@@ -273,6 +289,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public GregorianCalendar getLastChange() {
@@ -281,6 +298,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setLastChange(GregorianCalendar newLastChange) {
@@ -288,12 +306,15 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 		lastChange = newLastChange;
 		boolean oldLastChangeESet = lastChangeESet;
 		lastChangeESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.IDENTIFIABLE__LAST_CHANGE, oldLastChange, lastChange, !oldLastChangeESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.IDENTIFIABLE__LAST_CHANGE, oldLastChange, lastChange,
+					!oldLastChangeESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetLastChange() {
@@ -301,12 +322,15 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 		boolean oldLastChangeESet = lastChangeESet;
 		lastChange = LAST_CHANGE_EDEFAULT;
 		lastChangeESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.IDENTIFIABLE__LAST_CHANGE, oldLastChange, LAST_CHANGE_EDEFAULT, oldLastChangeESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.IDENTIFIABLE__LAST_CHANGE, oldLastChange, LAST_CHANGE_EDEFAULT,
+					oldLastChangeESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetLastChange() {
@@ -315,6 +339,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getLongName() {
@@ -323,6 +348,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setLongName(String newLongName) {
@@ -330,12 +356,14 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 		longName = newLongName;
 		boolean oldLongNameESet = longNameESet;
 		longNameESet = true;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.IDENTIFIABLE__LONG_NAME, oldLongName, longName, !oldLongNameESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetLongName() {
@@ -343,12 +371,15 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 		boolean oldLongNameESet = longNameESet;
 		longName = LONG_NAME_EDEFAULT;
 		longNameESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.IDENTIFIABLE__LONG_NAME, oldLongName, LONG_NAME_EDEFAULT, oldLongNameESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.IDENTIFIABLE__LONG_NAME, oldLongName, LONG_NAME_EDEFAULT,
+					oldLongNameESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetLongName() {
@@ -357,6 +388,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AlternativeID getAlternativeID() {
@@ -365,6 +397,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetAlternativeID(AlternativeID newAlternativeID, NotificationChain msgs) {
@@ -373,36 +406,50 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 		boolean oldAlternativeIDESet = alternativeIDESet;
 		alternativeIDESet = true;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID, oldAlternativeID, newAlternativeID, !oldAlternativeIDESet);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID,
+					oldAlternativeID, newAlternativeID, !oldAlternativeIDESet);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setAlternativeID(AlternativeID newAlternativeID) {
 		if (newAlternativeID != alternativeID) {
 			NotificationChain msgs = null;
-			if (alternativeID != null)
-				msgs = ((InternalEObject)alternativeID).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID, null, msgs);
-			if (newAlternativeID != null)
-				msgs = ((InternalEObject)newAlternativeID).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID, null, msgs);
+			if (alternativeID != null) {
+				msgs = ((InternalEObject) alternativeID).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID,
+						null, msgs);
+			}
+			if (newAlternativeID != null) {
+				msgs = ((InternalEObject) newAlternativeID).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID,
+						null, msgs);
+			}
 			msgs = basicSetAlternativeID(newAlternativeID, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else {
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else {
 			boolean oldAlternativeIDESet = alternativeIDESet;
 			alternativeIDESet = true;
-			if (eNotificationRequired())
-				eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID, newAlternativeID, newAlternativeID, !oldAlternativeIDESet));
+			if (eNotificationRequired()) {
+				eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID, newAlternativeID,
+						newAlternativeID, !oldAlternativeIDESet));
+			}
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicUnsetAlternativeID(NotificationChain msgs) {
@@ -411,33 +458,43 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 		boolean oldAlternativeIDESet = alternativeIDESet;
 		alternativeIDESet = false;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID, oldAlternativeID, null, oldAlternativeIDESet);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID,
+					oldAlternativeID, null, oldAlternativeIDESet);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetAlternativeID() {
 		if (alternativeID != null) {
 			NotificationChain msgs = null;
-			msgs = ((InternalEObject)alternativeID).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID, null, msgs);
+			msgs = ((InternalEObject) alternativeID).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID, null,
+					msgs);
 			msgs = basicUnsetAlternativeID(msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else {
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else {
 			boolean oldAlternativeIDESet = alternativeIDESet;
 			alternativeIDESet = false;
-			if (eNotificationRequired())
+			if (eNotificationRequired()) {
 				eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID, null, null, oldAlternativeIDESet));
+			}
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetAlternativeID() {
@@ -446,128 +503,152 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID:
-				return basicUnsetAlternativeID(msgs);
+		case ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID:
+			return basicUnsetAlternativeID(msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReqIF10Package.IDENTIFIABLE__DESC:
-				return getDesc();
-			case ReqIF10Package.IDENTIFIABLE__IDENTIFIER:
-				return getIdentifier();
-			case ReqIF10Package.IDENTIFIABLE__LAST_CHANGE:
-				return getLastChange();
-			case ReqIF10Package.IDENTIFIABLE__LONG_NAME:
-				return getLongName();
-			case ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID:
-				return getAlternativeID();
+		case ReqIF10Package.IDENTIFIABLE__DESC:
+			return getDesc();
+		case ReqIF10Package.IDENTIFIABLE__IDENTIFIER:
+			return getIdentifier();
+		case ReqIF10Package.IDENTIFIABLE__LAST_CHANGE:
+			return getLastChange();
+		case ReqIF10Package.IDENTIFIABLE__LONG_NAME:
+			return getLongName();
+		case ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID:
+			return getAlternativeID();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReqIF10Package.IDENTIFIABLE__DESC:
-				setDesc((String)newValue);
-				return;
-			case ReqIF10Package.IDENTIFIABLE__IDENTIFIER:
-				setIdentifier((String)newValue);
-				return;
-			case ReqIF10Package.IDENTIFIABLE__LAST_CHANGE:
-				setLastChange((GregorianCalendar)newValue);
-				return;
-			case ReqIF10Package.IDENTIFIABLE__LONG_NAME:
-				setLongName((String)newValue);
-				return;
-			case ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID:
-				setAlternativeID((AlternativeID)newValue);
-				return;
+		case ReqIF10Package.IDENTIFIABLE__DESC:
+			setDesc((String) newValue);
+			return;
+		case ReqIF10Package.IDENTIFIABLE__IDENTIFIER:
+			setIdentifier((String) newValue);
+			return;
+		case ReqIF10Package.IDENTIFIABLE__LAST_CHANGE:
+			setLastChange((GregorianCalendar) newValue);
+			return;
+		case ReqIF10Package.IDENTIFIABLE__LONG_NAME:
+			setLongName((String) newValue);
+			return;
+		case ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID:
+			setAlternativeID((AlternativeID) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.IDENTIFIABLE__DESC:
-				unsetDesc();
-				return;
-			case ReqIF10Package.IDENTIFIABLE__IDENTIFIER:
-				unsetIdentifier();
-				return;
-			case ReqIF10Package.IDENTIFIABLE__LAST_CHANGE:
-				unsetLastChange();
-				return;
-			case ReqIF10Package.IDENTIFIABLE__LONG_NAME:
-				unsetLongName();
-				return;
-			case ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID:
-				unsetAlternativeID();
-				return;
+		case ReqIF10Package.IDENTIFIABLE__DESC:
+			unsetDesc();
+			return;
+		case ReqIF10Package.IDENTIFIABLE__IDENTIFIER:
+			unsetIdentifier();
+			return;
+		case ReqIF10Package.IDENTIFIABLE__LAST_CHANGE:
+			unsetLastChange();
+			return;
+		case ReqIF10Package.IDENTIFIABLE__LONG_NAME:
+			unsetLongName();
+			return;
+		case ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID:
+			unsetAlternativeID();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.IDENTIFIABLE__DESC:
-				return isSetDesc();
-			case ReqIF10Package.IDENTIFIABLE__IDENTIFIER:
-				return isSetIdentifier();
-			case ReqIF10Package.IDENTIFIABLE__LAST_CHANGE:
-				return isSetLastChange();
-			case ReqIF10Package.IDENTIFIABLE__LONG_NAME:
-				return isSetLongName();
-			case ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID:
-				return isSetAlternativeID();
+		case ReqIF10Package.IDENTIFIABLE__DESC:
+			return isSetDesc();
+		case ReqIF10Package.IDENTIFIABLE__IDENTIFIER:
+			return isSetIdentifier();
+		case ReqIF10Package.IDENTIFIABLE__LAST_CHANGE:
+			return isSetLastChange();
+		case ReqIF10Package.IDENTIFIABLE__LONG_NAME:
+			return isSetLongName();
+		case ReqIF10Package.IDENTIFIABLE__ALTERNATIVE_ID:
+			return isSetAlternativeID();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy()) {
+			return super.toString();
+		}
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (desc: ");
-		if (descESet) result.append(desc); else result.append("<unset>");
-		result.append(", identifier: ");
-		if (identifierESet) result.append(identifier); else result.append("<unset>");
-		result.append(", lastChange: ");
-		if (lastChangeESet) result.append(lastChange); else result.append("<unset>");
-		result.append(", longName: ");
-		if (longNameESet) result.append(longName); else result.append("<unset>");
+		result.append(" (desc: "); //$NON-NLS-1$
+		if (descESet) {
+			result.append(desc);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", identifier: "); //$NON-NLS-1$
+		if (identifierESet) {
+			result.append(identifier);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", lastChange: "); //$NON-NLS-1$
+		if (lastChangeESet) {
+			result.append(lastChange);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", longName: "); //$NON-NLS-1$
+		if (longNameESet) {
+			result.append(longName);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
 		result.append(')');
 		return result.toString();
 	}

@@ -12,27 +12,20 @@
 package org.eclipse.rmf.reqif10.xhtml.impl;
 
 import java.math.BigInteger;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.emf.ecore.xml.namespace.SpaceType;
-
 import org.eclipse.rmf.reqif10.xhtml.DeclareType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlAType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlAbbrType;
@@ -143,7 +136,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlVarType;
  *
  * @generated
  */
-public class XhtmlObjectTypeImpl extends EObjectImpl implements XhtmlObjectType {
+public class XhtmlObjectTypeImpl extends MinimalEObjectImpl implements XhtmlObjectType {
 	/**
 	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -2179,43 +2172,43 @@ public class XhtmlObjectTypeImpl extends EObjectImpl implements XhtmlObjectType 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (mixed: ");
+		result.append(" (mixed: "); //$NON-NLS-1$
 		result.append(mixed);
-		result.append(", archive: ");
+		result.append(", archive: "); //$NON-NLS-1$
 		result.append(archive);
-		result.append(", class: ");
+		result.append(", class: "); //$NON-NLS-1$
 		result.append(class_);
-		result.append(", classid: ");
+		result.append(", classid: "); //$NON-NLS-1$
 		result.append(classid);
-		result.append(", codebase: ");
+		result.append(", codebase: "); //$NON-NLS-1$
 		result.append(codebase);
-		result.append(", codetype: ");
+		result.append(", codetype: "); //$NON-NLS-1$
 		result.append(codetype);
-		result.append(", data: ");
+		result.append(", data: "); //$NON-NLS-1$
 		result.append(data);
-		result.append(", declare: ");
-		if (declareESet) result.append(declare); else result.append("<unset>");
-		result.append(", height: ");
+		result.append(", declare: "); //$NON-NLS-1$
+		if (declareESet) result.append(declare); else result.append("<unset>"); //$NON-NLS-1$
+		result.append(", height: "); //$NON-NLS-1$
 		result.append(height);
-		result.append(", id: ");
+		result.append(", id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", lang: ");
+		result.append(", lang: "); //$NON-NLS-1$
 		result.append(lang);
-		result.append(", name: ");
+		result.append(", name: "); //$NON-NLS-1$
 		result.append(name);
-		result.append(", space: ");
-		if (spaceESet) result.append(space); else result.append("<unset>");
-		result.append(", standby: ");
+		result.append(", space: "); //$NON-NLS-1$
+		if (spaceESet) result.append(space); else result.append("<unset>"); //$NON-NLS-1$
+		result.append(", standby: "); //$NON-NLS-1$
 		result.append(standby);
-		result.append(", style: ");
+		result.append(", style: "); //$NON-NLS-1$
 		result.append(style);
-		result.append(", tabindex: ");
+		result.append(", tabindex: "); //$NON-NLS-1$
 		result.append(tabindex);
-		result.append(", title: ");
+		result.append(", title: "); //$NON-NLS-1$
 		result.append(title);
-		result.append(", type: ");
+		result.append(", type: "); //$NON-NLS-1$
 		result.append(type);
-		result.append(", width: ");
+		result.append(", width: "); //$NON-NLS-1$
 		result.append(width);
 		result.append(')');
 		return result.toString();

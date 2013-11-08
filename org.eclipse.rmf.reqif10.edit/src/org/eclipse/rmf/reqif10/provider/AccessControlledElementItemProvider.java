@@ -82,8 +82,8 @@ public class AccessControlledElementItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AccessControlledElement_editable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AccessControlledElement_editable_feature", "_UI_AccessControlledElement_type"),
+				 getString("_UI_AccessControlledElement_editable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AccessControlledElement_editable_feature", "_UI_AccessControlledElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.ACCESS_CONTROLLED_ELEMENT__EDITABLE,
 				 true,
 				 false,
@@ -103,8 +103,8 @@ public class AccessControlledElementItemProvider
 	public String getText(Object object) {
 		String label = ((AccessControlledElement)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AccessControlledElement_type") :
-			getString("_UI_AccessControlledElement_type") + " " + label;
+			getString("_UI_AccessControlledElement_type") : //$NON-NLS-1$
+			getString("_UI_AccessControlledElement_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

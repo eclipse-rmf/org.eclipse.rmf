@@ -111,8 +111,8 @@ public class SpecElementWithAttributesItemProvider
 	public String getText(Object object) {
 		String label = ((SpecElementWithAttributes)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SpecElementWithAttributes_type") :
-			getString("_UI_SpecElementWithAttributes_type") + " " + label;
+			getString("_UI_SpecElementWithAttributes_type") : //$NON-NLS-1$
+			getString("_UI_SpecElementWithAttributes_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

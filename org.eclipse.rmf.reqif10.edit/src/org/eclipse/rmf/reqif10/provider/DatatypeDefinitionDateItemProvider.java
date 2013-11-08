@@ -74,7 +74,7 @@ public class DatatypeDefinitionDateItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DatatypeDefinitionDate"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DatatypeDefinitionDate")); //$NON-NLS-1$
 	}
 
 	/**
@@ -87,8 +87,8 @@ public class DatatypeDefinitionDateItemProvider
 	public String getText(Object object) {
 		String label = ((DatatypeDefinitionDate)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DatatypeDefinitionDate_type") :
-			getString("_UI_DatatypeDefinitionDate_type") + " " + label;
+			getString("_UI_DatatypeDefinitionDate_type") : //$NON-NLS-1$
+			getString("_UI_DatatypeDefinitionDate_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

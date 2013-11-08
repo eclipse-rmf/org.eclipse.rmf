@@ -12,23 +12,21 @@
 package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecRelationType;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Spec Relation Type</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Spec Relation Type</b></em>'. <!-- end-user-doc
+ * -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class SpecRelationTypeImpl extends SpecTypeImpl implements SpecRelationType {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected SpecRelationTypeImpl() {
@@ -36,8 +34,8 @@ public class SpecRelationTypeImpl extends SpecTypeImpl implements SpecRelationTy
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -45,4 +43,4 @@ public class SpecRelationTypeImpl extends SpecTypeImpl implements SpecRelationTy
 		return ReqIF10Package.Literals.SPEC_RELATION_TYPE;
 	}
 
-} //SpecRelationTypeImpl
+} // SpecRelationTypeImpl

@@ -88,8 +88,8 @@ public class XhtmlBrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlBrType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBrType_class_feature", "_UI_XhtmlBrType_type"),
+				 getString("_UI_XhtmlBrType_class_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBrType_class_feature", "_UI_XhtmlBrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlBrType_Class(),
 				 true,
 				 false,
@@ -110,8 +110,8 @@ public class XhtmlBrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlBrType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBrType_id_feature", "_UI_XhtmlBrType_type"),
+				 getString("_UI_XhtmlBrType_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBrType_id_feature", "_UI_XhtmlBrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlBrType_Id(),
 				 true,
 				 false,
@@ -132,8 +132,8 @@ public class XhtmlBrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlBrType_space_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBrType_space_feature", "_UI_XhtmlBrType_type"),
+				 getString("_UI_XhtmlBrType_space_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBrType_space_feature", "_UI_XhtmlBrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlBrType_Space(),
 				 true,
 				 false,
@@ -154,8 +154,8 @@ public class XhtmlBrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlBrType_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBrType_title_feature", "_UI_XhtmlBrType_type"),
+				 getString("_UI_XhtmlBrType_title_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBrType_title_feature", "_UI_XhtmlBrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlBrType_Title(),
 				 true,
 				 false,
@@ -173,7 +173,7 @@ public class XhtmlBrTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlBrType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlBrType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -186,8 +186,8 @@ public class XhtmlBrTypeItemProvider
 	public String getText(Object object) {
 		String label = ((XhtmlBrType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlBrType_type") :
-			getString("_UI_XhtmlBrType_type") + " " + label;
+			getString("_UI_XhtmlBrType_type") : //$NON-NLS-1$
+			getString("_UI_XhtmlBrType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

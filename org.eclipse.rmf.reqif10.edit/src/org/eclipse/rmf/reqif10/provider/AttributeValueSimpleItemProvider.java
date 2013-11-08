@@ -72,7 +72,7 @@ public class AttributeValueSimpleItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AttributeValueSimple_type");
+		return getString("_UI_AttributeValueSimple_type"); //$NON-NLS-1$
 	}
 
 	/**

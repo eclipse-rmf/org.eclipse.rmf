@@ -93,8 +93,8 @@ public class XhtmlOlTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlOlType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlOlType_class_feature", "_UI_XhtmlOlType_type"),
+				 getString("_UI_XhtmlOlType_class_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlOlType_class_feature", "_UI_XhtmlOlType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlOlType_Class(),
 				 true,
 				 false,
@@ -115,8 +115,8 @@ public class XhtmlOlTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlOlType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlOlType_id_feature", "_UI_XhtmlOlType_type"),
+				 getString("_UI_XhtmlOlType_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlOlType_id_feature", "_UI_XhtmlOlType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlOlType_Id(),
 				 true,
 				 false,
@@ -137,8 +137,8 @@ public class XhtmlOlTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlOlType_lang_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlOlType_lang_feature", "_UI_XhtmlOlType_type"),
+				 getString("_UI_XhtmlOlType_lang_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlOlType_lang_feature", "_UI_XhtmlOlType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlOlType_Lang(),
 				 true,
 				 false,
@@ -159,8 +159,8 @@ public class XhtmlOlTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlOlType_space_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlOlType_space_feature", "_UI_XhtmlOlType_type"),
+				 getString("_UI_XhtmlOlType_space_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlOlType_space_feature", "_UI_XhtmlOlType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlOlType_Space(),
 				 true,
 				 false,
@@ -181,8 +181,8 @@ public class XhtmlOlTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlOlType_style_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlOlType_style_feature", "_UI_XhtmlOlType_type"),
+				 getString("_UI_XhtmlOlType_style_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlOlType_style_feature", "_UI_XhtmlOlType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlOlType_Style(),
 				 true,
 				 false,
@@ -203,8 +203,8 @@ public class XhtmlOlTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlOlType_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlOlType_title_feature", "_UI_XhtmlOlType_type"),
+				 getString("_UI_XhtmlOlType_title_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlOlType_title_feature", "_UI_XhtmlOlType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlOlType_Title(),
 				 true,
 				 false,
@@ -252,7 +252,7 @@ public class XhtmlOlTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlOlType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlOlType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -265,8 +265,8 @@ public class XhtmlOlTypeItemProvider
 	public String getText(Object object) {
 		String label = ((XhtmlOlType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlOlType_type") :
-			getString("_UI_XhtmlOlType_type") + " " + label;
+			getString("_UI_XhtmlOlType_type") : //$NON-NLS-1$
+			getString("_UI_XhtmlOlType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

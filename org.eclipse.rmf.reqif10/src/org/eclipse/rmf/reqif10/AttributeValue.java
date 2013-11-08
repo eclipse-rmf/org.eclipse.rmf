@@ -14,15 +14,11 @@ package org.eclipse.rmf.reqif10;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Attribute Value</b></em>'.
- * <!-- end-user-doc -->
- *
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Attribute Value</b></em>'. <!-- end-user-doc -->
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValue()
- * @model abstract="true"
- *        extendedMetaData="name='ATTRIBUTE-VALUE' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-VALUE'"
+ * @model abstract="true" extendedMetaData="name='ATTRIBUTE-VALUE' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-VALUE'"
  * @generated
  */
 public interface AttributeValue extends EObject {

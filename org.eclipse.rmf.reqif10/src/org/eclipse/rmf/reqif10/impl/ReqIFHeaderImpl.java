@@ -16,7 +16,7 @@ import java.util.GregorianCalendar;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
 
@@ -25,24 +25,24 @@ import org.eclipse.rmf.reqif10.ReqIFHeader;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getComment <em>Comment</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getCreationTime <em>Creation Time</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getRepositoryId <em>Repository Id</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getReqIFToolId <em>Req IF Tool Id</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getReqIFVersion <em>Req IF Version</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getSourceToolId <em>Source Tool Id</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getTitle <em>Title</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getComment <em>Comment</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getCreationTime <em>Creation Time</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getIdentifier <em>Identifier</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getRepositoryId <em>Repository Id</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getReqIFToolId <em>Req IF Tool Id</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getReqIFVersion <em>Req IF Version</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getSourceToolId <em>Source Tool Id</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.ReqIFHeaderImpl#getTitle <em>Title</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
-public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
+public class ReqIFHeaderImpl extends MinimalEObjectImpl implements ReqIFHeader {
 	/**
-	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getComment()
 	 * @generated
 	 * @ordered
@@ -50,9 +50,9 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected static final String COMMENT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getComment()
 	 * @generated
 	 * @ordered
@@ -60,17 +60,17 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected String comment = COMMENT_EDEFAULT;
 
 	/**
-	 * This is true if the Comment attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Comment attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean commentESet;
 
 	/**
-	 * The default value of the '{@link #getCreationTime() <em>Creation Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getCreationTime() <em>Creation Time</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCreationTime()
 	 * @generated
 	 * @ordered
@@ -78,9 +78,9 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected static final GregorianCalendar CREATION_TIME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCreationTime() <em>Creation Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getCreationTime() <em>Creation Time</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCreationTime()
 	 * @generated
 	 * @ordered
@@ -88,17 +88,17 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected GregorianCalendar creationTime = CREATION_TIME_EDEFAULT;
 
 	/**
-	 * This is true if the Creation Time attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Creation Time attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean creationTimeESet;
 
 	/**
-	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -106,9 +106,9 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected static final String IDENTIFIER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -116,17 +116,17 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected String identifier = IDENTIFIER_EDEFAULT;
 
 	/**
-	 * This is true if the Identifier attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Identifier attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean identifierESet;
 
 	/**
-	 * The default value of the '{@link #getRepositoryId() <em>Repository Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getRepositoryId() <em>Repository Id</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRepositoryId()
 	 * @generated
 	 * @ordered
@@ -134,9 +134,9 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected static final String REPOSITORY_ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getRepositoryId() <em>Repository Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getRepositoryId() <em>Repository Id</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRepositoryId()
 	 * @generated
 	 * @ordered
@@ -144,17 +144,17 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected String repositoryId = REPOSITORY_ID_EDEFAULT;
 
 	/**
-	 * This is true if the Repository Id attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Repository Id attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean repositoryIdESet;
 
 	/**
-	 * The default value of the '{@link #getReqIFToolId() <em>Req IF Tool Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getReqIFToolId() <em>Req IF Tool Id</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getReqIFToolId()
 	 * @generated
 	 * @ordered
@@ -162,9 +162,9 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected static final String REQ_IF_TOOL_ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getReqIFToolId() <em>Req IF Tool Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getReqIFToolId() <em>Req IF Tool Id</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getReqIFToolId()
 	 * @generated
 	 * @ordered
@@ -172,17 +172,17 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected String reqIFToolId = REQ_IF_TOOL_ID_EDEFAULT;
 
 	/**
-	 * This is true if the Req IF Tool Id attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Req IF Tool Id attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean reqIFToolIdESet;
 
 	/**
-	 * The default value of the '{@link #getReqIFVersion() <em>Req IF Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getReqIFVersion() <em>Req IF Version</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getReqIFVersion()
 	 * @generated
 	 * @ordered
@@ -190,9 +190,9 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected static final String REQ_IF_VERSION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getReqIFVersion() <em>Req IF Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getReqIFVersion() <em>Req IF Version</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getReqIFVersion()
 	 * @generated
 	 * @ordered
@@ -200,17 +200,17 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected String reqIFVersion = REQ_IF_VERSION_EDEFAULT;
 
 	/**
-	 * This is true if the Req IF Version attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Req IF Version attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean reqIFVersionESet;
 
 	/**
-	 * The default value of the '{@link #getSourceToolId() <em>Source Tool Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSourceToolId() <em>Source Tool Id</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSourceToolId()
 	 * @generated
 	 * @ordered
@@ -218,9 +218,9 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected static final String SOURCE_TOOL_ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSourceToolId() <em>Source Tool Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSourceToolId() <em>Source Tool Id</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSourceToolId()
 	 * @generated
 	 * @ordered
@@ -228,17 +228,17 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected String sourceToolId = SOURCE_TOOL_ID_EDEFAULT;
 
 	/**
-	 * This is true if the Source Tool Id attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Source Tool Id attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean sourceToolIdESet;
 
 	/**
-	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -256,8 +256,8 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 	protected String title = TITLE_EDEFAULT;
 
 	/**
-	 * This is true if the Title attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Title attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -265,6 +265,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ReqIFHeaderImpl() {
@@ -273,6 +274,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -282,6 +284,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getComment() {
@@ -290,6 +293,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setComment(String newComment) {
@@ -297,12 +301,14 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		comment = newComment;
 		boolean oldCommentESet = commentESet;
 		commentESet = true;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__COMMENT, oldComment, comment, !oldCommentESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetComment() {
@@ -310,12 +316,15 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		boolean oldCommentESet = commentESet;
 		comment = COMMENT_EDEFAULT;
 		commentESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__COMMENT, oldComment, COMMENT_EDEFAULT, oldCommentESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__COMMENT, oldComment, COMMENT_EDEFAULT,
+					oldCommentESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetComment() {
@@ -324,6 +333,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public GregorianCalendar getCreationTime() {
@@ -332,6 +342,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCreationTime(GregorianCalendar newCreationTime) {
@@ -339,12 +350,15 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		creationTime = newCreationTime;
 		boolean oldCreationTimeESet = creationTimeESet;
 		creationTimeESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__CREATION_TIME, oldCreationTime, creationTime, !oldCreationTimeESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__CREATION_TIME, oldCreationTime, creationTime,
+					!oldCreationTimeESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetCreationTime() {
@@ -352,12 +366,15 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		boolean oldCreationTimeESet = creationTimeESet;
 		creationTime = CREATION_TIME_EDEFAULT;
 		creationTimeESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__CREATION_TIME, oldCreationTime, CREATION_TIME_EDEFAULT, oldCreationTimeESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__CREATION_TIME, oldCreationTime,
+					CREATION_TIME_EDEFAULT, oldCreationTimeESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetCreationTime() {
@@ -366,6 +383,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getIdentifier() {
@@ -374,6 +392,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setIdentifier(String newIdentifier) {
@@ -381,12 +400,15 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		identifier = newIdentifier;
 		boolean oldIdentifierESet = identifierESet;
 		identifierESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__IDENTIFIER, oldIdentifier, identifier, !oldIdentifierESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__IDENTIFIER, oldIdentifier, identifier,
+					!oldIdentifierESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetIdentifier() {
@@ -394,12 +416,15 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		boolean oldIdentifierESet = identifierESet;
 		identifier = IDENTIFIER_EDEFAULT;
 		identifierESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__IDENTIFIER, oldIdentifier, IDENTIFIER_EDEFAULT, oldIdentifierESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__IDENTIFIER, oldIdentifier, IDENTIFIER_EDEFAULT,
+					oldIdentifierESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetIdentifier() {
@@ -408,6 +433,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getRepositoryId() {
@@ -416,6 +442,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRepositoryId(String newRepositoryId) {
@@ -423,12 +450,15 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		repositoryId = newRepositoryId;
 		boolean oldRepositoryIdESet = repositoryIdESet;
 		repositoryIdESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID, oldRepositoryId, repositoryId, !oldRepositoryIdESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID, oldRepositoryId, repositoryId,
+					!oldRepositoryIdESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetRepositoryId() {
@@ -436,12 +466,15 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		boolean oldRepositoryIdESet = repositoryIdESet;
 		repositoryId = REPOSITORY_ID_EDEFAULT;
 		repositoryIdESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID, oldRepositoryId, REPOSITORY_ID_EDEFAULT, oldRepositoryIdESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID, oldRepositoryId,
+					REPOSITORY_ID_EDEFAULT, oldRepositoryIdESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetRepositoryId() {
@@ -450,6 +483,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getReqIFToolId() {
@@ -458,6 +492,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setReqIFToolId(String newReqIFToolId) {
@@ -465,12 +500,15 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		reqIFToolId = newReqIFToolId;
 		boolean oldReqIFToolIdESet = reqIFToolIdESet;
 		reqIFToolIdESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID, oldReqIFToolId, reqIFToolId, !oldReqIFToolIdESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID, oldReqIFToolId, reqIFToolId,
+					!oldReqIFToolIdESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetReqIFToolId() {
@@ -478,12 +516,15 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		boolean oldReqIFToolIdESet = reqIFToolIdESet;
 		reqIFToolId = REQ_IF_TOOL_ID_EDEFAULT;
 		reqIFToolIdESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID, oldReqIFToolId, REQ_IF_TOOL_ID_EDEFAULT, oldReqIFToolIdESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID, oldReqIFToolId,
+					REQ_IF_TOOL_ID_EDEFAULT, oldReqIFToolIdESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetReqIFToolId() {
@@ -492,6 +533,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getReqIFVersion() {
@@ -500,6 +542,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setReqIFVersion(String newReqIFVersion) {
@@ -507,12 +550,15 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		reqIFVersion = newReqIFVersion;
 		boolean oldReqIFVersionESet = reqIFVersionESet;
 		reqIFVersionESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION, oldReqIFVersion, reqIFVersion, !oldReqIFVersionESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION, oldReqIFVersion, reqIFVersion,
+					!oldReqIFVersionESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetReqIFVersion() {
@@ -520,12 +566,15 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		boolean oldReqIFVersionESet = reqIFVersionESet;
 		reqIFVersion = REQ_IF_VERSION_EDEFAULT;
 		reqIFVersionESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION, oldReqIFVersion, REQ_IF_VERSION_EDEFAULT, oldReqIFVersionESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION, oldReqIFVersion,
+					REQ_IF_VERSION_EDEFAULT, oldReqIFVersionESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetReqIFVersion() {
@@ -534,6 +583,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getSourceToolId() {
@@ -542,6 +592,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSourceToolId(String newSourceToolId) {
@@ -549,12 +600,15 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		sourceToolId = newSourceToolId;
 		boolean oldSourceToolIdESet = sourceToolIdESet;
 		sourceToolIdESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID, oldSourceToolId, sourceToolId, !oldSourceToolIdESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID, oldSourceToolId, sourceToolId,
+					!oldSourceToolIdESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetSourceToolId() {
@@ -562,12 +616,15 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		boolean oldSourceToolIdESet = sourceToolIdESet;
 		sourceToolId = SOURCE_TOOL_ID_EDEFAULT;
 		sourceToolIdESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID, oldSourceToolId, SOURCE_TOOL_ID_EDEFAULT, oldSourceToolIdESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID, oldSourceToolId,
+					SOURCE_TOOL_ID_EDEFAULT, oldSourceToolIdESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetSourceToolId() {
@@ -576,6 +633,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getTitle() {
@@ -584,6 +642,7 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTitle(String newTitle) {
@@ -591,12 +650,14 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		title = newTitle;
 		boolean oldTitleESet = titleESet;
 		titleESet = true;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.REQ_IF_HEADER__TITLE, oldTitle, title, !oldTitleESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetTitle() {
@@ -604,12 +665,14 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 		boolean oldTitleESet = titleESet;
 		title = TITLE_EDEFAULT;
 		titleESet = false;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.REQ_IF_HEADER__TITLE, oldTitle, TITLE_EDEFAULT, oldTitleESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetTitle() {
@@ -618,153 +681,192 @@ public class ReqIFHeaderImpl extends EObjectImpl implements ReqIFHeader {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReqIF10Package.REQ_IF_HEADER__COMMENT:
-				return getComment();
-			case ReqIF10Package.REQ_IF_HEADER__CREATION_TIME:
-				return getCreationTime();
-			case ReqIF10Package.REQ_IF_HEADER__IDENTIFIER:
-				return getIdentifier();
-			case ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID:
-				return getRepositoryId();
-			case ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID:
-				return getReqIFToolId();
-			case ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION:
-				return getReqIFVersion();
-			case ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID:
-				return getSourceToolId();
-			case ReqIF10Package.REQ_IF_HEADER__TITLE:
-				return getTitle();
+		case ReqIF10Package.REQ_IF_HEADER__COMMENT:
+			return getComment();
+		case ReqIF10Package.REQ_IF_HEADER__CREATION_TIME:
+			return getCreationTime();
+		case ReqIF10Package.REQ_IF_HEADER__IDENTIFIER:
+			return getIdentifier();
+		case ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID:
+			return getRepositoryId();
+		case ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID:
+			return getReqIFToolId();
+		case ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION:
+			return getReqIFVersion();
+		case ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID:
+			return getSourceToolId();
+		case ReqIF10Package.REQ_IF_HEADER__TITLE:
+			return getTitle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReqIF10Package.REQ_IF_HEADER__COMMENT:
-				setComment((String)newValue);
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__CREATION_TIME:
-				setCreationTime((GregorianCalendar)newValue);
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__IDENTIFIER:
-				setIdentifier((String)newValue);
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID:
-				setRepositoryId((String)newValue);
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID:
-				setReqIFToolId((String)newValue);
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION:
-				setReqIFVersion((String)newValue);
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID:
-				setSourceToolId((String)newValue);
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__TITLE:
-				setTitle((String)newValue);
-				return;
+		case ReqIF10Package.REQ_IF_HEADER__COMMENT:
+			setComment((String) newValue);
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__CREATION_TIME:
+			setCreationTime((GregorianCalendar) newValue);
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__IDENTIFIER:
+			setIdentifier((String) newValue);
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID:
+			setRepositoryId((String) newValue);
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID:
+			setReqIFToolId((String) newValue);
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION:
+			setReqIFVersion((String) newValue);
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID:
+			setSourceToolId((String) newValue);
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__TITLE:
+			setTitle((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.REQ_IF_HEADER__COMMENT:
-				unsetComment();
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__CREATION_TIME:
-				unsetCreationTime();
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__IDENTIFIER:
-				unsetIdentifier();
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID:
-				unsetRepositoryId();
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID:
-				unsetReqIFToolId();
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION:
-				unsetReqIFVersion();
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID:
-				unsetSourceToolId();
-				return;
-			case ReqIF10Package.REQ_IF_HEADER__TITLE:
-				unsetTitle();
-				return;
+		case ReqIF10Package.REQ_IF_HEADER__COMMENT:
+			unsetComment();
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__CREATION_TIME:
+			unsetCreationTime();
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__IDENTIFIER:
+			unsetIdentifier();
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID:
+			unsetRepositoryId();
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID:
+			unsetReqIFToolId();
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION:
+			unsetReqIFVersion();
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID:
+			unsetSourceToolId();
+			return;
+		case ReqIF10Package.REQ_IF_HEADER__TITLE:
+			unsetTitle();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.REQ_IF_HEADER__COMMENT:
-				return isSetComment();
-			case ReqIF10Package.REQ_IF_HEADER__CREATION_TIME:
-				return isSetCreationTime();
-			case ReqIF10Package.REQ_IF_HEADER__IDENTIFIER:
-				return isSetIdentifier();
-			case ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID:
-				return isSetRepositoryId();
-			case ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID:
-				return isSetReqIFToolId();
-			case ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION:
-				return isSetReqIFVersion();
-			case ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID:
-				return isSetSourceToolId();
-			case ReqIF10Package.REQ_IF_HEADER__TITLE:
-				return isSetTitle();
+		case ReqIF10Package.REQ_IF_HEADER__COMMENT:
+			return isSetComment();
+		case ReqIF10Package.REQ_IF_HEADER__CREATION_TIME:
+			return isSetCreationTime();
+		case ReqIF10Package.REQ_IF_HEADER__IDENTIFIER:
+			return isSetIdentifier();
+		case ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID:
+			return isSetRepositoryId();
+		case ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID:
+			return isSetReqIFToolId();
+		case ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION:
+			return isSetReqIFVersion();
+		case ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID:
+			return isSetSourceToolId();
+		case ReqIF10Package.REQ_IF_HEADER__TITLE:
+			return isSetTitle();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy()) {
+			return super.toString();
+		}
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (comment: ");
-		if (commentESet) result.append(comment); else result.append("<unset>");
-		result.append(", creationTime: ");
-		if (creationTimeESet) result.append(creationTime); else result.append("<unset>");
-		result.append(", identifier: ");
-		if (identifierESet) result.append(identifier); else result.append("<unset>");
-		result.append(", repositoryId: ");
-		if (repositoryIdESet) result.append(repositoryId); else result.append("<unset>");
-		result.append(", reqIFToolId: ");
-		if (reqIFToolIdESet) result.append(reqIFToolId); else result.append("<unset>");
-		result.append(", reqIFVersion: ");
-		if (reqIFVersionESet) result.append(reqIFVersion); else result.append("<unset>");
-		result.append(", sourceToolId: ");
-		if (sourceToolIdESet) result.append(sourceToolId); else result.append("<unset>");
-		result.append(", title: ");
-		if (titleESet) result.append(title); else result.append("<unset>");
+		result.append(" (comment: "); //$NON-NLS-1$
+		if (commentESet) {
+			result.append(comment);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", creationTime: "); //$NON-NLS-1$
+		if (creationTimeESet) {
+			result.append(creationTime);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", identifier: "); //$NON-NLS-1$
+		if (identifierESet) {
+			result.append(identifier);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", repositoryId: "); //$NON-NLS-1$
+		if (repositoryIdESet) {
+			result.append(repositoryId);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", reqIFToolId: "); //$NON-NLS-1$
+		if (reqIFToolIdESet) {
+			result.append(reqIFToolId);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", reqIFVersion: "); //$NON-NLS-1$
+		if (reqIFVersionESet) {
+			result.append(reqIFVersion);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", sourceToolId: "); //$NON-NLS-1$
+		if (sourceToolIdESet) {
+			result.append(sourceToolId);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", title: "); //$NON-NLS-1$
+		if (titleESet) {
+			result.append(title);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
 		result.append(')');
 		return result.toString();
 	}

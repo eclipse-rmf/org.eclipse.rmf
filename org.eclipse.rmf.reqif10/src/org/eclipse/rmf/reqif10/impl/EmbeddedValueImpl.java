@@ -14,34 +14,29 @@ package org.eclipse.rmf.reqif10.impl;
 import java.math.BigInteger;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.rmf.reqif10.EmbeddedValue;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Embedded Value</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Embedded Value</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.EmbeddedValueImpl#getKey <em>Key</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.EmbeddedValueImpl#getOtherContent <em>Other Content</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.EmbeddedValueImpl#getKey <em>Key</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.EmbeddedValueImpl#getOtherContent <em>Other Content</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
-public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
+public class EmbeddedValueImpl extends MinimalEObjectImpl implements EmbeddedValue {
 	/**
-	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getKey()
 	 * @generated
 	 * @ordered
@@ -49,9 +44,8 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 	protected static final BigInteger KEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getKey() <em>Key</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getKey()
 	 * @generated
 	 * @ordered
@@ -59,18 +53,17 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 	protected BigInteger key = KEY_EDEFAULT;
 
 	/**
-	 * This is true if the Key attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Key attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean keyESet;
 
 	/**
-	 * The default value of the '{@link #getOtherContent() <em>Other Content</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getOtherContent() <em>Other Content</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOtherContent()
 	 * @generated
 	 * @ordered
@@ -78,9 +71,9 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 	protected static final String OTHER_CONTENT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getOtherContent() <em>Other Content</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOtherContent() <em>Other Content</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOtherContent()
 	 * @generated
 	 * @ordered
@@ -88,17 +81,16 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 	protected String otherContent = OTHER_CONTENT_EDEFAULT;
 
 	/**
-	 * This is true if the Other Content attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Other Content attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean otherContentESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EmbeddedValueImpl() {
@@ -106,8 +98,8 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -116,8 +108,8 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BigInteger getKey() {
@@ -125,8 +117,8 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setKey(BigInteger newKey) {
@@ -134,13 +126,14 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 		key = newKey;
 		boolean oldKeyESet = keyESet;
 		keyESet = true;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.EMBEDDED_VALUE__KEY, oldKey, key, !oldKeyESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetKey() {
@@ -148,13 +141,14 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 		boolean oldKeyESet = keyESet;
 		key = KEY_EDEFAULT;
 		keyESet = false;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.EMBEDDED_VALUE__KEY, oldKey, KEY_EDEFAULT, oldKeyESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetKey() {
@@ -162,8 +156,8 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getOtherContent() {
@@ -171,8 +165,8 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setOtherContent(String newOtherContent) {
@@ -180,13 +174,15 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 		otherContent = newOtherContent;
 		boolean oldOtherContentESet = otherContentESet;
 		otherContentESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.EMBEDDED_VALUE__OTHER_CONTENT, oldOtherContent, otherContent, !oldOtherContentESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.EMBEDDED_VALUE__OTHER_CONTENT, oldOtherContent, otherContent,
+					!oldOtherContentESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetOtherContent() {
@@ -194,13 +190,15 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 		boolean oldOtherContentESet = otherContentESet;
 		otherContent = OTHER_CONTENT_EDEFAULT;
 		otherContentESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.EMBEDDED_VALUE__OTHER_CONTENT, oldOtherContent, OTHER_CONTENT_EDEFAULT, oldOtherContentESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.EMBEDDED_VALUE__OTHER_CONTENT, oldOtherContent,
+					OTHER_CONTENT_EDEFAULT, oldOtherContentESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetOtherContent() {
@@ -208,89 +206,99 @@ public class EmbeddedValueImpl extends EObjectImpl implements EmbeddedValue {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReqIF10Package.EMBEDDED_VALUE__KEY:
-				return getKey();
-			case ReqIF10Package.EMBEDDED_VALUE__OTHER_CONTENT:
-				return getOtherContent();
+		case ReqIF10Package.EMBEDDED_VALUE__KEY:
+			return getKey();
+		case ReqIF10Package.EMBEDDED_VALUE__OTHER_CONTENT:
+			return getOtherContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReqIF10Package.EMBEDDED_VALUE__KEY:
-				setKey((BigInteger)newValue);
-				return;
-			case ReqIF10Package.EMBEDDED_VALUE__OTHER_CONTENT:
-				setOtherContent((String)newValue);
-				return;
+		case ReqIF10Package.EMBEDDED_VALUE__KEY:
+			setKey((BigInteger) newValue);
+			return;
+		case ReqIF10Package.EMBEDDED_VALUE__OTHER_CONTENT:
+			setOtherContent((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.EMBEDDED_VALUE__KEY:
-				unsetKey();
-				return;
-			case ReqIF10Package.EMBEDDED_VALUE__OTHER_CONTENT:
-				unsetOtherContent();
-				return;
+		case ReqIF10Package.EMBEDDED_VALUE__KEY:
+			unsetKey();
+			return;
+		case ReqIF10Package.EMBEDDED_VALUE__OTHER_CONTENT:
+			unsetOtherContent();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.EMBEDDED_VALUE__KEY:
-				return isSetKey();
-			case ReqIF10Package.EMBEDDED_VALUE__OTHER_CONTENT:
-				return isSetOtherContent();
+		case ReqIF10Package.EMBEDDED_VALUE__KEY:
+			return isSetKey();
+		case ReqIF10Package.EMBEDDED_VALUE__OTHER_CONTENT:
+			return isSetOtherContent();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy()) {
+			return super.toString();
+		}
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (key: ");
-		if (keyESet) result.append(key); else result.append("<unset>");
-		result.append(", otherContent: ");
-		if (otherContentESet) result.append(otherContent); else result.append("<unset>");
+		result.append(" (key: "); //$NON-NLS-1$
+		if (keyESet) {
+			result.append(key);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", otherContent: "); //$NON-NLS-1$
+		if (otherContentESet) {
+			result.append(otherContent);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
 		result.append(')');
 		return result.toString();
 	}
 
-} //EmbeddedValueImpl
+} // EmbeddedValueImpl

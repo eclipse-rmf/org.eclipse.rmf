@@ -111,8 +111,8 @@ public class SpecTypeItemProvider
 	public String getText(Object object) {
 		String label = ((SpecType)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SpecType_type") :
-			getString("_UI_SpecType_type") + " " + label;
+			getString("_UI_SpecType_type") : //$NON-NLS-1$
+			getString("_UI_SpecType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

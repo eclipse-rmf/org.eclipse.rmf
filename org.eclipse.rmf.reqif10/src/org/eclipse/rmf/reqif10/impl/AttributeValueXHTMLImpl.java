@@ -13,38 +13,34 @@ package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.XhtmlContent;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Attribute Value XHTML</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Attribute Value XHTML</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.AttributeValueXHTMLImpl#isSimplified <em>Simplified</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.AttributeValueXHTMLImpl#getDefinition <em>Definition</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.AttributeValueXHTMLImpl#getTheOriginalValue <em>The Original Value</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.AttributeValueXHTMLImpl#getTheValue <em>The Value</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.AttributeValueXHTMLImpl#isSimplified <em>Simplified</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.AttributeValueXHTMLImpl#getDefinition <em>Definition</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.AttributeValueXHTMLImpl#getTheOriginalValue <em>The Original Value</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.AttributeValueXHTMLImpl#getTheValue <em>The Value</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class AttributeValueXHTMLImpl extends AttributeValueImpl implements AttributeValueXHTML {
 	/**
-	 * The default value of the '{@link #isSimplified() <em>Simplified</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #isSimplified() <em>Simplified</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #isSimplified()
 	 * @generated
 	 * @ordered
@@ -52,9 +48,9 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	protected static final boolean SIMPLIFIED_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isSimplified() <em>Simplified</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #isSimplified() <em>Simplified</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #isSimplified()
 	 * @generated
 	 * @ordered
@@ -62,18 +58,17 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	protected boolean simplified = SIMPLIFIED_EDEFAULT;
 
 	/**
-	 * This is true if the Simplified attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Simplified attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean simplifiedESet;
 
 	/**
-	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getDefinition()
 	 * @generated
 	 * @ordered
@@ -81,18 +76,17 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	protected AttributeDefinitionXHTML definition;
 
 	/**
-	 * This is true if the Definition reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Definition reference has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean definitionESet;
 
 	/**
-	 * The cached value of the '{@link #getTheOriginalValue() <em>The Original Value</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTheOriginalValue() <em>The Original Value</em>}' containment reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getTheOriginalValue()
 	 * @generated
 	 * @ordered
@@ -100,18 +94,18 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	protected XhtmlContent theOriginalValue;
 
 	/**
-	 * This is true if the The Original Value containment reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the The Original Value containment reference has been set. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean theOriginalValueESet;
 
 	/**
-	 * The cached value of the '{@link #getTheValue() <em>The Value</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTheValue() <em>The Value</em>}' containment reference. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getTheValue()
 	 * @generated
 	 * @ordered
@@ -119,17 +113,16 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	protected XhtmlContent theValue;
 
 	/**
-	 * This is true if the The Value containment reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the The Value containment reference has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean theValueESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected AttributeValueXHTMLImpl() {
@@ -137,8 +130,8 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -147,8 +140,8 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSimplified() {
@@ -156,8 +149,8 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSimplified(boolean newSimplified) {
@@ -166,12 +159,13 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 		boolean oldSimplifiedESet = simplifiedESet;
 		simplifiedESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED, oldSimplified, simplified, !oldSimplifiedESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED, oldSimplified, simplified,
+					!oldSimplifiedESet));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetSimplified() {
@@ -180,12 +174,13 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 		simplified = SIMPLIFIED_EDEFAULT;
 		simplifiedESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED, oldSimplified, SIMPLIFIED_EDEFAULT, oldSimplifiedESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED, oldSimplified,
+					SIMPLIFIED_EDEFAULT, oldSimplifiedESet));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetSimplified() {
@@ -193,25 +188,26 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeDefinitionXHTML getDefinition() {
 		if (definition != null && definition.eIsProxy()) {
-			InternalEObject oldDefinition = (InternalEObject)definition;
-			definition = (AttributeDefinitionXHTML)eResolveProxy(oldDefinition);
+			InternalEObject oldDefinition = (InternalEObject) definition;
+			definition = (AttributeDefinitionXHTML) eResolveProxy(oldDefinition);
 			if (definition != oldDefinition) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION, oldDefinition, definition));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION, oldDefinition,
+							definition));
 			}
 		}
 		return definition;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AttributeDefinitionXHTML basicGetDefinition() {
@@ -219,8 +215,8 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDefinition(AttributeDefinitionXHTML newDefinition) {
@@ -229,12 +225,13 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 		boolean oldDefinitionESet = definitionESet;
 		definitionESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION, oldDefinition, definition, !oldDefinitionESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION, oldDefinition, definition,
+					!oldDefinitionESet));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetDefinition() {
@@ -243,12 +240,13 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 		definition = null;
 		definitionESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION, oldDefinition, null, oldDefinitionESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION, oldDefinition, null,
+					oldDefinitionESet));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetDefinition() {
@@ -256,8 +254,8 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlContent getTheOriginalValue() {
@@ -265,8 +263,8 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetTheOriginalValue(XhtmlContent newTheOriginalValue, NotificationChain msgs) {
@@ -275,38 +273,45 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 		boolean oldTheOriginalValueESet = theOriginalValueESet;
 		theOriginalValueESet = true;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE, oldTheOriginalValue, newTheOriginalValue, !oldTheOriginalValueESet);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE,
+					oldTheOriginalValue, newTheOriginalValue, !oldTheOriginalValueESet);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTheOriginalValue(XhtmlContent newTheOriginalValue) {
 		if (newTheOriginalValue != theOriginalValue) {
 			NotificationChain msgs = null;
 			if (theOriginalValue != null)
-				msgs = ((InternalEObject)theOriginalValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE, null, msgs);
+				msgs = ((InternalEObject) theOriginalValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE, null, msgs);
 			if (newTheOriginalValue != null)
-				msgs = ((InternalEObject)newTheOriginalValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE, null, msgs);
+				msgs = ((InternalEObject) newTheOriginalValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE, null, msgs);
 			msgs = basicSetTheOriginalValue(newTheOriginalValue, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else {
+			if (msgs != null)
+				msgs.dispatch();
+		} else {
 			boolean oldTheOriginalValueESet = theOriginalValueESet;
 			theOriginalValueESet = true;
 			if (eNotificationRequired())
-				eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE, newTheOriginalValue, newTheOriginalValue, !oldTheOriginalValueESet));
+				eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE, newTheOriginalValue,
+						newTheOriginalValue, !oldTheOriginalValueESet));
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicUnsetTheOriginalValue(NotificationChain msgs) {
@@ -315,35 +320,41 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 		boolean oldTheOriginalValueESet = theOriginalValueESet;
 		theOriginalValueESet = false;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE, oldTheOriginalValue, null, oldTheOriginalValueESet);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET,
+					ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE, oldTheOriginalValue, null, oldTheOriginalValueESet);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetTheOriginalValue() {
 		if (theOriginalValue != null) {
 			NotificationChain msgs = null;
-			msgs = ((InternalEObject)theOriginalValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE, null, msgs);
+			msgs = ((InternalEObject) theOriginalValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+					- ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE, null, msgs);
 			msgs = basicUnsetTheOriginalValue(msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else {
+			if (msgs != null)
+				msgs.dispatch();
+		} else {
 			boolean oldTheOriginalValueESet = theOriginalValueESet;
 			theOriginalValueESet = false;
 			if (eNotificationRequired())
-				eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE, null, null, oldTheOriginalValueESet));
+				eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE, null, null,
+						oldTheOriginalValueESet));
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetTheOriginalValue() {
@@ -351,8 +362,8 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlContent getTheValue() {
@@ -360,8 +371,8 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetTheValue(XhtmlContent newTheValue, NotificationChain msgs) {
@@ -370,38 +381,45 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 		boolean oldTheValueESet = theValueESet;
 		theValueESet = true;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE, oldTheValue, newTheValue, !oldTheValueESet);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE,
+					oldTheValue, newTheValue, !oldTheValueESet);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTheValue(XhtmlContent newTheValue) {
 		if (newTheValue != theValue) {
 			NotificationChain msgs = null;
 			if (theValue != null)
-				msgs = ((InternalEObject)theValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE, null, msgs);
+				msgs = ((InternalEObject) theValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE,
+						null, msgs);
 			if (newTheValue != null)
-				msgs = ((InternalEObject)newTheValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE, null, msgs);
+				msgs = ((InternalEObject) newTheValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE,
+						null, msgs);
 			msgs = basicSetTheValue(newTheValue, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else {
+			if (msgs != null)
+				msgs.dispatch();
+		} else {
 			boolean oldTheValueESet = theValueESet;
 			theValueESet = true;
 			if (eNotificationRequired())
-				eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE, newTheValue, newTheValue, !oldTheValueESet));
+				eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE, newTheValue, newTheValue,
+						!oldTheValueESet));
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicUnsetTheValue(NotificationChain msgs) {
@@ -410,25 +428,30 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 		boolean oldTheValueESet = theValueESet;
 		theValueESet = false;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE, oldTheValue, null, oldTheValueESet);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE,
+					oldTheValue, null, oldTheValueESet);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetTheValue() {
 		if (theValue != null) {
 			NotificationChain msgs = null;
-			msgs = ((InternalEObject)theValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE, null, msgs);
+			msgs = ((InternalEObject) theValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE, null,
+					msgs);
 			msgs = basicUnsetTheValue(msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else {
+			if (msgs != null)
+				msgs.dispatch();
+		} else {
 			boolean oldTheValueESet = theValueESet;
 			theValueESet = false;
 			if (eNotificationRequired())
@@ -437,8 +460,8 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetTheValue() {
@@ -446,124 +469,129 @@ public class AttributeValueXHTMLImpl extends AttributeValueImpl implements Attri
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE:
-				return basicUnsetTheOriginalValue(msgs);
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE:
-				return basicUnsetTheValue(msgs);
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE:
+			return basicUnsetTheOriginalValue(msgs);
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE:
+			return basicUnsetTheValue(msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED:
-				return isSimplified();
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION:
-				if (resolve) return getDefinition();
-				return basicGetDefinition();
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE:
-				return getTheOriginalValue();
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE:
-				return getTheValue();
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED:
+			return isSimplified();
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION:
+			if (resolve)
+				return getDefinition();
+			return basicGetDefinition();
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE:
+			return getTheOriginalValue();
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE:
+			return getTheValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED:
-				setSimplified((Boolean)newValue);
-				return;
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION:
-				setDefinition((AttributeDefinitionXHTML)newValue);
-				return;
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE:
-				setTheOriginalValue((XhtmlContent)newValue);
-				return;
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE:
-				setTheValue((XhtmlContent)newValue);
-				return;
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED:
+			setSimplified((Boolean) newValue);
+			return;
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION:
+			setDefinition((AttributeDefinitionXHTML) newValue);
+			return;
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE:
+			setTheOriginalValue((XhtmlContent) newValue);
+			return;
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE:
+			setTheValue((XhtmlContent) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED:
-				unsetSimplified();
-				return;
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION:
-				unsetDefinition();
-				return;
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE:
-				unsetTheOriginalValue();
-				return;
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE:
-				unsetTheValue();
-				return;
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED:
+			unsetSimplified();
+			return;
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION:
+			unsetDefinition();
+			return;
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE:
+			unsetTheOriginalValue();
+			return;
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE:
+			unsetTheValue();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED:
-				return isSetSimplified();
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION:
-				return isSetDefinition();
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE:
-				return isSetTheOriginalValue();
-			case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE:
-				return isSetTheValue();
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED:
+			return isSetSimplified();
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__DEFINITION:
+			return isSetDefinition();
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_ORIGINAL_VALUE:
+			return isSetTheOriginalValue();
+		case ReqIF10Package.ATTRIBUTE_VALUE_XHTML__THE_VALUE:
+			return isSetTheValue();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (simplified: ");
-		if (simplifiedESet) result.append(simplified); else result.append("<unset>");
+		result.append(" (simplified: "); //$NON-NLS-1$
+		if (simplifiedESet)
+			result.append(simplified);
+		else
+			result.append("<unset>"); //$NON-NLS-1$
 		result.append(')');
 		return result.toString();
 	}
 
-} //AttributeValueXHTMLImpl
+} // AttributeValueXHTMLImpl

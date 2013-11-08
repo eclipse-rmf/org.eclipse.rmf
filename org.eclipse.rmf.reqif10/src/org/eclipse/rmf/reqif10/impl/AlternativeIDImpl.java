@@ -12,33 +12,28 @@
 package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.rmf.reqif10.AlternativeID;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Alternative ID</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Alternative ID</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.AlternativeIDImpl#getIdentifier <em>Identifier</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.AlternativeIDImpl#getIdentifier <em>Identifier</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
-public class AlternativeIDImpl extends EObjectImpl implements AlternativeID {
+public class AlternativeIDImpl extends MinimalEObjectImpl implements AlternativeID {
 	/**
-	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -46,9 +41,9 @@ public class AlternativeIDImpl extends EObjectImpl implements AlternativeID {
 	protected static final String IDENTIFIER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -56,17 +51,16 @@ public class AlternativeIDImpl extends EObjectImpl implements AlternativeID {
 	protected String identifier = IDENTIFIER_EDEFAULT;
 
 	/**
-	 * This is true if the Identifier attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Identifier attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean identifierESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected AlternativeIDImpl() {
@@ -74,8 +68,8 @@ public class AlternativeIDImpl extends EObjectImpl implements AlternativeID {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -84,8 +78,8 @@ public class AlternativeIDImpl extends EObjectImpl implements AlternativeID {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getIdentifier() {
@@ -93,8 +87,8 @@ public class AlternativeIDImpl extends EObjectImpl implements AlternativeID {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setIdentifier(String newIdentifier) {
@@ -102,13 +96,15 @@ public class AlternativeIDImpl extends EObjectImpl implements AlternativeID {
 		identifier = newIdentifier;
 		boolean oldIdentifierESet = identifierESet;
 		identifierESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ALTERNATIVE_ID__IDENTIFIER, oldIdentifier, identifier, !oldIdentifierESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ALTERNATIVE_ID__IDENTIFIER, oldIdentifier, identifier,
+					!oldIdentifierESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetIdentifier() {
@@ -116,13 +112,15 @@ public class AlternativeIDImpl extends EObjectImpl implements AlternativeID {
 		boolean oldIdentifierESet = identifierESet;
 		identifier = IDENTIFIER_EDEFAULT;
 		identifierESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ALTERNATIVE_ID__IDENTIFIER, oldIdentifier, IDENTIFIER_EDEFAULT, oldIdentifierESet));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ALTERNATIVE_ID__IDENTIFIER, oldIdentifier, IDENTIFIER_EDEFAULT,
+					oldIdentifierESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetIdentifier() {
@@ -130,77 +128,83 @@ public class AlternativeIDImpl extends EObjectImpl implements AlternativeID {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReqIF10Package.ALTERNATIVE_ID__IDENTIFIER:
-				return getIdentifier();
+		case ReqIF10Package.ALTERNATIVE_ID__IDENTIFIER:
+			return getIdentifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReqIF10Package.ALTERNATIVE_ID__IDENTIFIER:
-				setIdentifier((String)newValue);
-				return;
+		case ReqIF10Package.ALTERNATIVE_ID__IDENTIFIER:
+			setIdentifier((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.ALTERNATIVE_ID__IDENTIFIER:
-				unsetIdentifier();
-				return;
+		case ReqIF10Package.ALTERNATIVE_ID__IDENTIFIER:
+			unsetIdentifier();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.ALTERNATIVE_ID__IDENTIFIER:
-				return isSetIdentifier();
+		case ReqIF10Package.ALTERNATIVE_ID__IDENTIFIER:
+			return isSetIdentifier();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy()) {
+			return super.toString();
+		}
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (identifier: ");
-		if (identifierESet) result.append(identifier); else result.append("<unset>");
+		result.append(" (identifier: "); //$NON-NLS-1$
+		if (identifierESet) {
+			result.append(identifier);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
 		result.append(')');
 		return result.toString();
 	}
 
-} //AlternativeIDImpl
+} // AlternativeIDImpl

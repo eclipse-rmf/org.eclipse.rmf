@@ -88,8 +88,8 @@ public class EmbeddedValueItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EmbeddedValue_key_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EmbeddedValue_key_feature", "_UI_EmbeddedValue_type"),
+				 getString("_UI_EmbeddedValue_key_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EmbeddedValue_key_feature", "_UI_EmbeddedValue_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.EMBEDDED_VALUE__KEY,
 				 true,
 				 false,
@@ -110,8 +110,8 @@ public class EmbeddedValueItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EmbeddedValue_otherContent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EmbeddedValue_otherContent_feature", "_UI_EmbeddedValue_type"),
+				 getString("_UI_EmbeddedValue_otherContent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EmbeddedValue_otherContent_feature", "_UI_EmbeddedValue_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.EMBEDDED_VALUE__OTHER_CONTENT,
 				 true,
 				 false,
@@ -129,7 +129,7 @@ public class EmbeddedValueItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EmbeddedValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EmbeddedValue")); //$NON-NLS-1$
 	}
 
 	/**
@@ -143,8 +143,8 @@ public class EmbeddedValueItemProvider
 		BigInteger labelValue = ((EmbeddedValue)object).getKey();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EmbeddedValue_type") :
-			getString("_UI_EmbeddedValue_type") + " " + label;
+			getString("_UI_EmbeddedValue_type") : //$NON-NLS-1$
+			getString("_UI_EmbeddedValue_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

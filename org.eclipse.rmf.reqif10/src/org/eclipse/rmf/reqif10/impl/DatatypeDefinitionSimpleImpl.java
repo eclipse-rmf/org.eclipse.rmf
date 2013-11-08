@@ -12,23 +12,21 @@
 package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.rmf.reqif10.DatatypeDefinitionSimple;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Datatype Definition Simple</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Datatype Definition Simple</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class DatatypeDefinitionSimpleImpl extends DatatypeDefinitionImpl implements DatatypeDefinitionSimple {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DatatypeDefinitionSimpleImpl() {
@@ -36,8 +34,8 @@ public abstract class DatatypeDefinitionSimpleImpl extends DatatypeDefinitionImp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -45,4 +43,4 @@ public abstract class DatatypeDefinitionSimpleImpl extends DatatypeDefinitionImp
 		return ReqIF10Package.Literals.DATATYPE_DEFINITION_SIMPLE;
 	}
 
-} //DatatypeDefinitionSimpleImpl
+} // DatatypeDefinitionSimpleImpl

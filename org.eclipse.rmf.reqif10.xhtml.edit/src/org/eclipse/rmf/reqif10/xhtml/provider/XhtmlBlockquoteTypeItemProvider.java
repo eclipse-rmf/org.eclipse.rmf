@@ -97,8 +97,8 @@ public class XhtmlBlockquoteTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_cite_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_cite_feature", "_UI_XhtmlBlockquoteType_type"),
+				 getString("_UI_XhtmlBlockquoteType_cite_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_cite_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Cite(),
 				 true,
 				 false,
@@ -119,8 +119,8 @@ public class XhtmlBlockquoteTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_class_feature", "_UI_XhtmlBlockquoteType_type"),
+				 getString("_UI_XhtmlBlockquoteType_class_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_class_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Class(),
 				 true,
 				 false,
@@ -141,8 +141,8 @@ public class XhtmlBlockquoteTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_id_feature", "_UI_XhtmlBlockquoteType_type"),
+				 getString("_UI_XhtmlBlockquoteType_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_id_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Id(),
 				 true,
 				 false,
@@ -163,8 +163,8 @@ public class XhtmlBlockquoteTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_lang_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_lang_feature", "_UI_XhtmlBlockquoteType_type"),
+				 getString("_UI_XhtmlBlockquoteType_lang_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_lang_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Lang(),
 				 true,
 				 false,
@@ -185,8 +185,8 @@ public class XhtmlBlockquoteTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_space_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_space_feature", "_UI_XhtmlBlockquoteType_type"),
+				 getString("_UI_XhtmlBlockquoteType_space_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_space_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Space(),
 				 true,
 				 false,
@@ -207,8 +207,8 @@ public class XhtmlBlockquoteTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_style_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_style_feature", "_UI_XhtmlBlockquoteType_type"),
+				 getString("_UI_XhtmlBlockquoteType_style_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_style_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Style(),
 				 true,
 				 false,
@@ -229,8 +229,8 @@ public class XhtmlBlockquoteTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_title_feature", "_UI_XhtmlBlockquoteType_type"),
+				 getString("_UI_XhtmlBlockquoteType_title_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_title_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Title(),
 				 true,
 				 false,
@@ -278,7 +278,7 @@ public class XhtmlBlockquoteTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlBlockquoteType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlBlockquoteType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -291,8 +291,8 @@ public class XhtmlBlockquoteTypeItemProvider
 	public String getText(Object object) {
 		String label = ((XhtmlBlockquoteType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlBlockquoteType_type") :
-			getString("_UI_XhtmlBlockquoteType_type") + " " + label;
+			getString("_UI_XhtmlBlockquoteType_type") : //$NON-NLS-1$
+			getString("_UI_XhtmlBlockquoteType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -484,7 +484,7 @@ public class XhtmlBlockquoteTypeItemProvider
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

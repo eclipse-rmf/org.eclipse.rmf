@@ -11,16 +11,13 @@
  */
 package org.eclipse.rmf.reqif10;
 
-
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Spec Object Type</b></em>'.
- * <!-- end-user-doc -->
- *
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Spec Object Type</b></em>'. <!-- end-user-doc
+ * -->
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecObjectType()
- * @model extendedMetaData="name='SPEC-OBJECT-TYPE' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-OBJECT-TYPE'"
+ * @model extendedMetaData="name='SPEC-OBJECT-TYPE' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-OBJECT-TYPE'"
  * @generated
  */
 public interface SpecObjectType extends SpecType {

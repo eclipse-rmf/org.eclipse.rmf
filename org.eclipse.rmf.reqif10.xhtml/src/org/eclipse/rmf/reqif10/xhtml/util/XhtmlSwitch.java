@@ -13,10 +13,56 @@ package org.eclipse.rmf.reqif10.xhtml.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.eclipse.rmf.reqif10.xhtml.*;
+import org.eclipse.rmf.reqif10.xhtml.DocumentRoot;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAbbrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAcronymType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAddressType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlBlockquoteType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlBrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlCaptionType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlCiteType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlCodeType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlColType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlColgroupType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDdType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDfnType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDlType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDtType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlEditType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlEmType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH1Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH2Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH3Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH4Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH5Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH6Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlHeadingType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlHrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlInlPresType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlKbdType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlLiType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlObjectType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlOlType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlParamType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPreType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlQType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlSampType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlSpanType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlStrongType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTableType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTbodyType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTdType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTfootType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlThType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTheadType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlVarType;
 
 /**
  * <!-- begin-user-doc -->

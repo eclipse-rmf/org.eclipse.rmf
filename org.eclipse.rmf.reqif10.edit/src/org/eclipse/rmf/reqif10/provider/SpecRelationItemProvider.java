@@ -82,8 +82,8 @@ public class SpecRelationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SpecRelation_target_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpecRelation_target_feature", "_UI_SpecRelation_type"),
+				 getString("_UI_SpecRelation_target_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SpecRelation_target_feature", "_UI_SpecRelation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.SPEC_RELATION__TARGET,
 				 true,
 				 false,
@@ -104,8 +104,8 @@ public class SpecRelationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SpecRelation_source_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpecRelation_source_feature", "_UI_SpecRelation_type"),
+				 getString("_UI_SpecRelation_source_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SpecRelation_source_feature", "_UI_SpecRelation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.SPEC_RELATION__SOURCE,
 				 true,
 				 false,
@@ -126,8 +126,8 @@ public class SpecRelationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SpecRelation_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpecRelation_type_feature", "_UI_SpecRelation_type"),
+				 getString("_UI_SpecRelation_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SpecRelation_type_feature", "_UI_SpecRelation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.SPEC_RELATION__TYPE,
 				 true,
 				 false,
@@ -145,7 +145,7 @@ public class SpecRelationItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SpecRelation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SpecRelation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -158,8 +158,8 @@ public class SpecRelationItemProvider
 	public String getText(Object object) {
 		String label = ((SpecRelation)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SpecRelation_type") :
-			getString("_UI_SpecRelation_type") + " " + label;
+			getString("_UI_SpecRelation_type") : //$NON-NLS-1$
+			getString("_UI_SpecRelation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

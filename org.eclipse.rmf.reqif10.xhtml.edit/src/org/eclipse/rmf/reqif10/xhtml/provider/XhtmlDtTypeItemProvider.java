@@ -99,8 +99,8 @@ public class XhtmlDtTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlDtType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDtType_class_feature", "_UI_XhtmlDtType_type"),
+				 getString("_UI_XhtmlDtType_class_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDtType_class_feature", "_UI_XhtmlDtType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlDtType_Class(),
 				 true,
 				 false,
@@ -121,8 +121,8 @@ public class XhtmlDtTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlDtType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDtType_id_feature", "_UI_XhtmlDtType_type"),
+				 getString("_UI_XhtmlDtType_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDtType_id_feature", "_UI_XhtmlDtType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlDtType_Id(),
 				 true,
 				 false,
@@ -143,8 +143,8 @@ public class XhtmlDtTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlDtType_lang_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDtType_lang_feature", "_UI_XhtmlDtType_type"),
+				 getString("_UI_XhtmlDtType_lang_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDtType_lang_feature", "_UI_XhtmlDtType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlDtType_Lang(),
 				 true,
 				 false,
@@ -165,8 +165,8 @@ public class XhtmlDtTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlDtType_space_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDtType_space_feature", "_UI_XhtmlDtType_type"),
+				 getString("_UI_XhtmlDtType_space_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDtType_space_feature", "_UI_XhtmlDtType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlDtType_Space(),
 				 true,
 				 false,
@@ -187,8 +187,8 @@ public class XhtmlDtTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlDtType_style_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDtType_style_feature", "_UI_XhtmlDtType_type"),
+				 getString("_UI_XhtmlDtType_style_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDtType_style_feature", "_UI_XhtmlDtType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlDtType_Style(),
 				 true,
 				 false,
@@ -209,8 +209,8 @@ public class XhtmlDtTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlDtType_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDtType_title_feature", "_UI_XhtmlDtType_type"),
+				 getString("_UI_XhtmlDtType_title_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDtType_title_feature", "_UI_XhtmlDtType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlDtType_Title(),
 				 true,
 				 false,
@@ -258,7 +258,7 @@ public class XhtmlDtTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlDtType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlDtType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -271,8 +271,8 @@ public class XhtmlDtTypeItemProvider
 	public String getText(Object object) {
 		String label = ((XhtmlDtType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlDtType_type") :
-			getString("_UI_XhtmlDtType_type") + " " + label;
+			getString("_UI_XhtmlDtType_type") : //$NON-NLS-1$
+			getString("_UI_XhtmlDtType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -318,14 +318,14 @@ public class XhtmlDtTypeItemProvider
 				(XhtmlPackage.eINSTANCE.getXhtmlDtType_Mixed(),
 				 FeatureMapUtil.createEntry
 					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
-					 "")));
+					 ""))); //$NON-NLS-1$
 
 		newChildDescriptors.add
 			(createChildParameter
 				(XhtmlPackage.eINSTANCE.getXhtmlDtType_Mixed(),
 				 FeatureMapUtil.createEntry
 					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
-					 "")));
+					 ""))); //$NON-NLS-1$
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -339,7 +339,7 @@ public class XhtmlDtTypeItemProvider
 				(XhtmlPackage.eINSTANCE.getXhtmlDtType_Mixed(),
 				 FeatureMapUtil.createEntry
 					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
-					 "")));
+					 ""))); //$NON-NLS-1$
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -540,7 +540,7 @@ public class XhtmlDtTypeItemProvider
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

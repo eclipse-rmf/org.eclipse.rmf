@@ -76,8 +76,8 @@ public class DatatypeDefinitionSimpleItemProvider
 	public String getText(Object object) {
 		String label = ((DatatypeDefinitionSimple)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DatatypeDefinitionSimple_type") :
-			getString("_UI_DatatypeDefinitionSimple_type") + " " + label;
+			getString("_UI_DatatypeDefinitionSimple_type") : //$NON-NLS-1$
+			getString("_UI_DatatypeDefinitionSimple_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

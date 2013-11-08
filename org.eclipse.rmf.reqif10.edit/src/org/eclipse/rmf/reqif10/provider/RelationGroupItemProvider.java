@@ -83,8 +83,8 @@ public class RelationGroupItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RelationGroup_specRelations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RelationGroup_specRelations_feature", "_UI_RelationGroup_type"),
+				 getString("_UI_RelationGroup_specRelations_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RelationGroup_specRelations_feature", "_UI_RelationGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.RELATION_GROUP__SPEC_RELATIONS,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class RelationGroupItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RelationGroup_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RelationGroup_type_feature", "_UI_RelationGroup_type"),
+				 getString("_UI_RelationGroup_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RelationGroup_type_feature", "_UI_RelationGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.RELATION_GROUP__TYPE,
 				 true,
 				 false,
@@ -127,8 +127,8 @@ public class RelationGroupItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RelationGroup_sourceSpecification_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RelationGroup_sourceSpecification_feature", "_UI_RelationGroup_type"),
+				 getString("_UI_RelationGroup_sourceSpecification_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RelationGroup_sourceSpecification_feature", "_UI_RelationGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.RELATION_GROUP__SOURCE_SPECIFICATION,
 				 true,
 				 false,
@@ -149,8 +149,8 @@ public class RelationGroupItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RelationGroup_targetSpecification_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RelationGroup_targetSpecification_feature", "_UI_RelationGroup_type"),
+				 getString("_UI_RelationGroup_targetSpecification_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RelationGroup_targetSpecification_feature", "_UI_RelationGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.RELATION_GROUP__TARGET_SPECIFICATION,
 				 true,
 				 false,
@@ -168,7 +168,7 @@ public class RelationGroupItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RelationGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RelationGroup")); //$NON-NLS-1$
 	}
 
 	/**
@@ -181,8 +181,8 @@ public class RelationGroupItemProvider
 	public String getText(Object object) {
 		String label = ((RelationGroup)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RelationGroup_type") :
-			getString("_UI_RelationGroup_type") + " " + label;
+			getString("_UI_RelationGroup_type") : //$NON-NLS-1$
+			getString("_UI_RelationGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

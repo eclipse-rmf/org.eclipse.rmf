@@ -86,8 +86,8 @@ public class AttributeValueXHTMLItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AttributeValueXHTML_simplified_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueXHTML_simplified_feature", "_UI_AttributeValueXHTML_type"),
+				 getString("_UI_AttributeValueXHTML_simplified_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueXHTML_simplified_feature", "_UI_AttributeValueXHTML_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__SIMPLIFIED,
 				 true,
 				 false,
@@ -108,8 +108,8 @@ public class AttributeValueXHTMLItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AttributeValueXHTML_definition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueXHTML_definition_feature", "_UI_AttributeValueXHTML_type"),
+				 getString("_UI_AttributeValueXHTML_definition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueXHTML_definition_feature", "_UI_AttributeValueXHTML_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_XHTML__DEFINITION,
 				 true,
 				 false,
@@ -158,7 +158,7 @@ public class AttributeValueXHTMLItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AttributeValueXHTML"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AttributeValueXHTML")); //$NON-NLS-1$
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class AttributeValueXHTMLItemProvider
 	@Override
 	public String getText(Object object) {
 		AttributeValueXHTML attributeValueXHTML = (AttributeValueXHTML)object;
-		return getString("_UI_AttributeValueXHTML_type") + " " + attributeValueXHTML.isSimplified();
+		return getString("_UI_AttributeValueXHTML_type") + " " + attributeValueXHTML.isSimplified(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -235,7 +235,7 @@ public class AttributeValueXHTMLItemProvider
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

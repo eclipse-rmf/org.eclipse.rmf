@@ -100,8 +100,8 @@ public class XhtmlTableTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTableType_border_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_border_feature", "_UI_XhtmlTableType_type"),
+				 getString("_UI_XhtmlTableType_border_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_border_feature", "_UI_XhtmlTableType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTableType_Border(),
 				 true,
 				 false,
@@ -122,8 +122,8 @@ public class XhtmlTableTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTableType_cellpadding_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_cellpadding_feature", "_UI_XhtmlTableType_type"),
+				 getString("_UI_XhtmlTableType_cellpadding_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_cellpadding_feature", "_UI_XhtmlTableType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTableType_Cellpadding(),
 				 true,
 				 false,
@@ -144,8 +144,8 @@ public class XhtmlTableTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTableType_cellspacing_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_cellspacing_feature", "_UI_XhtmlTableType_type"),
+				 getString("_UI_XhtmlTableType_cellspacing_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_cellspacing_feature", "_UI_XhtmlTableType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTableType_Cellspacing(),
 				 true,
 				 false,
@@ -166,8 +166,8 @@ public class XhtmlTableTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTableType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_class_feature", "_UI_XhtmlTableType_type"),
+				 getString("_UI_XhtmlTableType_class_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_class_feature", "_UI_XhtmlTableType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTableType_Class(),
 				 true,
 				 false,
@@ -188,8 +188,8 @@ public class XhtmlTableTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTableType_frame_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_frame_feature", "_UI_XhtmlTableType_type"),
+				 getString("_UI_XhtmlTableType_frame_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_frame_feature", "_UI_XhtmlTableType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTableType_Frame(),
 				 true,
 				 false,
@@ -210,8 +210,8 @@ public class XhtmlTableTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTableType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_id_feature", "_UI_XhtmlTableType_type"),
+				 getString("_UI_XhtmlTableType_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_id_feature", "_UI_XhtmlTableType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTableType_Id(),
 				 true,
 				 false,
@@ -232,8 +232,8 @@ public class XhtmlTableTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTableType_lang_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_lang_feature", "_UI_XhtmlTableType_type"),
+				 getString("_UI_XhtmlTableType_lang_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_lang_feature", "_UI_XhtmlTableType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTableType_Lang(),
 				 true,
 				 false,
@@ -254,8 +254,8 @@ public class XhtmlTableTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTableType_rules_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_rules_feature", "_UI_XhtmlTableType_type"),
+				 getString("_UI_XhtmlTableType_rules_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_rules_feature", "_UI_XhtmlTableType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTableType_Rules(),
 				 true,
 				 false,
@@ -276,8 +276,8 @@ public class XhtmlTableTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTableType_space_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_space_feature", "_UI_XhtmlTableType_type"),
+				 getString("_UI_XhtmlTableType_space_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_space_feature", "_UI_XhtmlTableType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTableType_Space(),
 				 true,
 				 false,
@@ -298,8 +298,8 @@ public class XhtmlTableTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTableType_style_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_style_feature", "_UI_XhtmlTableType_type"),
+				 getString("_UI_XhtmlTableType_style_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_style_feature", "_UI_XhtmlTableType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTableType_Style(),
 				 true,
 				 false,
@@ -320,8 +320,8 @@ public class XhtmlTableTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTableType_summary_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_summary_feature", "_UI_XhtmlTableType_type"),
+				 getString("_UI_XhtmlTableType_summary_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_summary_feature", "_UI_XhtmlTableType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTableType_Summary(),
 				 true,
 				 false,
@@ -342,8 +342,8 @@ public class XhtmlTableTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTableType_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_title_feature", "_UI_XhtmlTableType_type"),
+				 getString("_UI_XhtmlTableType_title_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_title_feature", "_UI_XhtmlTableType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTableType_Title(),
 				 true,
 				 false,
@@ -364,8 +364,8 @@ public class XhtmlTableTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTableType_width_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_width_feature", "_UI_XhtmlTableType_type"),
+				 getString("_UI_XhtmlTableType_width_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTableType_width_feature", "_UI_XhtmlTableType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTableType_Width(),
 				 true,
 				 false,
@@ -419,7 +419,7 @@ public class XhtmlTableTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlTableType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlTableType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -432,8 +432,8 @@ public class XhtmlTableTypeItemProvider
 	public String getText(Object object) {
 		String label = ((XhtmlTableType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlTableType_type") :
-			getString("_UI_XhtmlTableType_type") + " " + label;
+			getString("_UI_XhtmlTableType_type") : //$NON-NLS-1$
+			getString("_UI_XhtmlTableType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

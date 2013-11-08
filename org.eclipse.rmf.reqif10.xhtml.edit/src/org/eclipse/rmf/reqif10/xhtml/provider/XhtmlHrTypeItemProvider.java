@@ -90,8 +90,8 @@ public class XhtmlHrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlHrType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlHrType_class_feature", "_UI_XhtmlHrType_type"),
+				 getString("_UI_XhtmlHrType_class_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlHrType_class_feature", "_UI_XhtmlHrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlHrType_Class(),
 				 true,
 				 false,
@@ -112,8 +112,8 @@ public class XhtmlHrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlHrType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlHrType_id_feature", "_UI_XhtmlHrType_type"),
+				 getString("_UI_XhtmlHrType_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlHrType_id_feature", "_UI_XhtmlHrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlHrType_Id(),
 				 true,
 				 false,
@@ -134,8 +134,8 @@ public class XhtmlHrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlHrType_lang_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlHrType_lang_feature", "_UI_XhtmlHrType_type"),
+				 getString("_UI_XhtmlHrType_lang_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlHrType_lang_feature", "_UI_XhtmlHrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlHrType_Lang(),
 				 true,
 				 false,
@@ -156,8 +156,8 @@ public class XhtmlHrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlHrType_space_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlHrType_space_feature", "_UI_XhtmlHrType_type"),
+				 getString("_UI_XhtmlHrType_space_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlHrType_space_feature", "_UI_XhtmlHrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlHrType_Space(),
 				 true,
 				 false,
@@ -178,8 +178,8 @@ public class XhtmlHrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlHrType_style_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlHrType_style_feature", "_UI_XhtmlHrType_type"),
+				 getString("_UI_XhtmlHrType_style_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlHrType_style_feature", "_UI_XhtmlHrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlHrType_Style(),
 				 true,
 				 false,
@@ -200,8 +200,8 @@ public class XhtmlHrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlHrType_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlHrType_title_feature", "_UI_XhtmlHrType_type"),
+				 getString("_UI_XhtmlHrType_title_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlHrType_title_feature", "_UI_XhtmlHrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlHrType_Title(),
 				 true,
 				 false,
@@ -219,7 +219,7 @@ public class XhtmlHrTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlHrType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlHrType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -232,8 +232,8 @@ public class XhtmlHrTypeItemProvider
 	public String getText(Object object) {
 		String label = ((XhtmlHrType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlHrType_type") :
-			getString("_UI_XhtmlHrType_type") + " " + label;
+			getString("_UI_XhtmlHrType_type") : //$NON-NLS-1$
+			getString("_UI_XhtmlHrType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

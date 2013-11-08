@@ -76,8 +76,8 @@ public class AttributeDefinitionSimpleItemProvider
 	public String getText(Object object) {
 		String label = ((AttributeDefinitionSimple)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AttributeDefinitionSimple_type") :
-			getString("_UI_AttributeDefinitionSimple_type") + " " + label;
+			getString("_UI_AttributeDefinitionSimple_type") : //$NON-NLS-1$
+			getString("_UI_AttributeDefinitionSimple_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

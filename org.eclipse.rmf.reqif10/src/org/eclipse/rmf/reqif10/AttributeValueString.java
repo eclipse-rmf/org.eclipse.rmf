@@ -11,51 +11,49 @@
  */
 package org.eclipse.rmf.reqif10;
 
-
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Attribute Value String</b></em>'.
- * <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Attribute Value String</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.AttributeValueString#getTheValue <em>The Value</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.AttributeValueString#getDefinition <em>Definition</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.AttributeValueString#getTheValue <em>The Value</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.AttributeValueString#getDefinition <em>Definition</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueString()
- * @model extendedMetaData="name='ATTRIBUTE-VALUE-STRING' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-VALUE-STRING'"
+ * @model extendedMetaData="name='ATTRIBUTE-VALUE-STRING' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-VALUE-STRING'"
  * @generated
  */
 public interface AttributeValueString extends AttributeValueSimple {
 	/**
-	 * Returns the value of the '<em><b>The Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>The Value</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>The Value</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>The Value</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>The Value</em>' attribute.
 	 * @see #isSetTheValue()
 	 * @see #unsetTheValue()
 	 * @see #setTheValue(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueString_TheValue()
-	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='THE-VALUE' kind='attribute'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-VALUE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 * @model unsettable="true" required="true" ordered="false" extendedMetaData="name='THE-VALUE' kind='attribute'"
+	 *        annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='THE-VALUE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getTheValue();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueString#getTheValue <em>The Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>The Value</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueString#getTheValue <em>The Value</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>The Value</em>' attribute.
 	 * @see #isSetTheValue()
 	 * @see #unsetTheValue()
 	 * @see #getTheValue()
@@ -64,9 +62,9 @@ public interface AttributeValueString extends AttributeValueSimple {
 	void setTheValue(String value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueString#getTheValue <em>The Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueString#getTheValue <em>The Value</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetTheValue()
 	 * @see #getTheValue()
 	 * @see #setTheValue(String)
@@ -75,9 +73,9 @@ public interface AttributeValueString extends AttributeValueSimple {
 	void unsetTheValue();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueString#getTheValue <em>The Value</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueString#getTheValue
+	 * <em>The Value</em>}' attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>The Value</em>' attribute is set.
 	 * @see #unsetTheValue()
 	 * @see #getTheValue()
@@ -87,30 +85,31 @@ public interface AttributeValueString extends AttributeValueSimple {
 	boolean isSetTheValue();
 
 	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' reference.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Definition</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Definition</em>' reference isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Definition</em>' reference isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Definition</em>' reference.
 	 * @see #isSetDefinition()
 	 * @see #unsetDefinition()
 	 * @see #setDefinition(AttributeDefinitionString)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeValueString_Definition()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='DEFINITION' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DEFINITION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
+	 *        extendedMetaData="name='DEFINITION' kind='element' namespace='##targetNamespace'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DEFINITION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	AttributeDefinitionString getDefinition();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueString#getDefinition <em>Definition</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Definition</em>' reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueString#getDefinition <em>Definition</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Definition</em>' reference.
 	 * @see #isSetDefinition()
 	 * @see #unsetDefinition()
 	 * @see #getDefinition()
@@ -119,9 +118,9 @@ public interface AttributeValueString extends AttributeValueSimple {
 	void setDefinition(AttributeDefinitionString value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueString#getDefinition <em>Definition</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueString#getDefinition <em>Definition</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetDefinition()
 	 * @see #getDefinition()
 	 * @see #setDefinition(AttributeDefinitionString)
@@ -130,9 +129,9 @@ public interface AttributeValueString extends AttributeValueSimple {
 	void unsetDefinition();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueString#getDefinition <em>Definition</em>}' reference is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.AttributeValueString#getDefinition
+	 * <em>Definition</em>}' reference is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Definition</em>' reference is set.
 	 * @see #unsetDefinition()
 	 * @see #getDefinition()

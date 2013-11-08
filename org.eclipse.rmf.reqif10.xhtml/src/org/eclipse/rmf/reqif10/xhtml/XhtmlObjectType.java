@@ -12,15 +12,11 @@
 package org.eclipse.rmf.reqif10.xhtml;
 
 import java.math.BigInteger;
-
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.util.FeatureMap;
-
 import org.eclipse.emf.ecore.xml.namespace.SpaceType;
 
 /**

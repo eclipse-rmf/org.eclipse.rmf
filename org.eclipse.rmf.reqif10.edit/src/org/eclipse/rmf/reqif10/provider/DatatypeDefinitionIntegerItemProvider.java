@@ -83,8 +83,8 @@ public class DatatypeDefinitionIntegerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DatatypeDefinitionInteger_max_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DatatypeDefinitionInteger_max_feature", "_UI_DatatypeDefinitionInteger_type"),
+				 getString("_UI_DatatypeDefinitionInteger_max_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DatatypeDefinitionInteger_max_feature", "_UI_DatatypeDefinitionInteger_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.DATATYPE_DEFINITION_INTEGER__MAX,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class DatatypeDefinitionIntegerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DatatypeDefinitionInteger_min_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DatatypeDefinitionInteger_min_feature", "_UI_DatatypeDefinitionInteger_type"),
+				 getString("_UI_DatatypeDefinitionInteger_min_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DatatypeDefinitionInteger_min_feature", "_UI_DatatypeDefinitionInteger_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.DATATYPE_DEFINITION_INTEGER__MIN,
 				 true,
 				 false,
@@ -124,7 +124,7 @@ public class DatatypeDefinitionIntegerItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DatatypeDefinitionInteger"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DatatypeDefinitionInteger")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,8 +137,8 @@ public class DatatypeDefinitionIntegerItemProvider
 	public String getText(Object object) {
 		String label = ((DatatypeDefinitionInteger)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DatatypeDefinitionInteger_type") :
-			getString("_UI_DatatypeDefinitionInteger_type") + " " + label;
+			getString("_UI_DatatypeDefinitionInteger_type") : //$NON-NLS-1$
+			getString("_UI_DatatypeDefinitionInteger_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

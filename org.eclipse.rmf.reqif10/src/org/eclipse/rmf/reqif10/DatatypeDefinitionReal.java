@@ -14,50 +14,49 @@ package org.eclipse.rmf.reqif10;
 import java.math.BigInteger;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Datatype Definition Real</b></em>'.
- * <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Datatype Definition Real</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getAccuracy <em>Accuracy</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getMax <em>Max</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getMin <em>Min</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getAccuracy <em>Accuracy</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getMax <em>Max</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getMin <em>Min</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionReal()
- * @model extendedMetaData="name='DATATYPE-DEFINITION-REAL' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DATATYPE-DEFINITION-REAL'"
+ * @model extendedMetaData="name='DATATYPE-DEFINITION-REAL' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DATATYPE-DEFINITION-REAL'"
  * @generated
  */
 public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 	/**
-	 * Returns the value of the '<em><b>Accuracy</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Accuracy</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Accuracy</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Accuracy</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Accuracy</em>' attribute.
 	 * @see #isSetAccuracy()
 	 * @see #unsetAccuracy()
 	 * @see #setAccuracy(BigInteger)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionReal_Accuracy()
-	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='ACCURACY' kind='attribute'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ACCURACY' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 * @model unsettable="true" required="true" ordered="false" extendedMetaData="name='ACCURACY' kind='attribute'"
+	 *        annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ACCURACY' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	BigInteger getAccuracy();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getAccuracy <em>Accuracy</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Accuracy</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getAccuracy <em>Accuracy</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Accuracy</em>' attribute.
 	 * @see #isSetAccuracy()
 	 * @see #unsetAccuracy()
 	 * @see #getAccuracy()
@@ -66,9 +65,9 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 	void setAccuracy(BigInteger value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getAccuracy <em>Accuracy</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getAccuracy <em>Accuracy</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetAccuracy()
 	 * @see #getAccuracy()
 	 * @see #setAccuracy(BigInteger)
@@ -77,9 +76,9 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 	void unsetAccuracy();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getAccuracy <em>Accuracy</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getAccuracy
+	 * <em>Accuracy</em>}' attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Accuracy</em>' attribute is set.
 	 * @see #unsetAccuracy()
 	 * @see #getAccuracy()
@@ -89,30 +88,30 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 	boolean isSetAccuracy();
 
 	/**
-	 * Returns the value of the '<em><b>Max</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Max</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Max</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Max</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Max</em>' attribute.
 	 * @see #isSetMax()
 	 * @see #unsetMax()
 	 * @see #setMax(double)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionReal_Max()
-	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='MAX' kind='attribute'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='MAX' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 * @model unsettable="true" required="true" ordered="false" extendedMetaData="name='MAX' kind='attribute'"
+	 *        annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='MAX' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	double getMax();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getMax <em>Max</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Max</em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Max</em>' attribute.
 	 * @see #isSetMax()
 	 * @see #unsetMax()
 	 * @see #getMax()
@@ -122,8 +121,8 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 
 	/**
 	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getMax <em>Max</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetMax()
 	 * @see #getMax()
 	 * @see #setMax(double)
@@ -132,9 +131,9 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 	void unsetMax();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getMax <em>Max</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getMax <em>Max</em>}'
+	 * attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Max</em>' attribute is set.
 	 * @see #unsetMax()
 	 * @see #getMax()
@@ -144,30 +143,30 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 	boolean isSetMax();
 
 	/**
-	 * Returns the value of the '<em><b>Min</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Min</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Min</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Min</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Min</em>' attribute.
 	 * @see #isSetMin()
 	 * @see #unsetMin()
 	 * @see #setMin(double)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionReal_Min()
-	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='MIN' kind='attribute'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='MIN' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 * @model unsettable="true" required="true" ordered="false" extendedMetaData="name='MIN' kind='attribute'"
+	 *        annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='MIN' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	double getMin();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getMin <em>Min</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Min</em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Min</em>' attribute.
 	 * @see #isSetMin()
 	 * @see #unsetMin()
 	 * @see #getMin()
@@ -177,8 +176,8 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 
 	/**
 	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getMin <em>Min</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetMin()
 	 * @see #getMin()
 	 * @see #setMin(double)
@@ -187,9 +186,9 @@ public interface DatatypeDefinitionReal extends DatatypeDefinitionSimple {
 	void unsetMin();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getMin <em>Min</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.DatatypeDefinitionReal#getMin <em>Min</em>}'
+	 * attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Min</em>' attribute is set.
 	 * @see #unsetMin()
 	 * @see #getMin()

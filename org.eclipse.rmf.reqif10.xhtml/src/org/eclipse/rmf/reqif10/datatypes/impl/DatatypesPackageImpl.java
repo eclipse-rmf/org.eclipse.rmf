@@ -12,7 +12,6 @@
 package org.eclipse.rmf.reqif10.datatypes.impl;
 
 import java.math.BigInteger;
-
 import java.util.List;
 
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -21,18 +20,13 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EValidator;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesFactory;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 import org.eclipse.rmf.reqif10.datatypes.FrameTargetMember0;
-
 import org.eclipse.rmf.reqif10.datatypes.util.DatatypesValidator;
-
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
-
 import org.eclipse.rmf.reqif10.xhtml.impl.XhtmlPackageImpl;
 
 /**
@@ -792,48 +786,48 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		setNsURI(eNS_URI);
 
 		// Initialize enums and add enum literals
-		initEEnum(frameTargetMember0EEnum, FrameTargetMember0.class, "FrameTargetMember0");
+		initEEnum(frameTargetMember0EEnum, FrameTargetMember0.class, "FrameTargetMember0"); //$NON-NLS-1$
 		addEEnumLiteral(frameTargetMember0EEnum, FrameTargetMember0.BLANK);
 		addEEnumLiteral(frameTargetMember0EEnum, FrameTargetMember0.SELF);
 		addEEnumLiteral(frameTargetMember0EEnum, FrameTargetMember0.PARENT);
 		addEEnumLiteral(frameTargetMember0EEnum, FrameTargetMember0.TOP);
 
 		// Initialize data types
-		initEDataType(cdataEDataType, String.class, "CDATA", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(characterEDataType, String.class, "Character", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(charsetEDataType, String.class, "Charset", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(charsetsEDataType, List.class, "Charsets", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(colorEDataType, String.class, "Color", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(colorMember1EDataType, String.class, "ColorMember1", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(contentTypeEDataType, String.class, "ContentType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(contentTypesEDataType, String.class, "ContentTypes", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(curieEDataType, String.class, "CURIE", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(curiEsEDataType, List.class, "CURIEs", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(datetimeEDataType, XMLGregorianCalendar.class, "Datetime", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(fpiEDataType, String.class, "FPI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(frameTargetEDataType, Object.class, "FrameTarget", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(frameTargetMember0ObjectEDataType, FrameTargetMember0.class, "FrameTargetMember0Object", IS_SERIALIZABLE, IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(frameTargetMember1EDataType, String.class, "FrameTargetMember1", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(languageCodeEDataType, String.class, "LanguageCode", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(languageCodesEDataType, String.class, "LanguageCodes", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(lengthEDataType, Object.class, "Length", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(lengthMember1EDataType, String.class, "LengthMember1", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(linkTypesEDataType, List.class, "LinkTypes", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(mediaDescEDataType, String.class, "MediaDesc", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(multiLengthEDataType, Object.class, "MultiLength", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(multiLengthMember1EDataType, String.class, "MultiLengthMember1", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(multiLengthsEDataType, String.class, "MultiLengths", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(numberEDataType, BigInteger.class, "Number", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(pixelsEDataType, BigInteger.class, "Pixels", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(safeCURIEEDataType, String.class, "SafeCURIE", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(safeCURIEsEDataType, List.class, "SafeCURIEs", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(scriptEDataType, String.class, "Script", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(textEDataType, String.class, "Text", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(uriEDataType, String.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(urIorSafeCURIEEDataType, String.class, "URIorSafeCURIE", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(urIorSafeCURIEsEDataType, List.class, "URIorSafeCURIEs", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(urirefEDataType, String.class, "URIREF", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(urIsEDataType, List.class, "URIs", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(cdataEDataType, String.class, "CDATA", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(characterEDataType, String.class, "Character", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(charsetEDataType, String.class, "Charset", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(charsetsEDataType, List.class, "Charsets", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(colorEDataType, String.class, "Color", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(colorMember1EDataType, String.class, "ColorMember1", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(contentTypeEDataType, String.class, "ContentType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(contentTypesEDataType, String.class, "ContentTypes", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(curieEDataType, String.class, "CURIE", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(curiEsEDataType, List.class, "CURIEs", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(datetimeEDataType, XMLGregorianCalendar.class, "Datetime", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(fpiEDataType, String.class, "FPI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(frameTargetEDataType, Object.class, "FrameTarget", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(frameTargetMember0ObjectEDataType, FrameTargetMember0.class, "FrameTargetMember0Object", IS_SERIALIZABLE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(frameTargetMember1EDataType, String.class, "FrameTargetMember1", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(languageCodeEDataType, String.class, "LanguageCode", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(languageCodesEDataType, String.class, "LanguageCodes", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(lengthEDataType, Object.class, "Length", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(lengthMember1EDataType, String.class, "LengthMember1", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(linkTypesEDataType, List.class, "LinkTypes", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(mediaDescEDataType, String.class, "MediaDesc", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(multiLengthEDataType, Object.class, "MultiLength", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(multiLengthMember1EDataType, String.class, "MultiLengthMember1", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(multiLengthsEDataType, String.class, "MultiLengths", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(numberEDataType, BigInteger.class, "Number", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(pixelsEDataType, BigInteger.class, "Pixels", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(safeCURIEEDataType, String.class, "SafeCURIE", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(safeCURIEsEDataType, List.class, "SafeCURIEs", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(scriptEDataType, String.class, "Script", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(textEDataType, String.class, "Text", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(uriEDataType, String.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(urIorSafeCURIEEDataType, String.class, "URIorSafeCURIE", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(urIorSafeCURIEsEDataType, List.class, "URIorSafeCURIEs", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(urirefEDataType, String.class, "URIREF", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(urIsEDataType, List.class, "URIs", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);
@@ -850,268 +844,268 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";			
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$			
 		addAnnotation
 		  (cdataEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "CDATA",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string"
+			 "name", "CDATA", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (characterEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "Character",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string",
-			 "length", "1"
+			 "name", "Character", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+			 "length", "1" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (charsetEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "Charset",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string"
+			 "name", "Charset", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (charsetsEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "Charsets",
-			 "itemType", "Charset"
+			 "name", "Charsets", //$NON-NLS-1$ //$NON-NLS-2$
+			 "itemType", "Charset" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (colorEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "Color",
-			 "memberTypes", "http://www.eclipse.org/emf/2003/XMLType#NMTOKEN Color_._member_._1"
+			 "name", "Color", //$NON-NLS-1$ //$NON-NLS-2$
+			 "memberTypes", "http://www.eclipse.org/emf/2003/XMLType#NMTOKEN Color_._member_._1" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (colorMember1EDataType, 
 		   source, 
 		   new String[] {
-			 "name", "Color_._member_._1",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#token",
-			 "pattern", "#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?"
+			 "name", "Color_._member_._1", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#token", //$NON-NLS-1$ //$NON-NLS-2$
+			 "pattern", "#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (contentTypeEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "ContentType",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string"
+			 "name", "ContentType", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (contentTypesEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "ContentTypes",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string"
+			 "name", "ContentTypes", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (curieEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "CURIE",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string",
-			 "minLength", "1",
-			 "pattern", "(([\\i-[:]][\\c-[:]]*)?:)?.+"
+			 "name", "CURIE", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+			 "minLength", "1", //$NON-NLS-1$ //$NON-NLS-2$
+			 "pattern", "(([\\i-[:]][\\c-[:]]*)?:)?.+" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (curiEsEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "CURIEs",
-			 "itemType", "CURIE"
+			 "name", "CURIEs", //$NON-NLS-1$ //$NON-NLS-2$
+			 "itemType", "CURIE" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (datetimeEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "Datetime",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#dateTime"
+			 "name", "Datetime", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#dateTime" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (fpiEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "FPI",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#normalizedString"
+			 "name", "FPI", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#normalizedString" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (frameTargetEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "FrameTarget",
-			 "memberTypes", "FrameTarget_._member_._0 FrameTarget_._member_._1"
+			 "name", "FrameTarget", //$NON-NLS-1$ //$NON-NLS-2$
+			 "memberTypes", "FrameTarget_._member_._0 FrameTarget_._member_._1" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (frameTargetMember0EEnum, 
 		   source, 
 		   new String[] {
-			 "name", "FrameTarget_._member_._0"
+			 "name", "FrameTarget_._member_._0" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (frameTargetMember0ObjectEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "FrameTarget_._member_._0:Object",
-			 "baseType", "FrameTarget_._member_._0"
+			 "name", "FrameTarget_._member_._0:Object", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "FrameTarget_._member_._0" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (frameTargetMember1EDataType, 
 		   source, 
 		   new String[] {
-			 "name", "FrameTarget_._member_._1",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string",
-			 "pattern", "[a-zA-Z].*"
+			 "name", "FrameTarget_._member_._1", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+			 "pattern", "[a-zA-Z].*" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (languageCodeEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "LanguageCode",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#language"
+			 "name", "LanguageCode", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#language" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (languageCodesEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "LanguageCodes",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string"
+			 "name", "LanguageCodes", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (lengthEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "Length",
-			 "memberTypes", "http://www.eclipse.org/emf/2003/XMLType#nonNegativeInteger Length_._member_._1"
+			 "name", "Length", //$NON-NLS-1$ //$NON-NLS-2$
+			 "memberTypes", "http://www.eclipse.org/emf/2003/XMLType#nonNegativeInteger Length_._member_._1" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (lengthMember1EDataType, 
 		   source, 
 		   new String[] {
-			 "name", "Length_._member_._1",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#token",
-			 "pattern", "\\d+[%25]|\\d*\\.\\d+[%25]"
+			 "name", "Length_._member_._1", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#token", //$NON-NLS-1$ //$NON-NLS-2$
+			 "pattern", "\\d+[%25]|\\d*\\.\\d+[%25]" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (linkTypesEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "LinkTypes",
-			 "itemType", "http://www.eclipse.org/emf/2003/XMLType#NMTOKEN"
+			 "name", "LinkTypes", //$NON-NLS-1$ //$NON-NLS-2$
+			 "itemType", "http://www.eclipse.org/emf/2003/XMLType#NMTOKEN" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (mediaDescEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "MediaDesc",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string"
+			 "name", "MediaDesc", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (multiLengthEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "MultiLength",
-			 "memberTypes", "Length MultiLength_._member_._1"
+			 "name", "MultiLength", //$NON-NLS-1$ //$NON-NLS-2$
+			 "memberTypes", "Length MultiLength_._member_._1" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (multiLengthMember1EDataType, 
 		   source, 
 		   new String[] {
-			 "name", "MultiLength_._member_._1",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#token",
-			 "pattern", "\\d*\\*"
+			 "name", "MultiLength_._member_._1", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#token", //$NON-NLS-1$ //$NON-NLS-2$
+			 "pattern", "\\d*\\*" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (multiLengthsEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "MultiLengths",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string"
+			 "name", "MultiLengths", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (numberEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "Number",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#nonNegativeInteger"
+			 "name", "Number", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#nonNegativeInteger" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (pixelsEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "Pixels",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#nonNegativeInteger"
+			 "name", "Pixels", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#nonNegativeInteger" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (safeCURIEEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "SafeCURIE",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string",
-			 "minLength", "3",
-			 "pattern", "\\[(([\\i-[:]][\\c-[:]]*)?:)?.+\\]"
+			 "name", "SafeCURIE", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+			 "minLength", "3", //$NON-NLS-1$ //$NON-NLS-2$
+			 "pattern", "\\[(([\\i-[:]][\\c-[:]]*)?:)?.+\\]" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (safeCURIEsEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "SafeCURIEs",
-			 "itemType", "SafeCURIE"
+			 "name", "SafeCURIEs", //$NON-NLS-1$ //$NON-NLS-2$
+			 "itemType", "SafeCURIE" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (scriptEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "Script",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string"
+			 "name", "Script", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (textEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "Text",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string"
+			 "name", "Text", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (uriEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "URI",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#anyURI"
+			 "name", "URI", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#anyURI" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (urIorSafeCURIEEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "URIorSafeCURIE",
-			 "memberTypes", "http://www.eclipse.org/emf/2003/XMLType#anyURI SafeCURIE"
+			 "name", "URIorSafeCURIE", //$NON-NLS-1$ //$NON-NLS-2$
+			 "memberTypes", "http://www.eclipse.org/emf/2003/XMLType#anyURI SafeCURIE" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (urIorSafeCURIEsEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "URIorSafeCURIEs",
-			 "itemType", "URIorSafeCURIE"
+			 "name", "URIorSafeCURIEs", //$NON-NLS-1$ //$NON-NLS-2$
+			 "itemType", "URIorSafeCURIE" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (urirefEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "URIREF",
-			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string",
-			 "minLength", "1",
-			 "pattern", "#\\c*"
+			 "name", "URIREF", //$NON-NLS-1$ //$NON-NLS-2$
+			 "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+			 "minLength", "1", //$NON-NLS-1$ //$NON-NLS-2$
+			 "pattern", "#\\c*" //$NON-NLS-1$ //$NON-NLS-2$
 		   });		
 		addAnnotation
 		  (urIsEDataType, 
 		   source, 
 		   new String[] {
-			 "name", "URIs",
-			 "itemType", "http://www.eclipse.org/emf/2003/XMLType#anyURI"
+			 "name", "URIs", //$NON-NLS-1$ //$NON-NLS-2$
+			 "itemType", "http://www.eclipse.org/emf/2003/XMLType#anyURI" //$NON-NLS-1$ //$NON-NLS-2$
 		   });
 	}
 

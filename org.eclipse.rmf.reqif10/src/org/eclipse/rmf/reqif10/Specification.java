@@ -14,49 +14,46 @@ package org.eclipse.rmf.reqif10;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Specification</b></em>'.
- * <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Specification</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.Specification#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.Specification#getChildren <em>Children</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.Specification#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.Specification#getChildren <em>Children</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecification()
- * @model extendedMetaData="name='SPECIFICATION' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPECIFICATION'"
+ * @model extendedMetaData="name='SPECIFICATION' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPECIFICATION'"
  * @generated
  */
 public interface Specification extends SpecElementWithAttributes {
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Type</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Type</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Type</em>' reference.
 	 * @see #isSetType()
 	 * @see #unsetType()
 	 * @see #setType(SpecificationType)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecification_Type()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='TYPE' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='TYPE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
+	 *        extendedMetaData="name='TYPE' kind='element' namespace='##targetNamespace'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='TYPE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='true' classifierNameSuffix='-REF'"
 	 * @generated
 	 */
 	SpecificationType getType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.Specification#getType <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.Specification#getType <em>Type</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Type</em>' reference.
 	 * @see #isSetType()
 	 * @see #unsetType()
 	 * @see #getType()
@@ -65,9 +62,9 @@ public interface Specification extends SpecElementWithAttributes {
 	void setType(SpecificationType value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.Specification#getType <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.Specification#getType <em>Type</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetType()
 	 * @see #getType()
 	 * @see #setType(SpecificationType)
@@ -76,9 +73,9 @@ public interface Specification extends SpecElementWithAttributes {
 	void unsetType();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.Specification#getType <em>Type</em>}' reference is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.Specification#getType <em>Type</em>}' reference
+	 * is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Type</em>' reference is set.
 	 * @see #unsetType()
 	 * @see #getType()
@@ -88,29 +85,29 @@ public interface Specification extends SpecElementWithAttributes {
 	boolean isSetType();
 
 	/**
-	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.rmf.reqif10.SpecHierarchy}.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Children</b></em>' containment reference list. The list contents are of type
+	 * {@link org.eclipse.rmf.reqif10.SpecHierarchy}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Children</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Children</em>' containment reference list isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Children</em>' containment reference list.
 	 * @see #isSetChildren()
 	 * @see #unsetChildren()
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecification_Children()
 	 * @model containment="true" unsettable="true"
-	 *        extendedMetaData="name='CHILDREN' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='CHILDREN' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
+	 *        extendedMetaData="name='CHILDREN' kind='element' namespace='##targetNamespace'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='CHILDREN' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<SpecHierarchy> getChildren();
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.Specification#getChildren <em>Children</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.Specification#getChildren <em>Children</em>}' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetChildren()
 	 * @see #getChildren()
 	 * @generated
@@ -118,9 +115,9 @@ public interface Specification extends SpecElementWithAttributes {
 	void unsetChildren();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.Specification#getChildren <em>Children</em>}' containment reference list is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.Specification#getChildren <em>Children</em>}'
+	 * containment reference list is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Children</em>' containment reference list is set.
 	 * @see #unsetChildren()
 	 * @see #getChildren()

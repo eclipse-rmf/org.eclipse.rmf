@@ -74,7 +74,7 @@ public class SpecObjectTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SpecObjectType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SpecObjectType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -87,8 +87,8 @@ public class SpecObjectTypeItemProvider
 	public String getText(Object object) {
 		String label = ((SpecObjectType)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SpecObjectType_type") :
-			getString("_UI_SpecObjectType_type") + " " + label;
+			getString("_UI_SpecObjectType_type") : //$NON-NLS-1$
+			getString("_UI_SpecObjectType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -89,8 +89,8 @@ public class XhtmlParamTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlParamType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlParamType_id_feature", "_UI_XhtmlParamType_type"),
+				 getString("_UI_XhtmlParamType_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlParamType_id_feature", "_UI_XhtmlParamType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlParamType_Id(),
 				 true,
 				 false,
@@ -111,8 +111,8 @@ public class XhtmlParamTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlParamType_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlParamType_name_feature", "_UI_XhtmlParamType_type"),
+				 getString("_UI_XhtmlParamType_name_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlParamType_name_feature", "_UI_XhtmlParamType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlParamType_Name(),
 				 true,
 				 false,
@@ -133,8 +133,8 @@ public class XhtmlParamTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlParamType_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlParamType_type_feature", "_UI_XhtmlParamType_type"),
+				 getString("_UI_XhtmlParamType_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlParamType_type_feature", "_UI_XhtmlParamType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlParamType_Type(),
 				 true,
 				 false,
@@ -155,8 +155,8 @@ public class XhtmlParamTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlParamType_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlParamType_value_feature", "_UI_XhtmlParamType_type"),
+				 getString("_UI_XhtmlParamType_value_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlParamType_value_feature", "_UI_XhtmlParamType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlParamType_Value(),
 				 true,
 				 false,
@@ -177,8 +177,8 @@ public class XhtmlParamTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlParamType_valuetype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlParamType_valuetype_feature", "_UI_XhtmlParamType_type"),
+				 getString("_UI_XhtmlParamType_valuetype_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlParamType_valuetype_feature", "_UI_XhtmlParamType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlParamType_Valuetype(),
 				 true,
 				 false,
@@ -196,7 +196,7 @@ public class XhtmlParamTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlParamType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlParamType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -209,8 +209,8 @@ public class XhtmlParamTypeItemProvider
 	public String getText(Object object) {
 		String label = ((XhtmlParamType)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlParamType_type") :
-			getString("_UI_XhtmlParamType_type") + " " + label;
+			getString("_UI_XhtmlParamType_type") : //$NON-NLS-1$
+			getString("_UI_XhtmlParamType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

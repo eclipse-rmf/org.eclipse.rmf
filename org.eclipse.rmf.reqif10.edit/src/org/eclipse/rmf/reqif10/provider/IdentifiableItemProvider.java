@@ -91,8 +91,8 @@ public class IdentifiableItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Identifiable_desc_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_desc_feature", "_UI_Identifiable_type"),
+				 getString("_UI_Identifiable_desc_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_desc_feature", "_UI_Identifiable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.IDENTIFIABLE__DESC,
 				 true,
 				 false,
@@ -113,8 +113,8 @@ public class IdentifiableItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Identifiable_identifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_identifier_feature", "_UI_Identifiable_type"),
+				 getString("_UI_Identifiable_identifier_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_identifier_feature", "_UI_Identifiable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.IDENTIFIABLE__IDENTIFIER,
 				 true,
 				 false,
@@ -135,8 +135,8 @@ public class IdentifiableItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Identifiable_lastChange_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_lastChange_feature", "_UI_Identifiable_type"),
+				 getString("_UI_Identifiable_lastChange_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_lastChange_feature", "_UI_Identifiable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.IDENTIFIABLE__LAST_CHANGE,
 				 true,
 				 false,
@@ -157,8 +157,8 @@ public class IdentifiableItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Identifiable_longName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_longName_feature", "_UI_Identifiable_type"),
+				 getString("_UI_Identifiable_longName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_longName_feature", "_UI_Identifiable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.IDENTIFIABLE__LONG_NAME,
 				 true,
 				 false,
@@ -208,8 +208,8 @@ public class IdentifiableItemProvider
 	public String getText(Object object) {
 		String label = ((Identifiable)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Identifiable_type") :
-			getString("_UI_Identifiable_type") + " " + label;
+			getString("_UI_Identifiable_type") : //$NON-NLS-1$
+			getString("_UI_Identifiable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

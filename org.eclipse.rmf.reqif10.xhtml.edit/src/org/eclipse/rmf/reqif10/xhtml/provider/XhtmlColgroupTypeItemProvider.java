@@ -99,8 +99,8 @@ public class XhtmlColgroupTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlColgroupType_align_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_align_feature", "_UI_XhtmlColgroupType_type"),
+				 getString("_UI_XhtmlColgroupType_align_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_align_feature", "_UI_XhtmlColgroupType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlColgroupType_Align(),
 				 true,
 				 false,
@@ -121,8 +121,8 @@ public class XhtmlColgroupTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlColgroupType_char_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_char_feature", "_UI_XhtmlColgroupType_type"),
+				 getString("_UI_XhtmlColgroupType_char_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_char_feature", "_UI_XhtmlColgroupType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlColgroupType_Char(),
 				 true,
 				 false,
@@ -143,8 +143,8 @@ public class XhtmlColgroupTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlColgroupType_charoff_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_charoff_feature", "_UI_XhtmlColgroupType_type"),
+				 getString("_UI_XhtmlColgroupType_charoff_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_charoff_feature", "_UI_XhtmlColgroupType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlColgroupType_Charoff(),
 				 true,
 				 false,
@@ -165,8 +165,8 @@ public class XhtmlColgroupTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlColgroupType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_class_feature", "_UI_XhtmlColgroupType_type"),
+				 getString("_UI_XhtmlColgroupType_class_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_class_feature", "_UI_XhtmlColgroupType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlColgroupType_Class(),
 				 true,
 				 false,
@@ -187,8 +187,8 @@ public class XhtmlColgroupTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlColgroupType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_id_feature", "_UI_XhtmlColgroupType_type"),
+				 getString("_UI_XhtmlColgroupType_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_id_feature", "_UI_XhtmlColgroupType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlColgroupType_Id(),
 				 true,
 				 false,
@@ -209,8 +209,8 @@ public class XhtmlColgroupTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlColgroupType_lang_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_lang_feature", "_UI_XhtmlColgroupType_type"),
+				 getString("_UI_XhtmlColgroupType_lang_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_lang_feature", "_UI_XhtmlColgroupType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlColgroupType_Lang(),
 				 true,
 				 false,
@@ -231,8 +231,8 @@ public class XhtmlColgroupTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlColgroupType_space_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_space_feature", "_UI_XhtmlColgroupType_type"),
+				 getString("_UI_XhtmlColgroupType_space_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_space_feature", "_UI_XhtmlColgroupType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlColgroupType_Space(),
 				 true,
 				 false,
@@ -253,8 +253,8 @@ public class XhtmlColgroupTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlColgroupType_span_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_span_feature", "_UI_XhtmlColgroupType_type"),
+				 getString("_UI_XhtmlColgroupType_span_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_span_feature", "_UI_XhtmlColgroupType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlColgroupType_Span(),
 				 true,
 				 false,
@@ -275,8 +275,8 @@ public class XhtmlColgroupTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlColgroupType_style_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_style_feature", "_UI_XhtmlColgroupType_type"),
+				 getString("_UI_XhtmlColgroupType_style_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_style_feature", "_UI_XhtmlColgroupType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlColgroupType_Style(),
 				 true,
 				 false,
@@ -297,8 +297,8 @@ public class XhtmlColgroupTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlColgroupType_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_title_feature", "_UI_XhtmlColgroupType_type"),
+				 getString("_UI_XhtmlColgroupType_title_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_title_feature", "_UI_XhtmlColgroupType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlColgroupType_Title(),
 				 true,
 				 false,
@@ -319,8 +319,8 @@ public class XhtmlColgroupTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlColgroupType_valign_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_valign_feature", "_UI_XhtmlColgroupType_type"),
+				 getString("_UI_XhtmlColgroupType_valign_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_valign_feature", "_UI_XhtmlColgroupType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlColgroupType_Valign(),
 				 true,
 				 false,
@@ -341,8 +341,8 @@ public class XhtmlColgroupTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlColgroupType_width_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_width_feature", "_UI_XhtmlColgroupType_type"),
+				 getString("_UI_XhtmlColgroupType_width_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlColgroupType_width_feature", "_UI_XhtmlColgroupType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlColgroupType_Width(),
 				 true,
 				 false,
@@ -390,7 +390,7 @@ public class XhtmlColgroupTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlColgroupType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlColgroupType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -403,8 +403,8 @@ public class XhtmlColgroupTypeItemProvider
 	public String getText(Object object) {
 		String label = ((XhtmlColgroupType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlColgroupType_type") :
-			getString("_UI_XhtmlColgroupType_type") + " " + label;
+			getString("_UI_XhtmlColgroupType_type") : //$NON-NLS-1$
+			getString("_UI_XhtmlColgroupType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -109,7 +109,7 @@ public class EnumValueItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EnumValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EnumValue")); //$NON-NLS-1$
 	}
 
 	/**
@@ -122,8 +122,8 @@ public class EnumValueItemProvider
 	public String getText(Object object) {
 		String label = ((EnumValue)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EnumValue_type") :
-			getString("_UI_EnumValue_type") + " " + label;
+			getString("_UI_EnumValue_type") : //$NON-NLS-1$
+			getString("_UI_EnumValue_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

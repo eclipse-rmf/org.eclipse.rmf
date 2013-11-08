@@ -84,8 +84,8 @@ public class AttributeDefinitionRealItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AttributeDefinitionReal_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeDefinitionReal_type_feature", "_UI_AttributeDefinitionReal_type"),
+				 getString("_UI_AttributeDefinitionReal_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeDefinitionReal_type_feature", "_UI_AttributeDefinitionReal_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_REAL__TYPE,
 				 true,
 				 false,
@@ -133,7 +133,7 @@ public class AttributeDefinitionRealItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AttributeDefinitionReal"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AttributeDefinitionReal")); //$NON-NLS-1$
 	}
 
 	/**
@@ -146,8 +146,8 @@ public class AttributeDefinitionRealItemProvider
 	public String getText(Object object) {
 		String label = ((AttributeDefinitionReal)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AttributeDefinitionReal_type") :
-			getString("_UI_AttributeDefinitionReal_type") + " " + label;
+			getString("_UI_AttributeDefinitionReal_type") : //$NON-NLS-1$
+			getString("_UI_AttributeDefinitionReal_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

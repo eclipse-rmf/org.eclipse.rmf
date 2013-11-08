@@ -101,8 +101,8 @@ public class XhtmlEditTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlEditType_cite1_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_cite1_feature", "_UI_XhtmlEditType_type"),
+				 getString("_UI_XhtmlEditType_cite1_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_cite1_feature", "_UI_XhtmlEditType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlEditType_Cite1(),
 				 true,
 				 false,
@@ -123,8 +123,8 @@ public class XhtmlEditTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlEditType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_class_feature", "_UI_XhtmlEditType_type"),
+				 getString("_UI_XhtmlEditType_class_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_class_feature", "_UI_XhtmlEditType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlEditType_Class(),
 				 true,
 				 false,
@@ -145,8 +145,8 @@ public class XhtmlEditTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlEditType_datetime_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_datetime_feature", "_UI_XhtmlEditType_type"),
+				 getString("_UI_XhtmlEditType_datetime_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_datetime_feature", "_UI_XhtmlEditType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlEditType_Datetime(),
 				 true,
 				 false,
@@ -167,8 +167,8 @@ public class XhtmlEditTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlEditType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_id_feature", "_UI_XhtmlEditType_type"),
+				 getString("_UI_XhtmlEditType_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_id_feature", "_UI_XhtmlEditType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlEditType_Id(),
 				 true,
 				 false,
@@ -189,8 +189,8 @@ public class XhtmlEditTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlEditType_lang_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_lang_feature", "_UI_XhtmlEditType_type"),
+				 getString("_UI_XhtmlEditType_lang_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_lang_feature", "_UI_XhtmlEditType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlEditType_Lang(),
 				 true,
 				 false,
@@ -211,8 +211,8 @@ public class XhtmlEditTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlEditType_space_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_space_feature", "_UI_XhtmlEditType_type"),
+				 getString("_UI_XhtmlEditType_space_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_space_feature", "_UI_XhtmlEditType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlEditType_Space(),
 				 true,
 				 false,
@@ -233,8 +233,8 @@ public class XhtmlEditTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlEditType_style_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_style_feature", "_UI_XhtmlEditType_type"),
+				 getString("_UI_XhtmlEditType_style_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_style_feature", "_UI_XhtmlEditType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlEditType_Style(),
 				 true,
 				 false,
@@ -255,8 +255,8 @@ public class XhtmlEditTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlEditType_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_title_feature", "_UI_XhtmlEditType_type"),
+				 getString("_UI_XhtmlEditType_title_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlEditType_title_feature", "_UI_XhtmlEditType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlEditType_Title(),
 				 true,
 				 false,
@@ -304,7 +304,7 @@ public class XhtmlEditTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlEditType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlEditType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -317,8 +317,8 @@ public class XhtmlEditTypeItemProvider
 	public String getText(Object object) {
 		String label = ((XhtmlEditType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlEditType_type") :
-			getString("_UI_XhtmlEditType_type") + " " + label;
+			getString("_UI_XhtmlEditType_type") : //$NON-NLS-1$
+			getString("_UI_XhtmlEditType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -366,14 +366,14 @@ public class XhtmlEditTypeItemProvider
 				(XhtmlPackage.eINSTANCE.getXhtmlEditType_Mixed(),
 				 FeatureMapUtil.createEntry
 					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
-					 "")));
+					 ""))); //$NON-NLS-1$
 
 		newChildDescriptors.add
 			(createChildParameter
 				(XhtmlPackage.eINSTANCE.getXhtmlEditType_Mixed(),
 				 FeatureMapUtil.createEntry
 					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
-					 "")));
+					 ""))); //$NON-NLS-1$
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -387,7 +387,7 @@ public class XhtmlEditTypeItemProvider
 				(XhtmlPackage.eINSTANCE.getXhtmlEditType_Mixed(),
 				 FeatureMapUtil.createEntry
 					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
-					 "")));
+					 ""))); //$NON-NLS-1$
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -700,7 +700,7 @@ public class XhtmlEditTypeItemProvider
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

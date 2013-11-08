@@ -85,8 +85,8 @@ public class AlternativeIDItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AlternativeID_identifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AlternativeID_identifier_feature", "_UI_AlternativeID_type"),
+				 getString("_UI_AlternativeID_identifier_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AlternativeID_identifier_feature", "_UI_AlternativeID_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.ALTERNATIVE_ID__IDENTIFIER,
 				 true,
 				 false,
@@ -104,7 +104,7 @@ public class AlternativeIDItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AlternativeID"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AlternativeID")); //$NON-NLS-1$
 	}
 
 	/**
@@ -117,8 +117,8 @@ public class AlternativeIDItemProvider
 	public String getText(Object object) {
 		String label = ((AlternativeID)object).getIdentifier();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AlternativeID_type") :
-			getString("_UI_AlternativeID_type") + " " + label;
+			getString("_UI_AlternativeID_type") : //$NON-NLS-1$
+			getString("_UI_AlternativeID_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

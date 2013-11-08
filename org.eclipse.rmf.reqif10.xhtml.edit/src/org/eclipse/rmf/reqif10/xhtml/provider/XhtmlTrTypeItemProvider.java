@@ -99,8 +99,8 @@ public class XhtmlTrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTrType_align_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_align_feature", "_UI_XhtmlTrType_type"),
+				 getString("_UI_XhtmlTrType_align_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_align_feature", "_UI_XhtmlTrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTrType_Align(),
 				 true,
 				 false,
@@ -121,8 +121,8 @@ public class XhtmlTrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTrType_char_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_char_feature", "_UI_XhtmlTrType_type"),
+				 getString("_UI_XhtmlTrType_char_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_char_feature", "_UI_XhtmlTrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTrType_Char(),
 				 true,
 				 false,
@@ -143,8 +143,8 @@ public class XhtmlTrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTrType_charoff_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_charoff_feature", "_UI_XhtmlTrType_type"),
+				 getString("_UI_XhtmlTrType_charoff_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_charoff_feature", "_UI_XhtmlTrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTrType_Charoff(),
 				 true,
 				 false,
@@ -165,8 +165,8 @@ public class XhtmlTrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTrType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_class_feature", "_UI_XhtmlTrType_type"),
+				 getString("_UI_XhtmlTrType_class_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_class_feature", "_UI_XhtmlTrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTrType_Class(),
 				 true,
 				 false,
@@ -187,8 +187,8 @@ public class XhtmlTrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTrType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_id_feature", "_UI_XhtmlTrType_type"),
+				 getString("_UI_XhtmlTrType_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_id_feature", "_UI_XhtmlTrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTrType_Id(),
 				 true,
 				 false,
@@ -209,8 +209,8 @@ public class XhtmlTrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTrType_lang_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_lang_feature", "_UI_XhtmlTrType_type"),
+				 getString("_UI_XhtmlTrType_lang_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_lang_feature", "_UI_XhtmlTrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTrType_Lang(),
 				 true,
 				 false,
@@ -231,8 +231,8 @@ public class XhtmlTrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTrType_space_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_space_feature", "_UI_XhtmlTrType_type"),
+				 getString("_UI_XhtmlTrType_space_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_space_feature", "_UI_XhtmlTrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTrType_Space(),
 				 true,
 				 false,
@@ -253,8 +253,8 @@ public class XhtmlTrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTrType_style_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_style_feature", "_UI_XhtmlTrType_type"),
+				 getString("_UI_XhtmlTrType_style_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_style_feature", "_UI_XhtmlTrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTrType_Style(),
 				 true,
 				 false,
@@ -275,8 +275,8 @@ public class XhtmlTrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTrType_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_title_feature", "_UI_XhtmlTrType_type"),
+				 getString("_UI_XhtmlTrType_title_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_title_feature", "_UI_XhtmlTrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTrType_Title(),
 				 true,
 				 false,
@@ -297,8 +297,8 @@ public class XhtmlTrTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTrType_valign_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_valign_feature", "_UI_XhtmlTrType_type"),
+				 getString("_UI_XhtmlTrType_valign_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTrType_valign_feature", "_UI_XhtmlTrType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTrType_Valign(),
 				 true,
 				 false,
@@ -346,7 +346,7 @@ public class XhtmlTrTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlTrType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlTrType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -359,8 +359,8 @@ public class XhtmlTrTypeItemProvider
 	public String getText(Object object) {
 		String label = ((XhtmlTrType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlTrType_type") :
-			getString("_UI_XhtmlTrType_type") + " " + label;
+			getString("_UI_XhtmlTrType_type") : //$NON-NLS-1$
+			getString("_UI_XhtmlTrType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

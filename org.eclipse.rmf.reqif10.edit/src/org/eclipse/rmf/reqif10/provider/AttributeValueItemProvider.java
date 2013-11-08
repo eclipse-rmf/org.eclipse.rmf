@@ -75,7 +75,7 @@ public class AttributeValueItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AttributeValue_type");
+		return getString("_UI_AttributeValue_type"); //$NON-NLS-1$
 	}
 
 	/**

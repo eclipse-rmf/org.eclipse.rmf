@@ -12,23 +12,21 @@
 package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.rmf.reqif10.DatatypeDefinitionDate;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Datatype Definition Date</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Datatype Definition Date</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class DatatypeDefinitionDateImpl extends DatatypeDefinitionSimpleImpl implements DatatypeDefinitionDate {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DatatypeDefinitionDateImpl() {
@@ -36,8 +34,8 @@ public class DatatypeDefinitionDateImpl extends DatatypeDefinitionSimpleImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -45,4 +43,4 @@ public class DatatypeDefinitionDateImpl extends DatatypeDefinitionSimpleImpl imp
 		return ReqIF10Package.Literals.DATATYPE_DEFINITION_DATE;
 	}
 
-} //DatatypeDefinitionDateImpl
+} // DatatypeDefinitionDateImpl

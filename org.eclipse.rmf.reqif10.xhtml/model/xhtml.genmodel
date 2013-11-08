@@ -3,10 +3,11 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2013 itemis AG.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    Mark Broerkens - initial API and implementation&#xA;"
     modelDirectory="/org.eclipse.rmf.reqif10.xhtml/src" editDirectory="/org.eclipse.rmf.reqif10.xhtml.edit/src"
     editorDirectory="" modelPluginID="org.eclipse.rmf.reqif10.xhtml" modelName="Xhtml"
-    modelPluginClass="" editorPluginClass="" testsDirectory="" testSuiteClass="" importerID="org.eclipse.emf.importer.ecore"
+    modelPluginClass="" editorPluginClass="" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl"
+    testsDirectory="" testSuiteClass="" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="5.0" copyrightFields="false" editPluginID="org.eclipse.rmf.reqif10.xhtml.edit"
     editorPluginID="org.eclipse.rmf.reqif10.xhtml.editor" testsPluginID="org.eclipse.rmf.reqif10.xhtml.editor"
-    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
+    runtimeVersion="2.7" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
   <foreignModel>xhtml.ecore</foreignModel>
   <foreignModel>datatypes.ecore</foreignModel>
   <genPackages prefix="Xhtml" basePackage="org.eclipse.rmf.reqif10" resource="XML"

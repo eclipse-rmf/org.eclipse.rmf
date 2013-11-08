@@ -11,17 +11,13 @@
  */
 package org.eclipse.rmf.reqif10;
 
-
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Datatype Definition Simple</b></em>'.
- * <!-- end-user-doc -->
- *
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Datatype Definition Simple</b></em>'. <!--
+ * end-user-doc -->
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionSimple()
- * @model abstract="true"
- *        extendedMetaData="name='DATATYPE-DEFINITION-SIMPLE' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DATATYPE-DEFINITION-SIMPLE'"
+ * @model abstract="true" extendedMetaData="name='DATATYPE-DEFINITION-SIMPLE' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DATATYPE-DEFINITION-SIMPLE'"
  * @generated
  */
 public interface DatatypeDefinitionSimple extends DatatypeDefinition {

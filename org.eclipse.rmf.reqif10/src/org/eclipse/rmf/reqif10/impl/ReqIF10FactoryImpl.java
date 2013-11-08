@@ -189,7 +189,7 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 		case ReqIF10Package.XHTML_CONTENT:
 			return createXhtmlContent();
 		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -206,7 +206,7 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 		case ReqIF10Package.ID:
 			return createIDFromString(eDataType, initialValue);
 		default:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -223,7 +223,7 @@ public class ReqIF10FactoryImpl extends EFactoryImpl implements ReqIF10Factory {
 		case ReqIF10Package.ID:
 			return convertIDToString(eDataType, instanceValue);
 		default:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 

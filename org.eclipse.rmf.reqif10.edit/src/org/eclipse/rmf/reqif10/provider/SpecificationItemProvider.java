@@ -84,8 +84,8 @@ public class SpecificationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Specification_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Specification_type_feature", "_UI_Specification_type"),
+				 getString("_UI_Specification_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Specification_type_feature", "_UI_Specification_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.SPECIFICATION__TYPE,
 				 true,
 				 false,
@@ -133,7 +133,7 @@ public class SpecificationItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Specification"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Specification")); //$NON-NLS-1$
 	}
 
 	/**
@@ -146,8 +146,8 @@ public class SpecificationItemProvider
 	public String getText(Object object) {
 		String label = ((Specification)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Specification_type") :
-			getString("_UI_Specification_type") + " " + label;
+			getString("_UI_Specification_type") : //$NON-NLS-1$
+			getString("_UI_Specification_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -84,8 +84,8 @@ public class DatatypeDefinitionRealItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DatatypeDefinitionReal_accuracy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DatatypeDefinitionReal_accuracy_feature", "_UI_DatatypeDefinitionReal_type"),
+				 getString("_UI_DatatypeDefinitionReal_accuracy_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DatatypeDefinitionReal_accuracy_feature", "_UI_DatatypeDefinitionReal_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.DATATYPE_DEFINITION_REAL__ACCURACY,
 				 true,
 				 false,
@@ -106,8 +106,8 @@ public class DatatypeDefinitionRealItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DatatypeDefinitionReal_max_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DatatypeDefinitionReal_max_feature", "_UI_DatatypeDefinitionReal_type"),
+				 getString("_UI_DatatypeDefinitionReal_max_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DatatypeDefinitionReal_max_feature", "_UI_DatatypeDefinitionReal_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.DATATYPE_DEFINITION_REAL__MAX,
 				 true,
 				 false,
@@ -128,8 +128,8 @@ public class DatatypeDefinitionRealItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DatatypeDefinitionReal_min_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DatatypeDefinitionReal_min_feature", "_UI_DatatypeDefinitionReal_type"),
+				 getString("_UI_DatatypeDefinitionReal_min_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DatatypeDefinitionReal_min_feature", "_UI_DatatypeDefinitionReal_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.DATATYPE_DEFINITION_REAL__MIN,
 				 true,
 				 false,
@@ -147,7 +147,7 @@ public class DatatypeDefinitionRealItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DatatypeDefinitionReal"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DatatypeDefinitionReal")); //$NON-NLS-1$
 	}
 
 	/**
@@ -160,8 +160,8 @@ public class DatatypeDefinitionRealItemProvider
 	public String getText(Object object) {
 		String label = ((DatatypeDefinitionReal)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DatatypeDefinitionReal_type") :
-			getString("_UI_DatatypeDefinitionReal_type") + " " + label;
+			getString("_UI_DatatypeDefinitionReal_type") : //$NON-NLS-1$
+			getString("_UI_DatatypeDefinitionReal_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -12,23 +12,21 @@
 package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.rmf.reqif10.DatatypeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Datatype Definition Boolean</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Datatype Definition Boolean</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class DatatypeDefinitionBooleanImpl extends DatatypeDefinitionSimpleImpl implements DatatypeDefinitionBoolean {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DatatypeDefinitionBooleanImpl() {
@@ -36,8 +34,8 @@ public class DatatypeDefinitionBooleanImpl extends DatatypeDefinitionSimpleImpl 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -45,4 +43,4 @@ public class DatatypeDefinitionBooleanImpl extends DatatypeDefinitionSimpleImpl 
 		return ReqIF10Package.Literals.DATATYPE_DEFINITION_BOOLEAN;
 	}
 
-} //DatatypeDefinitionBooleanImpl
+} // DatatypeDefinitionBooleanImpl

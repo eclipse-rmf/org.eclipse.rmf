@@ -85,8 +85,8 @@ public class AttributeValueIntegerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AttributeValueInteger_theValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueInteger_theValue_feature", "_UI_AttributeValueInteger_type"),
+				 getString("_UI_AttributeValueInteger_theValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueInteger_theValue_feature", "_UI_AttributeValueInteger_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_INTEGER__THE_VALUE,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class AttributeValueIntegerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AttributeValueInteger_definition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueInteger_definition_feature", "_UI_AttributeValueInteger_type"),
+				 getString("_UI_AttributeValueInteger_definition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueInteger_definition_feature", "_UI_AttributeValueInteger_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_INTEGER__DEFINITION,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class AttributeValueIntegerItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AttributeValueInteger"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AttributeValueInteger")); //$NON-NLS-1$
 	}
 
 	/**
@@ -140,8 +140,8 @@ public class AttributeValueIntegerItemProvider
 		BigInteger labelValue = ((AttributeValueInteger)object).getTheValue();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AttributeValueInteger_type") :
-			getString("_UI_AttributeValueInteger_type") + " " + label;
+			getString("_UI_AttributeValueInteger_type") : //$NON-NLS-1$
+			getString("_UI_AttributeValueInteger_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

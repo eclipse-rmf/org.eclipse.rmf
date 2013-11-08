@@ -90,8 +90,8 @@ public class XhtmlContentItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlContent_xhtmlSource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlContent_xhtmlSource_feature", "_UI_XhtmlContent_type"),
+				 getString("_UI_XhtmlContent_xhtmlSource_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlContent_xhtmlSource_feature", "_UI_XhtmlContent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.XHTML_CONTENT__XHTML_SOURCE,
 				 true,
 				 false,
@@ -139,7 +139,7 @@ public class XhtmlContentItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlContent"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlContent")); //$NON-NLS-1$
 	}
 
 	/**
@@ -152,8 +152,8 @@ public class XhtmlContentItemProvider
 	public String getText(Object object) {
 		String label = ((XhtmlContent)object).getXhtmlSource();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlContent_type") :
-			getString("_UI_XhtmlContent_type") + " " + label;
+			getString("_UI_XhtmlContent_type") : //$NON-NLS-1$
+			getString("_UI_XhtmlContent_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

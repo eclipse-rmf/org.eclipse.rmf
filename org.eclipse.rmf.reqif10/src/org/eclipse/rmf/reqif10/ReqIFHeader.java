@@ -12,60 +12,57 @@
 package org.eclipse.rmf.reqif10;
 
 import java.util.GregorianCalendar;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Req IF Header</b></em>'.
- * <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Req IF Header</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getComment <em>Comment</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getCreationTime <em>Creation Time</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getRepositoryId <em>Repository Id</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFToolId <em>Req IF Tool Id</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFVersion <em>Req IF Version</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getSourceToolId <em>Source Tool Id</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getTitle <em>Title</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getComment <em>Comment</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getCreationTime <em>Creation Time</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getIdentifier <em>Identifier</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getRepositoryId <em>Repository Id</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFToolId <em>Req IF Tool Id</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFVersion <em>Req IF Version</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getSourceToolId <em>Source Tool Id</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.ReqIFHeader#getTitle <em>Title</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader()
- * @model extendedMetaData="name='REQ-IF-HEADER' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REQ-IF-HEADER'"
+ * @model extendedMetaData="name='REQ-IF-HEADER' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REQ-IF-HEADER'"
  * @generated
  */
 public interface ReqIFHeader extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Comment</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Comment</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Comment</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Comment</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Comment</em>' attribute.
 	 * @see #isSetComment()
 	 * @see #unsetComment()
 	 * @see #setComment(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_Comment()
 	 * @model unsettable="true" ordered="false"
-	 *        extendedMetaData="name='COMMENT' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='COMMENT' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="name='COMMENT' kind='element' namespace='##targetNamespace'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='COMMENT' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getComment();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getComment <em>Comment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Comment</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getComment <em>Comment</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Comment</em>' attribute.
 	 * @see #isSetComment()
 	 * @see #unsetComment()
 	 * @see #getComment()
@@ -74,9 +71,9 @@ public interface ReqIFHeader extends EObject {
 	void setComment(String value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getComment <em>Comment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getComment <em>Comment</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetComment()
 	 * @see #getComment()
 	 * @see #setComment(String)
@@ -85,9 +82,9 @@ public interface ReqIFHeader extends EObject {
 	void unsetComment();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getComment <em>Comment</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getComment <em>Comment</em>}'
+	 * attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Comment</em>' attribute is set.
 	 * @see #unsetComment()
 	 * @see #getComment()
@@ -97,30 +94,31 @@ public interface ReqIFHeader extends EObject {
 	boolean isSetComment();
 
 	/**
-	 * Returns the value of the '<em><b>Creation Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Creation Time</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Creation Time</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Creation Time</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Creation Time</em>' attribute.
 	 * @see #isSetCreationTime()
 	 * @see #unsetCreationTime()
 	 * @see #setCreationTime(GregorianCalendar)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_CreationTime()
 	 * @model unsettable="true" dataType="org.eclipse.rmf.reqif10.DateTime" required="true" ordered="false"
-	 *        extendedMetaData="name='CREATION-TIME' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='CREATION-TIME' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="name='CREATION-TIME' kind='element' namespace='##targetNamespace'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='CREATION-TIME' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	GregorianCalendar getCreationTime();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getCreationTime <em>Creation Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Creation Time</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getCreationTime <em>Creation Time</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Creation Time</em>' attribute.
 	 * @see #isSetCreationTime()
 	 * @see #unsetCreationTime()
 	 * @see #getCreationTime()
@@ -129,9 +127,9 @@ public interface ReqIFHeader extends EObject {
 	void setCreationTime(GregorianCalendar value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getCreationTime <em>Creation Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getCreationTime <em>Creation Time</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetCreationTime()
 	 * @see #getCreationTime()
 	 * @see #setCreationTime(GregorianCalendar)
@@ -140,9 +138,9 @@ public interface ReqIFHeader extends EObject {
 	void unsetCreationTime();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getCreationTime <em>Creation Time</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getCreationTime
+	 * <em>Creation Time</em>}' attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Creation Time</em>' attribute is set.
 	 * @see #unsetCreationTime()
 	 * @see #getCreationTime()
@@ -152,30 +150,31 @@ public interface ReqIFHeader extends EObject {
 	boolean isSetCreationTime();
 
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Identifier</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Identifier</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Identifier</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Identifier</em>' attribute.
 	 * @see #isSetIdentifier()
 	 * @see #unsetIdentifier()
 	 * @see #setIdentifier(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_Identifier()
 	 * @model unsettable="true" id="true" dataType="org.eclipse.rmf.reqif10.ID" required="true" ordered="false"
-	 *        extendedMetaData="name='IDENTIFIER' kind='attribute'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='IDENTIFIER' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="name='IDENTIFIER' kind='attribute'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='IDENTIFIER' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getIdentifier();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getIdentifier <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Identifier</em>' attribute.
 	 * @see #isSetIdentifier()
 	 * @see #unsetIdentifier()
 	 * @see #getIdentifier()
@@ -184,9 +183,9 @@ public interface ReqIFHeader extends EObject {
 	void setIdentifier(String value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getIdentifier <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getIdentifier <em>Identifier</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetIdentifier()
 	 * @see #getIdentifier()
 	 * @see #setIdentifier(String)
@@ -195,9 +194,9 @@ public interface ReqIFHeader extends EObject {
 	void unsetIdentifier();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getIdentifier <em>Identifier</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getIdentifier <em>Identifier</em>}'
+	 * attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Identifier</em>' attribute is set.
 	 * @see #unsetIdentifier()
 	 * @see #getIdentifier()
@@ -207,30 +206,31 @@ public interface ReqIFHeader extends EObject {
 	boolean isSetIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Repository Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Repository Id</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Repository Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Repository Id</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Repository Id</em>' attribute.
 	 * @see #isSetRepositoryId()
 	 * @see #unsetRepositoryId()
 	 * @see #setRepositoryId(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_RepositoryId()
 	 * @model unsettable="true" ordered="false"
-	 *        extendedMetaData="name='REPOSITORY-ID' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REPOSITORY-ID' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="name='REPOSITORY-ID' kind='element' namespace='##targetNamespace'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REPOSITORY-ID' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getRepositoryId();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getRepositoryId <em>Repository Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Repository Id</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getRepositoryId <em>Repository Id</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Repository Id</em>' attribute.
 	 * @see #isSetRepositoryId()
 	 * @see #unsetRepositoryId()
 	 * @see #getRepositoryId()
@@ -239,9 +239,9 @@ public interface ReqIFHeader extends EObject {
 	void setRepositoryId(String value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getRepositoryId <em>Repository Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getRepositoryId <em>Repository Id</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetRepositoryId()
 	 * @see #getRepositoryId()
 	 * @see #setRepositoryId(String)
@@ -250,9 +250,9 @@ public interface ReqIFHeader extends EObject {
 	void unsetRepositoryId();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getRepositoryId <em>Repository Id</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getRepositoryId
+	 * <em>Repository Id</em>}' attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Repository Id</em>' attribute is set.
 	 * @see #unsetRepositoryId()
 	 * @see #getRepositoryId()
@@ -262,30 +262,31 @@ public interface ReqIFHeader extends EObject {
 	boolean isSetRepositoryId();
 
 	/**
-	 * Returns the value of the '<em><b>Req IF Tool Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Req IF Tool Id</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Req IF Tool Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Req IF Tool Id</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Req IF Tool Id</em>' attribute.
 	 * @see #isSetReqIFToolId()
 	 * @see #unsetReqIFToolId()
 	 * @see #setReqIFToolId(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_ReqIFToolId()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='REQ-IF-TOOL-ID' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REQ-IF-TOOL-ID' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="name='REQ-IF-TOOL-ID' kind='element' namespace='##targetNamespace'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REQ-IF-TOOL-ID' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getReqIFToolId();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFToolId <em>Req IF Tool Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Req IF Tool Id</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFToolId <em>Req IF Tool Id</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Req IF Tool Id</em>' attribute.
 	 * @see #isSetReqIFToolId()
 	 * @see #unsetReqIFToolId()
 	 * @see #getReqIFToolId()
@@ -294,9 +295,9 @@ public interface ReqIFHeader extends EObject {
 	void setReqIFToolId(String value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFToolId <em>Req IF Tool Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFToolId <em>Req IF Tool Id</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetReqIFToolId()
 	 * @see #getReqIFToolId()
 	 * @see #setReqIFToolId(String)
@@ -305,9 +306,9 @@ public interface ReqIFHeader extends EObject {
 	void unsetReqIFToolId();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFToolId <em>Req IF Tool Id</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFToolId
+	 * <em>Req IF Tool Id</em>}' attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Req IF Tool Id</em>' attribute is set.
 	 * @see #unsetReqIFToolId()
 	 * @see #getReqIFToolId()
@@ -317,30 +318,31 @@ public interface ReqIFHeader extends EObject {
 	boolean isSetReqIFToolId();
 
 	/**
-	 * Returns the value of the '<em><b>Req IF Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Req IF Version</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Req IF Version</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Req IF Version</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Req IF Version</em>' attribute.
 	 * @see #isSetReqIFVersion()
 	 * @see #unsetReqIFVersion()
 	 * @see #setReqIFVersion(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_ReqIFVersion()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='REQ-IF-VERSION' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REQ-IF-VERSION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="name='REQ-IF-VERSION' kind='element' namespace='##targetNamespace'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='REQ-IF-VERSION' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getReqIFVersion();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFVersion <em>Req IF Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Req IF Version</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFVersion <em>Req IF Version</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Req IF Version</em>' attribute.
 	 * @see #isSetReqIFVersion()
 	 * @see #unsetReqIFVersion()
 	 * @see #getReqIFVersion()
@@ -349,9 +351,9 @@ public interface ReqIFHeader extends EObject {
 	void setReqIFVersion(String value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFVersion <em>Req IF Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFVersion <em>Req IF Version</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetReqIFVersion()
 	 * @see #getReqIFVersion()
 	 * @see #setReqIFVersion(String)
@@ -360,9 +362,9 @@ public interface ReqIFHeader extends EObject {
 	void unsetReqIFVersion();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFVersion <em>Req IF Version</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getReqIFVersion
+	 * <em>Req IF Version</em>}' attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Req IF Version</em>' attribute is set.
 	 * @see #unsetReqIFVersion()
 	 * @see #getReqIFVersion()
@@ -372,30 +374,31 @@ public interface ReqIFHeader extends EObject {
 	boolean isSetReqIFVersion();
 
 	/**
-	 * Returns the value of the '<em><b>Source Tool Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Source Tool Id</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source Tool Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Source Tool Id</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Source Tool Id</em>' attribute.
 	 * @see #isSetSourceToolId()
 	 * @see #unsetSourceToolId()
 	 * @see #setSourceToolId(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_SourceToolId()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='SOURCE-TOOL-ID' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SOURCE-TOOL-ID' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="name='SOURCE-TOOL-ID' kind='element' namespace='##targetNamespace'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SOURCE-TOOL-ID' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getSourceToolId();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getSourceToolId <em>Source Tool Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source Tool Id</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getSourceToolId <em>Source Tool Id</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Source Tool Id</em>' attribute.
 	 * @see #isSetSourceToolId()
 	 * @see #unsetSourceToolId()
 	 * @see #getSourceToolId()
@@ -404,9 +407,9 @@ public interface ReqIFHeader extends EObject {
 	void setSourceToolId(String value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getSourceToolId <em>Source Tool Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getSourceToolId <em>Source Tool Id</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetSourceToolId()
 	 * @see #getSourceToolId()
 	 * @see #setSourceToolId(String)
@@ -415,9 +418,9 @@ public interface ReqIFHeader extends EObject {
 	void unsetSourceToolId();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getSourceToolId <em>Source Tool Id</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getSourceToolId
+	 * <em>Source Tool Id</em>}' attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Source Tool Id</em>' attribute is set.
 	 * @see #unsetSourceToolId()
 	 * @see #getSourceToolId()
@@ -427,30 +430,31 @@ public interface ReqIFHeader extends EObject {
 	boolean isSetSourceToolId();
 
 	/**
-	 * Returns the value of the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Title</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Title</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Title</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #isSetTitle()
 	 * @see #unsetTitle()
 	 * @see #setTitle(String)
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getReqIFHeader_Title()
 	 * @model unsettable="true" required="true" ordered="false"
-	 *        extendedMetaData="name='TITLE' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='TITLE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
+	 *        extendedMetaData="name='TITLE' kind='element' namespace='##targetNamespace'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='TITLE' featureWrapperElement='false' featureElement='true' classifierWrapperElement='false' classifierElement='false'"
 	 * @generated
 	 */
 	String getTitle();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getTitle <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Title</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getTitle <em>Title</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Title</em>' attribute.
 	 * @see #isSetTitle()
 	 * @see #unsetTitle()
 	 * @see #getTitle()
@@ -459,9 +463,9 @@ public interface ReqIFHeader extends EObject {
 	void setTitle(String value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getTitle <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getTitle <em>Title</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetTitle()
 	 * @see #getTitle()
 	 * @see #setTitle(String)
@@ -470,9 +474,9 @@ public interface ReqIFHeader extends EObject {
 	void unsetTitle();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getTitle <em>Title</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.ReqIFHeader#getTitle <em>Title</em>}' attribute
+	 * is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Title</em>' attribute is set.
 	 * @see #unsetTitle()
 	 * @see #getTitle()

@@ -18,113 +18,103 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Frame Type</b></em>',
- * and utility methods for working with them.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Frame Type</b></em>', and utility
+ * methods for working with them. <!-- end-user-doc -->
+ * 
  * @see org.eclipse.rmf.reqif10.xhtml.XhtmlPackage#getFrameType()
  * @model extendedMetaData="name='frame_._type'"
  * @generated
  */
 public enum FrameType implements Enumerator {
 	/**
-	 * The '<em><b>Void</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Void</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #VOID_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	VOID(0, "void", "void"),
+	VOID(0, "void", "void"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Above</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Above</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #ABOVE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ABOVE(1, "above", "above"),
+	ABOVE(1, "above", "above"), //$NON-NLS-1$//$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Below</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Below</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #BELOW_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	BELOW(2, "below", "below"),
+	BELOW(2, "below", "below"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Hsides</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Hsides</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #HSIDES_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	HSIDES(3, "hsides", "hsides"),
+	HSIDES(3, "hsides", "hsides"), //$NON-NLS-1$//$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Lhs</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Lhs</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #LHS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	LHS(4, "lhs", "lhs"),
+	LHS(4, "lhs", "lhs"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Rhs</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Rhs</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #RHS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	RHS(5, "rhs", "rhs"),
+	RHS(5, "rhs", "rhs"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Vsides</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Vsides</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #VSIDES_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	VSIDES(6, "vsides", "vsides"),
+	VSIDES(6, "vsides", "vsides"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Box</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Box</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #BOX_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	BOX(7, "box", "box"),
+	BOX(7, "box", "box"), //$NON-NLS-1$//$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Border</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Border</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #BORDER_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	BORDER(8, "border", "border");
+	BORDER(8, "border", "border"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Void</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Void</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Void</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Void</b></em>' literal object isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #VOID
 	 * @model name="void"
 	 * @generated
@@ -133,13 +123,13 @@ public enum FrameType implements Enumerator {
 	public static final int VOID_VALUE = 0;
 
 	/**
-	 * The '<em><b>Above</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Above</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Above</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Above</b></em>' literal object isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #ABOVE
 	 * @model name="above"
 	 * @generated
@@ -148,13 +138,13 @@ public enum FrameType implements Enumerator {
 	public static final int ABOVE_VALUE = 1;
 
 	/**
-	 * The '<em><b>Below</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Below</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Below</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Below</b></em>' literal object isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #BELOW
 	 * @model name="below"
 	 * @generated
@@ -163,13 +153,13 @@ public enum FrameType implements Enumerator {
 	public static final int BELOW_VALUE = 2;
 
 	/**
-	 * The '<em><b>Hsides</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Hsides</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Hsides</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Hsides</b></em>' literal object isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #HSIDES
 	 * @model name="hsides"
 	 * @generated
@@ -178,13 +168,13 @@ public enum FrameType implements Enumerator {
 	public static final int HSIDES_VALUE = 3;
 
 	/**
-	 * The '<em><b>Lhs</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Lhs</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Lhs</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Lhs</b></em>' literal object isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #LHS
 	 * @model name="lhs"
 	 * @generated
@@ -193,13 +183,13 @@ public enum FrameType implements Enumerator {
 	public static final int LHS_VALUE = 4;
 
 	/**
-	 * The '<em><b>Rhs</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Rhs</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Rhs</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Rhs</b></em>' literal object isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #RHS
 	 * @model name="rhs"
 	 * @generated
@@ -208,13 +198,13 @@ public enum FrameType implements Enumerator {
 	public static final int RHS_VALUE = 5;
 
 	/**
-	 * The '<em><b>Vsides</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Vsides</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Vsides</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Vsides</b></em>' literal object isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #VSIDES
 	 * @model name="vsides"
 	 * @generated
@@ -223,13 +213,13 @@ public enum FrameType implements Enumerator {
 	public static final int VSIDES_VALUE = 6;
 
 	/**
-	 * The '<em><b>Box</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Box</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Box</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Box</b></em>' literal object isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #BOX
 	 * @model name="box"
 	 * @generated
@@ -238,13 +228,13 @@ public enum FrameType implements Enumerator {
 	public static final int BOX_VALUE = 7;
 
 	/**
-	 * The '<em><b>Border</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Border</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Border</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Border</b></em>' literal object isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #BORDER
 	 * @model name="border"
 	 * @generated
@@ -253,41 +243,28 @@ public enum FrameType implements Enumerator {
 	public static final int BORDER_VALUE = 8;
 
 	/**
-	 * An array of all the '<em><b>Frame Type</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * An array of all the '<em><b>Frame Type</b></em>' enumerators. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	private static final FrameType[] VALUES_ARRAY =
-		new FrameType[] {
-			VOID,
-			ABOVE,
-			BELOW,
-			HSIDES,
-			LHS,
-			RHS,
-			VSIDES,
-			BOX,
-			BORDER,
-		};
+	private static final FrameType[] VALUES_ARRAY = new FrameType[] { VOID, ABOVE, BELOW, HSIDES, LHS, RHS, VSIDES, BOX, BORDER, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Frame Type</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * A public read-only list of all the '<em><b>Frame Type</b></em>' enumerators. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final List<FrameType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Frame Type</b></em>' literal with the specified literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Frame Type</b></em>' literal with the specified literal value. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static FrameType get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			FrameType result = VALUES_ARRAY[i];
+		for (FrameType result : VALUES_ARRAY) {
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -296,14 +273,13 @@ public enum FrameType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Frame Type</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Frame Type</b></em>' literal with the specified name. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static FrameType getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			FrameType result = VALUES_ARRAY[i];
+		for (FrameType result : VALUES_ARRAY) {
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -312,51 +288,59 @@ public enum FrameType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Frame Type</b></em>' literal with the specified integer value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Frame Type</b></em>' literal with the specified integer value. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static FrameType get(int value) {
 		switch (value) {
-			case VOID_VALUE: return VOID;
-			case ABOVE_VALUE: return ABOVE;
-			case BELOW_VALUE: return BELOW;
-			case HSIDES_VALUE: return HSIDES;
-			case LHS_VALUE: return LHS;
-			case RHS_VALUE: return RHS;
-			case VSIDES_VALUE: return VSIDES;
-			case BOX_VALUE: return BOX;
-			case BORDER_VALUE: return BORDER;
+		case VOID_VALUE:
+			return VOID;
+		case ABOVE_VALUE:
+			return ABOVE;
+		case BELOW_VALUE:
+			return BELOW;
+		case HSIDES_VALUE:
+			return HSIDES;
+		case LHS_VALUE:
+			return LHS;
+		case RHS_VALUE:
+			return RHS;
+		case VSIDES_VALUE:
+			return VSIDES;
+		case BOX_VALUE:
+			return BOX;
+		case BORDER_VALUE:
+			return BORDER;
 		}
 		return null;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final String literal;
 
 	/**
-	 * Only this class can construct instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Only this class can construct instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private FrameType(int value, String name, String literal) {
@@ -366,41 +350,41 @@ public enum FrameType implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		return literal;
 	}
-	
-} //FrameType
+
+} // FrameType

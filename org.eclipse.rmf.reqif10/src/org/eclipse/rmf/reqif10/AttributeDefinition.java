@@ -11,17 +11,13 @@
  */
 package org.eclipse.rmf.reqif10;
 
-
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Attribute Definition</b></em>'.
- * <!-- end-user-doc -->
- *
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Attribute Definition</b></em>'. <!--
+ * end-user-doc -->
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getAttributeDefinition()
- * @model abstract="true"
- *        extendedMetaData="name='ATTRIBUTE-DEFINITION' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-DEFINITION'"
+ * @model abstract="true" extendedMetaData="name='ATTRIBUTE-DEFINITION' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='ATTRIBUTE-DEFINITION'"
  * @generated
  */
 public interface AttributeDefinition extends AccessControlledElement {

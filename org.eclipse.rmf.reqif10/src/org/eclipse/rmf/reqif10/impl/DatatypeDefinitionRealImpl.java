@@ -14,34 +14,30 @@ package org.eclipse.rmf.reqif10.impl;
 import java.math.BigInteger;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.rmf.reqif10.DatatypeDefinitionReal;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Datatype Definition Real</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Datatype Definition Real</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.DatatypeDefinitionRealImpl#getAccuracy <em>Accuracy</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.DatatypeDefinitionRealImpl#getMax <em>Max</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.DatatypeDefinitionRealImpl#getMin <em>Min</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.DatatypeDefinitionRealImpl#getAccuracy <em>Accuracy</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.DatatypeDefinitionRealImpl#getMax <em>Max</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.DatatypeDefinitionRealImpl#getMin <em>Min</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl implements DatatypeDefinitionReal {
 	/**
-	 * The default value of the '{@link #getAccuracy() <em>Accuracy</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getAccuracy() <em>Accuracy</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getAccuracy()
 	 * @generated
 	 * @ordered
@@ -49,9 +45,9 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	protected static final BigInteger ACCURACY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getAccuracy() <em>Accuracy</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getAccuracy() <em>Accuracy</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getAccuracy()
 	 * @generated
 	 * @ordered
@@ -59,18 +55,17 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	protected BigInteger accuracy = ACCURACY_EDEFAULT;
 
 	/**
-	 * This is true if the Accuracy attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Accuracy attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean accuracyESet;
 
 	/**
-	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -78,9 +73,8 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	protected static final double MAX_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -88,18 +82,17 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	protected double max = MAX_EDEFAULT;
 
 	/**
-	 * This is true if the Max attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Max attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean maxESet;
 
 	/**
-	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -107,9 +100,8 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	protected static final double MIN_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -117,17 +109,16 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	protected double min = MIN_EDEFAULT;
 
 	/**
-	 * This is true if the Min attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Min attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean minESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DatatypeDefinitionRealImpl() {
@@ -135,8 +126,8 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -145,8 +136,8 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BigInteger getAccuracy() {
@@ -154,8 +145,8 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setAccuracy(BigInteger newAccuracy) {
@@ -164,12 +155,13 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 		boolean oldAccuracyESet = accuracyESet;
 		accuracyESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.DATATYPE_DEFINITION_REAL__ACCURACY, oldAccuracy, accuracy, !oldAccuracyESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.DATATYPE_DEFINITION_REAL__ACCURACY, oldAccuracy, accuracy,
+					!oldAccuracyESet));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetAccuracy() {
@@ -178,12 +170,13 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 		accuracy = ACCURACY_EDEFAULT;
 		accuracyESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.DATATYPE_DEFINITION_REAL__ACCURACY, oldAccuracy, ACCURACY_EDEFAULT, oldAccuracyESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.DATATYPE_DEFINITION_REAL__ACCURACY, oldAccuracy,
+					ACCURACY_EDEFAULT, oldAccuracyESet));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetAccuracy() {
@@ -191,8 +184,8 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public double getMax() {
@@ -200,8 +193,8 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMax(double newMax) {
@@ -214,8 +207,8 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetMax() {
@@ -228,8 +221,8 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetMax() {
@@ -237,8 +230,8 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public double getMin() {
@@ -246,8 +239,8 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMin(double newMin) {
@@ -260,8 +253,8 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetMin() {
@@ -274,8 +267,8 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetMin() {
@@ -283,101 +276,111 @@ public class DatatypeDefinitionRealImpl extends DatatypeDefinitionSimpleImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReqIF10Package.DATATYPE_DEFINITION_REAL__ACCURACY:
-				return getAccuracy();
-			case ReqIF10Package.DATATYPE_DEFINITION_REAL__MAX:
-				return getMax();
-			case ReqIF10Package.DATATYPE_DEFINITION_REAL__MIN:
-				return getMin();
+		case ReqIF10Package.DATATYPE_DEFINITION_REAL__ACCURACY:
+			return getAccuracy();
+		case ReqIF10Package.DATATYPE_DEFINITION_REAL__MAX:
+			return getMax();
+		case ReqIF10Package.DATATYPE_DEFINITION_REAL__MIN:
+			return getMin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReqIF10Package.DATATYPE_DEFINITION_REAL__ACCURACY:
-				setAccuracy((BigInteger)newValue);
-				return;
-			case ReqIF10Package.DATATYPE_DEFINITION_REAL__MAX:
-				setMax((Double)newValue);
-				return;
-			case ReqIF10Package.DATATYPE_DEFINITION_REAL__MIN:
-				setMin((Double)newValue);
-				return;
+		case ReqIF10Package.DATATYPE_DEFINITION_REAL__ACCURACY:
+			setAccuracy((BigInteger) newValue);
+			return;
+		case ReqIF10Package.DATATYPE_DEFINITION_REAL__MAX:
+			setMax((Double) newValue);
+			return;
+		case ReqIF10Package.DATATYPE_DEFINITION_REAL__MIN:
+			setMin((Double) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.DATATYPE_DEFINITION_REAL__ACCURACY:
-				unsetAccuracy();
-				return;
-			case ReqIF10Package.DATATYPE_DEFINITION_REAL__MAX:
-				unsetMax();
-				return;
-			case ReqIF10Package.DATATYPE_DEFINITION_REAL__MIN:
-				unsetMin();
-				return;
+		case ReqIF10Package.DATATYPE_DEFINITION_REAL__ACCURACY:
+			unsetAccuracy();
+			return;
+		case ReqIF10Package.DATATYPE_DEFINITION_REAL__MAX:
+			unsetMax();
+			return;
+		case ReqIF10Package.DATATYPE_DEFINITION_REAL__MIN:
+			unsetMin();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.DATATYPE_DEFINITION_REAL__ACCURACY:
-				return isSetAccuracy();
-			case ReqIF10Package.DATATYPE_DEFINITION_REAL__MAX:
-				return isSetMax();
-			case ReqIF10Package.DATATYPE_DEFINITION_REAL__MIN:
-				return isSetMin();
+		case ReqIF10Package.DATATYPE_DEFINITION_REAL__ACCURACY:
+			return isSetAccuracy();
+		case ReqIF10Package.DATATYPE_DEFINITION_REAL__MAX:
+			return isSetMax();
+		case ReqIF10Package.DATATYPE_DEFINITION_REAL__MIN:
+			return isSetMin();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (accuracy: ");
-		if (accuracyESet) result.append(accuracy); else result.append("<unset>");
-		result.append(", max: ");
-		if (maxESet) result.append(max); else result.append("<unset>");
-		result.append(", min: ");
-		if (minESet) result.append(min); else result.append("<unset>");
+		result.append(" (accuracy: "); //$NON-NLS-1$
+		if (accuracyESet)
+			result.append(accuracy);
+		else
+			result.append("<unset>"); //$NON-NLS-1$
+		result.append(", max: "); //$NON-NLS-1$
+		if (maxESet)
+			result.append(max);
+		else
+			result.append("<unset>"); //$NON-NLS-1$
+		result.append(", min: "); //$NON-NLS-1$
+		if (minESet)
+			result.append(min);
+		else
+			result.append("<unset>"); //$NON-NLS-1$
 		result.append(')');
 		return result.toString();
 	}
 
-} //DatatypeDefinitionRealImpl
+} // DatatypeDefinitionRealImpl

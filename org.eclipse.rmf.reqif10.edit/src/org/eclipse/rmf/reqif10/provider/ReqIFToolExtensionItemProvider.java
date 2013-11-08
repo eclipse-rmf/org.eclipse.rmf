@@ -114,7 +114,7 @@ public class ReqIFToolExtensionItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReqIFToolExtension"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReqIFToolExtension")); //$NON-NLS-1$
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class ReqIFToolExtensionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ReqIFToolExtension_type");
+		return getString("_UI_ReqIFToolExtension_type"); //$NON-NLS-1$
 	}
 
 	/**

@@ -76,8 +76,8 @@ public class AttributeDefinitionItemProvider
 	public String getText(Object object) {
 		String label = ((AttributeDefinition)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AttributeDefinition_type") :
-			getString("_UI_AttributeDefinition_type") + " " + label;
+			getString("_UI_AttributeDefinition_type") : //$NON-NLS-1$
+			getString("_UI_AttributeDefinition_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

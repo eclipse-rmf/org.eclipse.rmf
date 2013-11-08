@@ -15,41 +15,34 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Specification</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Specification</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.SpecificationImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.SpecificationImpl#getChildren <em>Children</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.SpecificationImpl#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.SpecificationImpl#getChildren <em>Children</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class SpecificationImpl extends SpecElementWithAttributesImpl implements Specification {
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -57,18 +50,17 @@ public class SpecificationImpl extends SpecElementWithAttributesImpl implements 
 	protected SpecificationType type;
 
 	/**
-	 * This is true if the Type reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Type reference has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean typeESet;
 
 	/**
-	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getChildren()
 	 * @generated
 	 * @ordered
@@ -76,8 +68,8 @@ public class SpecificationImpl extends SpecElementWithAttributesImpl implements 
 	protected EList<SpecHierarchy> children;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected SpecificationImpl() {
@@ -85,8 +77,8 @@ public class SpecificationImpl extends SpecElementWithAttributesImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -95,14 +87,14 @@ public class SpecificationImpl extends SpecElementWithAttributesImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecificationType getType() {
 		if (type != null && type.eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (SpecificationType)eResolveProxy(oldType);
+			InternalEObject oldType = (InternalEObject) type;
+			type = (SpecificationType) eResolveProxy(oldType);
 			if (type != oldType) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ReqIF10Package.SPECIFICATION__TYPE, oldType, type));
@@ -112,8 +104,8 @@ public class SpecificationImpl extends SpecElementWithAttributesImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecificationType basicGetType() {
@@ -121,8 +113,8 @@ public class SpecificationImpl extends SpecElementWithAttributesImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setType(SpecificationType newType) {
@@ -135,8 +127,8 @@ public class SpecificationImpl extends SpecElementWithAttributesImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetType() {
@@ -149,8 +141,8 @@ public class SpecificationImpl extends SpecElementWithAttributesImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetType() {
@@ -158,8 +150,8 @@ public class SpecificationImpl extends SpecElementWithAttributesImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<SpecHierarchy> getChildren() {
@@ -170,106 +162,108 @@ public class SpecificationImpl extends SpecElementWithAttributesImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetChildren() {
-		if (children != null) ((InternalEList.Unsettable<?>)children).unset();
+		if (children != null)
+			((InternalEList.Unsettable<?>) children).unset();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetChildren() {
-		return children != null && ((InternalEList.Unsettable<?>)children).isSet();
+		return children != null && ((InternalEList.Unsettable<?>) children).isSet();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ReqIF10Package.SPECIFICATION__CHILDREN:
-				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+		case ReqIF10Package.SPECIFICATION__CHILDREN:
+			return ((InternalEList<?>) getChildren()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReqIF10Package.SPECIFICATION__TYPE:
-				if (resolve) return getType();
-				return basicGetType();
-			case ReqIF10Package.SPECIFICATION__CHILDREN:
-				return getChildren();
+		case ReqIF10Package.SPECIFICATION__TYPE:
+			if (resolve)
+				return getType();
+			return basicGetType();
+		case ReqIF10Package.SPECIFICATION__CHILDREN:
+			return getChildren();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReqIF10Package.SPECIFICATION__TYPE:
-				setType((SpecificationType)newValue);
-				return;
-			case ReqIF10Package.SPECIFICATION__CHILDREN:
-				getChildren().clear();
-				getChildren().addAll((Collection<? extends SpecHierarchy>)newValue);
-				return;
+		case ReqIF10Package.SPECIFICATION__TYPE:
+			setType((SpecificationType) newValue);
+			return;
+		case ReqIF10Package.SPECIFICATION__CHILDREN:
+			getChildren().clear();
+			getChildren().addAll((Collection<? extends SpecHierarchy>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.SPECIFICATION__TYPE:
-				unsetType();
-				return;
-			case ReqIF10Package.SPECIFICATION__CHILDREN:
-				unsetChildren();
-				return;
+		case ReqIF10Package.SPECIFICATION__TYPE:
+			unsetType();
+			return;
+		case ReqIF10Package.SPECIFICATION__CHILDREN:
+			unsetChildren();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.SPECIFICATION__TYPE:
-				return isSetType();
-			case ReqIF10Package.SPECIFICATION__CHILDREN:
-				return isSetChildren();
+		case ReqIF10Package.SPECIFICATION__TYPE:
+			return isSetType();
+		case ReqIF10Package.SPECIFICATION__CHILDREN:
+			return isSetChildren();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //SpecificationImpl
+} // SpecificationImpl

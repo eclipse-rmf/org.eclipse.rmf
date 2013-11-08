@@ -11,16 +11,13 @@
  */
 package org.eclipse.rmf.reqif10;
 
-
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Datatype Definition Date</b></em>'.
- * <!-- end-user-doc -->
- *
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Datatype Definition Date</b></em>'. <!--
+ * end-user-doc -->
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getDatatypeDefinitionDate()
- * @model extendedMetaData="name='DATATYPE-DEFINITION-DATE' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DATATYPE-DEFINITION-DATE'"
+ * @model extendedMetaData="name='DATATYPE-DEFINITION-DATE' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='DATATYPE-DEFINITION-DATE'"
  * @generated
  */
 public interface DatatypeDefinitionDate extends DatatypeDefinitionSimple {

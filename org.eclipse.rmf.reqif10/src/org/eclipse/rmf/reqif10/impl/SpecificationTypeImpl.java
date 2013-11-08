@@ -12,23 +12,21 @@
 package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecificationType;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Specification Type</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Specification Type</b></em>'. <!-- end-user-doc
+ * -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class SpecificationTypeImpl extends SpecTypeImpl implements SpecificationType {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected SpecificationTypeImpl() {
@@ -36,8 +34,8 @@ public class SpecificationTypeImpl extends SpecTypeImpl implements Specification
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -45,4 +43,4 @@ public class SpecificationTypeImpl extends SpecTypeImpl implements Specification
 		return ReqIF10Package.Literals.SPECIFICATION_TYPE;
 	}
 
-} //SpecificationTypeImpl
+} // SpecificationTypeImpl

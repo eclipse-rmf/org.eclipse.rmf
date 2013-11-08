@@ -12,23 +12,21 @@
 package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.rmf.reqif10.RelationGroupType;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Relation Group Type</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Relation Group Type</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class RelationGroupTypeImpl extends SpecTypeImpl implements RelationGroupType {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RelationGroupTypeImpl() {
@@ -36,8 +34,8 @@ public class RelationGroupTypeImpl extends SpecTypeImpl implements RelationGroup
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -45,4 +43,4 @@ public class RelationGroupTypeImpl extends SpecTypeImpl implements RelationGroup
 		return ReqIF10Package.Literals.RELATION_GROUP_TYPE;
 	}
 
-} //RelationGroupTypeImpl
+} // RelationGroupTypeImpl

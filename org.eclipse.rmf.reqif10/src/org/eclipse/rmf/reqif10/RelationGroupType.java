@@ -11,16 +11,13 @@
  */
 package org.eclipse.rmf.reqif10;
 
-
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Relation Group Type</b></em>'.
- * <!-- end-user-doc -->
- *
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Relation Group Type</b></em>'. <!-- end-user-doc
+ * -->
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getRelationGroupType()
- * @model extendedMetaData="name='RELATION-GROUP-TYPE' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='RELATION-GROUP-TYPE'"
+ * @model extendedMetaData="name='RELATION-GROUP-TYPE' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='RELATION-GROUP-TYPE'"
  * @generated
  */
 public interface RelationGroupType extends SpecType {

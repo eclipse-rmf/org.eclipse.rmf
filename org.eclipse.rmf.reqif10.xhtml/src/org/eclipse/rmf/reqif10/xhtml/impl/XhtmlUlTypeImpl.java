@@ -15,20 +15,14 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.emf.ecore.xml.namespace.SpaceType;
-
 import org.eclipse.rmf.reqif10.xhtml.XhtmlLiType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
@@ -52,7 +46,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
  *
  * @generated
  */
-public class XhtmlUlTypeImpl extends EObjectImpl implements XhtmlUlType {
+public class XhtmlUlTypeImpl extends MinimalEObjectImpl implements XhtmlUlType {
 	/**
 	 * The cached value of the '{@link #getLi() <em>Li</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -518,17 +512,17 @@ public class XhtmlUlTypeImpl extends EObjectImpl implements XhtmlUlType {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (class: ");
+		result.append(" (class: "); //$NON-NLS-1$
 		result.append(class_);
-		result.append(", id: ");
+		result.append(", id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", lang: ");
+		result.append(", lang: "); //$NON-NLS-1$
 		result.append(lang);
-		result.append(", space: ");
-		if (spaceESet) result.append(space); else result.append("<unset>");
-		result.append(", style: ");
+		result.append(", space: "); //$NON-NLS-1$
+		if (spaceESet) result.append(space); else result.append("<unset>"); //$NON-NLS-1$
+		result.append(", style: "); //$NON-NLS-1$
 		result.append(style);
-		result.append(", title: ");
+		result.append(", title: "); //$NON-NLS-1$
 		result.append(title);
 		result.append(')');
 		return result.toString();

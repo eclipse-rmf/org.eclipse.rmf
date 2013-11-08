@@ -80,8 +80,8 @@ public class AttributeValueEnumerationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AttributeValueEnumeration_values_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueEnumeration_values_feature", "_UI_AttributeValueEnumeration_type"),
+				 getString("_UI_AttributeValueEnumeration_values_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueEnumeration_values_feature", "_UI_AttributeValueEnumeration_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES,
 				 true,
 				 false,
@@ -102,8 +102,8 @@ public class AttributeValueEnumerationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AttributeValueEnumeration_definition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueEnumeration_definition_feature", "_UI_AttributeValueEnumeration_type"),
+				 getString("_UI_AttributeValueEnumeration_definition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValueEnumeration_definition_feature", "_UI_AttributeValueEnumeration_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__DEFINITION,
 				 true,
 				 false,
@@ -121,7 +121,7 @@ public class AttributeValueEnumerationItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AttributeValueEnumeration"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AttributeValueEnumeration")); //$NON-NLS-1$
 	}
 
 	/**
@@ -132,7 +132,7 @@ public class AttributeValueEnumerationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AttributeValueEnumeration_type");
+		return getString("_UI_AttributeValueEnumeration_type"); //$NON-NLS-1$
 	}
 
 	/**

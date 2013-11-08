@@ -12,7 +12,6 @@
 package org.eclipse.rmf.reqif10.xhtml;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.xml.namespace.SpaceType;
 
 /**

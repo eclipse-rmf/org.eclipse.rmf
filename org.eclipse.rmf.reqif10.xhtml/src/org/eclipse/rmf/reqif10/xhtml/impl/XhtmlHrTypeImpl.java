@@ -12,14 +12,10 @@
 package org.eclipse.rmf.reqif10.xhtml.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.xml.namespace.SpaceType;
-
 import org.eclipse.rmf.reqif10.xhtml.XhtmlHrType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
@@ -41,7 +37,7 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
  *
  * @generated
  */
-public class XhtmlHrTypeImpl extends EObjectImpl implements XhtmlHrType {
+public class XhtmlHrTypeImpl extends MinimalEObjectImpl implements XhtmlHrType {
 	/**
 	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -459,17 +455,17 @@ public class XhtmlHrTypeImpl extends EObjectImpl implements XhtmlHrType {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (class: ");
+		result.append(" (class: "); //$NON-NLS-1$
 		result.append(class_);
-		result.append(", id: ");
+		result.append(", id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", lang: ");
+		result.append(", lang: "); //$NON-NLS-1$
 		result.append(lang);
-		result.append(", space: ");
-		if (spaceESet) result.append(space); else result.append("<unset>");
-		result.append(", style: ");
+		result.append(", space: "); //$NON-NLS-1$
+		if (spaceESet) result.append(space); else result.append("<unset>"); //$NON-NLS-1$
+		result.append(", style: "); //$NON-NLS-1$
 		result.append(style);
-		result.append(", title: ");
+		result.append(", title: "); //$NON-NLS-1$
 		result.append(title);
 		result.append(')');
 		return result.toString();

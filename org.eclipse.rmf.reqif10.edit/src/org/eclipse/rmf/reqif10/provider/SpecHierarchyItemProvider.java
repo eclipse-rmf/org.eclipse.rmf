@@ -87,8 +87,8 @@ public class SpecHierarchyItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SpecHierarchy_tableInternal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpecHierarchy_tableInternal_feature", "_UI_SpecHierarchy_type"),
+				 getString("_UI_SpecHierarchy_tableInternal_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SpecHierarchy_tableInternal_feature", "_UI_SpecHierarchy_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.SPEC_HIERARCHY__TABLE_INTERNAL,
 				 true,
 				 false,
@@ -109,8 +109,8 @@ public class SpecHierarchyItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SpecHierarchy_object_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpecHierarchy_object_feature", "_UI_SpecHierarchy_type"),
+				 getString("_UI_SpecHierarchy_object_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SpecHierarchy_object_feature", "_UI_SpecHierarchy_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT,
 				 true,
 				 false,
@@ -131,8 +131,8 @@ public class SpecHierarchyItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SpecHierarchy_editableAtts_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpecHierarchy_editableAtts_feature", "_UI_SpecHierarchy_type"),
+				 getString("_UI_SpecHierarchy_editableAtts_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SpecHierarchy_editableAtts_feature", "_UI_SpecHierarchy_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ReqIF10Package.Literals.SPEC_HIERARCHY__EDITABLE_ATTS,
 				 true,
 				 false,
@@ -180,7 +180,7 @@ public class SpecHierarchyItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SpecHierarchy"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SpecHierarchy")); //$NON-NLS-1$
 	}
 
 	/**
@@ -193,8 +193,8 @@ public class SpecHierarchyItemProvider
 	public String getText(Object object) {
 		String label = ((SpecHierarchy)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SpecHierarchy_type") :
-			getString("_UI_SpecHierarchy_type") + " " + label;
+			getString("_UI_SpecHierarchy_type") : //$NON-NLS-1$
+			getString("_UI_SpecHierarchy_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

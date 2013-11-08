@@ -15,12 +15,65 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.rmf.reqif10.xhtml.*;
+import org.eclipse.rmf.reqif10.xhtml.AlignType;
+import org.eclipse.rmf.reqif10.xhtml.DeclareType;
+import org.eclipse.rmf.reqif10.xhtml.DocumentRoot;
+import org.eclipse.rmf.reqif10.xhtml.FrameType;
+import org.eclipse.rmf.reqif10.xhtml.RulesType;
+import org.eclipse.rmf.reqif10.xhtml.ScopeType;
+import org.eclipse.rmf.reqif10.xhtml.ValignType;
+import org.eclipse.rmf.reqif10.xhtml.ValuetypeType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAbbrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAcronymType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAddressType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlBlockquoteType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlBrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlCaptionType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlCiteType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlCodeType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlColType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlColgroupType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDdType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDfnType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDlType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDtType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlEditType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlEmType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH1Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH2Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH3Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH4Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH5Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH6Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlHeadingType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlHrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlInlPresType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlKbdType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlLiType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlObjectType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlOlType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlParamType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPreType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlQType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlSampType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlSpanType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlStrongType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTableType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTbodyType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTdType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTfootType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlThType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTheadType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlVarType;
 
 /**
  * <!-- begin-user-doc -->
@@ -115,7 +168,7 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 			case XhtmlPackage.XHTML_UL_TYPE: return createXhtmlUlType();
 			case XhtmlPackage.XHTML_VAR_TYPE: return createXhtmlVarType();
 			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -156,7 +209,7 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 			case XhtmlPackage.VALUETYPE_TYPE_OBJECT:
 				return createValuetypeTypeObjectFromString(eDataType, initialValue);
 			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -197,7 +250,7 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 			case XhtmlPackage.VALUETYPE_TYPE_OBJECT:
 				return convertValuetypeTypeObjectToString(eDataType, instanceValue);
 			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -688,7 +741,7 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 */
 	public AlignType createAlignTypeFromString(EDataType eDataType, String initialValue) {
 		AlignType result = AlignType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -708,7 +761,7 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 */
 	public DeclareType createDeclareTypeFromString(EDataType eDataType, String initialValue) {
 		DeclareType result = DeclareType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -728,7 +781,7 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 */
 	public FrameType createFrameTypeFromString(EDataType eDataType, String initialValue) {
 		FrameType result = FrameType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -748,7 +801,7 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 */
 	public RulesType createRulesTypeFromString(EDataType eDataType, String initialValue) {
 		RulesType result = RulesType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -768,7 +821,7 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 */
 	public ScopeType createScopeTypeFromString(EDataType eDataType, String initialValue) {
 		ScopeType result = ScopeType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -788,7 +841,7 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 */
 	public ValignType createValignTypeFromString(EDataType eDataType, String initialValue) {
 		ValignType result = ValignType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -808,7 +861,7 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 */
 	public ValuetypeType createValuetypeTypeFromString(EDataType eDataType, String initialValue) {
 		ValuetypeType result = ValuetypeType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 

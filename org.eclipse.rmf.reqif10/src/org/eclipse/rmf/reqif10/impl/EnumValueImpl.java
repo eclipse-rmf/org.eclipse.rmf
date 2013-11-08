@@ -13,34 +13,29 @@ package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.rmf.reqif10.EmbeddedValue;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Enum Value</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Enum Value</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.EnumValueImpl#getProperties <em>Properties</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.EnumValueImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class EnumValueImpl extends IdentifiableImpl implements EnumValue {
 	/**
-	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
@@ -48,17 +43,16 @@ public class EnumValueImpl extends IdentifiableImpl implements EnumValue {
 	protected EmbeddedValue properties;
 
 	/**
-	 * This is true if the Properties containment reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Properties containment reference has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean propertiesESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EnumValueImpl() {
@@ -66,8 +60,8 @@ public class EnumValueImpl extends IdentifiableImpl implements EnumValue {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -76,8 +70,8 @@ public class EnumValueImpl extends IdentifiableImpl implements EnumValue {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EmbeddedValue getProperties() {
@@ -85,8 +79,8 @@ public class EnumValueImpl extends IdentifiableImpl implements EnumValue {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetProperties(EmbeddedValue newProperties, NotificationChain msgs) {
@@ -95,38 +89,45 @@ public class EnumValueImpl extends IdentifiableImpl implements EnumValue {
 		boolean oldPropertiesESet = propertiesESet;
 		propertiesESet = true;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ReqIF10Package.ENUM_VALUE__PROPERTIES, oldProperties, newProperties, !oldPropertiesESet);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ReqIF10Package.ENUM_VALUE__PROPERTIES, oldProperties,
+					newProperties, !oldPropertiesESet);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setProperties(EmbeddedValue newProperties) {
 		if (newProperties != properties) {
 			NotificationChain msgs = null;
 			if (properties != null)
-				msgs = ((InternalEObject)properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ENUM_VALUE__PROPERTIES, null, msgs);
+				msgs = ((InternalEObject) properties)
+						.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ENUM_VALUE__PROPERTIES, null, msgs);
 			if (newProperties != null)
-				msgs = ((InternalEObject)newProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ENUM_VALUE__PROPERTIES, null, msgs);
+				msgs = ((InternalEObject) newProperties)
+						.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ENUM_VALUE__PROPERTIES, null, msgs);
 			msgs = basicSetProperties(newProperties, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else {
+			if (msgs != null)
+				msgs.dispatch();
+		} else {
 			boolean oldPropertiesESet = propertiesESet;
 			propertiesESet = true;
 			if (eNotificationRequired())
-				eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ENUM_VALUE__PROPERTIES, newProperties, newProperties, !oldPropertiesESet));
+				eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ENUM_VALUE__PROPERTIES, newProperties, newProperties,
+						!oldPropertiesESet));
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicUnsetProperties(NotificationChain msgs) {
@@ -135,25 +136,29 @@ public class EnumValueImpl extends IdentifiableImpl implements EnumValue {
 		boolean oldPropertiesESet = propertiesESet;
 		propertiesESet = false;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ENUM_VALUE__PROPERTIES, oldProperties, null, oldPropertiesESet);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ENUM_VALUE__PROPERTIES, oldProperties,
+					null, oldPropertiesESet);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetProperties() {
 		if (properties != null) {
 			NotificationChain msgs = null;
-			msgs = ((InternalEObject)properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ENUM_VALUE__PROPERTIES, null, msgs);
+			msgs = ((InternalEObject) properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReqIF10Package.ENUM_VALUE__PROPERTIES, null, msgs);
 			msgs = basicUnsetProperties(msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else {
+			if (msgs != null)
+				msgs.dispatch();
+		} else {
 			boolean oldPropertiesESet = propertiesESet;
 			propertiesESet = false;
 			if (eNotificationRequired())
@@ -162,8 +167,8 @@ public class EnumValueImpl extends IdentifiableImpl implements EnumValue {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetProperties() {
@@ -171,75 +176,75 @@ public class EnumValueImpl extends IdentifiableImpl implements EnumValue {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ReqIF10Package.ENUM_VALUE__PROPERTIES:
-				return basicUnsetProperties(msgs);
+		case ReqIF10Package.ENUM_VALUE__PROPERTIES:
+			return basicUnsetProperties(msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReqIF10Package.ENUM_VALUE__PROPERTIES:
-				return getProperties();
+		case ReqIF10Package.ENUM_VALUE__PROPERTIES:
+			return getProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReqIF10Package.ENUM_VALUE__PROPERTIES:
-				setProperties((EmbeddedValue)newValue);
-				return;
+		case ReqIF10Package.ENUM_VALUE__PROPERTIES:
+			setProperties((EmbeddedValue) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.ENUM_VALUE__PROPERTIES:
-				unsetProperties();
-				return;
+		case ReqIF10Package.ENUM_VALUE__PROPERTIES:
+			unsetProperties();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.ENUM_VALUE__PROPERTIES:
-				return isSetProperties();
+		case ReqIF10Package.ENUM_VALUE__PROPERTIES:
+			return isSetProperties();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //EnumValueImpl
+} // EnumValueImpl

@@ -74,7 +74,7 @@ public class DatatypeDefinitionXHTMLItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DatatypeDefinitionXHTML"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DatatypeDefinitionXHTML")); //$NON-NLS-1$
 	}
 
 	/**
@@ -87,8 +87,8 @@ public class DatatypeDefinitionXHTMLItemProvider
 	public String getText(Object object) {
 		String label = ((DatatypeDefinitionXHTML)object).getLongName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DatatypeDefinitionXHTML_type") :
-			getString("_UI_DatatypeDefinitionXHTML_type") + " " + label;
+			getString("_UI_DatatypeDefinitionXHTML_type") : //$NON-NLS-1$
+			getString("_UI_DatatypeDefinitionXHTML_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -99,8 +99,8 @@ public class XhtmlPTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlPType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlPType_class_feature", "_UI_XhtmlPType_type"),
+				 getString("_UI_XhtmlPType_class_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlPType_class_feature", "_UI_XhtmlPType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlPType_Class(),
 				 true,
 				 false,
@@ -121,8 +121,8 @@ public class XhtmlPTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlPType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlPType_id_feature", "_UI_XhtmlPType_type"),
+				 getString("_UI_XhtmlPType_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlPType_id_feature", "_UI_XhtmlPType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlPType_Id(),
 				 true,
 				 false,
@@ -143,8 +143,8 @@ public class XhtmlPTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlPType_lang_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlPType_lang_feature", "_UI_XhtmlPType_type"),
+				 getString("_UI_XhtmlPType_lang_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlPType_lang_feature", "_UI_XhtmlPType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlPType_Lang(),
 				 true,
 				 false,
@@ -165,8 +165,8 @@ public class XhtmlPTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlPType_space_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlPType_space_feature", "_UI_XhtmlPType_type"),
+				 getString("_UI_XhtmlPType_space_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlPType_space_feature", "_UI_XhtmlPType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlPType_Space(),
 				 true,
 				 false,
@@ -187,8 +187,8 @@ public class XhtmlPTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlPType_style_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlPType_style_feature", "_UI_XhtmlPType_type"),
+				 getString("_UI_XhtmlPType_style_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlPType_style_feature", "_UI_XhtmlPType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlPType_Style(),
 				 true,
 				 false,
@@ -209,8 +209,8 @@ public class XhtmlPTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlPType_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlPType_title_feature", "_UI_XhtmlPType_type"),
+				 getString("_UI_XhtmlPType_title_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlPType_title_feature", "_UI_XhtmlPType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlPType_Title(),
 				 true,
 				 false,
@@ -258,7 +258,7 @@ public class XhtmlPTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlPType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlPType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -271,8 +271,8 @@ public class XhtmlPTypeItemProvider
 	public String getText(Object object) {
 		String label = ((XhtmlPType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlPType_type") :
-			getString("_UI_XhtmlPType_type") + " " + label;
+			getString("_UI_XhtmlPType_type") : //$NON-NLS-1$
+			getString("_UI_XhtmlPType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -318,14 +318,14 @@ public class XhtmlPTypeItemProvider
 				(XhtmlPackage.eINSTANCE.getXhtmlPType_Mixed(),
 				 FeatureMapUtil.createEntry
 					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
-					 "")));
+					 ""))); //$NON-NLS-1$
 
 		newChildDescriptors.add
 			(createChildParameter
 				(XhtmlPackage.eINSTANCE.getXhtmlPType_Mixed(),
 				 FeatureMapUtil.createEntry
 					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
-					 "")));
+					 ""))); //$NON-NLS-1$
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -339,7 +339,7 @@ public class XhtmlPTypeItemProvider
 				(XhtmlPackage.eINSTANCE.getXhtmlPType_Mixed(),
 				 FeatureMapUtil.createEntry
 					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
-					 "")));
+					 ""))); //$NON-NLS-1$
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -540,7 +540,7 @@ public class XhtmlPTypeItemProvider
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

@@ -12,23 +12,21 @@
 package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Spec Object Type</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Spec Object Type</b></em>'. <!-- end-user-doc
+ * -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class SpecObjectTypeImpl extends SpecTypeImpl implements SpecObjectType {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected SpecObjectTypeImpl() {
@@ -36,8 +34,8 @@ public class SpecObjectTypeImpl extends SpecTypeImpl implements SpecObjectType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -45,4 +43,4 @@ public class SpecObjectTypeImpl extends SpecTypeImpl implements SpecObjectType {
 		return ReqIF10Package.Literals.SPEC_OBJECT_TYPE;
 	}
 
-} //SpecObjectTypeImpl
+} // SpecObjectTypeImpl

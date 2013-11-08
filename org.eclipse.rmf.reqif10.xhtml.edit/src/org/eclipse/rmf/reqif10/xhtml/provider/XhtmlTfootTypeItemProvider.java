@@ -97,8 +97,8 @@ public class XhtmlTfootTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTfootType_align_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_align_feature", "_UI_XhtmlTfootType_type"),
+				 getString("_UI_XhtmlTfootType_align_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_align_feature", "_UI_XhtmlTfootType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTfootType_Align(),
 				 true,
 				 false,
@@ -119,8 +119,8 @@ public class XhtmlTfootTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTfootType_char_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_char_feature", "_UI_XhtmlTfootType_type"),
+				 getString("_UI_XhtmlTfootType_char_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_char_feature", "_UI_XhtmlTfootType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTfootType_Char(),
 				 true,
 				 false,
@@ -141,8 +141,8 @@ public class XhtmlTfootTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTfootType_charoff_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_charoff_feature", "_UI_XhtmlTfootType_type"),
+				 getString("_UI_XhtmlTfootType_charoff_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_charoff_feature", "_UI_XhtmlTfootType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTfootType_Charoff(),
 				 true,
 				 false,
@@ -163,8 +163,8 @@ public class XhtmlTfootTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTfootType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_class_feature", "_UI_XhtmlTfootType_type"),
+				 getString("_UI_XhtmlTfootType_class_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_class_feature", "_UI_XhtmlTfootType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTfootType_Class(),
 				 true,
 				 false,
@@ -185,8 +185,8 @@ public class XhtmlTfootTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTfootType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_id_feature", "_UI_XhtmlTfootType_type"),
+				 getString("_UI_XhtmlTfootType_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_id_feature", "_UI_XhtmlTfootType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTfootType_Id(),
 				 true,
 				 false,
@@ -207,8 +207,8 @@ public class XhtmlTfootTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTfootType_lang_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_lang_feature", "_UI_XhtmlTfootType_type"),
+				 getString("_UI_XhtmlTfootType_lang_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_lang_feature", "_UI_XhtmlTfootType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTfootType_Lang(),
 				 true,
 				 false,
@@ -229,8 +229,8 @@ public class XhtmlTfootTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTfootType_space_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_space_feature", "_UI_XhtmlTfootType_type"),
+				 getString("_UI_XhtmlTfootType_space_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_space_feature", "_UI_XhtmlTfootType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTfootType_Space(),
 				 true,
 				 false,
@@ -251,8 +251,8 @@ public class XhtmlTfootTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTfootType_style_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_style_feature", "_UI_XhtmlTfootType_type"),
+				 getString("_UI_XhtmlTfootType_style_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_style_feature", "_UI_XhtmlTfootType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTfootType_Style(),
 				 true,
 				 false,
@@ -273,8 +273,8 @@ public class XhtmlTfootTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTfootType_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_title_feature", "_UI_XhtmlTfootType_type"),
+				 getString("_UI_XhtmlTfootType_title_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_title_feature", "_UI_XhtmlTfootType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTfootType_Title(),
 				 true,
 				 false,
@@ -295,8 +295,8 @@ public class XhtmlTfootTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XhtmlTfootType_valign_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_valign_feature", "_UI_XhtmlTfootType_type"),
+				 getString("_UI_XhtmlTfootType_valign_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlTfootType_valign_feature", "_UI_XhtmlTfootType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 XhtmlPackage.eINSTANCE.getXhtmlTfootType_Valign(),
 				 true,
 				 false,
@@ -344,7 +344,7 @@ public class XhtmlTfootTypeItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlTfootType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlTfootType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -357,8 +357,8 @@ public class XhtmlTfootTypeItemProvider
 	public String getText(Object object) {
 		String label = ((XhtmlTfootType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlTfootType_type") :
-			getString("_UI_XhtmlTfootType_type") + " " + label;
+			getString("_UI_XhtmlTfootType_type") : //$NON-NLS-1$
+			getString("_UI_XhtmlTfootType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
