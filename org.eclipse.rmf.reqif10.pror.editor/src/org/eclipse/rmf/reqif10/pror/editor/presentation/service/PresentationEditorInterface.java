@@ -59,7 +59,8 @@ public interface PresentationEditorInterface {
 	 * has no rich text capabilities.
 	 * <p>
 	 * 
-	 * Note that the user cannot configure a default!
+	 * Note that the user cannot configure a default! Also, for defaults, the
+	 * getLabel() method will not be used either.
 	 * <p>
 	 */
 	Class<? extends DatatypeDefinition> suggestAsDefault();
