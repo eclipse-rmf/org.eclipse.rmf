@@ -11,9 +11,13 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.common.util;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.Collection;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
+import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.util.EList;
@@ -402,6 +406,16 @@ public class ReqIF10Util {
 
 		return new GregorianCalendar();
 
+	}
+
+	/**
+	 * Helper that converts String to {@link XMLGregorianCalendar}. We use this for Validation and for setting.
+	 */
+	public static GregorianCalendar stingToCalendar(String value) throws ParseException, DatatypeConfigurationException {
+		Date date = DateFormat.getDateInstance().parse(value.toString());
+		GregorianCalendar cal = new GregorianCalendar();
+		cal.setTime(date);
+		return cal;
 	}
 
 }
