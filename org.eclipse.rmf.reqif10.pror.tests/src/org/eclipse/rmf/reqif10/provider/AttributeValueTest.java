@@ -10,14 +10,10 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.provider;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.net.URISyntaxException;
 import java.util.GregorianCalendar;
-
-import javax.xml.datatype.XMLGregorianCalendar;
-
-import junit.framework.Assert;
 
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.ReqIF;
@@ -78,7 +74,7 @@ public abstract class AttributeValueTest extends AbstractItemProviderTest {
 		GregorianCalendar lastChangeBefore = specObject.getLastChange();
 		ProrUtil.setTheValue(getFixture(), getValueObject(), editingDomain);
 		GregorianCalendar lastChangeAfter = specObject.getLastChange();
-		Assert.assertNotSame(lastChangeAfter, lastChangeBefore);
+		assertTrue(lastChangeAfter != lastChangeBefore);
 	}
 	
 	/**
