@@ -46,13 +46,16 @@ import org.eclipse.rmf.reqif10.pror.presentation.ui.LinewrapCellRenderer;
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.presentation.linewrap.LinewrapConfiguration} object.
  * <!-- begin-user-doc -->
+ * Modified to implement {@link PresentationEditorInterface}
  * <!-- end-user-doc -->
- * @generated
+ * @generated NOT
  */
 public class LinewrapConfigurationItemProvider
 	extends ProrPresentationConfigurationItemProvider
 	implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, 
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
+		PresentationEditorInterface {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
