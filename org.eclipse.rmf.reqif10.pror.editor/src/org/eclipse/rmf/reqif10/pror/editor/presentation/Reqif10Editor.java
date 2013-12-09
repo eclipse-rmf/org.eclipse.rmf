@@ -21,6 +21,7 @@ import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
@@ -111,6 +112,7 @@ import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.provider.VirtualDatatypeDefinitionItemProvider;
 import org.eclipse.rmf.reqif10.pror.provider.VirtualSpecTypeItemProvider;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
+import org.eclipse.rmf.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
 import org.eclipse.swt.SWT;
@@ -698,11 +700,12 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 	 * This sets up the editing domain for the model editor. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
 		//
+		
 		adapterFactory = new ComposedAdapterFactory(
 				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
@@ -711,9 +714,12 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		adapterFactory
 				.addAdapterFactory(new ReqIF10ItemProviderAdapterFactory());
 		adapterFactory
+		        .addAdapterFactory(new XhtmlItemProviderAdapterFactory());
+		adapterFactory
 				.addAdapterFactory(new ConfigurationItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+
 
 		// Create the command stack that will notify this editor as commands are
 		// executed.
