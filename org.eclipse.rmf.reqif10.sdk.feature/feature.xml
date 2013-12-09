@@ -35,9 +35,37 @@ Mark Broerkens - initial API and implementation
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+         
+  <plugin
+         id="org.eclipse.rmf.reqif10.edit.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+         
+     <plugin
+         id="org.eclipse.rmf.reqif10.xhtml.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+         
+  <plugin
+         id="org.eclipse.rmf.reqif10.xhtml.edit.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
    <plugin
          id="org.eclipse.rmf.serialization.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+         
+   <plugin
+         id="org.eclipse.rmf.reqif10.serialization.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
