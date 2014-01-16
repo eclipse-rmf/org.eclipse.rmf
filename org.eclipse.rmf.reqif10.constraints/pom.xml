@@ -23,9 +23,9 @@ Contributors:
 		<relativePath>../org.eclipse.rmf.releng/pom.xml</relativePath>
 	</parent>
 	<artifactId>org.eclipse.rmf.reqif10.constraints</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.10.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
-	<groupId>com.yakindu.rmf.plugins</groupId>
+	<groupId>org.eclipse.rmf.plugins</groupId>
  	<build>
 		<plugins>
 			<plugin>
