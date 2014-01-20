@@ -24,19 +24,14 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 
+/**
+ * {@link ReqIFToolExtension} in ReqIF models are special, as tools may insert their own models. This class contains a
+ * number of static helper methods that helps dealing with them.
+ */
 public class ReqIFToolExtensionUtil {
-	public static List<ReqIFToolExtension> getReqIFToolExtensions(ReqIF reqIF) {
-		final List<ReqIFToolExtension> reqIFToolExtensions;
-		if (null != reqIF) {
-			reqIFToolExtensions = reqIF.getToolExtensions();
-		} else {
-			reqIFToolExtensions = new ArrayList<ReqIFToolExtension>();
-		}
-		return reqIFToolExtensions;
-	}
 
 	public static List<EObject> getToolExtensionsByNsURI(ReqIF reqIF, String nsURI) {
-		final List<ReqIFToolExtension> reqIFToolExtensions = getReqIFToolExtensions(reqIF);
+		final List<ReqIFToolExtension> reqIFToolExtensions = reqIF.getToolExtensions();
 		List<EObject> toolExtensions = new ArrayList<EObject>();
 		for (ReqIFToolExtension reqIFToolExtension : reqIFToolExtensions) {
 			for (EObject extension : reqIFToolExtension.getExtensions()) {
@@ -50,7 +45,7 @@ public class ReqIFToolExtensionUtil {
 
 	@SuppressWarnings("unchecked")
 	public static <T> List<T> getToolExtensionsByType(ReqIF reqIF, EClassifier type) {
-		final List<ReqIFToolExtension> reqIFToolExtensions = getReqIFToolExtensions(reqIF);
+		final List<ReqIFToolExtension> reqIFToolExtensions = reqIF.getToolExtensions();
 		List<T> toolExtensions = new ArrayList<T>();
 		for (ReqIFToolExtension reqIFToolExtension : reqIFToolExtensions) {
 			for (EObject extension : reqIFToolExtension.getExtensions()) {
