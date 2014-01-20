@@ -9,7 +9,7 @@
  *     Michael Jastram - initial API and implementation
  ******************************************************************************/
 
-package org.eclipse.rmf.reqif10.configuration.tests;
+package org.eclipse.rmf.reqif10.pror.configuration.provider;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

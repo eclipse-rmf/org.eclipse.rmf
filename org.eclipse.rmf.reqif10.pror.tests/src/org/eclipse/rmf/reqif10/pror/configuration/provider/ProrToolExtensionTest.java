@@ -9,36 +9,38 @@
  *     Michael Jastram - initial API and implementation
  ******************************************************************************/
 
-package org.eclipse.rmf.reqif10.configuration.tests;
+package org.eclipse.rmf.reqif10.pror.configuration.provider;
 
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrGeneralConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
 import org.junit.After;
 import org.junit.Before;
 
 /**
- * A test case for the model object '<em><b>Pror General Configuration</b></em>'.
+ * <!-- begin-user-doc -->
+ * A test case for the model object '<em><b>Pror Tool Extension</b></em>'.
+ * <!-- end-user-doc -->
  */
-public class ProrGeneralConfigurationTest extends AbstractItemProviderTest {
+public class ProrToolExtensionTest extends AbstractItemProviderTest {
 
 	/**
-	 * The fixture for this Pror General Configuration test case.
+	 * The fixture for this Pror Tool Extension test case.
 	 */
-	protected ProrGeneralConfiguration fixture = null;
+	protected ProrToolExtension fixture = null;
 
 	/**
-	 * Sets the fixture for this Pror General Configuration test case.
+	 * Sets the fixture for this Alternative Id test case.
 	 */
-	protected void setFixture(ProrGeneralConfiguration fixture) {
+	protected void setFixture(ProrToolExtension fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Pror General Configuration test case.
+	 * Returns the fixture for this Pror Tool Extension test case.
 	 */
-	protected ProrGeneralConfiguration getFixture() {
-		return fixture;
+	protected ProrToolExtension getFixture() {
+		return (ProrToolExtension)fixture;
 	}
 
 	/**
@@ -46,7 +48,7 @@ public class ProrGeneralConfigurationTest extends AbstractItemProviderTest {
 	 */
 	@Before
 	protected void setUp() throws Exception {
-		setFixture(ConfigurationFactory.eINSTANCE.createProrGeneralConfiguration());
+		setFixture(ConfigurationFactory.eINSTANCE.createProrToolExtension());
 	}
 
 	/**
@@ -57,4 +59,4 @@ public class ProrGeneralConfigurationTest extends AbstractItemProviderTest {
 		setFixture(null);
 	}
 
-} //ProrGeneralConfigurationTest
+} //ProrToolExtensionTest
