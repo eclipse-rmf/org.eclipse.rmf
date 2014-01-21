@@ -63,6 +63,7 @@ public class PresentationServiceManagerTest {
 
 	@Test
 	public void testMissingPresentationService() {
+		@SuppressWarnings("unused")  // as we don't need bodies.
 		ProrPresentationConfiguration config = new ProrPresentationConfigurationImpl() {
 			public void registerReqIF() {
 			}
