@@ -13,9 +13,7 @@ package org.eclipse.rmf.reqif10.pror.presentation.linewrap.provider;
 
 
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.CellEditor;
@@ -36,7 +34,6 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionSimple;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
@@ -59,9 +56,6 @@ public class LinewrapConfigurationItemProvider
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		PresentationEditorInterface {
 	
-	// Track the registered configs.
-	Set<ProrPresentationConfiguration> registeredConfigs = new HashSet<ProrPresentationConfiguration>();
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -153,17 +147,7 @@ public class LinewrapConfigurationItemProvider
 		return LinewrapEditPlugin.INSTANCE;
 	}
 
-	public void registerPresentationConfiguration(ProrPresentationConfiguration config,
-			EditingDomain editingDomain) {
-		registeredConfigs.add(config);
-	}
-
-	public void unregisterPresentationConfiguration(ProrPresentationConfiguration config) {
-		registeredConfigs.remove(config);
-	}
-
 	private LinewrapCellRenderer linewrapCellRenderer;
-
 
 	public IProrCellRenderer getCellRenderer(AttributeValue av) {
 		if (linewrapCellRenderer == null) {

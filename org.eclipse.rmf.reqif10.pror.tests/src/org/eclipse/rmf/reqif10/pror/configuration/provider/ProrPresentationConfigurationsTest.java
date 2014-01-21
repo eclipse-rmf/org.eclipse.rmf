@@ -23,7 +23,6 @@ import org.eclipse.rmf.reqif10.pror.presentation.linewrap.LinewrapConfiguration;
 import org.eclipse.rmf.reqif10.pror.presentation.linewrap.LinewrapFactory;
 import org.eclipse.rmf.reqif10.pror.presentation.linewrap.provider.LinewrapConfigurationItemProvider;
 import org.eclipse.rmf.reqif10.pror.presentation.linewrap.provider.LinewrapItemProviderAdapterFactory;
-import org.eclipse.rmf.reqif10.pror.presentation.linewrap.provider.LinewrapPackageAccess;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.junit.After;
@@ -92,11 +91,11 @@ public class ProrPresentationConfigurationsTest extends AbstractItemProviderTest
 
 		// should trigger registration.
 		setViaCommand(fixture, ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS, config);
-		assertEquals(LinewrapPackageAccess.getRegisteredConfigurations(ip).size(), 1);
+		assertEquals(ip.getRegisteredConfigurations().size(), 1);
 
 		// should trigger un-registration
 		removeViaCommand(fixture, ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS, config);
-		assertEquals(LinewrapPackageAccess.getRegisteredConfigurations(ip).size(), 0);
+		assertEquals(ip.getRegisteredConfigurations().size(), 0);
 
 	}
 
