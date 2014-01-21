@@ -21,7 +21,6 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.pror.presentation.linewrap.LinewrapConfiguration;
 import org.eclipse.rmf.reqif10.pror.presentation.linewrap.LinewrapFactory;
-import org.eclipse.rmf.reqif10.pror.presentation.linewrap.provider.LinewrapConfigurationItemProvider;
 import org.eclipse.rmf.reqif10.pror.presentation.linewrap.provider.LinewrapItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
@@ -86,7 +85,7 @@ public class ProrPresentationConfigurationsTest extends AbstractItemProviderTest
 		ReqIFToolExtensionUtil.addToolExtension(reqif, toolExtension);
 
 		LinewrapConfiguration config = LinewrapFactory.eINSTANCE.createLinewrapConfiguration();
-		LinewrapConfigurationItemProvider ip = (LinewrapConfigurationItemProvider) ProrUtil
+		ProrPresentationConfigurationItemProvider ip = (ProrPresentationConfigurationItemProvider) ProrUtil
 				.getConfigItemProvider(config, adapterFactory);
 
 		// should trigger registration.

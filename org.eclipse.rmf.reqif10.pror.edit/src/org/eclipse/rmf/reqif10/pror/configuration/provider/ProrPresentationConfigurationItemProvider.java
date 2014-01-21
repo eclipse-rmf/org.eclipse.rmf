@@ -78,7 +78,7 @@ public abstract class ProrPresentationConfigurationItemProvider
 	 * @return an unmodifiable {@link Set} of all currently registered
 	 * {@link ProrPresentationConfiguration}s.
 	 */
-	protected Set<ProrPresentationConfiguration> getRegisteredConfigurations() {
+	public Set<ProrPresentationConfiguration> getRegisteredConfigurations() {
 		return Collections.unmodifiableSet(registeredConfigs);
 	}
 
