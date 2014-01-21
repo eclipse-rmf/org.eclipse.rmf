@@ -11,15 +11,20 @@
 
 package org.eclipse.rmf.reqif10.pror.configuration.provider;
 
+import org.eclipse.rmf.reqif10.configuration.tests.AllConfigurationTests;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Pror Tool Extension</b></em>'.
+ * As that class is currently generated without modifications, no test is
+ * necessary.  A {@link #placeholderTest()} is included, so that this class can already
+ * be included in {@link AllConfigurationTests}.
  * <!-- end-user-doc -->
  */
 public class ProrToolExtensionTest extends AbstractItemProviderTest {
@@ -47,7 +52,7 @@ public class ProrToolExtensionTest extends AbstractItemProviderTest {
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Before
-	protected void setUp() throws Exception {
+	public void setUp() throws Exception {
 		setFixture(ConfigurationFactory.eINSTANCE.createProrToolExtension());
 	}
 
@@ -55,8 +60,13 @@ public class ProrToolExtensionTest extends AbstractItemProviderTest {
 	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@After
-	protected void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 		setFixture(null);
+	}
+	
+	@Test
+	public void placeholderTest() throws Exception {
+		// Remove this method, once the first real test is added.
 	}
 
 } //ProrToolExtensionTest

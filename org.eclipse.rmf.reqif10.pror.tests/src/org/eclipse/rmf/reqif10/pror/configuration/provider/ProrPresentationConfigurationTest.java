@@ -13,6 +13,7 @@ package org.eclipse.rmf.reqif10.pror.configuration.provider;
 
 import static org.junit.Assert.assertEquals;
 
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
@@ -20,6 +21,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
+import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.junit.Test;
 
 /**
@@ -45,16 +47,38 @@ public abstract class ProrPresentationConfigurationTest extends AbstractItemProv
 	protected ProrPresentationConfiguration getFixture() {
 		return fixture;
 	}
+
 	
+	/**
+	 * Must create a new {@link AdapterFactory} for the Presentation to be tested, e.g.
+	 * <pre>
+	 * return new LinewrapItemProviderAdapterFactory();
+	 * </pre>
+	 */
+	abstract AdapterFactory createAdapterFactory();	
+
 	@Test
 	public void testTypeNotifications() {
-		ProrPresentationConfigurations configs = ConfigurationFactory.eINSTANCE.createProrPresentationConfigurations();
-		setViaCommand(configs, ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS, fixture);
+		adapterFactory
+				.addAdapterFactory(createAdapterFactory());
+		ProrPresentationConfigurations configs = ConfigurationFactory.eINSTANCE
+				.createProrPresentationConfigurations();
+		ProrPresentationConfigurationsItemProvider ip = (ProrPresentationConfigurationsItemProvider) ProrUtil
+				.getItemProvider(adapterFactory, configs);
+		ip.setEditingDomain(editingDomain);
+		setViaCommand(
+				configs,
+				ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATIONS__PRESENTATION_CONFIGURATIONS,
+				fixture);
 		assertEquals(fixture, configs.getPresentationConfigurations().get(0));
-		
+
 		this.getItemProvider(fixture).addListener(listener);
-		DatatypeDefinition dd = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString();
-		setViaCommand(fixture, ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATION__DATATYPE, dd);
+		DatatypeDefinition dd = ReqIF10Factory.eINSTANCE
+				.createDatatypeDefinitionString();
+		setViaCommand(
+				fixture,
+				ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATION__DATATYPE,
+				dd);
 		assertEquals(dd, fixture.getDatatype());
 		assertEquals(1, this.notifications.size());
 	}
