@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.rmf.reqif10.thirdparty.feature"
-      label="RMF ReqIF 1.0 Thirdparty Feature (Incubation)"
+      label="%featureName"
       version="0.9.0.qualifier"
-      provider-name="Eclipse Modeling Project">
+      provider-name="%providerName"
+      license-feature="org.eclipse.license"
+      license-feature-version="1.0.0.qualifier">
 
    <description url="http://www.eclipse.org/rmf">
-      This feature encapsulates all third party plugins required by the RMF ReqIF core
+      %description
    </description>
 
    <copyright url="http://itemis.com/">

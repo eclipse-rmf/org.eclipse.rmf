@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.rmf.reqif10.pror.feature"
-      label="RMF ProR Feature (Incubation)"
+      label="%featureName"
       version="0.9.0.qualifier"
-      provider-name="Eclipse Modeling Project"
-      plugin="org.eclipse.rmf.reqif10.pror">
+      provider-name="%providerName"
+      plugin="org.eclipse.rmf.reqif10.pror"
+      license-feature="org.eclipse.license"
+      license-feature-version="1.0.0.qualifier">
 
    <description url="http://www.example.com/description">
-      The ProR GUI for ReqIF 1.0.1.
+      %description
    </description>
 
    <copyright url="http://www.formalmind.com">

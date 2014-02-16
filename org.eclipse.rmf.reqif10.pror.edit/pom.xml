@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.eclipse.rmf</groupId>
-		<artifactId>org.eclipse.rmf.releng</artifactId>
+		<artifactId>org.eclipse.rmf.releng.parent</artifactId>
 		<version>0.9.0-SNAPSHOT</version>
-		<relativePath>../org.eclipse.rmf.releng/pom.xml</relativePath>
+		<relativePath>../org.eclipse.rmf.releng/parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>org.eclipse.rmf.reqif10.pror.edit</artifactId>
 	<version>0.9.0-SNAPSHOT</version>
@@ -16,21 +16,4 @@
 	<properties>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	</properties>
- 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-source-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<executions>
-					<execution>
-						<id>plugin-source</id>
-						<goals>
-							<goal>plugin-source</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
 </project>
