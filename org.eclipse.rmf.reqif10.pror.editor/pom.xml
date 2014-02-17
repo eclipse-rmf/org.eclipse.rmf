@@ -5,15 +5,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.eclipse.rmf</groupId>
-		<artifactId>org.eclipse.rmf.releng.parent</artifactId>
-		<version>0.9.0-SNAPSHOT</version>
-		<relativePath>../org.eclipse.rmf.releng/parent/pom.xml</relativePath>
+		<artifactId>org.eclipse.rmf.releng</artifactId>
+		<version>0.10.0-SNAPSHOT</version>
+		<relativePath>../org.eclipse.rmf.releng/pom.xml</relativePath>
 	</parent>
 	<artifactId>org.eclipse.rmf.reqif10.pror.editor</artifactId>
-	<version>0.9.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<groupId>org.eclipse.rmf.plugins</groupId>
 	<properties>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	</properties>
-</project>
+	</project>

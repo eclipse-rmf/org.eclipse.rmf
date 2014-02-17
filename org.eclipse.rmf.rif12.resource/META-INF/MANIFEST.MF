@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.rmf.rif12.resource;singleton:=true
-Bundle-Version: 0.9.0.qualifier
+Bundle-Version: 0.10.0.qualifier
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.7.0,4.0.0)",
  org.eclipse.emf.ecore;bundle-version="[2.7.0,3.0.0)",
  org.eclipse.rmf.rif12.model;bundle-version="0.1.0",
  org.eclipse.rmf.rif12.xsd.model;bundle-version="0.1.0",
  org.eclipse.rmf.emf.ecore.converter;bundle-version="0.1.0"
-Export-Package: org.eclipse.rmf.rif12.resource,
- org.eclipse.rmf.rif12.resource.extensions
+Export-Package: org.eclipse.rmf.rif12.resource,org.eclipse.rmf.rif12.r
+ esource.extensions
 Bundle-Vendor: %providerName
