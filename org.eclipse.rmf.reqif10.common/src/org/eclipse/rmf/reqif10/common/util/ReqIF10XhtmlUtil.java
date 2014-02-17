@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+ * Copyright (c) 2011, 2013 Formal Mind GmbH and University of Dusseldorf and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * Contributors:
  *     Michael Jastram - initial API and implementation
  *     Lukas Ladenberger - ProR GUI 
- *     Mark Broerkens - Xhtml access methods   
+ *     Mark Broerkens (itemis AG)- Xhtml access methods   
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.common.util;
 
@@ -22,7 +22,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
 import org.w3c.dom.Document;
+
+;
 
 /**
  * Static helper class with methods for ReqIF Xhtml content.
