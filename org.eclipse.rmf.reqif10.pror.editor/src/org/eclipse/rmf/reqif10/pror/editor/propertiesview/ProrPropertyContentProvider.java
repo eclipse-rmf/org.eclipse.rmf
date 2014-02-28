@@ -10,7 +10,10 @@
  *******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.propertiesview;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -291,13 +294,26 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 					((Descriptor) that).descriptor.getDisplayName(content));
 		}
 
+		/**
+		 * Returns the string content from the descriptor.  However, we have to extract
+		 * the string differently for {@link GregorianCalendar}.
+		 */
 		@Override
 		public String toString() {
 			PropertyValueWrapper propertyValueWrapper = (PropertyValueWrapper) descriptor
 					.getPropertyValue(content);
-			return propertyValueWrapper == null ? "" : propertyValueWrapper
-					.getText(content);
-
+			if (propertyValueWrapper != null) {
+				Object editableValue = propertyValueWrapper.getEditableValue(content);
+				if (editableValue instanceof GregorianCalendar) {
+					GregorianCalendar cal = (GregorianCalendar) editableValue;
+					Date date = cal.getTime();
+					return DateFormat.getDateTimeInstance().format(date);
+				} else {
+					return propertyValueWrapper
+							.getText(content);
+				}
+			}
+			return "";
 		}
 
 		@Override
