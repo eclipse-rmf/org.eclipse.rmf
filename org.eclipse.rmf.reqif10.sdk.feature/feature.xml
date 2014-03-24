@@ -29,9 +29,16 @@ Mark Broerkens - initial API and implementation
    <includes
          id="org.eclipse.rmf.reqif10.feature"
          version="0.0.0"/>
-         
+
    <includes
          id="org.eclipse.rmf.reqif10.feature.source"
          version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.rmf.tests.reqif10.serialization"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>
