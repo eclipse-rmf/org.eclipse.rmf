@@ -59,6 +59,8 @@
 		<module>../org.eclipse.rmf.releng.repository</module>
 		<module>../org.eclipse.rmf.releng.product</module>
 
+        <module>../org.agilemore.agilegrid</module>
+
 		<!-- ReqIF Core -->
 		<module>../org.eclipse.rmf.reqif10</module>
 		<module>../org.eclipse.rmf.reqif10.edit</module>
