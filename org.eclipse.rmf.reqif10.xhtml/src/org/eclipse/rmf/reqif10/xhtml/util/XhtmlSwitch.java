@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,37 +13,77 @@ package org.eclipse.rmf.reqif10.xhtml.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.eclipse.rmf.reqif10.xhtml.*;
+import org.eclipse.rmf.reqif10.xhtml.DocumentRoot;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAbbrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAcronymType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAddressType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlBlockquoteType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlBrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlCaptionType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlCiteType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlCodeType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlColType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlColgroupType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDdType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDfnType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDlType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDtType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlEditType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlEmType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH1Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH2Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH3Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH4Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH5Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH6Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlHeadingType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlHrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlInlPresType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlKbdType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlLiType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlObjectType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlOlType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlParamType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPreType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlQType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlSampType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlSpanType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlStrongType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTableType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTbodyType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTdType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTfootType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlThType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTheadType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlVarType;
 
 /**
- * <!-- begin-user-doc -->
- * The <b>Switch</b> for the model's inheritance hierarchy.
- * It supports the call {@link #doSwitch(EObject) doSwitch(object)}
- * to invoke the <code>caseXXX</code> method for each class of the model,
- * starting with the actual class of the object
- * and proceeding up the inheritance hierarchy
- * until a non-null result is returned,
- * which is the result of the switch.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance hierarchy. It supports the call
+ * {@link #doSwitch(EObject) doSwitch(object)} to invoke the <code>caseXXX</code> method for each class of the model,
+ * starting with the actual class of the object and proceeding up the inheritance hierarchy until a non-null result is
+ * returned, which is the result of the switch. <!-- end-user-doc -->
+ * 
  * @see org.eclipse.rmf.reqif10.xhtml.XhtmlPackage
  * @generated
  */
 public class XhtmlSwitch<T> extends Switch<T> {
 	/**
-	 * The cached model package
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected static XhtmlPackage modelPackage;
 
 	/**
-	 * Creates an instance of the switch.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlSwitch() {
@@ -53,9 +93,8 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Checks whether this is a switch for the given package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Checks whether this is a switch for the given package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @parameter ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
@@ -66,314 +105,362 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that
+	 * result. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case XhtmlPackage.DOCUMENT_ROOT: {
-				DocumentRoot documentRoot = (DocumentRoot)theEObject;
-				T result = caseDocumentRoot(documentRoot);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_ABBR_TYPE: {
-				XhtmlAbbrType xhtmlAbbrType = (XhtmlAbbrType)theEObject;
-				T result = caseXhtmlAbbrType(xhtmlAbbrType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_ACRONYM_TYPE: {
-				XhtmlAcronymType xhtmlAcronymType = (XhtmlAcronymType)theEObject;
-				T result = caseXhtmlAcronymType(xhtmlAcronymType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_ADDRESS_TYPE: {
-				XhtmlAddressType xhtmlAddressType = (XhtmlAddressType)theEObject;
-				T result = caseXhtmlAddressType(xhtmlAddressType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_ATYPE: {
-				XhtmlAType xhtmlAType = (XhtmlAType)theEObject;
-				T result = caseXhtmlAType(xhtmlAType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE: {
-				XhtmlBlockquoteType xhtmlBlockquoteType = (XhtmlBlockquoteType)theEObject;
-				T result = caseXhtmlBlockquoteType(xhtmlBlockquoteType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_BR_TYPE: {
-				XhtmlBrType xhtmlBrType = (XhtmlBrType)theEObject;
-				T result = caseXhtmlBrType(xhtmlBrType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_CAPTION_TYPE: {
-				XhtmlCaptionType xhtmlCaptionType = (XhtmlCaptionType)theEObject;
-				T result = caseXhtmlCaptionType(xhtmlCaptionType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_CITE_TYPE: {
-				XhtmlCiteType xhtmlCiteType = (XhtmlCiteType)theEObject;
-				T result = caseXhtmlCiteType(xhtmlCiteType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_CODE_TYPE: {
-				XhtmlCodeType xhtmlCodeType = (XhtmlCodeType)theEObject;
-				T result = caseXhtmlCodeType(xhtmlCodeType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_COLGROUP_TYPE: {
-				XhtmlColgroupType xhtmlColgroupType = (XhtmlColgroupType)theEObject;
-				T result = caseXhtmlColgroupType(xhtmlColgroupType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_COL_TYPE: {
-				XhtmlColType xhtmlColType = (XhtmlColType)theEObject;
-				T result = caseXhtmlColType(xhtmlColType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_DD_TYPE: {
-				XhtmlDdType xhtmlDdType = (XhtmlDdType)theEObject;
-				T result = caseXhtmlDdType(xhtmlDdType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_DFN_TYPE: {
-				XhtmlDfnType xhtmlDfnType = (XhtmlDfnType)theEObject;
-				T result = caseXhtmlDfnType(xhtmlDfnType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_DIV_TYPE: {
-				XhtmlDivType xhtmlDivType = (XhtmlDivType)theEObject;
-				T result = caseXhtmlDivType(xhtmlDivType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_DL_TYPE: {
-				XhtmlDlType xhtmlDlType = (XhtmlDlType)theEObject;
-				T result = caseXhtmlDlType(xhtmlDlType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_DT_TYPE: {
-				XhtmlDtType xhtmlDtType = (XhtmlDtType)theEObject;
-				T result = caseXhtmlDtType(xhtmlDtType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_EDIT_TYPE: {
-				XhtmlEditType xhtmlEditType = (XhtmlEditType)theEObject;
-				T result = caseXhtmlEditType(xhtmlEditType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_EM_TYPE: {
-				XhtmlEmType xhtmlEmType = (XhtmlEmType)theEObject;
-				T result = caseXhtmlEmType(xhtmlEmType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_H1_TYPE: {
-				XhtmlH1Type xhtmlH1Type = (XhtmlH1Type)theEObject;
-				T result = caseXhtmlH1Type(xhtmlH1Type);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_H2_TYPE: {
-				XhtmlH2Type xhtmlH2Type = (XhtmlH2Type)theEObject;
-				T result = caseXhtmlH2Type(xhtmlH2Type);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_H3_TYPE: {
-				XhtmlH3Type xhtmlH3Type = (XhtmlH3Type)theEObject;
-				T result = caseXhtmlH3Type(xhtmlH3Type);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_H4_TYPE: {
-				XhtmlH4Type xhtmlH4Type = (XhtmlH4Type)theEObject;
-				T result = caseXhtmlH4Type(xhtmlH4Type);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_H5_TYPE: {
-				XhtmlH5Type xhtmlH5Type = (XhtmlH5Type)theEObject;
-				T result = caseXhtmlH5Type(xhtmlH5Type);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_H6_TYPE: {
-				XhtmlH6Type xhtmlH6Type = (XhtmlH6Type)theEObject;
-				T result = caseXhtmlH6Type(xhtmlH6Type);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_HEADING_TYPE: {
-				XhtmlHeadingType xhtmlHeadingType = (XhtmlHeadingType)theEObject;
-				T result = caseXhtmlHeadingType(xhtmlHeadingType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_HR_TYPE: {
-				XhtmlHrType xhtmlHrType = (XhtmlHrType)theEObject;
-				T result = caseXhtmlHrType(xhtmlHrType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_INL_PRES_TYPE: {
-				XhtmlInlPresType xhtmlInlPresType = (XhtmlInlPresType)theEObject;
-				T result = caseXhtmlInlPresType(xhtmlInlPresType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_KBD_TYPE: {
-				XhtmlKbdType xhtmlKbdType = (XhtmlKbdType)theEObject;
-				T result = caseXhtmlKbdType(xhtmlKbdType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_LI_TYPE: {
-				XhtmlLiType xhtmlLiType = (XhtmlLiType)theEObject;
-				T result = caseXhtmlLiType(xhtmlLiType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_OBJECT_TYPE: {
-				XhtmlObjectType xhtmlObjectType = (XhtmlObjectType)theEObject;
-				T result = caseXhtmlObjectType(xhtmlObjectType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_OL_TYPE: {
-				XhtmlOlType xhtmlOlType = (XhtmlOlType)theEObject;
-				T result = caseXhtmlOlType(xhtmlOlType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_PARAM_TYPE: {
-				XhtmlParamType xhtmlParamType = (XhtmlParamType)theEObject;
-				T result = caseXhtmlParamType(xhtmlParamType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_PRE_TYPE: {
-				XhtmlPreType xhtmlPreType = (XhtmlPreType)theEObject;
-				T result = caseXhtmlPreType(xhtmlPreType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_PTYPE: {
-				XhtmlPType xhtmlPType = (XhtmlPType)theEObject;
-				T result = caseXhtmlPType(xhtmlPType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_QTYPE: {
-				XhtmlQType xhtmlQType = (XhtmlQType)theEObject;
-				T result = caseXhtmlQType(xhtmlQType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_SAMP_TYPE: {
-				XhtmlSampType xhtmlSampType = (XhtmlSampType)theEObject;
-				T result = caseXhtmlSampType(xhtmlSampType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_SPAN_TYPE: {
-				XhtmlSpanType xhtmlSpanType = (XhtmlSpanType)theEObject;
-				T result = caseXhtmlSpanType(xhtmlSpanType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_STRONG_TYPE: {
-				XhtmlStrongType xhtmlStrongType = (XhtmlStrongType)theEObject;
-				T result = caseXhtmlStrongType(xhtmlStrongType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_TABLE_TYPE: {
-				XhtmlTableType xhtmlTableType = (XhtmlTableType)theEObject;
-				T result = caseXhtmlTableType(xhtmlTableType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_TBODY_TYPE: {
-				XhtmlTbodyType xhtmlTbodyType = (XhtmlTbodyType)theEObject;
-				T result = caseXhtmlTbodyType(xhtmlTbodyType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_TD_TYPE: {
-				XhtmlTdType xhtmlTdType = (XhtmlTdType)theEObject;
-				T result = caseXhtmlTdType(xhtmlTdType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_TFOOT_TYPE: {
-				XhtmlTfootType xhtmlTfootType = (XhtmlTfootType)theEObject;
-				T result = caseXhtmlTfootType(xhtmlTfootType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_THEAD_TYPE: {
-				XhtmlTheadType xhtmlTheadType = (XhtmlTheadType)theEObject;
-				T result = caseXhtmlTheadType(xhtmlTheadType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_TH_TYPE: {
-				XhtmlThType xhtmlThType = (XhtmlThType)theEObject;
-				T result = caseXhtmlThType(xhtmlThType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_TR_TYPE: {
-				XhtmlTrType xhtmlTrType = (XhtmlTrType)theEObject;
-				T result = caseXhtmlTrType(xhtmlTrType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_UL_TYPE: {
-				XhtmlUlType xhtmlUlType = (XhtmlUlType)theEObject;
-				T result = caseXhtmlUlType(xhtmlUlType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XhtmlPackage.XHTML_VAR_TYPE: {
-				XhtmlVarType xhtmlVarType = (XhtmlVarType)theEObject;
-				T result = caseXhtmlVarType(xhtmlVarType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
+		case XhtmlPackage.DOCUMENT_ROOT: {
+			DocumentRoot documentRoot = (DocumentRoot) theEObject;
+			T result = caseDocumentRoot(documentRoot);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_ABBR_TYPE: {
+			XhtmlAbbrType xhtmlAbbrType = (XhtmlAbbrType) theEObject;
+			T result = caseXhtmlAbbrType(xhtmlAbbrType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_ACRONYM_TYPE: {
+			XhtmlAcronymType xhtmlAcronymType = (XhtmlAcronymType) theEObject;
+			T result = caseXhtmlAcronymType(xhtmlAcronymType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_ADDRESS_TYPE: {
+			XhtmlAddressType xhtmlAddressType = (XhtmlAddressType) theEObject;
+			T result = caseXhtmlAddressType(xhtmlAddressType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_ATYPE: {
+			XhtmlAType xhtmlAType = (XhtmlAType) theEObject;
+			T result = caseXhtmlAType(xhtmlAType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE: {
+			XhtmlBlockquoteType xhtmlBlockquoteType = (XhtmlBlockquoteType) theEObject;
+			T result = caseXhtmlBlockquoteType(xhtmlBlockquoteType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_BR_TYPE: {
+			XhtmlBrType xhtmlBrType = (XhtmlBrType) theEObject;
+			T result = caseXhtmlBrType(xhtmlBrType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_CAPTION_TYPE: {
+			XhtmlCaptionType xhtmlCaptionType = (XhtmlCaptionType) theEObject;
+			T result = caseXhtmlCaptionType(xhtmlCaptionType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_CITE_TYPE: {
+			XhtmlCiteType xhtmlCiteType = (XhtmlCiteType) theEObject;
+			T result = caseXhtmlCiteType(xhtmlCiteType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_CODE_TYPE: {
+			XhtmlCodeType xhtmlCodeType = (XhtmlCodeType) theEObject;
+			T result = caseXhtmlCodeType(xhtmlCodeType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_COLGROUP_TYPE: {
+			XhtmlColgroupType xhtmlColgroupType = (XhtmlColgroupType) theEObject;
+			T result = caseXhtmlColgroupType(xhtmlColgroupType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_COL_TYPE: {
+			XhtmlColType xhtmlColType = (XhtmlColType) theEObject;
+			T result = caseXhtmlColType(xhtmlColType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_DD_TYPE: {
+			XhtmlDdType xhtmlDdType = (XhtmlDdType) theEObject;
+			T result = caseXhtmlDdType(xhtmlDdType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_DFN_TYPE: {
+			XhtmlDfnType xhtmlDfnType = (XhtmlDfnType) theEObject;
+			T result = caseXhtmlDfnType(xhtmlDfnType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_DIV_TYPE: {
+			XhtmlDivType xhtmlDivType = (XhtmlDivType) theEObject;
+			T result = caseXhtmlDivType(xhtmlDivType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_DL_TYPE: {
+			XhtmlDlType xhtmlDlType = (XhtmlDlType) theEObject;
+			T result = caseXhtmlDlType(xhtmlDlType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_DT_TYPE: {
+			XhtmlDtType xhtmlDtType = (XhtmlDtType) theEObject;
+			T result = caseXhtmlDtType(xhtmlDtType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_EDIT_TYPE: {
+			XhtmlEditType xhtmlEditType = (XhtmlEditType) theEObject;
+			T result = caseXhtmlEditType(xhtmlEditType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_EM_TYPE: {
+			XhtmlEmType xhtmlEmType = (XhtmlEmType) theEObject;
+			T result = caseXhtmlEmType(xhtmlEmType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_H1_TYPE: {
+			XhtmlH1Type xhtmlH1Type = (XhtmlH1Type) theEObject;
+			T result = caseXhtmlH1Type(xhtmlH1Type);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_H2_TYPE: {
+			XhtmlH2Type xhtmlH2Type = (XhtmlH2Type) theEObject;
+			T result = caseXhtmlH2Type(xhtmlH2Type);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_H3_TYPE: {
+			XhtmlH3Type xhtmlH3Type = (XhtmlH3Type) theEObject;
+			T result = caseXhtmlH3Type(xhtmlH3Type);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_H4_TYPE: {
+			XhtmlH4Type xhtmlH4Type = (XhtmlH4Type) theEObject;
+			T result = caseXhtmlH4Type(xhtmlH4Type);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_H5_TYPE: {
+			XhtmlH5Type xhtmlH5Type = (XhtmlH5Type) theEObject;
+			T result = caseXhtmlH5Type(xhtmlH5Type);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_H6_TYPE: {
+			XhtmlH6Type xhtmlH6Type = (XhtmlH6Type) theEObject;
+			T result = caseXhtmlH6Type(xhtmlH6Type);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_HEADING_TYPE: {
+			XhtmlHeadingType xhtmlHeadingType = (XhtmlHeadingType) theEObject;
+			T result = caseXhtmlHeadingType(xhtmlHeadingType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_HR_TYPE: {
+			XhtmlHrType xhtmlHrType = (XhtmlHrType) theEObject;
+			T result = caseXhtmlHrType(xhtmlHrType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_INL_PRES_TYPE: {
+			XhtmlInlPresType xhtmlInlPresType = (XhtmlInlPresType) theEObject;
+			T result = caseXhtmlInlPresType(xhtmlInlPresType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_KBD_TYPE: {
+			XhtmlKbdType xhtmlKbdType = (XhtmlKbdType) theEObject;
+			T result = caseXhtmlKbdType(xhtmlKbdType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_LI_TYPE: {
+			XhtmlLiType xhtmlLiType = (XhtmlLiType) theEObject;
+			T result = caseXhtmlLiType(xhtmlLiType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_OBJECT_TYPE: {
+			XhtmlObjectType xhtmlObjectType = (XhtmlObjectType) theEObject;
+			T result = caseXhtmlObjectType(xhtmlObjectType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_OL_TYPE: {
+			XhtmlOlType xhtmlOlType = (XhtmlOlType) theEObject;
+			T result = caseXhtmlOlType(xhtmlOlType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_PARAM_TYPE: {
+			XhtmlParamType xhtmlParamType = (XhtmlParamType) theEObject;
+			T result = caseXhtmlParamType(xhtmlParamType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_PRE_TYPE: {
+			XhtmlPreType xhtmlPreType = (XhtmlPreType) theEObject;
+			T result = caseXhtmlPreType(xhtmlPreType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_PTYPE: {
+			XhtmlPType xhtmlPType = (XhtmlPType) theEObject;
+			T result = caseXhtmlPType(xhtmlPType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_QTYPE: {
+			XhtmlQType xhtmlQType = (XhtmlQType) theEObject;
+			T result = caseXhtmlQType(xhtmlQType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_SAMP_TYPE: {
+			XhtmlSampType xhtmlSampType = (XhtmlSampType) theEObject;
+			T result = caseXhtmlSampType(xhtmlSampType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_SPAN_TYPE: {
+			XhtmlSpanType xhtmlSpanType = (XhtmlSpanType) theEObject;
+			T result = caseXhtmlSpanType(xhtmlSpanType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_STRONG_TYPE: {
+			XhtmlStrongType xhtmlStrongType = (XhtmlStrongType) theEObject;
+			T result = caseXhtmlStrongType(xhtmlStrongType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_TABLE_TYPE: {
+			XhtmlTableType xhtmlTableType = (XhtmlTableType) theEObject;
+			T result = caseXhtmlTableType(xhtmlTableType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_TBODY_TYPE: {
+			XhtmlTbodyType xhtmlTbodyType = (XhtmlTbodyType) theEObject;
+			T result = caseXhtmlTbodyType(xhtmlTbodyType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_TD_TYPE: {
+			XhtmlTdType xhtmlTdType = (XhtmlTdType) theEObject;
+			T result = caseXhtmlTdType(xhtmlTdType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_TFOOT_TYPE: {
+			XhtmlTfootType xhtmlTfootType = (XhtmlTfootType) theEObject;
+			T result = caseXhtmlTfootType(xhtmlTfootType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_THEAD_TYPE: {
+			XhtmlTheadType xhtmlTheadType = (XhtmlTheadType) theEObject;
+			T result = caseXhtmlTheadType(xhtmlTheadType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_TH_TYPE: {
+			XhtmlThType xhtmlThType = (XhtmlThType) theEObject;
+			T result = caseXhtmlThType(xhtmlThType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_TR_TYPE: {
+			XhtmlTrType xhtmlTrType = (XhtmlTrType) theEObject;
+			T result = caseXhtmlTrType(xhtmlTrType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_UL_TYPE: {
+			XhtmlUlType xhtmlUlType = (XhtmlUlType) theEObject;
+			T result = caseXhtmlUlType(xhtmlUlType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XhtmlPackage.XHTML_VAR_TYPE: {
+			XhtmlVarType xhtmlVarType = (XhtmlVarType) theEObject;
+			T result = caseXhtmlVarType(xhtmlVarType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Document Root</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Document Root</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Document Root</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -383,12 +470,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Abbr Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Abbr Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Abbr Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -398,12 +484,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Acronym Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Acronym Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Acronym Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -413,12 +498,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Address Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Address Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Address Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -428,12 +512,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>AType</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>AType</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>AType</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -443,12 +526,12 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Blockquote Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Blockquote Type</em>'. <!-- begin-user-doc
+	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
+	 * -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Blockquote Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -458,12 +541,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Br Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Br Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Br Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -473,12 +555,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Caption Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Caption Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Caption Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -488,12 +569,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Cite Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Cite Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Cite Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -503,12 +583,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Code Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Code Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Code Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -518,12 +597,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Colgroup Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Colgroup Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Colgroup Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -533,12 +611,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Col Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Col Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Col Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -548,12 +625,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dd Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Dd Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Dd Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -563,12 +639,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dfn Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Dfn Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Dfn Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -578,12 +653,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Div Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Div Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Div Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -593,12 +667,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dl Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Dl Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Dl Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -608,12 +681,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dt Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Dt Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Dt Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -623,12 +695,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Edit Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Edit Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Edit Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -638,12 +709,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Em Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Em Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Em Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -653,12 +723,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>H1 Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>H1 Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>H1 Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -668,12 +737,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>H2 Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>H2 Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>H2 Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -683,12 +751,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>H3 Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>H3 Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>H3 Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -698,12 +765,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>H4 Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>H4 Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>H4 Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -713,12 +779,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>H5 Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>H5 Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>H5 Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -728,12 +793,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>H6 Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>H6 Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>H6 Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -743,12 +807,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Heading Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Heading Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Heading Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -758,12 +821,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Hr Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Hr Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Hr Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -773,12 +835,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Inl Pres Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Inl Pres Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Inl Pres Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -788,12 +849,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Kbd Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Kbd Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Kbd Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -803,12 +863,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Li Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Li Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Li Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -818,12 +877,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Object Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Object Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Object Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -833,12 +891,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ol Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Ol Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Ol Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -848,12 +905,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Param Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Param Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Param Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -863,12 +919,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pre Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Pre Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Pre Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -878,12 +933,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>PType</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>PType</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>PType</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -893,12 +947,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>QType</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>QType</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>QType</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -908,12 +961,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Samp Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Samp Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Samp Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -923,12 +975,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Span Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Span Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Span Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -938,12 +989,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Strong Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Strong Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Strong Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -953,12 +1003,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Table Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Table Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Table Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -968,12 +1017,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Tbody Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Tbody Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Tbody Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -983,12 +1031,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Td Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Td Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Td Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -998,12 +1045,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Tfoot Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Tfoot Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Tfoot Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1013,12 +1059,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Thead Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Thead Type</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Thead Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1028,12 +1073,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Th Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Th Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Th Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1043,12 +1087,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Tr Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Tr Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Tr Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1058,12 +1101,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ul Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Ul Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Ul Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1073,12 +1115,11 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Var Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Var Type</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Var Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -1088,12 +1129,12 @@ public class XhtmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch, but this is the last case anyway.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate the switch, but this is the last case
+	 * anyway. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
@@ -1103,4 +1144,4 @@ public class XhtmlSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //XhtmlSwitch
+} // XhtmlSwitch

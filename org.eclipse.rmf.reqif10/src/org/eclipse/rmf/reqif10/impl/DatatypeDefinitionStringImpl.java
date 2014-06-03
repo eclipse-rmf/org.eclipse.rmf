@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,32 +14,28 @@ package org.eclipse.rmf.reqif10.impl;
 import java.math.BigInteger;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Datatype Definition String</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Datatype Definition String</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.DatatypeDefinitionStringImpl#getMaxLength <em>Max Length</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.DatatypeDefinitionStringImpl#getMaxLength <em>Max Length</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class DatatypeDefinitionStringImpl extends DatatypeDefinitionSimpleImpl implements DatatypeDefinitionString {
 	/**
-	 * The default value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getMaxLength()
 	 * @generated
 	 * @ordered
@@ -47,9 +43,9 @@ public class DatatypeDefinitionStringImpl extends DatatypeDefinitionSimpleImpl i
 	protected static final BigInteger MAX_LENGTH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getMaxLength()
 	 * @generated
 	 * @ordered
@@ -57,17 +53,16 @@ public class DatatypeDefinitionStringImpl extends DatatypeDefinitionSimpleImpl i
 	protected BigInteger maxLength = MAX_LENGTH_EDEFAULT;
 
 	/**
-	 * This is true if the Max Length attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Max Length attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean maxLengthESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DatatypeDefinitionStringImpl() {
@@ -75,8 +70,8 @@ public class DatatypeDefinitionStringImpl extends DatatypeDefinitionSimpleImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -85,8 +80,8 @@ public class DatatypeDefinitionStringImpl extends DatatypeDefinitionSimpleImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BigInteger getMaxLength() {
@@ -94,8 +89,8 @@ public class DatatypeDefinitionStringImpl extends DatatypeDefinitionSimpleImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMaxLength(BigInteger newMaxLength) {
@@ -104,12 +99,13 @@ public class DatatypeDefinitionStringImpl extends DatatypeDefinitionSimpleImpl i
 		boolean oldMaxLengthESet = maxLengthESet;
 		maxLengthESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH, oldMaxLength, maxLength, !oldMaxLengthESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH, oldMaxLength, maxLength,
+					!oldMaxLengthESet));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetMaxLength() {
@@ -118,12 +114,13 @@ public class DatatypeDefinitionStringImpl extends DatatypeDefinitionSimpleImpl i
 		maxLength = MAX_LENGTH_EDEFAULT;
 		maxLengthESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH, oldMaxLength, MAX_LENGTH_EDEFAULT, oldMaxLengthESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH, oldMaxLength,
+					MAX_LENGTH_EDEFAULT, oldMaxLengthESet));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetMaxLength() {
@@ -131,77 +128,81 @@ public class DatatypeDefinitionStringImpl extends DatatypeDefinitionSimpleImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReqIF10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH:
-				return getMaxLength();
+		case ReqIF10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH:
+			return getMaxLength();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReqIF10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH:
-				setMaxLength((BigInteger)newValue);
-				return;
+		case ReqIF10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH:
+			setMaxLength((BigInteger) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH:
-				unsetMaxLength();
-				return;
+		case ReqIF10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH:
+			unsetMaxLength();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH:
-				return isSetMaxLength();
+		case ReqIF10Package.DATATYPE_DEFINITION_STRING__MAX_LENGTH:
+			return isSetMaxLength();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (maxLength: ");
-		if (maxLengthESet) result.append(maxLength); else result.append("<unset>");
+		result.append(" (maxLength: "); //$NON-NLS-1$
+		if (maxLengthESet)
+			result.append(maxLength);
+		else
+			result.append("<unset>"); //$NON-NLS-1$
 		result.append(')');
 		return result.toString();
 	}
 
-} //DatatypeDefinitionStringImpl
+} // DatatypeDefinitionStringImpl

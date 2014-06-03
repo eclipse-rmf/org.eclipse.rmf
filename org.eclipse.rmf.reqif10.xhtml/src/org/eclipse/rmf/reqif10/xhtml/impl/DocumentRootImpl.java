@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,53 +13,46 @@ package org.eclipse.rmf.reqif10.xhtml.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EMap;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.impl.EStringToStringMapEntryImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.rmf.reqif10.xhtml.DocumentRoot;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Document Root</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Document Root</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getDiv <em>Div</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getP <em>P</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getTitle <em>Title</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getMixed <em>Mixed</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getDiv <em>Div</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getP <em>P</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getClass_ <em>Class</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getId <em>Id</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.DocumentRootImpl#getTitle <em>Title</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
-public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
+public class DocumentRootImpl extends MinimalEObjectImpl implements DocumentRoot {
 	/**
-	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getMixed()
 	 * @generated
 	 * @ordered
@@ -67,9 +60,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	protected FeatureMap mixed;
 
 	/**
-	 * The cached value of the '{@link #getXMLNSPrefixMap() <em>XMLNS Prefix Map</em>}' map.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getXMLNSPrefixMap() <em>XMLNS Prefix Map</em>}' map. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getXMLNSPrefixMap()
 	 * @generated
 	 * @ordered
@@ -77,9 +70,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	protected EMap<String, String> xMLNSPrefixMap;
 
 	/**
-	 * The cached value of the '{@link #getXSISchemaLocation() <em>XSI Schema Location</em>}' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getXSISchemaLocation() <em>XSI Schema Location</em>}' map. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getXSISchemaLocation()
 	 * @generated
 	 * @ordered
@@ -87,9 +80,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	protected EMap<String, String> xSISchemaLocation;
 
 	/**
-	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getClass_()
 	 * @generated
 	 * @ordered
@@ -97,9 +90,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	protected static final String CLASS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getClass_()
 	 * @generated
 	 * @ordered
@@ -107,9 +100,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	protected String class_ = CLASS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -117,9 +109,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -127,9 +118,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -137,9 +128,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	protected static final String TITLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -147,8 +138,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	protected String title = TITLE_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DocumentRootImpl() {
@@ -156,8 +147,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -166,8 +157,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public FeatureMap getMixed() {
@@ -178,86 +169,88 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EMap<String, String> getXMLNSPrefixMap() {
 		if (xMLNSPrefixMap == null) {
-			xMLNSPrefixMap = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, XhtmlPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
+			xMLNSPrefixMap = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class,
+					this, XhtmlPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
 		}
 		return xMLNSPrefixMap;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EMap<String, String> getXSISchemaLocation() {
 		if (xSISchemaLocation == null) {
-			xSISchemaLocation = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, XhtmlPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
+			xSISchemaLocation = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class,
+					this, XhtmlPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
 		}
 		return xSISchemaLocation;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlDivType getDiv() {
-		return (XhtmlDivType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Div(), true);
+		return (XhtmlDivType) getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Div(), true);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetDiv(XhtmlDivType newDiv, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(XhtmlPackage.eINSTANCE.getDocumentRoot_Div(), newDiv, msgs);
+		return ((FeatureMap.Internal) getMixed()).basicAdd(XhtmlPackage.eINSTANCE.getDocumentRoot_Div(), newDiv, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDiv(XhtmlDivType newDiv) {
-		((FeatureMap.Internal)getMixed()).set(XhtmlPackage.eINSTANCE.getDocumentRoot_Div(), newDiv);
+		((FeatureMap.Internal) getMixed()).set(XhtmlPackage.eINSTANCE.getDocumentRoot_Div(), newDiv);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlPType getP() {
-		return (XhtmlPType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_P(), true);
+		return (XhtmlPType) getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_P(), true);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetP(XhtmlPType newP, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(XhtmlPackage.eINSTANCE.getDocumentRoot_P(), newP, msgs);
+		return ((FeatureMap.Internal) getMixed()).basicAdd(XhtmlPackage.eINSTANCE.getDocumentRoot_P(), newP, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setP(XhtmlPType newP) {
-		((FeatureMap.Internal)getMixed()).set(XhtmlPackage.eINSTANCE.getDocumentRoot_P(), newP);
+		((FeatureMap.Internal) getMixed()).set(XhtmlPackage.eINSTANCE.getDocumentRoot_P(), newP);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getClass_() {
@@ -265,8 +258,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setClass(String newClass) {
@@ -277,8 +270,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getId() {
@@ -286,8 +279,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setId(String newId) {
@@ -298,8 +291,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getTitle() {
@@ -307,8 +300,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTitle(String newTitle) {
@@ -319,178 +312,184 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XhtmlPackage.DOCUMENT_ROOT__MIXED:
-				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				return ((InternalEList<?>)getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				return ((InternalEList<?>)getXSISchemaLocation()).basicRemove(otherEnd, msgs);
-			case XhtmlPackage.DOCUMENT_ROOT__DIV:
-				return basicSetDiv(null, msgs);
-			case XhtmlPackage.DOCUMENT_ROOT__P:
-				return basicSetP(null, msgs);
+		case XhtmlPackage.DOCUMENT_ROOT__MIXED:
+			return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			return ((InternalEList<?>) getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			return ((InternalEList<?>) getXSISchemaLocation()).basicRemove(otherEnd, msgs);
+		case XhtmlPackage.DOCUMENT_ROOT__DIV:
+			return basicSetDiv(null, msgs);
+		case XhtmlPackage.DOCUMENT_ROOT__P:
+			return basicSetP(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XhtmlPackage.DOCUMENT_ROOT__MIXED:
-				if (coreType) return getMixed();
-				return ((FeatureMap.Internal)getMixed()).getWrapper();
-			case XhtmlPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				if (coreType) return getXMLNSPrefixMap();
-				else return getXMLNSPrefixMap().map();
-			case XhtmlPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				if (coreType) return getXSISchemaLocation();
-				else return getXSISchemaLocation().map();
-			case XhtmlPackage.DOCUMENT_ROOT__DIV:
-				return getDiv();
-			case XhtmlPackage.DOCUMENT_ROOT__P:
-				return getP();
-			case XhtmlPackage.DOCUMENT_ROOT__CLASS:
-				return getClass_();
-			case XhtmlPackage.DOCUMENT_ROOT__ID:
-				return getId();
-			case XhtmlPackage.DOCUMENT_ROOT__TITLE:
-				return getTitle();
+		case XhtmlPackage.DOCUMENT_ROOT__MIXED:
+			if (coreType)
+				return getMixed();
+			return ((FeatureMap.Internal) getMixed()).getWrapper();
+		case XhtmlPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			if (coreType)
+				return getXMLNSPrefixMap();
+			else
+				return getXMLNSPrefixMap().map();
+		case XhtmlPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			if (coreType)
+				return getXSISchemaLocation();
+			else
+				return getXSISchemaLocation().map();
+		case XhtmlPackage.DOCUMENT_ROOT__DIV:
+			return getDiv();
+		case XhtmlPackage.DOCUMENT_ROOT__P:
+			return getP();
+		case XhtmlPackage.DOCUMENT_ROOT__CLASS:
+			return getClass_();
+		case XhtmlPackage.DOCUMENT_ROOT__ID:
+			return getId();
+		case XhtmlPackage.DOCUMENT_ROOT__TITLE:
+			return getTitle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XhtmlPackage.DOCUMENT_ROOT__MIXED:
-				((FeatureMap.Internal)getMixed()).set(newValue);
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				((EStructuralFeature.Setting)getXMLNSPrefixMap()).set(newValue);
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				((EStructuralFeature.Setting)getXSISchemaLocation()).set(newValue);
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__DIV:
-				setDiv((XhtmlDivType)newValue);
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__P:
-				setP((XhtmlPType)newValue);
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__CLASS:
-				setClass((String)newValue);
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__ID:
-				setId((String)newValue);
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__TITLE:
-				setTitle((String)newValue);
-				return;
+		case XhtmlPackage.DOCUMENT_ROOT__MIXED:
+			((FeatureMap.Internal) getMixed()).set(newValue);
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			((EStructuralFeature.Setting) getXMLNSPrefixMap()).set(newValue);
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			((EStructuralFeature.Setting) getXSISchemaLocation()).set(newValue);
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__DIV:
+			setDiv((XhtmlDivType) newValue);
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__P:
+			setP((XhtmlPType) newValue);
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__CLASS:
+			setClass((String) newValue);
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__ID:
+			setId((String) newValue);
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__TITLE:
+			setTitle((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.DOCUMENT_ROOT__MIXED:
-				getMixed().clear();
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				getXMLNSPrefixMap().clear();
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				getXSISchemaLocation().clear();
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__DIV:
-				setDiv((XhtmlDivType)null);
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__P:
-				setP((XhtmlPType)null);
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__CLASS:
-				setClass(CLASS_EDEFAULT);
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case XhtmlPackage.DOCUMENT_ROOT__TITLE:
-				setTitle(TITLE_EDEFAULT);
-				return;
+		case XhtmlPackage.DOCUMENT_ROOT__MIXED:
+			getMixed().clear();
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			getXMLNSPrefixMap().clear();
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			getXSISchemaLocation().clear();
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__DIV:
+			setDiv((XhtmlDivType) null);
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__P:
+			setP((XhtmlPType) null);
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__CLASS:
+			setClass(CLASS_EDEFAULT);
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__ID:
+			setId(ID_EDEFAULT);
+			return;
+		case XhtmlPackage.DOCUMENT_ROOT__TITLE:
+			setTitle(TITLE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.DOCUMENT_ROOT__MIXED:
-				return mixed != null && !mixed.isEmpty();
-			case XhtmlPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				return xMLNSPrefixMap != null && !xMLNSPrefixMap.isEmpty();
-			case XhtmlPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
-			case XhtmlPackage.DOCUMENT_ROOT__DIV:
-				return getDiv() != null;
-			case XhtmlPackage.DOCUMENT_ROOT__P:
-				return getP() != null;
-			case XhtmlPackage.DOCUMENT_ROOT__CLASS:
-				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
-			case XhtmlPackage.DOCUMENT_ROOT__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case XhtmlPackage.DOCUMENT_ROOT__TITLE:
-				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+		case XhtmlPackage.DOCUMENT_ROOT__MIXED:
+			return mixed != null && !mixed.isEmpty();
+		case XhtmlPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			return xMLNSPrefixMap != null && !xMLNSPrefixMap.isEmpty();
+		case XhtmlPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
+		case XhtmlPackage.DOCUMENT_ROOT__DIV:
+			return getDiv() != null;
+		case XhtmlPackage.DOCUMENT_ROOT__P:
+			return getP() != null;
+		case XhtmlPackage.DOCUMENT_ROOT__CLASS:
+			return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
+		case XhtmlPackage.DOCUMENT_ROOT__ID:
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+		case XhtmlPackage.DOCUMENT_ROOT__TITLE:
+			return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (mixed: ");
+		result.append(" (mixed: "); //$NON-NLS-1$
 		result.append(mixed);
-		result.append(", class: ");
+		result.append(", class: "); //$NON-NLS-1$
 		result.append(class_);
-		result.append(", id: ");
+		result.append(", id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", title: ");
+		result.append(", title: "); //$NON-NLS-1$
 		result.append(title);
 		result.append(')');
 		return result.toString();
 	}
 
-} //DocumentRootImpl
+} // DocumentRootImpl

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,16 +11,13 @@
  */
 package org.eclipse.rmf.reqif10;
 
-
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Spec Relation Type</b></em>'.
- * <!-- end-user-doc -->
- *
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Spec Relation Type</b></em>'. <!-- end-user-doc
+ * -->
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecRelationType()
- * @model extendedMetaData="name='SPEC-RELATION-TYPE' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-RELATION-TYPE'"
+ * @model extendedMetaData="name='SPEC-RELATION-TYPE' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-RELATION-TYPE'"
  * @generated
  */
 public interface SpecRelationType extends SpecType {

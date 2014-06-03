@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -18,63 +18,58 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Valign Type</b></em>',
- * and utility methods for working with them.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Valign Type</b></em>', and
+ * utility methods for working with them. <!-- end-user-doc -->
+ * 
  * @see org.eclipse.rmf.reqif10.xhtml.XhtmlPackage#getValignType()
  * @model extendedMetaData="name='valign_._type'"
  * @generated
  */
 public enum ValignType implements Enumerator {
 	/**
-	 * The '<em><b>Top</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Top</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #TOP_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	TOP(0, "top", "top"),
+	TOP(0, "top", "top"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Middle</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Middle</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #MIDDLE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MIDDLE(1, "middle", "middle"),
+	MIDDLE(1, "middle", "middle"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Bottom</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Bottom</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #BOTTOM_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	BOTTOM(2, "bottom", "bottom"),
+	BOTTOM(2, "bottom", "bottom"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Baseline</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Baseline</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #BASELINE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	BASELINE(3, "baseline", "baseline");
+	BASELINE(3, "baseline", "baseline"); //$NON-NLS-1$//$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Top</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Top</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Top</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Top</b></em>' literal object isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #TOP
 	 * @model name="top"
 	 * @generated
@@ -83,13 +78,13 @@ public enum ValignType implements Enumerator {
 	public static final int TOP_VALUE = 0;
 
 	/**
-	 * The '<em><b>Middle</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Middle</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Middle</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Middle</b></em>' literal object isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #MIDDLE
 	 * @model name="middle"
 	 * @generated
@@ -98,13 +93,13 @@ public enum ValignType implements Enumerator {
 	public static final int MIDDLE_VALUE = 1;
 
 	/**
-	 * The '<em><b>Bottom</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Bottom</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Bottom</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Bottom</b></em>' literal object isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #BOTTOM
 	 * @model name="bottom"
 	 * @generated
@@ -113,13 +108,13 @@ public enum ValignType implements Enumerator {
 	public static final int BOTTOM_VALUE = 2;
 
 	/**
-	 * The '<em><b>Baseline</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Baseline</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Baseline</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Baseline</b></em>' literal object isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #BASELINE
 	 * @model name="baseline"
 	 * @generated
@@ -128,36 +123,28 @@ public enum ValignType implements Enumerator {
 	public static final int BASELINE_VALUE = 3;
 
 	/**
-	 * An array of all the '<em><b>Valign Type</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * An array of all the '<em><b>Valign Type</b></em>' enumerators. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	private static final ValignType[] VALUES_ARRAY =
-		new ValignType[] {
-			TOP,
-			MIDDLE,
-			BOTTOM,
-			BASELINE,
-		};
+	private static final ValignType[] VALUES_ARRAY = new ValignType[] { TOP, MIDDLE, BOTTOM, BASELINE, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Valign Type</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * A public read-only list of all the '<em><b>Valign Type</b></em>' enumerators. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final List<ValignType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Valign Type</b></em>' literal with the specified literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Valign Type</b></em>' literal with the specified literal value. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static ValignType get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ValignType result = VALUES_ARRAY[i];
+		for (ValignType result : VALUES_ARRAY) {
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -166,14 +153,13 @@ public enum ValignType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Valign Type</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Valign Type</b></em>' literal with the specified name. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static ValignType getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ValignType result = VALUES_ARRAY[i];
+		for (ValignType result : VALUES_ARRAY) {
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -182,46 +168,49 @@ public enum ValignType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Valign Type</b></em>' literal with the specified integer value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Valign Type</b></em>' literal with the specified integer value. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static ValignType get(int value) {
 		switch (value) {
-			case TOP_VALUE: return TOP;
-			case MIDDLE_VALUE: return MIDDLE;
-			case BOTTOM_VALUE: return BOTTOM;
-			case BASELINE_VALUE: return BASELINE;
+		case TOP_VALUE:
+			return TOP;
+		case MIDDLE_VALUE:
+			return MIDDLE;
+		case BOTTOM_VALUE:
+			return BOTTOM;
+		case BASELINE_VALUE:
+			return BASELINE;
 		}
 		return null;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final String literal;
 
 	/**
-	 * Only this class can construct instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Only this class can construct instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private ValignType(int value, String name, String literal) {
@@ -231,41 +220,41 @@ public enum ValignType implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		return literal;
 	}
-	
-} //ValignType
+
+} // ValignType

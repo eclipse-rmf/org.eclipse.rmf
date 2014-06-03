@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,37 +12,32 @@
 package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.SpecRelationType;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Spec Relation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Spec Relation</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.SpecRelationImpl#getTarget <em>Target</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.SpecRelationImpl#getSource <em>Source</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.SpecRelationImpl#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.SpecRelationImpl#getTarget <em>Target</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.SpecRelationImpl#getSource <em>Source</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.SpecRelationImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class SpecRelationImpl extends SpecElementWithAttributesImpl implements SpecRelation {
 	/**
-	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getTarget()
 	 * @generated
 	 * @ordered
@@ -50,18 +45,17 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	protected SpecObject target;
 
 	/**
-	 * This is true if the Target reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Target reference has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean targetESet;
 
 	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getSource()
 	 * @generated
 	 * @ordered
@@ -69,18 +63,17 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	protected SpecObject source;
 
 	/**
-	 * This is true if the Source reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Source reference has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean sourceESet;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -88,17 +81,16 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	protected SpecRelationType type;
 
 	/**
-	 * This is true if the Type reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Type reference has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean typeESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected SpecRelationImpl() {
@@ -106,8 +98,8 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -116,14 +108,14 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecObject getTarget() {
 		if (target != null && target.eIsProxy()) {
-			InternalEObject oldTarget = (InternalEObject)target;
-			target = (SpecObject)eResolveProxy(oldTarget);
+			InternalEObject oldTarget = (InternalEObject) target;
+			target = (SpecObject) eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ReqIF10Package.SPEC_RELATION__TARGET, oldTarget, target));
@@ -133,8 +125,8 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecObject basicGetTarget() {
@@ -142,8 +134,8 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTarget(SpecObject newTarget) {
@@ -156,8 +148,8 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetTarget() {
@@ -170,8 +162,8 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetTarget() {
@@ -179,14 +171,14 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecObject getSource() {
 		if (source != null && source.eIsProxy()) {
-			InternalEObject oldSource = (InternalEObject)source;
-			source = (SpecObject)eResolveProxy(oldSource);
+			InternalEObject oldSource = (InternalEObject) source;
+			source = (SpecObject) eResolveProxy(oldSource);
 			if (source != oldSource) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ReqIF10Package.SPEC_RELATION__SOURCE, oldSource, source));
@@ -196,8 +188,8 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecObject basicGetSource() {
@@ -205,8 +197,8 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSource(SpecObject newSource) {
@@ -219,8 +211,8 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetSource() {
@@ -233,8 +225,8 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetSource() {
@@ -242,14 +234,14 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecRelationType getType() {
 		if (type != null && type.eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (SpecRelationType)eResolveProxy(oldType);
+			InternalEObject oldType = (InternalEObject) type;
+			type = (SpecRelationType) eResolveProxy(oldType);
 			if (type != oldType) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ReqIF10Package.SPEC_RELATION__TYPE, oldType, type));
@@ -259,8 +251,8 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecRelationType basicGetType() {
@@ -268,8 +260,8 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setType(SpecRelationType newType) {
@@ -282,8 +274,8 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetType() {
@@ -296,8 +288,8 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetType() {
@@ -305,84 +297,87 @@ public class SpecRelationImpl extends SpecElementWithAttributesImpl implements S
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReqIF10Package.SPEC_RELATION__TARGET:
-				if (resolve) return getTarget();
-				return basicGetTarget();
-			case ReqIF10Package.SPEC_RELATION__SOURCE:
-				if (resolve) return getSource();
-				return basicGetSource();
-			case ReqIF10Package.SPEC_RELATION__TYPE:
-				if (resolve) return getType();
-				return basicGetType();
+		case ReqIF10Package.SPEC_RELATION__TARGET:
+			if (resolve)
+				return getTarget();
+			return basicGetTarget();
+		case ReqIF10Package.SPEC_RELATION__SOURCE:
+			if (resolve)
+				return getSource();
+			return basicGetSource();
+		case ReqIF10Package.SPEC_RELATION__TYPE:
+			if (resolve)
+				return getType();
+			return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReqIF10Package.SPEC_RELATION__TARGET:
-				setTarget((SpecObject)newValue);
-				return;
-			case ReqIF10Package.SPEC_RELATION__SOURCE:
-				setSource((SpecObject)newValue);
-				return;
-			case ReqIF10Package.SPEC_RELATION__TYPE:
-				setType((SpecRelationType)newValue);
-				return;
+		case ReqIF10Package.SPEC_RELATION__TARGET:
+			setTarget((SpecObject) newValue);
+			return;
+		case ReqIF10Package.SPEC_RELATION__SOURCE:
+			setSource((SpecObject) newValue);
+			return;
+		case ReqIF10Package.SPEC_RELATION__TYPE:
+			setType((SpecRelationType) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.SPEC_RELATION__TARGET:
-				unsetTarget();
-				return;
-			case ReqIF10Package.SPEC_RELATION__SOURCE:
-				unsetSource();
-				return;
-			case ReqIF10Package.SPEC_RELATION__TYPE:
-				unsetType();
-				return;
+		case ReqIF10Package.SPEC_RELATION__TARGET:
+			unsetTarget();
+			return;
+		case ReqIF10Package.SPEC_RELATION__SOURCE:
+			unsetSource();
+			return;
+		case ReqIF10Package.SPEC_RELATION__TYPE:
+			unsetType();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.SPEC_RELATION__TARGET:
-				return isSetTarget();
-			case ReqIF10Package.SPEC_RELATION__SOURCE:
-				return isSetSource();
-			case ReqIF10Package.SPEC_RELATION__TYPE:
-				return isSetType();
+		case ReqIF10Package.SPEC_RELATION__TARGET:
+			return isSetTarget();
+		case ReqIF10Package.SPEC_RELATION__SOURCE:
+			return isSetSource();
+		case ReqIF10Package.SPEC_RELATION__TYPE:
+			return isSetType();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //SpecRelationImpl
+} // SpecRelationImpl

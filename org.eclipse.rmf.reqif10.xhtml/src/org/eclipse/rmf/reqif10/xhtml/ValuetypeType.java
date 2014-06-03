@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -18,53 +18,49 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Valuetype Type</b></em>',
- * and utility methods for working with them.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Valuetype Type</b></em>', and
+ * utility methods for working with them. <!-- end-user-doc -->
+ * 
  * @see org.eclipse.rmf.reqif10.xhtml.XhtmlPackage#getValuetypeType()
  * @model extendedMetaData="name='valuetype_._type'"
  * @generated
  */
 public enum ValuetypeType implements Enumerator {
 	/**
-	 * The '<em><b>Data</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Data</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #DATA_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	DATA(0, "data", "data"),
+	DATA(0, "data", "data"), //$NON-NLS-1$//$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Ref</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Ref</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #REF_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	REF(1, "ref", "ref"),
+	REF(1, "ref", "ref"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Object</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The '<em><b>Object</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #OBJECT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	OBJECT(2, "object", "object");
+	OBJECT(2, "object", "object"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Data</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Data</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Data</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Data</b></em>' literal object isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #DATA
 	 * @model name="data"
 	 * @generated
@@ -73,13 +69,13 @@ public enum ValuetypeType implements Enumerator {
 	public static final int DATA_VALUE = 0;
 
 	/**
-	 * The '<em><b>Ref</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Ref</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Ref</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Ref</b></em>' literal object isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #REF
 	 * @model name="ref"
 	 * @generated
@@ -88,13 +84,13 @@ public enum ValuetypeType implements Enumerator {
 	public static final int REF_VALUE = 1;
 
 	/**
-	 * The '<em><b>Object</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+	 * The '<em><b>Object</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Object</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Object</b></em>' literal object isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #OBJECT
 	 * @model name="object"
 	 * @generated
@@ -103,35 +99,28 @@ public enum ValuetypeType implements Enumerator {
 	public static final int OBJECT_VALUE = 2;
 
 	/**
-	 * An array of all the '<em><b>Valuetype Type</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * An array of all the '<em><b>Valuetype Type</b></em>' enumerators. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	private static final ValuetypeType[] VALUES_ARRAY =
-		new ValuetypeType[] {
-			DATA,
-			REF,
-			OBJECT,
-		};
+	private static final ValuetypeType[] VALUES_ARRAY = new ValuetypeType[] { DATA, REF, OBJECT, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Valuetype Type</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * A public read-only list of all the '<em><b>Valuetype Type</b></em>' enumerators. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final List<ValuetypeType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Valuetype Type</b></em>' literal with the specified literal value.
-	 * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Valuetype Type</b></em>' literal with the specified literal value. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static ValuetypeType get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ValuetypeType result = VALUES_ARRAY[i];
+		for (ValuetypeType result : VALUES_ARRAY) {
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -140,14 +129,13 @@ public enum ValuetypeType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Valuetype Type</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Valuetype Type</b></em>' literal with the specified name. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static ValuetypeType getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ValuetypeType result = VALUES_ARRAY[i];
+		for (ValuetypeType result : VALUES_ARRAY) {
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -156,45 +144,47 @@ public enum ValuetypeType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Valuetype Type</b></em>' literal with the specified integer value.
-	 * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Valuetype Type</b></em>' literal with the specified integer value. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static ValuetypeType get(int value) {
 		switch (value) {
-			case DATA_VALUE: return DATA;
-			case REF_VALUE: return REF;
-			case OBJECT_VALUE: return OBJECT;
+		case DATA_VALUE:
+			return DATA;
+		case REF_VALUE:
+			return REF;
+		case OBJECT_VALUE:
+			return OBJECT;
 		}
 		return null;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final String literal;
 
 	/**
-	 * Only this class can construct instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Only this class can construct instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private ValuetypeType(int value, String name, String literal) {
@@ -204,41 +194,41 @@ public enum ValuetypeType implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		return literal;
 	}
-	
-} //ValuetypeType
+
+} // ValuetypeType

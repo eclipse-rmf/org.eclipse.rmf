@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,33 +14,29 @@ package org.eclipse.rmf.reqif10.impl;
 import java.math.BigInteger;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Datatype Definition Integer</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Datatype Definition Integer</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.DatatypeDefinitionIntegerImpl#getMax <em>Max</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.DatatypeDefinitionIntegerImpl#getMin <em>Min</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.DatatypeDefinitionIntegerImpl#getMax <em>Max</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.DatatypeDefinitionIntegerImpl#getMin <em>Min</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl implements DatatypeDefinitionInteger {
 	/**
-	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -48,9 +44,8 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	protected static final BigInteger MAX_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -58,18 +53,17 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	protected BigInteger max = MAX_EDEFAULT;
 
 	/**
-	 * This is true if the Max attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Max attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean maxESet;
 
 	/**
-	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -77,9 +71,8 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	protected static final BigInteger MIN_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -87,17 +80,16 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	protected BigInteger min = MIN_EDEFAULT;
 
 	/**
-	 * This is true if the Min attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Min attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean minESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DatatypeDefinitionIntegerImpl() {
@@ -105,8 +97,8 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -115,8 +107,8 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BigInteger getMax() {
@@ -124,8 +116,8 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMax(BigInteger newMax) {
@@ -138,8 +130,8 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetMax() {
@@ -152,8 +144,8 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetMax() {
@@ -161,8 +153,8 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BigInteger getMin() {
@@ -170,8 +162,8 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMin(BigInteger newMin) {
@@ -184,8 +176,8 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetMin() {
@@ -198,8 +190,8 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetMin() {
@@ -207,89 +199,96 @@ public class DatatypeDefinitionIntegerImpl extends DatatypeDefinitionSimpleImpl 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MAX:
-				return getMax();
-			case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MIN:
-				return getMin();
+		case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MAX:
+			return getMax();
+		case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MIN:
+			return getMin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MAX:
-				setMax((BigInteger)newValue);
-				return;
-			case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MIN:
-				setMin((BigInteger)newValue);
-				return;
+		case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MAX:
+			setMax((BigInteger) newValue);
+			return;
+		case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MIN:
+			setMin((BigInteger) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MAX:
-				unsetMax();
-				return;
-			case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MIN:
-				unsetMin();
-				return;
+		case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MAX:
+			unsetMax();
+			return;
+		case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MIN:
+			unsetMin();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MAX:
-				return isSetMax();
-			case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MIN:
-				return isSetMin();
+		case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MAX:
+			return isSetMax();
+		case ReqIF10Package.DATATYPE_DEFINITION_INTEGER__MIN:
+			return isSetMin();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (max: ");
-		if (maxESet) result.append(max); else result.append("<unset>");
-		result.append(", min: ");
-		if (minESet) result.append(min); else result.append("<unset>");
+		result.append(" (max: "); //$NON-NLS-1$
+		if (maxESet)
+			result.append(max);
+		else
+			result.append("<unset>"); //$NON-NLS-1$
+		result.append(", min: "); //$NON-NLS-1$
+		if (minESet)
+			result.append(min);
+		else
+			result.append("<unset>"); //$NON-NLS-1$
 		result.append(')');
 		return result.toString();
 	}
 
-} //DatatypeDefinitionIntegerImpl
+} // DatatypeDefinitionIntegerImpl

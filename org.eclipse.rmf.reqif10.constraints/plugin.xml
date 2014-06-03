@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      <category
+            id="org.eclipse.rmf.reqif10.constraints"
+            mandatory="false"
+            name="Constraints for ReqIF 1.0">
+      Constraints for validating ReqIF 1.0 models
+      </category>
+      <constraintProvider
+            cache="true"
+            mode="Batch">
+         <package
+               namespaceUri="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd">
+         </package>
+         <constraints categories="org.eclipse.rmf.reqif10.constraints">
+         <constraint
+                  class="org.eclipse.rmf.reqif10.constraints.IdentifiableLongNameExistenceConstraint"
+                  id="C1.1"
+                  lang="JAVA"
+                  mode="Batch"
+                  name="C1.1 EnumValue - existence of long name"
+                  severity="ERROR"
+                  statusCode="0101">
+               <message>
+                  LongName is not set
+               </message>
+               <description>
+                  LongName of EnumValue must be set
+               </description>
+               <target
+                     class="EnumValue">
+               </target>
+         </constraint>
+         <constraint
+                  class="org.eclipse.rmf.reqif10.constraints.IdentifiableLongNameExistenceConstraint"
+                  id="C1.2"
+                  lang="JAVA"
+                  mode="Batch"
+                  name="C1.1 AttributeDefinitionBoolean - existence of long name"
+                  severity="ERROR"
+                  statusCode="0102">
+               <message>
+                  LongName is not set
+               </message>
+               <description>
+                  LongName of AttributeDefinitionBoolean must be set
+               </description>
+               <target
+                     class="AttributeDefinitionBoolean">
+               </target>
+            </constraint>
+         <constraint
+                  class="org.eclipse.rmf.reqif10.constraints.IdentifiableLongNameExistenceConstraint"
+                  id="C1.3"
+                  lang="JAVA"
+                  mode="Batch"
+                  name="C1.3 AttributeDefinitionDate - existence of long name"
+                  severity="ERROR"
+                  statusCode="0103">
+               <message>
+                  LongName is not set
+               </message>
+               <description>
+                  LongName of AttributeDefinitionDate must be set
+               </description>
+               <target
+                     class="AttributeDefinitionDate">
+               </target>
+            </constraint>
+         <constraint
+                  class="org.eclipse.rmf.reqif10.constraints.IdentifiableLongNameExistenceConstraint"
+                  id="C1.4"
+                  lang="JAVA"
+                  mode="Batch"
+                  name="C1.4 AttributeDefinitionEnumeration - existence of long name"
+                  severity="ERROR"
+                  statusCode="0104">
+               <message>
+                  LongName is not set
+               </message>
+               <description>
+                  LongName of AttributeDefinitionEnumeration must be set
+               </description>
+               <target
+                     class="AttributeDefinitionEnumeration">
+               </target>
+            </constraint>
+         <constraint
+                  class="org.eclipse.rmf.reqif10.constraints.IdentifiableLongNameExistenceConstraint"
+                  id="C1.5"
+                  lang="JAVA"
+                  mode="Batch"
+                  name="C1.5 AttributeDefinitionInteger - existence of long name"
+                  severity="ERROR"
+                  statusCode="0105">
+               <message>
+                  LongName is not set
+               </message>
+               <description>
+                  LongName of AttributeDefinitionInteger must be set
+               </description>
+               <target
+                     class="AttributeDefinitionInteger">
+               </target>
+            </constraint>
+         <constraint
+                  class="org.eclipse.rmf.reqif10.constraints.IdentifiableLongNameExistenceConstraint"
+                  id="C1.6"
+                  lang="JAVA"
+                  mode="Batch"
+                  name="C1.6 AttributeDefinitionReal - existence of long name"
+                  severity="ERROR"
+                  statusCode="0106">
+               <message>
+                  LongName is not set
+               </message>
+               <description>
+                  LongName of AttributeDefinitionReal must be set
+               </description>
+               <target
+                     class="AttributeDefinitionReal">
+               </target>
+            </constraint>
+         <constraint
+                  class="org.eclipse.rmf.reqif10.constraints.IdentifiableLongNameExistenceConstraint"
+                  id="C1.7"
+                  lang="JAVA"
+                  mode="Batch"
+                  name="C1.7 AttributeDefinitionString - existence of long name"
+                  severity="ERROR"
+                  statusCode="0107">
+               <message>
+                  LongName is not set
+               </message>
+               <description>
+                  LongName of AttributeDefinitionString must be set
+               </description>
+               <target
+                     class="AttributeDefinitionString">
+               </target>
+            </constraint>
+         <constraint
+                  class="org.eclipse.rmf.reqif10.constraints.IdentifiableLongNameExistenceConstraint"
+                  id="C1.8"
+                  lang="JAVA"
+                  mode="Batch"
+                  name="C1.8 AttributeDefinitionXHTML - existence of long name"
+                  severity="ERROR"
+                  statusCode="0108">
+               <message>
+                  LongName is not set
+               </message>
+               <description>
+                  LongName of AttributeDefinitionXHTML must be set
+               </description>
+               <target
+                     class="AttributeDefinitionXHTML">
+               </target>
+            </constraint>
+         <constraint
+                  class="org.eclipse.rmf.reqif10.constraints.IdentifiableLongNameExistenceConstraint"
+                  id="C1.9"
+                  lang="JAVA"
+                  mode="Batch"
+                  name="C1.9 RelationGroup - existence of long name"
+                  severity="ERROR"
+                  statusCode="0109">
+               <message>
+                  LongName is not set
+               </message>
+               <description>
+                  LongName of RelationGroup must be set
+               </description>
+               <target
+                     class="RelationGroup">
+               </target>
+            </constraint>
+            <constraint
+                  class="org.eclipse.rmf.reqif10.constraints.EnumerationMultiplicityConstraint"
+                  id="C2.1"
+                  lang="JAVA"
+                  mode="Batch"
+                  name="C2.1 Number of Attribute Values"
+                  severity="ERROR"
+                  statusCode="0201">
+               <message>
+                  {1}
+               </message>
+               <description>
+                  Number of values in AttributeValueEnumeration shall correspond to its AttributeDefinitionEnumeration
+               </description>
+               <target
+                     class="AttributeValueEnumeration">
+               </target>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+   
+   <!-- to be moved into user application -->
+   <extension point="org.eclipse.emf.validation.constraintBindings">    
+        <binding
+            context="EObjectContext"
+            category="org.eclipse.rmf.reqif10.constraints"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.validation.constraintBindings">
+        <clientContext id="EObjectContext">
+            <enablement>
+                <instanceof value="org.eclipse.emf.ecore.EObject"/>
+            </enablement>
+        </clientContext>
+   </extension>
+
+</plugin>

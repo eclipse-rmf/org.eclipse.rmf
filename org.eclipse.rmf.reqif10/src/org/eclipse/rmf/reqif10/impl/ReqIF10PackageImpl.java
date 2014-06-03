@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -464,9 +464,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	 * @generated
 	 */
 	public static ReqIF10Package init() {
-		if (isInited) {
+		if (isInited)
 			return (ReqIF10Package) EPackage.Registry.INSTANCE.getEPackage(ReqIF10Package.eNS_URI);
-		}
 
 		// Obtain or create and register package
 		ReqIF10PackageImpl theReqIF10Package = (ReqIF10PackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ReqIF10PackageImpl ? EPackage.Registry.INSTANCE
@@ -1729,9 +1728,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) {
+		if (isCreated)
 			return;
-		}
 		isCreated = true;
 
 		// Create classes and their features
@@ -1935,9 +1933,8 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) {
+		if (isInitialized)
 			return;
-		}
 		isInitialized = true;
 
 		// Initialize package
@@ -1953,358 +1950,564 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		accessControlledElementEClass.getESuperTypes().add(getIdentifiable());
-		attributeValueXHTMLEClass.getESuperTypes().add(getAttributeValue());
-		specElementWithAttributesEClass.getESuperTypes().add(getIdentifiable());
-		attributeDefinitionXHTMLEClass.getESuperTypes().add(getAttributeDefinition());
-		attributeDefinitionEClass.getESuperTypes().add(getAccessControlledElement());
-		specTypeEClass.getESuperTypes().add(getIdentifiable());
-		specObjectEClass.getESuperTypes().add(getSpecElementWithAttributes());
-		specObjectTypeEClass.getESuperTypes().add(getSpecType());
-		specificationEClass.getESuperTypes().add(getSpecElementWithAttributes());
-		specificationTypeEClass.getESuperTypes().add(getSpecType());
-		specHierarchyEClass.getESuperTypes().add(getAccessControlledElement());
-		datatypeDefinitionEClass.getESuperTypes().add(getIdentifiable());
-		specRelationEClass.getESuperTypes().add(getSpecElementWithAttributes());
-		specRelationTypeEClass.getESuperTypes().add(getSpecType());
-		relationGroupEClass.getESuperTypes().add(getIdentifiable());
-		relationGroupTypeEClass.getESuperTypes().add(getSpecType());
-		datatypeDefinitionXHTMLEClass.getESuperTypes().add(getDatatypeDefinition());
-		attributeDefinitionBooleanEClass.getESuperTypes().add(getAttributeDefinitionSimple());
-		attributeDefinitionSimpleEClass.getESuperTypes().add(getAttributeDefinition());
-		datatypeDefinitionBooleanEClass.getESuperTypes().add(getDatatypeDefinitionSimple());
-		datatypeDefinitionSimpleEClass.getESuperTypes().add(getDatatypeDefinition());
-		attributeValueBooleanEClass.getESuperTypes().add(getAttributeValueSimple());
-		attributeValueSimpleEClass.getESuperTypes().add(getAttributeValue());
-		attributeDefinitionDateEClass.getESuperTypes().add(getAttributeDefinitionSimple());
-		datatypeDefinitionDateEClass.getESuperTypes().add(getDatatypeDefinitionSimple());
-		attributeValueDateEClass.getESuperTypes().add(getAttributeValueSimple());
-		attributeDefinitionEnumerationEClass.getESuperTypes().add(getAttributeDefinition());
-		datatypeDefinitionEnumerationEClass.getESuperTypes().add(getDatatypeDefinition());
-		enumValueEClass.getESuperTypes().add(getIdentifiable());
-		attributeValueEnumerationEClass.getESuperTypes().add(getAttributeValue());
-		attributeDefinitionIntegerEClass.getESuperTypes().add(getAttributeDefinitionSimple());
-		datatypeDefinitionIntegerEClass.getESuperTypes().add(getDatatypeDefinitionSimple());
-		attributeValueIntegerEClass.getESuperTypes().add(getAttributeValueSimple());
-		attributeDefinitionRealEClass.getESuperTypes().add(getAttributeDefinitionSimple());
-		datatypeDefinitionRealEClass.getESuperTypes().add(getDatatypeDefinitionSimple());
-		attributeValueRealEClass.getESuperTypes().add(getAttributeValueSimple());
-		attributeDefinitionStringEClass.getESuperTypes().add(getAttributeDefinitionSimple());
-		datatypeDefinitionStringEClass.getESuperTypes().add(getDatatypeDefinitionSimple());
-		attributeValueStringEClass.getESuperTypes().add(getAttributeValueSimple());
+		accessControlledElementEClass.getESuperTypes().add(this.getIdentifiable());
+		attributeValueXHTMLEClass.getESuperTypes().add(this.getAttributeValue());
+		specElementWithAttributesEClass.getESuperTypes().add(this.getIdentifiable());
+		attributeDefinitionXHTMLEClass.getESuperTypes().add(this.getAttributeDefinition());
+		attributeDefinitionEClass.getESuperTypes().add(this.getAccessControlledElement());
+		specTypeEClass.getESuperTypes().add(this.getIdentifiable());
+		specObjectEClass.getESuperTypes().add(this.getSpecElementWithAttributes());
+		specObjectTypeEClass.getESuperTypes().add(this.getSpecType());
+		specificationEClass.getESuperTypes().add(this.getSpecElementWithAttributes());
+		specificationTypeEClass.getESuperTypes().add(this.getSpecType());
+		specHierarchyEClass.getESuperTypes().add(this.getAccessControlledElement());
+		datatypeDefinitionEClass.getESuperTypes().add(this.getIdentifiable());
+		specRelationEClass.getESuperTypes().add(this.getSpecElementWithAttributes());
+		specRelationTypeEClass.getESuperTypes().add(this.getSpecType());
+		relationGroupEClass.getESuperTypes().add(this.getIdentifiable());
+		relationGroupTypeEClass.getESuperTypes().add(this.getSpecType());
+		datatypeDefinitionXHTMLEClass.getESuperTypes().add(this.getDatatypeDefinition());
+		attributeDefinitionBooleanEClass.getESuperTypes().add(this.getAttributeDefinitionSimple());
+		attributeDefinitionSimpleEClass.getESuperTypes().add(this.getAttributeDefinition());
+		datatypeDefinitionBooleanEClass.getESuperTypes().add(this.getDatatypeDefinitionSimple());
+		datatypeDefinitionSimpleEClass.getESuperTypes().add(this.getDatatypeDefinition());
+		attributeValueBooleanEClass.getESuperTypes().add(this.getAttributeValueSimple());
+		attributeValueSimpleEClass.getESuperTypes().add(this.getAttributeValue());
+		attributeDefinitionDateEClass.getESuperTypes().add(this.getAttributeDefinitionSimple());
+		datatypeDefinitionDateEClass.getESuperTypes().add(this.getDatatypeDefinitionSimple());
+		attributeValueDateEClass.getESuperTypes().add(this.getAttributeValueSimple());
+		attributeDefinitionEnumerationEClass.getESuperTypes().add(this.getAttributeDefinition());
+		datatypeDefinitionEnumerationEClass.getESuperTypes().add(this.getDatatypeDefinition());
+		enumValueEClass.getESuperTypes().add(this.getIdentifiable());
+		attributeValueEnumerationEClass.getESuperTypes().add(this.getAttributeValue());
+		attributeDefinitionIntegerEClass.getESuperTypes().add(this.getAttributeDefinitionSimple());
+		datatypeDefinitionIntegerEClass.getESuperTypes().add(this.getDatatypeDefinitionSimple());
+		attributeValueIntegerEClass.getESuperTypes().add(this.getAttributeValueSimple());
+		attributeDefinitionRealEClass.getESuperTypes().add(this.getAttributeDefinitionSimple());
+		datatypeDefinitionRealEClass.getESuperTypes().add(this.getDatatypeDefinitionSimple());
+		attributeValueRealEClass.getESuperTypes().add(this.getAttributeValueSimple());
+		attributeDefinitionStringEClass.getESuperTypes().add(this.getAttributeDefinitionSimple());
+		datatypeDefinitionStringEClass.getESuperTypes().add(this.getDatatypeDefinitionSimple());
+		attributeValueStringEClass.getESuperTypes().add(this.getAttributeValueSimple());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(accessControlledElementEClass, AccessControlledElement.class, "AccessControlledElement", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAccessControlledElement_Editable(), ecorePackage.getEBoolean(), "editable", null, 0, 1, AccessControlledElement.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(accessControlledElementEClass, AccessControlledElement.class,
+				"AccessControlledElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getAccessControlledElement_Editable(),
+				ecorePackage.getEBoolean(),
+				"editable", null, 0, 1, AccessControlledElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(identifiableEClass, Identifiable.class, "Identifiable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIdentifiable_Desc(), ecorePackage.getEString(), "desc", null, 0, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getIdentifiable_Identifier(), getID(), "identifier", null, 1, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getIdentifiable_LastChange(), getDateTime(), "lastChange", null, 1, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getIdentifiable_LongName(), ecorePackage.getEString(), "longName", null, 0, 1, Identifiable.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getIdentifiable_AlternativeID(), getAlternativeID(), null, "alternativeID", null, 0, 1, Identifiable.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(identifiableEClass, Identifiable.class, "Identifiable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getIdentifiable_Desc(),
+				ecorePackage.getEString(),
+				"desc", null, 0, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getIdentifiable_Identifier(),
+				this.getID(),
+				"identifier", null, 1, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getIdentifiable_LastChange(),
+				this.getDateTime(),
+				"lastChange", null, 1, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getIdentifiable_LongName(),
+				ecorePackage.getEString(),
+				"longName", null, 0, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getIdentifiable_AlternativeID(),
+				this.getAlternativeID(),
+				null,
+				"alternativeID", null, 0, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeValueXHTMLEClass, AttributeValueXHTML.class, "AttributeValueXHTML", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeValueXHTML_Simplified(), ecorePackage.getEBoolean(), "simplified", null, 0, 1, AttributeValueXHTML.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueXHTML_Definition(), getAttributeDefinitionXHTML(), null, "definition", null, 1, 1, AttributeValueXHTML.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueXHTML_TheOriginalValue(), getXhtmlContent(), null, "theOriginalValue", null, 0, 1, AttributeValueXHTML.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueXHTML_TheValue(), getXhtmlContent(), null, "theValue", null, 1, 1, AttributeValueXHTML.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeValueXHTMLEClass, AttributeValueXHTML.class,
+				"AttributeValueXHTML", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getAttributeValueXHTML_Simplified(),
+				ecorePackage.getEBoolean(),
+				"simplified", null, 0, 1, AttributeValueXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeValueXHTML_Definition(),
+				this.getAttributeDefinitionXHTML(),
+				null,
+				"definition", null, 1, 1, AttributeValueXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeValueXHTML_TheOriginalValue(),
+				this.getXhtmlContent(),
+				null,
+				"theOriginalValue", null, 0, 1, AttributeValueXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeValueXHTML_TheValue(),
+				this.getXhtmlContent(),
+				null,
+				"theValue", null, 1, 1, AttributeValueXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeValueEClass, AttributeValue.class, "AttributeValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(attributeValueEClass, AttributeValue.class, "AttributeValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(specElementWithAttributesEClass, SpecElementWithAttributes.class, "SpecElementWithAttributes", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecElementWithAttributes_Values(), getAttributeValue(), null, "values", null, 0, -1, SpecElementWithAttributes.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(specElementWithAttributesEClass, SpecElementWithAttributes.class,
+				"SpecElementWithAttributes", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getSpecElementWithAttributes_Values(),
+				this.getAttributeValue(),
+				null,
+				"values", null, 0, -1, SpecElementWithAttributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeDefinitionXHTMLEClass, AttributeDefinitionXHTML.class, "AttributeDefinitionXHTML", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeDefinitionXHTML_Type(), getDatatypeDefinitionXHTML(), null, "type", null, 1, 1, AttributeDefinitionXHTML.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionXHTML_DefaultValue(), getAttributeValueXHTML(), null, "defaultValue", null, 0, 1,
-				AttributeDefinitionXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionXHTMLEClass, AttributeDefinitionXHTML.class,
+				"AttributeDefinitionXHTML", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionXHTML_Type(),
+				this.getDatatypeDefinitionXHTML(),
+				null,
+				"type", null, 1, 1, AttributeDefinitionXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionXHTML_DefaultValue(),
+				this.getAttributeValueXHTML(),
+				null,
+				"defaultValue", null, 0, 1, AttributeDefinitionXHTML.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeDefinitionEClass, AttributeDefinition.class, "AttributeDefinition", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(attributeDefinitionEClass, AttributeDefinition.class,
+				"AttributeDefinition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(specTypeEClass, SpecType.class, "SpecType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecType_SpecAttributes(), getAttributeDefinition(), null, "specAttributes", null, 0, -1, SpecType.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(specTypeEClass, SpecType.class, "SpecType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getSpecType_SpecAttributes(),
+				this.getAttributeDefinition(),
+				null,
+				"specAttributes", null, 0, -1, SpecType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(reqIFContentEClass, ReqIFContent.class, "ReqIFContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReqIFContent_Datatypes(), getDatatypeDefinition(), null, "datatypes", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIFContent_SpecTypes(), getSpecType(), null, "specTypes", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIFContent_SpecObjects(), getSpecObject(), null, "specObjects", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIFContent_SpecRelations(), getSpecRelation(), null, "specRelations", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIFContent_Specifications(), getSpecification(), null, "specifications", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIFContent_SpecRelationGroups(), getRelationGroup(), null, "specRelationGroups", null, 0, -1, ReqIFContent.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(reqIFContentEClass, ReqIFContent.class, "ReqIFContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getReqIFContent_Datatypes(),
+				this.getDatatypeDefinition(),
+				null,
+				"datatypes", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getReqIFContent_SpecTypes(),
+				this.getSpecType(),
+				null,
+				"specTypes", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getReqIFContent_SpecObjects(),
+				this.getSpecObject(),
+				null,
+				"specObjects", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getReqIFContent_SpecRelations(),
+				this.getSpecRelation(),
+				null,
+				"specRelations", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getReqIFContent_Specifications(),
+				this.getSpecification(),
+				null,
+				"specifications", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getReqIFContent_SpecRelationGroups(),
+				this.getRelationGroup(),
+				null,
+				"specRelationGroups", null, 0, -1, ReqIFContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(reqIFEClass, ReqIF.class, "ReqIF", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReqIF_Lang(), theXMLNamespacePackage.getLangType(), "lang", null, 0, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIF_TheHeader(), getReqIFHeader(), null, "theHeader", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIF_CoreContent(), getReqIFContent(), null, "coreContent", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getReqIF_ToolExtensions(), getReqIFToolExtension(), null, "toolExtensions", null, 0, -1, ReqIF.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(reqIFEClass, ReqIF.class, "ReqIF", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getReqIF_Lang(),
+				theXMLNamespacePackage.getLangType(),
+				"lang", null, 0, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getReqIF_TheHeader(),
+				this.getReqIFHeader(),
+				null,
+				"theHeader", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getReqIF_CoreContent(),
+				this.getReqIFContent(),
+				null,
+				"coreContent", null, 1, 1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getReqIF_ToolExtensions(),
+				this.getReqIFToolExtension(),
+				null,
+				"toolExtensions", null, 0, -1, ReqIF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(reqIFHeaderEClass, ReqIFHeader.class, "ReqIFHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReqIFHeader_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_CreationTime(), getDateTime(), "creationTime", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_Identifier(), getID(), "identifier", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_RepositoryId(), ecorePackage.getEString(), "repositoryId", null, 0, 1, ReqIFHeader.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_ReqIFToolId(), ecorePackage.getEString(), "reqIFToolId", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_ReqIFVersion(), ecorePackage.getEString(), "reqIFVersion", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_SourceToolId(), ecorePackage.getEString(), "sourceToolId", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReqIFHeader_Title(), ecorePackage.getEString(), "title", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(reqIFHeaderEClass, ReqIFHeader.class, "ReqIFHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getReqIFHeader_Comment(),
+				ecorePackage.getEString(),
+				"comment", null, 0, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getReqIFHeader_CreationTime(),
+				this.getDateTime(),
+				"creationTime", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getReqIFHeader_Identifier(),
+				this.getID(),
+				"identifier", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getReqIFHeader_RepositoryId(),
+				ecorePackage.getEString(),
+				"repositoryId", null, 0, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getReqIFHeader_ReqIFToolId(),
+				ecorePackage.getEString(),
+				"reqIFToolId", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getReqIFHeader_ReqIFVersion(),
+				ecorePackage.getEString(),
+				"reqIFVersion", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getReqIFHeader_SourceToolId(),
+				ecorePackage.getEString(),
+				"sourceToolId", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getReqIFHeader_Title(),
+				ecorePackage.getEString(),
+				"title", null, 1, 1, ReqIFHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(reqIFToolExtensionEClass, ReqIFToolExtension.class, "ReqIFToolExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReqIFToolExtension_Extensions(), ecorePackage.getEObject(), null, "extensions", null, 0, -1, ReqIFToolExtension.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(reqIFToolExtensionEClass, ReqIFToolExtension.class, "ReqIFToolExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getReqIFToolExtension_Extensions(),
+				ecorePackage.getEObject(),
+				null,
+				"extensions", null, 0, -1, ReqIFToolExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(specObjectEClass, SpecObject.class, "SpecObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecObject_Type(), getSpecObjectType(), null, "type", null, 1, 1, SpecObject.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(specObjectEClass, SpecObject.class, "SpecObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getSpecObject_Type(),
+				this.getSpecObjectType(),
+				null,
+				"type", null, 1, 1, SpecObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(specObjectTypeEClass, SpecObjectType.class, "SpecObjectType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(specObjectTypeEClass, SpecObjectType.class, "SpecObjectType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(specificationEClass, Specification.class, "Specification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecification_Type(), getSpecificationType(), null, "type", null, 1, 1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecification_Children(), getSpecHierarchy(), null, "children", null, 0, -1, Specification.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(specificationEClass, Specification.class, "Specification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getSpecification_Type(),
+				this.getSpecificationType(),
+				null,
+				"type", null, 1, 1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getSpecification_Children(),
+				this.getSpecHierarchy(),
+				null,
+				"children", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(specificationTypeEClass, SpecificationType.class, "SpecificationType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(specificationTypeEClass, SpecificationType.class, "SpecificationType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(specHierarchyEClass, SpecHierarchy.class, "SpecHierarchy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSpecHierarchy_TableInternal(), ecorePackage.getEBoolean(), "tableInternal", null, 0, 1, SpecHierarchy.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecHierarchy_Object(), getSpecObject(), null, "object", null, 1, 1, SpecHierarchy.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecHierarchy_Children(), getSpecHierarchy(), null, "children", null, 0, -1, SpecHierarchy.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSpecHierarchy_EditableAtts(), getAttributeDefinition(), null, "editableAtts", null, 0, -1, SpecHierarchy.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(specHierarchyEClass, SpecHierarchy.class, "SpecHierarchy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getSpecHierarchy_TableInternal(),
+				ecorePackage.getEBoolean(),
+				"tableInternal", null, 0, 1, SpecHierarchy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getSpecHierarchy_Object(),
+				this.getSpecObject(),
+				null,
+				"object", null, 1, 1, SpecHierarchy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getSpecHierarchy_Children(),
+				this.getSpecHierarchy(),
+				null,
+				"children", null, 0, -1, SpecHierarchy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getSpecHierarchy_EditableAtts(),
+				this.getAttributeDefinition(),
+				null,
+				"editableAtts", null, 0, -1, SpecHierarchy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(datatypeDefinitionEClass, DatatypeDefinition.class, "DatatypeDefinition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(datatypeDefinitionEClass, DatatypeDefinition.class, "DatatypeDefinition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(specRelationEClass, SpecRelation.class, "SpecRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecRelation_Target(), getSpecObject(), null, "target", null, 1, 1, SpecRelation.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecRelation_Source(), getSpecObject(), null, "source", null, 1, 1, SpecRelation.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecRelation_Type(), getSpecRelationType(), null, "type", null, 1, 1, SpecRelation.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(specRelationEClass, SpecRelation.class, "SpecRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getSpecRelation_Target(),
+				this.getSpecObject(),
+				null,
+				"target", null, 1, 1, SpecRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getSpecRelation_Source(),
+				this.getSpecObject(),
+				null,
+				"source", null, 1, 1, SpecRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getSpecRelation_Type(),
+				this.getSpecRelationType(),
+				null,
+				"type", null, 1, 1, SpecRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(specRelationTypeEClass, SpecRelationType.class, "SpecRelationType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(specRelationTypeEClass, SpecRelationType.class, "SpecRelationType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(relationGroupEClass, RelationGroup.class, "RelationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRelationGroup_SpecRelations(), getSpecRelation(), null, "specRelations", null, 0, -1, RelationGroup.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRelationGroup_Type(), getRelationGroupType(), null, "type", null, 1, 1, RelationGroup.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRelationGroup_SourceSpecification(), getSpecification(), null, "sourceSpecification", null, 1, 1, RelationGroup.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRelationGroup_TargetSpecification(), getSpecification(), null, "targetSpecification", null, 1, 1, RelationGroup.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(relationGroupEClass, RelationGroup.class, "RelationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getRelationGroup_SpecRelations(),
+				this.getSpecRelation(),
+				null,
+				"specRelations", null, 0, -1, RelationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getRelationGroup_Type(),
+				this.getRelationGroupType(),
+				null,
+				"type", null, 1, 1, RelationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getRelationGroup_SourceSpecification(),
+				this.getSpecification(),
+				null,
+				"sourceSpecification", null, 1, 1, RelationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getRelationGroup_TargetSpecification(),
+				this.getSpecification(),
+				null,
+				"targetSpecification", null, 1, 1, RelationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(relationGroupTypeEClass, RelationGroupType.class, "RelationGroupType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(relationGroupTypeEClass, RelationGroupType.class, "RelationGroupType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(datatypeDefinitionXHTMLEClass, DatatypeDefinitionXHTML.class, "DatatypeDefinitionXHTML", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(datatypeDefinitionXHTMLEClass, DatatypeDefinitionXHTML.class,
+				"DatatypeDefinitionXHTML", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(alternativeIDEClass, AlternativeID.class, "AlternativeID", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAlternativeID_Identifier(), ecorePackage.getEString(), "identifier", null, 1, 1, AlternativeID.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(alternativeIDEClass, AlternativeID.class, "AlternativeID", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getAlternativeID_Identifier(),
+				ecorePackage.getEString(),
+				"identifier", null, 1, 1, AlternativeID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeDefinitionBooleanEClass, AttributeDefinitionBoolean.class, "AttributeDefinitionBoolean", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeDefinitionBoolean_Type(), getDatatypeDefinitionBoolean(), null, "type", null, 1, 1,
-				AttributeDefinitionBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionBoolean_DefaultValue(), getAttributeValueBoolean(), null, "defaultValue", null, 0, 1,
-				AttributeDefinitionBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionBooleanEClass, AttributeDefinitionBoolean.class,
+				"AttributeDefinitionBoolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionBoolean_Type(),
+				this.getDatatypeDefinitionBoolean(),
+				null,
+				"type", null, 1, 1, AttributeDefinitionBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionBoolean_DefaultValue(),
+				this.getAttributeValueBoolean(),
+				null,
+				"defaultValue", null, 0, 1, AttributeDefinitionBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeDefinitionSimpleEClass, AttributeDefinitionSimple.class, "AttributeDefinitionSimple", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(attributeDefinitionSimpleEClass, AttributeDefinitionSimple.class,
+				"AttributeDefinitionSimple", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(datatypeDefinitionBooleanEClass, DatatypeDefinitionBoolean.class, "DatatypeDefinitionBoolean", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(datatypeDefinitionBooleanEClass, DatatypeDefinitionBoolean.class,
+				"DatatypeDefinitionBoolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(datatypeDefinitionSimpleEClass, DatatypeDefinitionSimple.class, "DatatypeDefinitionSimple", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(datatypeDefinitionSimpleEClass, DatatypeDefinitionSimple.class,
+				"DatatypeDefinitionSimple", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(attributeValueBooleanEClass, AttributeValueBoolean.class, "AttributeValueBoolean", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeValueBoolean_TheValue(), ecorePackage.getEBoolean(), "theValue", null, 1, 1, AttributeValueBoolean.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueBoolean_Definition(), getAttributeDefinitionBoolean(), null, "definition", null, 1, 1,
-				AttributeValueBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeValueBooleanEClass, AttributeValueBoolean.class,
+				"AttributeValueBoolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getAttributeValueBoolean_TheValue(),
+				ecorePackage.getEBoolean(),
+				"theValue", null, 1, 1, AttributeValueBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeValueBoolean_Definition(),
+				this.getAttributeDefinitionBoolean(),
+				null,
+				"definition", null, 1, 1, AttributeValueBoolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeValueSimpleEClass, AttributeValueSimple.class, "AttributeValueSimple", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(attributeValueSimpleEClass, AttributeValueSimple.class,
+				"AttributeValueSimple", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(attributeDefinitionDateEClass, AttributeDefinitionDate.class, "AttributeDefinitionDate", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeDefinitionDate_Type(), getDatatypeDefinitionDate(), null, "type", null, 1, 1, AttributeDefinitionDate.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionDate_DefaultValue(), getAttributeValueDate(), null, "defaultValue", null, 0, 1,
-				AttributeDefinitionDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionDateEClass, AttributeDefinitionDate.class,
+				"AttributeDefinitionDate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionDate_Type(),
+				this.getDatatypeDefinitionDate(),
+				null,
+				"type", null, 1, 1, AttributeDefinitionDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionDate_DefaultValue(),
+				this.getAttributeValueDate(),
+				null,
+				"defaultValue", null, 0, 1, AttributeDefinitionDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(datatypeDefinitionDateEClass, DatatypeDefinitionDate.class, "DatatypeDefinitionDate", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(datatypeDefinitionDateEClass, DatatypeDefinitionDate.class,
+				"DatatypeDefinitionDate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(attributeValueDateEClass, AttributeValueDate.class, "AttributeValueDate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeValueDate_TheValue(), getDateTime(), "theValue", null, 1, 1, AttributeValueDate.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueDate_Definition(), getAttributeDefinitionDate(), null, "definition", null, 1, 1, AttributeValueDate.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeValueDateEClass, AttributeValueDate.class, "AttributeValueDate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getAttributeValueDate_TheValue(),
+				this.getDateTime(),
+				"theValue", null, 1, 1, AttributeValueDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeValueDate_Definition(),
+				this.getAttributeDefinitionDate(),
+				null,
+				"definition", null, 1, 1, AttributeValueDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeDefinitionEnumerationEClass, AttributeDefinitionEnumeration.class, "AttributeDefinitionEnumeration", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeDefinitionEnumeration_MultiValued(), ecorePackage.getEBoolean(), "multiValued", null, 1, 1,
-				AttributeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				!IS_ORDERED);
-		initEReference(getAttributeDefinitionEnumeration_Type(), getDatatypeDefinitionEnumeration(), null, "type", null, 1, 1,
-				AttributeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionEnumeration_DefaultValue(), getAttributeValueEnumeration(), null, "defaultValue", null, 0, 1,
-				AttributeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionEnumerationEClass, AttributeDefinitionEnumeration.class,
+				"AttributeDefinitionEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getAttributeDefinitionEnumeration_MultiValued(),
+				ecorePackage.getEBoolean(),
+				"multiValued", null, 1, 1, AttributeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionEnumeration_Type(),
+				this.getDatatypeDefinitionEnumeration(),
+				null,
+				"type", null, 1, 1, AttributeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionEnumeration_DefaultValue(),
+				this.getAttributeValueEnumeration(),
+				null,
+				"defaultValue", null, 0, 1, AttributeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(datatypeDefinitionEnumerationEClass, DatatypeDefinitionEnumeration.class, "DatatypeDefinitionEnumeration", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDatatypeDefinitionEnumeration_SpecifiedValues(), getEnumValue(), null, "specifiedValues", null, 0, -1,
-				DatatypeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(datatypeDefinitionEnumerationEClass, DatatypeDefinitionEnumeration.class,
+				"DatatypeDefinitionEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getDatatypeDefinitionEnumeration_SpecifiedValues(),
+				this.getEnumValue(),
+				null,
+				"specifiedValues", null, 0, -1, DatatypeDefinitionEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(enumValueEClass, EnumValue.class, "EnumValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEnumValue_Properties(), getEmbeddedValue(), null, "properties", null, 1, 1, EnumValue.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(enumValueEClass, EnumValue.class, "EnumValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getEnumValue_Properties(),
+				this.getEmbeddedValue(),
+				null,
+				"properties", null, 1, 1, EnumValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(embeddedValueEClass, EmbeddedValue.class, "EmbeddedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEmbeddedValue_Key(), ecorePackage.getEBigInteger(), "key", null, 1, 1, EmbeddedValue.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getEmbeddedValue_OtherContent(), ecorePackage.getEString(), "otherContent", null, 1, 1, EmbeddedValue.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(embeddedValueEClass, EmbeddedValue.class, "EmbeddedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getEmbeddedValue_Key(),
+				ecorePackage.getEBigInteger(),
+				"key", null, 1, 1, EmbeddedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getEmbeddedValue_OtherContent(),
+				ecorePackage.getEString(),
+				"otherContent", null, 1, 1, EmbeddedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeValueEnumerationEClass, AttributeValueEnumeration.class, "AttributeValueEnumeration", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeValueEnumeration_Values(), getEnumValue(), null, "values", null, 0, -1, AttributeValueEnumeration.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueEnumeration_Definition(), getAttributeDefinitionEnumeration(), null, "definition", null, 1, 1,
-				AttributeValueEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeValueEnumerationEClass, AttributeValueEnumeration.class,
+				"AttributeValueEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getAttributeValueEnumeration_Values(),
+				this.getEnumValue(),
+				null,
+				"values", null, 0, -1, AttributeValueEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeValueEnumeration_Definition(),
+				this.getAttributeDefinitionEnumeration(),
+				null,
+				"definition", null, 1, 1, AttributeValueEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeDefinitionIntegerEClass, AttributeDefinitionInteger.class, "AttributeDefinitionInteger", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeDefinitionInteger_Type(), getDatatypeDefinitionInteger(), null, "type", null, 1, 1,
-				AttributeDefinitionInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionInteger_DefaultValue(), getAttributeValueInteger(), null, "defaultValue", null, 0, 1,
-				AttributeDefinitionInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionIntegerEClass, AttributeDefinitionInteger.class,
+				"AttributeDefinitionInteger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionInteger_Type(),
+				this.getDatatypeDefinitionInteger(),
+				null,
+				"type", null, 1, 1, AttributeDefinitionInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionInteger_DefaultValue(),
+				this.getAttributeValueInteger(),
+				null,
+				"defaultValue", null, 0, 1, AttributeDefinitionInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(datatypeDefinitionIntegerEClass, DatatypeDefinitionInteger.class, "DatatypeDefinitionInteger", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDatatypeDefinitionInteger_Max(), ecorePackage.getEBigInteger(), "max", null, 1, 1, DatatypeDefinitionInteger.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getDatatypeDefinitionInteger_Min(), ecorePackage.getEBigInteger(), "min", null, 1, 1, DatatypeDefinitionInteger.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(datatypeDefinitionIntegerEClass, DatatypeDefinitionInteger.class,
+				"DatatypeDefinitionInteger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getDatatypeDefinitionInteger_Max(),
+				ecorePackage.getEBigInteger(),
+				"max", null, 1, 1, DatatypeDefinitionInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getDatatypeDefinitionInteger_Min(),
+				ecorePackage.getEBigInteger(),
+				"min", null, 1, 1, DatatypeDefinitionInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeValueIntegerEClass, AttributeValueInteger.class, "AttributeValueInteger", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeValueInteger_TheValue(), ecorePackage.getEBigInteger(), "theValue", null, 1, 1, AttributeValueInteger.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueInteger_Definition(), getAttributeDefinitionInteger(), null, "definition", null, 1, 1,
-				AttributeValueInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeValueIntegerEClass, AttributeValueInteger.class,
+				"AttributeValueInteger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getAttributeValueInteger_TheValue(),
+				ecorePackage.getEBigInteger(),
+				"theValue", null, 1, 1, AttributeValueInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeValueInteger_Definition(),
+				this.getAttributeDefinitionInteger(),
+				null,
+				"definition", null, 1, 1, AttributeValueInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeDefinitionRealEClass, AttributeDefinitionReal.class, "AttributeDefinitionReal", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeDefinitionReal_Type(), getDatatypeDefinitionReal(), null, "type", null, 1, 1, AttributeDefinitionReal.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionReal_DefaultValue(), getAttributeValueReal(), null, "defaultValue", null, 0, 1,
-				AttributeDefinitionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionRealEClass, AttributeDefinitionReal.class,
+				"AttributeDefinitionReal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionReal_Type(),
+				this.getDatatypeDefinitionReal(),
+				null,
+				"type", null, 1, 1, AttributeDefinitionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionReal_DefaultValue(),
+				this.getAttributeValueReal(),
+				null,
+				"defaultValue", null, 0, 1, AttributeDefinitionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(datatypeDefinitionRealEClass, DatatypeDefinitionReal.class, "DatatypeDefinitionReal", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDatatypeDefinitionReal_Accuracy(), ecorePackage.getEBigInteger(), "accuracy", null, 1, 1, DatatypeDefinitionReal.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getDatatypeDefinitionReal_Max(), ecorePackage.getEDouble(), "max", null, 1, 1, DatatypeDefinitionReal.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getDatatypeDefinitionReal_Min(), ecorePackage.getEDouble(), "min", null, 1, 1, DatatypeDefinitionReal.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(datatypeDefinitionRealEClass, DatatypeDefinitionReal.class,
+				"DatatypeDefinitionReal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getDatatypeDefinitionReal_Accuracy(),
+				ecorePackage.getEBigInteger(),
+				"accuracy", null, 1, 1, DatatypeDefinitionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getDatatypeDefinitionReal_Max(),
+				ecorePackage.getEDouble(),
+				"max", null, 1, 1, DatatypeDefinitionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getDatatypeDefinitionReal_Min(),
+				ecorePackage.getEDouble(),
+				"min", null, 1, 1, DatatypeDefinitionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeValueRealEClass, AttributeValueReal.class, "AttributeValueReal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeValueReal_TheValue(), ecorePackage.getEDouble(), "theValue", null, 1, 1, AttributeValueReal.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueReal_Definition(), getAttributeDefinitionReal(), null, "definition", null, 1, 1, AttributeValueReal.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeValueRealEClass, AttributeValueReal.class, "AttributeValueReal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getAttributeValueReal_TheValue(),
+				ecorePackage.getEDouble(),
+				"theValue", null, 1, 1, AttributeValueReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeValueReal_Definition(),
+				this.getAttributeDefinitionReal(),
+				null,
+				"definition", null, 1, 1, AttributeValueReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeDefinitionStringEClass, AttributeDefinitionString.class, "AttributeDefinitionString", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeDefinitionString_Type(), getDatatypeDefinitionString(), null, "type", null, 1, 1, AttributeDefinitionString.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeDefinitionString_DefaultValue(), getAttributeValueString(), null, "defaultValue", null, 0, 1,
-				AttributeDefinitionString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeDefinitionStringEClass, AttributeDefinitionString.class,
+				"AttributeDefinitionString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionString_Type(),
+				this.getDatatypeDefinitionString(),
+				null,
+				"type", null, 1, 1, AttributeDefinitionString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeDefinitionString_DefaultValue(),
+				this.getAttributeValueString(),
+				null,
+				"defaultValue", null, 0, 1, AttributeDefinitionString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(datatypeDefinitionStringEClass, DatatypeDefinitionString.class, "DatatypeDefinitionString", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDatatypeDefinitionString_MaxLength(), ecorePackage.getEBigInteger(), "maxLength", null, 1, 1,
-				DatatypeDefinitionString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				!IS_ORDERED);
+		initEClass(datatypeDefinitionStringEClass, DatatypeDefinitionString.class,
+				"DatatypeDefinitionString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getDatatypeDefinitionString_MaxLength(),
+				ecorePackage.getEBigInteger(),
+				"maxLength", null, 1, 1, DatatypeDefinitionString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(attributeValueStringEClass, AttributeValueString.class, "AttributeValueString", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttributeValueString_TheValue(), ecorePackage.getEString(), "theValue", null, 1, 1, AttributeValueString.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAttributeValueString_Definition(), getAttributeDefinitionString(), null, "definition", null, 1, 1,
-				AttributeValueString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, !IS_ORDERED);
+		initEClass(attributeValueStringEClass, AttributeValueString.class,
+				"AttributeValueString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getAttributeValueString_TheValue(),
+				ecorePackage.getEString(),
+				"theValue", null, 1, 1, AttributeValueString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getAttributeValueString_Definition(),
+				this.getAttributeDefinitionString(),
+				null,
+				"definition", null, 1, 1, AttributeValueString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(xhtmlContentEClass, XhtmlContent.class, "XhtmlContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getXhtmlContent_Xhtml(), ecorePackage.getEObject(), null, "xhtml", null, 0, 1, XhtmlContent.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXhtmlContent_XhtmlSource(), ecorePackage.getEString(), "xhtmlSource", null, 0, 1, XhtmlContent.class, IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(xhtmlContentEClass, XhtmlContent.class, "XhtmlContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getXhtmlContent_Xhtml(),
+				ecorePackage.getEObject(),
+				null,
+				"xhtml", null, 0, 1, XhtmlContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getXhtmlContent_XhtmlSource(),
+				ecorePackage.getEString(),
+				"xhtmlSource", null, 0, 1, XhtmlContent.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Initialize data types
-		initEDataType(dateTimeEDataType, GregorianCalendar.class, "DateTime", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(idEDataType, String.class, "ID", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(dateTimeEDataType, GregorianCalendar.class, "DateTime", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(idEDataType, String.class, "ID", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);
@@ -2323,185 +2526,472 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
-		addAnnotation(accessControlledElementEClass, source, new String[] { "name", "ACCESS-CONTROLLED-ELEMENT", "kind", "elementOnly" });
-		addAnnotation(getAccessControlledElement_Editable(), source, new String[] { "name", "IS-EDITABLE", "kind", "attribute" });
-		addAnnotation(identifiableEClass, source, new String[] { "name", "IDENTIFIABLE", "kind", "elementOnly" });
-		addAnnotation(getIdentifiable_Desc(), source, new String[] { "name", "DESC", "kind", "attribute" });
-		addAnnotation(getIdentifiable_Identifier(), source, new String[] { "name", "IDENTIFIER", "kind", "attribute" });
-		addAnnotation(getIdentifiable_LastChange(), source, new String[] { "name", "LAST-CHANGE", "kind", "attribute" });
-		addAnnotation(getIdentifiable_LongName(), source, new String[] { "name", "LONG-NAME", "kind", "attribute" });
-		addAnnotation(getIdentifiable_AlternativeID(), source, new String[] { "name", "ALTERNATIVE-ID", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(attributeValueXHTMLEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-XHTML", "kind", "elementOnly" });
-		addAnnotation(getAttributeValueXHTML_Simplified(), source, new String[] { "name", "IS-SIMPLIFIED", "kind", "attribute" });
-		addAnnotation(getAttributeValueXHTML_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getAttributeValueXHTML_TheOriginalValue(), source, new String[] { "name", "THE-ORIGINAL-VALUE", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getAttributeValueXHTML_TheValue(), source, new String[] { "name", "THE-VALUE", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(attributeValueEClass, source, new String[] { "name", "ATTRIBUTE-VALUE", "kind", "elementOnly" });
-		addAnnotation(specElementWithAttributesEClass, source, new String[] { "name", "SPEC-ELEMENT-WITH-ATTRIBUTES", "kind", "elementOnly" });
-		addAnnotation(getSpecElementWithAttributes_Values(), source, new String[] { "name", "VALUES", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(attributeDefinitionXHTMLEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-XHTML", "kind", "elementOnly" });
-		addAnnotation(getAttributeDefinitionXHTML_Type(), source,
-				new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getAttributeDefinitionXHTML_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(attributeDefinitionEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION", "kind", "elementOnly" });
-		addAnnotation(specTypeEClass, source, new String[] { "name", "SPEC-TYPE", "kind", "elementOnly" });
-		addAnnotation(getSpecType_SpecAttributes(), source, new String[] { "name", "SPEC-ATTRIBUTES", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(reqIFContentEClass, source, new String[] { "name", "REQ-IF-CONTENT", "kind", "elementOnly" });
-		addAnnotation(getReqIFContent_Datatypes(), source, new String[] { "name", "DATATYPES", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getReqIFContent_SpecTypes(), source, new String[] { "name", "SPEC-TYPES", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getReqIFContent_SpecObjects(), source, new String[] { "name", "SPEC-OBJECTS", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getReqIFContent_SpecRelations(), source, new String[] { "name", "SPEC-RELATIONS", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getReqIFContent_Specifications(), source, new String[] { "name", "SPECIFICATIONS", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getReqIFContent_SpecRelationGroups(), source, new String[] { "name", "SPEC-RELATION-GROUPS", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(reqIFEClass, source, new String[] { "name", "REQ-IF", "kind", "elementOnly" });
-		addAnnotation(getReqIF_Lang(), source, new String[] { "name", "lang", "kind", "attribute", "namespace",
-				"http://www.w3.org/XML/1998/namespace" });
-		addAnnotation(getReqIF_TheHeader(), source, new String[] { "name", "THE-HEADER", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getReqIF_CoreContent(), source, new String[] { "name", "CORE-CONTENT", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getReqIF_ToolExtensions(), source, new String[] { "name", "TOOL-EXTENSIONS", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(reqIFHeaderEClass, source, new String[] { "name", "REQ-IF-HEADER", "kind", "elementOnly" });
-		addAnnotation(getReqIFHeader_Comment(), source, new String[] { "name", "COMMENT", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getReqIFHeader_CreationTime(), source, new String[] { "name", "CREATION-TIME", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getReqIFHeader_Identifier(), source, new String[] { "name", "IDENTIFIER", "kind", "attribute" });
-		addAnnotation(getReqIFHeader_RepositoryId(), source, new String[] { "name", "REPOSITORY-ID", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getReqIFHeader_ReqIFToolId(), source, new String[] { "name", "REQ-IF-TOOL-ID", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getReqIFHeader_ReqIFVersion(), source, new String[] { "name", "REQ-IF-VERSION", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getReqIFHeader_SourceToolId(), source, new String[] { "name", "SOURCE-TOOL-ID", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getReqIFHeader_Title(), source, new String[] { "name", "TITLE", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(reqIFToolExtensionEClass, source, new String[] { "name", "REQ-IF-TOOL-EXTENSION", "kind", "elementOnly" });
-		addAnnotation(getReqIFToolExtension_Extensions(), source, new String[] { "name", "EXTENSIONS", "kind", "elementWildcard", "namespace",
-				"##targetNamespace", "precessing", "lax", "wildcards", "##other" });
-		addAnnotation(specObjectEClass, source, new String[] { "name", "SPEC-OBJECT", "kind", "elementOnly" });
-		addAnnotation(getSpecObject_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(specObjectTypeEClass, source, new String[] { "name", "SPEC-OBJECT-TYPE", "kind", "elementOnly" });
-		addAnnotation(specificationEClass, source, new String[] { "name", "SPECIFICATION", "kind", "elementOnly" });
-		addAnnotation(getSpecification_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getSpecification_Children(), source, new String[] { "name", "CHILDREN", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(specificationTypeEClass, source, new String[] { "name", "SPECIFICATION-TYPE", "kind", "elementOnly" });
-		addAnnotation(specHierarchyEClass, source, new String[] { "name", "SPEC-HIERARCHY", "kind", "elementOnly" });
-		addAnnotation(getSpecHierarchy_TableInternal(), source, new String[] { "name", "IS-TABLE-INTERNAL", "kind", "attribute" });
-		addAnnotation(getSpecHierarchy_Object(), source, new String[] { "name", "OBJECT", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getSpecHierarchy_Children(), source, new String[] { "name", "CHILDREN", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getSpecHierarchy_EditableAtts(), source, new String[] { "name", "EDITABLE-ATTS", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(datatypeDefinitionEClass, source, new String[] { "name", "DATATYPE-DEFINITION", "kind", "elementOnly" });
-		addAnnotation(specRelationEClass, source, new String[] { "name", "SPEC-RELATION", "kind", "elementOnly" });
-		addAnnotation(getSpecRelation_Target(), source, new String[] { "name", "TARGET", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getSpecRelation_Source(), source, new String[] { "name", "SOURCE", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getSpecRelation_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(specRelationTypeEClass, source, new String[] { "name", "SPEC-RELATION-TYPE", "kind", "elementOnly" });
-		addAnnotation(relationGroupEClass, source, new String[] { "name", "RELATION-GROUP", "kind", "elementOnly" });
-		addAnnotation(getRelationGroup_SpecRelations(), source, new String[] { "name", "SPEC-RELATIONS", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getRelationGroup_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getRelationGroup_SourceSpecification(), source, new String[] { "name", "SOURCE-SPECIFICATION", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getRelationGroup_TargetSpecification(), source, new String[] { "name", "TARGET-SPECIFICATION", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(relationGroupTypeEClass, source, new String[] { "name", "RELATION-GROUP-TYPE", "kind", "elementOnly" });
-		addAnnotation(datatypeDefinitionXHTMLEClass, source, new String[] { "name", "DATATYPE-DEFINITION-XHTML", "kind", "elementOnly" });
-		addAnnotation(alternativeIDEClass, source, new String[] { "name", "ALTERNATIVE-ID", "kind", "elementOnly" });
-		addAnnotation(getAlternativeID_Identifier(), source, new String[] { "name", "IDENTIFIER", "kind", "attribute" });
-		addAnnotation(attributeDefinitionBooleanEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-BOOLEAN", "kind", "elementOnly" });
-		addAnnotation(getAttributeDefinitionBoolean_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getAttributeDefinitionBoolean_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(attributeDefinitionSimpleEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-SIMPLE", "kind", "elementOnly" });
-		addAnnotation(datatypeDefinitionBooleanEClass, source, new String[] { "name", "DATATYPE-DEFINITION-BOOLEAN", "kind", "elementOnly" });
-		addAnnotation(datatypeDefinitionSimpleEClass, source, new String[] { "name", "DATATYPE-DEFINITION-SIMPLE", "kind", "elementOnly" });
-		addAnnotation(attributeValueBooleanEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-BOOLEAN", "kind", "elementOnly" });
-		addAnnotation(getAttributeValueBoolean_TheValue(), source, new String[] { "name", "THE-VALUE", "kind", "attribute" });
-		addAnnotation(getAttributeValueBoolean_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(attributeValueSimpleEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-SIMPLE", "kind", "elementOnly" });
-		addAnnotation(attributeDefinitionDateEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-DATE", "kind", "elementOnly" });
-		addAnnotation(getAttributeDefinitionDate_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getAttributeDefinitionDate_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(datatypeDefinitionDateEClass, source, new String[] { "name", "DATATYPE-DEFINITION-DATE", "kind", "elementOnly" });
-		addAnnotation(attributeValueDateEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-DATE", "kind", "elementOnly" });
-		addAnnotation(getAttributeValueDate_TheValue(), source, new String[] { "name", "THE-VALUE", "kind", "attribute" });
-		addAnnotation(getAttributeValueDate_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(attributeDefinitionEnumerationEClass, source,
-				new String[] { "name", "ATTRIBUTE-DEFINITION-ENUMERATION", "kind", "elementOnly" });
-		addAnnotation(getAttributeDefinitionEnumeration_MultiValued(), source, new String[] { "name", "MULTI-VALUED", "kind", "attribute" });
-		addAnnotation(getAttributeDefinitionEnumeration_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getAttributeDefinitionEnumeration_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element",
-				"namespace", "##targetNamespace" });
-		addAnnotation(datatypeDefinitionEnumerationEClass, source, new String[] { "name", "DATATYPE-DEFINITION-ENUMERATION", "kind", "elementOnly" });
-		addAnnotation(getDatatypeDefinitionEnumeration_SpecifiedValues(), source, new String[] { "name", "SPECIFIED-VALUES", "kind", "element",
-				"namespace", "##targetNamespace" });
-		addAnnotation(enumValueEClass, source, new String[] { "name", "ENUM-VALUE", "kind", "elementOnly" });
-		addAnnotation(getEnumValue_Properties(), source, new String[] { "name", "PROPERTIES", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(embeddedValueEClass, source, new String[] { "name", "EMBEDDED-VALUE", "kind", "elementOnly" });
-		addAnnotation(getEmbeddedValue_Key(), source, new String[] { "name", "KEY", "kind", "attribute" });
-		addAnnotation(getEmbeddedValue_OtherContent(), source, new String[] { "name", "OTHER-CONTENT", "kind", "attribute" });
-		addAnnotation(attributeValueEnumerationEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-ENUMERATION", "kind", "elementOnly" });
-		addAnnotation(getAttributeValueEnumeration_Values(), source, new String[] { "name", "VALUES", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getAttributeValueEnumeration_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(attributeDefinitionIntegerEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-INTEGER", "kind", "elementOnly" });
-		addAnnotation(getAttributeDefinitionInteger_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(getAttributeDefinitionInteger_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(datatypeDefinitionIntegerEClass, source, new String[] { "name", "DATATYPE-DEFINITION-INTEGER", "kind", "elementOnly" });
-		addAnnotation(getDatatypeDefinitionInteger_Max(), source, new String[] { "name", "MAX", "kind", "attribute" });
-		addAnnotation(getDatatypeDefinitionInteger_Min(), source, new String[] { "name", "MIN", "kind", "attribute" });
-		addAnnotation(attributeValueIntegerEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-INTEGER", "kind", "elementOnly" });
-		addAnnotation(getAttributeValueInteger_TheValue(), source, new String[] { "name", "THE-VALUE", "kind", "attribute" });
-		addAnnotation(getAttributeValueInteger_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(attributeDefinitionRealEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-REAL", "kind", "elementOnly" });
-		addAnnotation(getAttributeDefinitionReal_Type(), source, new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getAttributeDefinitionReal_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(datatypeDefinitionRealEClass, source, new String[] { "name", "DATATYPE-DEFINITION-REAL", "kind", "elementOnly" });
-		addAnnotation(getDatatypeDefinitionReal_Accuracy(), source, new String[] { "name", "ACCURACY", "kind", "attribute" });
-		addAnnotation(getDatatypeDefinitionReal_Max(), source, new String[] { "name", "MAX", "kind", "attribute" });
-		addAnnotation(getDatatypeDefinitionReal_Min(), source, new String[] { "name", "MIN", "kind", "attribute" });
-		addAnnotation(attributeValueRealEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-REAL", "kind", "elementOnly" });
-		addAnnotation(getAttributeValueReal_TheValue(), source, new String[] { "name", "THE-VALUE", "kind", "attribute" });
-		addAnnotation(getAttributeValueReal_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(attributeDefinitionStringEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-STRING", "kind", "elementOnly" });
-		addAnnotation(getAttributeDefinitionString_Type(), source,
-				new String[] { "name", "TYPE", "kind", "element", "namespace", "##targetNamespace" });
-		addAnnotation(getAttributeDefinitionString_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(datatypeDefinitionStringEClass, source, new String[] { "name", "DATATYPE-DEFINITION-STRING", "kind", "elementOnly" });
-		addAnnotation(getDatatypeDefinitionString_MaxLength(), source, new String[] { "name", "MAX-LENGTH", "kind", "attribute" });
-		addAnnotation(attributeValueStringEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-STRING", "kind", "elementOnly" });
-		addAnnotation(getAttributeValueString_TheValue(), source, new String[] { "name", "THE-VALUE", "kind", "attribute" });
-		addAnnotation(getAttributeValueString_Definition(), source, new String[] { "name", "DEFINITION", "kind", "element", "namespace",
-				"##targetNamespace" });
-		addAnnotation(xhtmlContentEClass, source, new String[] { "name", "XHTML-CONTENT", "kind", "elementOnly" });
-		addAnnotation(getXhtmlContent_Xhtml(), source, new String[] { "name", "XHTML", "kind", "elementWildcard", "namespace", "##targetNamespace",
-				"precessing", "lax", "wildcards", "http://www.w3.org/1999/xhtml" });
-		addAnnotation(getXhtmlContent_XhtmlSource(), source, new String[] { "name", "XHTML-SOURCE", "kind", "element", "namespace",
-				"##targetNamespace" });
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$		
+		addAnnotation(accessControlledElementEClass, source, new String[] { "name", "ACCESS-CONTROLLED-ELEMENT", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAccessControlledElement_Editable(), source, new String[] { "name", "IS-EDITABLE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(identifiableEClass, source, new String[] { "name", "IDENTIFIABLE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getIdentifiable_Desc(), source, new String[] { "name", "DESC", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getIdentifiable_Identifier(), source, new String[] { "name", "IDENTIFIER", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getIdentifiable_LastChange(), source, new String[] { "name", "LAST-CHANGE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getIdentifiable_LongName(), source, new String[] { "name", "LONG-NAME", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getIdentifiable_AlternativeID(), source, new String[] { "name", "ALTERNATIVE-ID", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueXHTMLEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-XHTML", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueXHTML_Simplified(), source, new String[] { "name", "IS-SIMPLIFIED", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueXHTML_Definition(), source, new String[] { "name", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueXHTML_TheOriginalValue(), source, new String[] { "name", "THE-ORIGINAL-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueXHTML_TheValue(), source, new String[] { "name", "THE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueEClass, source, new String[] { "name", "ATTRIBUTE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specElementWithAttributesEClass, source, new String[] { "name", "SPEC-ELEMENT-WITH-ATTRIBUTES", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecElementWithAttributes_Values(), source, new String[] { "name", "VALUES", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionXHTMLEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-XHTML", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionXHTML_Type(), source, new String[] { "name", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionXHTML_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specTypeEClass, source, new String[] { "name", "SPEC-TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecType_SpecAttributes(), source, new String[] { "name", "SPEC-ATTRIBUTES", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(reqIFContentEClass, source, new String[] { "name", "REQ-IF-CONTENT", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFContent_Datatypes(), source, new String[] { "name", "DATATYPES", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFContent_SpecTypes(), source, new String[] { "name", "SPEC-TYPES", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFContent_SpecObjects(), source, new String[] { "name", "SPEC-OBJECTS", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFContent_SpecRelations(), source, new String[] { "name", "SPEC-RELATIONS", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFContent_Specifications(), source, new String[] { "name", "SPECIFICATIONS", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFContent_SpecRelationGroups(), source, new String[] { "name", "SPEC-RELATION-GROUPS", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(reqIFEClass, source, new String[] { "name", "REQ-IF", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIF_Lang(), source, new String[] { "name", "lang", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "http://www.w3.org/XML/1998/namespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIF_TheHeader(), source, new String[] { "name", "THE-HEADER", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIF_CoreContent(), source, new String[] { "name", "CORE-CONTENT", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIF_ToolExtensions(), source, new String[] { "name", "TOOL-EXTENSIONS", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(reqIFHeaderEClass, source, new String[] { "name", "REQ-IF-HEADER", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_Comment(), source, new String[] { "name", "COMMENT", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_CreationTime(), source, new String[] { "name", "CREATION-TIME", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_Identifier(), source, new String[] { "name", "IDENTIFIER", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_RepositoryId(), source, new String[] { "name", "REPOSITORY-ID", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_ReqIFToolId(), source, new String[] { "name", "REQ-IF-TOOL-ID", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_ReqIFVersion(), source, new String[] { "name", "REQ-IF-VERSION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_SourceToolId(), source, new String[] { "name", "SOURCE-TOOL-ID", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_Title(), source, new String[] { "name", "TITLE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(reqIFToolExtensionEClass, source, new String[] { "name", "REQ-IF-TOOL-EXTENSION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFToolExtension_Extensions(), source, new String[] { "name", "EXTENSIONS", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace", //$NON-NLS-1$ //$NON-NLS-2$
+				"precessing", "lax", //$NON-NLS-1$ //$NON-NLS-2$
+				"wildcards", "##other" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specObjectEClass, source, new String[] { "name", "SPEC-OBJECT", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecObject_Type(), source, new String[] { "name", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specObjectTypeEClass, source, new String[] { "name", "SPEC-OBJECT-TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specificationEClass, source, new String[] { "name", "SPECIFICATION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecification_Type(), source, new String[] { "name", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecification_Children(), source, new String[] { "name", "CHILDREN", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specificationTypeEClass, source, new String[] { "name", "SPECIFICATION-TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specHierarchyEClass, source, new String[] { "name", "SPEC-HIERARCHY", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecHierarchy_TableInternal(), source, new String[] { "name", "IS-TABLE-INTERNAL", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecHierarchy_Object(), source, new String[] { "name", "OBJECT", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecHierarchy_Children(), source, new String[] { "name", "CHILDREN", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecHierarchy_EditableAtts(), source, new String[] { "name", "EDITABLE-ATTS", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionEClass, source, new String[] { "name", "DATATYPE-DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specRelationEClass, source, new String[] { "name", "SPEC-RELATION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecRelation_Target(), source, new String[] { "name", "TARGET", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecRelation_Source(), source, new String[] { "name", "SOURCE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecRelation_Type(), source, new String[] { "name", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specRelationTypeEClass, source, new String[] { "name", "SPEC-RELATION-TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(relationGroupEClass, source, new String[] { "name", "RELATION-GROUP", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getRelationGroup_SpecRelations(), source, new String[] { "name", "SPEC-RELATIONS", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getRelationGroup_Type(), source, new String[] { "name", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getRelationGroup_SourceSpecification(), source, new String[] { "name", "SOURCE-SPECIFICATION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getRelationGroup_TargetSpecification(), source, new String[] { "name", "TARGET-SPECIFICATION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(relationGroupTypeEClass, source, new String[] { "name", "RELATION-GROUP-TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionXHTMLEClass, source, new String[] { "name", "DATATYPE-DEFINITION-XHTML", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(alternativeIDEClass, source, new String[] { "name", "ALTERNATIVE-ID", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAlternativeID_Identifier(), source, new String[] { "name", "IDENTIFIER", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionBooleanEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-BOOLEAN", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionBoolean_Type(), source, new String[] { "name", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionBoolean_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionSimpleEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-SIMPLE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionBooleanEClass, source, new String[] { "name", "DATATYPE-DEFINITION-BOOLEAN", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionSimpleEClass, source, new String[] { "name", "DATATYPE-DEFINITION-SIMPLE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueBooleanEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-BOOLEAN", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueBoolean_TheValue(), source, new String[] { "name", "THE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueBoolean_Definition(), source, new String[] { "name", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueSimpleEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-SIMPLE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionDateEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-DATE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionDate_Type(), source, new String[] { "name", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionDate_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionDateEClass, source, new String[] { "name", "DATATYPE-DEFINITION-DATE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueDateEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-DATE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueDate_TheValue(), source, new String[] { "name", "THE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueDate_Definition(), source, new String[] { "name", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionEnumerationEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-ENUMERATION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionEnumeration_MultiValued(), source, new String[] { "name", "MULTI-VALUED", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionEnumeration_Type(), source, new String[] { "name", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionEnumeration_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionEnumerationEClass, source, new String[] { "name", "DATATYPE-DEFINITION-ENUMERATION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionEnumeration_SpecifiedValues(), source, new String[] { "name", "SPECIFIED-VALUES", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(enumValueEClass, source, new String[] { "name", "ENUM-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getEnumValue_Properties(), source, new String[] { "name", "PROPERTIES", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(embeddedValueEClass, source, new String[] { "name", "EMBEDDED-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getEmbeddedValue_Key(), source, new String[] { "name", "KEY", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getEmbeddedValue_OtherContent(), source, new String[] { "name", "OTHER-CONTENT", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueEnumerationEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-ENUMERATION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueEnumeration_Values(), source, new String[] { "name", "VALUES", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueEnumeration_Definition(), source, new String[] { "name", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionIntegerEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-INTEGER", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionInteger_Type(), source, new String[] { "name", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionInteger_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionIntegerEClass, source, new String[] { "name", "DATATYPE-DEFINITION-INTEGER", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionInteger_Max(), source, new String[] { "name", "MAX", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionInteger_Min(), source, new String[] { "name", "MIN", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueIntegerEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-INTEGER", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueInteger_TheValue(), source, new String[] { "name", "THE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueInteger_Definition(), source, new String[] { "name", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionRealEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-REAL", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionReal_Type(), source, new String[] { "name", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionReal_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionRealEClass, source, new String[] { "name", "DATATYPE-DEFINITION-REAL", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionReal_Accuracy(), source, new String[] { "name", "ACCURACY", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionReal_Max(), source, new String[] { "name", "MAX", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionReal_Min(), source, new String[] { "name", "MIN", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueRealEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-REAL", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueReal_TheValue(), source, new String[] { "name", "THE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueReal_Definition(), source, new String[] { "name", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionStringEClass, source, new String[] { "name", "ATTRIBUTE-DEFINITION-STRING", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionString_Type(), source, new String[] { "name", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionString_DefaultValue(), source, new String[] { "name", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionStringEClass, source, new String[] { "name", "DATATYPE-DEFINITION-STRING", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionString_MaxLength(), source, new String[] { "name", "MAX-LENGTH", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueStringEClass, source, new String[] { "name", "ATTRIBUTE-VALUE-STRING", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueString_TheValue(), source, new String[] { "name", "THE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueString_Definition(), source, new String[] { "name", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(xhtmlContentEClass, source, new String[] { "name", "XHTML-CONTENT", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getXhtmlContent_Xhtml(), source, new String[] { "name", "XHTML", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace", //$NON-NLS-1$ //$NON-NLS-2$
+				"precessing", "lax", //$NON-NLS-1$ //$NON-NLS-2$
+				"wildcards", "http://www.w3.org/1999/xhtml" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getXhtmlContent_XhtmlSource(), source, new String[] { "name", "XHTML-SOURCE", //$NON-NLS-1$ //$NON-NLS-2$
+				"kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+				"namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		});
 	}
 
 	/**
@@ -2512,223 +3002,633 @@ public class ReqIF10PackageImpl extends EPackageImpl implements ReqIF10Package {
 	 * @generated
 	 */
 	protected void createXMLPersistenceMappingExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";
-		addAnnotation(accessControlledElementEClass, source, new String[] { "wrapperName", "ACCESS-CONTROLLED-ELEMENT" });
-		addAnnotation(getAccessControlledElement_Editable(), source, new String[] { "wrapperName", "IS-EDITABLE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(identifiableEClass, source, new String[] { "wrapperName", "IDENTIFIABLE" });
-		addAnnotation(getIdentifiable_Desc(), source, new String[] { "wrapperName", "DESC", "featureWrapperElement", "false", "featureElement",
-				"true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getIdentifiable_Identifier(), source, new String[] { "wrapperName", "IDENTIFIER", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getIdentifiable_LastChange(), source, new String[] { "wrapperName", "LAST-CHANGE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getIdentifiable_LongName(), source, new String[] { "wrapperName", "LONG-NAME", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getIdentifiable_AlternativeID(), source, new String[] { "wrapperName", "ALTERNATIVE-ID", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(attributeValueXHTMLEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-XHTML" });
-		addAnnotation(getAttributeValueXHTML_Simplified(), source, new String[] { "wrapperName", "IS-SIMPLIFIED", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getAttributeValueXHTML_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getAttributeValueXHTML_TheOriginalValue(), source, new String[] { "wrapperName", "THE-ORIGINAL-VALUE", "featureWrapperElement",
-				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getAttributeValueXHTML_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(attributeValueEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE" });
-		addAnnotation(specElementWithAttributesEClass, source, new String[] { "wrapperName", "SPEC-ELEMENT-WITH-ATTRIBUTES" });
-		addAnnotation(getSpecElementWithAttributes_Values(), source, new String[] { "wrapperName", "VALUES", "featureWrapperElement", "true",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(attributeDefinitionXHTMLEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-XHTML" });
-		addAnnotation(getAttributeDefinitionXHTML_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getAttributeDefinitionXHTML_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", "featureWrapperElement",
-				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(attributeDefinitionEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION" });
-		addAnnotation(specTypeEClass, source, new String[] { "wrapperName", "SPEC-TYPE" });
-		addAnnotation(getSpecType_SpecAttributes(), source, new String[] { "wrapperName", "SPEC-ATTRIBUTES", "featureWrapperElement", "true",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(reqIFContentEClass, source, new String[] { "wrapperName", "REQ-IF-CONTENT" });
-		addAnnotation(getReqIFContent_Datatypes(), source, new String[] { "wrapperName", "DATATYPES", "featureWrapperElement", "true",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(getReqIFContent_SpecTypes(), source, new String[] { "wrapperName", "SPEC-TYPES", "featureWrapperElement", "true",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(getReqIFContent_SpecObjects(), source, new String[] { "wrapperName", "SPEC-OBJECTS", "featureWrapperElement", "true",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(getReqIFContent_SpecRelations(), source, new String[] { "wrapperName", "SPEC-RELATIONS", "featureWrapperElement", "true",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(getReqIFContent_Specifications(), source, new String[] { "wrapperName", "SPECIFICATIONS", "featureWrapperElement", "true",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(getReqIFContent_SpecRelationGroups(), source, new String[] { "wrapperName", "SPEC-RELATION-GROUPS", "featureWrapperElement",
-				"true", "featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(reqIFEClass, source, new String[] { "wrapperName", "REQ-IF" });
-		addAnnotation(getReqIF_TheHeader(), source, new String[] { "wrapperName", "THE-HEADER", "featureWrapperElement", "false", "featureElement",
-				"true", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(getReqIF_CoreContent(), source, new String[] { "wrapperName", "CORE-CONTENT", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(getReqIF_ToolExtensions(), source, new String[] { "wrapperName", "TOOL-EXTENSIONS", "featureWrapperElement", "true",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(reqIFHeaderEClass, source, new String[] { "wrapperName", "REQ-IF-HEADER" });
-		addAnnotation(getReqIFHeader_Comment(), source, new String[] { "wrapperName", "COMMENT", "featureWrapperElement", "false", "featureElement",
-				"true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getReqIFHeader_CreationTime(), source, new String[] { "wrapperName", "CREATION-TIME", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getReqIFHeader_Identifier(), source, new String[] { "wrapperName", "IDENTIFIER", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getReqIFHeader_RepositoryId(), source, new String[] { "wrapperName", "REPOSITORY-ID", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getReqIFHeader_ReqIFToolId(), source, new String[] { "wrapperName", "REQ-IF-TOOL-ID", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getReqIFHeader_ReqIFVersion(), source, new String[] { "wrapperName", "REQ-IF-VERSION", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getReqIFHeader_SourceToolId(), source, new String[] { "wrapperName", "SOURCE-TOOL-ID", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getReqIFHeader_Title(), source, new String[] { "wrapperName", "TITLE", "featureWrapperElement", "false", "featureElement",
-				"true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(reqIFToolExtensionEClass, source, new String[] { "wrapperName", "REQ-IF-TOOL-EXTENSION" });
-		addAnnotation(getReqIFToolExtension_Extensions(), source, new String[] { "wrapperName", "EXTENSIONS", "featureWrapperElement", "false",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(specObjectEClass, source, new String[] { "wrapperName", "SPEC-OBJECT" });
-		addAnnotation(getSpecObject_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false", "featureElement", "true",
-				"classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(specObjectTypeEClass, source, new String[] { "wrapperName", "SPEC-OBJECT-TYPE" });
-		addAnnotation(specificationEClass, source, new String[] { "wrapperName", "SPECIFICATION" });
-		addAnnotation(getSpecification_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false", "featureElement",
-				"true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getSpecification_Children(), source, new String[] { "wrapperName", "CHILDREN", "featureWrapperElement", "true",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(specificationTypeEClass, source, new String[] { "wrapperName", "SPECIFICATION-TYPE" });
-		addAnnotation(specHierarchyEClass, source, new String[] { "wrapperName", "SPEC-HIERARCHY" });
-		addAnnotation(getSpecHierarchy_TableInternal(), source, new String[] { "wrapperName", "IS-TABLE-INTERNAL", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getSpecHierarchy_Object(), source, new String[] { "wrapperName", "OBJECT", "featureWrapperElement", "false", "featureElement",
-				"true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getSpecHierarchy_Children(), source, new String[] { "wrapperName", "CHILDREN", "featureWrapperElement", "true",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(getSpecHierarchy_EditableAtts(), source, new String[] { "wrapperName", "EDITABLE-ATTS", "featureWrapperElement", "true",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(datatypeDefinitionEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION" });
-		addAnnotation(specRelationEClass, source, new String[] { "wrapperName", "SPEC-RELATION" });
-		addAnnotation(getSpecRelation_Target(), source, new String[] { "wrapperName", "TARGET", "featureWrapperElement", "false", "featureElement",
-				"true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getSpecRelation_Source(), source, new String[] { "wrapperName", "SOURCE", "featureWrapperElement", "false", "featureElement",
-				"true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getSpecRelation_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false", "featureElement",
-				"true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(specRelationTypeEClass, source, new String[] { "wrapperName", "SPEC-RELATION-TYPE" });
-		addAnnotation(relationGroupEClass, source, new String[] { "wrapperName", "RELATION-GROUP" });
-		addAnnotation(getRelationGroup_SpecRelations(), source, new String[] { "wrapperName", "SPEC-RELATIONS", "featureWrapperElement", "true",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getRelationGroup_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false", "featureElement",
-				"true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getRelationGroup_SourceSpecification(), source, new String[] { "wrapperName", "SOURCE-SPECIFICATION", "featureWrapperElement",
-				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getRelationGroup_TargetSpecification(), source, new String[] { "wrapperName", "TARGET-SPECIFICATION", "featureWrapperElement",
-				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(relationGroupTypeEClass, source, new String[] { "wrapperName", "RELATION-GROUP-TYPE" });
-		addAnnotation(datatypeDefinitionXHTMLEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-XHTML" });
-		addAnnotation(alternativeIDEClass, source, new String[] { "wrapperName", "ALTERNATIVE-ID" });
-		addAnnotation(getAlternativeID_Identifier(), source, new String[] { "wrapperName", "IDENTIFIER", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(attributeDefinitionBooleanEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-BOOLEAN" });
-		addAnnotation(getAttributeDefinitionBoolean_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getAttributeDefinitionBoolean_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", "featureWrapperElement",
-				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(attributeDefinitionSimpleEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-SIMPLE" });
-		addAnnotation(datatypeDefinitionBooleanEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-BOOLEAN" });
-		addAnnotation(datatypeDefinitionSimpleEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-SIMPLE" });
-		addAnnotation(attributeValueBooleanEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-BOOLEAN" });
-		addAnnotation(getAttributeValueBoolean_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getAttributeValueBoolean_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(attributeValueSimpleEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-SIMPLE" });
-		addAnnotation(attributeDefinitionDateEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-DATE" });
-		addAnnotation(getAttributeDefinitionDate_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getAttributeDefinitionDate_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", "featureWrapperElement",
-				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(datatypeDefinitionDateEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-DATE" });
-		addAnnotation(attributeValueDateEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-DATE" });
-		addAnnotation(getAttributeValueDate_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getAttributeValueDate_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(attributeDefinitionEnumerationEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-ENUMERATION" });
-		addAnnotation(getAttributeDefinitionEnumeration_MultiValued(), source, new String[] { "wrapperName", "MULTI-VALUED", "featureWrapperElement",
-				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getAttributeDefinitionEnumeration_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getAttributeDefinitionEnumeration_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE",
-				"featureWrapperElement", "false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(datatypeDefinitionEnumerationEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-ENUMERATION" });
-		addAnnotation(getDatatypeDefinitionEnumeration_SpecifiedValues(), source, new String[] { "wrapperName", "SPECIFIED-VALUES",
-				"featureWrapperElement", "true", "featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(enumValueEClass, source, new String[] { "wrapperName", "ENUM-VALUE" });
-		addAnnotation(getEnumValue_Properties(), source, new String[] { "wrapperName", "PROPERTIES", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(embeddedValueEClass, source, new String[] { "wrapperName", "EMBEDDED-VALUE" });
-		addAnnotation(getEmbeddedValue_Key(), source, new String[] { "wrapperName", "KEY", "featureWrapperElement", "false", "featureElement",
-				"true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getEmbeddedValue_OtherContent(), source, new String[] { "wrapperName", "OTHER-CONTENT", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(attributeValueEnumerationEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-ENUMERATION" });
-		addAnnotation(getAttributeValueEnumeration_Values(), source, new String[] { "wrapperName", "VALUES", "featureWrapperElement", "true",
-				"featureElement", "false", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getAttributeValueEnumeration_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement",
-				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(attributeDefinitionIntegerEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-INTEGER" });
-		addAnnotation(getAttributeDefinitionInteger_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getAttributeDefinitionInteger_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", "featureWrapperElement",
-				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(datatypeDefinitionIntegerEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-INTEGER" });
-		addAnnotation(getDatatypeDefinitionInteger_Max(), source, new String[] { "wrapperName", "MAX", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getDatatypeDefinitionInteger_Min(), source, new String[] { "wrapperName", "MIN", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(attributeValueIntegerEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-INTEGER" });
-		addAnnotation(getAttributeValueInteger_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getAttributeValueInteger_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(attributeDefinitionRealEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-REAL" });
-		addAnnotation(getAttributeDefinitionReal_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getAttributeDefinitionReal_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", "featureWrapperElement",
-				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(datatypeDefinitionRealEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-REAL" });
-		addAnnotation(getDatatypeDefinitionReal_Accuracy(), source, new String[] { "wrapperName", "ACCURACY", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getDatatypeDefinitionReal_Max(), source, new String[] { "wrapperName", "MAX", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getDatatypeDefinitionReal_Min(), source, new String[] { "wrapperName", "MIN", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(attributeValueRealEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-REAL" });
-		addAnnotation(getAttributeValueReal_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getAttributeValueReal_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(attributeDefinitionStringEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-STRING" });
-		addAnnotation(getAttributeDefinitionString_Type(), source, new String[] { "wrapperName", "TYPE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(getAttributeDefinitionString_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", "featureWrapperElement",
-				"false", "featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(datatypeDefinitionStringEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-STRING" });
-		addAnnotation(getDatatypeDefinitionString_MaxLength(), source, new String[] { "wrapperName", "MAX-LENGTH", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(attributeValueStringEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-STRING" });
-		addAnnotation(getAttributeValueString_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
-		addAnnotation(getAttributeValueString_Definition(), source, new String[] { "wrapperName", "DEFINITION", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "true", "classifierNameSuffix", "-REF" });
-		addAnnotation(xhtmlContentEClass, source, new String[] { "wrapperName", "XHTML-CONTENT" });
-		addAnnotation(getXhtmlContent_Xhtml(), source, new String[] { "wrapperName", "XHTML", "featureWrapperElement", "false", "featureElement",
-				"false", "classifierWrapperElement", "false", "classifierElement", "true" });
-		addAnnotation(getXhtmlContent_XhtmlSource(), source, new String[] { "wrapperName", "XHTML-SOURCE", "featureWrapperElement", "false",
-				"featureElement", "true", "classifierWrapperElement", "false", "classifierElement", "false" });
+		String source = "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData"; //$NON-NLS-1$			
+		addAnnotation(accessControlledElementEClass, source, new String[] { "wrapperName", "ACCESS-CONTROLLED-ELEMENT" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAccessControlledElement_Editable(), source, new String[] { "wrapperName", "IS-EDITABLE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(identifiableEClass, source, new String[] { "wrapperName", "IDENTIFIABLE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getIdentifiable_Desc(), source, new String[] { "wrapperName", "DESC", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getIdentifiable_Identifier(), source, new String[] { "wrapperName", "IDENTIFIER", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getIdentifiable_LastChange(), source, new String[] { "wrapperName", "LAST-CHANGE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getIdentifiable_LongName(), source, new String[] { "wrapperName", "LONG-NAME", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getIdentifiable_AlternativeID(), source, new String[] { "wrapperName", "ALTERNATIVE-ID", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueXHTMLEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-XHTML" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueXHTML_Simplified(), source, new String[] { "wrapperName", "IS-SIMPLIFIED", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueXHTML_Definition(), source, new String[] { "wrapperName", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueXHTML_TheOriginalValue(), source, new String[] { "wrapperName", "THE-ORIGINAL-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueXHTML_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specElementWithAttributesEClass, source, new String[] { "wrapperName", "SPEC-ELEMENT-WITH-ATTRIBUTES" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecElementWithAttributes_Values(), source, new String[] { "wrapperName", "VALUES", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionXHTMLEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-XHTML" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionXHTML_Type(), source, new String[] { "wrapperName", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionXHTML_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specTypeEClass, source, new String[] { "wrapperName", "SPEC-TYPE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecType_SpecAttributes(), source, new String[] { "wrapperName", "SPEC-ATTRIBUTES", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(reqIFContentEClass, source, new String[] { "wrapperName", "REQ-IF-CONTENT" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFContent_Datatypes(), source, new String[] { "wrapperName", "DATATYPES", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFContent_SpecTypes(), source, new String[] { "wrapperName", "SPEC-TYPES", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFContent_SpecObjects(), source, new String[] { "wrapperName", "SPEC-OBJECTS", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFContent_SpecRelations(), source, new String[] { "wrapperName", "SPEC-RELATIONS", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFContent_Specifications(), source, new String[] { "wrapperName", "SPECIFICATIONS", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFContent_SpecRelationGroups(), source, new String[] { "wrapperName", "SPEC-RELATION-GROUPS", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(reqIFEClass, source, new String[] { "wrapperName", "REQ-IF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIF_TheHeader(), source, new String[] { "wrapperName", "THE-HEADER", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIF_CoreContent(), source, new String[] { "wrapperName", "CORE-CONTENT", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIF_ToolExtensions(), source, new String[] { "wrapperName", "TOOL-EXTENSIONS", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(reqIFHeaderEClass, source, new String[] { "wrapperName", "REQ-IF-HEADER" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_Comment(), source, new String[] { "wrapperName", "COMMENT", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_CreationTime(), source, new String[] { "wrapperName", "CREATION-TIME", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_Identifier(), source, new String[] { "wrapperName", "IDENTIFIER", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_RepositoryId(), source, new String[] { "wrapperName", "REPOSITORY-ID", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_ReqIFToolId(), source, new String[] { "wrapperName", "REQ-IF-TOOL-ID", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_ReqIFVersion(), source, new String[] { "wrapperName", "REQ-IF-VERSION", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_SourceToolId(), source, new String[] { "wrapperName", "SOURCE-TOOL-ID", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFHeader_Title(), source, new String[] { "wrapperName", "TITLE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(reqIFToolExtensionEClass, source, new String[] { "wrapperName", "REQ-IF-TOOL-EXTENSION" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getReqIFToolExtension_Extensions(), source, new String[] { "wrapperName", "EXTENSIONS", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specObjectEClass, source, new String[] { "wrapperName", "SPEC-OBJECT" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecObject_Type(), source, new String[] { "wrapperName", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specObjectTypeEClass, source, new String[] { "wrapperName", "SPEC-OBJECT-TYPE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specificationEClass, source, new String[] { "wrapperName", "SPECIFICATION" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecification_Type(), source, new String[] { "wrapperName", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecification_Children(), source, new String[] { "wrapperName", "CHILDREN", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specificationTypeEClass, source, new String[] { "wrapperName", "SPECIFICATION-TYPE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specHierarchyEClass, source, new String[] { "wrapperName", "SPEC-HIERARCHY" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecHierarchy_TableInternal(), source, new String[] { "wrapperName", "IS-TABLE-INTERNAL", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecHierarchy_Object(), source, new String[] { "wrapperName", "OBJECT", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecHierarchy_Children(), source, new String[] { "wrapperName", "CHILDREN", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecHierarchy_EditableAtts(), source, new String[] { "wrapperName", "EDITABLE-ATTS", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specRelationEClass, source, new String[] { "wrapperName", "SPEC-RELATION" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecRelation_Target(), source, new String[] { "wrapperName", "TARGET", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecRelation_Source(), source, new String[] { "wrapperName", "SOURCE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getSpecRelation_Type(), source, new String[] { "wrapperName", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(specRelationTypeEClass, source, new String[] { "wrapperName", "SPEC-RELATION-TYPE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(relationGroupEClass, source, new String[] { "wrapperName", "RELATION-GROUP" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getRelationGroup_SpecRelations(), source, new String[] { "wrapperName", "SPEC-RELATIONS", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getRelationGroup_Type(), source, new String[] { "wrapperName", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getRelationGroup_SourceSpecification(), source, new String[] { "wrapperName", "SOURCE-SPECIFICATION", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getRelationGroup_TargetSpecification(), source, new String[] { "wrapperName", "TARGET-SPECIFICATION", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(relationGroupTypeEClass, source, new String[] { "wrapperName", "RELATION-GROUP-TYPE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionXHTMLEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-XHTML" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(alternativeIDEClass, source, new String[] { "wrapperName", "ALTERNATIVE-ID" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAlternativeID_Identifier(), source, new String[] { "wrapperName", "IDENTIFIER", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionBooleanEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-BOOLEAN" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionBoolean_Type(), source, new String[] { "wrapperName", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionBoolean_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionSimpleEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-SIMPLE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionBooleanEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-BOOLEAN" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionSimpleEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-SIMPLE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueBooleanEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-BOOLEAN" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueBoolean_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueBoolean_Definition(), source, new String[] { "wrapperName", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueSimpleEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-SIMPLE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionDateEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-DATE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionDate_Type(), source, new String[] { "wrapperName", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionDate_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionDateEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-DATE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueDateEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-DATE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueDate_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueDate_Definition(), source, new String[] { "wrapperName", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionEnumerationEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-ENUMERATION" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionEnumeration_MultiValued(), source, new String[] { "wrapperName", "MULTI-VALUED", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionEnumeration_Type(), source, new String[] { "wrapperName", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionEnumeration_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionEnumerationEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-ENUMERATION" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionEnumeration_SpecifiedValues(), source, new String[] { "wrapperName", "SPECIFIED-VALUES", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(enumValueEClass, source, new String[] { "wrapperName", "ENUM-VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getEnumValue_Properties(), source, new String[] { "wrapperName", "PROPERTIES", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(embeddedValueEClass, source, new String[] { "wrapperName", "EMBEDDED-VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getEmbeddedValue_Key(), source, new String[] { "wrapperName", "KEY", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getEmbeddedValue_OtherContent(), source, new String[] { "wrapperName", "OTHER-CONTENT", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueEnumerationEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-ENUMERATION" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueEnumeration_Values(), source, new String[] { "wrapperName", "VALUES", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueEnumeration_Definition(), source, new String[] { "wrapperName", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionIntegerEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-INTEGER" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionInteger_Type(), source, new String[] { "wrapperName", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionInteger_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionIntegerEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-INTEGER" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionInteger_Max(), source, new String[] { "wrapperName", "MAX", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionInteger_Min(), source, new String[] { "wrapperName", "MIN", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueIntegerEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-INTEGER" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueInteger_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueInteger_Definition(), source, new String[] { "wrapperName", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionRealEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-REAL" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionReal_Type(), source, new String[] { "wrapperName", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionReal_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionRealEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-REAL" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionReal_Accuracy(), source, new String[] { "wrapperName", "ACCURACY", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionReal_Max(), source, new String[] { "wrapperName", "MAX", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionReal_Min(), source, new String[] { "wrapperName", "MIN", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueRealEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-REAL" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueReal_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueReal_Definition(), source, new String[] { "wrapperName", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeDefinitionStringEClass, source, new String[] { "wrapperName", "ATTRIBUTE-DEFINITION-STRING" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionString_Type(), source, new String[] { "wrapperName", "TYPE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeDefinitionString_DefaultValue(), source, new String[] { "wrapperName", "DEFAULT-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(datatypeDefinitionStringEClass, source, new String[] { "wrapperName", "DATATYPE-DEFINITION-STRING" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getDatatypeDefinitionString_MaxLength(), source, new String[] { "wrapperName", "MAX-LENGTH", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(attributeValueStringEClass, source, new String[] { "wrapperName", "ATTRIBUTE-VALUE-STRING" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueString_TheValue(), source, new String[] { "wrapperName", "THE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getAttributeValueString_Definition(), source, new String[] { "wrapperName", "DEFINITION", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierNameSuffix", "-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(xhtmlContentEClass, source, new String[] { "wrapperName", "XHTML-CONTENT" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getXhtmlContent_Xhtml(), source, new String[] { "wrapperName", "XHTML", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		});
+		addAnnotation(getXhtmlContent_XhtmlSource(), source, new String[] { "wrapperName", "XHTML-SOURCE", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"featureElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"classifierElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+		});
 	}
 
 } // ReqIF10PackageImpl

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+ * Copyright (c) 2011, 2014 Formal Mind GmbH and University of Dusseldorf.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -34,7 +34,6 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionSimple;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
@@ -46,13 +45,17 @@ import org.eclipse.rmf.reqif10.pror.presentation.ui.LinewrapCellRenderer;
 /**
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.presentation.linewrap.LinewrapConfiguration} object.
  * <!-- begin-user-doc -->
+ * Modified to implement {@link PresentationEditorInterface}
  * <!-- end-user-doc -->
- * @generated
+ * @generated NOT
  */
 public class LinewrapConfigurationItemProvider
 	extends ProrPresentationConfigurationItemProvider
 	implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, 
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
+		PresentationEditorInterface {
+	
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -144,18 +147,7 @@ public class LinewrapConfigurationItemProvider
 		return LinewrapEditPlugin.INSTANCE;
 	}
 
-	public void registerPresentationConfiguration(ProrPresentationConfiguration config,
-			EditingDomain editingDomain) {
-		// No action required.
-
-	}
-
-	public void unregisterPresentationConfiguration(ProrPresentationConfiguration config) {
-		// No action required.
-	}
-
 	private LinewrapCellRenderer linewrapCellRenderer;
-
 
 	public IProrCellRenderer getCellRenderer(AttributeValue av) {
 		if (linewrapCellRenderer == null) {

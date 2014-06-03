@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,48 +14,42 @@ package org.eclipse.rmf.reqif10.xhtml.impl;
 import java.math.BigInteger;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.xml.namespace.SpaceType;
-
 import org.eclipse.rmf.reqif10.xhtml.AlignType;
 import org.eclipse.rmf.reqif10.xhtml.ValignType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlColType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Col Type</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Col Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getAlign <em>Align</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getChar <em>Char</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getCharoff <em>Charoff</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getLang <em>Lang</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getSpace <em>Space</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getSpan <em>Span</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getStyle <em>Style</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getValign <em>Valign</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getWidth <em>Width</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getAlign <em>Align</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getChar <em>Char</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getCharoff <em>Charoff</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getClass_ <em>Class</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getId <em>Id</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getLang <em>Lang</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getSpace <em>Space</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getSpan <em>Span</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getStyle <em>Style</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getTitle <em>Title</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getValign <em>Valign</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlColTypeImpl#getWidth <em>Width</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
-public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
+public class XhtmlColTypeImpl extends MinimalEObjectImpl implements XhtmlColType {
 	/**
-	 * The default value of the '{@link #getAlign() <em>Align</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getAlign() <em>Align</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getAlign()
 	 * @generated
 	 * @ordered
@@ -63,9 +57,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected static final AlignType ALIGN_EDEFAULT = AlignType.LEFT;
 
 	/**
-	 * The cached value of the '{@link #getAlign() <em>Align</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getAlign() <em>Align</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getAlign()
 	 * @generated
 	 * @ordered
@@ -73,18 +67,17 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected AlignType align = ALIGN_EDEFAULT;
 
 	/**
-	 * This is true if the Align attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Align attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean alignESet;
 
 	/**
-	 * The default value of the '{@link #getChar() <em>Char</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getChar() <em>Char</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getChar()
 	 * @generated
 	 * @ordered
@@ -92,9 +85,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected static final String CHAR_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getChar() <em>Char</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getChar() <em>Char</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getChar()
 	 * @generated
 	 * @ordered
@@ -102,9 +95,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected String char_ = CHAR_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCharoff() <em>Charoff</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getCharoff() <em>Charoff</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getCharoff()
 	 * @generated
 	 * @ordered
@@ -112,9 +105,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected static final Object CHAROFF_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCharoff() <em>Charoff</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCharoff() <em>Charoff</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getCharoff()
 	 * @generated
 	 * @ordered
@@ -122,9 +115,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected Object charoff = CHAROFF_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getClass_()
 	 * @generated
 	 * @ordered
@@ -132,9 +125,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected static final String CLASS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getClass_()
 	 * @generated
 	 * @ordered
@@ -142,9 +135,8 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected String class_ = CLASS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -152,9 +144,8 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -162,9 +153,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLang() <em>Lang</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getLang() <em>Lang</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getLang()
 	 * @generated
 	 * @ordered
@@ -172,9 +163,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected static final String LANG_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLang() <em>Lang</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getLang() <em>Lang</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getLang()
 	 * @generated
 	 * @ordered
@@ -182,9 +173,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected String lang = LANG_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSpace() <em>Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getSpace() <em>Space</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getSpace()
 	 * @generated
 	 * @ordered
@@ -192,9 +183,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected static final SpaceType SPACE_EDEFAULT = SpaceType.PRESERVE_LITERAL;
 
 	/**
-	 * The cached value of the '{@link #getSpace() <em>Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getSpace() <em>Space</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getSpace()
 	 * @generated
 	 * @ordered
@@ -202,28 +193,27 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected SpaceType space = SPACE_EDEFAULT;
 
 	/**
-	 * This is true if the Space attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Space attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean spaceESet;
 
 	/**
-	 * The default value of the '{@link #getSpan() <em>Span</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getSpan() <em>Span</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getSpan()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BigInteger SPAN_EDEFAULT = new BigInteger("1");
+	protected static final BigInteger SPAN_EDEFAULT = new BigInteger("1"); //$NON-NLS-1$
 
 	/**
-	 * The cached value of the '{@link #getSpan() <em>Span</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getSpan() <em>Span</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getSpan()
 	 * @generated
 	 * @ordered
@@ -231,18 +221,17 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected BigInteger span = SPAN_EDEFAULT;
 
 	/**
-	 * This is true if the Span attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Span attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean spanESet;
 
 	/**
-	 * The default value of the '{@link #getStyle() <em>Style</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getStyle() <em>Style</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getStyle()
 	 * @generated
 	 * @ordered
@@ -250,9 +239,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected static final String STYLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getStyle() <em>Style</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getStyle() <em>Style</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getStyle()
 	 * @generated
 	 * @ordered
@@ -260,9 +249,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected String style = STYLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -270,9 +259,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected static final String TITLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -280,9 +269,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected String title = TITLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getValign() <em>Valign</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getValign() <em>Valign</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getValign()
 	 * @generated
 	 * @ordered
@@ -290,9 +279,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected static final ValignType VALIGN_EDEFAULT = ValignType.TOP;
 
 	/**
-	 * The cached value of the '{@link #getValign() <em>Valign</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getValign() <em>Valign</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getValign()
 	 * @generated
 	 * @ordered
@@ -300,18 +289,17 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected ValignType valign = VALIGN_EDEFAULT;
 
 	/**
-	 * This is true if the Valign attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Valign attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean valignESet;
 
 	/**
-	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getWidth()
 	 * @generated
 	 * @ordered
@@ -319,9 +307,9 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected static final Object WIDTH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getWidth() <em>Width</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getWidth() <em>Width</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getWidth()
 	 * @generated
 	 * @ordered
@@ -329,8 +317,8 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	protected Object width = WIDTH_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected XhtmlColTypeImpl() {
@@ -338,8 +326,8 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -348,8 +336,8 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AlignType getAlign() {
@@ -357,8 +345,8 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setAlign(AlignType newAlign) {
@@ -366,13 +354,14 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 		align = newAlign == null ? ALIGN_EDEFAULT : newAlign;
 		boolean oldAlignESet = alignESet;
 		alignESet = true;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_COL_TYPE__ALIGN, oldAlign, align, !oldAlignESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetAlign() {
@@ -380,13 +369,14 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 		boolean oldAlignESet = alignESet;
 		align = ALIGN_EDEFAULT;
 		alignESet = false;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.UNSET, XhtmlPackage.XHTML_COL_TYPE__ALIGN, oldAlign, ALIGN_EDEFAULT, oldAlignESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetAlign() {
@@ -394,8 +384,8 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getChar() {
@@ -403,20 +393,21 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setChar(String newChar) {
 		String oldChar = char_;
 		char_ = newChar;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_COL_TYPE__CHAR, oldChar, char_));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Object getCharoff() {
@@ -424,20 +415,21 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCharoff(Object newCharoff) {
 		Object oldCharoff = charoff;
 		charoff = newCharoff;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_COL_TYPE__CHAROFF, oldCharoff, charoff));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getClass_() {
@@ -445,20 +437,21 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setClass(String newClass) {
 		String oldClass = class_;
 		class_ = newClass;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_COL_TYPE__CLASS, oldClass, class_));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getId() {
@@ -466,20 +459,21 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_COL_TYPE__ID, oldId, id));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getLang() {
@@ -487,20 +481,21 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setLang(String newLang) {
 		String oldLang = lang;
 		lang = newLang;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_COL_TYPE__LANG, oldLang, lang));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpaceType getSpace() {
@@ -508,8 +503,8 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSpace(SpaceType newSpace) {
@@ -517,13 +512,14 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 		space = newSpace == null ? SPACE_EDEFAULT : newSpace;
 		boolean oldSpaceESet = spaceESet;
 		spaceESet = true;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_COL_TYPE__SPACE, oldSpace, space, !oldSpaceESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetSpace() {
@@ -531,13 +527,14 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 		boolean oldSpaceESet = spaceESet;
 		space = SPACE_EDEFAULT;
 		spaceESet = false;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.UNSET, XhtmlPackage.XHTML_COL_TYPE__SPACE, oldSpace, SPACE_EDEFAULT, oldSpaceESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetSpace() {
@@ -545,8 +542,8 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BigInteger getSpan() {
@@ -554,8 +551,8 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSpan(BigInteger newSpan) {
@@ -563,13 +560,14 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 		span = newSpan;
 		boolean oldSpanESet = spanESet;
 		spanESet = true;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_COL_TYPE__SPAN, oldSpan, span, !oldSpanESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetSpan() {
@@ -577,13 +575,14 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 		boolean oldSpanESet = spanESet;
 		span = SPAN_EDEFAULT;
 		spanESet = false;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.UNSET, XhtmlPackage.XHTML_COL_TYPE__SPAN, oldSpan, SPAN_EDEFAULT, oldSpanESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetSpan() {
@@ -591,8 +590,8 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getStyle() {
@@ -600,20 +599,21 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setStyle(String newStyle) {
 		String oldStyle = style;
 		style = newStyle;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_COL_TYPE__STYLE, oldStyle, style));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getTitle() {
@@ -621,20 +621,21 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTitle(String newTitle) {
 		String oldTitle = title;
 		title = newTitle;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_COL_TYPE__TITLE, oldTitle, title));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ValignType getValign() {
@@ -642,8 +643,8 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setValign(ValignType newValign) {
@@ -651,13 +652,14 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 		valign = newValign == null ? VALIGN_EDEFAULT : newValign;
 		boolean oldValignESet = valignESet;
 		valignESet = true;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_COL_TYPE__VALIGN, oldValign, valign, !oldValignESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetValign() {
@@ -665,13 +667,14 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 		boolean oldValignESet = valignESet;
 		valign = VALIGN_EDEFAULT;
 		valignESet = false;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.UNSET, XhtmlPackage.XHTML_COL_TYPE__VALIGN, oldValign, VALIGN_EDEFAULT, oldValignESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetValign() {
@@ -679,8 +682,8 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Object getWidth() {
@@ -688,221 +691,240 @@ public class XhtmlColTypeImpl extends EObjectImpl implements XhtmlColType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setWidth(Object newWidth) {
 		Object oldWidth = width;
 		width = newWidth;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_COL_TYPE__WIDTH, oldWidth, width));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_COL_TYPE__ALIGN:
-				return getAlign();
-			case XhtmlPackage.XHTML_COL_TYPE__CHAR:
-				return getChar();
-			case XhtmlPackage.XHTML_COL_TYPE__CHAROFF:
-				return getCharoff();
-			case XhtmlPackage.XHTML_COL_TYPE__CLASS:
-				return getClass_();
-			case XhtmlPackage.XHTML_COL_TYPE__ID:
-				return getId();
-			case XhtmlPackage.XHTML_COL_TYPE__LANG:
-				return getLang();
-			case XhtmlPackage.XHTML_COL_TYPE__SPACE:
-				return getSpace();
-			case XhtmlPackage.XHTML_COL_TYPE__SPAN:
-				return getSpan();
-			case XhtmlPackage.XHTML_COL_TYPE__STYLE:
-				return getStyle();
-			case XhtmlPackage.XHTML_COL_TYPE__TITLE:
-				return getTitle();
-			case XhtmlPackage.XHTML_COL_TYPE__VALIGN:
-				return getValign();
-			case XhtmlPackage.XHTML_COL_TYPE__WIDTH:
-				return getWidth();
+		case XhtmlPackage.XHTML_COL_TYPE__ALIGN:
+			return getAlign();
+		case XhtmlPackage.XHTML_COL_TYPE__CHAR:
+			return getChar();
+		case XhtmlPackage.XHTML_COL_TYPE__CHAROFF:
+			return getCharoff();
+		case XhtmlPackage.XHTML_COL_TYPE__CLASS:
+			return getClass_();
+		case XhtmlPackage.XHTML_COL_TYPE__ID:
+			return getId();
+		case XhtmlPackage.XHTML_COL_TYPE__LANG:
+			return getLang();
+		case XhtmlPackage.XHTML_COL_TYPE__SPACE:
+			return getSpace();
+		case XhtmlPackage.XHTML_COL_TYPE__SPAN:
+			return getSpan();
+		case XhtmlPackage.XHTML_COL_TYPE__STYLE:
+			return getStyle();
+		case XhtmlPackage.XHTML_COL_TYPE__TITLE:
+			return getTitle();
+		case XhtmlPackage.XHTML_COL_TYPE__VALIGN:
+			return getValign();
+		case XhtmlPackage.XHTML_COL_TYPE__WIDTH:
+			return getWidth();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_COL_TYPE__ALIGN:
-				setAlign((AlignType)newValue);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__CHAR:
-				setChar((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__CHAROFF:
-				setCharoff(newValue);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__CLASS:
-				setClass((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__ID:
-				setId((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__LANG:
-				setLang((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__SPACE:
-				setSpace((SpaceType)newValue);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__SPAN:
-				setSpan((BigInteger)newValue);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__STYLE:
-				setStyle((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__TITLE:
-				setTitle((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__VALIGN:
-				setValign((ValignType)newValue);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__WIDTH:
-				setWidth(newValue);
-				return;
+		case XhtmlPackage.XHTML_COL_TYPE__ALIGN:
+			setAlign((AlignType) newValue);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__CHAR:
+			setChar((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__CHAROFF:
+			setCharoff(newValue);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__CLASS:
+			setClass((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__ID:
+			setId((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__LANG:
+			setLang((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__SPACE:
+			setSpace((SpaceType) newValue);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__SPAN:
+			setSpan((BigInteger) newValue);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__STYLE:
+			setStyle((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__TITLE:
+			setTitle((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__VALIGN:
+			setValign((ValignType) newValue);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__WIDTH:
+			setWidth(newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_COL_TYPE__ALIGN:
-				unsetAlign();
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__CHAR:
-				setChar(CHAR_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__CHAROFF:
-				setCharoff(CHAROFF_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__CLASS:
-				setClass(CLASS_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__LANG:
-				setLang(LANG_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__SPACE:
-				unsetSpace();
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__SPAN:
-				unsetSpan();
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__STYLE:
-				setStyle(STYLE_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__TITLE:
-				setTitle(TITLE_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__VALIGN:
-				unsetValign();
-				return;
-			case XhtmlPackage.XHTML_COL_TYPE__WIDTH:
-				setWidth(WIDTH_EDEFAULT);
-				return;
+		case XhtmlPackage.XHTML_COL_TYPE__ALIGN:
+			unsetAlign();
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__CHAR:
+			setChar(CHAR_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__CHAROFF:
+			setCharoff(CHAROFF_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__CLASS:
+			setClass(CLASS_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__ID:
+			setId(ID_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__LANG:
+			setLang(LANG_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__SPACE:
+			unsetSpace();
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__SPAN:
+			unsetSpan();
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__STYLE:
+			setStyle(STYLE_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__TITLE:
+			setTitle(TITLE_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__VALIGN:
+			unsetValign();
+			return;
+		case XhtmlPackage.XHTML_COL_TYPE__WIDTH:
+			setWidth(WIDTH_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_COL_TYPE__ALIGN:
-				return isSetAlign();
-			case XhtmlPackage.XHTML_COL_TYPE__CHAR:
-				return CHAR_EDEFAULT == null ? char_ != null : !CHAR_EDEFAULT.equals(char_);
-			case XhtmlPackage.XHTML_COL_TYPE__CHAROFF:
-				return CHAROFF_EDEFAULT == null ? charoff != null : !CHAROFF_EDEFAULT.equals(charoff);
-			case XhtmlPackage.XHTML_COL_TYPE__CLASS:
-				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
-			case XhtmlPackage.XHTML_COL_TYPE__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case XhtmlPackage.XHTML_COL_TYPE__LANG:
-				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
-			case XhtmlPackage.XHTML_COL_TYPE__SPACE:
-				return isSetSpace();
-			case XhtmlPackage.XHTML_COL_TYPE__SPAN:
-				return isSetSpan();
-			case XhtmlPackage.XHTML_COL_TYPE__STYLE:
-				return STYLE_EDEFAULT == null ? style != null : !STYLE_EDEFAULT.equals(style);
-			case XhtmlPackage.XHTML_COL_TYPE__TITLE:
-				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-			case XhtmlPackage.XHTML_COL_TYPE__VALIGN:
-				return isSetValign();
-			case XhtmlPackage.XHTML_COL_TYPE__WIDTH:
-				return WIDTH_EDEFAULT == null ? width != null : !WIDTH_EDEFAULT.equals(width);
+		case XhtmlPackage.XHTML_COL_TYPE__ALIGN:
+			return isSetAlign();
+		case XhtmlPackage.XHTML_COL_TYPE__CHAR:
+			return CHAR_EDEFAULT == null ? char_ != null : !CHAR_EDEFAULT.equals(char_);
+		case XhtmlPackage.XHTML_COL_TYPE__CHAROFF:
+			return CHAROFF_EDEFAULT == null ? charoff != null : !CHAROFF_EDEFAULT.equals(charoff);
+		case XhtmlPackage.XHTML_COL_TYPE__CLASS:
+			return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
+		case XhtmlPackage.XHTML_COL_TYPE__ID:
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+		case XhtmlPackage.XHTML_COL_TYPE__LANG:
+			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
+		case XhtmlPackage.XHTML_COL_TYPE__SPACE:
+			return isSetSpace();
+		case XhtmlPackage.XHTML_COL_TYPE__SPAN:
+			return isSetSpan();
+		case XhtmlPackage.XHTML_COL_TYPE__STYLE:
+			return STYLE_EDEFAULT == null ? style != null : !STYLE_EDEFAULT.equals(style);
+		case XhtmlPackage.XHTML_COL_TYPE__TITLE:
+			return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+		case XhtmlPackage.XHTML_COL_TYPE__VALIGN:
+			return isSetValign();
+		case XhtmlPackage.XHTML_COL_TYPE__WIDTH:
+			return WIDTH_EDEFAULT == null ? width != null : !WIDTH_EDEFAULT.equals(width);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy()) {
+			return super.toString();
+		}
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (align: ");
-		if (alignESet) result.append(align); else result.append("<unset>");
-		result.append(", char: ");
+		result.append(" (align: "); //$NON-NLS-1$
+		if (alignESet) {
+			result.append(align);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", char: "); //$NON-NLS-1$
 		result.append(char_);
-		result.append(", charoff: ");
+		result.append(", charoff: "); //$NON-NLS-1$
 		result.append(charoff);
-		result.append(", class: ");
+		result.append(", class: "); //$NON-NLS-1$
 		result.append(class_);
-		result.append(", id: ");
+		result.append(", id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", lang: ");
+		result.append(", lang: "); //$NON-NLS-1$
 		result.append(lang);
-		result.append(", space: ");
-		if (spaceESet) result.append(space); else result.append("<unset>");
-		result.append(", span: ");
-		if (spanESet) result.append(span); else result.append("<unset>");
-		result.append(", style: ");
+		result.append(", space: "); //$NON-NLS-1$
+		if (spaceESet) {
+			result.append(space);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", span: "); //$NON-NLS-1$
+		if (spanESet) {
+			result.append(span);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", style: "); //$NON-NLS-1$
 		result.append(style);
-		result.append(", title: ");
+		result.append(", title: "); //$NON-NLS-1$
 		result.append(title);
-		result.append(", valign: ");
-		if (valignESet) result.append(valign); else result.append("<unset>");
-		result.append(", width: ");
+		result.append(", valign: "); //$NON-NLS-1$
+		if (valignESet) {
+			result.append(valign);
+		} else {
+			result.append("<unset>"); //$NON-NLS-1$
+		}
+		result.append(", width: "); //$NON-NLS-1$
 		result.append(width);
 		result.append(')');
 		return result.toString();
 	}
 
-} //XhtmlColTypeImpl
+} // XhtmlColTypeImpl

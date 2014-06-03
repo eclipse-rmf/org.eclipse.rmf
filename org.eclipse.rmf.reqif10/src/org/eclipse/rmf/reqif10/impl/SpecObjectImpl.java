@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,34 +12,29 @@
 package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Spec Object</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Spec Object</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.SpecObjectImpl#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.SpecObjectImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class SpecObjectImpl extends SpecElementWithAttributesImpl implements SpecObject {
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -47,17 +42,16 @@ public class SpecObjectImpl extends SpecElementWithAttributesImpl implements Spe
 	protected SpecObjectType type;
 
 	/**
-	 * This is true if the Type reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Type reference has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean typeESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected SpecObjectImpl() {
@@ -65,8 +59,8 @@ public class SpecObjectImpl extends SpecElementWithAttributesImpl implements Spe
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -75,14 +69,14 @@ public class SpecObjectImpl extends SpecElementWithAttributesImpl implements Spe
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecObjectType getType() {
 		if (type != null && type.eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (SpecObjectType)eResolveProxy(oldType);
+			InternalEObject oldType = (InternalEObject) type;
+			type = (SpecObjectType) eResolveProxy(oldType);
 			if (type != oldType) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ReqIF10Package.SPEC_OBJECT__TYPE, oldType, type));
@@ -92,8 +86,8 @@ public class SpecObjectImpl extends SpecElementWithAttributesImpl implements Spe
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecObjectType basicGetType() {
@@ -101,8 +95,8 @@ public class SpecObjectImpl extends SpecElementWithAttributesImpl implements Spe
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setType(SpecObjectType newType) {
@@ -115,8 +109,8 @@ public class SpecObjectImpl extends SpecElementWithAttributesImpl implements Spe
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetType() {
@@ -129,8 +123,8 @@ public class SpecObjectImpl extends SpecElementWithAttributesImpl implements Spe
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetType() {
@@ -138,62 +132,63 @@ public class SpecObjectImpl extends SpecElementWithAttributesImpl implements Spe
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReqIF10Package.SPEC_OBJECT__TYPE:
-				if (resolve) return getType();
-				return basicGetType();
+		case ReqIF10Package.SPEC_OBJECT__TYPE:
+			if (resolve)
+				return getType();
+			return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReqIF10Package.SPEC_OBJECT__TYPE:
-				setType((SpecObjectType)newValue);
-				return;
+		case ReqIF10Package.SPEC_OBJECT__TYPE:
+			setType((SpecObjectType) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.SPEC_OBJECT__TYPE:
-				unsetType();
-				return;
+		case ReqIF10Package.SPEC_OBJECT__TYPE:
+			unsetType();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.SPEC_OBJECT__TYPE:
-				return isSetType();
+		case ReqIF10Package.SPEC_OBJECT__TYPE:
+			return isSetType();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //SpecObjectImpl
+} // SpecObjectImpl

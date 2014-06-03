@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,23 +12,21 @@
 package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.rmf.reqif10.AttributeDefinitionSimple;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Attribute Definition Simple</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Attribute Definition Simple</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class AttributeDefinitionSimpleImpl extends AttributeDefinitionImpl implements AttributeDefinitionSimple {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected AttributeDefinitionSimpleImpl() {
@@ -36,8 +34,8 @@ public abstract class AttributeDefinitionSimpleImpl extends AttributeDefinitionI
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -45,4 +43,4 @@ public abstract class AttributeDefinitionSimpleImpl extends AttributeDefinitionI
 		return ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_SIMPLE;
 	}
 
-} //AttributeDefinitionSimpleImpl
+} // AttributeDefinitionSimpleImpl

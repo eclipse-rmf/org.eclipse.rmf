@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+ * Copyright (c) 2011, 2014 Formal Mind GmbH and University of Dusseldorf.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -36,11 +36,11 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.util.ConfigurationAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.testdata.TestData;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
 import org.junit.After;
 import org.junit.Before;
@@ -101,6 +101,8 @@ abstract public class AbstractItemProviderTest {
 				.addAdapterFactory(new ReqIF10ItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+		adapterFactory
+				.addAdapterFactory(new ConfigurationItemProviderAdapterFactory());
 
 		commandStack = new BasicCommandStack();
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory,

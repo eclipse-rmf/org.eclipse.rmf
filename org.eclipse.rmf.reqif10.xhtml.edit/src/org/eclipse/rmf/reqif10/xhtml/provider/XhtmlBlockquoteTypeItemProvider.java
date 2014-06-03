@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2012, 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,7 +10,6 @@
  * 
  */
 package org.eclipse.rmf.reqif10.xhtml.provider;
-
 
 import java.util.Collection;
 import java.util.List;
@@ -41,23 +40,16 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.xhtml.XhtmlBlockquoteType} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.xhtml.XhtmlBlockquoteType} object. <!--
+ * begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
-public class XhtmlBlockquoteTypeItemProvider
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class XhtmlBlockquoteTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlBlockquoteTypeItemProvider(AdapterFactory adapterFactory) {
@@ -65,9 +57,8 @@ public class XhtmlBlockquoteTypeItemProvider
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -87,165 +78,95 @@ public class XhtmlBlockquoteTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Cite feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Cite feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addCitePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_cite_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_cite_feature", "_UI_XhtmlBlockquoteType_type"),
-				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Cite(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlBlockquoteType_cite_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_cite_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Cite(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Class feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Class feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addClassPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_class_feature", "_UI_XhtmlBlockquoteType_type"),
-				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Class(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlBlockquoteType_class_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_class_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Class(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Id feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_id_feature", "_UI_XhtmlBlockquoteType_type"),
-				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Id(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlBlockquoteType_id_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_id_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Id(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Lang feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Lang feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addLangPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_lang_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_lang_feature", "_UI_XhtmlBlockquoteType_type"),
-				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Lang(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlBlockquoteType_lang_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_lang_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Lang(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Space feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Space feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addSpacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_space_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_space_feature", "_UI_XhtmlBlockquoteType_type"),
-				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Space(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlBlockquoteType_space_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_space_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Space(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Style feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Style feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addStylePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_style_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_style_feature", "_UI_XhtmlBlockquoteType_type"),
-				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Style(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlBlockquoteType_style_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_style_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Style(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Title feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Title feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlBlockquoteType_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_title_feature", "_UI_XhtmlBlockquoteType_type"),
-				 XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Title(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlBlockquoteType_title_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlBlockquoteType_title_feature", "_UI_XhtmlBlockquoteType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Title(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -258,8 +179,8 @@ public class XhtmlBlockquoteTypeItemProvider
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -271,35 +192,32 @@ public class XhtmlBlockquoteTypeItemProvider
 	}
 
 	/**
-	 * This returns XhtmlBlockquoteType.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns XhtmlBlockquoteType.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlBlockquoteType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlBlockquoteType")); //$NON-NLS-1$
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XhtmlBlockquoteType)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlBlockquoteType_type") :
-			getString("_UI_XhtmlBlockquoteType_type") + " " + label;
+		String label = ((XhtmlBlockquoteType) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_XhtmlBlockquoteType_type") : //$NON-NLS-1$
+				getString("_UI_XhtmlBlockquoteType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -307,164 +225,96 @@ public class XhtmlBlockquoteTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XhtmlBlockquoteType.class)) {
-			case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__CITE:
-			case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__CLASS:
-			case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__ID:
-			case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__LANG:
-			case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__SPACE:
-			case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__STYLE:
-			case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__TITLE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__XHTML_BLOCK_MIX:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__CITE:
+		case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__CLASS:
+		case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__ID:
+		case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__LANG:
+		case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__SPACE:
+		case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__STYLE:
+		case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__TITLE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE__XHTML_BLOCK_MIX:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_H1(),
-					 XhtmlFactory.eINSTANCE.createXhtmlH1Type())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_H1(), XhtmlFactory.eINSTANCE.createXhtmlH1Type())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_H2(),
-					 XhtmlFactory.eINSTANCE.createXhtmlH2Type())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_H2(), XhtmlFactory.eINSTANCE.createXhtmlH2Type())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_H3(),
-					 XhtmlFactory.eINSTANCE.createXhtmlH3Type())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_H3(), XhtmlFactory.eINSTANCE.createXhtmlH3Type())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_H4(),
-					 XhtmlFactory.eINSTANCE.createXhtmlH4Type())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_H4(), XhtmlFactory.eINSTANCE.createXhtmlH4Type())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_H5(),
-					 XhtmlFactory.eINSTANCE.createXhtmlH5Type())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_H5(), XhtmlFactory.eINSTANCE.createXhtmlH5Type())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_H6(),
-					 XhtmlFactory.eINSTANCE.createXhtmlH6Type())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_H6(), XhtmlFactory.eINSTANCE.createXhtmlH6Type())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Ul(),
-					 XhtmlFactory.eINSTANCE.createXhtmlUlType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Ul(), XhtmlFactory.eINSTANCE.createXhtmlUlType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Ol(),
-					 XhtmlFactory.eINSTANCE.createXhtmlOlType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Ol(), XhtmlFactory.eINSTANCE.createXhtmlOlType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Dl(),
-					 XhtmlFactory.eINSTANCE.createXhtmlDlType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Dl(), XhtmlFactory.eINSTANCE.createXhtmlDlType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_P(),
-					 XhtmlFactory.eINSTANCE.createXhtmlPType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_P(), XhtmlFactory.eINSTANCE.createXhtmlPType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Div(),
-					 XhtmlFactory.eINSTANCE.createXhtmlDivType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Div(), XhtmlFactory.eINSTANCE.createXhtmlDivType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Pre(),
-					 XhtmlFactory.eINSTANCE.createXhtmlPreType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Pre(), XhtmlFactory.eINSTANCE.createXhtmlPreType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Blockquote(),
-					 XhtmlFactory.eINSTANCE.createXhtmlBlockquoteType())));
+		newChildDescriptors.add(createChildParameter(
+				XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Blockquote(),
+						XhtmlFactory.eINSTANCE.createXhtmlBlockquoteType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Address(),
-					 XhtmlFactory.eINSTANCE.createXhtmlAddressType())));
+		newChildDescriptors
+				.add(createChildParameter(
+						XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+						FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Address(),
+								XhtmlFactory.eINSTANCE.createXhtmlAddressType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Hr(),
-					 XhtmlFactory.eINSTANCE.createXhtmlHrType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Hr(), XhtmlFactory.eINSTANCE.createXhtmlHrType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Table(),
-					 XhtmlFactory.eINSTANCE.createXhtmlTableType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Table(), XhtmlFactory.eINSTANCE.createXhtmlTableType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Ins(),
-					 XhtmlFactory.eINSTANCE.createXhtmlEditType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Ins(), XhtmlFactory.eINSTANCE.createXhtmlEditType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Del(),
-					 XhtmlFactory.eINSTANCE.createXhtmlEditType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_XhtmlBlockMix(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Del(), XhtmlFactory.eINSTANCE.createXhtmlEditType())));
 	}
 
 	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -472,28 +322,25 @@ public class XhtmlBlockquoteTypeItemProvider
 		Object childFeature = feature;
 		Object childObject = child;
 
-		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)childFeature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)childObject;
+		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature) childFeature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry) childObject;
 			childFeature = entry.getEStructuralFeature();
 			childObject = entry.getValue();
 		}
 
-		boolean qualify =
-			childFeature == XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Ins() ||
-			childFeature == XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Del();
+		boolean qualify = childFeature == XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Ins()
+				|| childFeature == XhtmlPackage.eINSTANCE.getXhtmlBlockquoteType_Del();
 
 		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+			return getString("_UI_CreateChild_text2", //$NON-NLS-1$
+					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

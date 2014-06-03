@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,7 +10,6 @@
  * 
  */
 package org.eclipse.rmf.reqif10.provider;
-
 
 import java.util.Collection;
 import java.util.List;
@@ -28,23 +27,16 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionBoolean;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinitionBoolean} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.DatatypeDefinitionBoolean} object. <!--
+ * begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
-public class DatatypeDefinitionBooleanItemProvider
-	extends DatatypeDefinitionSimpleItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class DatatypeDefinitionBooleanItemProvider extends DatatypeDefinitionSimpleItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DatatypeDefinitionBooleanItemProvider(AdapterFactory adapterFactory) {
@@ -52,9 +44,8 @@ public class DatatypeDefinitionBooleanItemProvider
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -67,35 +58,32 @@ public class DatatypeDefinitionBooleanItemProvider
 	}
 
 	/**
-	 * This returns DatatypeDefinitionBoolean.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns DatatypeDefinitionBoolean.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DatatypeDefinitionBoolean"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DatatypeDefinitionBoolean")); //$NON-NLS-1$
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DatatypeDefinitionBoolean)object).getLongName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DatatypeDefinitionBoolean_type") :
-			getString("_UI_DatatypeDefinitionBoolean_type") + " " + label;
+		String label = ((DatatypeDefinitionBoolean) object).getLongName();
+		return label == null || label.length() == 0 ? getString("_UI_DatatypeDefinitionBoolean_type") : //$NON-NLS-1$
+				getString("_UI_DatatypeDefinitionBoolean_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -105,10 +93,9 @@ public class DatatypeDefinitionBooleanItemProvider
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

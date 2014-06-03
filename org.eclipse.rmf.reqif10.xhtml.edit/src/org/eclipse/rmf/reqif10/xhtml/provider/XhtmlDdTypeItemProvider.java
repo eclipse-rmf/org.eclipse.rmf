@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 itemis AG.
+ * Copyright (c) 2012, 2013 itemis AG.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,7 +10,6 @@
  * 
  */
 package org.eclipse.rmf.reqif10.xhtml.provider;
-
 
 import java.util.Collection;
 import java.util.List;
@@ -44,23 +43,16 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.xhtml.XhtmlDdType} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.xhtml.XhtmlDdType} object. <!-- begin-user-doc
+ * --> <!-- end-user-doc -->
+ * 
  * @generated
  */
-public class XhtmlDdTypeItemProvider
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class XhtmlDdTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlDdTypeItemProvider(AdapterFactory adapterFactory) {
@@ -68,9 +60,8 @@ public class XhtmlDdTypeItemProvider
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -89,143 +80,83 @@ public class XhtmlDdTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Class feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Class feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addClassPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlDdType_class_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDdType_class_feature", "_UI_XhtmlDdType_type"),
-				 XhtmlPackage.eINSTANCE.getXhtmlDdType_Class(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlDdType_class_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDdType_class_feature", "_UI_XhtmlDdType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlDdType_Class(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Id feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlDdType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDdType_id_feature", "_UI_XhtmlDdType_type"),
-				 XhtmlPackage.eINSTANCE.getXhtmlDdType_Id(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlDdType_id_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDdType_id_feature", "_UI_XhtmlDdType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlDdType_Id(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Lang feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Lang feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addLangPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlDdType_lang_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDdType_lang_feature", "_UI_XhtmlDdType_type"),
-				 XhtmlPackage.eINSTANCE.getXhtmlDdType_Lang(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlDdType_lang_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDdType_lang_feature", "_UI_XhtmlDdType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlDdType_Lang(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Space feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Space feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addSpacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlDdType_space_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDdType_space_feature", "_UI_XhtmlDdType_type"),
-				 XhtmlPackage.eINSTANCE.getXhtmlDdType_Space(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlDdType_space_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDdType_space_feature", "_UI_XhtmlDdType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlDdType_Space(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Style feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Style feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addStylePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlDdType_style_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDdType_style_feature", "_UI_XhtmlDdType_type"),
-				 XhtmlPackage.eINSTANCE.getXhtmlDdType_Style(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlDdType_style_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDdType_style_feature", "_UI_XhtmlDdType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlDdType_Style(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Title feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Title feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XhtmlDdType_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDdType_title_feature", "_UI_XhtmlDdType_type"),
-				 XhtmlPackage.eINSTANCE.getXhtmlDdType_Title(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_XhtmlDdType_title_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_XhtmlDdType_title_feature", "_UI_XhtmlDdType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				XhtmlPackage.eINSTANCE.getXhtmlDdType_Title(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -238,8 +169,8 @@ public class XhtmlDdTypeItemProvider
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -251,35 +182,32 @@ public class XhtmlDdTypeItemProvider
 	}
 
 	/**
-	 * This returns XhtmlDdType.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns XhtmlDdType.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlDdType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XhtmlDdType")); //$NON-NLS-1$
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XhtmlDdType)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_XhtmlDdType_type") :
-			getString("_UI_XhtmlDdType_type") + " " + label;
+		String label = ((XhtmlDdType) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_XhtmlDdType_type") : //$NON-NLS-1$
+				getString("_UI_XhtmlDdType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -287,345 +215,170 @@ public class XhtmlDdTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XhtmlDdType.class)) {
-			case XhtmlPackage.XHTML_DD_TYPE__CLASS:
-			case XhtmlPackage.XHTML_DD_TYPE__ID:
-			case XhtmlPackage.XHTML_DD_TYPE__LANG:
-			case XhtmlPackage.XHTML_DD_TYPE__SPACE:
-			case XhtmlPackage.XHTML_DD_TYPE__STYLE:
-			case XhtmlPackage.XHTML_DD_TYPE__TITLE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case XhtmlPackage.XHTML_DD_TYPE__MIXED:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case XhtmlPackage.XHTML_DD_TYPE__CLASS:
+		case XhtmlPackage.XHTML_DD_TYPE__ID:
+		case XhtmlPackage.XHTML_DD_TYPE__LANG:
+		case XhtmlPackage.XHTML_DD_TYPE__SPACE:
+		case XhtmlPackage.XHTML_DD_TYPE__STYLE:
+		case XhtmlPackage.XHTML_DD_TYPE__TITLE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		case XhtmlPackage.XHTML_DD_TYPE__MIXED:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
-					 "")));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT, ""))); //$NON-NLS-1$
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
-					 "")));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT, ""))); //$NON-NLS-1$
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
-					 XMLTypeFactory.eINSTANCE.createProcessingInstruction())));
+		newChildDescriptors.add(createChildParameter(
+				XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
+						XMLTypeFactory.eINSTANCE.createProcessingInstruction())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
-					 "")));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA, ""))); //$NON-NLS-1$
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_H1(),
-					 XhtmlFactory.eINSTANCE.createXhtmlH1Type())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_H1(), XhtmlFactory.eINSTANCE.createXhtmlH1Type())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_H2(),
-					 XhtmlFactory.eINSTANCE.createXhtmlH2Type())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_H2(), XhtmlFactory.eINSTANCE.createXhtmlH2Type())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_H3(),
-					 XhtmlFactory.eINSTANCE.createXhtmlH3Type())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_H3(), XhtmlFactory.eINSTANCE.createXhtmlH3Type())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_H4(),
-					 XhtmlFactory.eINSTANCE.createXhtmlH4Type())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_H4(), XhtmlFactory.eINSTANCE.createXhtmlH4Type())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_H5(),
-					 XhtmlFactory.eINSTANCE.createXhtmlH5Type())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_H5(), XhtmlFactory.eINSTANCE.createXhtmlH5Type())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_H6(),
-					 XhtmlFactory.eINSTANCE.createXhtmlH6Type())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_H6(), XhtmlFactory.eINSTANCE.createXhtmlH6Type())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Ul(),
-					 XhtmlFactory.eINSTANCE.createXhtmlUlType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Ul(), XhtmlFactory.eINSTANCE.createXhtmlUlType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Ol(),
-					 XhtmlFactory.eINSTANCE.createXhtmlOlType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Ol(), XhtmlFactory.eINSTANCE.createXhtmlOlType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Dl(),
-					 XhtmlFactory.eINSTANCE.createXhtmlDlType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Dl(), XhtmlFactory.eINSTANCE.createXhtmlDlType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_P(),
-					 XhtmlFactory.eINSTANCE.createXhtmlPType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_P(), XhtmlFactory.eINSTANCE.createXhtmlPType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Div(),
-					 XhtmlFactory.eINSTANCE.createXhtmlDivType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Div(), XhtmlFactory.eINSTANCE.createXhtmlDivType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Pre(),
-					 XhtmlFactory.eINSTANCE.createXhtmlPreType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Pre(), XhtmlFactory.eINSTANCE.createXhtmlPreType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Blockquote(),
-					 XhtmlFactory.eINSTANCE.createXhtmlBlockquoteType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Blockquote(), XhtmlFactory.eINSTANCE.createXhtmlBlockquoteType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Address(),
-					 XhtmlFactory.eINSTANCE.createXhtmlAddressType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Address(), XhtmlFactory.eINSTANCE.createXhtmlAddressType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Hr(),
-					 XhtmlFactory.eINSTANCE.createXhtmlHrType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Hr(), XhtmlFactory.eINSTANCE.createXhtmlHrType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Table(),
-					 XhtmlFactory.eINSTANCE.createXhtmlTableType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Table(), XhtmlFactory.eINSTANCE.createXhtmlTableType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Br(),
-					 XhtmlFactory.eINSTANCE.createXhtmlBrType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Br(), XhtmlFactory.eINSTANCE.createXhtmlBrType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Span(),
-					 XhtmlFactory.eINSTANCE.createXhtmlSpanType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Span(), XhtmlFactory.eINSTANCE.createXhtmlSpanType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Em(),
-					 XhtmlFactory.eINSTANCE.createXhtmlEmType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Em(), XhtmlFactory.eINSTANCE.createXhtmlEmType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Strong(),
-					 XhtmlFactory.eINSTANCE.createXhtmlStrongType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Strong(), XhtmlFactory.eINSTANCE.createXhtmlStrongType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Dfn(),
-					 XhtmlFactory.eINSTANCE.createXhtmlDfnType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Dfn(), XhtmlFactory.eINSTANCE.createXhtmlDfnType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Code(),
-					 XhtmlFactory.eINSTANCE.createXhtmlCodeType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Code(), XhtmlFactory.eINSTANCE.createXhtmlCodeType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Samp(),
-					 XhtmlFactory.eINSTANCE.createXhtmlSampType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Samp(), XhtmlFactory.eINSTANCE.createXhtmlSampType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Kbd(),
-					 XhtmlFactory.eINSTANCE.createXhtmlKbdType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Kbd(), XhtmlFactory.eINSTANCE.createXhtmlKbdType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Var(),
-					 XhtmlFactory.eINSTANCE.createXhtmlVarType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Var(), XhtmlFactory.eINSTANCE.createXhtmlVarType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Cite(),
-					 XhtmlFactory.eINSTANCE.createXhtmlCiteType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Cite(), XhtmlFactory.eINSTANCE.createXhtmlCiteType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Abbr(),
-					 XhtmlFactory.eINSTANCE.createXhtmlAbbrType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Abbr(), XhtmlFactory.eINSTANCE.createXhtmlAbbrType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Acronym(),
-					 XhtmlFactory.eINSTANCE.createXhtmlAcronymType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Acronym(), XhtmlFactory.eINSTANCE.createXhtmlAcronymType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Q(),
-					 XhtmlFactory.eINSTANCE.createXhtmlQType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Q(), XhtmlFactory.eINSTANCE.createXhtmlQType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Tt(),
-					 XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Tt(), XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_I(),
-					 XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_I(), XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_B(),
-					 XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_B(), XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Big(),
-					 XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Big(), XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Small(),
-					 XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Small(), XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Sub(),
-					 XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Sub(), XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Sup(),
-					 XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Sup(), XhtmlFactory.eINSTANCE.createXhtmlInlPresType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_A(),
-					 XhtmlFactory.eINSTANCE.createXhtmlAType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_A(), XhtmlFactory.eINSTANCE.createXhtmlAType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Object(),
-					 XhtmlFactory.eINSTANCE.createXhtmlObjectType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Object(), XhtmlFactory.eINSTANCE.createXhtmlObjectType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Ins(),
-					 XhtmlFactory.eINSTANCE.createXhtmlEditType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Ins(), XhtmlFactory.eINSTANCE.createXhtmlEditType())));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
-				 FeatureMapUtil.createEntry
-					(XhtmlPackage.eINSTANCE.getXhtmlDdType_Del(),
-					 XhtmlFactory.eINSTANCE.createXhtmlEditType())));
+		newChildDescriptors.add(createChildParameter(XhtmlPackage.eINSTANCE.getXhtmlDdType_Mixed(),
+				FeatureMapUtil.createEntry(XhtmlPackage.eINSTANCE.getXhtmlDdType_Del(), XhtmlFactory.eINSTANCE.createXhtmlEditType())));
 	}
 
 	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -633,35 +386,28 @@ public class XhtmlDdTypeItemProvider
 		Object childFeature = feature;
 		Object childObject = child;
 
-		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)childFeature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)childObject;
+		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature) childFeature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry) childObject;
 			childFeature = entry.getEStructuralFeature();
 			childObject = entry.getValue();
 		}
 
-		boolean qualify =
-			childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Tt() ||
-			childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_I() ||
-			childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_B() ||
-			childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Big() ||
-			childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Small() ||
-			childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Sub() ||
-			childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Sup() ||
-			childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Ins() ||
-			childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Del();
+		boolean qualify = childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Tt() || childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_I()
+				|| childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_B() || childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Big()
+				|| childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Small() || childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Sub()
+				|| childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Sup() || childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Ins()
+				|| childFeature == XhtmlPackage.eINSTANCE.getXhtmlDdType_Del();
 
 		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+			return getString("_UI_CreateChild_text2", //$NON-NLS-1$
+					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

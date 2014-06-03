@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+ * Copyright (c) 2011, 2014 Formal Mind GmbH and University of Dusseldorf.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,13 +11,16 @@
 
 package org.eclipse.rmf.reqif10.pror.configuration.provider;
 
-
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,9 +31,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin;
 import org.eclipse.rmf.reqif10.pror.util.PresentationEditInterface;
-
 
 /**
  * This is the item provider adapter for a
@@ -51,6 +54,34 @@ public abstract class ProrPresentationConfigurationItemProvider
 		IItemLabelProvider,
 		IItemPropertySource,
 		PresentationEditInterface {
+
+	// Track the registered configs.
+	private Set<ProrPresentationConfiguration> registeredConfigs = 
+			new HashSet<ProrPresentationConfiguration>();
+
+	/**
+	 * If you override these, please call super to ensure that configs are tracked.
+	 */
+	public void registerPresentationConfiguration(ProrPresentationConfiguration config,
+			EditingDomain editingDomain) {
+		registeredConfigs.add(config);
+	}
+
+	/**
+	 * If you override these, please call super to ensure that configs are tracked.
+	 */
+	public void unregisterPresentationConfiguration(ProrPresentationConfiguration config) {
+		registeredConfigs.remove(config);
+	}
+	
+	/**
+	 * @return an unmodifiable {@link Set} of all currently registered
+	 * {@link ProrPresentationConfiguration}s.
+	 */
+	public Set<ProrPresentationConfiguration> getRegisteredConfigurations() {
+		return Collections.unmodifiableSet(registeredConfigs);
+	}
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="RMF ProR Standalone" uid="org.eclipse.rmf.reqif10.pror.product" id="org.eclipse.rmf.reqif10.pror.product" application="org.eclipse.ui.ide.workbench" version="0.9.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="RMF ProR Standalone" uid="org.eclipse.rmf.reqif10.pror.product" id="org.eclipse.rmf.reqif10.pror.product" application="org.eclipse.ui.ide.workbench" version="0.10.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.eclipse.rmf.reqif10.pror/pror-about.png"/>
@@ -14,7 +14,7 @@ Eclipse Requirements Management Framework (RMF)
 
 Version: (Incubation Submission)
 
-(c) Copyright Formal Mind GmbH, itemis AG and others 2011.  All rights reserved.
+(c) Copyright Formal Mind GmbH, itemis AG and others 2011-2014.  All rights reserved.
 Visit http://eclipse.org/rmf
       </text>
    </aboutInfo>

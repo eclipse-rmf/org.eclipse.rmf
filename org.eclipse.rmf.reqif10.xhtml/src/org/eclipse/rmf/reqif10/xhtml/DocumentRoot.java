@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,44 +12,39 @@
 package org.eclipse.rmf.reqif10.xhtml;
 
 import org.eclipse.emf.common.util.EMap;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.util.FeatureMap;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Document Root</b></em>'.
- * <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Document Root</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getDiv <em>Div</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getP <em>P</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getTitle <em>Title</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getMixed <em>Mixed</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getDiv <em>Div</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getP <em>P</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getClass_ <em>Class</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getId <em>Id</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getTitle <em>Title</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.rmf.reqif10.xhtml.XhtmlPackage#getDocumentRoot()
  * @model extendedMetaData="name='' kind='mixed'"
  * @generated
  */
 public interface DocumentRoot extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list. The list contents are of type
+	 * {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Mixed</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Mixed</em>' attribute list isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Mixed</em>' attribute list.
 	 * @see org.eclipse.rmf.reqif10.xhtml.XhtmlPackage#getDocumentRoot_Mixed()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -59,49 +54,49 @@ public interface DocumentRoot extends EObject {
 	FeatureMap getMixed();
 
 	/**
-	 * Returns the value of the '<em><b>XMLNS Prefix Map</b></em>' map.
-	 * The key is of type {@link java.lang.String},
-	 * and the value is of type {@link java.lang.String},
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>XMLNS Prefix Map</b></em>' map. The key is of type {@link java.lang.String}, and
+	 * the value is of type {@link java.lang.String}, <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>XMLNS Prefix Map</em>' map isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>XMLNS Prefix Map</em>' map isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>XMLNS Prefix Map</em>' map.
 	 * @see org.eclipse.rmf.reqif10.xhtml.XhtmlPackage#getDocumentRoot_XMLNSPrefixMap()
-	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>" transient="true"
-	 *        extendedMetaData="kind='attribute' name='xmlns:prefix'"
+	 * @model mapType=
+	 *        "org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
+	 *        transient="true" extendedMetaData="kind='attribute' name='xmlns:prefix'"
 	 * @generated
 	 */
 	EMap<String, String> getXMLNSPrefixMap();
 
 	/**
-	 * Returns the value of the '<em><b>XSI Schema Location</b></em>' map.
-	 * The key is of type {@link java.lang.String},
-	 * and the value is of type {@link java.lang.String},
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>XSI Schema Location</b></em>' map. The key is of type {@link java.lang.String},
+	 * and the value is of type {@link java.lang.String}, <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>XSI Schema Location</em>' map isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>XSI Schema Location</em>' map isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>XSI Schema Location</em>' map.
 	 * @see org.eclipse.rmf.reqif10.xhtml.XhtmlPackage#getDocumentRoot_XSISchemaLocation()
-	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>" transient="true"
-	 *        extendedMetaData="kind='attribute' name='xsi:schemaLocation'"
+	 * @model mapType=
+	 *        "org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
+	 *        transient="true" extendedMetaData="kind='attribute' name='xsi:schemaLocation'"
 	 * @generated
 	 */
 	EMap<String, String> getXSISchemaLocation();
 
 	/**
-	 * Returns the value of the '<em><b>Div</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Div</b></em>' containment reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Div</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Div</em>' containment reference isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Div</em>' containment reference.
 	 * @see #setDiv(XhtmlDivType)
 	 * @see org.eclipse.rmf.reqif10.xhtml.XhtmlPackage#getDocumentRoot_Div()
@@ -112,23 +107,24 @@ public interface DocumentRoot extends EObject {
 	XhtmlDivType getDiv();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getDiv <em>Div</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Div</em>' containment reference.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getDiv <em>Div</em>}' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Div</em>' containment reference.
 	 * @see #getDiv()
 	 * @generated
 	 */
 	void setDiv(XhtmlDivType value);
 
 	/**
-	 * Returns the value of the '<em><b>P</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>P</b></em>' containment reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>P</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>P</em>' containment reference isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>P</em>' containment reference.
 	 * @see #setP(XhtmlPType)
 	 * @see org.eclipse.rmf.reqif10.xhtml.XhtmlPackage#getDocumentRoot_P()
@@ -140,22 +136,23 @@ public interface DocumentRoot extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getP <em>P</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>P</em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>P</em>' containment reference.
 	 * @see #getP()
 	 * @generated
 	 */
 	void setP(XhtmlPType value);
 
 	/**
-	 * Returns the value of the '<em><b>Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Class</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Class</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Class</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Class</em>' attribute.
 	 * @see #setClass(String)
 	 * @see org.eclipse.rmf.reqif10.xhtml.XhtmlPackage#getDocumentRoot_Class()
@@ -167,22 +164,22 @@ public interface DocumentRoot extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getClass_ <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Class</em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Class</em>' attribute.
 	 * @see #getClass_()
 	 * @generated
 	 */
 	void setClass(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.eclipse.rmf.reqif10.xhtml.XhtmlPackage#getDocumentRoot_Id()
@@ -193,23 +190,24 @@ public interface DocumentRoot extends EObject {
 	String getId();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getId <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 * @generated
 	 */
 	void setId(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Title</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Title</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Title</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
 	 * @see org.eclipse.rmf.reqif10.xhtml.XhtmlPackage#getDocumentRoot_Title()
@@ -221,9 +219,10 @@ public interface DocumentRoot extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.rmf.reqif10.xhtml.DocumentRoot#getTitle <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Title</em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Title</em>' attribute.
 	 * @see #getTitle()
 	 * @generated
 	 */

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,43 +15,92 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.rmf.reqif10.xhtml.*;
+import org.eclipse.rmf.reqif10.xhtml.AlignType;
+import org.eclipse.rmf.reqif10.xhtml.DeclareType;
+import org.eclipse.rmf.reqif10.xhtml.DocumentRoot;
+import org.eclipse.rmf.reqif10.xhtml.FrameType;
+import org.eclipse.rmf.reqif10.xhtml.RulesType;
+import org.eclipse.rmf.reqif10.xhtml.ScopeType;
+import org.eclipse.rmf.reqif10.xhtml.ValignType;
+import org.eclipse.rmf.reqif10.xhtml.ValuetypeType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAbbrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAcronymType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlAddressType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlBlockquoteType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlBrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlCaptionType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlCiteType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlCodeType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlColType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlColgroupType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDdType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDfnType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDlType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDtType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlEditType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlEmType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH1Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH2Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH3Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH4Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH5Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlH6Type;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlHeadingType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlHrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlInlPresType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlKbdType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlLiType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlObjectType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlOlType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlParamType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlPreType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlQType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlSampType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlSpanType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlStrongType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTableType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTbodyType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTdType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTfootType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlThType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTheadType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlTrType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlUlType;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlVarType;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Factory</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static XhtmlFactory init() {
 		try {
-			XhtmlFactory theXhtmlFactory = (XhtmlFactory)EPackage.Registry.INSTANCE.getEFactory(XhtmlPackage.eNS_URI);
+			XhtmlFactory theXhtmlFactory = (XhtmlFactory) EPackage.Registry.INSTANCE.getEFactory(XhtmlPackage.eNS_URI);
 			if (theXhtmlFactory != null) {
 				return theXhtmlFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new XhtmlFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlFactoryImpl() {
@@ -59,151 +108,199 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case XhtmlPackage.DOCUMENT_ROOT: return createDocumentRoot();
-			case XhtmlPackage.XHTML_ABBR_TYPE: return createXhtmlAbbrType();
-			case XhtmlPackage.XHTML_ACRONYM_TYPE: return createXhtmlAcronymType();
-			case XhtmlPackage.XHTML_ADDRESS_TYPE: return createXhtmlAddressType();
-			case XhtmlPackage.XHTML_ATYPE: return createXhtmlAType();
-			case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE: return createXhtmlBlockquoteType();
-			case XhtmlPackage.XHTML_BR_TYPE: return createXhtmlBrType();
-			case XhtmlPackage.XHTML_CAPTION_TYPE: return createXhtmlCaptionType();
-			case XhtmlPackage.XHTML_CITE_TYPE: return createXhtmlCiteType();
-			case XhtmlPackage.XHTML_CODE_TYPE: return createXhtmlCodeType();
-			case XhtmlPackage.XHTML_COLGROUP_TYPE: return createXhtmlColgroupType();
-			case XhtmlPackage.XHTML_COL_TYPE: return createXhtmlColType();
-			case XhtmlPackage.XHTML_DD_TYPE: return createXhtmlDdType();
-			case XhtmlPackage.XHTML_DFN_TYPE: return createXhtmlDfnType();
-			case XhtmlPackage.XHTML_DIV_TYPE: return createXhtmlDivType();
-			case XhtmlPackage.XHTML_DL_TYPE: return createXhtmlDlType();
-			case XhtmlPackage.XHTML_DT_TYPE: return createXhtmlDtType();
-			case XhtmlPackage.XHTML_EDIT_TYPE: return createXhtmlEditType();
-			case XhtmlPackage.XHTML_EM_TYPE: return createXhtmlEmType();
-			case XhtmlPackage.XHTML_H1_TYPE: return createXhtmlH1Type();
-			case XhtmlPackage.XHTML_H2_TYPE: return createXhtmlH2Type();
-			case XhtmlPackage.XHTML_H3_TYPE: return createXhtmlH3Type();
-			case XhtmlPackage.XHTML_H4_TYPE: return createXhtmlH4Type();
-			case XhtmlPackage.XHTML_H5_TYPE: return createXhtmlH5Type();
-			case XhtmlPackage.XHTML_H6_TYPE: return createXhtmlH6Type();
-			case XhtmlPackage.XHTML_HEADING_TYPE: return createXhtmlHeadingType();
-			case XhtmlPackage.XHTML_HR_TYPE: return createXhtmlHrType();
-			case XhtmlPackage.XHTML_INL_PRES_TYPE: return createXhtmlInlPresType();
-			case XhtmlPackage.XHTML_KBD_TYPE: return createXhtmlKbdType();
-			case XhtmlPackage.XHTML_LI_TYPE: return createXhtmlLiType();
-			case XhtmlPackage.XHTML_OBJECT_TYPE: return createXhtmlObjectType();
-			case XhtmlPackage.XHTML_OL_TYPE: return createXhtmlOlType();
-			case XhtmlPackage.XHTML_PARAM_TYPE: return createXhtmlParamType();
-			case XhtmlPackage.XHTML_PRE_TYPE: return createXhtmlPreType();
-			case XhtmlPackage.XHTML_PTYPE: return createXhtmlPType();
-			case XhtmlPackage.XHTML_QTYPE: return createXhtmlQType();
-			case XhtmlPackage.XHTML_SAMP_TYPE: return createXhtmlSampType();
-			case XhtmlPackage.XHTML_SPAN_TYPE: return createXhtmlSpanType();
-			case XhtmlPackage.XHTML_STRONG_TYPE: return createXhtmlStrongType();
-			case XhtmlPackage.XHTML_TABLE_TYPE: return createXhtmlTableType();
-			case XhtmlPackage.XHTML_TBODY_TYPE: return createXhtmlTbodyType();
-			case XhtmlPackage.XHTML_TD_TYPE: return createXhtmlTdType();
-			case XhtmlPackage.XHTML_TFOOT_TYPE: return createXhtmlTfootType();
-			case XhtmlPackage.XHTML_THEAD_TYPE: return createXhtmlTheadType();
-			case XhtmlPackage.XHTML_TH_TYPE: return createXhtmlThType();
-			case XhtmlPackage.XHTML_TR_TYPE: return createXhtmlTrType();
-			case XhtmlPackage.XHTML_UL_TYPE: return createXhtmlUlType();
-			case XhtmlPackage.XHTML_VAR_TYPE: return createXhtmlVarType();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case XhtmlPackage.DOCUMENT_ROOT:
+			return createDocumentRoot();
+		case XhtmlPackage.XHTML_ABBR_TYPE:
+			return createXhtmlAbbrType();
+		case XhtmlPackage.XHTML_ACRONYM_TYPE:
+			return createXhtmlAcronymType();
+		case XhtmlPackage.XHTML_ADDRESS_TYPE:
+			return createXhtmlAddressType();
+		case XhtmlPackage.XHTML_ATYPE:
+			return createXhtmlAType();
+		case XhtmlPackage.XHTML_BLOCKQUOTE_TYPE:
+			return createXhtmlBlockquoteType();
+		case XhtmlPackage.XHTML_BR_TYPE:
+			return createXhtmlBrType();
+		case XhtmlPackage.XHTML_CAPTION_TYPE:
+			return createXhtmlCaptionType();
+		case XhtmlPackage.XHTML_CITE_TYPE:
+			return createXhtmlCiteType();
+		case XhtmlPackage.XHTML_CODE_TYPE:
+			return createXhtmlCodeType();
+		case XhtmlPackage.XHTML_COLGROUP_TYPE:
+			return createXhtmlColgroupType();
+		case XhtmlPackage.XHTML_COL_TYPE:
+			return createXhtmlColType();
+		case XhtmlPackage.XHTML_DD_TYPE:
+			return createXhtmlDdType();
+		case XhtmlPackage.XHTML_DFN_TYPE:
+			return createXhtmlDfnType();
+		case XhtmlPackage.XHTML_DIV_TYPE:
+			return createXhtmlDivType();
+		case XhtmlPackage.XHTML_DL_TYPE:
+			return createXhtmlDlType();
+		case XhtmlPackage.XHTML_DT_TYPE:
+			return createXhtmlDtType();
+		case XhtmlPackage.XHTML_EDIT_TYPE:
+			return createXhtmlEditType();
+		case XhtmlPackage.XHTML_EM_TYPE:
+			return createXhtmlEmType();
+		case XhtmlPackage.XHTML_H1_TYPE:
+			return createXhtmlH1Type();
+		case XhtmlPackage.XHTML_H2_TYPE:
+			return createXhtmlH2Type();
+		case XhtmlPackage.XHTML_H3_TYPE:
+			return createXhtmlH3Type();
+		case XhtmlPackage.XHTML_H4_TYPE:
+			return createXhtmlH4Type();
+		case XhtmlPackage.XHTML_H5_TYPE:
+			return createXhtmlH5Type();
+		case XhtmlPackage.XHTML_H6_TYPE:
+			return createXhtmlH6Type();
+		case XhtmlPackage.XHTML_HEADING_TYPE:
+			return createXhtmlHeadingType();
+		case XhtmlPackage.XHTML_HR_TYPE:
+			return createXhtmlHrType();
+		case XhtmlPackage.XHTML_INL_PRES_TYPE:
+			return createXhtmlInlPresType();
+		case XhtmlPackage.XHTML_KBD_TYPE:
+			return createXhtmlKbdType();
+		case XhtmlPackage.XHTML_LI_TYPE:
+			return createXhtmlLiType();
+		case XhtmlPackage.XHTML_OBJECT_TYPE:
+			return createXhtmlObjectType();
+		case XhtmlPackage.XHTML_OL_TYPE:
+			return createXhtmlOlType();
+		case XhtmlPackage.XHTML_PARAM_TYPE:
+			return createXhtmlParamType();
+		case XhtmlPackage.XHTML_PRE_TYPE:
+			return createXhtmlPreType();
+		case XhtmlPackage.XHTML_PTYPE:
+			return createXhtmlPType();
+		case XhtmlPackage.XHTML_QTYPE:
+			return createXhtmlQType();
+		case XhtmlPackage.XHTML_SAMP_TYPE:
+			return createXhtmlSampType();
+		case XhtmlPackage.XHTML_SPAN_TYPE:
+			return createXhtmlSpanType();
+		case XhtmlPackage.XHTML_STRONG_TYPE:
+			return createXhtmlStrongType();
+		case XhtmlPackage.XHTML_TABLE_TYPE:
+			return createXhtmlTableType();
+		case XhtmlPackage.XHTML_TBODY_TYPE:
+			return createXhtmlTbodyType();
+		case XhtmlPackage.XHTML_TD_TYPE:
+			return createXhtmlTdType();
+		case XhtmlPackage.XHTML_TFOOT_TYPE:
+			return createXhtmlTfootType();
+		case XhtmlPackage.XHTML_THEAD_TYPE:
+			return createXhtmlTheadType();
+		case XhtmlPackage.XHTML_TH_TYPE:
+			return createXhtmlThType();
+		case XhtmlPackage.XHTML_TR_TYPE:
+			return createXhtmlTrType();
+		case XhtmlPackage.XHTML_UL_TYPE:
+			return createXhtmlUlType();
+		case XhtmlPackage.XHTML_VAR_TYPE:
+			return createXhtmlVarType();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case XhtmlPackage.ALIGN_TYPE:
-				return createAlignTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.DECLARE_TYPE:
-				return createDeclareTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.FRAME_TYPE:
-				return createFrameTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.RULES_TYPE:
-				return createRulesTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.SCOPE_TYPE:
-				return createScopeTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.VALIGN_TYPE:
-				return createValignTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.VALUETYPE_TYPE:
-				return createValuetypeTypeFromString(eDataType, initialValue);
-			case XhtmlPackage.ALIGN_TYPE_OBJECT:
-				return createAlignTypeObjectFromString(eDataType, initialValue);
-			case XhtmlPackage.DECLARE_TYPE_OBJECT:
-				return createDeclareTypeObjectFromString(eDataType, initialValue);
-			case XhtmlPackage.FRAME_TYPE_OBJECT:
-				return createFrameTypeObjectFromString(eDataType, initialValue);
-			case XhtmlPackage.RULES_TYPE_OBJECT:
-				return createRulesTypeObjectFromString(eDataType, initialValue);
-			case XhtmlPackage.SCOPE_TYPE_OBJECT:
-				return createScopeTypeObjectFromString(eDataType, initialValue);
-			case XhtmlPackage.VALIGN_TYPE_OBJECT:
-				return createValignTypeObjectFromString(eDataType, initialValue);
-			case XhtmlPackage.VALUETYPE_TYPE_OBJECT:
-				return createValuetypeTypeObjectFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		case XhtmlPackage.ALIGN_TYPE:
+			return createAlignTypeFromString(eDataType, initialValue);
+		case XhtmlPackage.DECLARE_TYPE:
+			return createDeclareTypeFromString(eDataType, initialValue);
+		case XhtmlPackage.FRAME_TYPE:
+			return createFrameTypeFromString(eDataType, initialValue);
+		case XhtmlPackage.RULES_TYPE:
+			return createRulesTypeFromString(eDataType, initialValue);
+		case XhtmlPackage.SCOPE_TYPE:
+			return createScopeTypeFromString(eDataType, initialValue);
+		case XhtmlPackage.VALIGN_TYPE:
+			return createValignTypeFromString(eDataType, initialValue);
+		case XhtmlPackage.VALUETYPE_TYPE:
+			return createValuetypeTypeFromString(eDataType, initialValue);
+		case XhtmlPackage.ALIGN_TYPE_OBJECT:
+			return createAlignTypeObjectFromString(eDataType, initialValue);
+		case XhtmlPackage.DECLARE_TYPE_OBJECT:
+			return createDeclareTypeObjectFromString(eDataType, initialValue);
+		case XhtmlPackage.FRAME_TYPE_OBJECT:
+			return createFrameTypeObjectFromString(eDataType, initialValue);
+		case XhtmlPackage.RULES_TYPE_OBJECT:
+			return createRulesTypeObjectFromString(eDataType, initialValue);
+		case XhtmlPackage.SCOPE_TYPE_OBJECT:
+			return createScopeTypeObjectFromString(eDataType, initialValue);
+		case XhtmlPackage.VALIGN_TYPE_OBJECT:
+			return createValignTypeObjectFromString(eDataType, initialValue);
+		case XhtmlPackage.VALUETYPE_TYPE_OBJECT:
+			return createValuetypeTypeObjectFromString(eDataType, initialValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case XhtmlPackage.ALIGN_TYPE:
-				return convertAlignTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.DECLARE_TYPE:
-				return convertDeclareTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.FRAME_TYPE:
-				return convertFrameTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.RULES_TYPE:
-				return convertRulesTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.SCOPE_TYPE:
-				return convertScopeTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.VALIGN_TYPE:
-				return convertValignTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.VALUETYPE_TYPE:
-				return convertValuetypeTypeToString(eDataType, instanceValue);
-			case XhtmlPackage.ALIGN_TYPE_OBJECT:
-				return convertAlignTypeObjectToString(eDataType, instanceValue);
-			case XhtmlPackage.DECLARE_TYPE_OBJECT:
-				return convertDeclareTypeObjectToString(eDataType, instanceValue);
-			case XhtmlPackage.FRAME_TYPE_OBJECT:
-				return convertFrameTypeObjectToString(eDataType, instanceValue);
-			case XhtmlPackage.RULES_TYPE_OBJECT:
-				return convertRulesTypeObjectToString(eDataType, instanceValue);
-			case XhtmlPackage.SCOPE_TYPE_OBJECT:
-				return convertScopeTypeObjectToString(eDataType, instanceValue);
-			case XhtmlPackage.VALIGN_TYPE_OBJECT:
-				return convertValignTypeObjectToString(eDataType, instanceValue);
-			case XhtmlPackage.VALUETYPE_TYPE_OBJECT:
-				return convertValuetypeTypeObjectToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		case XhtmlPackage.ALIGN_TYPE:
+			return convertAlignTypeToString(eDataType, instanceValue);
+		case XhtmlPackage.DECLARE_TYPE:
+			return convertDeclareTypeToString(eDataType, instanceValue);
+		case XhtmlPackage.FRAME_TYPE:
+			return convertFrameTypeToString(eDataType, instanceValue);
+		case XhtmlPackage.RULES_TYPE:
+			return convertRulesTypeToString(eDataType, instanceValue);
+		case XhtmlPackage.SCOPE_TYPE:
+			return convertScopeTypeToString(eDataType, instanceValue);
+		case XhtmlPackage.VALIGN_TYPE:
+			return convertValignTypeToString(eDataType, instanceValue);
+		case XhtmlPackage.VALUETYPE_TYPE:
+			return convertValuetypeTypeToString(eDataType, instanceValue);
+		case XhtmlPackage.ALIGN_TYPE_OBJECT:
+			return convertAlignTypeObjectToString(eDataType, instanceValue);
+		case XhtmlPackage.DECLARE_TYPE_OBJECT:
+			return convertDeclareTypeObjectToString(eDataType, instanceValue);
+		case XhtmlPackage.FRAME_TYPE_OBJECT:
+			return convertFrameTypeObjectToString(eDataType, instanceValue);
+		case XhtmlPackage.RULES_TYPE_OBJECT:
+			return convertRulesTypeObjectToString(eDataType, instanceValue);
+		case XhtmlPackage.SCOPE_TYPE_OBJECT:
+			return convertScopeTypeObjectToString(eDataType, instanceValue);
+		case XhtmlPackage.VALIGN_TYPE_OBJECT:
+			return convertValignTypeObjectToString(eDataType, instanceValue);
+		case XhtmlPackage.VALUETYPE_TYPE_OBJECT:
+			return convertValuetypeTypeObjectToString(eDataType, instanceValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DocumentRoot createDocumentRoot() {
@@ -212,8 +309,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlAbbrType createXhtmlAbbrType() {
@@ -222,8 +319,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlAcronymType createXhtmlAcronymType() {
@@ -232,8 +329,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlAddressType createXhtmlAddressType() {
@@ -242,8 +339,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlAType createXhtmlAType() {
@@ -252,8 +349,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlBlockquoteType createXhtmlBlockquoteType() {
@@ -262,8 +359,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlBrType createXhtmlBrType() {
@@ -272,8 +369,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlCaptionType createXhtmlCaptionType() {
@@ -282,8 +379,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlCiteType createXhtmlCiteType() {
@@ -292,8 +389,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlCodeType createXhtmlCodeType() {
@@ -302,8 +399,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlColgroupType createXhtmlColgroupType() {
@@ -312,8 +409,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlColType createXhtmlColType() {
@@ -322,8 +419,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlDdType createXhtmlDdType() {
@@ -332,8 +429,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlDfnType createXhtmlDfnType() {
@@ -342,8 +439,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlDivType createXhtmlDivType() {
@@ -352,8 +449,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlDlType createXhtmlDlType() {
@@ -362,8 +459,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlDtType createXhtmlDtType() {
@@ -372,8 +469,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlEditType createXhtmlEditType() {
@@ -382,8 +479,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlEmType createXhtmlEmType() {
@@ -392,8 +489,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlH1Type createXhtmlH1Type() {
@@ -402,8 +499,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlH2Type createXhtmlH2Type() {
@@ -412,8 +509,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlH3Type createXhtmlH3Type() {
@@ -422,8 +519,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlH4Type createXhtmlH4Type() {
@@ -432,8 +529,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlH5Type createXhtmlH5Type() {
@@ -442,8 +539,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlH6Type createXhtmlH6Type() {
@@ -452,8 +549,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlHeadingType createXhtmlHeadingType() {
@@ -462,8 +559,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlHrType createXhtmlHrType() {
@@ -472,8 +569,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlInlPresType createXhtmlInlPresType() {
@@ -482,8 +579,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlKbdType createXhtmlKbdType() {
@@ -492,8 +589,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlLiType createXhtmlLiType() {
@@ -502,8 +599,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlObjectType createXhtmlObjectType() {
@@ -512,8 +609,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlOlType createXhtmlOlType() {
@@ -522,8 +619,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlParamType createXhtmlParamType() {
@@ -532,8 +629,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlPreType createXhtmlPreType() {
@@ -542,8 +639,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlPType createXhtmlPType() {
@@ -552,8 +649,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlQType createXhtmlQType() {
@@ -562,8 +659,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlSampType createXhtmlSampType() {
@@ -572,8 +669,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlSpanType createXhtmlSpanType() {
@@ -582,8 +679,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlStrongType createXhtmlStrongType() {
@@ -592,8 +689,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlTableType createXhtmlTableType() {
@@ -602,8 +699,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlTbodyType createXhtmlTbodyType() {
@@ -612,8 +709,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlTdType createXhtmlTdType() {
@@ -622,8 +719,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlTfootType createXhtmlTfootType() {
@@ -632,8 +729,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlTheadType createXhtmlTheadType() {
@@ -642,8 +739,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlThType createXhtmlThType() {
@@ -652,8 +749,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlTrType createXhtmlTrType() {
@@ -662,8 +759,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlUlType createXhtmlUlType() {
@@ -672,8 +769,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlVarType createXhtmlVarType() {
@@ -682,19 +779,20 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AlignType createAlignTypeFromString(EDataType eDataType, String initialValue) {
 		AlignType result = AlignType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertAlignTypeToString(EDataType eDataType, Object instanceValue) {
@@ -702,19 +800,20 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DeclareType createDeclareTypeFromString(EDataType eDataType, String initialValue) {
 		DeclareType result = DeclareType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertDeclareTypeToString(EDataType eDataType, Object instanceValue) {
@@ -722,19 +821,20 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public FrameType createFrameTypeFromString(EDataType eDataType, String initialValue) {
 		FrameType result = FrameType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertFrameTypeToString(EDataType eDataType, Object instanceValue) {
@@ -742,19 +842,20 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public RulesType createRulesTypeFromString(EDataType eDataType, String initialValue) {
 		RulesType result = RulesType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertRulesTypeToString(EDataType eDataType, Object instanceValue) {
@@ -762,19 +863,20 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ScopeType createScopeTypeFromString(EDataType eDataType, String initialValue) {
 		ScopeType result = ScopeType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertScopeTypeToString(EDataType eDataType, Object instanceValue) {
@@ -782,19 +884,20 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ValignType createValignTypeFromString(EDataType eDataType, String initialValue) {
 		ValignType result = ValignType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertValignTypeToString(EDataType eDataType, Object instanceValue) {
@@ -802,19 +905,20 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ValuetypeType createValuetypeTypeFromString(EDataType eDataType, String initialValue) {
 		ValuetypeType result = ValuetypeType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertValuetypeTypeToString(EDataType eDataType, Object instanceValue) {
@@ -822,8 +926,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AlignType createAlignTypeObjectFromString(EDataType eDataType, String initialValue) {
@@ -831,8 +935,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertAlignTypeObjectToString(EDataType eDataType, Object instanceValue) {
@@ -840,8 +944,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DeclareType createDeclareTypeObjectFromString(EDataType eDataType, String initialValue) {
@@ -849,8 +953,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertDeclareTypeObjectToString(EDataType eDataType, Object instanceValue) {
@@ -858,8 +962,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public FrameType createFrameTypeObjectFromString(EDataType eDataType, String initialValue) {
@@ -867,8 +971,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertFrameTypeObjectToString(EDataType eDataType, Object instanceValue) {
@@ -876,8 +980,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public RulesType createRulesTypeObjectFromString(EDataType eDataType, String initialValue) {
@@ -885,8 +989,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertRulesTypeObjectToString(EDataType eDataType, Object instanceValue) {
@@ -894,8 +998,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ScopeType createScopeTypeObjectFromString(EDataType eDataType, String initialValue) {
@@ -903,8 +1007,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertScopeTypeObjectToString(EDataType eDataType, Object instanceValue) {
@@ -912,8 +1016,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ValignType createValignTypeObjectFromString(EDataType eDataType, String initialValue) {
@@ -921,8 +1025,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertValignTypeObjectToString(EDataType eDataType, Object instanceValue) {
@@ -930,8 +1034,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ValuetypeType createValuetypeTypeObjectFromString(EDataType eDataType, String initialValue) {
@@ -939,8 +1043,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertValuetypeTypeObjectToString(EDataType eDataType, Object instanceValue) {
@@ -948,17 +1052,17 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XhtmlPackage getXhtmlPackage() {
-		return (XhtmlPackage)getEPackage();
+		return (XhtmlPackage) getEPackage();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -967,4 +1071,4 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 		return XhtmlPackage.eINSTANCE;
 	}
 
-} //XhtmlFactoryImpl
+} // XhtmlFactoryImpl

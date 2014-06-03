@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 Formal Mind GmbH and University of Dusseldorf.
+ * Copyright (c) 2012, 2014 Formal Mind GmbH and University of Dusseldorf.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -18,6 +18,7 @@ import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.eclipse.rmf.reqif10.pror.util.PresentationEditInterface;
+import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
 /**
  * Interface that subclasses of the abstract
@@ -41,7 +42,12 @@ public interface PresentationEditorInterface {
 	/**
 	 * Returns the {@link CellEditor} appropriate for the
 	 * {@link DatatypeDefinition} associated with this configuration. May return
-	 * null (then the default editor is used).
+	 * null (then the default editor is used).<p>
+	 * 
+	 * The cell editor must use EMF commands to set the new value.  That's the reason why the other
+	 * parameters are provided.  Briefly, the easiest is to do the setting via 
+	 * {@link ProrUtil#setTheValue(AttributeValue, Object, Object, Object, EditingDomain)}, which
+	 * allows you to just and the parameters through.<p>
 	 */
 	CellEditor getCellEditor(AgileGrid agileGrid, EditingDomain editingDomain,
 			AttributeValue av, SpecElementWithAttributes parent,
@@ -59,7 +65,8 @@ public interface PresentationEditorInterface {
 	 * has no rich text capabilities.
 	 * <p>
 	 * 
-	 * Note that the user cannot configure a default!
+	 * Note that the user cannot configure a default! Also, for defaults, the
+	 * getLabel() method will not be used either.
 	 * <p>
 	 */
 	Class<? extends DatatypeDefinition> suggestAsDefault();

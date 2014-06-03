@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,48 +14,45 @@ package org.eclipse.rmf.reqif10;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Spec Element With Attributes</b></em>'.
- * <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Spec Element With Attributes</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.SpecElementWithAttributes#getValues <em>Values</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.SpecElementWithAttributes#getValues <em>Values</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecElementWithAttributes()
- * @model abstract="true"
- *        extendedMetaData="name='SPEC-ELEMENT-WITH-ATTRIBUTES' kind='elementOnly'"
- *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-ELEMENT-WITH-ATTRIBUTES'"
+ * @model abstract="true" extendedMetaData="name='SPEC-ELEMENT-WITH-ATTRIBUTES' kind='elementOnly'" annotation=
+ *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='SPEC-ELEMENT-WITH-ATTRIBUTES'"
  * @generated
  */
 public interface SpecElementWithAttributes extends Identifiable {
 	/**
-	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.rmf.reqif10.AttributeValue}.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Values</b></em>' containment reference list. The list contents are of type
+	 * {@link org.eclipse.rmf.reqif10.AttributeValue}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Values</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Values</em>' containment reference list isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Values</em>' containment reference list.
 	 * @see #isSetValues()
 	 * @see #unsetValues()
 	 * @see org.eclipse.rmf.reqif10.ReqIF10Package#getSpecElementWithAttributes_Values()
 	 * @model containment="true" unsettable="true" ordered="false"
-	 *        extendedMetaData="name='VALUES' kind='element' namespace='##targetNamespace'"
-	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='VALUES' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
+	 *        extendedMetaData="name='VALUES' kind='element' namespace='##targetNamespace'" annotation=
+	 *        "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='VALUES' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
 	 */
 	EList<AttributeValue> getValues();
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.SpecElementWithAttributes#getValues <em>Values</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link org.eclipse.rmf.reqif10.SpecElementWithAttributes#getValues <em>Values</em>}'
+	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetValues()
 	 * @see #getValues()
 	 * @generated
@@ -63,9 +60,9 @@ public interface SpecElementWithAttributes extends Identifiable {
 	void unsetValues();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.SpecElementWithAttributes#getValues <em>Values</em>}' containment reference list is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '{@link org.eclipse.rmf.reqif10.SpecElementWithAttributes#getValues
+	 * <em>Values</em>}' containment reference list is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Values</em>' containment reference list is set.
 	 * @see #unsetValues()
 	 * @see #getValues()

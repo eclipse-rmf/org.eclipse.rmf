@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,38 +12,32 @@
 package org.eclipse.rmf.reqif10.xhtml.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.xml.namespace.SpaceType;
-
 import org.eclipse.rmf.reqif10.xhtml.XhtmlBrType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Br Type</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Br Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlBrTypeImpl#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlBrTypeImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlBrTypeImpl#getSpace <em>Space</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlBrTypeImpl#getTitle <em>Title</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlBrTypeImpl#getClass_ <em>Class</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlBrTypeImpl#getId <em>Id</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlBrTypeImpl#getSpace <em>Space</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlBrTypeImpl#getTitle <em>Title</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
-public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
+public class XhtmlBrTypeImpl extends MinimalEObjectImpl implements XhtmlBrType {
 	/**
-	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getClass_()
 	 * @generated
 	 * @ordered
@@ -51,9 +45,9 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	protected static final String CLASS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getClass_()
 	 * @generated
 	 * @ordered
@@ -61,9 +55,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	protected String class_ = CLASS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -71,9 +64,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -81,9 +73,9 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSpace() <em>Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getSpace() <em>Space</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getSpace()
 	 * @generated
 	 * @ordered
@@ -91,9 +83,9 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	protected static final SpaceType SPACE_EDEFAULT = SpaceType.PRESERVE_LITERAL;
 
 	/**
-	 * The cached value of the '{@link #getSpace() <em>Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getSpace() <em>Space</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getSpace()
 	 * @generated
 	 * @ordered
@@ -101,18 +93,17 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	protected SpaceType space = SPACE_EDEFAULT;
 
 	/**
-	 * This is true if the Space attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Space attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean spaceESet;
 
 	/**
-	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -120,9 +111,9 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	protected static final String TITLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getTitle()
 	 * @generated
 	 * @ordered
@@ -130,8 +121,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	protected String title = TITLE_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected XhtmlBrTypeImpl() {
@@ -139,8 +130,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -149,8 +140,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getClass_() {
@@ -158,8 +149,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setClass(String newClass) {
@@ -170,8 +161,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getId() {
@@ -179,8 +170,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setId(String newId) {
@@ -191,8 +182,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpaceType getSpace() {
@@ -200,8 +191,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSpace(SpaceType newSpace) {
@@ -214,8 +205,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetSpace() {
@@ -228,8 +219,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetSpace() {
@@ -237,8 +228,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getTitle() {
@@ -246,8 +237,8 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTitle(String newTitle) {
@@ -258,113 +249,117 @@ public class XhtmlBrTypeImpl extends EObjectImpl implements XhtmlBrType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_BR_TYPE__CLASS:
-				return getClass_();
-			case XhtmlPackage.XHTML_BR_TYPE__ID:
-				return getId();
-			case XhtmlPackage.XHTML_BR_TYPE__SPACE:
-				return getSpace();
-			case XhtmlPackage.XHTML_BR_TYPE__TITLE:
-				return getTitle();
+		case XhtmlPackage.XHTML_BR_TYPE__CLASS:
+			return getClass_();
+		case XhtmlPackage.XHTML_BR_TYPE__ID:
+			return getId();
+		case XhtmlPackage.XHTML_BR_TYPE__SPACE:
+			return getSpace();
+		case XhtmlPackage.XHTML_BR_TYPE__TITLE:
+			return getTitle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_BR_TYPE__CLASS:
-				setClass((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_BR_TYPE__ID:
-				setId((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_BR_TYPE__SPACE:
-				setSpace((SpaceType)newValue);
-				return;
-			case XhtmlPackage.XHTML_BR_TYPE__TITLE:
-				setTitle((String)newValue);
-				return;
+		case XhtmlPackage.XHTML_BR_TYPE__CLASS:
+			setClass((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_BR_TYPE__ID:
+			setId((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_BR_TYPE__SPACE:
+			setSpace((SpaceType) newValue);
+			return;
+		case XhtmlPackage.XHTML_BR_TYPE__TITLE:
+			setTitle((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_BR_TYPE__CLASS:
-				setClass(CLASS_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_BR_TYPE__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_BR_TYPE__SPACE:
-				unsetSpace();
-				return;
-			case XhtmlPackage.XHTML_BR_TYPE__TITLE:
-				setTitle(TITLE_EDEFAULT);
-				return;
+		case XhtmlPackage.XHTML_BR_TYPE__CLASS:
+			setClass(CLASS_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_BR_TYPE__ID:
+			setId(ID_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_BR_TYPE__SPACE:
+			unsetSpace();
+			return;
+		case XhtmlPackage.XHTML_BR_TYPE__TITLE:
+			setTitle(TITLE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_BR_TYPE__CLASS:
-				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
-			case XhtmlPackage.XHTML_BR_TYPE__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case XhtmlPackage.XHTML_BR_TYPE__SPACE:
-				return isSetSpace();
-			case XhtmlPackage.XHTML_BR_TYPE__TITLE:
-				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+		case XhtmlPackage.XHTML_BR_TYPE__CLASS:
+			return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
+		case XhtmlPackage.XHTML_BR_TYPE__ID:
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+		case XhtmlPackage.XHTML_BR_TYPE__SPACE:
+			return isSetSpace();
+		case XhtmlPackage.XHTML_BR_TYPE__TITLE:
+			return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (class: ");
+		result.append(" (class: "); //$NON-NLS-1$
 		result.append(class_);
-		result.append(", id: ");
+		result.append(", id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", space: ");
-		if (spaceESet) result.append(space); else result.append("<unset>");
-		result.append(", title: ");
+		result.append(", space: "); //$NON-NLS-1$
+		if (spaceESet)
+			result.append(space);
+		else
+			result.append("<unset>"); //$NON-NLS-1$
+		result.append(", title: "); //$NON-NLS-1$
 		result.append(title);
 		result.append(')');
 		return result.toString();
 	}
 
-} //XhtmlBrTypeImpl
+} // XhtmlBrTypeImpl

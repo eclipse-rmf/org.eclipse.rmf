@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,38 +12,32 @@
 package org.eclipse.rmf.reqif10.xhtml.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.rmf.reqif10.xhtml.ValuetypeType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlParamType;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Param Type</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Param Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlParamTypeImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlParamTypeImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlParamTypeImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlParamTypeImpl#getValue <em>Value</em>}</li>
- *   <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlParamTypeImpl#getValuetype <em>Valuetype</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlParamTypeImpl#getId <em>Id</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlParamTypeImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlParamTypeImpl#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlParamTypeImpl#getValue <em>Value</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.xhtml.impl.XhtmlParamTypeImpl#getValuetype <em>Valuetype</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
-public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
+public class XhtmlParamTypeImpl extends MinimalEObjectImpl implements XhtmlParamType {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -51,9 +45,8 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -61,9 +54,9 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -71,9 +64,9 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -81,9 +74,9 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -91,9 +84,9 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	protected static final String TYPE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -101,9 +94,9 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	protected String type = TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -111,9 +104,9 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	protected static final String VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -121,9 +114,9 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	protected String value = VALUE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getValuetype() <em>Valuetype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getValuetype() <em>Valuetype</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getValuetype()
 	 * @generated
 	 * @ordered
@@ -131,9 +124,9 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	protected static final ValuetypeType VALUETYPE_EDEFAULT = ValuetypeType.DATA;
 
 	/**
-	 * The cached value of the '{@link #getValuetype() <em>Valuetype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getValuetype() <em>Valuetype</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getValuetype()
 	 * @generated
 	 * @ordered
@@ -141,17 +134,16 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	protected ValuetypeType valuetype = VALUETYPE_EDEFAULT;
 
 	/**
-	 * This is true if the Valuetype attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Valuetype attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean valuetypeESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected XhtmlParamTypeImpl() {
@@ -159,8 +151,8 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -169,8 +161,8 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getId() {
@@ -178,8 +170,8 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setId(String newId) {
@@ -190,8 +182,8 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -199,8 +191,8 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -211,8 +203,8 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getType() {
@@ -220,8 +212,8 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setType(String newType) {
@@ -232,8 +224,8 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getValue() {
@@ -241,8 +233,8 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setValue(String newValue) {
@@ -253,8 +245,8 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ValuetypeType getValuetype() {
@@ -262,8 +254,8 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setValuetype(ValuetypeType newValuetype) {
@@ -272,12 +264,13 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 		boolean oldValuetypeESet = valuetypeESet;
 		valuetypeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_PARAM_TYPE__VALUETYPE, oldValuetype, valuetype, !oldValuetypeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, XhtmlPackage.XHTML_PARAM_TYPE__VALUETYPE, oldValuetype, valuetype,
+					!oldValuetypeESet));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetValuetype() {
@@ -286,12 +279,13 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 		valuetype = VALUETYPE_EDEFAULT;
 		valuetypeESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, XhtmlPackage.XHTML_PARAM_TYPE__VALUETYPE, oldValuetype, VALUETYPE_EDEFAULT, oldValuetypeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, XhtmlPackage.XHTML_PARAM_TYPE__VALUETYPE, oldValuetype, VALUETYPE_EDEFAULT,
+					oldValuetypeESet));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetValuetype() {
@@ -299,125 +293,129 @@ public class XhtmlParamTypeImpl extends EObjectImpl implements XhtmlParamType {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_PARAM_TYPE__ID:
-				return getId();
-			case XhtmlPackage.XHTML_PARAM_TYPE__NAME:
-				return getName();
-			case XhtmlPackage.XHTML_PARAM_TYPE__TYPE:
-				return getType();
-			case XhtmlPackage.XHTML_PARAM_TYPE__VALUE:
-				return getValue();
-			case XhtmlPackage.XHTML_PARAM_TYPE__VALUETYPE:
-				return getValuetype();
+		case XhtmlPackage.XHTML_PARAM_TYPE__ID:
+			return getId();
+		case XhtmlPackage.XHTML_PARAM_TYPE__NAME:
+			return getName();
+		case XhtmlPackage.XHTML_PARAM_TYPE__TYPE:
+			return getType();
+		case XhtmlPackage.XHTML_PARAM_TYPE__VALUE:
+			return getValue();
+		case XhtmlPackage.XHTML_PARAM_TYPE__VALUETYPE:
+			return getValuetype();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_PARAM_TYPE__ID:
-				setId((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_PARAM_TYPE__NAME:
-				setName((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_PARAM_TYPE__TYPE:
-				setType((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_PARAM_TYPE__VALUE:
-				setValue((String)newValue);
-				return;
-			case XhtmlPackage.XHTML_PARAM_TYPE__VALUETYPE:
-				setValuetype((ValuetypeType)newValue);
-				return;
+		case XhtmlPackage.XHTML_PARAM_TYPE__ID:
+			setId((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_PARAM_TYPE__NAME:
+			setName((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_PARAM_TYPE__TYPE:
+			setType((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_PARAM_TYPE__VALUE:
+			setValue((String) newValue);
+			return;
+		case XhtmlPackage.XHTML_PARAM_TYPE__VALUETYPE:
+			setValuetype((ValuetypeType) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_PARAM_TYPE__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_PARAM_TYPE__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_PARAM_TYPE__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_PARAM_TYPE__VALUE:
-				setValue(VALUE_EDEFAULT);
-				return;
-			case XhtmlPackage.XHTML_PARAM_TYPE__VALUETYPE:
-				unsetValuetype();
-				return;
+		case XhtmlPackage.XHTML_PARAM_TYPE__ID:
+			setId(ID_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_PARAM_TYPE__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_PARAM_TYPE__TYPE:
+			setType(TYPE_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_PARAM_TYPE__VALUE:
+			setValue(VALUE_EDEFAULT);
+			return;
+		case XhtmlPackage.XHTML_PARAM_TYPE__VALUETYPE:
+			unsetValuetype();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XhtmlPackage.XHTML_PARAM_TYPE__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case XhtmlPackage.XHTML_PARAM_TYPE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case XhtmlPackage.XHTML_PARAM_TYPE__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-			case XhtmlPackage.XHTML_PARAM_TYPE__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-			case XhtmlPackage.XHTML_PARAM_TYPE__VALUETYPE:
-				return isSetValuetype();
+		case XhtmlPackage.XHTML_PARAM_TYPE__ID:
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+		case XhtmlPackage.XHTML_PARAM_TYPE__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case XhtmlPackage.XHTML_PARAM_TYPE__TYPE:
+			return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+		case XhtmlPackage.XHTML_PARAM_TYPE__VALUE:
+			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+		case XhtmlPackage.XHTML_PARAM_TYPE__VALUETYPE:
+			return isSetValuetype();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
+		result.append(" (id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", name: ");
+		result.append(", name: "); //$NON-NLS-1$
 		result.append(name);
-		result.append(", type: ");
+		result.append(", type: "); //$NON-NLS-1$
 		result.append(type);
-		result.append(", value: ");
+		result.append(", value: "); //$NON-NLS-1$
 		result.append(value);
-		result.append(", valuetype: ");
-		if (valuetypeESet) result.append(valuetype); else result.append("<unset>");
+		result.append(", valuetype: "); //$NON-NLS-1$
+		if (valuetypeESet)
+			result.append(valuetype);
+		else
+			result.append("<unset>"); //$NON-NLS-1$
 		result.append(')');
 		return result.toString();
 	}
 
-} //XhtmlParamTypeImpl
+} // XhtmlParamTypeImpl

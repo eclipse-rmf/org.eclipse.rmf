@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,7 +10,6 @@
  * 
  */
 package org.eclipse.rmf.reqif10.provider;
-
 
 import java.util.Collection;
 import java.util.List;
@@ -35,23 +34,16 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.ReqIFHeader} object.
- * <!-- begin-user-doc -->
+ * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.ReqIFHeader} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
-public class ReqIFHeaderItemProvider
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class ReqIFHeaderItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ReqIFHeaderItemProvider(AdapterFactory adapterFactory) {
@@ -59,9 +51,8 @@ public class ReqIFHeaderItemProvider
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -82,211 +73,128 @@ public class ReqIFHeaderItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Comment feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Comment feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addCommentPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ReqIFHeader_comment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_comment_feature", "_UI_ReqIFHeader_type"),
-				 ReqIF10Package.Literals.REQ_IF_HEADER__COMMENT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_ReqIFHeader_comment_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_comment_feature", "_UI_ReqIFHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				ReqIF10Package.Literals.REQ_IF_HEADER__COMMENT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Creation Time feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Creation Time feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addCreationTimePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ReqIFHeader_creationTime_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_creationTime_feature", "_UI_ReqIFHeader_type"),
-				 ReqIF10Package.Literals.REQ_IF_HEADER__CREATION_TIME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_ReqIFHeader_creationTime_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_creationTime_feature", "_UI_ReqIFHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				ReqIF10Package.Literals.REQ_IF_HEADER__CREATION_TIME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Identifier feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Identifier feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addIdentifierPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ReqIFHeader_identifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_identifier_feature", "_UI_ReqIFHeader_type"),
-				 ReqIF10Package.Literals.REQ_IF_HEADER__IDENTIFIER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_ReqIFHeader_identifier_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_identifier_feature", "_UI_ReqIFHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				ReqIF10Package.Literals.REQ_IF_HEADER__IDENTIFIER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Repository Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Repository Id feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addRepositoryIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ReqIFHeader_repositoryId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_repositoryId_feature", "_UI_ReqIFHeader_type"),
-				 ReqIF10Package.Literals.REQ_IF_HEADER__REPOSITORY_ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_ReqIFHeader_repositoryId_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_repositoryId_feature", "_UI_ReqIFHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				ReqIF10Package.Literals.REQ_IF_HEADER__REPOSITORY_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Req IF Tool Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Req IF Tool Id feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addReqIFToolIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ReqIFHeader_reqIFToolId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_reqIFToolId_feature", "_UI_ReqIFHeader_type"),
-				 ReqIF10Package.Literals.REQ_IF_HEADER__REQ_IF_TOOL_ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_ReqIFHeader_reqIFToolId_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_reqIFToolId_feature", "_UI_ReqIFHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				ReqIF10Package.Literals.REQ_IF_HEADER__REQ_IF_TOOL_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Req IF Version feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Req IF Version feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addReqIFVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ReqIFHeader_reqIFVersion_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_reqIFVersion_feature", "_UI_ReqIFHeader_type"),
-				 ReqIF10Package.Literals.REQ_IF_HEADER__REQ_IF_VERSION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_ReqIFHeader_reqIFVersion_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_reqIFVersion_feature", "_UI_ReqIFHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				ReqIF10Package.Literals.REQ_IF_HEADER__REQ_IF_VERSION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Source Tool Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Source Tool Id feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addSourceToolIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ReqIFHeader_sourceToolId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_sourceToolId_feature", "_UI_ReqIFHeader_type"),
-				 ReqIF10Package.Literals.REQ_IF_HEADER__SOURCE_TOOL_ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_ReqIFHeader_sourceToolId_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_sourceToolId_feature", "_UI_ReqIFHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				ReqIF10Package.Literals.REQ_IF_HEADER__SOURCE_TOOL_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Title feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Title feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ReqIFHeader_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_title_feature", "_UI_ReqIFHeader_type"),
-				 ReqIF10Package.Literals.REQ_IF_HEADER__TITLE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_ReqIFHeader_title_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReqIFHeader_title_feature", "_UI_ReqIFHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				ReqIF10Package.Literals.REQ_IF_HEADER__TITLE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This returns ReqIFHeader.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns ReqIFHeader.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReqIFHeader"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReqIFHeader")); //$NON-NLS-1$
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ReqIFHeader)object).getComment();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ReqIFHeader_type") :
-			getString("_UI_ReqIFHeader_type") + " " + label;
+		String label = ((ReqIFHeader) object).getComment();
+		return label == null || label.length() == 0 ? getString("_UI_ReqIFHeader_type") : //$NON-NLS-1$
+				getString("_UI_ReqIFHeader_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -294,25 +202,24 @@ public class ReqIFHeaderItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ReqIFHeader.class)) {
-			case ReqIF10Package.REQ_IF_HEADER__COMMENT:
-			case ReqIF10Package.REQ_IF_HEADER__CREATION_TIME:
-			case ReqIF10Package.REQ_IF_HEADER__IDENTIFIER:
-			case ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID:
-			case ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID:
-			case ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION:
-			case ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID:
-			case ReqIF10Package.REQ_IF_HEADER__TITLE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case ReqIF10Package.REQ_IF_HEADER__COMMENT:
+		case ReqIF10Package.REQ_IF_HEADER__CREATION_TIME:
+		case ReqIF10Package.REQ_IF_HEADER__IDENTIFIER:
+		case ReqIF10Package.REQ_IF_HEADER__REPOSITORY_ID:
+		case ReqIF10Package.REQ_IF_HEADER__REQ_IF_TOOL_ID:
+		case ReqIF10Package.REQ_IF_HEADER__REQ_IF_VERSION:
+		case ReqIF10Package.REQ_IF_HEADER__SOURCE_TOOL_ID:
+		case ReqIF10Package.REQ_IF_HEADER__TITLE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -321,9 +228,8 @@ public class ReqIFHeaderItemProvider
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

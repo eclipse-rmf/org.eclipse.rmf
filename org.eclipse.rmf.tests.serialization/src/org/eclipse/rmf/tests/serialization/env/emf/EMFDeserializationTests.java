@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -70,6 +70,9 @@ public class EMFDeserializationTests {
 	@Before
 	public void setUp() {
 		EPackage.Registry.INSTANCE.clear();
+		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
+
 	}
 
 	@AfterClass
@@ -90,8 +93,6 @@ public class EMFDeserializationTests {
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
-		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
-		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new MyreqifResourceFactoryImpl());
 
@@ -114,8 +115,6 @@ public class EMFDeserializationTests {
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
-		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
-		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new MyreqifResourceFactoryImpl());
 
@@ -139,8 +138,6 @@ public class EMFDeserializationTests {
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
-		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
-		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(EcorePackage.eNS_URI, EcorePackage.eINSTANCE);
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new MyreqifResourceFactoryImpl());
@@ -166,8 +163,6 @@ public class EMFDeserializationTests {
 
 		// prepare resource set
 		ResourceSet resourceSet = new ResourceSetImpl();
-		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
-		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(MyreqifPackage.eNS_URI, MyreqifPackage.eINSTANCE);
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new MyreqifResourceFactoryImpl()); //$NON-NLS-1$
 
@@ -200,8 +195,6 @@ public class EMFDeserializationTests {
 		// since the ecore is created from schema we have to register XMLTypeType and XMLNamespacePackage in the
 		// global package registry. It is important to register XMLTypePackage since XMLNamespacePackage requires it for
 		// initialization and searches the global registry only
-		EPackage.Registry.INSTANCE.put(XMLTypePackage.eNS_URI, XMLTypePackage.eINSTANCE);
-		EPackage.Registry.INSTANCE.put(XMLNamespacePackage.eNS_URI, XMLNamespacePackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(EcorePackage.eNS_URI, EcorePackage.eINSTANCE);
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl()); //$NON-NLS-1$
 		Resource ecoreResource = resourceSet.createResource(URI.createURI(MODEL_BASEDIR + "myreqif.ecore", true)); //$NON-NLS-1$

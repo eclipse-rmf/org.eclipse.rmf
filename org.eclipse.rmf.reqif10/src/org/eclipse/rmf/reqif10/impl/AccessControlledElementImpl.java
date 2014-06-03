@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 itemis AG.
+ * Copyright (c) 2013 itemis AG and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,32 +12,28 @@
 package org.eclipse.rmf.reqif10.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.rmf.reqif10.AccessControlledElement;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Access Controlled Element</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Access Controlled Element</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.rmf.reqif10.impl.AccessControlledElementImpl#isEditable <em>Editable</em>}</li>
+ * <li>{@link org.eclipse.rmf.reqif10.impl.AccessControlledElementImpl#isEditable <em>Editable</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class AccessControlledElementImpl extends IdentifiableImpl implements AccessControlledElement {
 	/**
-	 * The default value of the '{@link #isEditable() <em>Editable</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #isEditable() <em>Editable</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #isEditable()
 	 * @generated
 	 * @ordered
@@ -45,9 +41,9 @@ public abstract class AccessControlledElementImpl extends IdentifiableImpl imple
 	protected static final boolean EDITABLE_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isEditable() <em>Editable</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #isEditable() <em>Editable</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #isEditable()
 	 * @generated
 	 * @ordered
@@ -55,17 +51,16 @@ public abstract class AccessControlledElementImpl extends IdentifiableImpl imple
 	protected boolean editable = EDITABLE_EDEFAULT;
 
 	/**
-	 * This is true if the Editable attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Editable attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean editableESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected AccessControlledElementImpl() {
@@ -73,8 +68,8 @@ public abstract class AccessControlledElementImpl extends IdentifiableImpl imple
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -83,8 +78,8 @@ public abstract class AccessControlledElementImpl extends IdentifiableImpl imple
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isEditable() {
@@ -92,8 +87,8 @@ public abstract class AccessControlledElementImpl extends IdentifiableImpl imple
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setEditable(boolean newEditable) {
@@ -102,12 +97,13 @@ public abstract class AccessControlledElementImpl extends IdentifiableImpl imple
 		boolean oldEditableESet = editableESet;
 		editableESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE, oldEditable, editable, !oldEditableESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE, oldEditable, editable,
+					!oldEditableESet));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetEditable() {
@@ -116,12 +112,13 @@ public abstract class AccessControlledElementImpl extends IdentifiableImpl imple
 		editable = EDITABLE_EDEFAULT;
 		editableESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE, oldEditable, EDITABLE_EDEFAULT, oldEditableESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE, oldEditable,
+					EDITABLE_EDEFAULT, oldEditableESet));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetEditable() {
@@ -129,77 +126,81 @@ public abstract class AccessControlledElementImpl extends IdentifiableImpl imple
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE:
-				return isEditable();
+		case ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE:
+			return isEditable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE:
-				setEditable((Boolean)newValue);
-				return;
+		case ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE:
+			setEditable((Boolean) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE:
-				unsetEditable();
-				return;
+		case ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE:
+			unsetEditable();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE:
-				return isSetEditable();
+		case ReqIF10Package.ACCESS_CONTROLLED_ELEMENT__EDITABLE:
+			return isSetEditable();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (editable: ");
-		if (editableESet) result.append(editable); else result.append("<unset>");
+		result.append(" (editable: "); //$NON-NLS-1$
+		if (editableESet)
+			result.append(editable);
+		else
+			result.append("<unset>"); //$NON-NLS-1$
 		result.append(')');
 		return result.toString();
 	}
 
-} //AccessControlledElementImpl
+} // AccessControlledElementImpl

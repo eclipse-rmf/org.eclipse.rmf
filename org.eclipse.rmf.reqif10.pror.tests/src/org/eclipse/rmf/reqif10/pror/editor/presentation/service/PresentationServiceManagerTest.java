@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2014 Formal Mind GmbH, University of Duesseldorf and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Michael Jastram - initial API and implementation
+ *******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.presentation.service;
 
 import java.util.Map;
@@ -63,6 +73,7 @@ public class PresentationServiceManagerTest {
 
 	@Test
 	public void testMissingPresentationService() {
+		@SuppressWarnings("unused")  // as we don't need bodies.
 		ProrPresentationConfiguration config = new ProrPresentationConfigurationImpl() {
 			public void registerReqIF() {
 			}

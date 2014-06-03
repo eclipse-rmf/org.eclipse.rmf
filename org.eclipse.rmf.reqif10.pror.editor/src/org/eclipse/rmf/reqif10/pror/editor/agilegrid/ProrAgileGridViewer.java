@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+ * Copyright (c) 2011, 2013 Formal Mind GmbH and University of Dusseldorf.
  * 
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -84,6 +84,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Widget;
+import org.eclipse.ui.part.PluginTransfer;
 
 /**
  * A Viewer that manages an {@link AgileGrid} rendering a
@@ -673,7 +674,7 @@ public class ProrAgileGridViewer extends Viewer {
 	private void enableDragNDrop() {
 		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
 		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance(),
-				LocalSelectionTransfer.getTransfer() };
+				LocalSelectionTransfer.getTransfer(), PluginTransfer.getInstance() };
 		addDragSupport(dndOperations, transfers, new ViewerDragAdapter(this) {
 
 			// Modified to allow resizing of columns
@@ -752,7 +753,7 @@ public class ProrAgileGridViewer extends Viewer {
 						} else if (row instanceof ProrRowSpecRelation) {
 							target = row.getSpecElement();
 						}
-
+						
 						if (target instanceof SpecHierarchy) {
 							dragTarget = (SpecHierarchy) target;
 							float location = getLocation(e);

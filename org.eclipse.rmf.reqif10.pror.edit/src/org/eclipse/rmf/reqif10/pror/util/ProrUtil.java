@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+ * Copyright (c) 2011, 2013 Formal Mind GmbH and University of Dusseldorf.
  * 
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -37,6 +37,7 @@ import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedImage;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -206,6 +207,11 @@ public final class ProrUtil {
 	 */
 	public static ItemProviderAdapter getItemProvider(
 			AdapterFactory adapterFactory, Object object) {
+		if (adapterFactory instanceof ComposeableAdapterFactory) {
+			adapterFactory = ((ComposeableAdapterFactory) adapterFactory)
+					.getRootAdapterFactory();
+		}
+
 		// Workaround - we simply try to retrieve an IItemLabelProvider.
 		return (ItemProviderAdapter) adapterFactory.adapt(object,
 				IItemLabelProvider.class);

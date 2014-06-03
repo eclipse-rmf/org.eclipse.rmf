@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Formal Mind GmbH and University of Dusseldorf.
+ * Copyright (c) 2011, 2013 Formal Mind GmbH and University of Dusseldorf.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,8 +16,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.ICellEditorValidator;
@@ -38,7 +36,7 @@ public class ProrDateCellEditor extends ProrCellEditor {
 					return null;
 				}
 				try {
-					ProrDateCellEditor.this.stingToCalendar(value.toString());
+					ReqIF10Util.stingToCalendar(value.toString());
 				} catch (ParseException e) {
 					return "Required Format: "
 							+ DateFormat.getDateInstance().format(new Date());
@@ -53,7 +51,7 @@ public class ProrDateCellEditor extends ProrCellEditor {
 	@Override
 	protected Object doGetValue() {
 		try {
-			XMLGregorianCalendar value = stingToCalendar(text.getText());
+			GregorianCalendar value = ReqIF10Util.stingToCalendar(text.getText());
 			ProrUtil.setTheValue(attributeValue, value, parent, affectedObject,
 					editingDomain);
 		} catch (ParseException e) {
@@ -72,23 +70,10 @@ public class ProrDateCellEditor extends ProrCellEditor {
 			attributeValue = (AttributeValue) value;
 
 			Object cal = ReqIF10Util.getTheValue(attributeValue);
-			if (cal instanceof XMLGregorianCalendar) {
+			if (cal instanceof GregorianCalendar) {
 				text.setText(DateFormat.getDateInstance().format(
-						((XMLGregorianCalendar) cal).toGregorianCalendar()
-								.getTime()));
+						((GregorianCalendar) cal).getTime()));
 			}
 		}
-	}
-
-	/**
-	 * Helper that converts String to {@link XMLGregorianCalendar}. We use this
-	 * for Validation and for setting.
-	 */
-	private XMLGregorianCalendar stingToCalendar(String value)
-			throws ParseException, DatatypeConfigurationException {
-		Date date = DateFormat.getDateInstance().parse(value.toString());
-		GregorianCalendar cal = new GregorianCalendar();
-		cal.setTime(date);
-		return DatatypeFactory.newInstance().newXMLGregorianCalendar(cal);
 	}
 }
