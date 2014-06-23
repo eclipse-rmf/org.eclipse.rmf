@@ -58,7 +58,6 @@
 		<!-- Release Engineering -->
 		<module>../org.eclipse.rmf.releng.target/${platform.version.name}</module>
 		<module>../org.eclipse.rmf.releng.repository</module>
-		<module>../org.eclipse.rmf.releng.product</module>
 
 		<!-- ReqIF Core -->
 		<module>../org.eclipse.rmf.reqif10</module>
