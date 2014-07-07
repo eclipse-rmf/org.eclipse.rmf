@@ -30,6 +30,8 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
+import org.eclipse.rmf.reqif10.EmbeddedValue;
+import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
@@ -174,12 +176,21 @@ public class DatatypeDefinitionEnumerationItemProvider
 			EStructuralFeature feature, Collection<?> collection, int index) {
 		
 		// Ensure that the ID is unique if it's a copy operation.
+		// Also, ensure that an EnumValue has an EmbeddedValue.
 		for (Object object : collection) {
 			if (object instanceof Identifiable)
 				ReqIF10Util.ensureIdIsUnique(owner.eResource(),
 						(Identifiable) object);
+			
+			if (object instanceof EnumValue) {
+				EnumValue enumValue = (EnumValue) object;
+				if (enumValue.getProperties() == null) {
+					EmbeddedValue embeddedValue = ReqIF10Factory.eINSTANCE.createEmbeddedValue();
+					enumValue.setProperties(embeddedValue);
+				}
+			}
 		}
-
+		
 		return super.createAddCommand(domain, owner, feature, collection, index);
 	}
 

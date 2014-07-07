@@ -10,10 +10,16 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.provider;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
+import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 
 /**
  * A test case for the model object '<em><b>Datatype Definition Enumeration</b></em>'.
@@ -43,5 +49,15 @@ public class DatatypeDefinitionEnumerationTest extends DatatypeDefinitionTest {
 	public void tearDownDatatypeDefinitionEnumerationTest() throws Exception {
 		setFixture(null);
 	}
+	
+	@Test
+	public void testEnsureValueHasEmbeddedValue() throws Exception {
+		EnumValue value = ReqIF10Factory.eINSTANCE.createEnumValue();
+		assertNull(value.getProperties());
+		this.setViaCommand(fixture, ReqIF10Package.Literals.DATATYPE_DEFINITION_ENUMERATION__SPECIFIED_VALUES, value);
+		assertNotNull(value.getProperties());
+	}
+
+
 
 } //DatatypeDefinitionEnumerationTest
