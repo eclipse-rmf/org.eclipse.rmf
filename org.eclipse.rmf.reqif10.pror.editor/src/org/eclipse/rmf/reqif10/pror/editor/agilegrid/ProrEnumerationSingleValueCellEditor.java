@@ -36,15 +36,17 @@ public class ProrEnumerationSingleValueCellEditor extends CellEditor {
 	private final EditingDomain editingDomain;
 	private AttributeValueEnumeration attributeValue;
 	private Object parent;
+	private Object affectedObject;
 
 	public ProrEnumerationSingleValueCellEditor(AgileGrid agileGrid,
 			DatatypeDefinitionEnumeration dde,
-			Object parent, EditingDomain editingDomain,
+			Object parent, Object affectedObject, EditingDomain editingDomain,
 			AdapterFactory adapterFactory) {
 		super(agileGrid);
 		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
 		this.parent = parent;
+		this.affectedObject = affectedObject;
 
 		Combo combo = (Combo) getControl();
 		String[] items = populateItemList(dde);
@@ -84,7 +86,7 @@ public class ProrEnumerationSingleValueCellEditor extends CellEditor {
 		CompoundCommand cmd = new CompoundCommand("Set Enumeration") {
 			public java.util.Collection<?> getAffectedObjects() {
 				List<? super Object> list = new ArrayList<Object>();
-				list.add(parent);
+				list.add(affectedObject);
 				return list;
 			};
 		};

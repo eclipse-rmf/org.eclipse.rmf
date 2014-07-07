@@ -10,6 +10,10 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.CellEditor;
 import org.agilemore.agilegrid.EditorActivationEvent;
@@ -39,12 +43,14 @@ public class ProrCheckboxCellEditor extends CellEditor {
 	private EditingDomain domain;
 	private AttributeValueBoolean attributeValue;
 	private Object parent;
+	private Object affectedObject;
 
 	public ProrCheckboxCellEditor(AgileGrid agileGrid, EditingDomain domain,
-			Object parent) {
+			Object parent, Object affectedObject) {
 		super(agileGrid, SWT.NONE);
 		this.domain = domain;
 		this.parent = parent;
+		this.affectedObject = affectedObject;
 	}
 
 	/**
@@ -72,7 +78,17 @@ public class ProrCheckboxCellEditor extends CellEditor {
 		}
 
 		AttributeValueBoolean av = (AttributeValueBoolean) value;
-		CompoundCommand cmd = new CompoundCommand();
+
+		final List<? super Object> affectedElements = new ArrayList<Object>();
+		affectedElements.add(affectedObject);
+
+		CompoundCommand cmd = new CompoundCommand() {
+			@Override
+			public Collection<?> getAffectedObjects() {
+				return affectedElements;
+			}
+		};
+
 		if (av.eContainer() == null) {
 			cmd.append(AddCommand
 					.create(domain,

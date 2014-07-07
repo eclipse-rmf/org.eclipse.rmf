@@ -10,6 +10,10 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import org.agilemore.agilegrid.AgileGrid;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -26,7 +30,6 @@ import org.eclipse.rmf.reqif10.pror.editor.preferences.PreferenceConstants;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 
 /**
@@ -39,7 +42,7 @@ public class ProrXhtmlSimplifiedCellEditor extends ProrCellEditor {
 	public ProrXhtmlSimplifiedCellEditor(AgileGrid agileGrid,
 			EditingDomain editingDomain, Object parent,
 			Object affectedObject) {
-		super(agileGrid, editingDomain, parent, SWT.WRAP);
+		super(agileGrid, editingDomain, parent, affectedObject);
 		this.parent = parent;
 	}
 
@@ -51,7 +54,16 @@ public class ProrXhtmlSimplifiedCellEditor extends ProrCellEditor {
 				.stringToSimplifiedXhtml(text.getText());
 		
 		XhtmlContent origTheValue = attributeValue.getTheValue();
-		CompoundCommand compoundCommand = new CompoundCommand();
+		
+		final List<? super Object> affectedObjects = new ArrayList<Object>();
+		affectedObjects.add(affectedObject);
+		
+		CompoundCommand compoundCommand = new CompoundCommand() {
+			@Override
+			public Collection<?> getAffectedObjects() {
+				return affectedObjects;
+			}
+		};
 
 		// Set parent if necessary
 		if (attributeValue.eContainer() == null) {
