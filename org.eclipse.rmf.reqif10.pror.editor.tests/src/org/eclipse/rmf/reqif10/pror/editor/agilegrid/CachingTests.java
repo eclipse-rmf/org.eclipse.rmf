@@ -257,12 +257,14 @@ public class CachingTests extends AbstractContentProviderTests {
 				.createDatatypeDefinitionString();
 		ddString.setLongName("T_String32k");
 		ddString.setMaxLength(new BigInteger("32000"));
+		ddString.setIdentifier("DD_STRING");
 		content.getDatatypes().add(ddString);
 
 		// Add a SpecObjectType
 		SpecObjectType specObjectType = ReqIF10Factory.eINSTANCE
 				.createSpecObjectType();
 		specObjectType.setLongName("Requirement Type");
+		specObjectType.setIdentifier("SPEC_OBJECT_TYPE");
 		content.getSpecTypes().add(specObjectType);
 
 		// Add an AttributeDefinition
@@ -270,11 +272,13 @@ public class CachingTests extends AbstractContentProviderTests {
 				.createAttributeDefinitionString();
 		ad1.setType(ddString);
 		ad1.setLongName("Description");
+		ad1.setIdentifier("ATTRIBUTE_DEFINITION_1");
 		specObjectType.getSpecAttributes().add(ad1);
 
 		// Add a Specification
 		Specification spec = ReqIF10Factory.eINSTANCE.createSpecification();
 		spec.setLongName("Specification Document");
+		spec.setIdentifier("SPEC");
 		content.getSpecifications().add(spec);
 		ProrSpecViewConfiguration config = ConfigurationUtil
 				.createSpecViewConfiguration(spec, editingDomain);
@@ -287,6 +291,7 @@ public class CachingTests extends AbstractContentProviderTests {
 					.createSpecHierarchy();
 			SpecObject specObj = ReqIF10Factory.eINSTANCE.createSpecObject();
 			specObj.setType(specObjectType);
+			specObj.setIdentifier("SPEC_OBJECT_" + i);
 			content.getSpecObjects().add(specObj);
 
 			AttributeValueString value2 = ReqIF10Factory.eINSTANCE
