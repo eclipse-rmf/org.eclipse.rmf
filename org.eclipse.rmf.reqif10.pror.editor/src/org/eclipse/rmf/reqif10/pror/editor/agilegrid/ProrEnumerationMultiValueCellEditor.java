@@ -50,16 +50,18 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 	private AttributeValueEnumeration attributeValue;
 	private final EditingDomain editingDomain;
 	private Object parent;
+	private Object affectedObject;
 
 	public ProrEnumerationMultiValueCellEditor(AgileGrid agileGrid,
 			DatatypeDefinitionEnumeration dde,
-			Object parent, EditingDomain editingDomain,
+			Object parent, Object affectedObject, EditingDomain editingDomain,
 			AdapterFactory adapterFactory) {
 		super(agileGrid);
 		this.dde = dde;
 		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
 		this.parent = parent;
+		this.affectedObject = affectedObject;
 		populateItemList(dde);
 	}
 
@@ -111,7 +113,7 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 		CompoundCommand cmd = new CompoundCommand("Set Enumeration") {
 			public java.util.Collection<?> getAffectedObjects() {
 				ArrayList<? super Object> list = new ArrayList<Object>();
-				list.add(parent);
+				list.add(affectedObject);
 				return list;
 			};
 		};

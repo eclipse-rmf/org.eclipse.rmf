@@ -137,7 +137,7 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 	 * This method is called if a selection was changed in the
 	 * {@link ProrPropertySheetPage}.
 	 */
-	public void handleEntrySelection(ISelection selection) {
+	private void handleEntrySelection(ISelection selection) {
 		objectsToSelect.clear();
 		if (!selection.isEmpty() && selection instanceof IStructuredSelection) {
 			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
@@ -189,7 +189,7 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 	/**
 	 * This method should be overridden to set the selection.
 	 */
-	protected void setSelectionToViewer(List<?> selection) {
+	private void setSelectionToViewer(List<?> selection) {
 		handleEntrySelection(new StructuredSelection(selection));
 	}
 

@@ -76,7 +76,7 @@ public abstract class AbstractProrCellEditorProvider extends
 
 		if (dd instanceof DatatypeDefinitionBoolean) {
 			return new ProrCheckboxCellEditor(agileGrid, editingDomain,
-					parent);
+					parent, affectedObject);
 		}
 		else if (dd instanceof DatatypeDefinitionDate) {
 			return new ProrDateCellEditor(agileGrid, editingDomain,
@@ -110,11 +110,11 @@ public abstract class AbstractProrCellEditorProvider extends
 					.getAttributeDefinition(value)).isMultiValued();
 			if (multiValued == null || multiValued.booleanValue() == false) {
 				return new ProrEnumerationSingleValueCellEditor(agileGrid, dde,
-						parent,
+						parent, affectedObject,
 						editingDomain, adapterFactory);
 			} else {
 				return new ProrEnumerationMultiValueCellEditor(agileGrid, dde,
-						parent,
+						parent, affectedObject,
 						editingDomain, adapterFactory);
 			}
 		} else if (dd instanceof DatatypeDefinitionXHTML) {
