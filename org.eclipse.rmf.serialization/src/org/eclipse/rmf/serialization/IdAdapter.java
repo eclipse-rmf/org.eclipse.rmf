@@ -12,6 +12,7 @@
 package org.eclipse.rmf.serialization;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -101,7 +102,10 @@ public class IdAdapter extends EContentAdapter {
 							handleRemoveObjectAndSubObjects((EObject) n.getOldValue());
 							break;
 						case Notification.REMOVE_MANY:
-							EList<EObject> removeObjects = (EList<EObject>) n.getOldValue();
+							// for empty lists getOldValue might return java.util.Collections$EmptyList instead of an
+							// EList
+							// therefore it is not save to cast to EList here
+							List<EObject> removeObjects = (List<EObject>) n.getOldValue();
 							size = removeObjects.size();
 							for (int i = 0; i < size; i++) {
 								handleRemoveObjectAndSubObjects(removeObjects.get(i));
