@@ -27,6 +27,7 @@ import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
+import org.eclipse.jface.action.ControlContribution;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IContributionManager;
@@ -43,9 +44,12 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
@@ -53,6 +57,13 @@ import org.eclipse.rmf.reqif10.SpecRelationType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.AgileCellEditorActionHandler;
+import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
@@ -175,6 +186,8 @@ public class Reqif10ActionBarContributor
 	 */
 	protected IMenuManager createSiblingMenuManager;
 
+	private Text quicksearch;
+
 	/**
 	 * This creates an instance of the contributor. <!-- begin-user-doc -->
 	 * Assignments were out-commented to remove them from the menuManager
@@ -223,13 +236,63 @@ public class Reqif10ActionBarContributor
 	/**
 	 * This adds Separators for editor additions to the tool bar.
 	 * <!-- begin-user-doc -->
+	 * Adding Quick Search Box
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
 		toolBarManager.add(new Separator("reqif10-settings"));
 		toolBarManager.add(new Separator("reqif10-additions"));
+		toolBarManager.add(createQuickSearchToolbar());
+	}
+
+	private IContributionItem createQuickSearchToolbar() {
+		return new ControlContribution("quicksearch") {
+			@Override
+			protected Control createControl(Composite parent) {
+				return createQuickSearchControl(parent);
+			}
+
+		};
+	}
+
+	private Control createQuickSearchControl(Composite parent) {
+		quicksearch = new Text(parent, SWT.SEARCH | SWT.ICON_CANCEL
+				| SWT.ICON_SEARCH);
+		quicksearch.addModifyListener(new ModifyListener() {
+
+			public void modifyText(ModifyEvent e) {
+				if (activeEditor instanceof SpecificationEditor) {
+					SpecificationEditor specEditor = (SpecificationEditor) activeEditor;
+					final String text = quicksearch.getText();
+					System.out.println("Filter: '" + text + "'");
+					if ("".equals(text)) {
+						specEditor.setFilter(null);
+					} else {
+
+						ReqifFilter filter = new ReqifFilter() {
+							public boolean match(
+									SpecElementWithAttributes specElement) {
+								for (AttributeValue value : specElement
+										.getValues()) {
+									if (value instanceof AttributeValueString) {
+										AttributeValueString avs = (AttributeValueString) value;
+										if (avs.getTheValue() != null
+												&& avs.getTheValue().contains(
+														text))
+											return true;
+									}
+								}
+								return false;
+							}
+						};
+						specEditor.setFilter(filter);
+					}
+				}
+			}
+		});
+		return quicksearch;
 	}
 
 	/**
@@ -281,6 +344,13 @@ public class Reqif10ActionBarContributor
 	@Override
 	public void setActiveEditor(IEditorPart part) {
 		super.setActiveEditor(part);
+		
+		// Clear Quicksearch on switching editor
+		if (quicksearch != null && activeEditorPart != part  && ! quicksearch.isDisposed()) {
+			quicksearch.setText("");
+			System.out.println("clearing quicksearch");
+		}
+
 		activeEditorPart = part;
 
 		// Switch to the new selection provider.
@@ -301,6 +371,7 @@ public class Reqif10ActionBarContributor
 				selectionChanged(new SelectionChangedEvent(selectionProvider, selectionProvider.getSelection()));
 			}
 		}
+		
 	}
 
 	/**
