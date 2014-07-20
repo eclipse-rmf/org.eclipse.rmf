@@ -79,6 +79,16 @@ class ProrHeaderCellRenderer extends HeaderCellRenderer {
 	 */
 	@Override
 	protected void doDrawCellContent(GC gc, Rectangle rect, int row, int col) {
+		if (row >= 0) {
+			ProrAgileGridContentProvider contentProvider = (ProrAgileGridContentProvider) agileGrid
+					.getContentProvider();
+
+			ProrRow prorRow = contentProvider.getProrRow(row);
+			if (!prorRow.isVisible()) {
+				return;
+			}
+		}
+		
 		// draw text and image in the given area.
 		String label = "";
 		ILayoutAdvisor layoutAdvisor = agileGrid.getLayoutAdvisor();

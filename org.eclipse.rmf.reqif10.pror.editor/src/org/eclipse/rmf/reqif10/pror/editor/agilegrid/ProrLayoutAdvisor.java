@@ -91,6 +91,10 @@ public class ProrLayoutAdvisor extends DefaultLayoutAdvisor {
 
 	@Override
 	public int getRowHeight(int row) {
+		ProrRow prorRow = ((ProrAgileGridContentProvider) agileGrid
+				.getContentProvider()).getProrRow(row);
+		if (! prorRow.isVisible()) return 1;
+
 		int height = 18;
 		if (cachedCellHeights.get(row) == null) {
 			return height;

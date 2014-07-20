@@ -44,6 +44,7 @@ import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.pror.editor.actions.SpecificationWebPrintAction;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGrid;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridViewer;
+import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
@@ -466,6 +467,10 @@ public class SpecificationEditor extends EditorPart implements
 
 	public AdapterFactory getAdapterFactory() {
 		return reqifEditor.getAdapterFactory();
+	}
+
+	public void setFilter(ReqifFilter filter) {
+		prorAgileGridViewer.setFilter(filter);
 	}
 
 }

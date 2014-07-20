@@ -33,6 +33,7 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow.ProrRowSpecHierarchy;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow.ProrRowSpecRelation;
+import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
 
 /**
  * This ContentProvider manages a {@link Specification}, to be displayed in an
@@ -46,6 +47,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	private Map<Identifiable, ProrRow> rowMap = new HashMap<Identifiable, ProrRow>();
 
 	private boolean showSpecRelations;
+	private ReqifFilter filter;
 
 	public ProrAgileGridContentProvider(Specification specification,
 			ProrSpecViewConfiguration specViewConfig) {
@@ -71,6 +73,16 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	}
 
 	/**
+	 * Sets a filter.  The null argument resets filtering.
+	 */
+	public void setFilter(ReqifFilter filter) {
+		if (filter != this.filter) {
+			this.filter = filter;
+			flushCache();
+		}
+	}
+	
+	/**
 	 * Returns the {@link AttributeValue} for the given column for the element
 	 * associated with the row. May return null.
 	 */
@@ -81,7 +93,12 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 			throw new IndexOutOfBoundsException("Row does not exist: " + row);
 		}
 
-		SpecElementWithAttributes element = getCache().get(row).getSpecElement();
+		ProrRow prorRow = getCache().get(row);
+		if (! prorRow.isVisible()) {
+			return null;
+		}
+
+		SpecElementWithAttributes element = prorRow.getSpecElement();
 
 		if (col == specViewConfig.getColumns().size()) {
 			// For the Link column, we return the linked element.
@@ -181,6 +198,11 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		for (SpecHierarchy element : elements) {
 			ProrRowSpecHierarchy prorRowSH = (ProrRowSpecHierarchy) getProrRowForSpecElement(
 					element, current, depth);
+			if (filter != null && !filter.match(element.getObject())) {
+				prorRowSH.setVisible(false);
+			} else {
+				prorRowSH.setVisible(true);				
+			}
 			tmpCache.add(current, prorRowSH);
 			if (prorRowSH.isShowSpecRelation()) {
 				for (SpecRelation specRelation : getSpecRelationsFor(element)) {

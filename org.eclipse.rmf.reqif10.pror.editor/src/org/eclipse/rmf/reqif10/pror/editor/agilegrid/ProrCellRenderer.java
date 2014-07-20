@@ -65,6 +65,12 @@ public class ProrCellRenderer extends AbstractProrSpecCellRenderer {
 		ProrAgileGridContentProvider contentProvider = (ProrAgileGridContentProvider) agileGrid
 				.getContentProvider();
 
+		ProrRow prorRow = contentProvider.getProrRow(row);
+		if (! prorRow.isVisible()) {
+			updateCellHeight(row, col, 1);
+			return;
+		}
+
 		// draw text and image in the given area.
 		Object content = contentProvider.getContentAt(row, col);
 
@@ -76,7 +82,7 @@ public class ProrCellRenderer extends AbstractProrSpecCellRenderer {
 		int rowHeight;
 		IProrCellRenderer renderer = null;
 		AttributeValue attrValue = contentProvider.getValueForColumn(
-				contentProvider.getProrRow(row).getSpecElement(), row, col);
+				prorRow.getSpecElement(), row, col);
 
 		// Consult the presentation
 		ProrPresentationConfiguration config = ConfigurationUtil

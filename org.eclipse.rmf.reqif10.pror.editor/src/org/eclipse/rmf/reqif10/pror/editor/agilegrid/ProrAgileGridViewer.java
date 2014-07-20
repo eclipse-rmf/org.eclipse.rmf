@@ -65,6 +65,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow.ProrRowSpecHierarchy;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow.ProrRowSpecRelation;
+import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.swt.SWT;
@@ -864,6 +865,13 @@ public class ProrAgileGridViewer extends Viewer {
 		contentProvider.setShowSpecRelations(status);
 		updateRowCount();
 		agileGrid.redraw();
+	}
+
+	public void setFilter(ReqifFilter filter) {
+		if (agileGrid.getContentProvider() instanceof ProrAgileGridContentProvider) {
+			((ProrAgileGridContentProvider)agileGrid.getContentProvider()).setFilter(filter);
+			this.refresh();
+		}
 	}
 
 }
