@@ -64,7 +64,6 @@ public class SimpleStringFilter implements ReqifFilter {
 			} else {
 				textValue = value.toString().toLowerCase();
 			}
-			System.out.println(">> " + textValue);
 			if (textValue.contains(text)) return true;
 		}
 		return false;
