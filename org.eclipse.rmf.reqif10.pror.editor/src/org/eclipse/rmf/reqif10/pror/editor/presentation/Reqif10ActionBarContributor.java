@@ -44,12 +44,9 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
-import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
@@ -58,6 +55,7 @@ import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.AgileCellEditorActionHandler;
 import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
+import org.eclipse.rmf.reqif10.pror.filter.SimpleStringFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -266,27 +264,10 @@ public class Reqif10ActionBarContributor
 				if (activeEditor instanceof SpecificationEditor) {
 					SpecificationEditor specEditor = (SpecificationEditor) activeEditor;
 					final String text = quicksearch.getText();
-					System.out.println("Filter: '" + text + "'");
-					if ("".equals(text)) {
+					if (text == null || "".equals(text)) {
 						specEditor.setFilter(null);
 					} else {
-
-						ReqifFilter filter = new ReqifFilter() {
-							public boolean match(
-									SpecElementWithAttributes specElement) {
-								for (AttributeValue value : specElement
-										.getValues()) {
-									if (value instanceof AttributeValueString) {
-										AttributeValueString avs = (AttributeValueString) value;
-										if (avs.getTheValue() != null
-												&& avs.getTheValue().contains(
-														text))
-											return true;
-									}
-								}
-								return false;
-							}
-						};
+						ReqifFilter filter = new SimpleStringFilter(text);
 						specEditor.setFilter(filter);
 					}
 				}
