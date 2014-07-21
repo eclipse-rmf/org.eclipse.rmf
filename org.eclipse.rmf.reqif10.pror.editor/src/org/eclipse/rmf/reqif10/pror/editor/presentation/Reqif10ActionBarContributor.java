@@ -59,6 +59,8 @@ import org.eclipse.rmf.reqif10.pror.filter.SimpleStringFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.graphics.FontMetrics;
+import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
@@ -247,21 +249,36 @@ public class Reqif10ActionBarContributor
 
 	private IContributionItem createQuickSearchToolbar() {
 		return new ControlContribution("quicksearch") {
+			private int width = -1;
+			private final int FIELD_SIZE = 25; // characters
+
 			@Override
 			protected Control createControl(Composite parent) {
 				return createQuickSearchControl(parent);
 			}
-
+			
+			@Override
+			protected int computeWidth(Control control) {
+				if (width == -1) {
+					GC gc = new GC(control);
+					FontMetrics fm = gc.getFontMetrics();
+					width = FIELD_SIZE * fm.getAverageCharWidth();
+				}
+				return width;
+			}
 		};
 	}
 
 	private Control createQuickSearchControl(Composite parent) {
 		quicksearch = new Text(parent, SWT.SEARCH | SWT.ICON_CANCEL
 				| SWT.ICON_SEARCH);
+		quicksearch.setSize(500, 0);
+		quicksearch.setEnabled(activeEditorPart instanceof SpecificationEditor);
 		quicksearch.addModifyListener(new ModifyListener() {
 
 			public void modifyText(ModifyEvent e) {
-				if (activeEditor instanceof SpecificationEditor) {
+				if (activeEditorPart instanceof SpecificationEditor) {
+					quicksearch.setEnabled(true);
 					SpecificationEditor specEditor = (SpecificationEditor) activeEditor;
 					final String text = quicksearch.getText();
 					if (text == null || "".equals(text)) {
@@ -270,6 +287,8 @@ public class Reqif10ActionBarContributor
 						ReqifFilter filter = new SimpleStringFilter(text);
 						specEditor.setFilter(filter);
 					}
+				} else {
+					quicksearch.setEnabled(false);
 				}
 			}
 		});
@@ -325,14 +344,12 @@ public class Reqif10ActionBarContributor
 	@Override
 	public void setActiveEditor(IEditorPart part) {
 		super.setActiveEditor(part);
-		
-		// Clear Quicksearch on switching editor
-		if (quicksearch != null && activeEditorPart != part  && ! quicksearch.isDisposed()) {
-			quicksearch.setText("");
-			System.out.println("clearing quicksearch");
-		}
-
 		activeEditorPart = part;
+
+		// Clear Quicksearch on switching editor.  We trigger a notification to clear the Filter.s
+		if (quicksearch != null && ! quicksearch.isDisposed()) {
+			quicksearch.setText("");
+		}
 
 		// Switch to the new selection provider.
 		//
