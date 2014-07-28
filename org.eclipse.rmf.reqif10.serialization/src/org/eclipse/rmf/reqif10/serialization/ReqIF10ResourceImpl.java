@@ -10,15 +10,12 @@
  */
 package org.eclipse.rmf.reqif10.serialization;
 
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLSave;
 import org.eclipse.emf.ecore.xmi.impl.XMLMapImpl;
@@ -26,7 +23,6 @@ import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingSaveImpl;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
-import org.eclipse.rmf.serialization.IdAdapter;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
 
 public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
@@ -37,17 +33,6 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 
 	public ReqIF10ResourceImpl(URI uri) {
 		super(uri);
-	}
-
-	@Override
-	protected void init() {
-		super.init();
-		// enable id creation and maintenance
-		idToEObjectMap = new HashMap<String, EObject>();
-		eObjectToIDMap = new HashMap<EObject, String>();
-		Collection<EPackage> createIdForPackageSet = new HashSet<EPackage>();
-		createIdForPackageSet.add(ReqIF10Package.eINSTANCE);
-		eAdapters().add(new IdAdapter(idToEObjectMap, eObjectToIDMap, createIdForPackageSet));
 	}
 
 	@Override
@@ -73,8 +58,7 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 
 	/**
 	 * Return <code>true</code>.
-	 *
-	 * @return <code>true</code>.
+	 * 
 	 * @see org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl#useUUIDs()
 	 */
 	@Override
@@ -84,8 +68,7 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 
 	/**
 	 * Return <code>false</code>.
-	 *
-	 * @return <code>false</code>.
+	 * 
 	 * @see org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl#assignIDsWhileLoading()
 	 */
 	@Override
@@ -109,7 +92,7 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 	@Override
 	public void setID(final EObject eObject, final String id) {
 		final EAttribute idAttribute = eObject.eClass().getEIDAttribute();
-		if (idAttribute != null && id != null) {
+		if ((idAttribute != null) && (id != null)) {
 			eObject.eSet(idAttribute, id);
 		}
 		super.setID(eObject, id);
