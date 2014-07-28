@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *   itemis AG - initial API and implementation
  */
@@ -21,6 +21,7 @@ import javax.xml.XMLConstants;
 
 import org.apache.xerces.impl.Constants;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -89,7 +90,20 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 
 	@Override
 	protected XMLSave createXMLSave() {
-		return new XMLPersistenceMappingSaveImpl(createXMLHelper());
+		return new XMLPersistenceMappingSaveImpl(createXMLHelper()) {
+
+			@Override
+			protected void saveElementID(final EObject o) {
+				final EAttribute idAttribute = o.eClass().getEIDAttribute();
+				if (idAttribute == null || o.eGet(idAttribute) == null || o.eGet(idAttribute).toString().trim().isEmpty()) {
+					super.saveElementID(o);
+				} else {
+					// As the identifier is an EStructuralFeture of the Identifiable
+					// class, so we ignore the save of the element id from the map.
+					this.saveFeatures(o);
+				}
+			}
+		};
 	}
 
 	@Override
@@ -194,6 +208,48 @@ public class XMLPersistenceMappingResourceImpl extends XMLResourceImpl implement
 		// xmlOptions.setProcessSchemaLocations(true);
 
 		loadOptions.put(XMLResource.OPTION_XML_OPTIONS, xmlOptions);
+	}
+
+	/**
+	 * Return <code>true</code>.
+	 *
+	 * @return <code>true</code>.
+	 * @see org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl#useUUIDs()
+	 */
+	@Override
+	protected boolean useUUIDs() {
+		return true;
+	}
+
+	/**
+	 * Return <code>false</code>.
+	 *
+	 * @return <code>false</code>.
+	 * @see org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl#assignIDsWhileLoading()
+	 */
+	@Override
+	protected boolean assignIDsWhileLoading() {
+		return false;
+	}
+
+	/**
+	 * Sets the ID of the object. The default implementation will update the {@link #eObjectToIDMap}. This behavior is
+	 * override to set the ID in a object's specific attribute to set the id in the
+	 * {@link Identifiable#setIdentifier(String)} and call the super method.
+	 *
+	 * @param eObject
+	 *            : The object where the Id must be set.
+	 * @param id
+	 *            : The object's Id.
+	 * @see org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl#setID(org.eclipse.emf.ecore.EObject, java.lang.String)
+	 */
+	@Override
+	public void setID(final EObject eObject, final String id) {
+		final EAttribute idAttribute = eObject.eClass().getEIDAttribute();
+		if (idAttribute != null && id != null) {
+			eObject.eSet(idAttribute, id);
+		}
+		super.setID(eObject, id);
 	}
 
 }
