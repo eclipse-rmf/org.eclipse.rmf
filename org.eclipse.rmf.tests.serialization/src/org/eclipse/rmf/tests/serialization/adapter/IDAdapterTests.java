@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *   itemis AG - initial API and implementation
  */
@@ -32,7 +32,7 @@ import org.eclipse.rmf.tests.serialization.util.AbstractTestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-// Junit 3.8 test 
+// Junit 3.8 test
 @SuppressWarnings("nls")
 public class IDAdapterTests extends AbstractTestCase {
 
@@ -127,7 +127,6 @@ public class IDAdapterTests extends AbstractTestCase {
 			Node sub2Node = NodesFactory.eINSTANCE.createNode();
 			Node sub3Node = NodesFactory.eINSTANCE.createNode();
 			Node sub4Node = NodesFactory.eINSTANCE.createNode();
-			sub4Node.setName("sub4Node");
 
 			sub1Node.setEReference_Contained0101Single(sub2Node);
 			sub2Node.setEReference_Contained0101Single(sub3Node);
@@ -136,8 +135,8 @@ public class IDAdapterTests extends AbstractTestCase {
 			assertFalse(sub1Node.eIsSet(NodesPackage.eINSTANCE.getNode_Name()));
 			assertFalse(sub2Node.eIsSet(NodesPackage.eINSTANCE.getNode_Name()));
 			assertFalse(sub3Node.eIsSet(NodesPackage.eINSTANCE.getNode_Name()));
-			assertTrue(sub4Node.eIsSet(NodesPackage.eINSTANCE.getNode_Name()));
-			assertEquals("sub4Node", sub4Node.getName());
+			assertFalse(sub4Node.eIsSet(NodesPackage.eINSTANCE.getNode_Name()));
+			assertEquals(((XMLResource) modelRoot.eResource()).getID(sub4Node), sub4Node.getName());
 			assertSame(1, ((XMLResource) modelRoot.eResource()).getEObjectToIDMap().size());
 
 			// set
@@ -147,7 +146,7 @@ public class IDAdapterTests extends AbstractTestCase {
 			assertTrue(sub2Node.eIsSet(NodesPackage.eINSTANCE.getNode_Name()));
 			assertTrue(sub3Node.eIsSet(NodesPackage.eINSTANCE.getNode_Name()));
 			assertTrue(sub4Node.eIsSet(NodesPackage.eINSTANCE.getNode_Name()));
-			assertEquals("sub4Node", sub4Node.getName());
+			assertEquals(((XMLResource) modelRoot.eResource()).getID(sub4Node), sub4Node.getName());
 			assertSame(5, ((XMLResource) modelRoot.eResource()).getEObjectToIDMap().size());
 
 		} catch (Exception ex) {
@@ -172,163 +171,123 @@ public class IDAdapterTests extends AbstractTestCase {
 	@Test
 	public void testIdMapSet() {
 		XMLPersistenceMappingResource resource = new NodesResourceImpl();
-		String nodeName = "root";
-		String subNodeName = "subNode";
 		Node node = NodesFactory.eINSTANCE.createNode();
-		node.setName(nodeName);
 		Node subNode = NodesFactory.eINSTANCE.createNode();
-		subNode.setName(subNodeName);
 		node.setEReference_Contained0100Single(subNode);
 
-		assertNull(resource.getEObject(nodeName));
 		assertNull(resource.getID(node));
-		assertNull(resource.getEObject(subNodeName));
 		assertNull(resource.getID(subNode));
 
 		resource.getContents().add(node);
-		assertSame(node, resource.getEObject(nodeName));
-		assertSame(nodeName, resource.getID(node));
+		assertSame(node, resource.getEObject(node.getName()));
+		assertSame(node.getName(), resource.getID(node));
 
-		assertSame(subNode, resource.getEObject(subNodeName));
-		assertSame(subNodeName, resource.getID(subNode));
+		assertSame(subNode, resource.getEObject(subNode.getName()));
+		assertSame(subNode.getName(), resource.getID(subNode));
 	}
 
 	@Test
 	public void testIdMapAdd() {
 		XMLPersistenceMappingResource resource = new NodesResourceImpl();
-		String nodeName = "root";
-		String subNodeName = "subNode";
 		Node node = NodesFactory.eINSTANCE.createNode();
-		node.setName(nodeName);
 		Node subNode = NodesFactory.eINSTANCE.createNode();
-		subNode.setName(subNodeName);
 		node.getEReference_Contained0100Many().add(subNode);
 
-		assertNull(resource.getEObject(nodeName));
 		assertNull(resource.getID(node));
-		assertNull(resource.getEObject(subNodeName));
 		assertNull(resource.getID(subNode));
 
 		resource.getContents().add(node);
-		assertSame(node, resource.getEObject(nodeName));
-		assertSame(nodeName, resource.getID(node));
+		assertSame(node, resource.getEObject(node.getName()));
+		assertSame(node.getName(), resource.getID(node));
 
-		assertSame(subNode, resource.getEObject(subNodeName));
-		assertSame(subNodeName, resource.getID(subNode));
+		assertSame(subNode, resource.getEObject(subNode.getName()));
+		assertSame(subNode.getName(), resource.getID(subNode));
 	}
 
 	@Test
 	public void testIdMapAddMany() {
 		XMLPersistenceMappingResource resource = new NodesResourceImpl();
-		String node1Name = "node1";
-		String node2Name = "node2";
 		Node node1 = NodesFactory.eINSTANCE.createNode();
-		node1.setName(node1Name);
 		Node node2 = NodesFactory.eINSTANCE.createNode();
-		node2.setName(node2Name);
 		List<Node> nodes = new ArrayList<Node>(2);
 		nodes.add(node1);
 		nodes.add(node2);
 
-		assertNull(resource.getEObject(node1Name));
 		assertNull(resource.getID(node1));
-		assertNull(resource.getEObject(node2Name));
 		assertNull(resource.getID(node2));
 
 		resource.getContents().addAll(nodes);
 
-		assertSame(node1, resource.getEObject(node1Name));
-		assertSame(node1Name, resource.getID(node1));
+		assertSame(node1, resource.getEObject(node1.getName()));
+		assertSame(node1.getName(), resource.getID(node1));
 
-		assertSame(node2, resource.getEObject(node2Name));
-		assertSame(node2Name, resource.getID(node2));
+		assertSame(node2, resource.getEObject(node2.getName()));
+		assertSame(node2.getName(), resource.getID(node2));
 	}
 
 	@Test
 	public void testIdMapMove() {
 		XMLPersistenceMappingResource resource = new NodesResourceImpl();
-		String nodeName = "root";
-		String subNodeName = "subNode";
 		Node node = NodesFactory.eINSTANCE.createNode();
-		node.setName(nodeName);
 		Node subNode = NodesFactory.eINSTANCE.createNode();
-		subNode.setName(subNodeName);
 		node.getEReference_Contained0100Many().add(subNode);
 
-		assertNull(resource.getEObject(nodeName));
 		assertNull(resource.getID(node));
-		assertNull(resource.getEObject(subNodeName));
 		assertNull(resource.getID(subNode));
 
 		resource.getContents().add(node);
-		assertSame(node, resource.getEObject(nodeName));
-		assertSame(nodeName, resource.getID(node));
-		assertSame(subNode, resource.getEObject(subNodeName));
-		assertSame(subNodeName, resource.getID(subNode));
+		assertSame(node, resource.getEObject(node.getName()));
+		assertSame(node.getName(), resource.getID(node));
+		assertSame(subNode, resource.getEObject(subNode.getName()));
+		assertSame(subNode.getName(), resource.getID(subNode));
 
 		node.setEReference_Contained0100Single(subNode);
-		assertSame(node, resource.getEObject(nodeName));
-		assertSame(nodeName, resource.getID(node));
-		assertSame(subNode, resource.getEObject(subNodeName));
-		assertSame(subNodeName, resource.getID(subNode));
+		assertSame(node, resource.getEObject(node.getName()));
+		assertSame(node.getName(), resource.getID(node));
+		assertSame(subNode, resource.getEObject(subNode.getName()));
+		assertSame(subNode.getName(), resource.getID(subNode));
 	}
 
 	@Test
 	public void testIdMapRemove() {
 		XMLPersistenceMappingResource resource = new NodesResourceImpl();
 
-		String nodeName = "root";
-		String subNodeName = "subNode";
 		Node node = NodesFactory.eINSTANCE.createNode();
-		node.setName(nodeName);
 		Node subNode = NodesFactory.eINSTANCE.createNode();
-		subNode.setName(subNodeName);
 		node.getEReference_Contained0100Many().add(subNode);
 
-		assertNull(resource.getEObject(nodeName));
 		assertNull(resource.getID(node));
-		assertNull(resource.getEObject(subNodeName));
 		assertNull(resource.getID(subNode));
 
 		resource.getContents().add(node);
-		assertSame(node, resource.getEObject(nodeName));
-		assertSame(nodeName, resource.getID(node));
-		assertSame(subNode, resource.getEObject(subNodeName));
-		assertSame(subNodeName, resource.getID(subNode));
+		assertSame(node, resource.getEObject(node.getName()));
+		assertSame(node.getName(), resource.getID(node));
+		assertSame(subNode, resource.getEObject(subNode.getName()));
+		assertSame(subNode.getName(), resource.getID(subNode));
 
 		node.getEReference_Contained0100Many().remove(subNode);
-		assertSame(node, resource.getEObject(nodeName));
-		assertSame(nodeName, resource.getID(node));
-		assertNull(resource.getEObject(subNodeName));
+		assertSame(node, resource.getEObject(node.getName()));
+		assertSame(node.getName(), resource.getID(node));
+		assertNull(resource.getEObject(subNode.getName()));
 		assertNull(resource.getID(subNode));
 
 		resource.getContents().remove(node);
-		assertNull(resource.getEObject(nodeName));
+		assertNull(resource.getEObject(node.getName()));
 		assertNull(resource.getID(node));
-		assertNull(resource.getEObject(subNodeName));
+		assertNull(resource.getEObject(subNode.getName()));
 		assertNull(resource.getID(subNode));
 	}
 
 	@Test
 	public void testIdMapRename() {
 		XMLPersistenceMappingResource resource = new NodesResourceImpl();
-		String nodeName = "root";
-		String newNodeName = "new_root";
 		Node node = NodesFactory.eINSTANCE.createNode();
-		node.setName(nodeName);
 
-		assertNull(resource.getEObject(nodeName));
 		assertNull(resource.getID(node));
 
 		resource.getContents().add(node);
-		assertNull(resource.getEObject(newNodeName));
-		assertSame(node, resource.getEObject(nodeName));
-		assertSame(nodeName, resource.getID(node));
-
-		node.setName(newNodeName);
-		assertNull(resource.getEObject(nodeName));
-		assertSame(node, resource.getEObject(newNodeName));
-		assertSame(newNodeName, resource.getID(node));
+		assertSame(node, resource.getEObject(node.getName()));
+		assertSame(node.getName(), resource.getID(node));
 	}
 
 }

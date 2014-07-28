@@ -73,9 +73,8 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 
 	/**
 	 * Return <code>true</code>.
-	 * 
+	 *
 	 * @return <code>true</code>.
-	 * 
 	 * @see org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl#useUUIDs()
 	 */
 	@Override
@@ -85,9 +84,8 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 
 	/**
 	 * Return <code>false</code>.
-	 * 
+	 *
 	 * @return <code>false</code>.
-	 * 
 	 * @see org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl#assignIDsWhileLoading()
 	 */
 	@Override
@@ -100,7 +98,7 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 	 * {@link #eObjectToIDMap}. This behavior is override to set the ID in a
 	 * object's specific attribute to set the id in the
 	 * {@link Identifiable#setIdentifier(String)} and call the super method.
-	 * 
+	 *
 	 * @param eObject
 	 *            : The object where the Id must be set.
 	 * @param id
@@ -111,7 +109,7 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 	@Override
 	public void setID(final EObject eObject, final String id) {
 		final EAttribute idAttribute = eObject.eClass().getEIDAttribute();
-		if ((idAttribute != null) && (id != null)) {
+		if (idAttribute != null && id != null) {
 			eObject.eSet(idAttribute, id);
 		}
 		super.setID(eObject, id);
