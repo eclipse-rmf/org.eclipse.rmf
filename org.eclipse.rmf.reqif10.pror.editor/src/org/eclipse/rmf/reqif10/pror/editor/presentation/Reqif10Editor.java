@@ -21,8 +21,8 @@ import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
@@ -1455,12 +1455,19 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 
 	/**
 	 * This is for implementing {@link IEditorPart} and simply saves the model
-	 * file. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * file. 
+	 * <!-- begin-user-doc -->
+	 * Upon each save, the ReqIF ID is updated.
+	 *  <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
+		// Update ReqIF ID.
+		Command cmd = SetCommand.create(editingDomain, reqif.getTheHeader(), ReqIF10Package.Literals.REQ_IF_HEADER__IDENTIFIER, UUID.randomUUID().toString());
+		editingDomain.getCommandStack().execute(cmd);
+		
 		// Save only resources that have actually changed.
 		//
 		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();

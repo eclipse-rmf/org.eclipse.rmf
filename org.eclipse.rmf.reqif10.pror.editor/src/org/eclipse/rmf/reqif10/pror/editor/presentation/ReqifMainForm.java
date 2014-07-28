@@ -12,6 +12,7 @@ package org.eclipse.rmf.reqif10.pror.editor.presentation;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.edit.command.SetCommand;
@@ -244,9 +245,14 @@ public class ReqifMainForm {
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 
 		toolkit.createLabel(client, getString("_UI_ReqifForm_Identifier") + ": ");
-		text = toolkit.createText(client, header.getIdentifier(), SWT.BORDER);
-		text.setEnabled(false);
-		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
+		final Text idText = toolkit.createText(client, header.getIdentifier(), SWT.BORDER);
+		idText.setEnabled(false);
+		idText.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
+		header.eAdapters().add(new AdapterImpl(){
+			public void notifyChanged(Notification notification) {
+				idText.setText(header.getIdentifier());
+			}
+		});
 
 		toolkit.createLabel(client, getString("_UI_ReqifForm_RepositoryId") + ": ");
 		text = toolkit.createText(client, header.getRepositoryId(), SWT.BORDER);
