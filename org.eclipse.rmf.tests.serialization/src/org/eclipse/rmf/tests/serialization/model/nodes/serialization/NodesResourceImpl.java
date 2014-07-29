@@ -10,10 +10,14 @@
  *******************************************************************************/
 package org.eclipse.rmf.tests.serialization.model.nodes.serialization;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
 
@@ -28,24 +32,24 @@ public class NodesResourceImpl extends XMLPersistenceMappingResourceImpl {
 	}
 
 	@Override
+	protected void init() {
+		super.init();
+		// enable id creation and maintenance
+		idToEObjectMap = new HashMap<String, EObject>();
+		eObjectToIDMap = new HashMap<EObject, String>();
+		Collection<EPackage> createIdForPackageSet = new HashSet<EPackage>();
+		createIdForPackageSet.add(NodesPackage.eINSTANCE);
+		// FIXME fixing this is tracked in https://bugs.eclipse.org/bugs/show_bug.cgi?id=440509
+		// eAdapters().add(new IdAdapter(idToEObjectMap, eObjectToIDMap, createIdForPackageSet));
+	}
+
+	@Override
 	public void initDefaultOptions() {
 		super.initDefaultOptions();
 		// ========= default save options ===================
 		Map<Object, Object> saveOptions = getDefaultSaveOptions();
 		Map<String, String> namespaceToPrefixMap = new HashMap<String, String>();
-		namespaceToPrefixMap.put(NodesPackage.eNS_URI, ""); //$NON-NLS-1$
+		namespaceToPrefixMap.put(NodesPackage.eNS_URI, ""); //$NON-NLS-1$ 
 		saveOptions.put(OPTION_NAMEPSACE_TO_PREFIX_MAP, namespaceToPrefixMap);
 	}
-
-	/**
-	 * Return <code>true</code>.
-	 *
-	 * @return <code>true</code>.
-	 * @see org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl#assignIDsWhileLoading()
-	 */
-	@Override
-	protected boolean assignIDsWhileLoading() {
-		return true;
-	}
-
 }
