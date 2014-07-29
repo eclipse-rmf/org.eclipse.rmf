@@ -18,6 +18,7 @@ import java.util.Map;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.rmf.serialization.IdAdapter;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
 
@@ -39,8 +40,7 @@ public class NodesResourceImpl extends XMLPersistenceMappingResourceImpl {
 		eObjectToIDMap = new HashMap<EObject, String>();
 		Collection<EPackage> createIdForPackageSet = new HashSet<EPackage>();
 		createIdForPackageSet.add(NodesPackage.eINSTANCE);
-		// FIXME fixing this is tracked in https://bugs.eclipse.org/bugs/show_bug.cgi?id=440509
-		// eAdapters().add(new IdAdapter(idToEObjectMap, eObjectToIDMap, createIdForPackageSet));
+		eAdapters().add(new IdAdapter(idToEObjectMap, eObjectToIDMap, createIdForPackageSet));
 	}
 
 	@Override
