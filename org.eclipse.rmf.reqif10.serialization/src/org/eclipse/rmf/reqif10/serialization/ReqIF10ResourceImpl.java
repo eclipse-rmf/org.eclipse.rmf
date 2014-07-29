@@ -26,18 +26,17 @@ import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingSaveImpl;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
+import org.eclipse.rmf.serialization.IdAdapter;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
 
 public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 
 	public ReqIF10ResourceImpl() {
 		super();
-		initDefaultOptions();
 	}
 
 	public ReqIF10ResourceImpl(URI uri) {
 		super(uri);
-		initDefaultOptions();
 	}
 
 	@Override
@@ -48,6 +47,7 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 		eObjectToIDMap = new HashMap<EObject, String>();
 		Collection<EPackage> createIdForPackageSet = new HashSet<EPackage>();
 		createIdForPackageSet.add(ReqIF10Package.eINSTANCE);
+		eAdapters().add(new IdAdapter(idToEObjectMap, eObjectToIDMap, createIdForPackageSet));
 	}
 
 	@Override
