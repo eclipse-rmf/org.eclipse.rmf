@@ -53,7 +53,7 @@ public class TC0001000ContainmentEStructuralFeatureTests extends AbstractTestCas
 		assertTrue(loadedReqIF.isSetTheHeader());
 		assertNotNull(loadedReqIF.getTheHeader());
 	}
-	
+
 	@Test
 	public void test0004ReferenceSingleSetDefaultValue() {
 		AttributeDefinitionBoolean attributeDefinitionBoolean = (AttributeDefinitionBoolean) loadedReqIF.getCoreContent().getSpecTypes().get(0)
@@ -93,7 +93,8 @@ public class TC0001000ContainmentEStructuralFeatureTests extends AbstractTestCas
 	public void test0011AttributeSingleSetNotDefaultValue() {
 		ReqIFHeader reqIFHeader = loadedReqIF.getTheHeader();
 		assertTrue(reqIFHeader.isSetIdentifier());
-		assertEquals("identifier", reqIFHeader.getIdentifier());
+		assertNotNull(reqIFHeader.getIdentifier());
+		assertFalse(reqIFHeader.getIdentifier().isEmpty());
 	}
 
 	@Test
