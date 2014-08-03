@@ -73,7 +73,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	}
 
 	/**
-	 * Sets a filter.  The null argument resets filtering.
+	 * Sets a filter. The null argument resets filtering.
 	 */
 	public void setFilter(ReqifFilter filter) {
 		if (filter != this.filter) {
@@ -81,7 +81,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 			flushCache();
 		}
 	}
-	
+
 	/**
 	 * Returns the {@link AttributeValue} for the given column for the element
 	 * associated with the row. May return null.
@@ -94,7 +94,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		}
 
 		ProrRow prorRow = getCache().get(row);
-		if (! prorRow.isVisible()) {
+		if (!prorRow.isVisible()) {
 			return null;
 		}
 
@@ -149,13 +149,16 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * SpecRelation.
 	 */
 	ProrRow getProrRow(int row) {
-		return getCache().get(row);
+		if (row >= 0) {
+			return getCache().get(row);
+		}
+		return null;
 	}
 
-	public void flushCache(){
+	public void flushCache() {
 		cache = null;
 	}
-	
+
 	/**
 	 * Uses a Job to provider feedback to the user.
 	 * 
@@ -181,7 +184,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		}
 		return prorRow;
 	}
-	
+
 	/**
 	 * 
 	 * @param current
@@ -189,7 +192,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * @param elements
 	 *            The {@link SpecHierarchy}s to traverse, Can be SpecHierarchies
 	 *            or SpecRelations
-	 * @param tmpCache 
+	 * @param tmpCache
 	 * @return either the {@link ProrRow} with the given row, or the new current
 	 *         row
 	 */
@@ -201,7 +204,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 			if (filter != null && !filter.match(element.getObject())) {
 				prorRowSH.setVisible(false);
 			} else {
-				prorRowSH.setVisible(true);				
+				prorRowSH.setVisible(true);
 			}
 			tmpCache.add(current, prorRowSH);
 			if (prorRowSH.isShowSpecRelation()) {
@@ -233,8 +236,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 
 		String label = specViewConfig.getColumns().get(col).getLabel();
 
-		return ReqIF10Util.getAttributeValueForLabel(element,
-				label);
+		return ReqIF10Util.getAttributeValueForLabel(element, label);
 	}
 
 	/**
@@ -281,13 +283,13 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 			} else if (entry instanceof SpecHierarchy) {
 				SpecHierarchy specHierarchy = (SpecHierarchy) entry;
 				children.addAll(specHierarchy.getChildren());
-				
+
 				ProrRow prorRow = rowMap.get(specHierarchy);
 				if (prorRow != null && prorRow instanceof ProrRowSpecHierarchy) {
 					if (((ProrRowSpecHierarchy) prorRow).isShowSpecRelation())
 						children.addAll(getSpecRelationsFor(specHierarchy));
 				}
-				
+
 				if (element.equals(specHierarchy.getObject())) {
 					refresh = true;
 				}
@@ -308,5 +310,5 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	public int getRowCount() {
 		return getCache().size();
 	}
-	
+
 }
