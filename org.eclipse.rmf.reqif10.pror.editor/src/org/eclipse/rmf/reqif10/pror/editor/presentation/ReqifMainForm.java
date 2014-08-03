@@ -224,8 +224,12 @@ public class ReqifMainForm {
 				ReqIF10Package.Literals.REQ_IF_HEADER__COMMENT);
 
 		toolkit.createLabel(client, getString("_UI_ReqifForm_CreateTime")+": ");
-		text = toolkit.createText(client, header.getCreationTime() + "",
-				SWT.BORDER);
+		String creationDate = "Unknown";
+        if(header.getCreationTime() != null){
+            creationDate = header.getCreationTime().getTime().toString();
+        }
+        text = toolkit.createText(client, creationDate,
+                SWT.BORDER);
 		text.setEnabled(false);
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 
