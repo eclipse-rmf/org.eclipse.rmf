@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Mark Broerkens - initial API and implementation
- * 
+ *
  */
 package org.eclipse.rmf.tests.reqif10.serialization.util;
 
@@ -301,14 +301,14 @@ public abstract class AbstractTestCase {
 		}
 	}
 
-	private static URI createEMFURI(String fileName) {
+	protected static URI createEMFURI(String fileName) {
 		return URI.createURI(fileName, true);
 	}
 
 	/**
 	 * Creates the file name of reference test data. The name pattern as defined by the ReqIF Implementor Forum.
 	 * #TestCaseID#_E0000_S10_Reference_#yyyyMMdd#_#HHmm# #NameOfHumanCreator#.<reqif/reqifz>
-	 * 
+	 *
 	 * @param testCaseId
 	 * @return
 	 */
@@ -319,7 +319,7 @@ public abstract class AbstractTestCase {
 	/**
 	 * Creates the file name of reference test data. The name pattern as defined by the ReqIF Implementor Forum.
 	 * #TestCaseID#_E0001_S21_Reference_#yyyyMMdd#_#HHmm# #NameOfHumanCreator#.<reqif/reqifz>
-	 * 
+	 *
 	 * @param testCaseId
 	 * @return
 	 */
@@ -331,7 +331,7 @@ public abstract class AbstractTestCase {
 	 * Creates the file name according to the ReqIF Implementor Forum naming conventions. The name pattern as defined by
 	 * the ReqIF Implementor Forum.
 	 * #TestCaseID#_E#NumberOfExports#_S#TestStep#_#Tool#_#yyyyMMdd#_#HHmm#_#NameOfHumanCreator#.#reqif/reqifz#
-	 * 
+	 *
 	 * @param testCaseId
 	 * @return
 	 */
@@ -429,13 +429,13 @@ public abstract class AbstractTestCase {
 		zipOutputStream.close();
 	}
 
-	private static Map<Object, Object> getSaveOptions() {
+	protected static Map<Object, Object> getSaveOptions() {
 		Map<Object, Object> options = new HashMap<Object, Object>();
 		options.put(XMLPersistenceMappingResource.OPTION_NAMEPSACE_TO_PREFIX_MAP, getNamespaceToPrefixMap());
 		return options;
 	}
 
-	private static Map<String, String> getNamespaceToPrefixMap() {
+	protected static Map<String, String> getNamespaceToPrefixMap() {
 		Map<String, String> namespaceToPrefixMap = new HashMap<String, String>();
 		namespaceToPrefixMap.put(ReqIF10Package.eNS_URI, "");
 		return namespaceToPrefixMap;

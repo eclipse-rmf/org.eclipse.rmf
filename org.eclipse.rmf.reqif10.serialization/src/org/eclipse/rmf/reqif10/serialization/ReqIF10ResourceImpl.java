@@ -26,6 +26,10 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
 
 public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
+	/**
+	 * Indicate if we must not replace the id or not
+	 */
+	private boolean keepID = false;
 
 	public ReqIF10ResourceImpl() {
 		super();
@@ -50,10 +54,29 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 		namespaceToPrefixMap.put(ReqIF10Package.eNS_URI, ""); //$NON-NLS-1$ 
 		namespaceToPrefixMap.put(XhtmlPackage.eNS_URI, "xhtml"); //$NON-NLS-1$ 
 		saveOptions.put(OPTION_NAMEPSACE_TO_PREFIX_MAP, namespaceToPrefixMap);
-		
+
 		// ========= default load options ===================
 		Map<Object, Object> loadOptions = getDefaultLoadOptions();
 		loadOptions.put(XMLResource.OPTION_XML_MAP, optionsMap);
+	}
+
+	/**
+	 * Set the new value of keep id
+	 * 
+	 * @param keepID
+	 *            : The new value of keep id
+	 */
+	public void setKeepID(boolean keepID) {
+		this.keepID = keepID;
+	}
+
+	/**
+	 * Return whether the flag of keeping the id is on or off
+	 * 
+	 * @return The value of the flag of keeping the id
+	 */
+	public boolean isKeepID() {
+		return keepID;
 	}
 
 	/**
@@ -92,8 +115,19 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 	@Override
 	public void setID(final EObject eObject, final String id) {
 		final EAttribute idAttribute = eObject.eClass().getEIDAttribute();
-		if ((idAttribute != null) && (id != null)) {
-			eObject.eSet(idAttribute, id);
+		String idToSet = id;
+		if ((idAttribute != null) && (idToSet != null)) {
+			if (isKeepID()) {
+				Object existingID = eObject.eGet(idAttribute);
+				if ((existingID != null)
+						&& (false == existingID.toString().trim().isEmpty())) {
+					idToSet = existingID.toString();
+				}
+			}
+			// We must not keep the existing id, so we overrite it
+			if (idToSet.equals(id)) {
+				eObject.eSet(idAttribute, id);
+			}
 		}
 		super.setID(eObject, id);
 	}

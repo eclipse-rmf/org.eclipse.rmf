@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Mark Broerkens - initial API and implementation
- * 
+ *
  */
 package org.eclipse.rmf.tests.reqif10.serialization.uc003.tc18xx;
 
@@ -16,9 +16,14 @@ import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.assertTrue;
 
+import java.io.IOException;
+
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap.Entry;
@@ -29,6 +34,7 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceImpl;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
 import org.eclipse.rmf.tests.reqif10.serialization.util.AbstractTestCase;
 import org.eclipse.rmf.tests.reqif10.serialization.util.CommonSystemAttributes;
@@ -52,16 +58,16 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 		AbstractTestCase.setupOnce();
 		// ___
 		tc1800ReqIF = new TC1800HISExchangeProcessModelBuilder().getReqIF();
-		saveReqIFFile(tc1800ReqIF, TC1800_FILENAME);
+		doSaveReqIFFile(tc1800ReqIF, TC1800_FILENAME);
 
 		tc1801ReqIF = new TC1801HISExchangeProcessModelBuilder(loadReqIFFile(TC1800_FILENAME)).getReqIF();
-		saveReqIFFile(tc1801ReqIF, TC1801_FILENAME);
+		doSaveReqIFFile(tc1801ReqIF, TC1801_FILENAME);
 
 		tc1802ReqIF = new TC1802HISExchangeProcessModelBuilder(loadReqIFFile(TC1801_FILENAME)).getReqIF();
-		saveReqIFFile(tc1802ReqIF, TC1802_FILENAME);
+		doSaveReqIFFile(tc1802ReqIF, TC1802_FILENAME);
 
 		tc1803ReqIF = new TC1803HISExchangeProcessModelBuilder(loadReqIFFile(TC1802_FILENAME)).getReqIF();
-		saveReqIFFile(tc1803ReqIF, TC1803_FILENAME);
+		doSaveReqIFFile(tc1803ReqIF, TC1803_FILENAME);
 	}
 
 	@Test
@@ -264,4 +270,16 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 
 	}
 
+	protected static void doSaveReqIFFile(EObject reqif, String fileName) throws IOException {
+		URI emfURI = createEMFURI(fileName);
+		Resource resource = getXMLPersistenceMappingResourceSet().createResource(emfURI);
+		if (resource instanceof ReqIF10ResourceImpl) {
+			((ReqIF10ResourceImpl) resource).setKeepID(true);
+		}
+		resource.getContents().add(reqif);
+		resource.save(getSaveOptions());
+		if (resource instanceof ReqIF10ResourceImpl) {
+			((ReqIF10ResourceImpl) resource).setKeepID(false);
+		}
+	}
 }
