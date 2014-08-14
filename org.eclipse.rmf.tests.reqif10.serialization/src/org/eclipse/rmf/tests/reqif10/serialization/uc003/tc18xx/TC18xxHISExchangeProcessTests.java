@@ -34,7 +34,6 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.XhtmlContent;
-import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceImpl;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPType;
 import org.eclipse.rmf.tests.reqif10.serialization.util.AbstractTestCase;
 import org.eclipse.rmf.tests.reqif10.serialization.util.CommonSystemAttributes;
@@ -62,12 +61,15 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 
 		tc1801ReqIF = new TC1801HISExchangeProcessModelBuilder(loadReqIFFile(TC1800_FILENAME)).getReqIF();
 		doSaveReqIFFile(tc1801ReqIF, TC1801_FILENAME);
+		tc1801ReqIF = loadReqIFFile(TC1801_FILENAME); // Ensure all references to the old filename are gone
 
 		tc1802ReqIF = new TC1802HISExchangeProcessModelBuilder(loadReqIFFile(TC1801_FILENAME)).getReqIF();
 		doSaveReqIFFile(tc1802ReqIF, TC1802_FILENAME);
+		tc1802ReqIF = loadReqIFFile(TC1802_FILENAME); // Ensure all references to the old filename are gone
 
 		tc1803ReqIF = new TC1803HISExchangeProcessModelBuilder(loadReqIFFile(TC1802_FILENAME)).getReqIF();
 		doSaveReqIFFile(tc1803ReqIF, TC1803_FILENAME);
+		tc1803ReqIF = loadReqIFFile(TC1803_FILENAME); // Ensure all references to the old filename are gone
 	}
 
 	@Test
@@ -273,13 +275,8 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 	protected static void doSaveReqIFFile(EObject reqif, String fileName) throws IOException {
 		URI emfURI = createEMFURI(fileName);
 		Resource resource = getXMLPersistenceMappingResourceSet().createResource(emfURI);
-		if (resource instanceof ReqIF10ResourceImpl) {
-			((ReqIF10ResourceImpl) resource).setKeepID(true);
-		}
 		resource.getContents().add(reqif);
 		resource.save(getSaveOptions());
-		if (resource instanceof ReqIF10ResourceImpl) {
-			((ReqIF10ResourceImpl) resource).setKeepID(false);
-		}
 	}
+
 }
