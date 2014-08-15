@@ -91,23 +91,10 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 	 *      java.lang.String)
 	 */
 	@Override
-	public void setID(final EObject eObject, String id) {
+	public void setID(final EObject eObject, final String id) {
 		final EAttribute idAttribute = eObject.eClass().getEIDAttribute();
-		if (idAttribute != null) {
-			Object currentId = eObject.eGet(idAttribute);
-			if (currentId instanceof String) id = (String)currentId;
-		}
-		String idToSet = id;
-		if ((idAttribute != null) && (idToSet != null)) {
-				Object existingID = eObject.eGet(idAttribute);
-				if ((existingID != null)
-						&& (false == existingID.toString().trim().isEmpty())) {
-					idToSet = existingID.toString();
-				}
-			// We must not keep the existing id, so we override it
-			if (idToSet.equals(id)) {
-				eObject.eSet(idAttribute, id);
-			}
+		if ((idAttribute != null) && (id != null)) {
+			eObject.eSet(idAttribute, id);
 		}
 		super.setID(eObject, id);
 	}
