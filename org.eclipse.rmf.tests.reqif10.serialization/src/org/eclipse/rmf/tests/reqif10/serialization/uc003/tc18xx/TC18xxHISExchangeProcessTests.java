@@ -58,6 +58,7 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 		// ___
 		tc1800ReqIF = new TC1800HISExchangeProcessModelBuilder().getReqIF();
 		doSaveReqIFFile(tc1800ReqIF, TC1800_FILENAME);
+		tc1800ReqIF = loadReqIFFile(TC1800_FILENAME); // Ensure all references to the old filename are gone
 
 		tc1801ReqIF = new TC1801HISExchangeProcessModelBuilder(loadReqIFFile(TC1800_FILENAME)).getReqIF();
 		doSaveReqIFFile(tc1801ReqIF, TC1801_FILENAME);

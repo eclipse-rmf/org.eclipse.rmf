@@ -94,7 +94,11 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 	public void setID(final EObject eObject, final String id) {
 		final EAttribute idAttribute = eObject.eClass().getEIDAttribute();
 		if ((idAttribute != null) && (id != null)) {
-			eObject.eSet(idAttribute, id);
+			
+			// Only to this for ReqIF IDs (and not for XHTML, etc.)			
+			if (idAttribute.getEType().eContainer() instanceof ReqIF10Package) {
+				eObject.eSet(idAttribute, id);
+			}
 		}
 		super.setID(eObject, id);
 	}
