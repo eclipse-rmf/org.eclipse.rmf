@@ -67,6 +67,7 @@ public class RichTextModelBuilder extends SimpleModelBuilder {
 		t_kind.setLongName("T_Kind");
 		t_kind.setIdentifier("T_Kind");
 		t_kind.setLastChange(DATE);
+		t_kind.setMaxLength(new BigInteger("1000"));
 		getReqIF().getCoreContent().getDatatypes().add(t_kind);
 	}
 
@@ -93,6 +94,7 @@ public class RichTextModelBuilder extends SimpleModelBuilder {
 		t_description.setLongName("T_Description");
 		t_description.setIdentifier("T_Description");
 		t_description.setLastChange(DATE);
+		t_description.setMaxLength(new BigInteger("1000"));
 		getReqIF().getCoreContent().getDatatypes().add(t_description);
 	}
 
@@ -185,6 +187,15 @@ public class RichTextModelBuilder extends SimpleModelBuilder {
 		descriptionAV.setDefinition(ad_description);
 		descriptionAV.setTheValue(description);
 		obj.getValues().add(descriptionAV);
+	}
+
+	@Override
+	public void createSpecificationTypes() throws Exception {
+		specType = factory.createSpecificationType();
+		specType.setIdentifier("specType");
+		specType.setLongName("specType");
+		specType.setLastChange(DATE);
+		getReqIF().getCoreContent().getSpecTypes().add(specType);
 	}
 
 	@Override
