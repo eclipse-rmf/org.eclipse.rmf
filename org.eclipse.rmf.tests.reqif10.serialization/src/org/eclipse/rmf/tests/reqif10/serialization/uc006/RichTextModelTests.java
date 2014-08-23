@@ -26,9 +26,7 @@ public class RichTextModelTests extends AbstractTestCase implements CommonSystem
 
 		String filename = getWorkingFileName("Richtext.reqif"); //$NON-NLS-1$
 		ReqIF reqif = new RichTextModelBuilder().getReqIF();
-		System.out.println(reqif.getCoreContent().getSpecObjects().get(0).getIdentifier());
 		saveReqIFFile(reqif, filename);
-		System.out.println(reqif.getCoreContent().getSpecObjects().get(0).getIdentifier());
 	}
 
 	@Test
