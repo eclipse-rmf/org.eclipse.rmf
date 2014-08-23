@@ -85,7 +85,7 @@ public class RichTextModelBuilder extends SimpleModelBuilder {
 		t_recommended.setIdentifier("T_Recommended");
 		t_recommended.setLastChange(DATE);
 		addEnum(t_recommended, 1, "Recommended");
-		addEnum(t_recommended, 2, "Not Recommended");
+		addEnum(t_recommended, 2, "---");
 		getReqIF().getCoreContent().getDatatypes().add(t_recommended);
 	}
 
@@ -154,6 +154,43 @@ public class RichTextModelBuilder extends SimpleModelBuilder {
 	public void createSpecObjects() throws Exception {
 		createSpecObject("so-01", "Bold Text", getXhtmlContent("<div><b>Bold</b></div>"), true,
 				"(standard element for bold in XHTML). Represented by using the <b> element.");
+		createSpecObject("so-02", "Bold Text", getXhtmlContent("<div><strong>Bold</strong></div>"), false,
+				"Represented by using the <strong> element.");
+		createSpecObject("so-03", "Italic Text", getXhtmlContent("<div><i>Italic</i></div>"), true, "Represented by using the <i> element.");
+		createSpecObject("so-04", "Italic Text", getXhtmlContent("<div><em>Italic</em></div>"), false, "Represented by using the <em> element.");
+		createSpecObject("so-05", "Italic Text", getXhtmlContent("<div><cite>Italic</cite></div>"), false, "Represented by using the <cite> element.");
+		createSpecObject("so-06", "Underlined Text", getXhtmlContent("<div><span style='text-decoration:underline;'>Underlined</span></div>"), true,
+				"Represented by using the style attribute set to text-decoration:underline.");
+		createSpecObject("so-07", "Underlined Text", getXhtmlContent("<div><ins>Underlined</ins></div>"), false,
+				"Represented by using the <ins> element.");
+		createSpecObject("so-08", "Strike Through Text",
+				getXhtmlContent("<div><span style='text-decoration:line-through;'>Strike Through</span></div>"), true,
+				"(recommended by ReqIF standard). Represented by using the style attribute set to text-decoration:line-through.");
+		createSpecObject("so-09", "Strike Through Text", getXhtmlContent("<div>><del>Strike Through</del></div>"), false,
+				"Represented by using the <del> element.");
+
+		createSpecObject("so-10", "Superscript Text", getXhtmlContent("<div>Normal<sup>Superscript</sup></div>"), true,
+				"(standard XHTML). Represented by using the <sup> element.");
+		createSpecObject("so-11", "Subscript Text", getXhtmlContent("<div>Normal<sub>Subscript</sub></div>"), true,
+				"(standard XHTML). Represented by using the <sub> element.");
+		createSpecObject(
+				"so-12",
+				"Indentation",
+				getXhtmlContent("<div>The second line<blockquote><div>is indented,<blockquote><div>the third line is indented even further.</div></blockquote></div></blockquote></div>"),
+				true,
+				"Represented by using <blockquote> elements. Simple, straight-forward solution that is compatible with ReqIF1.1. It explicitly uses XHTML elements and therefore can be easily processed by XML parsers.");
+		createSpecObject(
+				"so-13",
+				"Indentation",
+				getXhtmlContent("<div><div>The second line</div><div style='margin-left:10px;'>is indented 10 pixels,</div><div style='margin-left:20px;'>the third line is indented 20 pixels.</div></div>"),
+				false, "Represented by using the style attribute set to margin-left:<indentation>.");
+		createSpecObject("so-14", "Unordered List",
+				getXhtmlContent("<div><ul><li>First Bullet Point</li><li>Second Bullet Point</li><li>Third Bullet Point</li></ul></div>"), true,
+				"(standard XHTML). Represented by using the <ul> and <li> elements.");
+		createSpecObject("so-15", "Ordered List", getXhtmlContent("<div><ol><li>Number One</li><li>Number Two</li><li>Number Three</li></ol></div>"),
+				true, "(standard XHTML). Represented by using the <ol> and <li> elements.");
+		createSpecObject("so-16", "Colored Text", getXhtmlContent("<div><span style='color:red;'>Red</span></div>"), true,
+				"(recommended by ReqIF standard). Represented by using the style attribute set to color:<color>");
 	}
 
 	private void createSpecObject(String id, String kind, XhtmlContent xhtml, boolean recommended, String description) throws Exception {
