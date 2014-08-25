@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="f1723c22-89ad-4058-9a7e-8e2d1e93cc65">
+      <COMMENT>Created by: jastram</COMMENT>
+      <CREATION-TIME>2014-08-25T13:17:20.204+02:00</CREATION-TIME>
+      <REQ-IF-TOOL-ID>ProR (http://pror.org)</REQ-IF-TOOL-ID>
+      <REQ-IF-VERSION>1.0.1</REQ-IF-VERSION>
+      <SOURCE-TOOL-ID>ProR (http://pror.org)</SOURCE-TOOL-ID>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_YSlRUixJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:17:20.204+02:00" LONG-NAME="T_String32k" MAX-LENGTH="32000"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_bq87UCxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:17:39.856+02:00" LONG-NAME="T_Headline" MAX-LENGTH="32000"/>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_YSlRUyxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:17:20.204+02:00" LONG-NAME="Requirement Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_YSlRVCxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:17:20.204+02:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_YSlRUixJEeSPLp1S2tRXIg</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE IDENTIFIER="_YSlRVSxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:17:20.204+02:00" LONG-NAME="Specification Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_YSlRVixJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:17:20.204+02:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_YSlRUixJEeSPLp1S2tRXIg</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_aB0aUCxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:17:25.759+02:00" LONG-NAME="Headline Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_edU8UCxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:17:55.283+02:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_bq87UCxJEeSPLp1S2tRXIg</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT IDENTIFIER="_YSlRVyxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:19:42.587+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="This document specifies a search and replace feature for ProR.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_oQA-YCxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:19:02.549+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR Search and Replace">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_edU8UCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_aB0aUCxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_ubawsCxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:19:48.795+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="High-level Goals">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_edU8UCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_aB0aUCxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_xSPz4CxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:20:04.422+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to be able to search in a &quot;standard fashion&quot;.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_5BrkwCxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:20:59.916+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to be able to replace in a &quot;standard fashion&quot;.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_9oPgMCxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:21:30.803+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="&quot;standard fashion&quot; in this case means in an intuitive manner that is standard for the platform (in this case Eclipse).">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_JFdxcCxKEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:22:47.687+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to be able to use searches for filtering.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_We1mUCxKEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:24:17.589+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Implementation Considerations">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_edU8UCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_aB0aUCxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Z9s54CxKEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:24:33.913+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Obviously, existing technologies shall be used as much as possible.  Candidates identified so far include:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_H-RDYCxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:30:16.843+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="EMF Search (suggested by Hussein).  However, EMF Search seems to be dead, according to https://wiki.eclipse.org/EMF_Search">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_MK0jYCxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:32:23.163+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Standard Eclipse Search.  Note that Eclipse Search already works &quot;out of the box&quot;, using the &quot;file search&quot;.  But the search interface only accepts text, and the result shows the corresponding XML line.  So to use this, both search interface and result view would need to be improved.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_hasacCxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:32:35.716+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User Interface Elements">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_edU8UCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_aB0aUCxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_mlqDcCxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:33:12.760+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The following User Interface Views are required to support the user cases:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_rbo68CxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:34:40.707+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Search Query View">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_edU8UCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_aB0aUCxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_v0qwsCxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:34:17.147+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Search Result View">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_edU8UCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_aB0aUCxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_0vfr8CxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:34:45.496+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The Query View allows the user to construct search criteria.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Dkkp0CxMEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:36:29.676+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="NOTE: We have a few options here, the following is one suggestion.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Lh5swCxMEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:37:23.083+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="A Query consists of QueryElements.  The user Interface allows QueryElements to be added and removed.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_UT8xMCxMEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:38:22.019+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="A QueryElement consists of three parts: QueryTarget, QueryOperator, QueryValue">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_YDygACxMEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:38:47.168+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The QueryElement narrows the AttributeValue(s) to be considered: This could be: (1) any value; (2) any value of a given SpecType; (3) any value with a given AttributeName; (4) a specific attribute.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_rYzM4CxMEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:40:56.877+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The QueryOperator defines how matching should take place.  For an initial implementation, I suggest to only offer &quot;RegExp&quot;.  Obviously, this is challenging for novice users.  ">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_nw3yACxOEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:54:51.552+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="In case os &quot;specific attribute&quot; (where implicitly the type is known), instead of RegExp, we can offer type-specific search (e.g. a range for numbers, etc.)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="_YSlRWSxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:17:20.204+02:00" LONG-NAME="Specification Document">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Requirements Document">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVixJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>_YSlRVSxJEeSPLp1S2tRXIg</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="_oQQO8CxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:19:02.549+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_oQA-YCxJEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_YSlRWyxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:19:24.839+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_YSlRVyxJEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_ubozICxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:19:48.795+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_ubawsCxJEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_xSedYCxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:20:04.422+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_xSPz4CxJEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_5B180CxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:20:59.916+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_5BrkwCxJEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_9obtcCxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:21:30.803+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_9oPgMCxJEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_JFp-sCxKEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:22:47.687+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_JFdxcCxKEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_WfGFACxKEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:24:17.589+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_We1mUCxKEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_Z968UCxKEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:24:33.913+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_Z9s54CxKEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_H-d3sCxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:29:47.121+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_H-RDYCxLEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_MLBXsCxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:30:17.878+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_MK0jYCxLEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_ha5OwCxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:32:35.716+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_hasacCxLEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_ml2QsCxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:33:12.760+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_mlqDcCxLEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_rb1vQCxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:33:43.688+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_rbo68CxLEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_0vqrECxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:34:45.496+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_0vfr8CxLEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_Dk1vkCxMEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:36:29.677+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_Dkkp0CxMEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_LiGhECxMEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:37:23.083+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_Lh5swCxMEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_UUOeACxMEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:38:22.019+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_UT8xMCxMEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_YECXoCxMEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:38:47.168+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_YDygACxMEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_rZB2YCxMEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:40:56.877+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_rYzM4CxMEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_nxKs8CxOEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:54:51.552+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_nw3yACxOEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_v04zICxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:34:17.147+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_v0qwsCxLEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration specification="_YSlRWSxJEeSPLp1S2tRXIg">
+            <configuration:columns>
+              <configuration:Column label="Description" width="695"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration>
+                <defaultLabel>Description</defaultLabel>
+              </configuration:LabelConfiguration>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+        <configuration:presentationConfigurations>
+          <configuration:ProrPresentationConfigurations>
+            <configuration:presentationConfigurations>
+              <headline:HeadlineConfiguration datatype="_bq87UCxJEeSPLp1S2tRXIg" size="16"/>
+            </configuration:presentationConfigurations>
+          </configuration:ProrPresentationConfigurations>
+        </configuration:presentationConfigurations>
+      </configuration:ProrToolExtension>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>
