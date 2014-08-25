@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline">
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline" xmlns:id="http://pror.org/presentation/id">
   <THE-HEADER>
-    <REQ-IF-HEADER IDENTIFIER="f1723c22-89ad-4058-9a7e-8e2d1e93cc65">
+    <REQ-IF-HEADER IDENTIFIER="381c871b-a6c0-441d-b31a-15b520b60b3f">
       <COMMENT>Created by: jastram</COMMENT>
       <CREATION-TIME>2014-08-25T13:17:20.204+02:00</CREATION-TIME>
       <REQ-IF-TOOL-ID>ProR (http://pror.org)</REQ-IF-TOOL-ID>
@@ -14,6 +14,7 @@
       <DATATYPES>
         <DATATYPE-DEFINITION-STRING IDENTIFIER="_YSlRUixJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:17:20.204+02:00" LONG-NAME="T_String32k" MAX-LENGTH="32000"/>
         <DATATYPE-DEFINITION-STRING IDENTIFIER="_bq87UCxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:17:39.856+02:00" LONG-NAME="T_Headline" MAX-LENGTH="32000"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_vrnPcCxYEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:07:16.437+02:00" LONG-NAME="T_ID" MAX-LENGTH="100"/>
       </DATATYPES>
       <SPEC-TYPES>
         <SPEC-OBJECT-TYPE IDENTIFIER="_YSlRUyxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:17:20.204+02:00" LONG-NAME="Requirement Type">
@@ -21,6 +22,11 @@
             <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_YSlRVCxJEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:17:20.204+02:00" LONG-NAME="Description">
               <TYPE>
                 <DATATYPE-DEFINITION-STRING-REF>_YSlRUixJEeSPLp1S2tRXIg</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_yecjcCxYEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:07:36.295+02:00" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_vrnPcCxYEeSvIuOUGpTZEQ</DATATYPE-DEFINITION-STRING-REF>
               </TYPE>
             </ATTRIBUTE-DEFINITION-STRING>
           </SPEC-ATTRIBUTES>
@@ -50,6 +56,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="This document specifies a search and replace feature for ProR.">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-1">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -88,6 +99,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-2">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
@@ -98,6 +114,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to be able to replace in a &quot;standard fashion&quot;.">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-3">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -112,6 +133,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-4">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
@@ -122,6 +148,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to be able to use searches for filtering.">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-5">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -148,6 +179,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-6">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
@@ -160,6 +196,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-7">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
@@ -170,6 +211,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="Standard Eclipse Search.  Note that Eclipse Search already works &quot;out of the box&quot;, using the &quot;file search&quot;.  But the search interface only accepts text, and the result shows the corresponding XML line.  So to use this, both search interface and result view would need to be improved.">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-8">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -194,6 +240,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="The following User Interface Views are required to support the user cases:">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-9">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -232,6 +283,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-10">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
@@ -242,6 +298,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="NOTE: We have a few options here, the following is one suggestion.">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-11">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -256,6 +317,11 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-12">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
@@ -266,6 +332,11 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="A QueryElement consists of three parts: QueryTarget, QueryOperator, QueryValue">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-13">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -280,16 +351,9 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
-          </VALUES>
-          <TYPE>
-            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
-          </TYPE>
-        </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_rYzM4CxMEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:40:56.877+02:00">
-          <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="The QueryOperator defines how matching should take place.  For an initial implementation, I suggest to only offer &quot;RegExp&quot;.  Obviously, this is challenging for novice users.  ">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-14">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -297,11 +361,552 @@
             <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_nw3yACxOEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:54:51.552+02:00">
+        <SPEC-OBJECT IDENTIFIER="_rYzM4CxMEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T14:48:05.437+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="In case os &quot;specific attribute&quot; (where implicitly the type is known), instead of RegExp, we can offer type-specific search (e.g. a range for numbers, etc.)">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The QueryOperator defines how matching should take place.  For an initial implementation, I suggest to only offer &quot;RegExp&quot;.  Obviously, this is challenging for novice users.  For this to work, all Attributes have to be converted to Strings.  This has already been implemented for the Quick Search feature, so check there.  For XHTML, all formatting will be ignored.">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-15">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_nw3yACxOEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T14:08:19.727+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="In case of &quot;specific attribute&quot; (where implicitly the type is known), instead of RegExp, we can offer type-specific search (e.g. a range for numbers, etc.)  Implementation of this can be postponed.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-16">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_g8fpQCxQEeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:10:55.212+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="For a match, all QueryElements are combined via &quot;AND&quot;.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-17">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_pz3SkCxQEeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:09:24.281+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The Query View is intended for SpecElementsWithAttributes.  In other words, other Elements like Datatypes, etcs. are not considered.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-18">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_8aeoYCxQEeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:11:29.126+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Alternatives to ReqIF could be &quot;exact match&quot;, &quot;match substring&quot;, &quot;inverse match&quot;.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-19">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_P0GIcCxREeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:13:22.132+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The Search Result View shall show the matches in a tree structure, as is typically done.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-20">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_UrWyUCxREeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:14:11.956+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="However, the tree structure shall be the same as shown in the Outline: E.g. a match in a SpecRelation is shown as a child of the &quot;SpecRelations&quot; folder.  Matching SpecObjects shall be shown as a child of &quot;SpecObjecsts&quot;, as well as a child of &quot;Specifications&quot; (if a SpecHierarchy exists that references the SpecObject.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-21">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_SJO-YCxSEeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:21:04.454+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Underneath the category folder, the SpecElement shall be shown with the correct icon (SpecObject, Specification, SpecRelatio, SpecRelationGroup) and the correct label.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-22">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_fvicACxSEeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:22:35.712+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Underneath the Element, the match is shown, which is a text representation of the matching AttributeValue.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-23">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_p9O_ECxSEeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:24:29.644+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Bonus 1: Highlight the match&#xA;Bonus 2: If more than one Value matches, show all matching Values.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-24">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_b__9QCxUEeSAvvLc0gQuAA" LAST-CHANGE="2014-08-25T14:36:29.587+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Optional: Quick Search in Datatype Dialog">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_edU8UCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_aB0aUCxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_futDoCxUEeSAvvLc0gQuAA" LAST-CHANGE="2014-08-25T14:36:51.853+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="It would be useful to have a &quot;Quick Search&quot; feature in the Datatype Configuration Dialog.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-25">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_x1V44CxUEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:01:18.261+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User Stories">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_edU8UCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_aB0aUCxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_2fkzYCxUEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:42:12.037+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="I anticipate Search Query Views to be used in more than one context.  Initially, it will be part of the Search | Search... dialog (as a new tab, &quot;ReqIF Search&quot;).  But later, I expect it to be used for defining filters.  This means, amongst other things, that searches must be persistable, and it must be possible to repopulate a Search Query View with a saved query, for editing.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-26">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_fG_t8CxVEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:43:59.950+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Replace View">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_edU8UCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_aB0aUCxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_iEidICxVEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:44:05.945+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="I suggest that we permit &quot;Replace&quot; only if the user has exactly one QueryElement with &quot;a specific attribute&quot;.  As for replace, we need to know the type (unless we want to make things really sophisticated).">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-27">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_rqtGICxVEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:45:24.225+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="There is a replace button on the Search dialog, which is only enabled for the above criteria.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-28">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_vvntECxVEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:45:51.585+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Upon hitting &quot;Replace&quot;, the user can select the replacement value, which is type dependent:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-29">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_3AZMACxVEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:46:33.543+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="String: only the matching text will be replaced.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-30">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_EaINQCxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:48:10.259+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="XHTML: only matching ttext will be replaced.  If the match contains formatting, it will be lost.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-31">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_IfQPkCxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:51:50.261+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Integer, REal, Date, Boolean: Replace only">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-32">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Md-u8CxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:49:04.351+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Enumerations: if it is a multi-value enumeration, offer to add-only (e.g. those selected will be checked, all others ignored), remove only (e.g. only those unchecked will be cleared, all others ignored), or set exactly.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-33">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_uXHMkCxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:52:51.800+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Please add any others that may be of interest.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-34">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_1pAs4CxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:55:31.445+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Optional: Filter View">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_edU8UCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_aB0aUCxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_50ICcCxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:53:49.862+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The Filter View is a Dialog that shows the user a list of named Search Queries.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-35">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_9_FnACxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:54:36.656+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user can edit search queries, rename them, copy them and delete them.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-36">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_DvCMYCxXEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:57:18.029+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="If we implement a Filter View, we also need a way to appy it.  The filter control is part of the Toolbar.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-37">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_GkbsMCxXEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:55:34.259+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Filter Control">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_edU8UCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_aB0aUCxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_WJOPwCxXEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:59:57.397+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The filter control, when activated, shows a list of all filters (by name).  The user can select one ore more filters. Multiple filters will be combined via OR. (NOTE: This way, users have the flexibility to create QueryElements that are combined via AND in Filters, and combining filters via OR).">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-38">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_ySKQYCxXEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:00:27.622+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Filters are applied on the complete Model, meaning that they apply to all Specifications and the Outline.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-39">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_6cB6gCxXEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:05:55.293+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to find specific text sniplets anywhere">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-40">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_jLv1cCxYEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:05:55.783+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to search for specific attributes.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-41">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_mKEnwCxYEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:06:15.740+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to selectively replace text or attributes.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-42">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_YSlRUyxJEeSPLp1S2tRXIg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_p0m_0CxYEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:06:40.333+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want limit what I see according to certain filter criteria.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_YSlRVCxJEeSPLp1S2tRXIg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-43">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_yecjcCxYEeSvIuOUGpTZEQ</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -362,6 +967,33 @@
                 </SPEC-HIERARCHY>
               </CHILDREN>
             </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_x1seMCxUEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:09:37.954+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_x1V44CxUEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_6cLrgCxXEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:01:18.284+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_6cB6gCxXEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_jMCwYCxYEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:05:55.783+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_jLv1cCxYEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_mKUfYCxYEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:06:15.740+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_mKEnwCxYEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_p056wCxYEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:06:40.333+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_p0m_0CxYEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
             <SPEC-HIERARCHY IDENTIFIER="_WfGFACxKEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:24:17.589+02:00">
               <OBJECT>
                 <SPEC-OBJECT-REF>_We1mUCxKEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
@@ -380,6 +1012,11 @@
                     <SPEC-HIERARCHY IDENTIFIER="_MLBXsCxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:30:17.878+02:00">
                       <OBJECT>
                         <SPEC-OBJECT-REF>_MK0jYCxLEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_uXWdICxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:52:51.801+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_uXHMkCxWEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
                       </OBJECT>
                     </SPEC-HIERARCHY>
                   </CHILDREN>
@@ -404,6 +1041,11 @@
                     <SPEC-HIERARCHY IDENTIFIER="_0vqrECxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:34:45.496+02:00">
                       <OBJECT>
                         <SPEC-OBJECT-REF>_0vfr8CxLEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_p0KNgCxQEeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:09:24.281+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_pz3SkCxQEeSlbNKbJMVMtg</SPEC-OBJECT-REF>
                       </OBJECT>
                     </SPEC-HIERARCHY>
                     <SPEC-HIERARCHY IDENTIFIER="_Dk1vkCxMEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:36:29.677+02:00">
@@ -436,12 +1078,149 @@
                         <SPEC-OBJECT-REF>_nw3yACxOEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
                       </OBJECT>
                     </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_8a0moCxQEeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:11:29.126+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_8aeoYCxQEeSlbNKbJMVMtg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_g81ngCxQEeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:08:24.788+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_g8fpQCxQEeSlbNKbJMVMtg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_2f4VYCxUEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:39:27.382+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_2fkzYCxUEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
                   </CHILDREN>
                 </SPEC-HIERARCHY>
                 <SPEC-HIERARCHY IDENTIFIER="_v04zICxLEeSPLp1S2tRXIg" LAST-CHANGE="2014-08-25T13:34:17.147+02:00">
                   <OBJECT>
                     <SPEC-OBJECT-REF>_v0qwsCxLEeSPLp1S2tRXIg</SPEC-OBJECT-REF>
                   </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_P0SVsCxREeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:13:22.132+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_P0GIcCxREeSlbNKbJMVMtg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_Urq7YCxREeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:14:11.957+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_UrWyUCxREeSlbNKbJMVMtg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_SJjHcCxSEeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:21:04.454+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_SJO-YCxSEeSlbNKbJMVMtg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_fv0v4CxSEeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:22:35.712+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_fvicACxSEeSlbNKbJMVMtg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_p9hS8CxSEeSlbNKbJMVMtg" LAST-CHANGE="2014-08-25T14:23:44.257+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_p9O_ECxSEeSlbNKbJMVMtg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_fHQMoCxVEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:43:59.950+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_fG_t8CxVEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_iErnECxVEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:44:05.945+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_iEidICxVEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_rq9k0CxVEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:45:24.225+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_rqtGICxVEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_vv3ksCxVEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:45:51.585+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_vvntECxVEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN>
+                        <SPEC-HIERARCHY IDENTIFIER="_3AnOcCxVEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:46:33.543+02:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_3AZMACxVEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_EaXd0CxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:48:10.259+02:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_EaINQCxWEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_IfguQCxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:48:37.641+02:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_IfQPkCxWEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_MeP0sCxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:49:04.351+02:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_Md-u8CxWEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                      </CHILDREN>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_cASRICxUEeSAvvLc0gQuAA" LAST-CHANGE="2014-08-25T14:36:29.587+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_b__9QCxUEeSAvvLc0gQuAA</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_fu4p0CxUEeSAvvLc0gQuAA" LAST-CHANGE="2014-08-25T14:36:51.853+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_futDoCxUEeSAvvLc0gQuAA</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_1pQkgCxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:53:40.654+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_1pAs4CxWEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_50Wr8CxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:53:49.862+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_50ICcCxWEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_9_WswCxWEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:54:36.656+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_9_FnACxWEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_GkpuoCxXEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:55:34.259+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_GkbsMCxXEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_DvSrECxXEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:55:43.649+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_DvCMYCxXEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_WJdgUCxXEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T14:57:18.779+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_WJOPwCxXEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_ySb9MCxXEeSvIuOUGpTZEQ" LAST-CHANGE="2014-08-25T15:00:27.622+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_ySKQYCxXEeSvIuOUGpTZEQ</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
                 </SPEC-HIERARCHY>
               </CHILDREN>
             </SPEC-HIERARCHY>
@@ -456,7 +1235,8 @@
         <configuration:specViewConfigurations>
           <configuration:ProrSpecViewConfiguration specification="_YSlRWSxJEeSPLp1S2tRXIg">
             <configuration:columns>
-              <configuration:Column label="Description" width="695"/>
+              <configuration:Column label="ID" width="135"/>
+              <configuration:Column label="Description" width="595"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column label="Lead Header Column" width="30"/>
@@ -476,6 +1256,7 @@
           <configuration:ProrPresentationConfigurations>
             <configuration:presentationConfigurations>
               <headline:HeadlineConfiguration datatype="_bq87UCxJEeSPLp1S2tRXIg" size="16"/>
+              <id:IdConfiguration datatype="_vrnPcCxYEeSvIuOUGpTZEQ" count="43" verticalAlign="Center"/>
             </configuration:presentationConfigurations>
           </configuration:ProrPresentationConfigurations>
         </configuration:presentationConfigurations>
