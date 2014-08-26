@@ -166,7 +166,7 @@ public class RichTextModelBuilder extends SimpleModelBuilder {
 		createSpecObject("so-08", "Strike Through Text",
 				getXhtmlContent("<div><span style='text-decoration:line-through;'>Strike Through</span></div>"), true,
 				"(recommended by ReqIF standard). Represented by using the style attribute set to text-decoration:line-through.");
-		createSpecObject("so-09", "Strike Through Text", getXhtmlContent("<div>><del>Strike Through</del></div>"), false,
+		createSpecObject("so-09", "Strike Through Text", getXhtmlContent("<div><del>Strike Through</del></div>"), false,
 				"Represented by using the <del> element.");
 
 		createSpecObject("so-10", "Superscript Text", getXhtmlContent("<div>Normal<sup>Superscript</sup></div>"), true,
