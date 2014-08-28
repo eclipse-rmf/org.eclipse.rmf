@@ -239,5 +239,11 @@ Contributors:
     <startup
           class="org.eclipse.rmf.reqif10.pror.editor.presentation.CheckDefaultPresentations"></startup>
  </extension>
+ <extension
+       point="org.eclipse.help.contexts">
+    <contexts
+          file="help-contexts.xml">
+    </contexts>
+ </extension>
 
 </plugin>
