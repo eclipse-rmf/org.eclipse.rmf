@@ -5,9 +5,9 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.rmf.reqif10.search.edit.util.ReqIFEditSearcher;
 import org.eclipse.rmf.reqif10.search.ui.ReqIFSearchQuery;
 import org.eclipse.rmf.reqif10.search.ui.ReqIFSearchUIPlugin;
-import org.eclipse.rmf.reqif10.search.util.ReqIFSearcher;
 import org.eclipse.search.ui.ISearchQuery;
 import org.eclipse.search.ui.NewSearchUI;
 import org.eclipse.swt.graphics.Point;
@@ -76,7 +76,8 @@ public class ReqIFSearchDialog extends Dialog {
 		setReturnCode(OK);
 		close();
 		EditingDomain editingDomain = getActiveEditorEditingDomain();
-		ReqIFSearcher.replace(editingDomain.getResourceSet(),
+		ReqIFEditSearcher.findAndReplcae(editingDomain,
+				editingDomain.getResourceSet(),
 				masterDetailsBlock.getCriterias());
 	}
 

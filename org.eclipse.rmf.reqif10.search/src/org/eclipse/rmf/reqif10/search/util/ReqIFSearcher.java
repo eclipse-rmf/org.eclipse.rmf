@@ -25,8 +25,13 @@ import org.eclipse.rmf.reqif10.search.criteria.Operator;
  *
  */
 public class ReqIFSearcher {
+	/**
+	 * The constructor
+	 */
+	public ReqIFSearcher() {
+	}
 
-	public static Collection<EObject> search(ResourceSet resourceSet,
+	public Collection<EObject> search(ResourceSet resourceSet,
 			Collection<Criteria> criterias) {
 		List<EObject> result = new ArrayList<EObject>();
 		for (TreeIterator<Notifier> contents = resourceSet.getAllContents(); contents
@@ -43,7 +48,7 @@ public class ReqIFSearcher {
 		return result;
 	}
 
-	public static Collection<EObject> replace(ResourceSet resourceSet,
+	public Collection<EObject> replace(ResourceSet resourceSet,
 			Collection<Criteria> criterias) {
 		List<EObject> result = new ArrayList<EObject>();
 		for (TreeIterator<Notifier> contents = resourceSet.getAllContents(); contents
@@ -61,7 +66,7 @@ public class ReqIFSearcher {
 		return result;
 	}
 
-	private static Entry isCompatibleWithCriteria(EObject eObject,
+	protected Entry isCompatibleWithCriteria(EObject eObject,
 			Collection<Criteria> criterias) {
 		for (Criteria criteria : criterias) {
 			Entry entry = getEntry(eObject, criteria);
@@ -106,24 +111,25 @@ public class ReqIFSearcher {
 		return null;
 	}
 
-	private static Object getValue(Entry entry) {
+	protected Object getValue(Entry entry) {
 		return entry.eObject.eGet(entry.feature);
 	}
 
-	private static void setValue(Entry entry) {
+	protected void setValue(Entry entry) {
 		Criteria criteria = entry.criteria;
 		entry.eObject.eSet(entry.feature, EcoreUtil.createFromString(
 				entry.feature.getEAttributeType(),
 				criteria.getReplacementText()));
 	}
 
-	private static Entry getEntry(EObject eObject, Criteria criteria) {
+	protected Entry getEntry(EObject eObject, Criteria criteria) {
 		Entry entry = null;
 		String featureName = criteria.getFeatureName();
 		EStructuralFeature eStructuralFeature = eObject.eClass()
 				.getEStructuralFeature(featureName);
 		if (eStructuralFeature instanceof EAttribute) {
-			entry = new Entry(eObject, (EAttribute) eStructuralFeature,criteria);
+			entry = new Entry(eObject, (EAttribute) eStructuralFeature,
+					criteria);
 		} else if (eObject instanceof SpecElementWithAttributes) {
 			EList<AttributeValue> values = ((SpecElementWithAttributes) eObject)
 					.getValues();
@@ -132,7 +138,7 @@ public class ReqIFSearcher {
 						.getEStructuralFeature(featureName);
 				if (eStructuralFeature != null) {
 					entry = new Entry(attributeValue,
-							(EAttribute) eStructuralFeature,criteria);
+							(EAttribute) eStructuralFeature, criteria);
 					break;
 				}
 			}
@@ -140,7 +146,7 @@ public class ReqIFSearcher {
 		return entry;
 	}
 
-	private static class Entry {
+	protected class Entry {
 		private EObject eObject;
 		private EAttribute feature;
 		private Criteria criteria;
@@ -150,6 +156,18 @@ public class ReqIFSearcher {
 			this.eObject = eObject;
 			this.feature = feature;
 			this.criteria = criteria;
+		}
+
+		public Criteria getCriteria() {
+			return criteria;
+		}
+
+		public EObject getEObject() {
+			return eObject;
+		}
+
+		public EAttribute getFeature() {
+			return feature;
 		}
 	}
 }

@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.search.criteria.Criteria;
-import org.eclipse.rmf.reqif10.search.util.ReqIFSearcher;
+import org.eclipse.rmf.reqif10.search.edit.util.ReqIFEditSearcher;
 import org.eclipse.search.ui.ISearchQuery;
 import org.eclipse.search.ui.ISearchResult;
 
@@ -69,7 +69,7 @@ public class ReqIFSearchQuery implements ISearchQuery {
 
 	private void doRun(IProgressMonitor monitor) {
 		monitor.beginTask("Searching...", IProgressMonitor.UNKNOWN);
-		Collection<EObject> result = ReqIFSearcher.search(resourceSet,
+		Collection<EObject> result = ReqIFEditSearcher.find(resourceSet,
 				criterias);
 		usageSearchResult.getSearchEntries().addAll(result);
 		monitor.done();
