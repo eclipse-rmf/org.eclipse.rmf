@@ -6,12 +6,12 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipse.rmf.reqif10.search.criteria,
  org.eclipse.rmf.reqif10.search.criteria.impl,
  org.eclipse.rmf.reqif10.search.criteria.util,
  org.eclipse.rmf.reqif10.search.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.rmf.reqif10;bundle-version="0.11.0"
+ org.eclipse.rmf.reqif10
 Bundle-ActivationPolicy: lazy

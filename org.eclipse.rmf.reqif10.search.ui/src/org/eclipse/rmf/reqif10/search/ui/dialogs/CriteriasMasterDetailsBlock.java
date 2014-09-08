@@ -265,7 +265,7 @@ public class CriteriasMasterDetailsBlock extends MasterDetailsBlock {
 		Section criteriasSection = toolkit.createSection(parent,
 				ExpandableComposite.EXPANDED | ExpandableComposite.TITLE_BAR);
 		criteriasSection.setText("Criterias");
-		SectionPart sectionPart = new SectionPart(criteriasSection);
+		final SectionPart sectionPart = new SectionPart(criteriasSection);
 
 		Composite composite = toolkit.createComposite(criteriasSection,
 				SWT.NONE);
