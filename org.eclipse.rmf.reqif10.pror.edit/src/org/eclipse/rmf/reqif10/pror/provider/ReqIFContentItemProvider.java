@@ -202,7 +202,7 @@ public class ReqIFContentItemProvider
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public Collection<?> getChildren(Object object) {
+	public List<?> getChildren(Object object) {
 		if (children == null) {
 			children = new ArrayList();
 
@@ -226,37 +226,37 @@ public class ReqIFContentItemProvider
 	public Object getVirtualSpecifications(Object object) {
 		// Call to getChildren to ensure children is not null
 		// getChildren(object);
-		return children.get(0);
+		return getChildren(object).get(0);
 	}
 
 	public Object getVirtualSpecTypes(Object object) {
 		// Call to getChildren to ensure children is not null
 		// getChildren(object);
-		return children.get(1);
+		return getChildren(object).get(1);
 	}
 
 	public Object getVirtualDataTypes(Object object) {
 		// Call to getChildren to ensure children is not null
 		// getChildren(object);
-		return children.get(2);
+		return getChildren(object).get(2);
 	}
 
 	public Object getVirtualSpecObjects(Object object) {
 		// Call to getChildren to ensure children is not null
 		// getChildren(object);
-		return children.get(3);
+		return getChildren(object).get(3);
 	}
 
 	public Object getVirtualSpecRelations(Object object) {
 		// Call to getChildren to ensure children is not null
 		// getChildren(object);
-		return children.get(4);
+		return getChildren(object).get(4);
 	}
 
 	public Object getVirtualSpecRelationGroups(Object object) {
 		// Call to getChildren to ensure children is not null
 		// getChildren(object);
-		return children.get(5);
+		return getChildren(object).get(5);
 	}
 
 	@Override

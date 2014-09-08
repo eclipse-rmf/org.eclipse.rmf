@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="criteria" nsURI="http://eclipse.org/rmf/pror/search/criteria/1.0"
+    nsPrefix="criteria">
+  <eClassifiers xsi:type="ecore:EClass" name="Criterias">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="criterias" upperBound="-1"
+        eType="#//Criteria" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Criteria">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="featureName" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        defaultValueLiteral="identifier"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="#//Operator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serachedText" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sensitiveCase" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="replacementText" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Operator">
+    <eLiterals name="EQUALS" literal="Equals"/>
+    <eLiterals name="NOT_EQUALS" value="1" literal="Not Equals"/>
+    <eLiterals name="CONTAINS" value="2" literal="Contains"/>
+    <eLiterals name="NOT_CONTAINS" value="3" literal="Not Contains"/>
+  </eClassifiers>
+</ecore:EPackage>
