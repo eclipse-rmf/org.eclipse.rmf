@@ -21,13 +21,11 @@ public class UsageSearchResult implements ISearchResult {
 
 	private final Set<Object> searchEntries;
 
-	private String label;
 	private final Collection<ISearchResultListener> searchResultListeners = new ArrayList<ISearchResultListener>();
 
 	public UsageSearchResult(final ReqIFSearchQuery query) {
 		this.query = query;
 		this.searchEntries = new HashSet<Object>();
-		this.label = "TBD";
 	}
 
 	/**
@@ -54,9 +52,11 @@ public class UsageSearchResult implements ISearchResult {
 	 */
 	@Override
 	public String getLabel() {
-		StringBuilder stringBuilder = new StringBuilder(label);
-		stringBuilder.append(" - ").append(searchEntries.size())
-				.append(" occurences");
+		String resourceName = getResourceSet().getResources().get(0).getURI()
+				.lastSegment();
+		StringBuilder stringBuilder = new StringBuilder("Search in file '")
+				.append(resourceName).append("' - result : ")
+				.append(searchEntries.size()).append(" occurences");
 		return stringBuilder.toString();
 	}
 
