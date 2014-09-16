@@ -344,6 +344,8 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 				specElement = (SpecElementWithAttributes) content;
 			} else if (content instanceof SpecHierarchy) {
 				specElement = ((SpecHierarchy) content).getObject();
+			} else if (content instanceof AttributeValue) {
+				return (AttributeValue) content;
 			}
 			
 			// Could also be a default value
