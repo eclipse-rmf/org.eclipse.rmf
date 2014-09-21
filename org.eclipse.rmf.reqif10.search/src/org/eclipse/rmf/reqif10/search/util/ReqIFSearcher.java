@@ -33,23 +33,7 @@ public class ReqIFSearcher {
 	}
 
 	public Collection<EObject> search(ResourceSet resourceSet,
-			Collection<Criteria> criterias) {
-		List<EObject> result = new ArrayList<EObject>();
-		for (TreeIterator<Notifier> contents = resourceSet.getAllContents(); contents
-				.hasNext();) {
-			Object object = contents.next();
-			if (object instanceof EObject) {
-				EObject eObject = (EObject) object;
-				if (isCompatibleWithCriteria(eObject, criterias) != null) {
-					result.add(eObject);
-				}
-			}
-		}
-		return result;
-	}
-
-	public Collection<EObject> replace(ResourceSet resourceSet,
-			Collection<Criteria> criterias) {
+			Collection<Criteria> criterias, boolean replace) {
 		List<EObject> result = new ArrayList<EObject>();
 		for (TreeIterator<Notifier> contents = resourceSet.getAllContents(); contents
 				.hasNext();) {
@@ -59,7 +43,9 @@ public class ReqIFSearcher {
 				Entry entry = isCompatibleWithCriteria(eObject, criterias);
 				if (entry != null) {
 					result.add(eObject);
-					setValue(entry);
+					if (replace) {
+						setValue(entry);
+					}
 				}
 			}
 		}

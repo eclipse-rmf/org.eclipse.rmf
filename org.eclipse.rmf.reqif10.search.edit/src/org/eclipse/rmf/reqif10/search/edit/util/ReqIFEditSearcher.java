@@ -43,24 +43,30 @@ public class ReqIFEditSearcher extends ReqIFSearcher {
 	public static Collection<EObject> find(ResourceSet resourceSet,
 			Collection<Criteria> criterias) {
 		ReqIFSearcher searcher = new ReqIFSearcher();
-		return searcher.search(resourceSet, criterias);
+		return searcher.search(resourceSet, criterias, false);
 	}
 
 	public static Collection<EObject> findAndReplcae(
 			EditingDomain editingDomain, ResourceSet resourceSet,
 			Collection<Criteria> criterias) {
 		ReqIFEditSearcher searcher = new ReqIFEditSearcher(editingDomain);
-		return searcher.replace(resourceSet, criterias);
+		return searcher.search(resourceSet, criterias, true);
 	}
 
 	@Override
-	public Collection<EObject> replace(ResourceSet resourceSet,
-			Collection<Criteria> criterias) {
-		compoundCommand = new CompoundCommand();
-		Collection<EObject> result = super.replace(resourceSet, criterias);
-		editingDomain.getCommandStack().execute(compoundCommand);
-		compoundCommand = null;
+	public Collection<EObject> search(ResourceSet resourceSet,
+			Collection<Criteria> criterias, boolean replace) {
+		Collection<EObject> result = null;
+		if (replace) {
+			compoundCommand = new CompoundCommand();
+			result = super.search(resourceSet, criterias, replace);
+			editingDomain.getCommandStack().execute(compoundCommand);
+			compoundCommand = null;
+		} else {
+			result = super.search(resourceSet, criterias, replace);
+		}
 		return result;
+
 	}
 
 	@Override
