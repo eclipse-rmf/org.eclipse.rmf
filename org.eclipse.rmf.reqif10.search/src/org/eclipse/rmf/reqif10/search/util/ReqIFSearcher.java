@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.search.criteria.Criteria;
@@ -39,7 +40,6 @@ public class ReqIFSearcher {
 			Object object = contents.next();
 			if (object instanceof EObject) {
 				EObject eObject = (EObject) object;
-				System.out.println();
 				if (isCompatibleWithCriteria(eObject, criterias) != null) {
 					result.add(eObject);
 				}
@@ -147,6 +147,22 @@ public class ReqIFSearcher {
 			for (AttributeValue attributeValue : values) {
 				eStructuralFeature = attributeValue.eClass()
 						.getEStructuralFeature(featureName);
+				if (eStructuralFeature == null) {
+					EStructuralFeature definitionEStructuralFeature = attributeValue
+							.eClass().getEStructuralFeature("definition");
+					if (definitionEStructuralFeature != null) {
+						AttributeDefinition attributeDefinition = (AttributeDefinition) attributeValue
+								.eGet(definitionEStructuralFeature);
+						if (attributeDefinition != null
+								&& attributeDefinition.getLongName() != null
+								&& attributeDefinition.getLongName().equals(
+										featureName)) {
+							eStructuralFeature = attributeValue.eClass()
+									.getEStructuralFeature("theValue");
+						}
+					}
+
+				}
 				if (eStructuralFeature != null) {
 					entry = new Entry(attributeValue,
 							(EAttribute) eStructuralFeature, criteria);

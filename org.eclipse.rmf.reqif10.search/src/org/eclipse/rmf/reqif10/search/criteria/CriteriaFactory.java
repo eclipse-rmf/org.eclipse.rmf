@@ -5,26 +5,24 @@ package org.eclipse.rmf.reqif10.search.criteria;
 import org.eclipse.emf.ecore.EFactory;
 
 /**
- * <!-- begin-user-doc -->
- * The <b>Factory</b> for the model.
- * It provides a create method for each non-abstract class of the model.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a
+ * create method for each non-abstract class of the model. <!-- end-user-doc -->
  * @see org.eclipse.rmf.reqif10.search.criteria.CriteriaPackage
  * @generated
  */
 public interface CriteriaFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	CriteriaFactory eINSTANCE = org.eclipse.rmf.reqif10.search.criteria.impl.CriteriaFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Criterias</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * @return a new object of class '<em>Criterias</em>'.
 	 * @generated
 	 */
@@ -32,12 +30,20 @@ public interface CriteriaFactory extends EFactory {
 
 	/**
 	 * Returns a new object of class '<em>Criteria</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * @return a new object of class '<em>Criteria</em>'.
 	 * @generated
 	 */
 	Criteria createCriteria();
+
+	/**
+	 * Returns a new object of class '<em>Criteria</em>' and set its feature
+	 * name.
+	 * 
+	 * @return a new object of class '<em>Criteria</em>'.
+	 */
+	Criteria createCriteria(String featureName);
 
 	/**
 	 * Returns the package supported by this factory.
@@ -48,4 +54,4 @@ public interface CriteriaFactory extends EFactory {
 	 */
 	CriteriaPackage getCriteriaPackage();
 
-} //CriteriaFactory
+} // CriteriaFactory

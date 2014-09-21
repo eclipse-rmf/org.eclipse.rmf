@@ -1,8 +1,5 @@
 package org.eclipse.rmf.reqif10.search.ui.dialogs;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.observable.Realm;
@@ -19,7 +16,6 @@ import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.search.criteria.Criteria;
 import org.eclipse.rmf.reqif10.search.criteria.CriteriaPackage.Literals;
 import org.eclipse.rmf.reqif10.search.criteria.Operator;
@@ -56,9 +52,9 @@ public class CriteriaDetailsPage implements IDetailsPage {
 	 */
 	private Object input;
 	/**
-	 * The feature combo viewer
+	 * The feature text widget
 	 */
-	private ComboViewer featureComboViewer;
+	private Text featureTextWidget;
 	/**
 	 * The operator combo viewer
 	 */
@@ -189,7 +185,7 @@ public class CriteriaDetailsPage implements IDetailsPage {
 
 	protected void initDataBindings() {
 		bindingContext = new DataBindingContext();
-		Binding featureComboViewerBinding = bindComboViewer(featureComboViewer,
+		Binding featureComboViewerBinding = bindTextWidget(featureTextWidget,
 				Literals.CRITERIA__FEATURE_NAME);
 		ControlDecorationSupport.create(featureComboViewerBinding, SWT.TOP
 				| SWT.LEFT);
@@ -251,7 +247,7 @@ public class CriteriaDetailsPage implements IDetailsPage {
 		section.setClient(composite);
 		composite.setLayout(new GridLayout(2, false));
 
-		createFeatureComboViewer(composite);
+		createFeatureText(composite);
 
 		createOperatorComboViewer(composite);
 
@@ -290,20 +286,8 @@ public class CriteriaDetailsPage implements IDetailsPage {
 				Operator.values());
 	}
 
-	private void createFeatureComboViewer(Composite composite) {
-		List<String> featureNames = new ArrayList<String>();
-		featureNames.add(ReqIF10Package.Literals.IDENTIFIABLE__IDENTIFIER
-				.getName());
-		featureNames.add(ReqIF10Package.Literals.IDENTIFIABLE__LONG_NAME
-				.getName());
-		featureNames.add(ReqIF10Package.Literals.IDENTIFIABLE__DESC.getName());
-		featureNames.add(ReqIF10Package.Literals.IDENTIFIABLE__LAST_CHANGE
-				.getName());
-		featureNames
-				.add(ReqIF10Package.Literals.ATTRIBUTE_VALUE_BOOLEAN__THE_VALUE
-						.getName());
-		featureComboViewer = createComboViewer("Feature", composite,
-				featureNames);
+	private void createFeatureText(Composite composite) {
+		featureTextWidget = createText("Feature", composite);
 	}
 
 	private Label createLabel(Composite parent, String labelText) {

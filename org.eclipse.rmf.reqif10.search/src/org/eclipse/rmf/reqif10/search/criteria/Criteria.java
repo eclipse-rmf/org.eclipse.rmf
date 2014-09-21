@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Criteria extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Feature Name</b></em>' attribute.
-	 * The default value is <code>"identifier"</code>.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Feature Name</em>' attribute isn't clear,
@@ -37,7 +37,7 @@ public interface Criteria extends EObject {
 	 * @return the value of the '<em>Feature Name</em>' attribute.
 	 * @see #setFeatureName(String)
 	 * @see org.eclipse.rmf.reqif10.search.criteria.CriteriaPackage#getCriteria_FeatureName()
-	 * @model default="identifier" required="true"
+	 * @model default="" required="true"
 	 * @generated
 	 */
 	String getFeatureName();

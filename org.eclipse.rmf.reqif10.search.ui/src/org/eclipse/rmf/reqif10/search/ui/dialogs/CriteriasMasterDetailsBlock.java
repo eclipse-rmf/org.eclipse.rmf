@@ -4,6 +4,7 @@
 package org.eclipse.rmf.reqif10.search.ui.dialogs;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EventObject;
@@ -16,18 +17,31 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.edit.command.AddCommand;
-import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.emf.edit.ui.action.CopyAction;
+import org.eclipse.emf.edit.ui.action.CreateChildAction;
+import org.eclipse.emf.edit.ui.action.CutAction;
+import org.eclipse.emf.edit.ui.action.DeleteAction;
+import org.eclipse.emf.edit.ui.action.PasteAction;
+import org.eclipse.emf.edit.ui.action.RedoAction;
+import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
+import org.eclipse.emf.edit.ui.action.UndoAction;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.action.IContributionManager;
+import org.eclipse.jface.action.IMenuListener;
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -35,7 +49,6 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.rmf.reqif10.search.criteria.Criteria;
 import org.eclipse.rmf.reqif10.search.criteria.CriteriaFactory;
-import org.eclipse.rmf.reqif10.search.criteria.CriteriaPackage;
 import org.eclipse.rmf.reqif10.search.criteria.Criterias;
 import org.eclipse.rmf.reqif10.search.criteria.Operator;
 import org.eclipse.rmf.reqif10.search.criteria.impl.CriteriaImpl;
@@ -44,14 +57,13 @@ import org.eclipse.rmf.reqif10.search.ui.ReqIFSearchUIPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.ToolBar;
-import org.eclipse.swt.widgets.ToolItem;
+import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Tree;
+import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.DetailsPart;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.MasterDetailsBlock;
@@ -120,23 +132,6 @@ public class CriteriasMasterDetailsBlock extends MasterDetailsBlock {
 	 */
 	private String CRITERIAS_SEPARATOR = "CRITERIAS";
 	/**
-	 * The add {@link ToolItem}
-	 */
-	private ToolItem tltmAdd;
-	/**
-	 * The delete {@link ToolItem}
-	 */
-	private ToolItem tltmDelete;
-
-	/**
-	 * The redo {@link ToolItem}
-	 */
-	private ToolItem redoToolItem;
-	/**
-	 * The undo {@link ToolItem}
-	 */
-	private ToolItem undoToolItem;
-	/**
 	 * The criterias instance
 	 */
 	private Criterias criterias;
@@ -204,7 +199,6 @@ public class CriteriasMasterDetailsBlock extends MasterDetailsBlock {
 	 *            : The most recent command
 	 */
 	protected void handleCommandStackChanged(final Command mostRecentCommand) {
-		updateActions();
 		// Try to select the affected objects.
 		//
 		if (mostRecentCommand != null) {
@@ -276,7 +270,6 @@ public class CriteriasMasterDetailsBlock extends MasterDetailsBlock {
 		loadInput();
 		treeViewer.setInput(resource);
 		treeViewer.expandAll();
-		createActions(criteriasSection);
 
 		treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 
@@ -284,89 +277,9 @@ public class CriteriasMasterDetailsBlock extends MasterDetailsBlock {
 			public void selectionChanged(SelectionChangedEvent event) {
 				managedForm.fireSelectionChanged(sectionPart,
 						treeViewer.getSelection());
-				IStructuredSelection structuredSelection = (IStructuredSelection) event
-						.getSelection();
-				boolean enabled = false;
-				if (false == structuredSelection.isEmpty()) {
-					Command command = RemoveCommand.create(editingDomain,
-							structuredSelection.toList());
-					if (command != null && command.canExecute()) {
-						enabled = true;
-					}
-				}
-				tltmDelete.setEnabled(enabled);
 			}
 		});
-	}
-
-	private void createActions(Section section) {
-		ToolBar toolBar = new ToolBar(section, SWT.FLAT | SWT.RIGHT);
-		getToolkit().paintBordersFor(toolBar);
-		section.setTextClient(toolBar);
-		tltmAdd = new ToolItem(toolBar, SWT.NONE);
-		tltmAdd.setImage(ExtendedImageRegistry.INSTANCE
-				.getImage(ReqIFSearchUIPlugin.INSTANCE
-						.getImage("/full/obj16/add.gif")));
-		tltmAdd.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				super.widgetSelected(e);
-				Criteria criteria = CriteriaFactory.eINSTANCE.createCriteria();
-				criteria.setFeatureName("identifier");
-				Command command = AddCommand
-						.create(editingDomain, resource.getContents().get(0),
-								CriteriaPackage.Literals.CRITERIAS__CRITERIAS,
-								criteria);
-				editingDomain.getCommandStack().execute(command);
-			}
-		});
-
-		tltmDelete = new ToolItem(toolBar, SWT.NONE);
-		tltmDelete.setImage(ExtendedImageRegistry.INSTANCE
-				.getImage(ReqIFSearchUIPlugin.INSTANCE
-						.getImage("/full/obj16/delete.gif")));
-		tltmDelete.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				super.widgetSelected(e);
-				Command command = RemoveCommand.create(editingDomain,
-						((IStructuredSelection) treeViewer.getSelection())
-								.toList());
-				editingDomain.getCommandStack().execute(command);
-			}
-		});
-		undoToolItem = new ToolItem(toolBar, SWT.NONE);
-		undoToolItem.setImage(ExtendedImageRegistry.INSTANCE
-				.getImage(ReqIFSearchUIPlugin.INSTANCE
-						.getImage("/full/obj16/undo.gif")));
-		undoToolItem.setEnabled(false);
-		undoToolItem.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				super.widgetSelected(e);
-				editingDomain.getCommandStack().undo();
-				updateActions();
-			}
-		});
-		redoToolItem = new ToolItem(toolBar, SWT.NONE);
-		redoToolItem.setImage(ExtendedImageRegistry.INSTANCE
-				.getImage(ReqIFSearchUIPlugin.INSTANCE
-						.getImage("/full/obj16/redo.gif")));
-		redoToolItem.setEnabled(false);
-		redoToolItem.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				super.widgetSelected(e);
-				editingDomain.getCommandStack().redo();
-				updateActions();
-			}
-		});
-
-	}
-
-	private void updateActions() {
-		undoToolItem.setEnabled(editingDomain.getCommandStack().canUndo());
-		redoToolItem.setEnabled(editingDomain.getCommandStack().canRedo());
+		new TreeViewerActionProvider(treeViewer);
 	}
 
 	private void loadInput() {
@@ -547,5 +460,287 @@ public class CriteriasMasterDetailsBlock extends MasterDetailsBlock {
 
 	public Collection<Criteria> getCriterias() {
 		return criterias.getCriterias();
+	}
+
+	/**
+	 * An extended {@link IMenuListener} that manage undo, redo, cut, copy and
+	 * paste action.
+	 * 
+	 * @author Hussein MHANNA
+	 * 
+	 */
+	protected class TreeViewerActionProvider implements IMenuListener {
+		/**
+		 * This will contain one
+		 * {@link org.eclipse.emf.edit.ui.action.CreateChildAction}
+		 * corresponding to each descriptor generated for the current selection
+		 * by the item provider.
+		 */
+		protected Collection<StaticSelectionCommandAction> createChildActions;
+
+		/**
+		 * This is the action used to implement delete.
+		 */
+		private DeleteAction deleteAction;
+
+		/**
+		 * This is the action used to implement undo.
+		 */
+		private UndoAction undoAction;
+
+		/**
+		 * This is the action used to implement redo.
+		 */
+		private RedoAction redoAction;
+		/**
+		 * This is the action used to implement cut.
+		 */
+		private CutAction cutAction;
+		/**
+		 * This is the action used to implement copy.
+		 */
+		private CopyAction copyAction;
+		/**
+		 * This is the action used to implement paste.
+		 */
+		private PasteAction pasteAction;
+
+		/**
+		 * The tree viewer
+		 */
+		private final TreeViewer viewer;
+
+		/**
+		 * The selection changed listener
+		 */
+		private final ISelectionChangedListener selectionChangedListener;
+
+		/**
+		 * The constructor
+		 * 
+		 * @param viewer
+		 *            : The viewer on wich the actions will be added
+		 */
+		public TreeViewerActionProvider(final TreeViewer viewer) {
+			this.viewer = viewer;
+			initializeActions();
+			selectionChangedListener = new ISelectionChangedListener() {
+
+				@Override
+				public void selectionChanged(final SelectionChangedEvent event) {
+					TreeViewerActionProvider.this
+							.selectionChanged((IStructuredSelection) event
+									.getSelection());
+				}
+			};
+			this.viewer.addSelectionChangedListener(selectionChangedListener);
+			this.viewer.getTree().addDisposeListener(new DisposeListener() {
+
+				@Override
+				public void widgetDisposed(final DisposeEvent e) {
+					TreeViewerActionProvider.this.viewer
+							.removeSelectionChangedListener(selectionChangedListener);
+				}
+			});
+			final MenuManager manager = new MenuManager();
+			final Menu menu = manager.createContextMenu(viewer.getControl());
+			manager.addMenuListener(this);
+			manager.setRemoveAllWhenShown(true);
+			viewer.getControl().setMenu(menu);
+		}
+
+		/**
+		 * Initialize the actions
+		 */
+		private void initializeActions() {
+			final ISharedImages sharedImages = PlatformUI.getWorkbench()
+					.getSharedImages();
+
+			deleteAction = createDeleteAction();
+			deleteAction.setImageDescriptor(sharedImages
+					.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
+
+			undoAction = createUndoAction();
+			undoAction.setImageDescriptor(sharedImages
+					.getImageDescriptor(ISharedImages.IMG_TOOL_UNDO));
+
+			redoAction = createRedoAction();
+			redoAction.setImageDescriptor(sharedImages
+					.getImageDescriptor(ISharedImages.IMG_TOOL_REDO));
+
+			cutAction = createCutAction();
+			cutAction.setImageDescriptor(sharedImages
+					.getImageDescriptor(ISharedImages.IMG_TOOL_CUT));
+
+			copyAction = createCopyAction();
+			copyAction.setImageDescriptor(sharedImages
+					.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
+
+			pasteAction = createPasteAction();
+			pasteAction.setImageDescriptor(sharedImages
+					.getImageDescriptor(ISharedImages.IMG_TOOL_PASTE));
+
+		}
+
+		/**
+		 * Create a delete action.
+		 * 
+		 * @return the action used to implement delete.
+		 * 
+		 * @see #deleteAction
+		 */
+		protected DeleteAction createDeleteAction() {
+			return new DeleteAction(editingDomain, true);
+		}
+
+		/**
+		 * Create an undo action.
+		 * 
+		 * @return the action used to implement undo.
+		 * 
+		 * @see #undoAction
+		 */
+		protected UndoAction createUndoAction() {
+			return new UndoAction(editingDomain);
+		}
+
+		/**
+		 * Create a redo action.
+		 * 
+		 * @return the action used to implement redo.
+		 * 
+		 * @see #redoAction
+		 */
+		protected RedoAction createRedoAction() {
+			return new RedoAction(editingDomain);
+		}
+
+		/**
+		 * Create a cut action.
+		 * 
+		 * @return the action used to implement cut.
+		 * 
+		 * @see #cutAction
+		 */
+		protected CutAction createCutAction() {
+			return new CutAction(editingDomain);
+		}
+
+		/**
+		 * Create a copy action.
+		 * 
+		 * @return the action used to implement copy.
+		 * 
+		 * @see #copyAction
+		 */
+		protected CopyAction createCopyAction() {
+			return new CopyAction(editingDomain);
+		}
+
+		/**
+		 * Create a paste action.
+		 * 
+		 * @return the action used to implement paste.
+		 * 
+		 * @see #pasteAction
+		 */
+		protected PasteAction createPasteAction() {
+			return new PasteAction(editingDomain);
+		}
+
+		/**
+		 * This implements {@link org.eclipse.jface.action.IMenuListener} to
+		 * help fill the context menus with contributions from the Edit menu.
+		 * 
+		 * @param menuManager
+		 *            The menu manager.
+		 */
+		@Override
+		public void menuAboutToShow(final IMenuManager menuManager) {
+			MenuManager submenuManager = null;
+
+			submenuManager = new MenuManager("New");
+			populateManager(submenuManager, createChildActions, null);
+			menuManager.add(submenuManager);
+
+			menuManager.add(new Separator());
+			menuManager.add(new ActionContributionItem(undoAction));
+			menuManager.add(new ActionContributionItem(redoAction));
+			menuManager.add(new Separator());
+			menuManager.add(new ActionContributionItem(cutAction));
+			menuManager.add(new ActionContributionItem(copyAction));
+			menuManager.add(new ActionContributionItem(pasteAction));
+			menuManager.add(new Separator());
+			menuManager.add(new ActionContributionItem(deleteAction));
+		}
+
+		/**
+		 * Called when the selection is changed in the tree viewer.
+		 * 
+		 * @param selection
+		 *            The selection of {@link SelectionChangedEvent}.
+		 */
+		private void selectionChanged(final IStructuredSelection selection) {
+			deleteAction.selectionChanged(selection);
+			undoAction.update();
+			redoAction.update();
+			cutAction.selectionChanged(selection);
+			copyAction.selectionChanged(selection);
+			pasteAction.selectionChanged(selection);
+			// Query the new selection for appropriate new child/descriptors
+			//
+			Collection<?> newChildDescriptors = null;
+
+			if (selection.size() == 1) {
+				final Object object = selection.getFirstElement();
+
+				newChildDescriptors = editingDomain.getNewChildDescriptors(
+						object, null);
+			}
+
+			// Generate actions for selection; populate and redraw the menus.
+			//
+			createChildActions = generateCreateChildActions(
+					newChildDescriptors, selection);
+
+		}
+
+		protected Collection<StaticSelectionCommandAction> generateCreateChildActions(
+				final Collection<?> descriptors, final ISelection selection) {
+			final Collection<StaticSelectionCommandAction> actions = new ArrayList<StaticSelectionCommandAction>();
+			if (descriptors != null) {
+				for (final Object descriptor : descriptors) {
+					actions.add(createCreateChildAction(selection, descriptor));
+				}
+			}
+			return actions;
+		}
+
+		protected CreateChildAction createCreateChildAction(
+				final ISelection selection, final Object descriptor) {
+			return new CreateChildAction(editingDomain, selection, descriptor);
+		}
+	}
+
+	/**
+	 * This populates the specified <code>manager</code> with
+	 * {@link org.eclipse.jface.action.ActionContributionItem}s based on the
+	 * {@link org.eclipse.jface.action.IAction}s contained in the
+	 * <code>actions</code> collection, by inserting them before the specified
+	 * contribution item <code>contributionID</code>. If <code>ID</code> is
+	 * <code>null</code>, they are simply added.
+	 */
+	protected void populateManager(final IContributionManager manager,
+			final Collection<? extends IAction> actions,
+			final String contributionID) {
+		if (actions != null) {
+			for (final IAction action : actions) {
+				if (contributionID != null) {
+					manager.insertBefore(contributionID, action);
+				} else {
+					manager.add(action);
+				}
+			}
+		}
 	}
 }

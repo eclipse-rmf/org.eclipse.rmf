@@ -6,24 +6,25 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.rmf.reqif10.search.criteria.*;
+import org.eclipse.rmf.reqif10.search.criteria.Criteria;
+import org.eclipse.rmf.reqif10.search.criteria.CriteriaFactory;
+import org.eclipse.rmf.reqif10.search.criteria.CriteriaPackage;
+import org.eclipse.rmf.reqif10.search.criteria.Criterias;
+import org.eclipse.rmf.reqif10.search.criteria.Operator;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Factory</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
+ * end-user-doc -->
  * @generated
  */
-public class CriteriaFactoryImpl extends EFactoryImpl implements CriteriaFactory {
+public class CriteriaFactoryImpl extends EFactoryImpl implements
+		CriteriaFactory {
 	/**
 	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	public static CriteriaFactory init() {
@@ -41,8 +42,8 @@ public class CriteriaFactoryImpl extends EFactoryImpl implements CriteriaFactory
 
 	/**
 	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	public CriteriaFactoryImpl() {
@@ -50,8 +51,7 @@ public class CriteriaFactoryImpl extends EFactoryImpl implements CriteriaFactory
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -65,8 +65,7 @@ public class CriteriaFactoryImpl extends EFactoryImpl implements CriteriaFactory
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -80,8 +79,7 @@ public class CriteriaFactoryImpl extends EFactoryImpl implements CriteriaFactory
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -95,8 +93,7 @@ public class CriteriaFactoryImpl extends EFactoryImpl implements CriteriaFactory
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Criterias createCriterias() {
@@ -105,8 +102,7 @@ public class CriteriaFactoryImpl extends EFactoryImpl implements CriteriaFactory
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Criteria createCriteria() {
@@ -115,28 +111,37 @@ public class CriteriaFactoryImpl extends EFactoryImpl implements CriteriaFactory
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Criteria createCriteria(String featureName) {
+		Criteria criteria = createCriteria();
+		criteria.setFeatureName(featureName);
+		return criteria;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Operator createOperatorFromString(EDataType eDataType, String initialValue) {
+	public Operator createOperatorFromString(EDataType eDataType,
+			String initialValue) {
 		Operator result = Operator.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertOperatorToString(EDataType eDataType, Object instanceValue) {
+	public String convertOperatorToString(EDataType eDataType,
+			Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public CriteriaPackage getCriteriaPackage() {
@@ -144,8 +149,7 @@ public class CriteriaFactoryImpl extends EFactoryImpl implements CriteriaFactory
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @deprecated
 	 * @generated
 	 */
@@ -154,4 +158,4 @@ public class CriteriaFactoryImpl extends EFactoryImpl implements CriteriaFactory
 		return CriteriaPackage.eINSTANCE;
 	}
 
-} //CriteriaFactoryImpl
+} // CriteriaFactoryImpl

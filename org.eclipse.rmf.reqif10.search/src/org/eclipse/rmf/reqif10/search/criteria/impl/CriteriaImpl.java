@@ -36,7 +36,7 @@ public class CriteriaImpl extends MinimalEObjectImpl.Container implements Criter
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String FEATURE_NAME_EDEFAULT = "identifier";
+	protected static final String FEATURE_NAME_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute.
