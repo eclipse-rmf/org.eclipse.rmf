@@ -117,9 +117,20 @@ public class ReqIFSearcher {
 
 	protected void setValue(Entry entry) {
 		Criteria criteria = entry.criteria;
-		entry.eObject.eSet(entry.feature, EcoreUtil.createFromString(
-				entry.feature.getEAttributeType(),
-				criteria.getReplacementText()));
+		EObject eObject = entry.eObject;
+		EAttribute feature = entry.feature;
+		String value = criteria.getReplacementText();
+		if (criteria.getOperator().equals(Operator.CONTAINS)) {
+			value = getValue(entry).toString().replaceAll(
+					criteria.getSerachedText(), criteria.getReplacementText());
+		}
+		doSetValue(eObject, feature,
+				EcoreUtil.createFromString(feature.getEAttributeType(), value));
+	}
+
+	protected void doSetValue(EObject eObject, EStructuralFeature feature,
+			Object value) {
+		eObject.eSet(feature, value);
 	}
 
 	protected Entry getEntry(EObject eObject, Criteria criteria) {

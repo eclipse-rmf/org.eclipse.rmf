@@ -7,10 +7,9 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.search.criteria.Criteria;
@@ -65,14 +64,11 @@ public class ReqIFEditSearcher extends ReqIFSearcher {
 	}
 
 	@Override
-	protected void setValue(Entry entry) {
-		Criteria criteria = entry.getCriteria();
-		EObject owner = entry.getEObject();
-		EAttribute feature = entry.getFeature();
-		Object value = EcoreUtil.createFromString(feature.getEAttributeType(),
-				criteria.getReplacementText());
-		Command command = SetCommand.create(editingDomain, owner, feature,
+	protected void doSetValue(EObject eObject, EStructuralFeature feature,
+			Object value) {
+		Command command = SetCommand.create(editingDomain, eObject, feature,
 				value);
 		compoundCommand.append(command);
 	}
+
 }

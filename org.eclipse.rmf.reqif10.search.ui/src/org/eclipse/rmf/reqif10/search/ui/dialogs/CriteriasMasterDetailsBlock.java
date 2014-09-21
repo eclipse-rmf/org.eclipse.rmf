@@ -411,7 +411,7 @@ public class CriteriasMasterDetailsBlock extends MasterDetailsBlock {
 					.append(criteria.getSerachedText())
 					.append(CRITERIA_SEPARATOR).append(criteria.getOperator())
 					.append(CRITERIA_SEPARATOR)
-					.append(criteria.getSerachedText())
+					.append(criteria.getReplacementText())
 					.append(CRITERIA_SEPARATOR)
 					.append(criteria.isSensitiveCase());
 			if (i != criteriasList.size() - 1) {
