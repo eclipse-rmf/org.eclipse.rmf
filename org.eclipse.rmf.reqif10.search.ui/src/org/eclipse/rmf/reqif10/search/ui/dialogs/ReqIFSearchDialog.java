@@ -1,9 +1,11 @@
 package org.eclipse.rmf.reqif10.search.ui.dialogs;
 
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.rmf.reqif10.search.edit.util.ReqIFEditSearcher;
 import org.eclipse.rmf.reqif10.search.ui.ReqIFSearchQuery;
@@ -98,8 +100,14 @@ public class ReqIFSearchDialog extends Dialog {
 		} catch (final PartInitException e) {
 			ReqIFSearchUIPlugin.INSTANCE.log(e);
 		}
-		NewSearchUI.runQueryInForeground(new ProgressMonitorDialog(
+		IStatus status = NewSearchUI.runQueryInForeground(new ProgressMonitorDialog(
 				getParentShell()), query);
+		if (! status.isOK()) {
+			MessageDialog.openError(getShell(), "Exception: " + status.getException(), "Problem while searching: " + status.getMessage());
+			if (status.getException() != null) {
+				status.getException().printStackTrace();
+			}
+		}
 		if (searchView != null) {
 			searchView.showSearchResult(query.getSearchResult());
 		}
