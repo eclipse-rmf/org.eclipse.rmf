@@ -3,9 +3,9 @@
  */
 package org.eclipse.rmf.reqif10.search.util;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.EList;
@@ -18,6 +18,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
+import org.eclipse.rmf.reqif10.SpecObject;
+import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.search.criteria.Criteria;
 import org.eclipse.rmf.reqif10.search.criteria.Operator;
 
@@ -34,7 +37,10 @@ public class ReqIFSearcher {
 
 	public Collection<EObject> search(ResourceSet resourceSet,
 			Collection<Criteria> criterias, boolean replace) {
-		List<EObject> result = new ArrayList<EObject>();
+		Set<EObject> result = new HashSet<EObject>();
+		// we create a set of specifications to add to add the SpecHierarchy
+		// having reference to found SpecObject
+		Set<Specification> specifications = new HashSet<Specification>();
 		for (TreeIterator<Notifier> contents = resourceSet.getAllContents(); contents
 				.hasNext();) {
 			Object object = contents.next();
@@ -48,8 +54,28 @@ public class ReqIFSearcher {
 					}
 				}
 			}
+			if (object instanceof Specification) {
+				specifications.add((Specification) object);
+			}
+		}
+		// For each Specification in the resource set, we add to the result the
+		// SpecHierarchy
+		// having reference to found SpecObject
+		for (Specification specification : specifications) {
+			addSpecHierarchies(result, specification.getChildren());
 		}
 		return result;
+	}
+
+	private void addSpecHierarchies(Set<EObject> result,
+			EList<SpecHierarchy> children) {
+		for (SpecHierarchy specHierarchy : children) {
+			SpecObject specObject = specHierarchy.getObject();
+			if ((specObject != null) && (result.contains(specObject))) {
+				result.add(specHierarchy);
+				addSpecHierarchies(result, specHierarchy.getChildren());
+			}
+		}
 	}
 
 	protected Entry isCompatibleWithCriteria(EObject eObject,
