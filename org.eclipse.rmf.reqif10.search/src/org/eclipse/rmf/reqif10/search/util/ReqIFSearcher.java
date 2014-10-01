@@ -59,7 +59,7 @@ public class ReqIFSearcher {
 			if (entry != null) {
 				EStructuralFeature feature = entry.feature;
 				if (feature instanceof EAttribute) {
-					Object value = getValue(entry);
+					Object value = entry.getValue();
 					Operator operator = criteria.getOperator();
 					String textToSearch = criteria.getSerachedText();
 					if (value != null) {
@@ -97,18 +97,17 @@ public class ReqIFSearcher {
 		return null;
 	}
 
-	protected Object getValue(Entry entry) {
-		return entry.eObject.eGet(entry.feature);
-	}
-
 	protected void setValue(Entry entry) {
 		Criteria criteria = entry.criteria;
 		EObject eObject = entry.eObject;
 		EAttribute feature = entry.feature;
 		String value = criteria.getReplacementText();
 		if (criteria.getOperator().equals(Operator.CONTAINS)) {
-			value = getValue(entry).toString().replaceAll(
-					criteria.getSerachedText(), criteria.getReplacementText());
+			value = entry
+					.getValue()
+					.toString()
+					.replaceAll(criteria.getSerachedText(),
+							criteria.getReplacementText());
 		}
 		doSetValue(eObject, feature,
 				EcoreUtil.createFromString(feature.getEAttributeType(), value));
@@ -149,7 +148,9 @@ public class ReqIFSearcher {
 					}
 
 				}
-				if (eStructuralFeature != null) {
+				// null instance of anything is always null so we do not need to
+				// check if eStructuralFeature is not null
+				if (eStructuralFeature instanceof EAttribute) {
 					entry = new Entry(attributeValue,
 							(EAttribute) eStructuralFeature, criteria);
 					break;
@@ -181,6 +182,10 @@ public class ReqIFSearcher {
 
 		public EAttribute getFeature() {
 			return feature;
+		}
+
+		protected Object getValue() {
+			return eObject.eGet(feature);
 		}
 	}
 }
