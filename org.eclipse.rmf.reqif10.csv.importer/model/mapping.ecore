@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mapping" nsURI="mapping" nsPrefix="mapping">
+  <eClassifiers xsi:type="ecore:EClass" name="MappingItem">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" lowerBound="1"
+        eType="#//DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columnId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MappingLibrary">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//MappingItem" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataType">
+    <eLiterals name="String"/>
+    <eLiterals name="Boolean" value="1"/>
+    <eLiterals name="Integer" value="2"/>
+    <eLiterals name="Real" value="3"/>
+    <eLiterals name="Date" value="4"/>
+    <eLiterals name="Enumeration" value="5"/>
+    <eLiterals name="XHTML" value="6"/>
+  </eClassifiers>
+</ecore:EPackage>
