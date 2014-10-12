@@ -245,5 +245,12 @@ Contributors:
           file="help-contexts.xml">
     </contexts>
  </extension>
+ <extension
+       point="org.eclipse.ui.importWizards">
+    <category
+          id="org.eclipse.rmf.pror.import.category"
+          name="%_UI_Import_Wizard_category">
+    </category>
+ </extension>
 
 </plugin>
