@@ -12,16 +12,18 @@
 package org.eclipse.rmf.reqif10.search.util;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
@@ -43,27 +45,42 @@ public class ReqIFSearcher {
 	public ReqIFSearcher() {
 	}
 
-	public Collection<EObject> search(ResourceSet resourceSet,
-			Collection<Criteria> criterias, boolean replace) {
+	public Map<Resource, Collection<EObject>> search(IProgressMonitor monitor,
+			Collection<Resource> resources, Collection<Criteria> criterias,
+			boolean replace) {
+		monitor.beginTask("Start Searching ...", 2 * resources.size());
+		Map<Resource, Collection<EObject>> result = new HashMap<Resource, Collection<EObject>>();
+		for (Resource resource : resources) {
+			Collection<EObject> searchresult = search(monitor, resource,
+					criterias, replace);
+			result.put(resource, searchresult);
+			if (monitor.isCanceled()) {
+				break;
+			}
+			monitor.worked(2);
+		}
+		monitor.done();
+		return result;
+	}
+
+	protected Collection<EObject> search(IProgressMonitor monitor,
+			Resource resource, Collection<Criteria> criterias, boolean replace) {
 		Set<EObject> result = new HashSet<EObject>();
 		// we create a set of specifications to add to add the SpecHierarchy
 		// having reference to found SpecObject
 		Set<Specification> specifications = new HashSet<Specification>();
-		for (TreeIterator<Notifier> contents = resourceSet.getAllContents(); contents
+		for (TreeIterator<EObject> contents = resource.getAllContents(); contents
 				.hasNext();) {
-			Object object = contents.next();
-			if (object instanceof EObject) {
-				EObject eObject = (EObject) object;
-				Entry entry = isCompatibleWithCriteria(eObject, criterias);
-				if (entry != null) {
-					result.add(eObject);
-					if (replace) {
-						setValue(entry);
-					}
+			EObject eObject = contents.next();
+			Entry entry = isCompatibleWithCriteria(eObject, criterias);
+			if (entry != null) {
+				result.add(eObject);
+				if (replace) {
+					setValue(entry);
 				}
 			}
-			if (object instanceof Specification) {
-				specifications.add((Specification) object);
+			if (eObject instanceof Specification) {
+				specifications.add((Specification) eObject);
 			}
 		}
 		// For each Specification in the resource set, we add to the result the

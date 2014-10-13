@@ -10,62 +10,19 @@
          point="org.eclipse.search.searchResultViewPages">
       <viewPage
             class="org.eclipse.rmf.reqif10.search.ui.ReqIFSearchResultPage"
-            id="org.eclipse.rmf.reqif10.search.ui.ReqIFSearchResultPage"
+            id="org.eclipse.rmf.reqif10.search.ui.page.result.reqif"
             searchResultClass="org.eclipse.rmf.reqif10.search.ui.UsageSearchResult">
       </viewPage>
    </extension>
    <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
-            allPopups="false"
-            locationURI="toolbar:org.eclipse.ui.main.toolbar">
-         <toolbar
-               id="org.eclipse.rmf.reqif10.search.searchtoolbar"
-               label="ReqIFSearch">
-            <command
-                  commandId="org.eclipse.rmf.reqif10.search.command.search"
-                  icon="icons/full/obj16/Search.png"
-                  label="Search"
-                  style="push">
-               <visibleWhen
-                     checkEnabled="false">
-                  <with
-                        variable="activeEditor">
-                     <or>
-                        <instanceof
-                              value="org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor">
-                        </instanceof>
-                        <instanceof
-                              value="org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor">
-                        </instanceof>
-                     </or>
-                  </with>
-               </visibleWhen>
-            </command>
-            <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="activeEditor">
-                  <or>
-                     <instanceof
-                           value="org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor">
-                     </instanceof>
-                     <instanceof
-                           value="org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor">
-                     </instanceof>
-                  </or>
-               </with>
-            </visibleWhen>
-         </toolbar>
-      </menuContribution>
-   </extension>
-   <extension
-         point="org.eclipse.ui.commands">
-      <command
-            defaultHandler="org.eclipse.rmf.reqif10.search.ui.handlers.SearchHandler"
-            id="org.eclipse.rmf.reqif10.search.command.search"
-            name="Search">
-      </command>
+         point="org.eclipse.search.searchPages">
+      <page
+            class="org.eclipse.rmf.reqif10.search.ui.ReqIFSearchPage"
+            icon="icons/full/obj16/ReqIf.png"
+            id="org.eclipse.rmf.reqif10.search.ui.page.reqif"
+            label="ReqIF"
+            showScopeSection="true">
+      </page>
    </extension>
 
 </plugin>

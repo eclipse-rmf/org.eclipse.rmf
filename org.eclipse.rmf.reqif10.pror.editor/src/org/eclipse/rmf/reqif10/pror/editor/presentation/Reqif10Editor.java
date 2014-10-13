@@ -705,7 +705,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
 		//
-		
+
 		adapterFactory = new ComposedAdapterFactory(
 				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
@@ -713,13 +713,11 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReqIF10ItemProviderAdapterFactory());
-		adapterFactory
-		        .addAdapterFactory(new XhtmlItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new XhtmlItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ConfigurationItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-
 
 		// Create the command stack that will notify this editor as commands are
 		// executed.
@@ -758,6 +756,11 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		//
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
 				commandStack, new XMLPersistenceMappingResourceSetImpl());
+		editingDomain
+				.getResourceSet()
+				.eAdapters()
+				.add(new AdapterFactoryEditingDomain.EditingDomainProvider(
+						editingDomain));
 		// FIXME (mj) this got diabled for now, due to Bug 381494
 		// System.out.println("XXX");
 		// commandStack.setEditingDomain(editingDomain);
@@ -1055,7 +1058,8 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 					editingDomain
 							.getResourceSet()
 							.getLoadOptions()
-							.put(XMLPersistenceMappingResource.OPTION_PROGRESS_MONITOR, monitor);
+							.put(XMLPersistenceMappingResource.OPTION_PROGRESS_MONITOR,
+									monitor);
 					createModel();
 					monitor.done();
 				}
@@ -1455,19 +1459,19 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 
 	/**
 	 * This is for implementing {@link IEditorPart} and simply saves the model
-	 * file. 
-	 * <!-- begin-user-doc -->
-	 * Upon each save, the ReqIF ID is updated.
-	 *  <!-- end-user-doc -->
+	 * file. <!-- begin-user-doc --> Upon each save, the ReqIF ID is updated.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
 	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
 		// Update ReqIF ID.
-		Command cmd = SetCommand.create(editingDomain, reqif.getTheHeader(), ReqIF10Package.Literals.REQ_IF_HEADER__IDENTIFIER, UUID.randomUUID().toString());
+		Command cmd = SetCommand.create(editingDomain, reqif.getTheHeader(),
+				ReqIF10Package.Literals.REQ_IF_HEADER__IDENTIFIER, UUID
+						.randomUUID().toString());
 		editingDomain.getCommandStack().execute(cmd);
-		
+
 		// Save only resources that have actually changed.
 		//
 		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();

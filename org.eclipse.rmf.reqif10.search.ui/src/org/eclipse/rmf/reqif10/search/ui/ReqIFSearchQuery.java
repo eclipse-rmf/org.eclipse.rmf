@@ -12,14 +12,14 @@
 package org.eclipse.rmf.reqif10.search.ui;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.rmf.reqif10.search.criteria.Criteria;
 import org.eclipse.rmf.reqif10.search.edit.util.ReqIFEditSearcher;
 import org.eclipse.search.ui.ISearchQuery;
@@ -36,24 +36,22 @@ public class ReqIFSearchQuery implements ISearchQuery {
 	 * The usage search result
 	 */
 	private UsageSearchResult usageSearchResult;
-	private ResourceSet resourceSet;
+	private Collection<Resource> resources;
 	private Collection<Criteria> criterias;
-	private EditingDomain editingDomain;
 
 	/**
 	 * @param operator
 	 * @param iSelection
 	 */
-	public ReqIFSearchQuery(EditingDomain editingDomain,
+	public ReqIFSearchQuery(Collection<Resource> resources,
 			Collection<Criteria> criterias) {
 		StringBuilder searchedTextBuilder = new StringBuilder();
 		for (Criteria criteria : criterias) {
 			searchedTextBuilder.append(criteria.getSerachedText())
 					.append(" - ");
 		}
-		this.editingDomain = editingDomain;
 		this.searchedText = searchedTextBuilder.toString();
-		this.resourceSet = editingDomain.getResourceSet();
+		this.resources = resources;
 		this.criterias = criterias;
 	}
 
@@ -80,14 +78,11 @@ public class ReqIFSearchQuery implements ISearchQuery {
 
 	private void doRun(IProgressMonitor monitor) {
 		monitor.beginTask("Searching...", IProgressMonitor.UNKNOWN);
-		Collection<EObject> result = ReqIFEditSearcher.find(resourceSet,
-				criterias);
-		usageSearchResult.getSearchEntries().addAll(result);
+		Map<Resource, Collection<EObject>> result = ReqIFEditSearcher.find(
+				monitor, resources, criterias, false);
+		usageSearchResult.getSearchEntries().clear();
+		usageSearchResult.getSearchEntries().putAll(result);
 		monitor.done();
-	}
-
-	public UsageSearchResult getUsageSearchResult() {
-		return usageSearchResult;
 	}
 
 	@Override
@@ -108,13 +103,5 @@ public class ReqIFSearchQuery implements ISearchQuery {
 	@Override
 	public ISearchResult getSearchResult() {
 		return usageSearchResult;
-	}
-
-	public ResourceSet getResourceSet() {
-		return resourceSet;
-	}
-
-	public EditingDomain getEditingDomain() {
-		return editingDomain;
 	}
 }
