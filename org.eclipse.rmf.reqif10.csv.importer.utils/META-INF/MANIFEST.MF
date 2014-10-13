@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.rmf.reqif10.csv.importer.utils;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.11.0.qualifier
 Bundle-ClassPath: .,
  lib/opencsv-2.3.jar
 Bundle-Activator: org.eclipse.rmf.reqif10.csv.importer.utils.CSVImporterUtilsPlugin$Implementation
@@ -13,8 +13,8 @@ Export-Package: org.eclipse.rmf.reqif10.csv.importer.utils
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.rmf.reqif10.pror;bundle-version="0.11.0",
  org.eclipse.rmf.reqif10.pror.edit;bundle-version="0.11.0",
- org.eclipse.rmf.reqif10.csv.importer.edit;bundle-version="1.0.0",
- org.eclipse.core.resources;bundle-version="3.8.101",
- org.eclipse.rmf.reqif10.xhtml.edit
+ org.eclipse.rmf.reqif10.csv.importer.edit;bundle-version="0.11.0",
+ org.eclipse.core.resources,
+ org.eclipse.rmf.reqif10.xhtml.edit;bundle-version="0.11.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.rmf.serialization
