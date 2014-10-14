@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.IWizardPage;
@@ -136,9 +137,12 @@ public class CSVImportWziard extends Wizard implements IImportWizard {
 		try {
 			Importer.importReq(editingDomain, selectedDestinationFile,
 					selectedFilePath, mappingLibrary, separator, containsHeader);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			CSVImporterUIPlugin.getPlugin().log(e);
 			valid = false;
+			MessageDialog.openError(getShell(), "Import Failed: "
+					+ e.getClass().getSimpleName(), "Something went wrong: "
+					+ e.getMessage());
 		}
 
 		return valid;
