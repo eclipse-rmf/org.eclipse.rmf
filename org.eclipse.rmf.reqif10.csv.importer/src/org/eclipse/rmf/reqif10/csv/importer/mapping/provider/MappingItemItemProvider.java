@@ -27,6 +27,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.rmf.reqif10.csv.importer.CSVImporterPlugin;
 import org.eclipse.rmf.reqif10.csv.importer.mapping.MappingItem;
 import org.eclipse.rmf.reqif10.csv.importer.mapping.MappingPackage;
 
@@ -201,11 +202,11 @@ public class MappingItemItemProvider extends ItemProviderAdapter implements
 	 * Return the resource locator for this item provider's resources. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return MappingEditPlugin.INSTANCE;
+		return CSVImporterPlugin.INSTANCE;
 	}
 
 }

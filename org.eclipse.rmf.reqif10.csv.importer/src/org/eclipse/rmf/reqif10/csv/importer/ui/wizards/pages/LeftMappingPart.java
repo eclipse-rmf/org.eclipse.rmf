@@ -52,8 +52,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.rmf.reqif10.csv.importer.CSVImporterPlugin;
 import org.eclipse.rmf.reqif10.csv.importer.mapping.provider.MappingItemProviderAdapterFactory;
-import org.eclipse.rmf.reqif10.csv.importer.ui.CSVImporterUIPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -217,7 +217,7 @@ public class LeftMappingPart extends Composite {
 	 * @return a string resource associated with the key.
 	 */
 	protected static String getString(final String key) {
-		return CSVImporterUIPlugin.INSTANCE.getString(key);
+		return CSVImporterPlugin.INSTANCE.getString(key);
 	}
 
 	/**

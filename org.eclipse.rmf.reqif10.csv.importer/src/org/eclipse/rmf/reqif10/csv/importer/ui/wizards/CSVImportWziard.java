@@ -28,8 +28,8 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.rmf.reqif10.csv.importer.CSVImporterPlugin;
 import org.eclipse.rmf.reqif10.csv.importer.mapping.MappingLibrary;
-import org.eclipse.rmf.reqif10.csv.importer.ui.CSVImporterUIPlugin;
 import org.eclipse.rmf.reqif10.csv.importer.ui.wizards.pages.CSVImportWizardPage;
 import org.eclipse.rmf.reqif10.csv.importer.ui.wizards.pages.CSVMappingWizardPage;
 import org.eclipse.rmf.reqif10.csv.importer.utils.Importer;
@@ -80,7 +80,7 @@ public class CSVImportWziard extends Wizard implements IImportWizard {
 							}
 						});
 					} catch (IOException e) {
-						CSVImporterUIPlugin.INSTANCE.log(e);
+						CSVImporterPlugin.INSTANCE.log(e);
 					}
 				}
 			};
@@ -100,9 +100,9 @@ public class CSVImportWziard extends Wizard implements IImportWizard {
 		try {
 			getContainer().run(true, false, runnableWithProgress);
 		} catch (InvocationTargetException e) {
-			CSVImporterUIPlugin.INSTANCE.log(e);
+			CSVImporterPlugin.INSTANCE.log(e);
 		} catch (InterruptedException e) {
-			CSVImporterUIPlugin.INSTANCE.log(e);
+			CSVImporterPlugin.INSTANCE.log(e);
 		}
 	}
 
@@ -149,7 +149,7 @@ public class CSVImportWziard extends Wizard implements IImportWizard {
 			Importer.importReq(editingDomain, selectedDestinationFile,
 					selectedFilePath, mappingLibrary, separator, containsHeader);
 		} catch (Exception e) {
-			CSVImporterUIPlugin.getPlugin().log(e);
+			CSVImporterPlugin.getPlugin().log(e);
 			valid = false;
 			MessageDialog.openError(getShell(), "Import Failed: "
 					+ e.getClass().getSimpleName(), "Something went wrong: "
