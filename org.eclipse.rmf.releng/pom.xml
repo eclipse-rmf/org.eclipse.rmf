@@ -89,6 +89,7 @@
 		<module>../org.eclipse.rmf.reqif10.search.edit</module>
 		<module>../org.eclipse.rmf.reqif10.search.ui</module>
 		<module>../org.eclipse.rmf.reqif10.pror.genhtml</module>
+		<module>../org.eclipse.rmf.reqif10.csv.importer</module>
 		<module>../org.eclipse.rmf.reqif10.pror.feature</module>
 		<module>../org.eclipse.rmf.reqif10.pror.sdk.feature</module>
 
