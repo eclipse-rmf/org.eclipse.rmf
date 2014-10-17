@@ -353,9 +353,9 @@
 	</build>
 	<profiles>
 	    <profile>
-			<id>platform-indigo</id>
+			<id>platform-mars</id>
 			<properties>
-				<platform.version.name>indigo</platform.version.name>
+				<platform.version.name>mars</platform.version.name>
 			</properties>
 		</profile>
 		<profile>
