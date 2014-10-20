@@ -70,10 +70,10 @@ import org.w3c.dom.ls.LSResourceResolver;
 
 @SuppressWarnings("nls")
 public abstract class AbstractTestCase {
-	private static final String WORKING_DIRECTORY = "work";
-	static Map<String, Object> backupRegistry = null;
-	static XMLPersistenceMappingResourceSetImpl loadXMLPersistenceMappingResourceSet = null;
-	static XMLPersistenceMappingResourceSetImpl saveXMLPersistenceMappingResourceSet = null;
+	protected static final String WORKING_DIRECTORY = "work";
+	protected static Map<String, Object> backupRegistry = null;
+	protected static XMLPersistenceMappingResourceSetImpl loadXMLPersistenceMappingResourceSet = null;
+	protected static XMLPersistenceMappingResourceSetImpl saveXMLPersistenceMappingResourceSet = null;
 
 	static final DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 	static final DateFormat timeFormat = new SimpleDateFormat("HHmm");
@@ -333,7 +333,7 @@ public abstract class AbstractTestCase {
 	/**
 	 * Creates the file name of reference test data. The name pattern as defined by the ReqIF Implementor Forum.
 	 * #TestCaseID#_E0000_S10_Reference_#yyyyMMdd#_#HHmm# #NameOfHumanCreator#.<reqif/reqifz>
-	 * 
+	 *
 	 * @param testCaseId
 	 * @return
 	 */
@@ -344,7 +344,7 @@ public abstract class AbstractTestCase {
 	/**
 	 * Creates the file name of reference test data. The name pattern as defined by the ReqIF Implementor Forum.
 	 * #TestCaseID#_E0001_S21_Reference_#yyyyMMdd#_#HHmm# #NameOfHumanCreator#.<reqif/reqifz>
-	 * 
+	 *
 	 * @param testCaseId
 	 * @return
 	 */
@@ -356,7 +356,7 @@ public abstract class AbstractTestCase {
 	 * Creates the file name according to the ReqIF Implementor Forum naming conventions. The name pattern as defined by
 	 * the ReqIF Implementor Forum.
 	 * #TestCaseID#_E#NumberOfExports#_S#TestStep#_#Tool#_#yyyyMMdd#_#HHmm#_#NameOfHumanCreator#.#reqif/reqifz#
-	 * 
+	 *
 	 * @param testCaseId
 	 * @return
 	 */

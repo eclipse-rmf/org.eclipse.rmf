@@ -68,6 +68,8 @@
 		<module>../org.eclipse.rmf.reqif10.constraints</module>
 		<module>../org.eclipse.rmf.reqif10.serialization</module>
 		<module>../org.eclipse.rmf.serialization</module>
+		<module>../org.eclipse.rmf.ext.prostep</module>
+		
 		<module>../org.eclipse.rmf.reqif10.feature</module>
 		<module>../org.eclipse.rmf.reqif10.thirdparty.feature</module>
 		<module>../org.eclipse.rmf.reqif10.sdk.feature</module>
@@ -75,6 +77,7 @@
 		<module>../org.eclipse.rmf.tests.reqif10.serialization</module>
 		<module>../org.eclipse.rmf.tests.reqif10.common</module>
 		<module>../org.eclipse.rmf.tests.reqif10.constraints</module>
+		<module>../org.eclipse.rmf.tests.ext.prostep</module>
 		<module>../org.eclipse.rmf.tests.reqif10.feature</module>
 
 		<!-- ReqIF UI ProR -->

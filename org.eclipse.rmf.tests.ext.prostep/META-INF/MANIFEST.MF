@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.rmf.tests.ext.prostep
+Bundle-Version: 0.11.0.qualifier
+Bundle-Vendor: %providerName
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit,
+ org.eclipse.rmf.reqif10;bundle-version="0.11.0",
+ org.eclipse.rmf.ext.prostep;bundle-version="0.11.0",
+ org.eclipse.rmf.reqif10.common;bundle-version="0.11.0",
+ org.eclipse.rmf.reqif10.serialization;bundle-version="0.11.0",
+ org.eclipse.rmf.tests.reqif10.serialization;bundle-version="0.11.0",
+ org.eclipse.rmf.tests.reqif10.serialization,
+ org.eclipse.rmf.serialization

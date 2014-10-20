@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:reqif-common="http://www.prostep.org/reqif">
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <reqif-common:EXCHANGE-CONVERSATION>
+        <reqif-common:IDENTIFIER>_6ced3339-9916-44f7-b9f0</reqif-common:IDENTIFIER>
+      </reqif-common:EXCHANGE-CONVERSATION>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>
