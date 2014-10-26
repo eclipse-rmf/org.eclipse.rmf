@@ -14,6 +14,7 @@ package org.eclipse.rmf.reqif10.search.ui;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
@@ -66,8 +67,17 @@ public class UsageSearchResult implements ISearchResult {
 	public String getLabel() {
 		StringBuilder builder = new StringBuilder("Search in files '");
 		Collection<Resource> resources = getSearchEntries().keySet();
-		for (Resource resource : resources) {
+		// to limit the label, we take only max three resources
+		int max = Math.min(3, resources.size());
+		int count = 0;
+		for (Iterator<Resource> iterator = resources.iterator(); iterator
+				.hasNext() && count < max;) {
+			Resource resource = iterator.next();
 			builder.append(resource.getURI().lastSegment()).append(" - ");
+			count++;
+		}
+		if (count < resources.size()) {
+			builder.append("... - ");
 		}
 		builder.append("' result : ").append(searchEntries.size())
 				.append(" occurences");
