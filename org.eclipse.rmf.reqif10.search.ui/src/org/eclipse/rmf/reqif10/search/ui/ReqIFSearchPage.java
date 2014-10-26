@@ -164,30 +164,34 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage,
 		container.setPerformActionEnabled(true);
 	}
 
-	private Map<URI, EditingDomain> getEditorsURIMap() {
-		Map<URI, EditingDomain> uriMap = new HashMap<URI, EditingDomain>();
+	public Map<URI, EditingDomain> getEditorsURIMap() {
+		final Map<URI, EditingDomain> uriMap = new HashMap<URI, EditingDomain>();
 
-		IEditorReference[] editorReferences = PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage()
-				.getEditorReferences();
-		for (IEditorReference editorReference : editorReferences) {
-			IEditorPart editorPart = editorReference.getEditor(false);
-			if (editorPart instanceof Reqif10Editor) {
-				try {
-					uriMap.put(EditUIUtil.getURI(editorReference
-							.getEditorInput()),
-							((IEditingDomainProvider) editorPart)
-									.getEditingDomain());
-				} catch (PartInitException e) {
-					e.printStackTrace();
+		PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
+			@Override
+			public void run() {
+				IEditorReference[] editorReferences = PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow().getActivePage()
+						.getEditorReferences();
+				for (IEditorReference editorReference : editorReferences) {
+					IEditorPart editorPart = editorReference.getEditor(false);
+					if (editorPart instanceof Reqif10Editor) {
+						try {
+							uriMap.put(EditUIUtil.getURI(editorReference
+									.getEditorInput()),
+									((IEditingDomainProvider) editorPart)
+											.getEditingDomain());
+						} catch (PartInitException e) {
+							e.printStackTrace();
+						}
+					}
 				}
 			}
-		}
+		});
 		return uriMap;
 	}
 
-	private List<Resource> getEMFResources() {
-		Map<URI, EditingDomain> uriMap = getEditorsURIMap();
+	public List<Resource> getEMFResources(Map<URI, EditingDomain> uriMap) {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		List<IResource> resources = getResources();
 		List<Resource> emfResources = new ArrayList<Resource>();
@@ -210,13 +214,15 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage,
 
 	@Override
 	public boolean performReplace() {
-		final Map<URI, EditingDomain> uriMap = getEditorsURIMap();
-		final List<Resource> resources = getEMFResources();
 		IRunnableWithProgress runnable = new IRunnableWithProgress() {
 
 			@Override
 			public void run(final IProgressMonitor monitor)
 					throws InvocationTargetException, InterruptedException {
+				monitor.beginTask("Start Searching ...",
+						IProgressMonitor.UNKNOWN);
+				final Map<URI, EditingDomain> uriMap = getEditorsURIMap();
+				final List<Resource> resources = getEMFResources(uriMap);
 				ExtendedReqIFEdit reqIFEditSearcher = new ExtendedReqIFEdit(
 						uriMap);
 				reqIFEditSearcher.search(monitor, resources,
@@ -257,8 +263,7 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage,
 	}
 
 	private ISearchQuery newQuery() {
-		List<Resource> resources = getEMFResources();
-		return new ReqIFSearchQuery(resources,
+		return new ReqIFSearchQuery(this,
 				masterDetailsBlock.getCriterias());
 	}
 

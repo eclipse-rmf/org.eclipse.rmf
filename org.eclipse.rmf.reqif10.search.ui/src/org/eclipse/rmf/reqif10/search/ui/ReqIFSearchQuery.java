@@ -39,19 +39,14 @@ public class ReqIFSearchQuery implements ISearchQuery {
 	private Collection<Resource> resources;
 	private Collection<Criteria> criterias;
 
+	private final ReqIFSearchPage page;
+
 	/**
 	 * @param operator
 	 * @param iSelection
 	 */
-	public ReqIFSearchQuery(Collection<Resource> resources,
-			Collection<Criteria> criterias) {
-		StringBuilder searchedTextBuilder = new StringBuilder();
-		for (Criteria criteria : criterias) {
-			searchedTextBuilder.append(criteria.getSerachedText())
-					.append(" - ");
-		}
-		this.searchedText = searchedTextBuilder.toString();
-		this.resources = resources;
+	public ReqIFSearchQuery(ReqIFSearchPage page, Collection<Criteria> criterias) {
+		this.page = page;
 		this.criterias = criterias;
 	}
 
@@ -78,6 +73,13 @@ public class ReqIFSearchQuery implements ISearchQuery {
 
 	private void doRun(IProgressMonitor monitor) {
 		monitor.beginTask("Searching...", IProgressMonitor.UNKNOWN);
+		StringBuilder searchedTextBuilder = new StringBuilder();
+		for (Criteria criteria : criterias) {
+			searchedTextBuilder.append(criteria.getSerachedText())
+					.append(" - ");
+		}
+		this.searchedText = searchedTextBuilder.toString();
+		this.resources = page.getEMFResources(page.getEditorsURIMap());
 		Map<Resource, Collection<EObject>> result = ReqIFEditSearcher.find(
 				monitor, resources, criterias, false);
 		usageSearchResult.getSearchEntries().clear();

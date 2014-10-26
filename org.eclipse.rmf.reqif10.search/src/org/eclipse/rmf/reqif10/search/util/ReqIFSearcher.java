@@ -48,7 +48,6 @@ public class ReqIFSearcher {
 	public Map<Resource, Collection<EObject>> search(IProgressMonitor monitor,
 			Collection<Resource> resources, Collection<Criteria> criterias,
 			boolean replace) {
-		monitor.beginTask("Start Searching ...", 2 * resources.size());
 		Map<Resource, Collection<EObject>> result = new HashMap<Resource, Collection<EObject>>();
 		for (Resource resource : resources) {
 			Collection<EObject> searchresult = search(monitor, resource,
@@ -57,7 +56,6 @@ public class ReqIFSearcher {
 			if (monitor.isCanceled()) {
 				break;
 			}
-			monitor.worked(2);
 		}
 		monitor.done();
 		return result;
