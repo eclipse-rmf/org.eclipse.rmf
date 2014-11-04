@@ -38,6 +38,7 @@ import org.eclipse.emf.edit.provider.ItemProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.rmf.ext.prostep.util.ProstepAdapterFactory;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.util.ConfigurationAdapterFactory;
@@ -107,7 +108,9 @@ abstract public class AbstractItemProviderTest {
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ConfigurationItemProviderAdapterFactory());
-
+		adapterFactory.addAdapterFactory(new ProstepAdapterFactory());
+		
+		
 		commandStack = new BasicCommandStack();
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
 				commandStack, new XMLPersistenceMappingResourceSetImpl());
