@@ -1464,10 +1464,10 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 	 */
 	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
+		ISelection currentSelection = getSite().getSelectionProvider().getSelection();
 		// Update ReqIF ID.
-		Command cmd = SetCommand.create(editingDomain, reqif.getTheHeader(), ReqIF10Package.Literals.REQ_IF_HEADER__IDENTIFIER, UUID.randomUUID().toString());
-		editingDomain.getCommandStack().execute(cmd);
-		
+		reqif.getTheHeader().setIdentifier(UUID.randomUUID().toString());
+	
 		// Save only resources that have actually changed.
 		//
 		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
@@ -1525,6 +1525,8 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
+		
+		getSite().getSelectionProvider().setSelection(currentSelection);
 	}
 
 	/**
