@@ -16,6 +16,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -66,20 +67,27 @@ public class UsageSearchResult implements ISearchResult {
 	@Override
 	public String getLabel() {
 		StringBuilder builder = new StringBuilder("Search in files '");
-		Collection<Resource> resources = getSearchEntries().keySet();
+		int resultFoundSize = 0;
+		for (Entry<Resource, Collection<EObject>> entry : searchEntries
+				.entrySet()) {
+			if (false == entry.getValue().isEmpty()) {
+				resultFoundSize++;
+			}
+		}
 		// to limit the label, we take only max three resources
-		int max = Math.min(3, resources.size());
+		int max = resultFoundSize > 0 ? Math.min(3, resultFoundSize) : 3;
 		int count = 0;
+		Collection<Resource> resources = searchEntries.keySet();
 		for (Iterator<Resource> iterator = resources.iterator(); iterator
 				.hasNext() && count < max;) {
 			Resource resource = iterator.next();
 			builder.append(resource.getURI().lastSegment()).append(" - ");
 			count++;
 		}
-		if (count < resources.size()) {
+		if (count < resultFoundSize) {
 			builder.append("... - ");
 		}
-		builder.append("' result : ").append(searchEntries.size())
+		builder.append("' result : ").append(resultFoundSize)
 				.append(" occurences");
 		return builder.toString();
 	}
