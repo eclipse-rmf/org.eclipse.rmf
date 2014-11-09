@@ -13,6 +13,7 @@ package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.CellEditor;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeValue;
@@ -30,10 +31,11 @@ public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 
 	private final ProrAgileGridContentProvider contentProvider;
 	private final AgileCellEditorActionHandler agileCellEditorActionHandler;
-	
+
 	public ProrCellEditorProvider(AgileGrid agileGrid,
-			EditingDomain editingDomain, AdapterFactory adapterFactory, AgileCellEditorActionHandler agileCellEditorActionHandler) {
-		super(agileGrid, adapterFactory, editingDomain);
+			AdapterFactory adapterFactory,
+			AgileCellEditorActionHandler agileCellEditorActionHandler) {
+		super(agileGrid, adapterFactory);
 		this.contentProvider = (ProrAgileGridContentProvider) agileGrid
 				.getContentProvider();
 		this.agileCellEditorActionHandler = agileCellEditorActionHandler;
@@ -52,7 +54,7 @@ public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 				.getContentProvider();
 		ProrRow prorRow = provider.getProrRow(row);
 		if (prorRow instanceof ProrRowSpecHierarchy) {
-			return ((ProrRowSpecHierarchy)prorRow).getSpecHierarchy();
+			return ((ProrRowSpecHierarchy) prorRow).getSpecHierarchy();
 		}
 		return (Identifiable) prorRow.getSpecElement();
 	}
@@ -61,40 +63,42 @@ public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 	public CellEditor getCellEditor(int row, int col, Object hint) {
 		SpecElementWithAttributes specElement = contentProvider.getProrRow(row)
 				.getSpecElement();
-		
-		CellEditor cellEditor = null;		
+
+		CellEditor cellEditor = null;
 		AttributeValue av = getAttributeValue(row, col);
-		
-		// Consult the presentation
-		ProrPresentationConfiguration config = ConfigurationUtil
-				.getPresentationConfiguration(av);
-		if (config != null) {
-			ItemProviderAdapter ip = ProrUtil.getItemProvider(adapterFactory,
-					config);
-			if (ip instanceof PresentationEditorInterface) {
-				cellEditor = ((PresentationEditorInterface) ip).getCellEditor(
-						agileGrid, editingDomain, av, specElement,
+		EditingDomain editingDomain = AdapterFactoryEditingDomain
+				.getEditingDomainFor(av);
+		if (editingDomain != null) {
+			// Consult the presentation
+			ProrPresentationConfiguration config = ConfigurationUtil
+					.getPresentationConfiguration(av);
+			if (config != null) {
+				ItemProviderAdapter ip = ProrUtil.getItemProvider(
+						adapterFactory, config);
+				if (ip instanceof PresentationEditorInterface) {
+					cellEditor = ((PresentationEditorInterface) ip)
+							.getCellEditor(agileGrid, editingDomain, av,
+									specElement, getAffectedElement(row, col));
+				}
+			}
+
+			// See whether there is a default editor
+			if (cellEditor == null) {
+				cellEditor = PresentationServiceManager.getDefaultCellEditor(
+						agileGrid, editingDomain, adapterFactory, av,
+						specElement, getAffectedElement(row, col));
+			}
+
+			if (cellEditor == null) {
+				cellEditor = getDefaultCellEditor(av, specElement,
 						getAffectedElement(row, col));
 			}
-		}
-		
-		// See whether there is a default editor
-		if (cellEditor == null) {
-			cellEditor = PresentationServiceManager.getDefaultCellEditor(
-					agileGrid, editingDomain, adapterFactory, av, specElement,
-					getAffectedElement(row, col));
-		}
 
-		if (cellEditor == null) {
-			cellEditor = getDefaultCellEditor(av, specElement,
-					getAffectedElement(row, col));
+			if (cellEditor != null)
+				agileCellEditorActionHandler.setActiveCellEditor(cellEditor);
 		}
-
-		if (cellEditor != null)
-			agileCellEditorActionHandler.setActiveCellEditor(cellEditor);
-		
 		return cellEditor;
-		
+
 	}
 
 	@Override

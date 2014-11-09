@@ -107,7 +107,7 @@ public class ProrAgileGridViewer extends Viewer {
 	private EContentAdapter specHierarchyRootContentAdapter;
 	private Adapter emfColumnListener;
 	private ICellResizeListener agColumnListener;
-	
+
 	private ICellDoubleClickListener doubleClickListener;
 
 	/**
@@ -264,7 +264,7 @@ public class ProrAgileGridViewer extends Viewer {
 		unregisterSpecHierarchyListener();
 		unregisterSpecRelationListener();
 		unregisterDoubleClickListener();
-		
+
 		this.specification = (Specification) input;
 		this.specViewConfig = ConfigurationUtil.createSpecViewConfiguration(
 				specification, editingDomain);
@@ -274,10 +274,10 @@ public class ProrAgileGridViewer extends Viewer {
 		agileGrid.setCellRendererProvider(new ProrCellRendererProvider(
 				agileGrid, adapterFactory, editingDomain));
 		agileGrid.setCellEditorProvider(new ProrCellEditorProvider(agileGrid,
-				editingDomain, adapterFactory, agileCellEditorActionHandler));
+				adapterFactory, agileCellEditorActionHandler));
 		agileGrid.setRowResizeCursor(new Cursor(agileGrid.getDisplay(),
 				SWT.CURSOR_ARROW));
-		
+
 		updateRowCount();
 		updateColumnInformation();
 		registerColumnListener();
@@ -450,7 +450,7 @@ public class ProrAgileGridViewer extends Viewer {
 		ReqIF10Util.getReqIF(specification).getCoreContent().eAdapters()
 				.add(specRelationContentAdapter);
 	}
-	
+
 	private void registerDoubleClickListener() {
 		doubleClickListener = new ICellDoubleClickListener() {
 			public void cellDoubleClicked(CellDoubleClickEvent event) {
@@ -473,7 +473,7 @@ public class ProrAgileGridViewer extends Viewer {
 		};
 		agileGrid.addCellDoubleClickListener(doubleClickListener);
 	}
-	
+
 	private void unregisterDoubleClickListener() {
 		if (doubleClickListener != null && !agileGrid.isDisposed())
 			agileGrid.removeDoubleClickListener(doubleClickListener);
@@ -504,7 +504,7 @@ public class ProrAgileGridViewer extends Viewer {
 		// SpecHierarchies
 		selectionChangedistener = new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
-				if (settingSelection){
+				if (settingSelection) {
 					return;
 				}
 				Set<Cell> cells = event.getNewSelections();
@@ -675,7 +675,8 @@ public class ProrAgileGridViewer extends Viewer {
 	private void enableDragNDrop() {
 		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
 		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance(),
-				LocalSelectionTransfer.getTransfer(), PluginTransfer.getInstance() };
+				LocalSelectionTransfer.getTransfer(),
+				PluginTransfer.getInstance() };
 		addDragSupport(dndOperations, transfers, new ViewerDragAdapter(this) {
 
 			// Modified to allow resizing of columns
@@ -754,7 +755,7 @@ public class ProrAgileGridViewer extends Viewer {
 						} else if (row instanceof ProrRowSpecRelation) {
 							target = row.getSpecElement();
 						}
-						
+
 						if (target instanceof SpecHierarchy) {
 							dragTarget = (SpecHierarchy) target;
 							float location = getLocation(e);
@@ -869,7 +870,8 @@ public class ProrAgileGridViewer extends Viewer {
 
 	public void setFilter(ReqifFilter filter) {
 		if (agileGrid.getContentProvider() instanceof ProrAgileGridContentProvider) {
-			((ProrAgileGridContentProvider)agileGrid.getContentProvider()).setFilter(filter);
+			((ProrAgileGridContentProvider) agileGrid.getContentProvider())
+					.setFilter(filter);
 			this.refresh();
 		}
 	}

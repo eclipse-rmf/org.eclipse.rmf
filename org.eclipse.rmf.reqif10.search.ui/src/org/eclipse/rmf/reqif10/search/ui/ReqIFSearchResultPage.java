@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -30,6 +31,7 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
+import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertySheetPage;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIFContentItemProvider;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
@@ -41,8 +43,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.part.Page;
+import org.eclipse.ui.views.properties.IPropertySheetPage;
 
-public class ReqIFSearchResultPage extends Page implements ISearchResultPage {
+public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
+		IAdaptable {
 
 	/**
 	 * The usage search result
@@ -59,6 +63,10 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage {
 	private AdapterFactoryContentProvider contentProvider;
 	private Set<Object> objectsFound = new HashSet<Object>();
 	private ComposedAdapterFactory adapterFactory;
+	/**
+	 * This is the property sheet page.
+	 */
+	protected ProrPropertySheetPage propertySheetPage;
 
 	private ComposedAdapterFactory createAdapterFactory() {
 		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
@@ -236,6 +244,26 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage {
 	@Override
 	public void setFocus() {
 		treeViewer.getControl().setFocus();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings("rawtypes")
+	@Override
+	public Object getAdapter(Class key) {
+		if (key.equals(IPropertySheetPage.class)) {
+			return getPropertySheetPage();
+		}
+		return null;
+	}
+
+	private ProrPropertySheetPage getPropertySheetPage() {
+		if (propertySheetPage == null) {
+			propertySheetPage = new ProrPropertySheetPage(null, adapterFactory);
+		}
+
+		return propertySheetPage;
 	}
 
 	/**
