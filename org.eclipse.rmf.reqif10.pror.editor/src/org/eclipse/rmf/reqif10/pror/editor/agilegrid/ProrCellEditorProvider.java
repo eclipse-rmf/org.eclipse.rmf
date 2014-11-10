@@ -61,14 +61,15 @@ public class ProrCellEditorProvider extends AbstractProrCellEditorProvider {
 
 	@Override
 	public CellEditor getCellEditor(int row, int col, Object hint) {
+		CellEditor cellEditor = null;
 		SpecElementWithAttributes specElement = contentProvider.getProrRow(row)
 				.getSpecElement();
 
-		CellEditor cellEditor = null;
-		AttributeValue av = getAttributeValue(row, col);
 		EditingDomain editingDomain = AdapterFactoryEditingDomain
-				.getEditingDomainFor(av);
+				.getEditingDomainFor(specElement);
 		if (editingDomain != null) {
+			AttributeValue av = getAttributeValue(row, col);
+
 			// Consult the presentation
 			ProrPresentationConfiguration config = ConfigurationUtil
 					.getPresentationConfiguration(av);

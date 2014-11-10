@@ -164,7 +164,7 @@ public class ProrPropertyCellEditorProvider extends
 		// when try to get the presentation service
 		if (attrValue != null) {
 			EditingDomain editingDomain = AdapterFactoryEditingDomain
-					.getEditingDomainFor(attrValue);
+					.getEditingDomainFor(specElement);
 			if (editingDomain != null) {
 				// Ask Presentation
 				ProrPresentationConfiguration config = ConfigurationUtil
