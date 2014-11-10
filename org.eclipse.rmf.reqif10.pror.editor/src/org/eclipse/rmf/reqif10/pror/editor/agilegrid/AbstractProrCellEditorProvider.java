@@ -16,6 +16,7 @@ import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.CellEditor;
 import org.agilemore.agilegrid.DefaultCellEditorProvider;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
@@ -40,13 +41,11 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 public abstract class AbstractProrCellEditorProvider extends
 		DefaultCellEditorProvider {
 
-	protected final EditingDomain editingDomain;
 	protected final AdapterFactory adapterFactory;
 
 	public AbstractProrCellEditorProvider(AgileGrid agileGrid,
-			AdapterFactory adapterFactory, EditingDomain editingDomain) {
+			AdapterFactory adapterFactory) {
 		super(agileGrid);
-		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
 	}
 
@@ -60,8 +59,7 @@ public abstract class AbstractProrCellEditorProvider extends
 	 * @return the default cell editor for the attribute value
 	 */
 	protected CellEditor getDefaultCellEditor(AttributeValue value,
-			Object parent,
-			Object affectedObject) {
+			Object parent, Object affectedObject) {
 		DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(value);
 		if (dd == null) {
 			MessageDialog
@@ -69,60 +67,62 @@ public abstract class AbstractProrCellEditorProvider extends
 							"This attribute cannot be edited, as no Datatype Definition has been set.");
 			return null;
 		}
+		EditingDomain editingDomain = AdapterFactoryEditingDomain
+				.getEditingDomainFor(dd);
+		if (editingDomain != null) {
+			// Parent may be SpecHierarchy or SpecElement or Attribute (default
+			// value).
+			if (parent instanceof SpecHierarchy)
+				parent = ((SpecHierarchy) parent).getObject();
 
-		// Parent may be SpecHierarchy or SpecElement or Attribute (default value).
-		if (parent instanceof SpecHierarchy) parent = ((SpecHierarchy) parent)
-				.getObject();
-
-		if (dd instanceof DatatypeDefinitionBoolean) {
-			return new ProrCheckboxCellEditor(agileGrid, editingDomain,
-					parent, affectedObject);
-		}
-		else if (dd instanceof DatatypeDefinitionDate) {
-			return new ProrDateCellEditor(agileGrid, editingDomain,
-					parent,
-					affectedObject);
-		} else if (dd instanceof DatatypeDefinitionInteger) {
-			DatatypeDefinitionInteger ddi = (DatatypeDefinitionInteger) dd;
-			ProrIntegerCellEditor integerCellEditor = new ProrIntegerCellEditor(
-					agileGrid, parent,
-					editingDomain, affectedObject);
-			integerCellEditor.setRange(ddi.getMin(), ddi.getMax());
-			return integerCellEditor;
-		} else if (dd instanceof DatatypeDefinitionReal) {
-			DatatypeDefinitionReal ddr = (DatatypeDefinitionReal) dd;
-			ProrRealCellEditor realCellEditor = new ProrRealCellEditor(
-					agileGrid, editingDomain,
-					parent, affectedObject);
-			realCellEditor.setRange(ddr.getMin(), ddr.getMax());
-			return realCellEditor;
-		} else if (dd instanceof DatatypeDefinitionString) {
-			DatatypeDefinitionString dds = (DatatypeDefinitionString) dd;
-			ProrStringCellEditor stringCellEditor = new ProrStringCellEditor(
-					agileGrid, editingDomain,
-					parent, affectedObject);
-			stringCellEditor.setMaxLength(dds.getMaxLength() != null ? dds
-					.getMaxLength() : new BigInteger(Integer.MAX_VALUE + ""));
-			return stringCellEditor;
-		} else if (dd instanceof DatatypeDefinitionEnumeration) {
-			DatatypeDefinitionEnumeration dde = (DatatypeDefinitionEnumeration) dd;
-			Boolean multiValued = ((AttributeDefinitionEnumeration) ReqIF10Util
-					.getAttributeDefinition(value)).isMultiValued();
-			if (multiValued == null || multiValued.booleanValue() == false) {
-				return new ProrEnumerationSingleValueCellEditor(agileGrid, dde,
-						parent, affectedObject,
-						editingDomain, adapterFactory);
-			} else {
-				return new ProrEnumerationMultiValueCellEditor(agileGrid, dde,
-						parent, affectedObject,
-						editingDomain, adapterFactory);
+			if (dd instanceof DatatypeDefinitionBoolean) {
+				return new ProrCheckboxCellEditor(agileGrid, editingDomain,
+						parent, affectedObject);
+			} else if (dd instanceof DatatypeDefinitionDate) {
+				return new ProrDateCellEditor(agileGrid, editingDomain, parent,
+						affectedObject);
+			} else if (dd instanceof DatatypeDefinitionInteger) {
+				DatatypeDefinitionInteger ddi = (DatatypeDefinitionInteger) dd;
+				ProrIntegerCellEditor integerCellEditor = new ProrIntegerCellEditor(
+						agileGrid, parent, editingDomain, affectedObject);
+				integerCellEditor.setRange(ddi.getMin(), ddi.getMax());
+				return integerCellEditor;
+			} else if (dd instanceof DatatypeDefinitionReal) {
+				DatatypeDefinitionReal ddr = (DatatypeDefinitionReal) dd;
+				ProrRealCellEditor realCellEditor = new ProrRealCellEditor(
+						agileGrid, editingDomain, parent, affectedObject);
+				realCellEditor.setRange(ddr.getMin(), ddr.getMax());
+				return realCellEditor;
+			} else if (dd instanceof DatatypeDefinitionString) {
+				DatatypeDefinitionString dds = (DatatypeDefinitionString) dd;
+				ProrStringCellEditor stringCellEditor = new ProrStringCellEditor(
+						agileGrid, editingDomain, parent, affectedObject);
+				stringCellEditor.setMaxLength(dds.getMaxLength() != null ? dds
+						.getMaxLength()
+						: new BigInteger(Integer.MAX_VALUE + ""));
+				return stringCellEditor;
+			} else if (dd instanceof DatatypeDefinitionEnumeration) {
+				DatatypeDefinitionEnumeration dde = (DatatypeDefinitionEnumeration) dd;
+				Boolean multiValued = ((AttributeDefinitionEnumeration) ReqIF10Util
+						.getAttributeDefinition(value)).isMultiValued();
+				if (multiValued == null || multiValued.booleanValue() == false) {
+					return new ProrEnumerationSingleValueCellEditor(agileGrid,
+							dde, parent, affectedObject, editingDomain,
+							adapterFactory);
+				} else {
+					return new ProrEnumerationMultiValueCellEditor(agileGrid,
+							dde, parent, affectedObject, editingDomain,
+							adapterFactory);
+				}
+			} else if (dd instanceof DatatypeDefinitionXHTML) {
+				ProrXhtmlSimplifiedCellEditor stringCellEditor = new ProrXhtmlSimplifiedCellEditor(
+						agileGrid, editingDomain, parent, affectedObject);
+				return stringCellEditor;
 			}
-		} else if (dd instanceof DatatypeDefinitionXHTML) {
-			ProrXhtmlSimplifiedCellEditor stringCellEditor = new ProrXhtmlSimplifiedCellEditor(
-					agileGrid, editingDomain, parent, affectedObject);
-			return stringCellEditor;
+
+			throw new IllegalArgumentException("No editor for: " + value);
 		}
-		throw new IllegalArgumentException("No editor for: " + value);
+		return null;
 	}
 
 	/**

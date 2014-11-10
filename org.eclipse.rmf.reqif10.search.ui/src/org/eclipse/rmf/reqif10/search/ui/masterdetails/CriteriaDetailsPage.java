@@ -9,7 +9,7 @@
  * Contributors:
  *     Hussein Mhanna - initial API and implementation
  ******************************************************************************/
-package org.eclipse.rmf.reqif10.search.ui.dialogs;
+package org.eclipse.rmf.reqif10.search.ui.masterdetails;
 
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.DataBindingContext;

@@ -13,12 +13,14 @@ package org.eclipse.rmf.reqif10.search.ui;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
@@ -31,6 +33,7 @@ import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertySheetPage;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
+import org.eclipse.rmf.reqif10.pror.provider.ReqIFContentItemProvider;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.rmf.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
 import org.eclipse.search.ui.ISearchResult;
@@ -60,17 +63,22 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 	private AdapterFactoryContentProvider contentProvider;
 	private Set<Object> objectsFound = new HashSet<Object>();
 	private ComposedAdapterFactory adapterFactory;
-
-	private ProrPropertySheetPage propertySheetPage;
-
-	private EditingDomain editingDomain;
+	/**
+	 * This is the property sheet page.
+	 */
+	protected ProrPropertySheetPage propertySheetPage;
 
 	private ComposedAdapterFactory createAdapterFactory() {
 		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
 		adapterFactory
 				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory
-				.addAdapterFactory(new ReqIF10ItemProviderAdapterFactory());
+				.addAdapterFactory(new ReqIF10ItemProviderAdapterFactory() {
+					@Override
+					public Adapter createReqIFContentAdapter() {
+						return new ReqIFContentItemProvider(this);
+					}
+				});
 		adapterFactory.addAdapterFactory(new XhtmlItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ConfigurationItemProviderAdapterFactory());
@@ -128,23 +136,32 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 	public void setInput(final ISearchResult searchResult, final Object uiState) {
 		if (searchResult instanceof UsageSearchResult) {
 			this.searchResult = (UsageSearchResult) searchResult;
-			Set<Object> objects = ((ReqIFSearchQuery) (this.searchResult)
-					.getQuery()).getUsageSearchResult().getSearchEntries();
+
+			Set<Object> objects = new HashSet<Object>();
+			Map<Resource, Collection<EObject>> resultMap = this.searchResult
+					.getSearchEntries();
+			for (Entry<Resource, Collection<EObject>> entry : resultMap
+					.entrySet()) {
+				if (false == entry.getValue().isEmpty()) {
+					objects.addAll(entry.getValue());
+				}
+			}
+
 			objectsFound.clear();
 			objectsFound.addAll(objects);
+			Set<Resource> inputSet = new HashSet<Resource>();
 			for (Object object : objects) {
 				Object temp = contentProvider.getParent(object);
 				while (temp != null) {
+					if (temp instanceof Resource) {
+						inputSet.add((Resource) temp);
+					}
 					objectsFound.add(temp);
 					temp = contentProvider.getParent(temp);
 				}
-			}
-			editingDomain = ((ReqIFSearchQuery) (this.searchResult).getQuery())
-					.getEditingDomain();
-			Resource resource = this.searchResult.getResourceSet()
-					.getResources().get(0);
 
-			treeViewer.setInput(resource);
+			}
+			treeViewer.setInput(inputSet);
 			treeViewer.expandAll();
 		} else {
 			treeViewer.setInput(null);
@@ -229,6 +246,9 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 		treeViewer.getControl().setFocus();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Object getAdapter(Class key) {
@@ -238,11 +258,11 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 		return null;
 	}
 
-	public ProrPropertySheetPage getPropertySheetPage() {
+	private ProrPropertySheetPage getPropertySheetPage() {
 		if (propertySheetPage == null) {
-			propertySheetPage = new ProrPropertySheetPage(editingDomain,
-					adapterFactory);
+			propertySheetPage = new ProrPropertySheetPage(null, adapterFactory);
 		}
+
 		return propertySheetPage;
 	}
 
