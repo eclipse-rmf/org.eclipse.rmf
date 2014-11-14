@@ -32,10 +32,7 @@ import org.junit.Test;
 @SuppressWarnings("nls")
 public class TC500xSTests extends AbstractTestCase {
 	static final String TEST_CASE_ID = "TC500x_S";
-	// static final String REFERENCE_DATA_FILENAME = getWorkingFileName(getReferenceDataFileName(TEST_CASE_ID, false));
 	static final String REFERENCE_DATA_FILENAME = getWorkingFileName(TEST_CASE_ID + ".reqif");
-	// static final String EXPORT_DATA_FILENAME = getWorkingFileName(getFirstExportFileName(TEST_CASE_ID, false));
-	// static final String EXPORT_DATA_FILENAME = getWorkingFileName(getWorkingFileName(TEST_CASE_ID + ".save"));
 	static ReqIF originalReqIF = null;
 	static ReqIF loadedReqIF = null;
 
