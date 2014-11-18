@@ -1097,8 +1097,14 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		getSite().getShell().getDisplay().asyncExec(new Runnable() {
 			public void run() {
 				updateProblemIndication();
+				// if the model has exactly one Specification, then open it.
+				if (reqif.getCoreContent().getSpecifications().size() == 1) {
+					openSpecification(reqif.getCoreContent().getSpecifications().get(0));
+				}
 			}
 		});
+		
+
 	}
 
 	/**
@@ -1162,6 +1168,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 				getEditingDomain());
 		ConfigurationUtil.setDefaultLabelsIfNecessary(adapterFactory,
 				editingDomain, reqif);
+		
 		return reqif;
 	}
 
@@ -1331,21 +1338,12 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 												.getSelection())
 												.getFirstElement();
 										if (obj instanceof Specification) {
-											ReqifSpecificationEditorInput editorInput = new ReqifSpecificationEditorInput(
-													Reqif10Editor.this,
-													(Specification) obj);
-											try {
-												IDE.openEditor(
-														getSite().getPage(),
-														editorInput,
-														SpecificationEditor.EDITOR_ID);
-											} catch (PartInitException e) {
-												e.printStackTrace();
-											}
+											openSpecification((Specification)obj);
 										}
 
 									}
 								}
+
 							});
 				}
 
@@ -1380,6 +1378,20 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 					});
 		}
 		return contentOutlinePage;
+	}
+
+	/**	
+	 * Tries to open the given Specification.
+	 */
+	private void openSpecification(Specification spec) {
+		ReqifSpecificationEditorInput editorInput = new ReqifSpecificationEditorInput(
+				Reqif10Editor.this, (Specification) spec);
+		try {
+			IDE.openEditor(getSite().getPage(), editorInput,
+					SpecificationEditor.EDITOR_ID, true);
+		} catch (PartInitException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
