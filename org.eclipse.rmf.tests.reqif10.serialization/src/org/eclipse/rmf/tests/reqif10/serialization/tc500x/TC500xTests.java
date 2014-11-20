@@ -30,7 +30,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 @SuppressWarnings("nls")
-public class TC500xSTests extends AbstractTestCase {
+public class TC500xTests extends AbstractTestCase {
 	static final String TEST_CASE_ID = "TC500x_S";
 	static final String REFERENCE_DATA_FILENAME = getWorkingFileName(TEST_CASE_ID + ".reqif");
 	static ReqIF originalReqIF = null;
