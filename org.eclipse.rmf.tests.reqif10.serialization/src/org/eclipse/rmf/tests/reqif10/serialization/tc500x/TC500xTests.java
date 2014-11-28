@@ -31,39 +31,64 @@ import org.junit.Test;
 
 @SuppressWarnings("nls")
 public class TC500xTests extends AbstractTestCase {
-	static final String TEST_CASE_ID = "TC500x_S";
-	static final String REFERENCE_DATA_FILENAME = getWorkingFileName(TEST_CASE_ID + ".reqif");
-	static ReqIF originalReqIF = null;
-	static ReqIF loadedReqIF = null;
+	static final String FILENAME_TC500xS = getWorkingFileName("TC500x_S.reqif");
+	static ReqIF originalTC500xS = null;
+	static ReqIF loadedTC500xS = null;
+
+	static final String FILENAME_TC500xT = getWorkingFileName("TC500x_T.reqif");
+	static ReqIF originalTC500xT = null;
+	static ReqIF loadedTC500xT = null;
 
 	@BeforeClass
 	public static void setupOnce() throws Exception {
 		AbstractTestCase.setupOnce();
-		originalReqIF = new TC500xS().getReqIF();
-		saveReqIFFile(originalReqIF, REFERENCE_DATA_FILENAME);
-		loadedReqIF = loadReqIFFile(REFERENCE_DATA_FILENAME);
+		originalTC500xS = new TC500xS().getReqIF();
+		saveReqIFFile(originalTC500xS, FILENAME_TC500xS);
+		loadedTC500xS = loadReqIFFile(FILENAME_TC500xS);
+
+		originalTC500xT = new TC500xT().getReqIF();
+		saveReqIFFile(originalTC500xT, FILENAME_TC500xT);
+		loadedTC500xT = loadReqIFFile(FILENAME_TC500xT);
 	}
 
 	@Test
 	public void testSchemaCompliance() throws Exception {
-		validateAgainstSchema(REFERENCE_DATA_FILENAME);
+		validateAgainstSchema(FILENAME_TC500xS);
+		validateAgainstSchema(FILENAME_TC500xT);
 	}
 
 	@Test
 	public void testReqIFNotNull() {
-		assertNotNull("The loaded ReqIF model shall not be Null", loadedReqIF);
+		assertNotNull("The loaded ReqIF model shall not be Null", loadedTC500xS);
+		assertNotNull("The loaded ReqIF model shall not be Null", loadedTC500xT);
 	}
 
 	@Test
-	public void testNoProxies() throws IOException {
-		EcoreUtil.resolveAll(loadedReqIF);
-		Map<EObject, Collection<Setting>> map = EcoreUtil.ProxyCrossReferencer.find(loadedReqIF);
+	public void testNoProxiesSource() throws IOException {
+		EcoreUtil.resolveAll(loadedTC500xS);
+		Map<EObject, Collection<Setting>> map = EcoreUtil.ProxyCrossReferencer.find(loadedTC500xS);
 		assertEquals(0, map.size());
 	}
 
 	@Test
-	public void testNoXMLAnyType() {
-		Iterator<EObject> iterator = EcoreUtil.getAllContents(loadedReqIF, true);
+	public void testCountProxiesTarget() throws IOException {
+		EcoreUtil.resolveAll(loadedTC500xT);
+		Map<EObject, Collection<Setting>> map = EcoreUtil.ProxyCrossReferencer.find(loadedTC500xT);
+		assertEquals(2, map.size());
+	}
+
+	@Test
+	public void testNoXMLAnyTypeSource() {
+		Iterator<EObject> iterator = EcoreUtil.getAllContents(loadedTC500xS, true);
+		while (iterator.hasNext()) {
+			EObject eObject = iterator.next();
+			assertFalse(eObject instanceof AnyType);
+		}
+	}
+
+	@Test
+	public void testNoXMLAnyTypeTarget() {
+		Iterator<EObject> iterator = EcoreUtil.getAllContents(loadedTC500xT, true);
 		while (iterator.hasNext()) {
 			EObject eObject = iterator.next();
 			assertFalse(eObject instanceof AnyType);

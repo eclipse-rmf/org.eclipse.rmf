@@ -77,7 +77,7 @@ public class TC500xS extends SimpleModelBuilder {
 		for (int i = 1; i <= adCount; i++) {
 			AttributeDefinitionString attributeDefinitionString = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 			attributeDefinitionString.setIdentifier("ID_TC500x_S_SpecType" + id + "_AD" + i);
-			attributeDefinitionString.setLongName("AD" + i);
+			attributeDefinitionString.setLongName("AD_" + id + "_" + i);
 			attributeDefinitionString.setLastChange(toDate(LAST_CHANGE_STRING));
 			attributeDefinitionString.setType(datatypeDefinitionString);
 			specObjectType.getSpecAttributes().add(attributeDefinitionString);
