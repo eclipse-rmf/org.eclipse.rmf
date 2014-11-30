@@ -12,6 +12,7 @@ imports)
 
   a. Select "Configuration"
   b. Right-Click "Generate Model Code"
+  c. Remove Package Exports that produce errors.
 
 2. Configuration ItemProviders
 

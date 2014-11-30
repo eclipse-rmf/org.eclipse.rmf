@@ -457,7 +457,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
 		addAnnotation
 		  (getProrToolExtension_SpecViewConfigurations(), 
 		   source, 
@@ -465,7 +465,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "specViewConfigurations",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrToolExtension_GeneralConfiguration(), 
 		   source, 
@@ -473,7 +473,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "generalConfiguration",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrToolExtension_PresentationConfigurations(), 
 		   source, 
@@ -481,7 +481,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "presentationConfigurations",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrSpecViewConfiguration_Columns(), 
 		   source, 
@@ -489,7 +489,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "columns",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrSpecViewConfiguration_LeftHeaderColumn(), 
 		   source, 
@@ -497,7 +497,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "leftHeaderColumn",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrPresentationConfigurations_PresentationConfigurations(), 
 		   source, 
@@ -505,7 +505,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "presentationConfigurations",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrGeneralConfiguration_LabelConfiguration(), 
 		   source, 
@@ -513,7 +513,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "labelConfiguration",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });	
+		   });
 	}
 
 	/**
@@ -523,7 +523,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * @generated
 	 */
 	protected void createXMLPersistenceMappingExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";			
+		String source = "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";	
 		addAnnotation
 		  (getProrToolExtension_SpecViewConfigurations(), 
 		   source, 
@@ -533,7 +533,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrToolExtension_GeneralConfiguration(), 
 		   source, 
@@ -543,7 +543,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrToolExtension_PresentationConfigurations(), 
 		   source, 
@@ -553,7 +553,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrSpecViewConfiguration_Columns(), 
 		   source, 
@@ -563,7 +563,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrSpecViewConfiguration_LeftHeaderColumn(), 
 		   source, 
@@ -573,7 +573,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrPresentationConfigurations_PresentationConfigurations(), 
 		   source, 
@@ -583,7 +583,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrGeneralConfiguration_LabelConfiguration(), 
 		   source, 
