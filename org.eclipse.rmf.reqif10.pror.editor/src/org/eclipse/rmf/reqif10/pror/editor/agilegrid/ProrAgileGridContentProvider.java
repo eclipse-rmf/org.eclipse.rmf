@@ -42,7 +42,7 @@ import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
 public class ProrAgileGridContentProvider extends AbstractContentProvider {
 
 	private final Specification root;
-	private final ProrSpecViewConfiguration specViewConfig;
+	final ProrSpecViewConfiguration specViewConfig;
 	private ArrayList<ProrRow> cache = null;
 	private Map<Identifiable, ProrRow> rowMap = new HashMap<Identifiable, ProrRow>();
 
@@ -309,6 +309,5 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 
 	public int getRowCount() {
 		return getCache().size();
-	}
-
+	}	
 }
