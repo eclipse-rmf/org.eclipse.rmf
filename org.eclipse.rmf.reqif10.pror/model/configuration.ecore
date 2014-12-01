@@ -52,7 +52,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProrSpecViewConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="specification" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//Specification" unsettable="true"/>
+        eType="ecore:EClass ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//Specification"
+        unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//Column" unsettable="true" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -110,7 +111,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProrPresentationConfiguration" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinition" unsettable="true"/>
+        eType="ecore:EClass ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DatatypeDefinition"
+        unsettable="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProrGeneralConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelConfiguration" lowerBound="1"
@@ -133,4 +135,5 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultLabel" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" unsettable="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnifiedColumn" eSuperTypes="#//Column"/>
 </ecore:EPackage>

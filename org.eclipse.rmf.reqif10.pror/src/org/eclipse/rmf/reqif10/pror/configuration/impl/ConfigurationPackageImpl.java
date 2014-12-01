@@ -28,6 +28,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
+import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
 
 
 /**
@@ -85,6 +86,13 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * @generated
 	 */
 	private EClass labelConfigurationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unifiedColumnEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -331,6 +339,15 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUnifiedColumn() {
+		return unifiedColumnEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ConfigurationFactory getConfigurationFactory() {
 		return (ConfigurationFactory)getEFactoryInstance();
 	}
@@ -379,6 +396,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 
 		labelConfigurationEClass = createEClass(LABEL_CONFIGURATION);
 		createEAttribute(labelConfigurationEClass, LABEL_CONFIGURATION__DEFAULT_LABEL);
+
+		unifiedColumnEClass = createEClass(UNIFIED_COLUMN);
 	}
 
 	/**
@@ -412,6 +431,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		unifiedColumnEClass.getESuperTypes().add(this.getColumn());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(prorToolExtensionEClass, ProrToolExtension.class, "ProrToolExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -439,6 +459,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 
 		initEClass(labelConfigurationEClass, LabelConfiguration.class, "LabelConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLabelConfiguration_DefaultLabel(), ecorePackage.getEString(), "defaultLabel", null, 0, -1, LabelConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(unifiedColumnEClass, UnifiedColumn.class, "UnifiedColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
