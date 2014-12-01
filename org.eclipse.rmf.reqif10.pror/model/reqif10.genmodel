@@ -34,6 +34,7 @@
     <genClasses image="false" ecoreClass="configuration.ecore#//LabelConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LabelConfiguration/defaultLabel"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//UnifiedColumn"/>
   </genPackages>
   <genPackages prefix="ReqIF10" basePackage="org.eclipse.rmf" resource="XML" disposableProviderFactory="true"
       providerPackageSuffix="pror.provider" ecorePackage="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#/">
