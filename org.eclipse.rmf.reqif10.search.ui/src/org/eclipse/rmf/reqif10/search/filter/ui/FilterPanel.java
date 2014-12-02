@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2014 Formal Mind GmbH.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Michael Jastram - initial API and implementation
+ ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter.ui;
 
 import java.util.Date;
@@ -13,6 +23,12 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
+/**
+ * The {@link FilterPanel} initially only offers the selection of Attributes.
+ * Upon selecting one, the fitting criteria are offered.
+ * 
+ * @author jastram
+ */
 public class FilterPanel extends Composite {
 
 	public FilterPanel(final Composite parent) {
@@ -26,7 +42,7 @@ public class FilterPanel extends Composite {
 			@Override
 			public void mouseUp(MouseEvent e) {
 				dispose();
-				parent.layout();
+				parent.pack();
 			}
 		});
 		
@@ -51,9 +67,21 @@ public class FilterPanel extends Composite {
 		if (getChildren().length == 3) {
 			getChildren()[2].dispose();
 		}
-		Label label = new Label(this, SWT.NONE);
-		label.setText(new Date().toString());
+		
+		switch (selectionIndex) {
+		case 0:
+			StringPanel sp = new StringPanel(this);
+			sp.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+			break;
+
+		default:
+			Label label = new Label(this, SWT.NONE);
+			label.setText(new Date().toString());
+			break;
+		}
+
 		layout();
+		getParent().pack();
 	}
 	
 }
