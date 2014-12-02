@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.rmf.reqif10.pror.sdk.feature"
       label="%featureName"
-      version="0.11.0.qualifier"
+      version="0.12.0.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.rmf.reqif10.pror"
       license-feature="org.eclipse.license"
