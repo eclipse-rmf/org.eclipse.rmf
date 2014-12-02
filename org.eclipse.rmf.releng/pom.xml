@@ -7,7 +7,7 @@
 	</prerequisites>
 	<groupId>org.eclipse.rmf</groupId>
 	<artifactId>org.eclipse.rmf.releng</artifactId>
-	<version>0.10.0-SNAPSHOT</version>
+	<version>0.11.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>RMF Parent</name>
 	<url>http://www.eclipse.org/rmf</url>
@@ -43,7 +43,7 @@
 	<properties>
 		<tycho.version>0.19.0</tycho.version>
 		<antrun.version>1.6</antrun.version>
-		<next.release>0.10.0-SNAPSHOT</next.release>
+		<next.release>0.11.0-SNAPSHOT</next.release>
 	</properties>
 	<repositories>
 	<repository>
@@ -55,11 +55,9 @@
     
     
     	<modules>
+		<!-- Release Engineering -->
 		<module>../org.eclipse.rmf.releng.target/${platform.version.name}</module>
 		<module>../org.eclipse.rmf.releng.repository</module>
-		<module>../org.eclipse.rmf.releng.product</module>
-
-        <module>../org.agilemore.agilegrid</module>
 
 		<!-- ReqIF Core -->
 		<module>../org.eclipse.rmf.reqif10</module>
@@ -70,6 +68,8 @@
 		<module>../org.eclipse.rmf.reqif10.constraints</module>
 		<module>../org.eclipse.rmf.reqif10.serialization</module>
 		<module>../org.eclipse.rmf.serialization</module>
+		<module>../org.eclipse.rmf.ext.prostep</module>
+		
 		<module>../org.eclipse.rmf.reqif10.feature</module>
 		<module>../org.eclipse.rmf.reqif10.thirdparty.feature</module>
 		<module>../org.eclipse.rmf.reqif10.sdk.feature</module>
@@ -77,6 +77,7 @@
 		<module>../org.eclipse.rmf.tests.reqif10.serialization</module>
 		<module>../org.eclipse.rmf.tests.reqif10.common</module>
 		<module>../org.eclipse.rmf.tests.reqif10.constraints</module>
+		<module>../org.eclipse.rmf.tests.ext.prostep</module>
 		<module>../org.eclipse.rmf.tests.reqif10.feature</module>
 
 		<!-- ReqIF UI ProR -->
@@ -87,31 +88,23 @@
 		<module>../org.eclipse.rmf.reqif10.pror.presentation.headline</module>
 		<module>../org.eclipse.rmf.reqif10.pror.presentation.id</module>
 		<module>../org.eclipse.rmf.reqif10.pror.presentation.linewrap</module>
-		<module>../org.eclipse.rmf.reqif10.pror.help.ui</module>
+		<module>../org.eclipse.rmf.reqif10.search</module>
+		<module>../org.eclipse.rmf.reqif10.search.edit</module>
+		<module>../org.eclipse.rmf.reqif10.search.ui</module>
 		<module>../org.eclipse.rmf.reqif10.pror.genhtml</module>
+		<module>../org.eclipse.rmf.reqif10.csv.importer</module>
 		<module>../org.eclipse.rmf.reqif10.pror.feature</module>
 		<module>../org.eclipse.rmf.reqif10.pror.sdk.feature</module>
+
+		<!-- 3rd Party Dependencies -->
+        <module>../org.agilemore.agilegrid</module>
 
 		<module>../org.eclipse.rmf.reqif10.pror.tests</module>
 		<!-- <module>../org.eclipse.rmf.reqif10.pror.presentation.id.tests</module> -->
 
-
 		<!-- RMF Examples Plugins -->
 		<module>../org.eclipse.rmf.examples.installer</module>
 		<module>../org.eclipse.rmf.examples.feature</module>
-
-
-		<!-- legacy plugins -->
-		<module>../org.eclipse.rmf.emf.ecore.converter</module>
-		<module>../org.eclipse.rmf.rif11.model</module>
-		<module>../org.eclipse.rmf.rif11.xsd.model</module>
-		<module>../org.eclipse.rmf.rif11.resource</module>
-		<!-- deactivated for kepler build <module>../org.eclipse.rmf.rif11.model.test</module> -->
-
-		<module>../org.eclipse.rmf.rif12.model</module>
-		<module>../org.eclipse.rmf.rif12.xsd.model</module>
-		<module>../org.eclipse.rmf.rif12.resource</module>
-		<!-- deactivated for kepler build <module>../org.eclipse.rmf.rif12.model.test</module> -->
 	</modules>
 
 
@@ -250,7 +243,7 @@
 						<artifact>
 							<groupId>org.eclipse.rmf.releng.target</groupId>
 							<artifactId>${platform.version.name}</artifactId>
-							<version>0.10.0-SNAPSHOT</version>
+							<version>0.11.0-SNAPSHOT</version>
 						</artifact>
 					</target>
 					<environments>
@@ -309,7 +302,7 @@
 						<configuration>
 							<includeBinaryFeature>false</includeBinaryFeature>
 							<!-- Non-breakable space, as normal spaces are trimmed. -->
-							<labelSuffix>&nbsp;Source</labelSuffix>
+							<labelSuffix>&#160;Source</labelSuffix>
 						</configuration>
 					</execution>
 				</executions>
@@ -363,9 +356,9 @@
 	</build>
 	<profiles>
 	    <profile>
-			<id>platform-indigo</id>
+			<id>platform-mars</id>
 			<properties>
-				<platform.version.name>indigo</platform.version.name>
+				<platform.version.name>mars</platform.version.name>
 			</properties>
 		</profile>
 		<profile>
@@ -515,7 +508,7 @@
 				 
 						<newVersion>${next.release}</newVersion>
 				
-						<!--  <newVersion>0.10.0</newVersion> -->
+						<!--  <newVersion>0.11.0</newVersion> -->
 					</configuration>
 				</plugin>
 			</plugins>

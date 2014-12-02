@@ -122,7 +122,7 @@ public class ReqIF10Util {
 	public static AttributeValue getAttributeValue(SpecElementWithAttributes specElement, AttributeDefinition attributeDefinition) {
 		for (AttributeValue value : specElement.getValues()) {
 			AttributeDefinition definition = getAttributeDefinition(value);
-			if (attributeDefinition.equals(definition)) {
+			if (attributeDefinition.getIdentifier().equals(definition.getIdentifier())) {
 				return value;
 			}
 		}

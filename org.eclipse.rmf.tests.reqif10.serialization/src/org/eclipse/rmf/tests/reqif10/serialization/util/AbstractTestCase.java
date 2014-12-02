@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Mark Broerkens - initial API and implementation
- * 
+ *
  */
 package org.eclipse.rmf.tests.reqif10.serialization.util;
 
@@ -41,13 +41,16 @@ import javax.xml.validation.Validator;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
@@ -55,6 +58,7 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.datatypes.DatatypesPackage;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
+import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceImpl;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
@@ -66,10 +70,10 @@ import org.w3c.dom.ls.LSResourceResolver;
 
 @SuppressWarnings("nls")
 public abstract class AbstractTestCase {
-	private static final String WORKING_DIRECTORY = "work";
-	static Map<String, Object> backupRegistry = null;
-	static XMLPersistenceMappingResourceSetImpl loadXMLPersistenceMappingResourceSet = null;
-	static XMLPersistenceMappingResourceSetImpl saveXMLPersistenceMappingResourceSet = null;
+	protected static final String WORKING_DIRECTORY = "work";
+	protected static Map<String, Object> backupRegistry = null;
+	protected static XMLPersistenceMappingResourceSetImpl loadXMLPersistenceMappingResourceSet = null;
+	protected static XMLPersistenceMappingResourceSetImpl saveXMLPersistenceMappingResourceSet = null;
 
 	static final DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 	static final DateFormat timeFormat = new SimpleDateFormat("HHmm");
@@ -257,8 +261,29 @@ public abstract class AbstractTestCase {
 	protected static void saveReqIFFile(EObject reqif, String fileName, ResourceSet resourceSet) throws IOException {
 		URI emfURI = createEMFURI(fileName);
 		Resource resource = resourceSet.createResource(emfURI);
+
+		// If we don't manually populate the idMap, all IDs will be overwritten.
+		populateIdMap((ReqIF10ResourceImpl) resource, reqif);
 		resource.getContents().add(reqif);
 		resource.save(getSaveOptions());
+	}
+
+	private static void populateIdMap(ReqIF10ResourceImpl resource, EObject reqif) {
+		TreeIterator<Object> all = EcoreUtil.getAllContents(reqif, true);
+		while (all.hasNext()) {
+			Object obj = all.next();
+			if (obj instanceof EObject) {
+				EObject eObject = (EObject) obj;
+				final EAttribute idAttribute = eObject.eClass().getEIDAttribute();
+				if (idAttribute != null) {
+					Object id = eObject.eGet(idAttribute);
+					if (id instanceof String) {
+						resource.getEObjectToIDMap().put(eObject, (String) id);
+						resource.getIDToEObjectMap().put((String) id, eObject);
+					}
+				}
+			}
+		}
 	}
 
 	protected static ReqIF loadReqIFFile(String fileName) throws IOException {
@@ -301,14 +326,14 @@ public abstract class AbstractTestCase {
 		}
 	}
 
-	private static URI createEMFURI(String fileName) {
+	protected static URI createEMFURI(String fileName) {
 		return URI.createURI(fileName, true);
 	}
 
 	/**
 	 * Creates the file name of reference test data. The name pattern as defined by the ReqIF Implementor Forum.
 	 * #TestCaseID#_E0000_S10_Reference_#yyyyMMdd#_#HHmm# #NameOfHumanCreator#.<reqif/reqifz>
-	 * 
+	 *
 	 * @param testCaseId
 	 * @return
 	 */
@@ -319,7 +344,7 @@ public abstract class AbstractTestCase {
 	/**
 	 * Creates the file name of reference test data. The name pattern as defined by the ReqIF Implementor Forum.
 	 * #TestCaseID#_E0001_S21_Reference_#yyyyMMdd#_#HHmm# #NameOfHumanCreator#.<reqif/reqifz>
-	 * 
+	 *
 	 * @param testCaseId
 	 * @return
 	 */
@@ -331,7 +356,7 @@ public abstract class AbstractTestCase {
 	 * Creates the file name according to the ReqIF Implementor Forum naming conventions. The name pattern as defined by
 	 * the ReqIF Implementor Forum.
 	 * #TestCaseID#_E#NumberOfExports#_S#TestStep#_#Tool#_#yyyyMMdd#_#HHmm#_#NameOfHumanCreator#.#reqif/reqifz#
-	 * 
+	 *
 	 * @param testCaseId
 	 * @return
 	 */
@@ -429,13 +454,13 @@ public abstract class AbstractTestCase {
 		zipOutputStream.close();
 	}
 
-	private static Map<Object, Object> getSaveOptions() {
+	protected static Map<Object, Object> getSaveOptions() {
 		Map<Object, Object> options = new HashMap<Object, Object>();
 		options.put(XMLPersistenceMappingResource.OPTION_NAMEPSACE_TO_PREFIX_MAP, getNamespaceToPrefixMap());
 		return options;
 	}
 
-	private static Map<String, String> getNamespaceToPrefixMap() {
+	protected static Map<String, String> getNamespaceToPrefixMap() {
 		Map<String, String> namespaceToPrefixMap = new HashMap<String, String>();
 		namespaceToPrefixMap.put(ReqIF10Package.eNS_URI, "");
 		return namespaceToPrefixMap;

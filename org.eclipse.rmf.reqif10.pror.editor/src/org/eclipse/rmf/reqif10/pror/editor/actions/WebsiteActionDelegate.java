@@ -45,15 +45,13 @@ public class WebsiteActionDelegate implements IEditorActionDelegate,
 									| IWorkbenchBrowserSupport.STATUS,
 							"pror-user-manual",
 							"ProR at eclipse.org",
-							"ProR at eclipse.org/rmf/pror");
+							"ProR at eclipse.org/rmf");
 
-			URL url = new URL("http://eclipse.org/rmf/pror");
+			URL url = new URL("http://eclipse.org/rmf");
 			browser.openURL(url);
 		} catch (PartInitException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

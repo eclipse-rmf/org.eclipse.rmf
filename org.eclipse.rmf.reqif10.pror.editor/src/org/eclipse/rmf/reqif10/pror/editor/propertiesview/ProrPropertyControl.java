@@ -21,6 +21,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -53,19 +54,19 @@ import org.eclipse.swt.widgets.MenuItem;
  * @author Michael Jastram
  * 
  */
-public class ProrPropertyControl extends AgileGrid implements PropertyChangeListener {
+public class ProrPropertyControl extends AgileGrid implements
+		PropertyChangeListener {
 
 	private ProrPropertyContentProvider contentProvider;
-	
+
 	private Object object;
 
-	private EditingDomain editingDomain;
+	private AttributeValue removeValue;
 
-	public ProrPropertyControl(Composite parent, EditingDomain editingDomain,
-			AdapterFactory adapterFactory, boolean showAllProps) {
+	public ProrPropertyControl(Composite parent, AdapterFactory adapterFactory,
+			boolean showAllProps) {
 		super(parent, SWT.V_SCROLL | SWT.H_SCROLL | SWTX.FILL_WITH_LASTCOL
 				| SWT.MULTI | SWT.DOUBLE_BUFFERED);
-		this.editingDomain = editingDomain;
 		setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
 		this.contentProvider = new ProrPropertyContentProvider(adapterFactory,
 				showAllProps);
@@ -74,9 +75,9 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 				adapterFactory, contentProvider));
 		setLayoutAdvisor(new ProrPropertyLayoutAdvisor(this));
 		setCellEditorProvider(new ProrPropertyCellEditorProvider(this,
-				adapterFactory, editingDomain, this.contentProvider));
+				adapterFactory,  this.contentProvider));
 		setRowResizeCursor(new Cursor(this.getDisplay(), SWT.CURSOR_ARROW));
-				
+
 		// listen to property changes in content
 		// Fix of 378041
 		contentProvider.addPropertyChangeListener(this);
@@ -85,18 +86,21 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 	}
 
 	/**
-	 * Sets up a context menu that allows the value to be removed from {@link SpecElementWithAttributes}.
+	 * Sets up a context menu that allows the value to be removed from
+	 * {@link SpecElementWithAttributes}.
+	 * 
 	 * @param parent
 	 */
 	private void configurePopupMenu(Composite parent) {
-		
-		// Required to set the selection properly, before a context menu pops up.
+
+		// Required to set the selection properly, before a context menu pops
+		// up.
 		addMouseListener(new MouseAdapter() {
 			public void mouseDown(MouseEvent e) {
-				Cell[] cells = new Cell[] {getCell(e.x, e.y)};
+				Cell[] cells = new Cell[] { getCell(e.x, e.y) };
 				ProrPropertyControl.this.clearSelection();
 				ProrPropertyControl.this.selectCells(cells);
-			}		
+			}
 		});
 
 		// The actual menu.
@@ -104,12 +108,12 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 		final MenuItem item = new MenuItem(menu, SWT.NONE);
 		item.setText("Remove Value");
 		item.addSelectionListener(new SelectionAdapter() {
-			
+
 			public void widgetSelected(SelectionEvent e) {
 				removeValue();
 			}
 		});
-		
+
 		// Prepares the menu, before it is shown.
 		menu.addMenuListener(new MenuAdapter() {
 			public void menuShown(MenuEvent e) {
@@ -117,7 +121,8 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 				removeValue = null;
 				Cell[] selection = ProrPropertyControl.this.getCellSelection();
 				if (selection.length == 1) {
-					PropertyRow row = contentProvider.getRowContent(selection[0].row);
+					PropertyRow row = contentProvider
+							.getRowContent(selection[0].row);
 					if (row instanceof Descriptor) {
 						Descriptor descriptor = (Descriptor) row;
 						if (descriptor.isRMFSpecific()) {
@@ -133,35 +138,37 @@ public class ProrPropertyControl extends AgileGrid implements PropertyChangeList
 		});
 		setMenu(menu);
 	}
-	
-	private AttributeValue removeValue;
 
 	private void removeValue() {
-		Command cmd = null;
-		if (removeValue.eContainer() instanceof SpecElementWithAttributes) {
-			cmd = RemoveCommand
-					.create(editingDomain,
-							removeValue.eContainer(),
-							ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
-							removeValue);
-		} else if (removeValue.eContainer() instanceof AttributeDefinition) {
-			AttributeDefinition ad = (AttributeDefinition) removeValue
-					.eContainer();
+		EditingDomain editingDomain = AdapterFactoryEditingDomain
+				.getEditingDomainFor(removeValue);
+		if (editingDomain != null) {
+			Command cmd = null;
+			if (removeValue.eContainer() instanceof SpecElementWithAttributes) {
+				cmd = RemoveCommand
+						.create(editingDomain,
+								removeValue.eContainer(),
+								ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+								removeValue);
+			} else if (removeValue.eContainer() instanceof AttributeDefinition) {
+				AttributeDefinition ad = (AttributeDefinition) removeValue
+						.eContainer();
 
-			cmd = SetCommand.create(editingDomain, ad,
-					ReqIF10Util.getDefaultValueFeature(ad), null);
-			System.out.println(cmd.canExecute());
-		}
+				cmd = SetCommand.create(editingDomain, ad,
+						ReqIF10Util.getDefaultValueFeature(ad), null);
+				System.out.println(cmd.canExecute());
+			}
 
-		if (cmd != null) {
-			editingDomain.getCommandStack().execute(cmd);
-			redrawCells(ProrPropertyControl.this.getCellSelection());
-		} else {
-			System.err
-					.println("Don't know parent: " + removeValue.eContainer());
+			if (cmd != null) {
+				editingDomain.getCommandStack().execute(cmd);
+				redrawCells(ProrPropertyControl.this.getCellSelection());
+			} else {
+				System.err.println("Don't know parent: "
+						+ removeValue.eContainer());
+			}
 		}
 	}
-	
+
 	void setSelection(ISelection selection) {
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection sel = (IStructuredSelection) selection;

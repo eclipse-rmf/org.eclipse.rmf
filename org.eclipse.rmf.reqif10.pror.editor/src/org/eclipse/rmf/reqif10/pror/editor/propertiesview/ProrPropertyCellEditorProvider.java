@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -63,14 +64,15 @@ import org.eclipse.swt.widgets.Shell;
  * @author Lukas Ladenberger
  * @author Michael Jastram
  */
-public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvider {
+public class ProrPropertyCellEditorProvider extends
+		AbstractProrCellEditorProvider {
 
 	private final ProrPropertyContentProvider contentProvider;
-	
+
 	public ProrPropertyCellEditorProvider(AgileGrid agileGrid,
-			AdapterFactory adapterFactory, EditingDomain editingDomain,
+			AdapterFactory adapterFactory,
 			ProrPropertyContentProvider contentProvider) {
-		super(agileGrid, adapterFactory, editingDomain);
+		super(agileGrid, adapterFactory);
 		this.contentProvider = contentProvider;
 	}
 
@@ -102,7 +104,7 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 		}
 		return null;
 	}
-	
+
 	@Override
 	public boolean canEdit(int row, int col) {
 
@@ -161,32 +163,36 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 		// If the attribute is a reqif attribute (an attribute value exists),
 		// when try to get the presentation service
 		if (attrValue != null) {
-
-			// Ask Presentation
-			ProrPresentationConfiguration config = ConfigurationUtil
-					.getPresentationConfiguration(attrValue);
-			if (config != null) {
-				ItemProviderAdapter ip = ProrUtil.getItemProvider(
-						adapterFactory, config);
-				if (ip instanceof PresentationEditorInterface) {
-					cellEditor = ((PresentationEditorInterface) ip)
-							.getCellEditor(agileGrid, editingDomain, attrValue,
-									specElement, getAffectedElement(row, col));
+			EditingDomain editingDomain = AdapterFactoryEditingDomain
+					.getEditingDomainFor(specElement);
+			if (editingDomain != null) {
+				// Ask Presentation
+				ProrPresentationConfiguration config = ConfigurationUtil
+						.getPresentationConfiguration(attrValue);
+				if (config != null) {
+					ItemProviderAdapter ip = ProrUtil.getItemProvider(
+							adapterFactory, config);
+					if (ip instanceof PresentationEditorInterface) {
+						cellEditor = ((PresentationEditorInterface) ip)
+								.getCellEditor(agileGrid, editingDomain,
+										attrValue, specElement,
+										getAffectedElement(row, col));
+					}
 				}
+
+				// See whether there is a default editor
+				if (cellEditor == null) {
+					cellEditor = PresentationServiceManager
+							.getDefaultCellEditor(agileGrid, editingDomain,
+									adapterFactory, attrValue, specElement,
+									getAffectedElement(row, col));
+				}
+
+				if (cellEditor == null)
+					cellEditor = getDefaultCellEditor(attrValue,
+							contentProvider.getElement(),
+							getAffectedElement(row, col));
 			}
-
-			// See whether there is a default editor
-			if (cellEditor == null) {
-				cellEditor = PresentationServiceManager.getDefaultCellEditor(
-						agileGrid, editingDomain, adapterFactory, attrValue,
-						specElement, getAffectedElement(row, col));
-			}
-
-			if (cellEditor == null)
-				cellEditor = getDefaultCellEditor(attrValue,
-						contentProvider.getElement(),
-						getAffectedElement(row, col));
-
 		} else { // If the attribute is an EMF attribute (no attribute value
 					// exists) return a default celleditor
 
@@ -195,24 +201,25 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 
 				final IItemPropertyDescriptor descriptor = rowDescriptor
 						.getItemPropertyDescriptor();
-			
+
 				String categoryName = descriptor.getCategory(contentProvider
 						.getElement());
 				Object selectedElement = contentProvider.getElement();
-			
+
 				if (categoryName != null
 						&& categoryName
 								.equals(ProrPropertyContentProvider.SPEC_OBJECT_NAME)) {
-				if (this.contentProvider.getElement() instanceof SpecHierarchy)
-					selectedElement = ((SpecHierarchy) this.contentProvider.getElement())
-							.getObject();
-			}
-			
-			cellEditor = getNonAttributeCellEditor(selectedElement, descriptor);
+					if (this.contentProvider.getElement() instanceof SpecHierarchy)
+						selectedElement = ((SpecHierarchy) this.contentProvider
+								.getElement()).getObject();
+				}
+
+				cellEditor = getNonAttributeCellEditor(selectedElement,
+						descriptor);
 			}
 		}
 		return cellEditor;
-		
+
 	}
 
 	/**
@@ -225,213 +232,226 @@ public class ProrPropertyCellEditorProvider extends AbstractProrCellEditorProvid
 	CellEditor getNonAttributeCellEditor(final Object object,
 			final IItemPropertyDescriptor itemPropertyDescriptor) {
 
-		if (!itemPropertyDescriptor.canSetProperty(object)) {
-			return null;
-		}
-
 		CellEditor result = null;
-
-		Object genericFeature = itemPropertyDescriptor.getFeature(object);
-		if (genericFeature instanceof EReference[]) {
-
-			result = null;
-
-			result = new ExtendedAgileComboBoxCellEditor(agileGrid,
-					editingDomain, new ArrayList<Object>(
-							itemPropertyDescriptor.getChoiceOfValues(object)),
-					itemPropertyDescriptor, object,
-					itemPropertyDescriptor.isSortChoices(object));
-
-		} else if (genericFeature instanceof EStructuralFeature) {
-
-			final EStructuralFeature feature = (EStructuralFeature) genericFeature;
-			final EClassifier eType = feature.getEType();
-			final Collection<?> choiceOfValues = itemPropertyDescriptor
-					.getChoiceOfValues(object);
-
-			if (choiceOfValues != null) {
-
-				if (itemPropertyDescriptor.isMany(object)) {
-					boolean valid = true;
-					for (Object choice : choiceOfValues) {
-						if (!eType.isInstance(choice)) {
-							valid = false;
-							break;
-						}
-					}
-
-					if (valid) {
-
-						final ILabelProvider editLabelProvider = getLabelProvider(
-								itemPropertyDescriptor, object);
-
-						result = new ExtendedAgileDialogCellEditor(agileGrid,
-								editingDomain, itemPropertyDescriptor, object) {
-
-							@Override
-							protected Object openDialogBox(
-									Control cellEditorWindow) {
-
-								FeatureEditorDialog dialog = new FeatureEditorDialog(
-										cellEditorWindow.getShell(),
-										editLabelProvider,
-										object,
-										feature.getEType(),
-										(List<?>) doGetValue(),
-										getDisplayName(itemPropertyDescriptor,
-												object), new ArrayList<Object>(
-												choiceOfValues), false,
-										itemPropertyDescriptor
-												.isSortChoices(object), feature
-												.isUnique());
-								super.openDialogBox(cellEditorWindow);
-								dialog.open();
-								return dialog.getResult();
-
-							}
-
-						};
-
-					}
-
-				}
-
-				if (result == null) {
-					result = new ExtendedAgileComboBoxCellEditor(agileGrid,
-							editingDomain, new ArrayList<Object>(
-									itemPropertyDescriptor
-											.getChoiceOfValues(object)),
-							itemPropertyDescriptor, object,
-							itemPropertyDescriptor.isSortChoices(object));
-				}
-
+		EditingDomain editingDomain = AdapterFactoryEditingDomain
+				.getEditingDomainFor(object);
+		if (editingDomain != null) {
+			if (!itemPropertyDescriptor.canSetProperty(object)) {
+				return null;
 			}
 
-			else if (eType instanceof EDataType) {
+			Object genericFeature = itemPropertyDescriptor.getFeature(object);
+			if (genericFeature instanceof EReference[]) {
 
-				final EDataType eDataType = (EDataType) eType;
+				result = null;
 
-				if (eDataType.isSerializable()) {
+				result = new ExtendedAgileComboBoxCellEditor(agileGrid,
+						editingDomain, new ArrayList<Object>(
+								itemPropertyDescriptor
+										.getChoiceOfValues(object)),
+						itemPropertyDescriptor, object,
+						itemPropertyDescriptor.isSortChoices(object));
+
+			} else if (genericFeature instanceof EStructuralFeature) {
+
+				final EStructuralFeature feature = (EStructuralFeature) genericFeature;
+				final EClassifier eType = feature.getEType();
+				final Collection<?> choiceOfValues = itemPropertyDescriptor
+						.getChoiceOfValues(object);
+
+				if (choiceOfValues != null) {
+
 					if (itemPropertyDescriptor.isMany(object)) {
-						final ILabelProvider editLabelProvider = getLabelProvider(
-								itemPropertyDescriptor, object);
-
-						result = new ExtendedAgileDialogCellEditor(agileGrid,
-								editingDomain, itemPropertyDescriptor, object) {
-							@Override
-							protected Object openDialogBox(
-									Control cellEditorWindow) {
-
-								FeatureEditorDialog dialog = new FeatureEditorDialog(
-										cellEditorWindow.getShell(),
-										editLabelProvider, object,
-										feature.getEType(),
-										(List<?>) doGetValue(),
-										getDisplayName(itemPropertyDescriptor,
-												object), null,
-										itemPropertyDescriptor
-												.isMultiLine(object), false,
-										feature.isUnique());
-								super.openDialogBox(cellEditorWindow);
-								dialog.open();
-								return dialog.getResult();
-
+						boolean valid = true;
+						for (Object choice : choiceOfValues) {
+							if (!eType.isInstance(choice)) {
+								valid = false;
+								break;
 							}
-						};
-					} else if (eDataType.getInstanceClass() == Boolean.class
-							|| eDataType.getInstanceClass() == Boolean.TYPE) {
-						result = new ExtendedAgileComboBoxCellEditor(agileGrid,
-								editingDomain, Arrays.asList(new Object[] {
-										Boolean.FALSE, Boolean.TRUE }),
-								itemPropertyDescriptor, object,
-								itemPropertyDescriptor.isSortChoices(object));
-					} else {
+						}
 
-						if (itemPropertyDescriptor.isMultiLine(object)) {
+						if (valid) {
+
+							final ILabelProvider editLabelProvider = getLabelProvider(
+									itemPropertyDescriptor, object);
 
 							result = new ExtendedAgileDialogCellEditor(
 									agileGrid, editingDomain,
 									itemPropertyDescriptor, object) {
 
-								// TODO: not working yet ...
-
-								protected EDataTypeValueHandler valueHandler = new EDataTypeValueHandler(
-										eDataType);
-
 								@Override
 								protected Object openDialogBox(
 										Control cellEditorWindow) {
-									InputDialog dialog = new MultiLineInputDialog(
+
+									FeatureEditorDialog dialog = new FeatureEditorDialog(
 											cellEditorWindow.getShell(),
-											EMFEditUIPlugin.INSTANCE
-													.getString(
-															"_UI_FeatureEditorDialog_title",
-															new Object[] {
-																	getDisplayName(
-																			itemPropertyDescriptor,
-																			object),
-																	getLabelProvider(
-																			itemPropertyDescriptor,
-																			object)
-																			.getText(
-																					object) }),
-											EMFEditUIPlugin.INSTANCE
-													.getString("_UI_MultiLineInputDialog_message"),
-											valueHandler.toString(getValue()),
-											valueHandler);
-									return dialog.open() == Window.OK ? valueHandler
-											.toValue(dialog.getValue()) : null;
+											editLabelProvider, object,
+											feature.getEType(),
+											(List<?>) doGetValue(),
+											getDisplayName(
+													itemPropertyDescriptor,
+													object),
+											new ArrayList<Object>(
+													choiceOfValues), false,
+											itemPropertyDescriptor
+													.isSortChoices(object),
+											feature.isUnique());
+									super.openDialogBox(cellEditorWindow);
+									dialog.open();
+									return dialog.getResult();
+
 								}
+
 							};
-
-						} else {
-
-							result = new EDataTypeAgileCellEditor(agileGrid,
-									editingDomain, itemPropertyDescriptor,
-									object, eDataType);
 
 						}
 
 					}
-				}
-			}
 
+					if (result == null) {
+						result = new ExtendedAgileComboBoxCellEditor(agileGrid,
+								editingDomain, new ArrayList<Object>(
+										itemPropertyDescriptor
+												.getChoiceOfValues(object)),
+								itemPropertyDescriptor, object,
+								itemPropertyDescriptor.isSortChoices(object));
+					}
+
+				}
+
+				else if (eType instanceof EDataType) {
+
+					final EDataType eDataType = (EDataType) eType;
+
+					if (eDataType.isSerializable()) {
+						if (itemPropertyDescriptor.isMany(object)) {
+							final ILabelProvider editLabelProvider = getLabelProvider(
+									itemPropertyDescriptor, object);
+
+							result = new ExtendedAgileDialogCellEditor(
+									agileGrid, editingDomain,
+									itemPropertyDescriptor, object) {
+								@Override
+								protected Object openDialogBox(
+										Control cellEditorWindow) {
+
+									FeatureEditorDialog dialog = new FeatureEditorDialog(
+											cellEditorWindow.getShell(),
+											editLabelProvider, object,
+											feature.getEType(),
+											(List<?>) doGetValue(),
+											getDisplayName(
+													itemPropertyDescriptor,
+													object), null,
+											itemPropertyDescriptor
+													.isMultiLine(object),
+											false, feature.isUnique());
+									super.openDialogBox(cellEditorWindow);
+									dialog.open();
+									return dialog.getResult();
+
+								}
+							};
+						} else if (eDataType.getInstanceClass() == Boolean.class
+								|| eDataType.getInstanceClass() == Boolean.TYPE) {
+							result = new ExtendedAgileComboBoxCellEditor(
+									agileGrid, editingDomain,
+									Arrays.asList(new Object[] { Boolean.FALSE,
+											Boolean.TRUE }),
+									itemPropertyDescriptor, object,
+									itemPropertyDescriptor
+											.isSortChoices(object));
+						} else {
+
+							if (itemPropertyDescriptor.isMultiLine(object)) {
+
+								result = new ExtendedAgileDialogCellEditor(
+										agileGrid, editingDomain,
+										itemPropertyDescriptor, object) {
+
+									// TODO: not working yet ...
+
+									protected EDataTypeValueHandler valueHandler = new EDataTypeValueHandler(
+											eDataType);
+
+									@Override
+									protected Object openDialogBox(
+											Control cellEditorWindow) {
+										InputDialog dialog = new MultiLineInputDialog(
+												cellEditorWindow.getShell(),
+												EMFEditUIPlugin.INSTANCE
+														.getString(
+																"_UI_FeatureEditorDialog_title",
+																new Object[] {
+																		getDisplayName(
+																				itemPropertyDescriptor,
+																				object),
+																		getLabelProvider(
+																				itemPropertyDescriptor,
+																				object)
+																				.getText(
+																						object) }),
+												EMFEditUIPlugin.INSTANCE
+														.getString("_UI_MultiLineInputDialog_message"),
+												valueHandler
+														.toString(getValue()),
+												valueHandler);
+										return dialog.open() == Window.OK ? valueHandler
+												.toValue(dialog.getValue())
+												: null;
+									}
+								};
+
+							} else {
+
+								result = new EDataTypeAgileCellEditor(
+										agileGrid, editingDomain,
+										itemPropertyDescriptor, object,
+										eDataType);
+
+							}
+
+						}
+					}
+				}
+
+			}
 		}
 
 		return result;
 
 	}
-	
-//	/**
-//	 * This method undos the last command, wrapps it to change the affected
-//	 * objects, and executes it again.
-//	 * <p>
-//	 * This is a workaround, as we modify properties via
-//	 * {@link IItemPropertyDescriptor#setPropertyValue(Object, Object)}. That
-//	 * method builds the appropriate command and executes it. However, the
-//	 * affected objects are incorrect, as this is typically the
-//	 * {@link SpecElementWithAttributes} (or {@link SpecHierarchy}), but the
-//	 * property belongs to {@link AttributeValue}, which is therefore reported
-//	 * as the affected element.
-//	 */
-//	private void fixAffectedObjectsOfLastcommand() {
-//		Command lastCmd = editingDomain.getCommandStack().getMostRecentCommand();
-//		if (lastCmd == null) return;
-//		editingDomain.getCommandStack().undo();
-//		CommandWrapper wrappedCmd = new CommandWrapper(lastCmd) {
-//			public java.util.Collection<?> getAffectedObjects() {
-//				List<Object> list = new ArrayList<Object>();
-//				list.add(contentProvider.getIdentifiable());
-//				return list;
-//			}
-//		};
-//		editingDomain.getCommandStack().execute(wrappedCmd);
-//	}
-	
+
+	// /**
+	// * This method undos the last command, wrapps it to change the affected
+	// * objects, and executes it again.
+	// * <p>
+	// * This is a workaround, as we modify properties via
+	// * {@link IItemPropertyDescriptor#setPropertyValue(Object, Object)}. That
+	// * method builds the appropriate command and executes it. However, the
+	// * affected objects are incorrect, as this is typically the
+	// * {@link SpecElementWithAttributes} (or {@link SpecHierarchy}), but the
+	// * property belongs to {@link AttributeValue}, which is therefore reported
+	// * as the affected element.
+	// */
+	// private void fixAffectedObjectsOfLastcommand() {
+	// Command lastCmd = editingDomain.getCommandStack().getMostRecentCommand();
+	// if (lastCmd == null) return;
+	// editingDomain.getCommandStack().undo();
+	// CommandWrapper wrappedCmd = new CommandWrapper(lastCmd) {
+	// public java.util.Collection<?> getAffectedObjects() {
+	// List<Object> list = new ArrayList<Object>();
+	// list.add(contentProvider.getIdentifiable());
+	// return list;
+	// }
+	// };
+	// editingDomain.getCommandStack().execute(wrappedCmd);
+	// }
+
 	@Override
 	public Object getAffectedElement(int row, int col) {
 		if (this.contentProvider != null)
-				return this.contentProvider.getElement();
+			return this.contentProvider.getElement();
 		return null;
 	}
 

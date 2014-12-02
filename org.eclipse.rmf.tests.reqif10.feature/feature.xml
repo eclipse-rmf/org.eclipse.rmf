@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.rmf.tests.reqif10.feature"
       label="%featureName"
-      version="0.10.0.qualifier"
+      version="0.11.0.qualifier"
       provider-name="%providerName"
       license-feature="org.eclipse.license"
       license-feature-version="1.0.1.qualifier">
@@ -52,6 +52,12 @@ Mark Broerkens - initial API and implementation
 
    <plugin
          id="org.eclipse.rmf.tests.reqif10.constraints"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.rmf.ext.prostep"
          download-size="0"
          install-size="0"
          version="0.0.0"/>

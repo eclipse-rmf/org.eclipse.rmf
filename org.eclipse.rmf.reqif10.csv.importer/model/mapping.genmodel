@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.reqif10.csv.importer/src" creationIcons="false"
+    modelPluginID="org.eclipse.rmf.reqif10.csv.importer" modelName="Mapping" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>mapping.ecore</foreignModel>
+  <genPackages prefix="Mapping" basePackage="org.eclipse.rmf.reqif10.csv.importer"
+      disposableProviderFactory="true" ecorePackage="mapping.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mapping.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="mapping.ecore#//DataType/String"/>
+      <genEnumLiterals ecoreEnumLiteral="mapping.ecore#//DataType/Boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="mapping.ecore#//DataType/Integer"/>
+      <genEnumLiterals ecoreEnumLiteral="mapping.ecore#//DataType/Real"/>
+      <genEnumLiterals ecoreEnumLiteral="mapping.ecore#//DataType/Date"/>
+      <genEnumLiterals ecoreEnumLiteral="mapping.ecore#//DataType/Enumeration"/>
+      <genEnumLiterals ecoreEnumLiteral="mapping.ecore#//DataType/XHTML"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="mapping.ecore#//MappingItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapping.ecore#//MappingItem/attributeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapping.ecore#//MappingItem/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapping.ecore#//MappingItem/columnId"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="mapping.ecore#//MappingLibrary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mapping.ecore#//MappingLibrary/items"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

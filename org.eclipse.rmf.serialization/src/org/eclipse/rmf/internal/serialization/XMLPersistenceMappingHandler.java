@@ -14,8 +14,10 @@ package org.eclipse.rmf.internal.serialization;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import org.apache.xerces.impl.Constants;
@@ -60,6 +62,7 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 	int progressMonitorChunkSize = 2048;
 	int progressMonitorLastStartInChunk = 0;
 	int progressMonitorNumberOfChunksPerUpdate = 500;
+	private Set<String> progressReportedNamespaces = new HashSet<String>();
 
 	interface LoadPattern {
 		public static int STATE_READY = 0;
@@ -1134,6 +1137,13 @@ public class XMLPersistenceMappingHandler extends SAXXMLHandler {
 		assert null != feature;
 		assert null != namespace;
 		assert null != typeXMLName;
+
+		// Inform the progress monitor. As looking up the namespace can be slow (network),
+		// it will at least tell the user what's taking so long
+		if (progressMonitor != null && namespace != null && !progressReportedNamespaces.contains(namespace)) {
+			progressMonitor.subTask("Processing Namespace: " + namespace); //$NON-NLS-1$
+			progressReportedNamespaces.add(namespace);
+		}
 
 		// make sure, that information about feature is available for handleMissingPackage
 		contextFeature = feature;

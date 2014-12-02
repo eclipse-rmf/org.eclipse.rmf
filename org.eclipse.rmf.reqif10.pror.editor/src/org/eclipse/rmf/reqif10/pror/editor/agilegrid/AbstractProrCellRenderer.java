@@ -122,7 +122,8 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		}
 
 		int alignment = getAlignment();
-		String wrappedText = wrapText(gc, stringValue, rect.width);
+		// We must replace tabs with spaces, as it can screw up the wrapping algorithm.
+		String wrappedText = wrapText(gc, stringValue.replace('\t', ' '), rect.width);
 		gc.setForeground(defaultValue ? COLOR_LINE_DARKGRAY : COLOR_TEXT);
 		drawTextImage(gc, wrappedText, alignment, img, alignment, rect.x + 3,
 				rect.y + 2, rect.width - 6, rect.height - 4);

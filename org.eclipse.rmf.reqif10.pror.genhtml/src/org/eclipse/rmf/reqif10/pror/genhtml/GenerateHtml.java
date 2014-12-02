@@ -38,8 +38,6 @@ import org.eclipse.rmf.reqif10.pror.presentation.linewrap.util.LinewrapAdapterFa
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceImpl;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
 
 /**
@@ -79,9 +77,9 @@ public class GenerateHtml {
 				commandStack, new XMLPersistenceMappingResourceSetImpl());
 		
 		// iterate reqif dump folder
-		File f = new File("dump/reqif");
+		File f = new File("specifications/reqif");
 
-		System.out.println("===> ReqIF Dump folder exists? ===> "
+		System.out.println("===> ReqIF specifications folder exists? ===> "
 				+ f.exists());
 		
 		if (f.exists()) {
@@ -115,7 +113,7 @@ public class GenerateHtml {
 							String htmlFileName = fname + "_"
 									+ spec.getIdentifier() + ".html";
 
-							File htmlFile = new File("dump/html/"
+							File htmlFile = new File("specifications/html/"
 									+ htmlFileName);
 							Writer output = new BufferedWriter(new FileWriter(
 									htmlFile));

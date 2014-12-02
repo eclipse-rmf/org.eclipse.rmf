@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Mark Broerkens - initial API and implementation
- * 
+ *
  */
 package org.eclipse.rmf.tests.reqif10.serialization.uc003.tc18xx;
 
@@ -16,9 +16,14 @@ import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.assertTrue;
 
+import java.io.IOException;
+
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap.Entry;
@@ -52,16 +57,20 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 		AbstractTestCase.setupOnce();
 		// ___
 		tc1800ReqIF = new TC1800HISExchangeProcessModelBuilder().getReqIF();
-		saveReqIFFile(tc1800ReqIF, TC1800_FILENAME);
+		doSaveReqIFFile(tc1800ReqIF, TC1800_FILENAME);
+		tc1800ReqIF = loadReqIFFile(TC1800_FILENAME); // Ensure all references to the old filename are gone
 
 		tc1801ReqIF = new TC1801HISExchangeProcessModelBuilder(loadReqIFFile(TC1800_FILENAME)).getReqIF();
-		saveReqIFFile(tc1801ReqIF, TC1801_FILENAME);
+		doSaveReqIFFile(tc1801ReqIF, TC1801_FILENAME);
+		tc1801ReqIF = loadReqIFFile(TC1801_FILENAME); // Ensure all references to the old filename are gone
 
 		tc1802ReqIF = new TC1802HISExchangeProcessModelBuilder(loadReqIFFile(TC1801_FILENAME)).getReqIF();
-		saveReqIFFile(tc1802ReqIF, TC1802_FILENAME);
+		doSaveReqIFFile(tc1802ReqIF, TC1802_FILENAME);
+		tc1802ReqIF = loadReqIFFile(TC1802_FILENAME); // Ensure all references to the old filename are gone
 
 		tc1803ReqIF = new TC1803HISExchangeProcessModelBuilder(loadReqIFFile(TC1802_FILENAME)).getReqIF();
-		saveReqIFFile(tc1803ReqIF, TC1803_FILENAME);
+		doSaveReqIFFile(tc1803ReqIF, TC1803_FILENAME);
+		tc1803ReqIF = loadReqIFFile(TC1803_FILENAME); // Ensure all references to the old filename are gone
 	}
 
 	@Test
@@ -262,6 +271,13 @@ public class TC18xxHISExchangeProcessTests extends AbstractTestCase implements C
 		assertNull(findInSpec("Spec1", so[3]));
 		assertNotNull(findInSpec("Spec2", so[3]));
 
+	}
+
+	protected static void doSaveReqIFFile(EObject reqif, String fileName) throws IOException {
+		URI emfURI = createEMFURI(fileName);
+		Resource resource = getXMLPersistenceMappingResourceSet().createResource(emfURI);
+		resource.getContents().add(reqif);
+		resource.save(getSaveOptions());
 	}
 
 }

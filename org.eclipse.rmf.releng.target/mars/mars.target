@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="MARS" sequenceNumber="22">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.sdk.ide" version="4.5.0.I20140918-0330"/>
+<unit id="org.eclipse.equinox.executable.feature.group" version="3.6.100.v20140918-0709"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.5milestones"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.11.0.v20140929-0830"/>
+<unit id="org.eclipse.emf.validation.sdk.feature.group" version="1.9.0.201409241438"/>
+<unit id="org.eclipse.xsd.sdk.feature.group" version="2.10.0.v20140929-0830"/>
+<repository location="http://download.eclipse.org/releases/staging"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="com.google.guava" version="15.0.0.v201403281430"/>
+<unit id="org.apache.xerces" version="2.9.0.v201101211617"/>
+<unit id="org.apache.poi" version="3.9.0.v201405241750"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository"/>
+</location>
+</locations>
+</target>

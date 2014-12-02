@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.search.searchResultViewPages">
+      <viewPage
+            class="org.eclipse.rmf.reqif10.search.ui.ReqIFSearchResultPage"
+            id="org.eclipse.rmf.reqif10.search.ui.page.result.reqif"
+            searchResultClass="org.eclipse.rmf.reqif10.search.ui.UsageSearchResult">
+      </viewPage>
+   </extension>
+   <extension
+         point="org.eclipse.search.searchPages">
+      <page
+            class="org.eclipse.rmf.reqif10.search.ui.ReqIFSearchPage"
+            icon="icons/full/obj16/ReqIf.png"
+            id="org.eclipse.rmf.reqif10.search.ui.page.reqif"
+            label="ReqIF"
+            showScopeSection="true">
+      </page>
+   </extension>
+
+</plugin>

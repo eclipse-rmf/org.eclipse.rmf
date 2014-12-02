@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.rmf.reqif10.search;singleton:=true
+Bundle-Version: 0.11.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.eclipse.rmf.reqif10.search.criteria,
+ org.eclipse.rmf.reqif10.search.criteria.impl,
+ org.eclipse.rmf.reqif10.search.criteria.util,
+ org.eclipse.rmf.reqif10.search.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.rmf.reqif10
+Bundle-ActivationPolicy: lazy

@@ -20,7 +20,9 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.EMFEditUIPlugin;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.action.Action;
@@ -68,45 +70,60 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 
 	private CommandStackListener commandStackListener;
 
-
 	public ProrPropertySheetPage(EditingDomain editingDomain,
 			AdapterFactory adapterFactory) {
 		super();
 		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
 		registerCommandStackListener();
-		
+
 	}
 
 	/**
 	 * We register a command stack listener in order to listen on changes on
 	 * attributes values in the specification editor.
 	 */
-	private void registerCommandStackListener() {
-		commandStackListener = new CommandStackListener() {
-			public void commandStackChanged(final EventObject event) {
-				Display.getDefault().asyncExec(new Runnable() {
-					public void run() {
-						// Try to select the affected objects.
-						Command mostRecentCommand = ((CommandStack) event
-								.getSource()).getMostRecentCommand();
-						if (mostRecentCommand != null) {
-							Collection<?> affectedObjects = mostRecentCommand
-									.getAffectedObjects();
-							if(!affectedObjects.isEmpty()) {
-								Object firstItem = affectedObjects.toArray()[0];
-								if (firstItem instanceof Identifiable
-										|| firstItem instanceof AttributeValue) {
-									update();
+	protected void registerCommandStackListener() {
+		if (editingDomain != null) {
+			editingDomain.getCommandStack().addCommandStackListener(
+					getCommandStackListener());
+		}
+	}
+
+	protected void unRegisterCommandStackListener() {
+		if (editingDomain != null) {
+			editingDomain.getCommandStack().removeCommandStackListener(
+					getCommandStackListener());
+		}
+	}
+
+	protected CommandStackListener getCommandStackListener() {
+		if (commandStackListener == null) {
+			commandStackListener = new CommandStackListener() {
+				public void commandStackChanged(final EventObject event) {
+					Display.getDefault().asyncExec(new Runnable() {
+						public void run() {
+							// Try to select the affected objects.
+							Command mostRecentCommand = ((CommandStack) event
+									.getSource()).getMostRecentCommand();
+							if (mostRecentCommand != null) {
+								Collection<?> affectedObjects = mostRecentCommand
+										.getAffectedObjects();
+								if (!affectedObjects.isEmpty()) {
+									Object firstItem = affectedObjects
+											.toArray()[0];
+									if (firstItem instanceof Identifiable
+											|| firstItem instanceof AttributeValue) {
+										update();
+									}
 								}
 							}
 						}
-					}
-				});
-			}
-		};
-		editingDomain.getCommandStack().addCommandStackListener(
-				commandStackListener);
+					});
+				}
+			};
+		}
+		return commandStackListener;
 	}
 
 	/**
@@ -118,14 +135,14 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 			tabFolder = new TabFolder(parent, SWT.BOTTOM);
 
 			standardProperties = new ProrPropertyControl(tabFolder,
-					editingDomain, adapterFactory, false);
+					adapterFactory, false);
 			TabItem tabStandard = new TabItem(tabFolder, SWT.NONE);
 			tabStandard.setText(Reqif10EditorPlugin.getPlugin().getString(
 					"_UI_Standard_Properties"));
 			tabStandard.setControl(standardProperties);
 
-			allProperties = new ProrPropertyControl(tabFolder, editingDomain,
-					adapterFactory, true);
+			allProperties = new ProrPropertyControl(tabFolder, adapterFactory,
+					true);
 			TabItem tabAll = new TabItem(tabFolder, SWT.NONE);
 			tabAll.setText(Reqif10EditorPlugin.getPlugin().getString(
 					"_UI_All_Properties"));
@@ -137,7 +154,7 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 	 * This method is called if a selection was changed in the
 	 * {@link ProrPropertySheetPage}.
 	 */
-	public void handleEntrySelection(ISelection selection) {
+	private void handleEntrySelection(ISelection selection) {
 		objectsToSelect.clear();
 		if (!selection.isEmpty() && selection instanceof IStructuredSelection) {
 			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
@@ -170,13 +187,34 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 	 * {@link SpecificationEditor}.
 	 */
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
-
-		if (allProperties != null && ! allProperties.isDisposed()) {
+		EditingDomain newEditingDomain = null;
+		if (part instanceof IEditingDomainProvider) {
+			newEditingDomain = ((IEditingDomainProvider) part)
+					.getEditingDomain();
+		} else if (selection instanceof IStructuredSelection) {
+			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
+			if (structuredSelection.size() == 1) {
+				newEditingDomain = AdapterFactoryEditingDomain
+						.getEditingDomainFor(structuredSelection
+								.getFirstElement());
+			}
+		}
+		updateEditingDomain(newEditingDomain);
+		if (allProperties != null && !allProperties.isDisposed()) {
 			allProperties.setSelection(selection);
 		}
-		if (standardProperties != null && ! standardProperties.isDisposed()) {
+		if (standardProperties != null && !standardProperties.isDisposed()) {
 			standardProperties.setSelection(selection);
 		}
+	}
+
+	private void updateEditingDomain(EditingDomain newEditingDomain) {
+		if (editingDomain != newEditingDomain) {
+			unRegisterCommandStackListener();
+			editingDomain = newEditingDomain;
+			registerCommandStackListener();
+		}
+
 	}
 
 	private void update() {
@@ -189,7 +227,7 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 	/**
 	 * This method should be overridden to set the selection.
 	 */
-	protected void setSelectionToViewer(List<?> selection) {
+	private void setSelectionToViewer(List<?> selection) {
 		handleEntrySelection(new StructuredSelection(selection));
 	}
 
@@ -225,8 +263,10 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 	@Override
 	public void dispose() {
 		if (commandStackListener != null) {
-			editingDomain.getCommandStack().removeCommandStackListener(
-					commandStackListener);
+			if (editingDomain != null) {
+				editingDomain.getCommandStack().removeCommandStackListener(
+						commandStackListener);
+			}
 			commandStackListener = null;
 		}
 		super.dispose();

@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.rmf.reqif10.pror.feature"
       label="%featureName"
-      version="0.10.0.qualifier"
+      version="0.11.0.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.rmf.reqif10.pror"
       license-feature="org.eclipse.license"
@@ -85,14 +85,35 @@ Contributors:
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.rmf.reqif10.pror.help.ui"
+         id="com.google.guava"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.google.guava"
+         id="org.eclipse.rmf.reqif10.search"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.search.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.search.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rmf.reqif10.csv.importer"
          download-size="0"
          install-size="0"
          version="0.0.0"

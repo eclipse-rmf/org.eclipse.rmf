@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.rmf.reqif10.feature"
       label="%featureName"
-      version="0.10.0.qualifier"
+      version="0.11.0.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.rmf.reqif10"
       license-feature="org.eclipse.license"
@@ -79,6 +79,12 @@ http://www.eclipse.org/legal/epl-v10.html
 
    <plugin
          id="org.eclipse.rmf.reqif10.constraints"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.rmf.ext.prostep"
          download-size="0"
          install-size="0"
          version="0.0.0"/>

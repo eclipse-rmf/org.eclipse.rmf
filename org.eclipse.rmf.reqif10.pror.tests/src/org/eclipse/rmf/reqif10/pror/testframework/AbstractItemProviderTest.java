@@ -10,6 +10,8 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.testframework;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,7 @@ import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -35,12 +38,14 @@ import org.eclipse.emf.edit.provider.ItemProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.rmf.ext.prostep.util.ProstepAdapterFactory;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.util.ConfigurationAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.testdata.TestData;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
+import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
 import org.junit.After;
 import org.junit.Before;
@@ -103,7 +108,9 @@ abstract public class AbstractItemProviderTest {
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ConfigurationItemProviderAdapterFactory());
-
+		adapterFactory.addAdapterFactory(new ProstepAdapterFactory());
+		
+		
 		commandStack = new BasicCommandStack();
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
 				commandStack, new XMLPersistenceMappingResourceSetImpl());
@@ -195,4 +202,22 @@ abstract public class AbstractItemProviderTest {
 		}
 		commandStack.execute(cmd);
 	}
+	
+	/**
+	 * Convenience Method for quickly printing XML to the console.  Works for any ReqIF element.
+	 */
+	public void dumpEObjectToConsole(EObject eobj) throws IOException {
+		URI fileURI;
+		Resource resource = eobj.eResource();
+		if (resource == null) {
+			File tempFile = File.createTempFile("reqif", ".reqif");
+			tempFile.deleteOnExit();
+			fileURI = URI.createFileURI(tempFile.getAbsolutePath());
+			resource = editingDomain.getResourceSet().createResource(fileURI);
+		}
+		((ReqIF10ResourceImpl) resource).setIsLoading(true);
+		resource.getContents().add(eobj);
+		resource.save(System.out, null);
+	}
+	
 }

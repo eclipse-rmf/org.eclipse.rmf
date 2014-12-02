@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2014 itemis AG and others.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Mark Broerkens - initial API and implementation
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated prostep -->
+      <package
+            uri="http://www.prostep.org/reqif"
+            class="org.eclipse.rmf.ext.prostep.ProstepPackage"
+            genModel="model/prostep.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated prostep -->
+      <parser
+            type="prostep"
+            class="org.eclipse.rmf.ext.prostep.util.ProstepResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

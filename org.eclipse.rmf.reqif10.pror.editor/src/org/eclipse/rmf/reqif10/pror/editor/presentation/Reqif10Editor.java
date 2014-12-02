@@ -21,8 +21,8 @@ import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
@@ -705,7 +705,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
 		//
-		
+
 		adapterFactory = new ComposedAdapterFactory(
 				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
@@ -713,13 +713,11 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReqIF10ItemProviderAdapterFactory());
-		adapterFactory
-		        .addAdapterFactory(new XhtmlItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new XhtmlItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ConfigurationItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-
 
 		// Create the command stack that will notify this editor as commands are
 		// executed.
@@ -758,6 +756,11 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		//
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
 				commandStack, new XMLPersistenceMappingResourceSetImpl());
+		editingDomain
+				.getResourceSet()
+				.eAdapters()
+				.add(new AdapterFactoryEditingDomain.EditingDomainProvider(
+						editingDomain));
 		// FIXME (mj) this got diabled for now, due to Bug 381494
 		// System.out.println("XXX");
 		// commandStack.setEditingDomain(editingDomain);
@@ -1055,7 +1058,8 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 					editingDomain
 							.getResourceSet()
 							.getLoadOptions()
-							.put(XMLPersistenceMappingResource.OPTION_PROGRESS_MONITOR, monitor);
+							.put(XMLPersistenceMappingResource.OPTION_PROGRESS_MONITOR,
+									monitor);
 					createModel();
 					monitor.done();
 				}
@@ -1093,8 +1097,14 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		getSite().getShell().getDisplay().asyncExec(new Runnable() {
 			public void run() {
 				updateProblemIndication();
+				// if the model has exactly one Specification, then open it.
+				if (reqif.getCoreContent().getSpecifications().size() == 1) {
+					openSpecification(reqif.getCoreContent().getSpecifications().get(0));
+				}
 			}
 		});
+		
+
 	}
 
 	/**
@@ -1158,6 +1168,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 				getEditingDomain());
 		ConfigurationUtil.setDefaultLabelsIfNecessary(adapterFactory,
 				editingDomain, reqif);
+		
 		return reqif;
 	}
 
@@ -1327,21 +1338,12 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 												.getSelection())
 												.getFirstElement();
 										if (obj instanceof Specification) {
-											ReqifSpecificationEditorInput editorInput = new ReqifSpecificationEditorInput(
-													Reqif10Editor.this,
-													(Specification) obj);
-											try {
-												IDE.openEditor(
-														getSite().getPage(),
-														editorInput,
-														SpecificationEditor.EDITOR_ID);
-											} catch (PartInitException e) {
-												e.printStackTrace();
-											}
+											openSpecification((Specification)obj);
 										}
 
 									}
 								}
+
 							});
 				}
 
@@ -1376,6 +1378,20 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 					});
 		}
 		return contentOutlinePage;
+	}
+
+	/**	
+	 * Tries to open the given Specification.
+	 */
+	private void openSpecification(Specification spec) {
+		ReqifSpecificationEditorInput editorInput = new ReqifSpecificationEditorInput(
+				Reqif10Editor.this, (Specification) spec);
+		try {
+			IDE.openEditor(getSite().getPage(), editorInput,
+					SpecificationEditor.EDITOR_ID, true);
+		} catch (PartInitException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -1455,12 +1471,17 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 
 	/**
 	 * This is for implementing {@link IEditorPart} and simply saves the model
-	 * file. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * file. <!-- begin-user-doc --> Upon each save, the ReqIF ID is updated.
+	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
+		ISelection currentSelection = getSite().getSelectionProvider().getSelection();
+		// Update ReqIF ID.
+		reqif.getTheHeader().setIdentifier("rmf-" + UUID.randomUUID().toString());
+
 		// Save only resources that have actually changed.
 		//
 		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
@@ -1518,6 +1539,8 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
+		
+		getSite().getSelectionProvider().setSelection(currentSelection);
 	}
 
 	/**

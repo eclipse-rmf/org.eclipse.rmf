@@ -42,7 +42,7 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 		final XMLResource.XMLMap optionsMap = new XMLMapImpl();
 		optionsMap
 				.setIDAttributeName(ReqIF10Package.Literals.IDENTIFIABLE__IDENTIFIER
-						.getName());
+						.getName().toUpperCase());
 
 		// ========= default save options ===================
 		Map<Object, Object> saveOptions = getDefaultSaveOptions();
@@ -50,18 +50,15 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 		namespaceToPrefixMap.put(ReqIF10Package.eNS_URI, ""); //$NON-NLS-1$ 
 		namespaceToPrefixMap.put(XhtmlPackage.eNS_URI, "xhtml"); //$NON-NLS-1$ 
 		saveOptions.put(OPTION_NAMEPSACE_TO_PREFIX_MAP, namespaceToPrefixMap);
-		saveOptions.put(XMLResource.OPTION_XML_MAP, optionsMap);
 
 		// ========= default load options ===================
 		Map<Object, Object> loadOptions = getDefaultLoadOptions();
 		loadOptions.put(XMLResource.OPTION_XML_MAP, optionsMap);
-
+		
 	}
 
 	/**
 	 * Return <code>true</code>.
-	 * 
-	 * @return <code>true</code>.
 	 * 
 	 * @see org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl#useUUIDs()
 	 */
@@ -73,12 +70,10 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 	/**
 	 * Return <code>false</code>.
 	 * 
-	 * @return <code>false</code>.
-	 * 
 	 * @see org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl#assignIDsWhileLoading()
 	 */
 	@Override
-	protected final boolean assignIDsWhileLoading() {
+	protected boolean assignIDsWhileLoading() {
 		return false;
 	}
 
@@ -87,7 +82,7 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 	 * {@link #eObjectToIDMap}. This behavior is override to set the ID in a
 	 * object's specific attribute to set the id in the
 	 * {@link Identifiable#setIdentifier(String)} and call the super method.
-	 * 
+	 *
 	 * @param eObject
 	 *            : The object where the Id must be set.
 	 * @param id
@@ -99,7 +94,11 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 	public void setID(final EObject eObject, final String id) {
 		final EAttribute idAttribute = eObject.eClass().getEIDAttribute();
 		if ((idAttribute != null) && (id != null)) {
-			eObject.eSet(idAttribute, id);
+			
+			// Only do this for ReqIF IDs (and not for XHTML, etc.)			
+			if (idAttribute.getEType().eContainer() instanceof ReqIF10Package) {
+				eObject.eSet(idAttribute, id);
+			}
 		}
 		super.setID(eObject, id);
 	}
@@ -124,5 +123,9 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 				this.saveFeatures(o);
 			}
 		};
+	}
+	
+	public void setIsLoading(boolean isLoading) {
+		this.isLoading = isLoading;
 	}
 }

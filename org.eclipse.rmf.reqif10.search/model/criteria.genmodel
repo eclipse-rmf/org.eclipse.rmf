@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.reqif10.search/src" modelPluginID="org.eclipse.rmf.reqif10.search"
+    modelName="Criteria" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>criteria.ecore</foreignModel>
+  <genPackages prefix="Criteria" basePackage="org.eclipse.rmf.reqif10.search" disposableProviderFactory="true"
+      ecorePackage="criteria.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="criteria.ecore#//Operator">
+      <genEnumLiterals ecoreEnumLiteral="criteria.ecore#//Operator/EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="criteria.ecore#//Operator/CONTAINS"/>
+      <genEnumLiterals ecoreEnumLiteral="criteria.ecore#//Operator/NOT_EQUALS"/>
+    </genEnums>
+    <genClasses ecoreClass="criteria.ecore#//Criterias">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference criteria.ecore#//Criterias/criterias"/>
+    </genClasses>
+    <genClasses ecoreClass="criteria.ecore#//Criteria">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute criteria.ecore#//Criteria/featureName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute criteria.ecore#//Criteria/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute criteria.ecore#//Criteria/serachedText"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute criteria.ecore#//Criteria/sensitiveCase"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute criteria.ecore#//Criteria/replacementText"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference criteria.ecore#//Criteria/feature"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

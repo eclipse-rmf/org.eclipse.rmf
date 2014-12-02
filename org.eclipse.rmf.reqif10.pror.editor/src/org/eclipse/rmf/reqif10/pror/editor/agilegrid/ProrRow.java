@@ -8,6 +8,7 @@
  * Contributors:
  *     Michael Jastram - initial API and implementation
  *     Said Salem - Refactoring of ProrRow
+ *     Michael Jastram - support hiding rows.
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
@@ -17,14 +18,14 @@ import org.eclipse.rmf.reqif10.SpecRelation;
 
 /**
  * Represents the row of a table. A row holds either a SpecHierarchy or a
- * SpecRelation.
+ * SpecRelation.  Rows are visible by default, but can be hidden.
  * 
  * @author salem
- * 
  */
 public abstract class ProrRow {
 	private int level;
 	private int row;
+	private boolean visible = true;
 
 	/**
 	 * @ requires level >= 0 @ @ requires row >= 0 @
@@ -57,6 +58,13 @@ public abstract class ProrRow {
 		this.row = row;
 	}
 
+	public boolean isVisible() {
+		return visible;
+	}
+	
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
 	/**
 	 * Factory method, element have to be an instance of SpecHierarchy or
 	 * SpecRelation

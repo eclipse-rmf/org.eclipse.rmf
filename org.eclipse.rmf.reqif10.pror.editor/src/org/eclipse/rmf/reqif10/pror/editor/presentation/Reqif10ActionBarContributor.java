@@ -27,6 +27,7 @@ import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
+import org.eclipse.jface.action.ControlContribution;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IContributionManager;
@@ -53,6 +54,16 @@ import org.eclipse.rmf.reqif10.SpecRelationType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.AgileCellEditorActionHandler;
+import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
+import org.eclipse.rmf.reqif10.pror.filter.SimpleStringFilter;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.graphics.FontMetrics;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
@@ -175,6 +186,8 @@ public class Reqif10ActionBarContributor
 	 */
 	protected IMenuManager createSiblingMenuManager;
 
+	private Text quicksearch;
+
 	/**
 	 * This creates an instance of the contributor. <!-- begin-user-doc -->
 	 * Assignments were out-commented to remove them from the menuManager
@@ -223,13 +236,63 @@ public class Reqif10ActionBarContributor
 	/**
 	 * This adds Separators for editor additions to the tool bar.
 	 * <!-- begin-user-doc -->
+	 * Adding Quick Search Box
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
 		toolBarManager.add(new Separator("reqif10-settings"));
 		toolBarManager.add(new Separator("reqif10-additions"));
+		toolBarManager.add(createQuickSearchToolbar());
+	}
+
+	private IContributionItem createQuickSearchToolbar() {
+		return new ControlContribution("quicksearch") {
+			private int width = -1;
+			private final int FIELD_SIZE = 25; // characters
+
+			@Override
+			protected Control createControl(Composite parent) {
+				return createQuickSearchControl(parent);
+			}
+			
+			@Override
+			protected int computeWidth(Control control) {
+				if (width == -1) {
+					GC gc = new GC(control);
+					FontMetrics fm = gc.getFontMetrics();
+					width = FIELD_SIZE * fm.getAverageCharWidth();
+				}
+				return width;
+			}
+		};
+	}
+
+	private Control createQuickSearchControl(Composite parent) {
+		quicksearch = new Text(parent, SWT.SEARCH | SWT.ICON_CANCEL
+				| SWT.ICON_SEARCH);
+		quicksearch.setSize(500, 0);
+		quicksearch.setEnabled(activeEditorPart instanceof SpecificationEditor);
+		quicksearch.addModifyListener(new ModifyListener() {
+
+			public void modifyText(ModifyEvent e) {
+				if (activeEditorPart instanceof SpecificationEditor) {
+					quicksearch.setEnabled(true);
+					SpecificationEditor specEditor = (SpecificationEditor) activeEditor;
+					final String text = quicksearch.getText();
+					if (text == null || "".equals(text)) {
+						specEditor.setFilter(null);
+					} else {
+						ReqifFilter filter = new SimpleStringFilter(text);
+						specEditor.setFilter(filter);
+					}
+				} else {
+					quicksearch.setEnabled(false);
+				}
+			}
+		});
+		return quicksearch;
 	}
 
 	/**
@@ -283,6 +346,11 @@ public class Reqif10ActionBarContributor
 		super.setActiveEditor(part);
 		activeEditorPart = part;
 
+		// Clear Quicksearch on switching editor.  We trigger a notification to clear the Filter.s
+		if (quicksearch != null && ! quicksearch.isDisposed()) {
+			quicksearch.setText("");
+		}
+
 		// Switch to the new selection provider.
 		//
 		if (selectionProvider != null) {
@@ -301,6 +369,7 @@ public class Reqif10ActionBarContributor
 				selectionChanged(new SelectionChangedEvent(selectionProvider, selectionProvider.getSelection()));
 			}
 		}
+		
 	}
 
 	/**

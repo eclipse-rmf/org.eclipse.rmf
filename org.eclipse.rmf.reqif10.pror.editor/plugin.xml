@@ -239,5 +239,18 @@ Contributors:
     <startup
           class="org.eclipse.rmf.reqif10.pror.editor.presentation.CheckDefaultPresentations"></startup>
  </extension>
+ <extension
+       point="org.eclipse.help.contexts">
+    <contexts
+          file="help-contexts.xml">
+    </contexts>
+ </extension>
+ <extension
+       point="org.eclipse.ui.importWizards">
+    <category
+          id="org.eclipse.rmf.pror.import.category"
+          name="%_UI_Import_Wizard_category">
+    </category>
+ </extension>
 
 </plugin>

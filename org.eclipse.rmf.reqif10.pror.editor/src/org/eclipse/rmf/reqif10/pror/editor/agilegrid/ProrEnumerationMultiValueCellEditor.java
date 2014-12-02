@@ -17,32 +17,32 @@ import org.agilemore.agilegrid.editors.PopupCellEditor;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.command.AddCommand;
-import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableItem;
+import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.PlatformUI;
 
 public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 
-	private final AdapterFactory adapterFactory;
-	private ArrayList<EnumValue> itemList;
+	private ArrayList<EnumValue> itemList = new ArrayList<EnumValue>();
 	private final DatatypeDefinitionEnumeration dde;
-	private List list;
-
-	/**
-	 * The shell which contains the controls used to edit the value of cell.
-	 */
-	private Shell shell;
 
 	/**
 	 * The current contents.
@@ -50,68 +50,90 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 	private AttributeValueEnumeration attributeValue;
 	private final EditingDomain editingDomain;
 	private Object parent;
+	private Object affectedObject;
 
 	public ProrEnumerationMultiValueCellEditor(AgileGrid agileGrid,
 			DatatypeDefinitionEnumeration dde,
-			Object parent, EditingDomain editingDomain,
+			Object parent, Object affectedObject, EditingDomain editingDomain,
 			AdapterFactory adapterFactory) {
 		super(agileGrid);
 		this.dde = dde;
 		this.editingDomain = editingDomain;
-		this.adapterFactory = adapterFactory;
 		this.parent = parent;
-		populateItemList(dde);
+		this.affectedObject = affectedObject;
 	}
 
 	@Override
 	protected Control createContents(Composite parent) {
-		list = new List(parent, SWT.MULTI);
-		String[] items = populateItemList(dde);
-		for (String item : items) {
-			list.add(item);
-		}
-
-		// Set the collection
-
-		for (EnumValue value : attributeValue.getValues()) {
-			int index = itemList.indexOf(value);
-				if (index != -1) {
-					list.select(index);
+		Composite composite = new Composite(parent, SWT.BORDER_SOLID);
+		GridLayout layout = new GridLayout();
+		layout.marginHeight = 0;
+		layout.marginWidth = 0;
+		layout.horizontalSpacing = 0;
+		layout.verticalSpacing = 5;
+		composite.setLayout(layout);
+		Table table = new Table(composite, SWT.CHECK);
+		GridData gd = new GridData(SWT.FILL, SWT.FILL, true, true);
+		gd.heightHint = 150;
+		table.setLayoutData(gd);
+		table.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (e.detail == SWT.CHECK && e.item instanceof TableItem) {
+					TableItem item = (TableItem) e.item;
+					if (item.getChecked()) {
+						itemList.add((EnumValue) item.getData());
+					} else {
+						itemList.remove((EnumValue) item.getData());
+					}
 				}
 			}
+		});
 
-		return list;
-	}
-
-	/**
-	 * Populates the list of items. This allows us later to find the correct
-	 * item for the given index in the {@link Combo}. In addition, we return the
-	 * text representation as a String array, which can be used to populate the
-	 * {@link Combo}.
-	 * 
-	 */
-	private String[] populateItemList(DatatypeDefinitionEnumeration dde) {
-		itemList = new ArrayList<EnumValue>();
-		String[] list = new String[dde.getSpecifiedValues().size()];
-
-		for (int i = 0; i < dde.getSpecifiedValues().size(); i++) {
-			EnumValue enumValue = dde.getSpecifiedValues().get(i);
-			itemList.add(enumValue);
-				IItemLabelProvider itemProvider = (IItemLabelProvider) adapterFactory
-					.adapt(enumValue, IItemLabelProvider.class);
-			list[i] = itemProvider.getText(enumValue);
+		for (EnumValue enumValue : dde.getSpecifiedValues()) {
+			TableItem tableItem = new TableItem(table, SWT.NONE);
+			String enumId = enumValue.getLongName() == null ? enumValue.getIdentifier() : enumValue.getLongName();
+			tableItem.setText(enumId);
+			tableItem.setData(enumValue);
+			if (attributeValue.getValues().contains(enumValue)) {
+				tableItem.setChecked(true);
+				itemList.add(enumValue);
 			}
-		return list;
+		}
+
+		Composite buttonPanel = new Composite(composite, SWT.NONE);
+		buttonPanel.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
+		buttonPanel.setLayout(new FillLayout(SWT.HORIZONTAL));
+		Button cancel = new Button(buttonPanel, SWT.PUSH);
+		cancel.setImage(PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_TOOL_DELETE));
+		cancel.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				fireCancelEditor();
+			}
+		});
+		
+		Button ok = new Button(buttonPanel, SWT.PUSH);
+		ok.setImage(PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_ETOOL_SAVE_EDIT));
+		ok.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				fireApplyEditorValue();
+			}
+		});
+		return composite;
 	}
 
 	@Override
 	protected Object doGetValue() {
-		ArrayList<EnumValue> current = new ArrayList<EnumValue>(
-				attributeValue.getValues());
+		if (itemList == null) {
+			return super.doGetValue();
+		}
+
 		CompoundCommand cmd = new CompoundCommand("Set Enumeration") {
 			public java.util.Collection<?> getAffectedObjects() {
 				ArrayList<? super Object> list = new ArrayList<Object>();
-				list.add(parent);
+				list.add(affectedObject);
 				return list;
 			};
 		};
@@ -124,26 +146,12 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 							attributeValue));
 		}
 
-		for (int index : list.getSelectionIndices()) {
-			EnumValue item = itemList.get(index);
-			if (current.contains(item)) {
-				current.remove(item);
-			} else {
-				cmd.append(AddCommand
-						.create(editingDomain,
-								attributeValue,
-								ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES,
-								item));
-			}
-		}
+		cmd.append(SetCommand
+				.create(editingDomain,
+						attributeValue,
+						ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES,
+						itemList));
 
-		for (EnumValue item : current) {
-			cmd.append(RemoveCommand
-					.create(editingDomain,
-							attributeValue,
-							ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES,
-							item));
-		}
 		editingDomain.getCommandStack().execute(cmd);
 		return attributeValue;
 	}
@@ -156,6 +164,11 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 		super.doSetValue(value);
 	}
 
+	@Override
+	protected void fireCancelEditor() {
+		itemList = null;
+		super.fireCancelEditor();
+	}
 	/**
 	 * This method is overridden to add a read-and-dispatch loop after opening
 	 * the popup. Otherwise, the panel will disappear immediately on Linux.
@@ -168,24 +181,12 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 		Display display = Display.getCurrent();
 		Shell shell = display.getActiveShell();
 		shell.pack();
+
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
 			}
 		}
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.agilemore.agilegrid.CellEditor#deactivate()
-	 */
-	@Override
-	public void deactivate() {
-		if (shell != null && !shell.isDisposed()) {
-			shell.dispose();
-		}
-		super.deactivate();
 	}
 
 }

@@ -33,7 +33,6 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -44,6 +43,7 @@ import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.pror.editor.actions.SpecificationWebPrintAction;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGrid;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridViewer;
+import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
@@ -63,7 +63,7 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
  * @author Michael Jastram
  */
 public class SpecificationEditor extends EditorPart implements
-		IEditingDomainProvider, IMenuListener, ISelectionProvider {
+		IEditingDomainProvider, IMenuListener {
 
 	public static final String EDITOR_ID = "org.eclipse.rmf.reqif10.pror.SpecificationEditor";
 
@@ -78,7 +78,7 @@ public class SpecificationEditor extends EditorPart implements
 	private ProrAgileGridViewer prorAgileGridViewer;
 
 	private Reqif10ActionBarContributor reqifActionBarContributor;
-	
+
 	/**
 	 * The {@link Reqif10Editor} of the owning {@link ReqIf} object. We keep a
 	 * reference, as we reuse a number of elements from that editor (Property
@@ -89,34 +89,34 @@ public class SpecificationEditor extends EditorPart implements
 
 	// A number of Listeners
 	private ISelectionChangedListener selectionChangedListener;
+	// A listener to the content outline
+	private ISelectionListener contentOutlineSelectionListener;
 	private CommandStackListener commandStackListener;
 	private AdapterImpl changeNameListener;
 	private AdapterImpl deleteSpecListener;
-
-	private ISelectionListener iSelectionListener;
 
 	/**
 	 * Initializes the Editor.
 	 */
 	@Override
-	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
+	public void init(IEditorSite site, IEditorInput input)
+			throws PartInitException {
 		// Sanity Check
 		if (!(input instanceof ReqifSpecificationEditorInput)) {
 			throw new IllegalArgumentException("Wrong input type: " + input);
 		}
 
 		// Extracting Info from the input
-		reqifEditor = ((ReqifSpecificationEditorInput)input).getReqifEditor();
-		specification = ((ReqifSpecificationEditorInput)input).getSpec();
-		
-		reqifActionBarContributor = (Reqif10ActionBarContributor) site.getActionBarContributor();
+		reqifEditor = ((ReqifSpecificationEditorInput) input).getReqifEditor();
+		specification = ((ReqifSpecificationEditorInput) input).getSpec();
+
+		reqifActionBarContributor = (Reqif10ActionBarContributor) site
+				.getActionBarContributor();
 
 		// Part Setup
 		setSite(site);
 		setInputWithNotify(input);
 		setPartName(input.getName());
-		site.setSelectionProvider(this);
-		
 		site.getActionBars().setGlobalActionHandler(
 				ActionFactory.PRINT.getId(),
 				new SpecificationWebPrintAction(reqifEditor.getEditingDomain(),
@@ -129,7 +129,7 @@ public class SpecificationEditor extends EditorPart implements
 	 */
 	@Override
 	public void createPartControl(final Composite parent) {
-		createSpecificationPart(parent);		
+		createSpecificationPart(parent);
 
 		// Order matters!
 		registerChangeNameListener();
@@ -140,6 +140,7 @@ public class SpecificationEditor extends EditorPart implements
 
 	/**
 	 * Builds the actual {@link ProrAgileGridViewer}
+	 * 
 	 * @param containter
 	 */
 	private void createSpecificationPart(Composite containter) {
@@ -147,6 +148,16 @@ public class SpecificationEditor extends EditorPart implements
 				reqifEditor.getAdapterFactory(), getEditingDomain(),
 				reqifActionBarContributor.getAgileCellEditorActionHandler());
 		prorAgileGridViewer.setInput(specification);
+		getSite().setSelectionProvider(prorAgileGridViewer);
+		if (false == specification.getChildren().isEmpty()) {
+			prorAgileGridViewer.setSelection(new StructuredSelection(
+					specification.getChildren().get(0)));
+			// We call this manually because the method selection changed of the
+			// IPropertySheetPage isn't called any more in E4 (I think its a
+			// bug)
+			reqifEditor.getPropertySheetPage().selectionChanged(this,
+					prorAgileGridViewer.getSelection());
+		}
 		buildContextMenu();
 	}
 
@@ -184,7 +195,8 @@ public class SpecificationEditor extends EditorPart implements
 			@Override
 			public void notifyChanged(Notification notification) {
 				if (notification.getFeature() == ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES) {
-					ItemProviderAdapter ip = ProrUtil.getItemProvider(reqifEditor.getAdapterFactory(), specification);
+					ItemProviderAdapter ip = ProrUtil.getItemProvider(
+							reqifEditor.getAdapterFactory(), specification);
 					setPartName(ip.getText(specification));
 				}
 			}
@@ -221,18 +233,20 @@ public class SpecificationEditor extends EditorPart implements
 		// Make sure it's okay.
 		//
 		if (theSelection != null && !theSelection.isEmpty()) {
-			Runnable runnable =
-				new Runnable() {
-					public void run() {
+			Runnable runnable = new Runnable() {
+				public void run() {
 
-						// Try to select the items in the current content viewer of the editor.
-						//
-						if (prorAgileGridViewer != null) {
-							prorAgileGridViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
-						}
-
+					// Try to select the items in the current content viewer of
+					// the editor.
+					//
+					if (prorAgileGridViewer != null) {
+						prorAgileGridViewer
+								.setSelection(new StructuredSelection(
+										theSelection.toArray()), true);
 					}
-				};
+
+				}
+			};
 			getSite().getShell().getDisplay().syncExec(runnable);
 		}
 	}
@@ -240,31 +254,37 @@ public class SpecificationEditor extends EditorPart implements
 	private void registerSelectionChangedListener() {
 		selectionChangedListener = new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
-				if(event.getSource() != prorAgileGridViewer){
-				SpecificationEditor.this.setSelection(event.getSelection());
-			}}
+				reqifEditor.setStatusLineManager(event.getSelection());
+			}
 		};
-		prorAgileGridViewer.addSelectionChangedListener(selectionChangedListener);
-		iSelectionListener = new ISelectionListener() {
+		prorAgileGridViewer
+				.addSelectionChangedListener(selectionChangedListener);
+		contentOutlineSelectionListener = new ISelectionListener() {
 
 			public void selectionChanged(IWorkbenchPart part,
 					ISelection selection) {
-				// Only apply selection if it contains at least one SpecHierarchy
+				// Only apply selection if it contains at least one
+				// SpecHierarchy
 				if (selection instanceof IStructuredSelection) {
-					
-					for (Iterator<?> i = ((IStructuredSelection)selection).iterator(); i.hasNext();) {
+
+					for (Iterator<?> i = ((IStructuredSelection) selection)
+							.iterator(); i.hasNext();) {
 						Object item = i.next();
 						if (item instanceof SpecHierarchy) {
-							SpecificationEditor.this.setSelection(selection);	
-							((ProrAgileGrid)SpecificationEditor.this.prorAgileGridViewer.getControl()).scrollToFocus();
+							prorAgileGridViewer.setSelection(selection);
+							((ProrAgileGrid) prorAgileGridViewer.getControl())
+									.scrollToFocus();
 							return;
 						}
 					}
 				}
+
 			}
-			
+
 		};
-		getSite().getPage().addSelectionListener(iSelectionListener);
+		getSite().getPage().addSelectionListener(
+				contentOutlineSelectionListener);
+
 	}
 
 	/**
@@ -301,41 +321,12 @@ public class SpecificationEditor extends EditorPart implements
 	}
 
 	/**
-	 * Delegate selection management to {@link #prorAgileGridViewer}.
-	 */
-	public void addSelectionChangedListener(ISelectionChangedListener listener) {
-		prorAgileGridViewer.addSelectionChangedListener(listener);
-	}
-
-	/**
-	 * Delegate selection management to {@link #prorAgileGridViewer}.
-	 */
-	public void removeSelectionChangedListener(
-			ISelectionChangedListener listener) {
-		prorAgileGridViewer.removeSelectionChangedListener(listener);
-	}
-
-	/**
-	 * Delegate selection management to {@link #prorAgileGridViewer}.
-	 */
-	public ISelection getSelection() {
-		return prorAgileGridViewer.getSelection();
-	}
-
-	/**
-	 * Delegate selection management to {@link #prorAgileGridViewer}.
-	 */
-	public void setSelection(ISelection selection) {
-		prorAgileGridViewer.setSelection(selection);
-		reqifEditor.setStatusLineManager(selection);
-}
-
-	/**
 	 * This implements {@link org.eclipse.jface.action.IMenuListener} to help
 	 * fill the context menus with contributions from the Edit menu.
 	 */
 	public void menuAboutToShow(IMenuManager menuManager) {
-		((IMenuListener)getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
+		((IMenuListener) getEditorSite().getActionBarContributor())
+				.menuAboutToShow(menuManager);
 	}
 
 	/**
@@ -364,11 +355,13 @@ public class SpecificationEditor extends EditorPart implements
 	}
 
 	/**
-	 * Synchronized with the {@link EditingDomain} from the {@link Reqif10Editor}
+	 * Synchronized with the {@link EditingDomain} from the
+	 * {@link Reqif10Editor}
 	 */
 	@Override
 	public boolean isDirty() {
-		return ((BasicCommandStack)getEditingDomain().getCommandStack()).isSaveNeeded();
+		return ((BasicCommandStack) getEditingDomain().getCommandStack())
+				.isSaveNeeded();
 	}
 
 	/**
@@ -395,16 +388,19 @@ public class SpecificationEditor extends EditorPart implements
 		prorAgileGridViewer.dispose();
 
 		if (selectionChangedListener != null) {
-			prorAgileGridViewer.removeSelectionChangedListener(selectionChangedListener);
+			prorAgileGridViewer
+					.removeSelectionChangedListener(selectionChangedListener);
 			selectionChangedListener = null;
 		}
-		
-		if (iSelectionListener != null) {
-			getSite().getPage().removeSelectionListener(iSelectionListener);
-			iSelectionListener = null;
+		if (contentOutlineSelectionListener != null) {
+			getSite().getPage().removeSelectionListener(
+					contentOutlineSelectionListener);
+			contentOutlineSelectionListener = null;
 		}
+
 		if (commandStackListener != null) {
-			getEditingDomain().getCommandStack().removeCommandStackListener(commandStackListener);
+			getEditingDomain().getCommandStack().removeCommandStackListener(
+					commandStackListener);
 			commandStackListener = null;
 		}
 		if (changeNameListener != null) {
@@ -419,7 +415,7 @@ public class SpecificationEditor extends EditorPart implements
 		if (reqifEditor.getActionBarContributor().getActiveEditor() == this) {
 			reqifEditor.getActionBarContributor().setActiveEditor(null);
 		}
-	
+
 		super.dispose();
 	}
 
@@ -466,6 +462,10 @@ public class SpecificationEditor extends EditorPart implements
 
 	public AdapterFactory getAdapterFactory() {
 		return reqifEditor.getAdapterFactory();
+	}
+
+	public void setFilter(ReqifFilter filter) {
+		prorAgileGridViewer.setFilter(filter);
 	}
 
 }

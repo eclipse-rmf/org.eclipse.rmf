@@ -43,7 +43,7 @@ public abstract class ProrCellEditor extends TextCellEditor {
 	public ProrCellEditor(AgileGrid agileGrid, EditingDomain editingDomain,
 			Object parent,
 			Object affectedObject) {
-		super(agileGrid);
+		super(agileGrid, SWT.WRAP);
 		this.editingDomain = editingDomain;
 		this.affectedObject = affectedObject;
 		this.parent = parent;
