@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="rmf-f3745dea-d527-4b6c-93cf-392f69bc01ef">
+      <COMMENT>Created by: iw</COMMENT>
+      <CREATION-TIME>2014-12-02T15:03:58.977+01:00</CREATION-TIME>
+      <REQ-IF-TOOL-ID>ProR (http://pror.org)</REQ-IF-TOOL-ID>
+      <REQ-IF-VERSION>1.0.1</REQ-IF-VERSION>
+      <SOURCE-TOOL-ID>ProR (http://pror.org)</SOURCE-TOOL-ID>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_D8iR83osEeSxZbz_wS3a6A" LAST-CHANGE="2014-12-02T15:03:58.977+01:00" LONG-NAME="T_String32k" MAX-LENGTH="32000"/>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_D8iR9HosEeSxZbz_wS3a6A" LAST-CHANGE="2014-12-02T15:03:58.977+01:00" LONG-NAME="Requirement Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_D8iR9XosEeSxZbz_wS3a6A" LAST-CHANGE="2014-12-02T15:03:58.977+01:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_D8iR83osEeSxZbz_wS3a6A</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE IDENTIFIER="_D8iR9nosEeSxZbz_wS3a6A" LAST-CHANGE="2014-12-02T15:03:58.977+01:00" LONG-NAME="Specification Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_D8iR93osEeSxZbz_wS3a6A" LAST-CHANGE="2014-12-02T15:03:58.977+01:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_D8iR83osEeSxZbz_wS3a6A</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT DESC="ABC desc" IDENTIFIER="_D8iR-HosEeSxZbz_wS3a6A" LAST-CHANGE="2014-12-02T16:48:13.455+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ABC">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_D8iR9XosEeSxZbz_wS3a6A</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_D8iR9HosEeSxZbz_wS3a6A</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_jqZK0HosEeS4esDce-Cxdg" LAST-CHANGE="2014-12-02T16:48:17.457+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="DEF">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_D8iR9XosEeSxZbz_wS3a6A</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_D8iR9HosEeSxZbz_wS3a6A</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="_D8iR-nosEeSxZbz_wS3a6A" LAST-CHANGE="2014-12-02T15:03:58.977+01:00" LONG-NAME="Specification Document">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Requirements Document">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_D8iR93osEeSxZbz_wS3a6A</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>_D8iR9nosEeSxZbz_wS3a6A</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="_D8iR_HosEeSxZbz_wS3a6A" LAST-CHANGE="2014-12-02T15:03:58.977+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_D8iR-HosEeSxZbz_wS3a6A</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_jqkxAHosEeS4esDce-Cxdg" LAST-CHANGE="2014-12-02T15:07:06.160+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_jqZK0HosEeS4esDce-Cxdg</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration specification="_D8iR-nosEeSxZbz_wS3a6A">
+            <configuration:columns>
+              <configuration:Column label="Description" width="400"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration>
+                <defaultLabel>Description</defaultLabel>
+              </configuration:LabelConfiguration>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+      </configuration:ProrToolExtension>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>

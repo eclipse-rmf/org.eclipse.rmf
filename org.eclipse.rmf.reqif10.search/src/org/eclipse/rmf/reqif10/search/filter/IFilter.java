@@ -11,6 +11,30 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+
 public interface IFilter {
 
+	public enum Operator{
+		
+		EQUALS,
+		IS,
+		IS_NOT,
+		NOT_EQUALS,
+		CONTAINS,
+		NOT_CONTAINS,
+		REGEXP,
+		REGEXP_PLAIN,
+		BETWEEN,
+		GREATER,
+		SMALLER,
+		BEFORE,
+		AFTER,
+		CONTAINS_ALL,
+		CONTAINS_ANY
+	}
+	
+	
+	public boolean accept(SpecElementWithAttributes element); 
+	
 }
