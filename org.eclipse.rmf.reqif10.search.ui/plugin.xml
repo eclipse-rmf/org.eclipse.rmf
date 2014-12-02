@@ -23,6 +23,14 @@
             label="ReqIF"
             showScopeSection="true">
       </page>
+      <page
+            class="org.eclipse.rmf.reqif10.search.filter.ui.ReqIFSearchPage"
+            icon="icons/full/obj16/ReqIf.png"
+            id="org.eclipse.rmf.reqif10.search.filter.ui.page"
+            label="ReqIF Search"
+            showScopeSection="false"
+            tabPosition="0">
+      </page>
    </extension>
 
 </plugin>
