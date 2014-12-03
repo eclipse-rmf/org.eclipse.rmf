@@ -8,6 +8,7 @@
  * 
  * Contributors:
  *     Ingo Weigelt - initial API and implementation
+ *     Michael Jastram - Label Support, ReqifFilter inheritance
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
