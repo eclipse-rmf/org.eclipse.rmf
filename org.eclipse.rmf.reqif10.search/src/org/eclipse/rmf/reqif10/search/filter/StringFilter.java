@@ -25,7 +25,7 @@ import com.google.common.collect.Sets;
  */
 public class StringFilter implements IFilter {
 
-	public enum InternalAttributes {
+	public enum InternalAttribute {
 		IDENTIFIER, DESC, LONG_NAME
 	}
 
@@ -37,28 +37,59 @@ public class StringFilter implements IFilter {
 	private Operator operator;
 	private String filterValue;
 	private AttributeDefinitionString attributeDefinition;
-	private InternalAttributes internalAttribute;
+	private InternalAttribute internalAttribute;
 	private boolean caseSensitive;
 	private boolean isInternal;
 
 	
+	/**
+	 * Constructor used to create a filter for an {@link AttributeDefinitionString}
+	 * 
+	 * @param operator the filter operator to use
+	 * @param value the value to match
+	 * @param attributeDefinition the attributeDefinition that defines the value of a SpecObject that should be matched
+	 * @param caseSensitive 
+	 */
 	public StringFilter(Operator operator, String value,
-			AttributeDefinitionString ad, boolean caseSensitive) {
-		this.operator = operator;
-		this.filterValue = value;
-		this.attributeDefinition = ad;
-		this.caseSensitive = caseSensitive;
+			AttributeDefinitionString attributeDefinition, boolean caseSensitive) {
+		this(operator, value, null, attributeDefinition, caseSensitive);
 		this.isInternal = false;
+		if (null == attributeDefinition){
+			throw new IllegalArgumentException("AttributeDefinition can not be null");
+		}
 	}
 
-	
+	/**
+	 * Constructor used to create a filter for an {@link InternalAttribute}
+	 * 
+	 * @param operator the filter operator to use
+	 * @param value the value to match
+	 * @param attributeDefinition the attributeDefinition that defines the value of a SpecObject that should be matched
+	 * @param caseSensitive 
+	 */
 	public StringFilter(Operator operator, String value,
-			InternalAttributes internalFeature, boolean caseSensitive) {
-		this.operator = operator;
-		this.filterValue = value;
-		this.internalAttribute = internalFeature;
-		this.caseSensitive = caseSensitive;
+			InternalAttribute internalFeature, boolean caseSensitive) {
+		this(operator, value, internalFeature, null, caseSensitive);
 		this.isInternal = true;
+		if (null == internalFeature){
+			throw new IllegalArgumentException("AttributeDefinition can not be null");
+		}
+	}
+	
+	private StringFilter(Operator operator, String value, 
+			InternalAttribute internalFeature, AttributeDefinitionString ad, boolean caseSensitive){
+
+		if (!SUPPORTED_OPERATORS.contains(operator)){
+			throw new IllegalArgumentException(
+					"This filter does not support the " + operator.toString()
+							+ " operation");
+		}
+		
+		this.operator = operator;
+		this.filterValue = (null == value ? "" : value);
+		this.internalAttribute = internalFeature;
+		this.attributeDefinition = ad;
+		this.caseSensitive = caseSensitive;
 	}
 
 	

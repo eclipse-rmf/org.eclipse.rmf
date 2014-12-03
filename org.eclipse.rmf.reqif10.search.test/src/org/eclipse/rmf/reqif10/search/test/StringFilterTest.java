@@ -11,24 +11,24 @@ import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
-import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecObject;
-import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.StringFilter;
+import org.eclipse.rmf.reqif10.search.filter.StringFilter.InternalAttribute;
 import org.eclipse.rmf.reqif10.search.testdata.TestData;
 import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
-
-import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
+import org.junit.rules.ExpectedException;
 
 public class StringFilterTest extends AbstractItemProviderTest{
 
 	SpecObject specObject;
 	AttributeDefinitionString attributeDefinition; 
+
+	@Rule public ExpectedException thrown= ExpectedException.none();
 	
 	@Before
 	public void init(){
@@ -41,37 +41,37 @@ public class StringFilterTest extends AbstractItemProviderTest{
 	@Test
 	public void testEquals() throws Exception {
 		StringFilter stringFilter = new StringFilter(IFilter.Operator.EQUALS, "abcDEF",  attributeDefinition, true);
-		assertTrue(stringFilter.accept(specObject));
+		assertTrue(stringFilter.match(specObject));
 		
 		stringFilter = new StringFilter(IFilter.Operator.EQUALS, "abcDEF",  attributeDefinition, false);
-		assertTrue(stringFilter.accept(specObject));
+		assertTrue(stringFilter.match(specObject));
 		
 		stringFilter = new StringFilter(IFilter.Operator.EQUALS, "abcdef",  attributeDefinition, true);
-		assertFalse(stringFilter.accept(specObject));
+		assertFalse(stringFilter.match(specObject));
 		
 		stringFilter = new StringFilter(IFilter.Operator.EQUALS, "abcdef",  attributeDefinition, false);
-		assertTrue(stringFilter.accept(specObject));
+		assertTrue(stringFilter.match(specObject));
 		
 		stringFilter = new StringFilter(IFilter.Operator.EQUALS, "abc",  attributeDefinition, false);
-		assertFalse(stringFilter.accept(specObject));
+		assertFalse(stringFilter.match(specObject));
 		
 		stringFilter = new StringFilter(IFilter.Operator.EQUALS, "abc",  attributeDefinition, true);
-		assertFalse(stringFilter.accept(specObject));
+		assertFalse(stringFilter.match(specObject));
 	}
 	
 	@Test
 	public void testNotEquals() throws Exception {
 		StringFilter stringFilter = new StringFilter(IFilter.Operator.NOT_EQUALS, "X",  attributeDefinition, true);
-		assertTrue(stringFilter.accept(specObject));
+		assertTrue(stringFilter.match(specObject));
 		
 		stringFilter = new StringFilter(IFilter.Operator.NOT_EQUALS, "abcdef",  attributeDefinition, true);
-		assertTrue(stringFilter.accept(specObject));
+		assertTrue(stringFilter.match(specObject));
 		
 		stringFilter = new StringFilter(IFilter.Operator.NOT_EQUALS, "abcdef",  attributeDefinition, false);
-		assertFalse(stringFilter.accept(specObject));
+		assertFalse(stringFilter.match(specObject));
 		
 		stringFilter = new StringFilter(IFilter.Operator.NOT_EQUALS, "abcDEF",  attributeDefinition, true);
-		assertFalse(stringFilter.accept(specObject));
+		assertFalse(stringFilter.match(specObject));
 	}
 	
 	
@@ -91,18 +91,34 @@ public class StringFilterTest extends AbstractItemProviderTest{
 		fail("Not yet implemented");
 	}
 	
+	@Test
+	public void testInternalFeatures() throws Exception {
+		fail("Not yet implemented");
+	}
+	
 	
 	@Test
 	public void testEmptyAttribute() throws Exception {
 		SpecObject specObject = createSpecObject("SO_ID");
 		StringFilter stringFilter = new StringFilter(IFilter.Operator.EQUALS, "abcdef",  attributeDefinition, false);
-		assertFalse(stringFilter.accept(specObject));
+		assertFalse(stringFilter.match(specObject));
 		
 		// A missing AD should be treated as an empty value
 		stringFilter = new StringFilter(IFilter.Operator.EQUALS, "",  attributeDefinition, false);
-		assertTrue(stringFilter.accept(specObject));
-		
-		
+		assertTrue(stringFilter.match(specObject));
+	}
+	
+	
+	@Test
+	public void testExceptionsAttributeDefinition() throws Exception {
+		thrown.expect(IllegalArgumentException.class);
+		new StringFilter(IFilter.Operator.EQUALS, "abcdef",  (AttributeDefinitionString) null, false);
+	}
+	
+	@Test
+	public void testExceptionsInternalAttribute() throws Exception {
+		thrown.expect(NullPointerException.class);
+		new StringFilter(IFilter.Operator.EQUALS, "abcdef",  (InternalAttribute) null, false);
 	}
 	
 	
@@ -115,7 +131,7 @@ public class StringFilterTest extends AbstractItemProviderTest{
 		AttributeDefinitionString attributeDefinition = (AttributeDefinitionString) specAttributes.get(0);
 		
 		StringFilter stringFilter = new StringFilter(IFilter.Operator.EQUALS, "ABC",  attributeDefinition, true);
-		assertTrue(stringFilter.accept(object));
+		assertTrue(stringFilter.match(object));
 	}
 
 	

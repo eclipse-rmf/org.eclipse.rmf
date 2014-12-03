@@ -49,5 +49,6 @@
 		</accessrules>
 	</classpathentry>
 	<classpathentry kind="src" path="/org.eclipse.rmf.reqif10.search"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.rmf.reqif10.pror"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
