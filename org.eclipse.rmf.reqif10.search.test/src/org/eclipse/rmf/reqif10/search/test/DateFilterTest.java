@@ -53,6 +53,7 @@ public class DateFilterTest extends AbstractItemProviderTest{
 		attributeDefinition = createAttributeDefinitionDate("AD_DATE_ID");
 		GregorianCalendar calendar = new GregorianCalendar(2014, 12, 03);
 		specObject = createSpecObjectWithDate("SO_ID", calendar, attributeDefinition);
+		specObject.setLastChange(new GregorianCalendar(2014, 12, 03));
 	}
 	
 	
@@ -69,6 +70,17 @@ public class DateFilterTest extends AbstractItemProviderTest{
 
 		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014,12,03,0,0,0), null,  attributeDefinition);
 		assertTrue(filter.match(specObject));
+		
+		//// Same for internal Attribute
+		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014, 12, 03), null,  DateFilter.InternalAttribute.LAST_CHANGE);
+		assertTrue(filter.match(specObject));
+		
+		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014, 12, 04), null,  DateFilter.InternalAttribute.LAST_CHANGE);
+		assertFalse(filter.match(specObject));
+
+		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014,12,03,0,0,0), null,  DateFilter.InternalAttribute.LAST_CHANGE);
+		assertTrue(filter.match(specObject));		
+		
 	}
 	
 	@Test
@@ -79,6 +91,13 @@ public class DateFilterTest extends AbstractItemProviderTest{
 		assertTrue(filter.match(specObject));
 
 		filter = new DateFilter(IFilter.Operator.IS_NOT, new GregorianCalendar(2014, 12, 03), null,  attributeDefinition);
+		assertFalse(filter.match(specObject));
+		
+		//// Same for internal Attribute
+		filter = new DateFilter(IFilter.Operator.IS_NOT, new GregorianCalendar(2014, 12, 04), null,  DateFilter.InternalAttribute.LAST_CHANGE);
+		assertTrue(filter.match(specObject));
+
+		filter = new DateFilter(IFilter.Operator.IS_NOT, new GregorianCalendar(2014, 12, 03), null,  DateFilter.InternalAttribute.LAST_CHANGE);
 		assertFalse(filter.match(specObject));
 	}
 	
@@ -95,6 +114,16 @@ public class DateFilterTest extends AbstractItemProviderTest{
 		
 		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 01, 01), new GregorianCalendar(2014, 12, 01), attributeDefinition);
 		assertFalse(filter.match(specObject));
+		
+		//// Same for internal Attribute
+		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 12, 01), new GregorianCalendar(2014, 12, 04), DateFilter.InternalAttribute.LAST_CHANGE);
+		assertTrue(filter.match(specObject));
+
+		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 12, 03), new GregorianCalendar(2014, 12, 03), DateFilter.InternalAttribute.LAST_CHANGE);
+		assertTrue(filter.match(specObject));
+		
+		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 01, 01), new GregorianCalendar(2014, 12, 01), DateFilter.InternalAttribute.LAST_CHANGE);
+		assertFalse(filter.match(specObject));
 	}
 	
 	@Test
@@ -108,6 +137,16 @@ public class DateFilterTest extends AbstractItemProviderTest{
 		assertFalse(filter.match(specObject));
 		
 		filter = new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
+		assertFalse(filter.match(specObject));
+		
+		//// Same for internal Attribute
+		filter = new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2015, 1, 1), new GregorianCalendar(2014, 12, 04), DateFilter.InternalAttribute.LAST_CHANGE);
+		assertTrue(filter.match(specObject));
+
+		filter = new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2014, 12, 3), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		assertFalse(filter.match(specObject));
+		
+		filter = new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2014, 1, 1), null, DateFilter.InternalAttribute.LAST_CHANGE);
 		assertFalse(filter.match(specObject));
 	}
 	
@@ -123,13 +162,19 @@ public class DateFilterTest extends AbstractItemProviderTest{
 		
 		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 12, 03), null, attributeDefinition);
 		assertFalse(filter.match(specObject));
+		
+		//// Same for internal Attribute
+		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2000, 1, 1), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		assertTrue(filter.match(specObject));
+
+		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(3000, 1, 1), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		assertFalse(filter.match(specObject));
+		
+		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 12, 03), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		assertFalse(filter.match(specObject));
 	}
 	
-	
-	@Test
-	public void testInternalFeatures() throws Exception {
-		fail("Not yet implemented");
-	}
+
 	
 	
 	@Test
