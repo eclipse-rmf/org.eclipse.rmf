@@ -239,10 +239,12 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		// Handle the Unified Column
 		Column column = specViewConfig.getColumns().get(col);
 		if (column instanceof UnifiedColumn) {
-			AttributeValue av = ReqIF10Util.getAttributeValueForLabel(element, "ReqIF.ChapterName");
-
-			return (ReqIF10Util.getTheValue(av) != null) ? av : ReqIF10Util
-					.getAttributeValueForLabel(element, "ReqIF.Text");
+			AttributeValue av = ReqIF10Util.getAttributeValueForLabel(element,
+					"ReqIF.ChapterName");
+			if (av != null && ReqIF10Util.getTheValue(av) != null) {
+				return av;
+			}
+			return ReqIF10Util.getAttributeValueForLabel(element, "ReqIF.Text");
 		}
 
 		String label = column.getLabel();

@@ -10,6 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.util;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -34,6 +35,7 @@ import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
+import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.XhtmlContent;
@@ -296,14 +298,16 @@ public class ConfigurationUtil {
 		specViewConfig.setSpecification(specification);
 
 		// Collect all Types
-		final Set<SpecType> types = new HashSet<SpecType>();
+		
+		final List<SpecType> types = new ArrayList<SpecType>();
 		ReqIF10Switch<SpecHierarchy> visitor = new ReqIF10Switch<SpecHierarchy>() {
 			@Override
 			public SpecHierarchy caseSpecHierarchy(SpecHierarchy specHierarchy) {
-				if (specHierarchy.getObject() != null
-						&& specHierarchy.getObject().getType() != null) {
-					// Duplicates will disappear due to HashSet
-					types.add(specHierarchy.getObject().getType());
+				if (specHierarchy.getObject() != null) {
+					SpecObjectType type = specHierarchy.getObject().getType();
+					if (type != null && !types.contains(type)) {
+						types.add(type);
+					}
 				}
 				return specHierarchy;
 			}
@@ -312,25 +316,39 @@ public class ConfigurationUtil {
 		for (Iterator<EObject> i = EcoreUtil
 				.getAllContents(specification, true); i.hasNext();) {
 			visitor.doSwitch(i.next());
-			// we only explore the first 100 elements for performance.
-			if (counter++ == 100)
+			// we only explore the first 50 elements for performance.
+			if (counter++ == 50)
 				break;
 		}
 
+		
 		// Collect all names from the types
-		final Set<String> colnames = new HashSet<String>();
+		final List<String> colNames = new ArrayList<String>();
 		for (SpecType type : types) {
 			for (AttributeDefinition ad : type.getSpecAttributes()) {
 				// Duplicates will disappear due to HashSet
-				colnames.add(ad.getLongName());
+				String colName = ad.getLongName();
+				if (colName != null && !colNames.contains(colName)) {
+					colNames.add(ad.getLongName());
+				}
 			}
 		}
+		
 
 		// Build all Columns from the names
-		for (String colname : colnames) {
+		boolean unifiedColumn = false;
+		for (String colName : colNames) {
 			Column column = ConfigurationFactory.eINSTANCE.createColumn();
+
+			// See whether we need a unified column or not.
+			if (colName.equals("ReqIF.Text") || colName.equals("ReqIF.ChapterName")) {
+				if (unifiedColumn) continue;
+				column = ConfigurationFactory.eINSTANCE.createUnifiedColumn();
+				colName = "Main";
+			}
+			
 			column.setWidth(100);
-			column.setLabel(colname);
+			column.setLabel(colName);
 			specViewConfig.getColumns().add(column);
 		}
 		domain.getCommandStack()
