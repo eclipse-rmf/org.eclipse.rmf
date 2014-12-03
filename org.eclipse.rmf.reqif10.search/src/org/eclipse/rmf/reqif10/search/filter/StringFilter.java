@@ -84,6 +84,10 @@ public class StringFilter implements IFilter {
 					"This filter does not support the " + operator.toString()
 							+ " operation");
 		}
+		if (null == value){
+			throw new IllegalArgumentException(
+					"Value can not be null");
+		}
 		
 		this.operator = operator;
 		this.filterValue = (null == value ? "" : value);
@@ -98,7 +102,7 @@ public class StringFilter implements IFilter {
 
 		String theValue;
 
-		// retreive the value to check depending on this is a filter on an
+		// retrieve the value to check depending on this is a filter on an
 		// internal Attribute or a value
 		if (isInternal) {
 			theValue = getInternalAttributeValue(element);
@@ -109,8 +113,19 @@ public class StringFilter implements IFilter {
 		}
 		
 		if (theValue == null){
-			/* According to the spec; If an attribute is null or does not exist, then it is treated as if it was empty. */
-			theValue = "";
+			switch (operator) {
+			case EQUALS:
+			case CONTAINS:
+				return false;
+			case NOT_EQUALS:
+			case NOT_CONTAINS:
+				return true;
+			case REGEXP:
+				// apply regexp to the empty string
+				return "".matches(filterValue);
+			default:
+				break;
+			}
 		}
 
 		switch (operator) {

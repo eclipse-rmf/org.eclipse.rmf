@@ -115,9 +115,31 @@ public class StringFilterTest extends AbstractItemProviderTest{
 		StringFilter stringFilter = new StringFilter(IFilter.Operator.EQUALS, "abcdef",  attributeDefinition, false);
 		assertFalse(stringFilter.match(specObject));
 		
-		// A missing AD should be treated as an empty value
+		// A missing AD should always yield false for equals
 		stringFilter = new StringFilter(IFilter.Operator.EQUALS, "",  attributeDefinition, false);
+		assertFalse(stringFilter.match(specObject));
+		
+		// A missing AD should always yield true for not_equals
+		stringFilter = new StringFilter(IFilter.Operator.NOT_EQUALS, "",  attributeDefinition, false);
 		assertTrue(stringFilter.match(specObject));
+		
+		// A missing AD should always yield false for contains
+		stringFilter = new StringFilter(IFilter.Operator.CONTAINS, "",  attributeDefinition, false);
+		assertFalse(stringFilter.match(specObject));
+		
+		// A missing AD should always yield true for not_contains
+		stringFilter = new StringFilter(IFilter.Operator.NOT_CONTAINS, "",  attributeDefinition, false);
+		assertTrue(stringFilter.match(specObject));
+		
+		// apply Regext to empty string
+		stringFilter = new StringFilter(IFilter.Operator.REGEXP, "",  attributeDefinition, false);
+		assertTrue(stringFilter.match(specObject));
+		
+		stringFilter = new StringFilter(IFilter.Operator.REGEXP, ".*",  attributeDefinition, false);
+		assertTrue(stringFilter.match(specObject));
+		
+		stringFilter = new StringFilter(IFilter.Operator.REGEXP, ".+",  attributeDefinition, false);
+		assertFalse(stringFilter.match(specObject));
 	}
 	
 	
