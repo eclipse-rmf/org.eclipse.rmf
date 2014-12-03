@@ -3,7 +3,8 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.rmf.reqif10.pror/src" creationIcons="false"
     modelPluginID="org.eclipse.rmf.reqif10.pror" modelName="Configuration" editPluginClass="org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
+    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace"
+    importOrganizing="true">
   <foreignModel>configuration.ecore</foreignModel>
   <genPackages prefix="Configuration" basePackage="org.eclipse.rmf.reqif10.pror" resource="XML"
       disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
@@ -33,9 +34,11 @@
     <genClasses image="false" ecoreClass="configuration.ecore#//LabelConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LabelConfiguration/defaultLabel"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//UnifiedColumn"/>
   </genPackages>
   <genPackages prefix="ReqIF10" basePackage="org.eclipse.rmf" resource="XML" disposableProviderFactory="true"
       providerPackageSuffix="pror.provider" ecorePackage="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#/">
+    <genDataTypes ecoreDataType="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DateTime"/>
     <genDataTypes ecoreDataType="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ID"/>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AccessControlledElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AccessControlledElement/editable"/>
@@ -217,6 +220,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//XhtmlContent">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//XhtmlContent/xhtml"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//XhtmlContent/xhtmlSource"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

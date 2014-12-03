@@ -18,6 +18,8 @@ import org.agilemore.agilegrid.SWTResourceManager;
 import org.agilemore.agilegrid.renderers.HeaderCellRenderer;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
@@ -65,7 +67,10 @@ class ProrHeaderCellRenderer extends HeaderCellRenderer {
 
 	public static Color COLOR_REQIF_ATTRIBUTE = SWTResourceManager
 			.getColor(SWT.COLOR_BLUE);
-	
+
+	public static Color COLOR_UNIFIED = SWTResourceManager
+			.getColor(SWT.COLOR_DARK_CYAN);
+
 	public ProrHeaderCellRenderer(AgileGrid agileGrid) {
 		super(agileGrid, ICellRenderer.STYLE_FLAT
 				| ICellRenderer.INDICATION_SELECTION_ROW);
@@ -79,10 +84,10 @@ class ProrHeaderCellRenderer extends HeaderCellRenderer {
 	 */
 	@Override
 	protected void doDrawCellContent(GC gc, Rectangle rect, int row, int col) {
-		if (row >= 0) {
-			ProrAgileGridContentProvider contentProvider = (ProrAgileGridContentProvider) agileGrid
-					.getContentProvider();
+		ProrAgileGridContentProvider contentProvider = (ProrAgileGridContentProvider) agileGrid
+				.getContentProvider();
 
+		if (row >= 0) {
 			ProrRow prorRow = contentProvider.getProrRow(row);
 			if (!prorRow.isVisible()) {
 				return;
@@ -100,8 +105,15 @@ class ProrHeaderCellRenderer extends HeaderCellRenderer {
 			label = "";
 		}
 
+		// Handling the unified Column, if present.
+		ProrSpecViewConfiguration specView = contentProvider.specViewConfig;
+		if (col >= 0 && col < specView.getColumns().size()
+				&& specView.getColumns().get(col) instanceof UnifiedColumn) {
+			gc.setForeground(COLOR_UNIFIED);
+		}
+
 		// Handling of ReqIF. Attributes
-		if (label.startsWith("ReqIF.")) {
+		else if (label.startsWith("ReqIF.")) {
 			label = label.substring(6);
 			gc.setForeground(COLOR_REQIF_ATTRIBUTE);
 		}

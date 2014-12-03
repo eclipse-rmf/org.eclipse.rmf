@@ -214,6 +214,29 @@ public class ConfigurationItemProviderAdapterFactory extends ConfigurationAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnifiedColumnItemProvider unifiedColumnItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnifiedColumnAdapter() {
+		if (unifiedColumnItemProvider == null) {
+			unifiedColumnItemProvider = new UnifiedColumnItemProvider(this);
+		}
+
+		return unifiedColumnItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -85,6 +85,15 @@ public interface ConfigurationFactory extends EFactory {
 	LabelConfiguration createLabelConfiguration();
 
 	/**
+	 * Returns a new object of class '<em>Unified Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unified Column</em>'.
+	 * @generated
+	 */
+	UnifiedColumn createUnifiedColumn();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
