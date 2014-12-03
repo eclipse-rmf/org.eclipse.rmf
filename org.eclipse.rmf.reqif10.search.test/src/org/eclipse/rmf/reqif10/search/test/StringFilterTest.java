@@ -15,6 +15,7 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
+import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
 import org.eclipse.rmf.reqif10.search.filter.StringFilter;
 import org.eclipse.rmf.reqif10.search.filter.StringFilter.InternalAttribute;
 import org.eclipse.rmf.reqif10.search.testdata.TestData;
@@ -117,8 +118,15 @@ public class StringFilterTest extends AbstractItemProviderTest{
 	
 	@Test
 	public void testExceptionsInternalAttribute() throws Exception {
-		thrown.expect(NullPointerException.class);
+		thrown.expect(IllegalArgumentException.class);
 		new StringFilter(IFilter.Operator.EQUALS, "abcdef",  (InternalAttribute) null, false);
+	}
+	
+	@Test
+	public void testExceptionsUnsupportedOperation() throws Exception {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage(Operator.BEFORE.toString());
+		new StringFilter(IFilter.Operator.BEFORE, "abcdef",  attributeDefinition, false);
 	}
 	
 	
