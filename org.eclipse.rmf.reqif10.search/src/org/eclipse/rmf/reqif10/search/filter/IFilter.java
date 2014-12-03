@@ -12,11 +12,13 @@
 package org.eclipse.rmf.reqif10.search.filter;
 
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
 
-public interface IFilter {
+import com.google.common.collect.ImmutableSet;
+
+public interface IFilter extends ReqifFilter {
 
 	public enum Operator{
-		
 		EQUALS,
 		IS,
 		IS_NOT,
@@ -33,8 +35,12 @@ public interface IFilter {
 		CONTAINS_ALL,
 		CONTAINS_ANY
 	}
+
+	/**
+	 * @return The given Operations supported by a concrete {@link IFilter} implementation.
+	 */
+	public ImmutableSet<Operator> getSupportedOperations();
 	
-	
-	public boolean accept(SpecElementWithAttributes element); 
+	public boolean match(SpecElementWithAttributes element); 
 	
 }

@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Copyright (c) 2014 Formal Mind GmbH.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Ingo Weigelt - initial API and implementation
+ *     Michael Jastram - adding SUPPORTED_OPERATIONS
+ ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
@@ -5,6 +16,9 @@ import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
+
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
 
 public class StringFilter implements IFilter {
 
@@ -41,7 +55,7 @@ public class StringFilter implements IFilter {
 
 	
 	@Override
-	public boolean accept(SpecElementWithAttributes element) {
+	public boolean match(SpecElementWithAttributes element) {
 
 		String theValue;
 
@@ -100,6 +114,13 @@ public class StringFilter implements IFilter {
 		default:
 			throw new UnsupportedOperationException();
 		}
+	}
+
+
+	@Override
+	public ImmutableSet<Operator> getSupportedOperations() {
+		return Sets.immutableEnumSet(Operator.EQUALS, Operator.NOT_EQUALS,
+				Operator.CONTAINS, Operator.NOT_CONTAINS, Operator.REGEXP);
 	}
 
 }
