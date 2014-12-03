@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 Ingo Weigelt
+ * Copyright (c) 2014 Formal Mind GmbH.
  * 
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -20,7 +20,10 @@ public interface IFilter extends ReqifFilter {
 	/**
 	 * Subclasses should implement a static immutable field that allows clients
 	 * to retrieve the list of supported operations.
+	 * 
+	 * public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = ...;
 	 */
+	
 	public enum Operator{
 		EQUALS("operator_equals"),
 		IS("operator_is"),

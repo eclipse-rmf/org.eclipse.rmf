@@ -30,7 +30,7 @@ public class StringFilter implements IFilter {
 	}
 
 	// TODO cross-check this with supported operators.
-	public final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
+	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
 			.immutableEnumSet(Operator.EQUALS, Operator.NOT_EQUALS,
 					Operator.CONTAINS, Operator.NOT_CONTAINS, Operator.REGEXP);
 
