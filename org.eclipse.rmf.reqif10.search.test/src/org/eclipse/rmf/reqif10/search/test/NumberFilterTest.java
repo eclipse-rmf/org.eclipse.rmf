@@ -28,10 +28,10 @@ public class NumberFilterTest extends AbstractItemProviderTest {
 		attributeDefinitionInt = createAttributeDefinitionInteger("AD_INT_ID");
 		SpecObject specObject = createSpecObjectWithInt("X", new BigInteger("1"), attributeDefinitionInt);
 		
-		NumberFilter numberFilter = new NumberFilter(Operator.EQUALS, BigInteger.ONE, null, attributeDefinitionInt);
+		NumberFilter numberFilter = new NumberFilter(Operator.IS, BigInteger.ONE, null, attributeDefinitionInt);
 		assertTrue(numberFilter.match(specObject));
 		
-		numberFilter = new NumberFilter(Operator.EQUALS, BigInteger.TEN, null, attributeDefinitionInt);
+		numberFilter = new NumberFilter(Operator.IS, BigInteger.TEN, null, attributeDefinitionInt);
 		assertFalse(numberFilter.match(specObject));
 		
 		numberFilter = new NumberFilter(Operator.SMALLER, BigInteger.TEN, null, attributeDefinitionInt);
@@ -43,7 +43,7 @@ public class NumberFilterTest extends AbstractItemProviderTest {
 		numberFilter = new NumberFilter(Operator.BETWEEN, BigInteger.ZERO, BigInteger.TEN, attributeDefinitionInt);
 		assertTrue(numberFilter.match(specObject));
 		
-		numberFilter = new NumberFilter(Operator.NOT_EQUALS, BigInteger.ZERO, BigInteger.TEN, attributeDefinitionInt);
+		numberFilter = new NumberFilter(Operator.IS_NOT, BigInteger.ZERO, BigInteger.TEN, attributeDefinitionInt);
 		assertTrue(numberFilter.match(specObject));		
 	}
 	
@@ -53,7 +53,7 @@ public class NumberFilterTest extends AbstractItemProviderTest {
 		attributeDefinitionReal = createAttributeDefinitionReal("AD_REAL_ID");
 		SpecObject specObject = createSpecObjectWithReal("R1", new Double("1.0"), attributeDefinitionReal);
 		
-		NumberFilter numberFilter = new NumberFilter(Operator.EQUALS, new Double("1.0"), null, attributeDefinitionReal);
+		NumberFilter numberFilter = new NumberFilter(Operator.IS, new Double("1.0"), null, attributeDefinitionReal);
 		assertTrue(numberFilter.match(specObject));
 		
 	}

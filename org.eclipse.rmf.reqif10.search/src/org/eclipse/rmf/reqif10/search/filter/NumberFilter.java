@@ -27,7 +27,7 @@ import com.google.common.collect.Sets;
 public class NumberFilter implements IFilter {
 
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
-			.immutableEnumSet(Operator.EQUALS, Operator.NOT_EQUALS,
+			.immutableEnumSet(Operator.IS, Operator.IS_NOT,
 					Operator.BETWEEN, Operator.GREATER, Operator.SMALLER);
 	
 	private AttributeDefinition attributeDefinition;
@@ -95,12 +95,19 @@ public class NumberFilter implements IFilter {
 	public boolean match(SpecElementWithAttributes element) {
 		Number theValue = getTheValue(element);
 		
+		if (null == theValue){
+			if (operator.equals(Operator.IS)){
+				return false;
+			}
+			return true;
+		}
+		
 		value1.compareTo(theValue);
 		
 		switch (operator) {
-		case EQUALS:
+		case IS:
 			return value1.compareTo(theValue) == 0;
-		case NOT_EQUALS:
+		case IS_NOT:
 			return value1.compareTo(theValue) != 0;
 		case BETWEEN:
 			return value1.compareTo(theValue) <= 0 && value2.compareTo(theValue) >= 0;
