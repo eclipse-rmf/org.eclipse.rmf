@@ -10,9 +10,19 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter.ui;
 
+import java.util.ArrayList;
+
 import org.eclipse.jface.dialogs.DialogPage;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
+import org.eclipse.rmf.reqif10.search.filter.IFilter;
+import org.eclipse.rmf.reqif10.search.ui.ReqIFSearchUIPlugin;
 import org.eclipse.search.ui.ISearchPage;
 import org.eclipse.search.ui.ISearchPageContainer;
+import org.eclipse.search.ui.ISearchQuery;
+import org.eclipse.search.ui.NewSearchUI;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -22,6 +32,10 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * The actual search page, which allows the creation of filter criteria.  These
@@ -31,11 +45,27 @@ import org.eclipse.swt.widgets.Control;
  */
 public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 
+	/**
+	 * Must only contains {@link FilterPanel}s!
+	 */
 	private Composite pane;
+	private ReqIF reqif;
 
 	@Override
 	public void createControl(Composite parent) {
+		reqif = findRelevantReqif();
 		parent.setLayout(new GridLayout());
+		setControl(parent);
+
+		// Forbit use without a ReqIF.
+		if (reqif == null) {
+			Label label = new Label(parent, SWT.NONE);
+			label.setText("Please activate a ReqIF Editor before starting search.");
+			label.setLayoutData(new GridData(GridData.CENTER, SWT.CENTER,
+					true, true));
+			return;
+		}
+
 		
 		Composite toolbar = new Composite(parent, SWT.NONE);
 		toolbar.setLayout(new GridLayout(4, false));
@@ -59,7 +89,17 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	    sc.setContent(pane);
 	    sc.setExpandHorizontal(true);
 		
-		setControl(parent);
+	}
+
+	private ReqIF findRelevantReqif() {
+		IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		if (editor instanceof Reqif10Editor) {
+			return ((Reqif10Editor)editor).getReqif();
+		}
+		if (editor instanceof SpecificationEditor) {
+			return ((SpecificationEditor)editor).getReqifEditor().getReqif();
+		}
+		return null;
 	}
 
 	private void createClearButton(Composite toolbar) {
@@ -91,10 +131,44 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 		});
 	}
 
+	@SuppressWarnings("restriction")
 	@Override
 	public boolean performAction() {
-		// TODO Auto-generated method stub
-		return false;
+		ArrayList<IFilter> filters = getFilters();
+		if (filters.isEmpty()) return false;
+		
+		ISearchQuery query = new FilterSearchQuery(findRelevantReqif(), filters.get(0));
+
+		org.eclipse.search2.internal.ui.SearchView searchView = null;
+		try {
+			searchView = (org.eclipse.search2.internal.ui.SearchView) PlatformUI
+					.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+					.showView(NewSearchUI.SEARCH_VIEW_ID);
+		} catch (final PartInitException e) {
+			ReqIFSearchUIPlugin.INSTANCE.log(e);
+		}
+		
+		
+		NewSearchUI.runQueryInForeground(new ProgressMonitorDialog(getShell()),
+				query);
+		if (searchView != null) {
+			searchView.showSearchResult(query.getSearchResult());
+		}
+		return true;
+	}
+
+	/**
+	 * Retrieves the filters from the pane.
+	 */
+	private ArrayList<IFilter> getFilters() {
+		ArrayList<IFilter> filters = new ArrayList<IFilter>();
+		for (Control control : pane.getChildren()) {
+			if (control instanceof FilterPanel) {
+				IFilter filter = ((FilterPanel)control).getFilter();
+				if (filter != null) filters.add(filter);
+			}
+		}
+		return filters;
 	}
 
 	@Override

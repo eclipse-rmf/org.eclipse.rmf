@@ -10,8 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter.ui;
 
-import java.util.Date;
-
+import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
@@ -21,11 +20,13 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 
 /**
  * The {@link FilterPanel} initially only offers the selection of Attributes.
- * Upon selecting one, the fitting criteria are offered.
+ * Upon selecting one, the fitting criteria are offered by instantiating the
+ * correct {@link FilterControl}.
  * 
  * @author jastram
  */
@@ -64,24 +65,39 @@ public class FilterPanel extends Composite {
 	}
 
 	protected void attributeChanged(int selectionIndex) {
-		if (getChildren().length == 3) {
-			getChildren()[2].dispose();
-		}
+		if (getFilterControl() != null) getFilterControl().dispose();
 		
 		switch (selectionIndex) {
 		case 0:
-			StringPanel sp = new StringPanel(this);
+			FilterControlString sp = new FilterControlString(this);
 			sp.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 			break;
 
 		default:
-			Label label = new Label(this, SWT.NONE);
-			label.setText(new Date().toString());
+			// TODO
 			break;
 		}
 
 		layout();
 		getParent().pack();
+	}
+
+	/**
+	 * @return the current FilterControl, or null of not set.
+	 */
+	private FilterControl getFilterControl() {
+		if (getChildren().length != 3) return null;
+		Control control = getChildren()[2];
+		if (! (control instanceof FilterControl)) return null;
+		return (FilterControl) control;
+	}
+
+	/**
+	 * @return the {@link IFilter} representing the state of the
+	 * {@link FilterPanel}, or null if not set or incorrectly configured.
+	 */
+	public IFilter getFilter() {
+		return getFilterControl() == null ? null : getFilterControl().getFilter();
 	}
 	
 }
