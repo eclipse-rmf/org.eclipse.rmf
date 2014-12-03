@@ -27,17 +27,16 @@ import org.eclipse.search.ui.ISearchResultListener;
 
 /**
  * @author Hussein MHANNA
- * 
  */
 public class UsageSearchResult implements ISearchResult {
 
-	private final ReqIFSearchQuery query;
+	private final ISearchQuery query;
 
 	private final Map<Resource, Collection<EObject>> searchEntries;
 
 	private final Collection<ISearchResultListener> searchResultListeners = new ArrayList<ISearchResultListener>();
 
-	public UsageSearchResult(final ReqIFSearchQuery query) {
+	public UsageSearchResult(final ISearchQuery query) {
 		this.query = query;
 		this.searchEntries = new HashMap<Resource, Collection<EObject>>();
 	}
