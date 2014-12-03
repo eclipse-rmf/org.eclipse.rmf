@@ -20,11 +20,19 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 
+/**
+ * Filter for String-based values.
+ */
 public class StringFilter implements IFilter {
 
 	public enum InternalAttributes {
 		IDENTIFIER, DESC, LONG_NAME
 	}
+
+	// TODO cross-check this with supported operators.
+	public final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
+			.immutableEnumSet(Operator.EQUALS, Operator.NOT_EQUALS,
+					Operator.CONTAINS, Operator.NOT_CONTAINS, Operator.REGEXP);
 
 	private Operator operator;
 	private String filterValue;
@@ -116,11 +124,5 @@ public class StringFilter implements IFilter {
 		}
 	}
 
-
-	@Override
-	public ImmutableSet<Operator> getSupportedOperations() {
-		return Sets.immutableEnumSet(Operator.EQUALS, Operator.NOT_EQUALS,
-				Operator.CONTAINS, Operator.NOT_CONTAINS, Operator.REGEXP);
-	}
 
 }

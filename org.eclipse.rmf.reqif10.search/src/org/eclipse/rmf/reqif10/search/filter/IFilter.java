@@ -15,10 +15,12 @@ package org.eclipse.rmf.reqif10.search.filter;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
 
-import com.google.common.collect.ImmutableSet;
-
 public interface IFilter extends ReqifFilter {
 
+	/**
+	 * Subclasses should implement a static immutable field that allows clients
+	 * to retrieve the list of supported operations.
+	 */
 	public enum Operator{
 		EQUALS("operator_equals"),
 		IS("operator_is"),
@@ -46,11 +48,6 @@ public interface IFilter extends ReqifFilter {
 			return label;
 		}
 	}
-	
-	/**
-	 * @return The given Operations supported by a concrete {@link IFilter} implementation.
-	 */
-	public ImmutableSet<Operator> getSupportedOperations();
 	
 	public boolean match(SpecElementWithAttributes element); 
 	
