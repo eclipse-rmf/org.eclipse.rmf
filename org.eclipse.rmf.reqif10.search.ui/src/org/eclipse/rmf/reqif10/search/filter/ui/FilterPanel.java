@@ -10,15 +10,31 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter.ui;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.rmf.reqif10.AttributeDefinition;
+import org.eclipse.rmf.reqif10.AttributeDefinitionString;
+import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.SpecType;
+import org.eclipse.rmf.reqif10.search.filter.DateFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
+import org.eclipse.rmf.reqif10.search.filter.StringFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -32,8 +48,11 @@ import org.eclipse.swt.widgets.Label;
  */
 public class FilterPanel extends Composite {
 
-	public FilterPanel(final Composite parent) {
+	private ReqIF reqif;
+
+	public FilterPanel(final Composite parent, ReqIF reqif) {
 		super(parent, SWT.BORDER);
+		this.reqif = reqif;
 		setLayout(new GridLayout(3, false));
 
 		Label close = new Label(this, SWT.FLAT);
@@ -47,37 +66,65 @@ public class FilterPanel extends Composite {
 			}
 		});
 		
-		final Combo attr = new Combo(this, SWT.DROP_DOWN | SWT.BORDER | SWT.READ_ONLY);
+		final ComboViewer attr = new ComboViewer(this, SWT.DROP_DOWN | SWT.BORDER | SWT.READ_ONLY);
 		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
 		layoutData.widthHint = 180;
-		attr.setLayoutData(layoutData);
-		attr.add("identifier");
-		attr.add("lastChange");
-		attr.add("desc");
-		attr.add("longName");
-		attr.addSelectionListener(new SelectionAdapter() {
-			
+		attr.getControl().setLayoutData(layoutData);
+		attr.setLabelProvider(new AttributeLabelProvider());
+		attr.setContentProvider(new ArrayContentProvider());
+		attr.setInput(createAttributeInput().toArray());
+
+		attr.addSelectionChangedListener(new ISelectionChangedListener() {
 			@Override
-			public void widgetSelected(SelectionEvent e) {
-				attributeChanged(attr.getSelectionIndex());
-			}			
+			public void selectionChanged(SelectionChangedEvent event) {
+				if (! event.getSelection().isEmpty()) {
+					Object selectedAttr = ((IStructuredSelection)event.getSelection()).getFirstElement();
+					attributeChanged(selectedAttr);					
+				}
+			}
 		});
+
 	}
 
-	protected void attributeChanged(int selectionIndex) {
-		if (getFilterControl() != null) getFilterControl().dispose();
-		
-		switch (selectionIndex) {
-		case 0:
-			FilterControlString sp = new FilterControlString(this);
-			sp.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-			break;
+	private List<?> createAttributeInput() {
+		List<? super Object> list = new ArrayList<Object>();
 
-		default:
-			// TODO
-			break;
+		// Internal Attributes
+		list.addAll(Arrays.asList(StringFilter.InternalAttribute.values()));
+		list.addAll(Arrays.asList(DateFilter.InternalAttribute.values()));
+		
+		// All Attributes in the model
+		Map<String, AttributeDefinition> attributes = new HashMap<String, AttributeDefinition>();
+		for (SpecType specType : reqif.getCoreContent().getSpecTypes()) {
+			for (AttributeDefinition ad : specType.getSpecAttributes()) {
+				attributes.put(specType.getLongName() + "." + ad.getLongName(), ad);
+			}
 		}
 
+		// Add them in alphabetical order.
+		List<String> sortedKeys = new ArrayList<String>(attributes.keySet());
+		for (String key : sortedKeys) {
+			list.add(attributes.get(key));			
+		}
+
+		return list;
+	}
+
+	protected void attributeChanged(Object attribute) {
+		FilterControl filterControl;
+		if (getFilterControl() != null) getFilterControl().dispose();
+		
+		
+		if (Arrays.asList(StringFilter.InternalAttribute.values()).contains(attribute)) {
+			filterControl = new FilterControlString(this, (StringFilter.InternalAttribute)attribute);
+		} else if (attribute instanceof AttributeDefinitionString) {
+			filterControl = new FilterControlString(this, (AttributeDefinitionString)attribute);
+		} else {
+			MessageDialog.openError(getShell(), "Invalid Selection", "Cannot handle (yet): " + attribute);
+			filterControl = null;
+		}
+
+		filterControl.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		layout();
 		getParent().pack();
 	}
@@ -99,5 +146,20 @@ public class FilterPanel extends Composite {
 	public IFilter getFilter() {
 		return getFilterControl() == null ? null : getFilterControl().getFilter();
 	}
-	
+
+	/**
+	 * To handle objects in the Attribute dropdown, instead of just Strings..
+	 */
+	class AttributeLabelProvider extends LabelProvider {
+		@Override
+		public String getText(Object element) {
+			if (element instanceof AttributeDefinition) {
+				AttributeDefinition ad = (AttributeDefinition)element;
+				SpecType specType = (SpecType) ad.eContainer();
+				return ad.getLongName() + " (" + specType.getLongName() + ")";
+			}
+			return element.toString();
+		}
+	}
+
 }

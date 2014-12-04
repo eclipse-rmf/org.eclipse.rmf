@@ -41,6 +41,8 @@ import org.eclipse.ui.PlatformUI;
  * The actual search page, which allows the creation of filter criteria.  These
  * are realized as {@link FilterPanel}s.
  * 
+ * Each {@link FilterPanel} consists of {@link FilterControl}s.
+ * 
  * @author jastram
  */
 public class ReqIFSearchPage extends DialogPage implements ISearchPage {
@@ -88,7 +90,6 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	    pane.setLayout(new GridLayout());
 	    sc.setContent(pane);
 	    sc.setExpandHorizontal(true);
-		
 	}
 
 	private ReqIF findRelevantReqif() {
@@ -124,7 +125,7 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 		add.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				FilterPanel filterPanel = new FilterPanel(pane);
+				FilterPanel filterPanel = new FilterPanel(pane, reqif);
 				filterPanel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 				pane.pack();
 			}
