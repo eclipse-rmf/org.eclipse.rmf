@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.rmf.reqif10.pror.configuration.*;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
@@ -40,7 +41,7 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 	 */
 	public static ConfigurationFactory init() {
 		try {
-			ConfigurationFactory theConfigurationFactory = (ConfigurationFactory)EPackage.Registry.INSTANCE.getEFactory("http://eclipse.org/rmf/pror/toolextensions/1.0"); 
+			ConfigurationFactory theConfigurationFactory = (ConfigurationFactory)EPackage.Registry.INSTANCE.getEFactory(ConfigurationPackage.eNS_URI);
 			if (theConfigurationFactory != null) {
 				return theConfigurationFactory;
 			}
@@ -75,6 +76,7 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS: return createProrPresentationConfigurations();
 			case ConfigurationPackage.PROR_GENERAL_CONFIGURATION: return createProrGeneralConfiguration();
 			case ConfigurationPackage.LABEL_CONFIGURATION: return createLabelConfiguration();
+			case ConfigurationPackage.UNIFIED_COLUMN: return createUnifiedColumn();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -138,6 +140,16 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 	public LabelConfiguration createLabelConfiguration() {
 		LabelConfigurationImpl labelConfiguration = new LabelConfigurationImpl();
 		return labelConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnifiedColumn createUnifiedColumn() {
+		UnifiedColumnImpl unifiedColumn = new UnifiedColumnImpl();
+		return unifiedColumn;
 	}
 
 	/**

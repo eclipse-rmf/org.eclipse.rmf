@@ -307,6 +307,44 @@ public interface ConfigurationPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.rmf.reqif10.pror.configuration.impl.UnifiedColumnImpl <em>Unified Column</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.rmf.reqif10.pror.configuration.impl.UnifiedColumnImpl
+	 * @see org.eclipse.rmf.reqif10.pror.configuration.impl.ConfigurationPackageImpl#getUnifiedColumn()
+	 * @generated
+	 */
+	int UNIFIED_COLUMN = 7;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIFIED_COLUMN__LABEL = COLUMN__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIFIED_COLUMN__WIDTH = COLUMN__WIDTH;
+
+	/**
+	 * The number of structural features of the '<em>Unified Column</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIFIED_COLUMN_FEATURE_COUNT = COLUMN_FEATURE_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension <em>Pror Tool Extension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -509,6 +547,16 @@ public interface ConfigurationPackage extends EPackage {
 	EAttribute getLabelConfiguration_DefaultLabel();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn <em>Unified Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unified Column</em>'.
+	 * @see org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn
+	 * @generated
+	 */
+	EClass getUnifiedColumn();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -695,6 +743,16 @@ public interface ConfigurationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LABEL_CONFIGURATION__DEFAULT_LABEL = eINSTANCE.getLabelConfiguration_DefaultLabel();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.rmf.reqif10.pror.configuration.impl.UnifiedColumnImpl <em>Unified Column</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.rmf.reqif10.pror.configuration.impl.UnifiedColumnImpl
+		 * @see org.eclipse.rmf.reqif10.pror.configuration.impl.ConfigurationPackageImpl#getUnifiedColumn()
+		 * @generated
+		 */
+		EClass UNIFIED_COLUMN = eINSTANCE.getUnifiedColumn();
 
 	}
 

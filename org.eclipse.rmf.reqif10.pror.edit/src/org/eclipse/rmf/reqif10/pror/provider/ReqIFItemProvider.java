@@ -14,7 +14,6 @@ package org.eclipse.rmf.reqif10.pror.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -38,7 +37,6 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
-import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 
 /**

@@ -12,6 +12,8 @@ package org.eclipse.rmf.reqif10.pror.editor.actions;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
@@ -28,6 +30,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
+import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.ReqifSpecificationEditorInput;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
@@ -91,11 +94,52 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 								config.getSpecification(),
 								editor.getAdapterFactory()),
 				"org.eclipse.rmf.reqif10.pror.editor.columnConfiguration");
-		dialog.setActions(new IAction[] { buildAddColumnAction(config) }, false);
+		dialog.setActions(new IAction[] { buildAddColumnAction(config), buildUnifiedColumnAction(config) }, false);
 		dialog.open();
 		return;
 	}
 
+	/**
+	 * The Unified Column shows Reqif.Text and Reqif.Title in the same column
+	 */
+	private IAction buildUnifiedColumnAction(final ProrSpecViewConfiguration config) {
+		final IAction toggleUnifiedColumnAction = new Action("Unified Column") {
+			
+			@Override
+			public void run() {
+				if (! containsUnifiedColumn(config)) {
+					UnifiedColumn column = ConfigurationFactory.eINSTANCE.createUnifiedColumn();
+					column.setLabel("Main");
+					Command cmd = AddCommand
+							.create(editor.getEditingDomain(),
+									config,
+									ConfigurationPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
+									column);
+					editor.getEditingDomain().getCommandStack().execute(cmd);
+				}
+			}
+		};
+		config.eAdapters().add(new AdapterImpl() {
+			@Override
+			public void notifyChanged(Notification msg) {
+				super.notifyChanged(msg);
+				toggleUnifiedColumnAction.setEnabled(! containsUnifiedColumn(config));
+			}
+		});
+		toggleUnifiedColumnAction.setEnabled(! containsUnifiedColumn(config));
+		return toggleUnifiedColumnAction;
+	}
+
+	/**
+	 * @return true if the given config already contains a {@link UnifiedColumn}.
+	 */
+	private boolean containsUnifiedColumn(ProrSpecViewConfiguration config) {
+		for (Column column : config.getColumns()) {
+			if (column instanceof UnifiedColumn) return true;
+		}
+		return false;
+	}
+	
 	/**
 	 * Creates a new Column. If no Columns are present, this is the only way to
 	 * add Columns.

@@ -26,6 +26,14 @@ Contributors:
             class="org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage"
             genModel="model/reqif10.genmodel"/>
    </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated reqif10 -->
+      <parser
+            type="configuration"
+            class="org.eclipse.rmf.reqif10.pror.configuration.util.ConfigurationResourceFactoryImpl"/>
+   </extension>
+
    <extension
          point="org.eclipse.ui.intro">
       <intro
