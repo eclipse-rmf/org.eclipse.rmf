@@ -28,20 +28,25 @@ public class FilterControlString extends FilterControl {
 	private Combo attr;
 	private Button caseSensitive;
 	private Object attribute;
+	private StringFilter templateFilter;
 
 	public FilterControlString(FilterPanel parent, StringFilter.InternalAttribute attribute) {
-		this(parent);
+		this(parent, (StringFilter)null);
 		this.attribute = attribute;
 	}
 
 	public FilterControlString(FilterPanel parent,
 			AttributeDefinitionString attribute) {
-		this(parent);
+		this(parent, (StringFilter)null);
 		this.attribute = attribute;
 	}
 
-	private FilterControlString(FilterPanel parent) {
+	public FilterControlString(FilterPanel parent, StringFilter template) {
 		super(parent, SWT.FLAT);
+		if (template != null) {
+			this.attribute = template.getAttribute();
+			this.templateFilter = template;			
+		}
 		setLayout(new GridLayout(3, false));
 		createOperators();
 		createCaseSensitive();
@@ -52,6 +57,7 @@ public class FilterControlString extends FilterControl {
 		text = new Text(this, SWT.SINGLE | SWT.BORDER | SWT.FILL);
 		GridData layoutData = new GridData(SWT.FILL, SWT.CENTER, true, false);
 		text.setLayoutData(layoutData);
+		if (templateFilter != null) text.setText(templateFilter.getfilterValue());
 	}
 
 	private void createCaseSensitive() {
@@ -60,6 +66,7 @@ public class FilterControlString extends FilterControl {
 		caseSensitive.setToolTipText("Case Sensitive");
 		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
 		caseSensitive.setLayoutData(layoutData);
+		if (templateFilter != null) caseSensitive.setSelection(templateFilter.isCaseSensitive());
 	}
 
 	private void createOperators() {
@@ -69,6 +76,10 @@ public class FilterControlString extends FilterControl {
 		for (Operator operator : StringFilter.SUPPORTED_OPERATORS) {
 			attr.add(operator.toString());			
 		}
+		attr.select(0);
+		if (templateFilter != null)
+			attr.select(StringFilter.SUPPORTED_OPERATORS.asList().indexOf(
+					templateFilter.getOperator()));
 	}
 	
 	public IFilter getFilter() {
