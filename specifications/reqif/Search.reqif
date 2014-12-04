@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="rmf-b97f0da3-31b1-4fa4-8bf2-1a9760318841">
+      <COMMENT>Created by: jastram</COMMENT>
+      <CREATION-TIME>2014-12-04T08:14:06.220+01:00</CREATION-TIME>
+      <REQ-IF-TOOL-ID>ProR (http://pror.org)</REQ-IF-TOOL-ID>
+      <REQ-IF-VERSION>1.0.1</REQ-IF-VERSION>
+      <SOURCE-TOOL-ID>ProR (http://pror.org)</SOURCE-TOOL-ID>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_Ii3vI3uFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:14:06.220+01:00" LONG-NAME="T_String32k" MAX-LENGTH="32000"/>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPECIFICATION-TYPE IDENTIFIER="_Ii3vJnuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:14:06.220+01:00" LONG-NAME="Specification Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_Ii3vJ3uFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:14:06.220+01:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_Ii3vI3uFEeS1tthkGDp8zA</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_RdybsHuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:15:06.090+01:00" LONG-NAME="Requirement Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_RdybsXuFEeS1tthkGDp8zA" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_Ii3vI3uFEeS1tthkGDp8zA</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_RdybsnuFEeS1tthkGDp8zA" LONG-NAME="ReqIF.Text">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_Ii3vI3uFEeS1tthkGDp8zA</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT IDENTIFIER="_Ii3vKHuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:16:31.985+01:00">
+          <VALUES/>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Rd7loHuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:15:06.106+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsXuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="While there is very basic search support available, it is currently not suitable for professional work.  The objective of this project is to improve this, as follows:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_ReHL0HuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:15:06.125+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Search-UI">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsXuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The following is a proposal on how the interface could look like, based on best practices in user interface design. Note that this is a non-functional mock-up.  The final Details regarding the conditions are found after this table in “Search Conditions” below. interface will differ in appearance. The search interface allows the user to to configure a number of “conditions”.  These relate either to internal attributes (e.g. internal ID) or attribute values (those attributes that the user creates), with typical type-specific relations: equal, contains, etc.  All conditions are combined via “and” or “or”.  More complex relationships are not supported in this first implementation. Details regarding the conditions are found after this table in “Search Conditions” below.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_ReRj4HuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:15:06.141+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Spec-Nav">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsXuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Within a Specification, users can navigate between search results via corresponding buttons in the toolbar, i.e. .  Note that this will not cycle through elements outside the specification (e.g. elements in other Specifications or SpecTypes).">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Reb78HuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:15:06.158+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Result-Nav">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsXuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The result of a search will be shown in a separate view, as shown in the mockup (implementation appearance may vary).  In will show all matches, including those that are not accessible from the Specification Editor.  The View will exhibit the following behavior:&#xA;Selecting any element will show its properties in the Properties View, where it can be edited.&#xA;Double-Clicking on a SpecHierarchy will open the corresponding Specification, with the clicked SpecHierarchy selected.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="_Ii3vKnuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:14:06.220+01:00" LONG-NAME="Specification Document">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Requirements Document">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Ii3vJ3uFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>_Ii3vJnuFEeS1tthkGDp8zA</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="_Ii3vLHuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:14:06.220+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_Ii3vKHuFEeS1tthkGDp8zA</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_ReFWoHuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:15:06.106+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_Rd7loHuFEeS1tthkGDp8zA</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_ReQVwHuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:15:06.125+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_ReHL0HuFEeS1tthkGDp8zA</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_Reat0HuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:15:06.141+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_ReRj4HuFEeS1tthkGDp8zA</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_ReoJMHuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:15:06.158+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_Reb78HuFEeS1tthkGDp8zA</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration specification="_Ii3vKnuFEeS1tthkGDp8zA">
+            <configuration:columns>
+              <configuration:Column label="ID"/>
+              <configuration:Column label="ReqIF.Text" width="300"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration>
+                <defaultLabel>Description</defaultLabel>
+              </configuration:LabelConfiguration>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+      </configuration:ProrToolExtension>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>
