@@ -10,10 +10,11 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter.ui;
 
+import org.eclipse.rmf.reqif10.AttributeDefinitionString;
+import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter.InternalAttribute;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
 import org.eclipse.rmf.reqif10.search.filter.StringFilter;
-import org.eclipse.rmf.reqif10.search.filter.StringFilter.InternalAttribute;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -26,13 +27,25 @@ public class FilterControlString extends FilterControl {
 	private Text text;
 	private Combo attr;
 	private Button caseSensitive;
+	private Object attribute;
 
-	public FilterControlString(FilterPanel parent) {
+	public FilterControlString(FilterPanel parent, StringFilter.InternalAttribute attribute) {
+		this(parent);
+		this.attribute = attribute;
+	}
+
+	public FilterControlString(FilterPanel parent,
+			AttributeDefinitionString attribute) {
+		this(parent);
+		this.attribute = attribute;
+	}
+
+	private FilterControlString(FilterPanel parent) {
 		super(parent, SWT.FLAT);
 		setLayout(new GridLayout(3, false));
 		createOperators();
 		createCaseSensitive();
-		createText();
+		createText();		
 	}
 
 	private void createText() {
@@ -61,8 +74,12 @@ public class FilterControlString extends FilterControl {
 	public IFilter getFilter() {
 		Operator operator = StringFilter.SUPPORTED_OPERATORS.asList().get(attr.getSelectionIndex());
 		String value = text.getText();
-		InternalAttribute internalFeature = InternalAttribute.IDENTIFIER;
-		return new StringFilter(operator, value, internalFeature, caseSensitive.getSelection());
+		if (attribute instanceof InternalAttribute) {
+			return new StringFilter(operator, value, (InternalAttribute) attribute, caseSensitive.getSelection());
+		} else if (attribute instanceof AttributeDefinitionString) {
+			return new StringFilter(operator, value, (AttributeDefinitionString) attribute, caseSensitive.getSelection());
+		} else {
+			throw new IllegalStateException("Can't handle: " + attribute);
+		}
 	}
-
 }

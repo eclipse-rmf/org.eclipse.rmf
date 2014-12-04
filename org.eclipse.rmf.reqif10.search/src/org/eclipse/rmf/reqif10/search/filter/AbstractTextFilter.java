@@ -8,6 +8,7 @@
  * Contributors:
  *     Ingo Weigelt - initial API and implementation
  *     Michael Jastram - adding SUPPORTED_OPERATIONS
+ *     Michael Jastram - adding getters, so that we can reconstruct the GUI
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
@@ -205,6 +206,21 @@ public abstract class AbstractTextFilter implements IFilter {
 		Matcher matcher = p.matcher(value);
 		return matcher.find();
 	}
+	
+	public boolean isCaseSensitive() {
+		return caseSensitive;
+	}
+	
+	public String getfilterValue() {
+		return filterValue;
+	}
 
+	public Operator getOperator() {
+		return operator;
+	}
+	
+	public Object getAttribute() {
+		return isInternal ? internalAttribute : attributeDefinition;
+	}
 
 }
