@@ -54,4 +54,9 @@ public interface IFilter extends ReqifFilter {
 	
 	public boolean match(SpecElementWithAttributes element); 
 	
+	/**
+	 * Returns the Attribute for this filter.
+	 */
+	public Object getAttribute();
+	
 }

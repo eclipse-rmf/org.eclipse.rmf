@@ -145,6 +145,11 @@ public class DateFilter implements IFilter {
 		}
 	}
 
+	@Override
+	public Object getAttribute() {
+		return isInternal ? internalAttribute : attributeDefinition;
+	}
+
 	
 
 
