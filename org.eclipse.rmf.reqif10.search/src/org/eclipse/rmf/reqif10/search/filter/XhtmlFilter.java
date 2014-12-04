@@ -11,11 +11,16 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
+import java.io.IOException;
+
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.common.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
@@ -46,12 +51,12 @@ public class XhtmlFilter extends AbstractTextFilter {
 
 	@Override
 	public boolean match(SpecElementWithAttributes element) {
-		if (super.SUPPORTED_OPERATORS.contains(operator)){
-			return super.match(element);
+		if (operator.equals(Operator.REGEXP_PLAIN)){
+			AttributeValueXHTML attributeValue = (AttributeValueXHTML) ReqIF10Util.getAttributeValue(element, attributeDefinition);
+			String simplifiedString = ProrXhtmlSimplifiedHelper.xhtmlToSimplifiedString(attributeValue.getTheValue());
+			return matchRegexp(simplifiedString);
 		}else{
-			//TODO
-			System.out.println("NEED TO IMPLEMENT " + operator.toString());
-			return false;
+			return super.match(element);
 		}
 	}
 
@@ -69,8 +74,12 @@ public class XhtmlFilter extends AbstractTextFilter {
 		if (attributeValue == null){
 			return null;
 		}
-		
-		return attributeValue.getTheValue().getXhtmlSource();
+		XhtmlContent xhtmlContent = attributeValue.getTheValue();
+		try {
+			return ReqIF10XhtmlUtil.getXhtmlString(xhtmlContent);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 
