@@ -11,8 +11,8 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
+import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
-import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
@@ -23,132 +23,47 @@ import com.google.common.collect.Sets;
 /**
  * Filter for String-based values.
  */
-public class StringFilter implements IFilter {
-
-	public enum InternalAttribute {
-		IDENTIFIER, DESC, LONG_NAME
-	}
+public class StringFilter extends AbstractTextFilter {
 
 	// TODO cross-check this with supported operators.
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
 			.immutableEnumSet(Operator.EQUALS, Operator.NOT_EQUALS,
 					Operator.CONTAINS, Operator.NOT_CONTAINS, Operator.REGEXP);
 
-	private Operator operator;
-	private String filterValue;
-	private AttributeDefinitionString attributeDefinition;
-	private InternalAttribute internalAttribute;
-	private boolean caseSensitive;
-	private boolean isInternal;
-
-	
 	/**
-	 * Constructor used to create a filter for an {@link AttributeDefinitionString}
+	 * Constructor used to create a filter for an
+	 * {@link AttributeDefinitionString}
 	 * 
-	 * @param operator the filter operator to use
-	 * @param value the value to match
-	 * @param attributeDefinition the attributeDefinition that defines the value of a SpecObject that should be matched
-	 * @param caseSensitive 
+	 * @param operator
+	 *            the filter operator to use
+	 * @param value
+	 *            the value to match
+	 * @param attributeDefinition
+	 *            the attributeDefinition that defines the value of a SpecObject
+	 *            that should be matched
+	 * @param caseSensitive
 	 */
 	public StringFilter(Operator operator, String value,
 			AttributeDefinitionString attributeDefinition, boolean caseSensitive) {
-		this(operator, value, null, attributeDefinition, caseSensitive);
-		this.isInternal = false;
-		if (null == attributeDefinition){
-			throw new IllegalArgumentException("AttributeDefinition can not be null");
-		}
+		super(operator, value, null, (AttributeDefinition) attributeDefinition,
+				caseSensitive);
 	}
 
 	/**
 	 * Constructor used to create a filter for an {@link InternalAttribute}
 	 * 
-	 * @param operator the filter operator to use
-	 * @param value the value to match
-	 * @param attributeDefinition the attributeDefinition that defines the value of a SpecObject that should be matched
-	 * @param caseSensitive 
+	 * @param operator
+	 *            the filter operator to use
+	 * @param value
+	 *            the value to match
+	 * @param attributeDefinition
+	 *            the attributeDefinition that defines the value of a SpecObject
+	 *            that should be matched
+	 * @param caseSensitive
 	 */
 	public StringFilter(Operator operator, String value,
 			InternalAttribute internalFeature, boolean caseSensitive) {
-		this(operator, value, internalFeature, null, caseSensitive);
-		this.isInternal = true;
-		if (null == internalFeature){
-			throw new IllegalArgumentException("AttributeDefinition can not be null");
-		}
-	}
-	
-	private StringFilter(Operator operator, String value, 
-			InternalAttribute internalFeature, AttributeDefinitionString ad, boolean caseSensitive){
-
-		if (!SUPPORTED_OPERATORS.contains(operator)){
-			throw new IllegalArgumentException(
-					"This filter does not support the " + operator.toString()
-							+ " operation");
-		}
-		if (null == value){
-			throw new IllegalArgumentException(
-					"Value can not be null");
-		}
-		
-		this.operator = operator;
-		this.filterValue = (null == value ? "" : value);
-		this.internalAttribute = internalFeature;
-		this.attributeDefinition = ad;
-		this.caseSensitive = caseSensitive;
-	}
-
-	
-	@Override
-	public boolean match(SpecElementWithAttributes element) {
-
-		String theValue;
-
-		// retrieve the value to check depending on this is a filter on an
-		// internal Attribute or a value
-		if (isInternal) {
-			theValue = getInternalAttributeValue(element);
-		} else {
-			AttributeValue attributeValue = ReqIF10Util.getAttributeValue(
-					element, attributeDefinition);
-			theValue = (null == attributeValue ? null : ((AttributeValueString) attributeValue).getTheValue());
-		}
-		
-		if (theValue == null){
-			switch (operator) {
-			case EQUALS:
-			case CONTAINS:
-				return false;
-			case NOT_EQUALS:
-			case NOT_CONTAINS:
-				return true;
-			case REGEXP:
-				// apply regexp to the empty string
-				return "".matches(filterValue);
-			default:
-				break;
-			}
-		}
-
-		switch (operator) {
-		case EQUALS:
-			return (caseSensitive ? theValue.equals(filterValue)  
-								  : theValue.equalsIgnoreCase(filterValue));
-		case NOT_EQUALS:
-			return (caseSensitive ? !theValue.equals(filterValue) 
-					              :	!theValue.equalsIgnoreCase(filterValue));
-		case CONTAINS:
-			return (caseSensitive ? theValue.contains(filterValue) 
-					              : theValue.toLowerCase().contains(filterValue.toLowerCase()));
-		case NOT_CONTAINS:
-			return (caseSensitive ? !theValue.contains(filterValue) 
-					              : !theValue.toLowerCase().contains(filterValue.toLowerCase()));
-		case REGEXP:
-			return (caseSensitive ? theValue.matches(filterValue) 
-					              : theValue.toLowerCase().matches(filterValue.toLowerCase()));
-		default:
-			throw new IllegalArgumentException(
-					"This filter does not support the " + this.operator
-							+ " operation");
-		}
+		super(operator, value, internalFeature, null, caseSensitive);
 	}
 
 	/**
@@ -157,7 +72,7 @@ public class StringFilter implements IFilter {
 	 * 
 	 * @return
 	 */
-	private String getInternalAttributeValue(SpecElementWithAttributes element) {
+	protected String getInternalAttributeValue(SpecElementWithAttributes element) {
 		switch (internalAttribute) {
 		case IDENTIFIER:
 			return element.getIdentifier();
@@ -170,5 +85,20 @@ public class StringFilter implements IFilter {
 		}
 	}
 
+	@Override
+	protected String getAttributeValue(SpecElementWithAttributes element) {
+		AttributeValueString attributeValue = (AttributeValueString) ReqIF10Util
+				.getAttributeValue(element, attributeDefinition);
+		if (attributeValue == null) {
+			return null;
+		}
+
+		return attributeValue.getTheValue();
+	}
+
+	@Override
+	protected ImmutableSet<Operator> getSupportedOperators() {
+		return SUPPORTED_OPERATORS;
+	}
 
 }

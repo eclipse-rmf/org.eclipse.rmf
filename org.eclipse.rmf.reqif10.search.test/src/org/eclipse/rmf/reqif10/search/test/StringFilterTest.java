@@ -25,10 +25,10 @@ import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
+import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter.InternalAttribute;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
 import org.eclipse.rmf.reqif10.search.filter.StringFilter;
-import org.eclipse.rmf.reqif10.search.filter.StringFilter.InternalAttribute;
 import org.eclipse.rmf.reqif10.search.testdata.TestData;
 import org.junit.Before;
 import org.junit.Rule;
@@ -49,11 +49,15 @@ public class StringFilterTest extends AbstractItemProviderTest{
 	}
 	
 	
-	
 	@Test
 	public void testEquals() throws Exception {
-		StringFilter stringFilter = new StringFilter(IFilter.Operator.EQUALS, "abcDEF",  attributeDefinition, true);
-		assertTrue(stringFilter.match(specObject));
+		StringFilter stringFilter;
+		try{
+			stringFilter = new StringFilter(IFilter.Operator.EQUALS, "abcDEF",  attributeDefinition, true);
+			assertTrue(stringFilter.match(specObject));
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		stringFilter = new StringFilter(IFilter.Operator.EQUALS, "abcDEF",  attributeDefinition, false);
 		assertTrue(stringFilter.match(specObject));
@@ -100,7 +104,18 @@ public class StringFilterTest extends AbstractItemProviderTest{
 	
 	@Test
 	public void testRegExp() throws Exception {
-		fail("Not yet implemented");
+		StringFilter stringFilter;
+		
+		stringFilter= new StringFilter(IFilter.Operator.REGEXP, ".*b.*",  attributeDefinition, true);
+		assertTrue(stringFilter.match(specObject));
+		
+		stringFilter= new StringFilter(IFilter.Operator.REGEXP, ".*ABC.*",  attributeDefinition, true);
+		assertFalse(stringFilter.match(specObject));
+		
+		stringFilter= new StringFilter(IFilter.Operator.REGEXP, ".*ABC.*",  attributeDefinition, false);
+		assertTrue(stringFilter.match(specObject));
+		
+		//fail("Not yet implemented");
 	}
 	
 	@Test
@@ -160,6 +175,13 @@ public class StringFilterTest extends AbstractItemProviderTest{
 		thrown.expect(IllegalArgumentException.class);
 		thrown.expectMessage(Operator.BEFORE.toString());
 		new StringFilter(IFilter.Operator.BEFORE, "abcdef",  attributeDefinition, false);
+	}
+	
+	@Test
+	public void testExceptionsUnsupportedOperation2() throws Exception {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage(Operator.REGEXP_PLAIN.toString());
+		new StringFilter(IFilter.Operator.REGEXP_PLAIN, "abcdef",  attributeDefinition, false);
 	}
 	
 	
