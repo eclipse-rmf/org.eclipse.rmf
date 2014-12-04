@@ -46,7 +46,7 @@ public class XhtmlFilter extends AbstractTextFilter {
 
 	@Override
 	public boolean match(SpecElementWithAttributes element) {
-		if (super.SUPPORTED_OPERATORS.contains(operator)){
+		if (AbstractTextFilter.SUPPORTED_OPERATORS.contains(operator)){
 			return super.match(element);
 		}else{
 			//TODO
