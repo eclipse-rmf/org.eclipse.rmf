@@ -14,7 +14,6 @@ package org.eclipse.rmf.reqif10.pror.configuration.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -30,7 +29,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
-import org.eclipse.rmf.reqif10.pror.provider.ReqIFToolExtensionItemProvider;
 import org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin;
 
 

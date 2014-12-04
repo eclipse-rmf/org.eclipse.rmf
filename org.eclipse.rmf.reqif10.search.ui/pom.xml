@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.eclipse.rmf</groupId>
 		<artifactId>org.eclipse.rmf.releng</artifactId>
-		<version>0.11.0-SNAPSHOT</version>
+		<version>0.12.0-SNAPSHOT</version>
 		<relativePath>../org.eclipse.rmf.releng/pom.xml</relativePath>
 	</parent>
 	<artifactId>org.eclipse.rmf.reqif10.search.ui</artifactId>

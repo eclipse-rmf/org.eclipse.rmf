@@ -28,6 +28,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
+import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
 
 
 /**
@@ -85,6 +86,13 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * @generated
 	 */
 	private EClass labelConfigurationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unifiedColumnEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -331,6 +339,15 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUnifiedColumn() {
+		return unifiedColumnEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ConfigurationFactory getConfigurationFactory() {
 		return (ConfigurationFactory)getEFactoryInstance();
 	}
@@ -379,6 +396,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 
 		labelConfigurationEClass = createEClass(LABEL_CONFIGURATION);
 		createEAttribute(labelConfigurationEClass, LABEL_CONFIGURATION__DEFAULT_LABEL);
+
+		unifiedColumnEClass = createEClass(UNIFIED_COLUMN);
 	}
 
 	/**
@@ -412,6 +431,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		unifiedColumnEClass.getESuperTypes().add(this.getColumn());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(prorToolExtensionEClass, ProrToolExtension.class, "ProrToolExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -440,6 +460,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		initEClass(labelConfigurationEClass, LabelConfiguration.class, "LabelConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLabelConfiguration_DefaultLabel(), ecorePackage.getEString(), "defaultLabel", null, 0, -1, LabelConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(unifiedColumnEClass, UnifiedColumn.class, "UnifiedColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Create resource
 		createResource(eNS_URI);
 
@@ -457,7 +479,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
 		addAnnotation
 		  (getProrToolExtension_SpecViewConfigurations(), 
 		   source, 
@@ -465,7 +487,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "specViewConfigurations",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrToolExtension_GeneralConfiguration(), 
 		   source, 
@@ -473,7 +495,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "generalConfiguration",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrToolExtension_PresentationConfigurations(), 
 		   source, 
@@ -481,7 +503,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "presentationConfigurations",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrSpecViewConfiguration_Columns(), 
 		   source, 
@@ -489,7 +511,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "columns",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrSpecViewConfiguration_LeftHeaderColumn(), 
 		   source, 
@@ -497,7 +519,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "leftHeaderColumn",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrPresentationConfigurations_PresentationConfigurations(), 
 		   source, 
@@ -505,7 +527,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "presentationConfigurations",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrGeneralConfiguration_LabelConfiguration(), 
 		   source, 
@@ -513,7 +535,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "name", "labelConfiguration",
 			 "kind", "element",
 			 "namespace", "##targetNamespace"
-		   });	
+		   });
 	}
 
 	/**
@@ -523,7 +545,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * @generated
 	 */
 	protected void createXMLPersistenceMappingExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";			
+		String source = "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData";	
 		addAnnotation
 		  (getProrToolExtension_SpecViewConfigurations(), 
 		   source, 
@@ -533,7 +555,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrToolExtension_GeneralConfiguration(), 
 		   source, 
@@ -543,7 +565,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrToolExtension_PresentationConfigurations(), 
 		   source, 
@@ -553,7 +575,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrSpecViewConfiguration_Columns(), 
 		   source, 
@@ -563,7 +585,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrSpecViewConfiguration_LeftHeaderColumn(), 
 		   source, 
@@ -573,7 +595,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrPresentationConfigurations_PresentationConfigurations(), 
 		   source, 
@@ -583,7 +605,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 			 "featureElement", "false",
 			 "classifierWrapperElement", "false",
 			 "classifierElement", "true"
-		   });			
+		   });	
 		addAnnotation
 		  (getProrGeneralConfiguration_LabelConfiguration(), 
 		   source, 
