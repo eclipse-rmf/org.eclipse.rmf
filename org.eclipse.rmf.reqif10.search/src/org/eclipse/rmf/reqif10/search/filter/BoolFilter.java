@@ -12,10 +12,7 @@
 package org.eclipse.rmf.reqif10.search.filter;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
-import org.eclipse.rmf.reqif10.AttributeDefinitionString;
-import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueBoolean;
-import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 

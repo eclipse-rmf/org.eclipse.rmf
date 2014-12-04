@@ -12,15 +12,10 @@
 package org.eclipse.rmf.reqif10.search.filter;
 
 import org.eclipse.rmf.reqif10.AttributeDefinition;
-import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
-import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
-import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter.InternalAttribute;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;

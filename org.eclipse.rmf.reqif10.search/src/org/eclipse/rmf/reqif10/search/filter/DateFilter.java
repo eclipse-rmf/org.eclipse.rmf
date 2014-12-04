@@ -11,14 +11,11 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
-import java.security.acl.LastOwnerException;
 import java.util.GregorianCalendar;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
-import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueDate;
-import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
