@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -32,6 +34,7 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
@@ -45,10 +48,20 @@ public class ProrEditorUtil {
 		StringBuilder sb = new StringBuilder();
 		String title = ConfigurationUtil.getSpecElementLabel(spec,
 				adapterFactory);
+		
+		// Getting the file path is an absolute nightmare!
+		List<String> segments = spec.eResource().getURI().segmentsList();
+		IPath filepath = ResourcesPlugin.getWorkspace().getRoot()
+				.getRawLocation();
+		for (int i = 1; i < segments.size() - 1; i++) {
+			filepath = filepath.append(segments.get(i));
+		}		
+		String baseURL = filepath.toPortableString() + "/";
 
 		sb.append("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n");
 		sb.append("<html>\n");
 		sb.append("<head>\n");
+		sb.append("<base href=\"" + baseURL + "\" />\n");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n");
 		sb.append("<meta name=\"GENERATOR\" content=\"ProR (www.pror.org)\">\n");
 		sb.append("<title>" + title + "</title>\n");
@@ -115,8 +128,19 @@ public class ProrEditorUtil {
 						html.append("<div style='margin-left: " + (indent * 20)
 								+ "px;'>");
 					}
-					AttributeValue av = ReqIF10Util.getAttributeValueForLabel(
-							specObject, col.getLabel());
+					
+					AttributeValue av;
+					if (col instanceof UnifiedColumn) {
+						av = ReqIF10Util.getAttributeValueForLabel(
+								specObject, "ReqIF.Text");
+						if (av == null || ReqIF10Util.getTheValue(av) == null) {
+							av = ReqIF10Util.getAttributeValueForLabel(
+									specObject, "ReqIF.ChapterName");							
+						}
+					} else {
+						av = ReqIF10Util.getAttributeValueForLabel(
+								specObject, col.getLabel());
+					}
 					DatatypeDefinition dd = ReqIF10Util
 							.getDatatypeDefinition(av);
 					ProrPresentationConfiguration configuration = ConfigurationUtil
