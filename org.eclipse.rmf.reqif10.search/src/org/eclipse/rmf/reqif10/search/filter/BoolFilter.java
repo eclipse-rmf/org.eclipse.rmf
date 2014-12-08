@@ -73,4 +73,9 @@ public class BoolFilter implements IFilter {
 		}
 	}
 
+	@Override
+	public Object getAttribute() {
+		return attributeDefinition;
+	}
+
 }

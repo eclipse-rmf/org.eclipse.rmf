@@ -49,6 +49,7 @@ import org.eclipse.swt.widgets.Label;
 public class FilterPanel extends Composite {
 
 	private ReqIF reqif;
+	private ComboViewer attr;
 
 	public FilterPanel(final Composite parent, ReqIF reqif) {
 		super(parent, SWT.BORDER);
@@ -66,7 +67,7 @@ public class FilterPanel extends Composite {
 			}
 		});
 		
-		final ComboViewer attr = new ComboViewer(this, SWT.DROP_DOWN | SWT.BORDER | SWT.READ_ONLY);
+		attr = new ComboViewer(this, SWT.DROP_DOWN | SWT.BORDER | SWT.READ_ONLY);
 		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
 		layoutData.widthHint = 180;
 		attr.getControl().setLayoutData(layoutData);
@@ -83,8 +84,26 @@ public class FilterPanel extends Composite {
 				}
 			}
 		});
-
 	}
+
+	/**
+	 * This constructor uses an existing {@link IFilter} to populate the panel.
+	 */
+	public FilterPanel(Composite parent, ReqIF reqif, IFilter filter) {
+		this(parent, reqif);
+		
+		// see whether the attribute of the filter still exists
+		Object[] input = ((Object[])attr.getInput());
+		int attributeIndex = Arrays.asList(input).indexOf(filter.getAttribute());
+		if (attributeIndex == -1) return;
+
+		attr.getCombo().select(attributeIndex);
+		FilterControl filterControl = new FilterControlString(this, (StringFilter)filter);
+		filterControl.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		layout();
+		getParent().pack();
+	}
+
 
 	private List<?> createAttributeInput() {
 		List<? super Object> list = new ArrayList<Object>();

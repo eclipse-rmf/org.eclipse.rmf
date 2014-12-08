@@ -137,6 +137,11 @@ public class NumberFilter implements IFilter {
 			throw new IllegalArgumentException("SpecElementType is not supported");
 		}
 	}
+
+	@Override
+	public Object getAttribute() {
+		return attributeDefinition;
+	}
 	
 	
 
