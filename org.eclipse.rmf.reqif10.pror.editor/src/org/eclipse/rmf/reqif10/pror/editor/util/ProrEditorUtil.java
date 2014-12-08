@@ -11,7 +11,9 @@
 package org.eclipse.rmf.reqif10.pror.editor.util;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -106,6 +108,10 @@ public class ProrEditorUtil {
 				textValue = xhtmlString;
 			} catch (IOException e) {
 			}
+		} else if (value instanceof GregorianCalendar) {
+			GregorianCalendar cal = (GregorianCalendar)value;
+			SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MMM-dd hh:mm:ss z");  
+			textValue = formatter.format(cal.getTime());
 		} else {
 			textValue = value.toString();
 		}
