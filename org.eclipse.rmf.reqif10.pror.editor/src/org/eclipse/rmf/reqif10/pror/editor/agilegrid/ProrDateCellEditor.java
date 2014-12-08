@@ -10,7 +10,9 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
+import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.agilemore.agilegrid.AgileGrid;
@@ -64,6 +66,19 @@ public class ProrDateCellEditor extends PopupCellEditor {
 		super.doSetValue(value);
 	}
 
+	@Override
+	protected void updateLabel(Object value) {
+		if (value instanceof AttributeValueDate) {
+			AttributeValueDate av = (AttributeValueDate) value;
+			if (av.getTheValue() != null) {
+				Date date = av.getTheValue().getTime();
+				super.updateLabel(DateFormat.getDateTimeInstance().format(date));
+				return;
+			}
+		}
+		super.updateLabel(value);
+	}
+	
 	@Override
 	protected Control createContents(Composite parent) {
 		Composite composite = new Composite(parent, SWT.BORDER_SOLID);
