@@ -35,7 +35,7 @@ public class SimpleCompoundFilter implements IFilter {
 	 * @param filters
 	 *            the list of filters to apply to the SpecObject
 	 * 
-	 * @param or
+	 * @param orFilter
 	 *            if true the match method will return true if any of the
 	 *            filters returns true.
 	 *            if false the match method will return true if ALL of the
