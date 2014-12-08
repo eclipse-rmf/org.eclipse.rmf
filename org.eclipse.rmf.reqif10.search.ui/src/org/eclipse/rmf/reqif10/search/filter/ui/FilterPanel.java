@@ -24,6 +24,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
+import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecType;
@@ -98,7 +99,7 @@ public class FilterPanel extends Composite {
 		if (attributeIndex == -1) return;
 
 		attr.getCombo().select(attributeIndex);
-		FilterControl filterControl = new FilterControlString(this, (StringFilter)filter);
+		FilterControl filterControl = FilterControl.createFilterControl(this, filter);
 		filterControl.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		layout();
 		getParent().pack();
@@ -136,8 +137,12 @@ public class FilterPanel extends Composite {
 		
 		if (Arrays.asList(StringFilter.InternalAttribute.values()).contains(attribute)) {
 			filterControl = new FilterControlString(this, (StringFilter.InternalAttribute)attribute);
+		} else if (Arrays.asList(DateFilter.InternalAttribute.values()).contains(attribute)) {
+			filterControl = new FilterControlDate(this, (DateFilter.InternalAttribute)attribute);
 		} else if (attribute instanceof AttributeDefinitionString) {
 			filterControl = new FilterControlString(this, (AttributeDefinitionString)attribute);
+		} else if (attribute instanceof AttributeDefinitionDate) {
+			filterControl = new FilterControlDate(this, (AttributeDefinitionDate)attribute);
 		} else {
 			MessageDialog.openError(getShell(), "Invalid Selection", "Cannot handle (yet): " + attribute);
 			filterControl = null;

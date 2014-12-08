@@ -10,7 +10,9 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter.ui;
 
+import org.eclipse.rmf.reqif10.search.filter.DateFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
+import org.eclipse.rmf.reqif10.search.filter.StringFilter;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
@@ -29,5 +31,15 @@ public abstract class FilterControl extends Composite {
 	 * @return the {@link IFilter} object.
 	 */
 	abstract public IFilter getFilter();
+	
+	/**
+	 * This factory instantiates the correct FilterControl for a given filter.
+	 */
+	public static FilterControl createFilterControl(FilterPanel parent, IFilter filter) {
+		if (filter instanceof StringFilter) return new FilterControlString(parent, (StringFilter)filter);
+		if (filter instanceof DateFilter) return new FilterControlDate(parent, (DateFilter)filter);
+
+		throw new IllegalArgumentException("Don't know how to create: " + filter);		
+	}
 
 }
