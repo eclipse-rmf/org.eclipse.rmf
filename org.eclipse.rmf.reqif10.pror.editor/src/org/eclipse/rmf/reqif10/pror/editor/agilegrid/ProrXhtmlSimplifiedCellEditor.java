@@ -26,9 +26,9 @@ import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.common.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.pror.editor.preferences.PreferenceConstants;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
-import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 import org.eclipse.swt.widgets.Display;
 

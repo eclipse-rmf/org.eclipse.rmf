@@ -92,8 +92,15 @@ public class DateFilter implements IFilter {
 		}
 		
 		this.operator = operator;
-		this.filterValue1 = value1;
-		this.filterValue2 = value2;
+		if (operator.equals(Operator.BETWEEN) && value1.after(value2)){
+			this.filterValue1 = value2;
+			this.filterValue2 = value1;
+		}else{
+			this.filterValue1 = value1;
+			this.filterValue2 = value2;			
+		}
+		
+		
 		this.internalAttribute = internalFeature;
 		this.attributeDefinition = attributeDefinition;
 	}
