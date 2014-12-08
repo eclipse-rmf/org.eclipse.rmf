@@ -15,17 +15,18 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
-import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
+import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.ui.UsageSearchResult;
 import org.eclipse.search.ui.ISearchQuery;
 import org.eclipse.search.ui.ISearchResult;
 
 public class FilterSearchQuery implements ISearchQuery {
-	private ReqifFilter filter;
+	private IFilter filter;
 	private ReqIF reqif;
 	private UsageSearchResult usageSearchResult;
 
-	public FilterSearchQuery(ReqIF reqif, ReqifFilter filter) {
+	public FilterSearchQuery(ReqIF reqif, IFilter filter) {
 		this.filter = filter;
 		this.reqif = reqif;
 	}
@@ -69,11 +70,18 @@ public class FilterSearchQuery implements ISearchQuery {
 
 	private Map<Resource, Collection<EObject>> find(IProgressMonitor monitor) {
 		Map<Resource, Collection<EObject>> result = new HashMap<Resource, Collection<EObject>>();
-		TreeIterator<Object> iterator = EcoreUtil.getAllContents(reqif, true);
+		TreeIterator<EObject> iterator = EcoreUtil.getAllContents(reqif, true);
 		while (iterator.hasNext()) {
-			Object obj = iterator.next();
-			if (! (obj instanceof SpecElementWithAttributes)) continue;
-			SpecElementWithAttributes specElement = (SpecElementWithAttributes)obj;
+			EObject obj = iterator.next();
+			SpecElementWithAttributes specElement = null;
+			if (obj instanceof SpecElementWithAttributes) {
+				specElement = (SpecElementWithAttributes) obj;
+			} else if (obj instanceof SpecHierarchy) {
+				specElement = ((SpecHierarchy)obj).getObject();
+			}
+			
+			if (specElement == null) continue;
+
 			if (filter.match(specElement)) {
 				
 				// First, find the resource
@@ -82,7 +90,7 @@ public class FilterSearchQuery implements ISearchQuery {
 					collection = new HashSet<EObject>();
 					result.put(reqif.eResource(), collection);
 				}
-				collection.add(specElement);
+				collection.add(obj);
 			}
 			
 		}

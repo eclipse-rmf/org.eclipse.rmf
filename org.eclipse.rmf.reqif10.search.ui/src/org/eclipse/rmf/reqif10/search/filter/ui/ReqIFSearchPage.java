@@ -20,6 +20,7 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
+import org.eclipse.rmf.reqif10.search.filter.SimpleCompoundFilter;
 import org.eclipse.rmf.reqif10.search.ui.ReqIFSearchUIPlugin;
 import org.eclipse.search.ui.ISearchPage;
 import org.eclipse.search.ui.ISearchPageContainer;
@@ -52,13 +53,17 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	/**
 	 * Stores the last search during a session.
 	 */
-	private static Map<ReqIF, IFilter> lastSearches = new HashMap<ReqIF, IFilter>();
+	private static Map<ReqIF, SimpleCompoundFilter> lastSearches = new HashMap<ReqIF, SimpleCompoundFilter>();
 
 	/** Must only contains {@link FilterPanel}s! */
 	private Composite pane;
 
+	private Button and;
+	private Button or;
+
 	/** A search always relates to a {@link ReqIF}. */
 	private ReqIF reqif;
+
 
 	@Override
 	public void createControl(Composite parent) {
@@ -101,13 +106,13 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	}
 
 	private void createAndButton(Composite toolbar) {
-		Button and = new Button(toolbar, SWT.RADIO);
+		and = new Button(toolbar, SWT.RADIO);
 		and.setText("Match all");
 		and.setSelection(true);
 	}
 
 	private void createOrButton(Composite toolbar) {
-		Button or = new Button(toolbar, SWT.RADIO);
+		or = new Button(toolbar, SWT.RADIO);
 		or.setText("Match any");
 	}
 
@@ -153,12 +158,17 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	}
 
 	private void restoreFilter() {
-		IFilter filter = lastSearches.get(reqif);
-		if (filter == null)
-			return;
-		FilterPanel filterPanel = new FilterPanel(pane, reqif, filter);
-		filterPanel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
-				false));
+		 SimpleCompoundFilter wrapperFilter = lastSearches.get(reqif);
+		if (wrapperFilter == null) return;
+		
+		or.setSelection(wrapperFilter.isOrFilter());
+		and.setSelection(! wrapperFilter.isOrFilter());
+
+		for (IFilter filter : wrapperFilter.getFilters()) {
+			FilterPanel filterPanel = new FilterPanel(pane, reqif, filter);
+			filterPanel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
+					false));
+		}
 		pane.pack();
 	}
 
@@ -181,16 +191,14 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	@SuppressWarnings("restriction")
 	@Override
 	public boolean performAction() {
+		SimpleCompoundFilter filter = getFilter();
 
 		// Only search if we have filters.
-		ArrayList<IFilter> filters = getFilters();
-		if (filters.isEmpty())
-			return false;
+		if (filter == null || filter.getFilters().size() == 0) return false;
 
 		// Stores the current query as last query.
-		lastSearches.put(reqif, filters.get(0));
-		ISearchQuery query = new FilterSearchQuery(findRelevantReqif(),
-				filters.get(0));
+		lastSearches.put(reqif, filter);
+		ISearchQuery query = new FilterSearchQuery(reqif, filter);
 
 		// Actual search, as taken from org.eclipse.rmf.reqif10.search.ui.page
 		org.eclipse.search2.internal.ui.SearchView searchView = null;
@@ -215,8 +223,8 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	 */
 	@Override
 	public void dispose() {
-		if (!getFilters().isEmpty()) {
-			lastSearches.put(reqif, getFilters().get(0));
+		if (getFilter() != null) {
+			lastSearches.put(reqif, getFilter());
 		}
 		super.dispose();
 	}
@@ -224,7 +232,7 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	/**
 	 * Retrieves the filters from the pane.
 	 */
-	private ArrayList<IFilter> getFilters() {
+	private SimpleCompoundFilter getFilter() {
 		ArrayList<IFilter> filters = new ArrayList<IFilter>();
 		for (Control control : pane.getChildren()) {
 			if (control instanceof FilterPanel) {
@@ -233,7 +241,8 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 					filters.add(filter);
 			}
 		}
-		return filters;
+		
+		return new SimpleCompoundFilter(filters, or.getSelection());
 	}
 
 	@Override
