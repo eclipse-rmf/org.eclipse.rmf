@@ -157,7 +157,16 @@ public class DateFilter implements IFilter {
 		return isInternal ? internalAttribute : attributeDefinition;
 	}
 
-	
+	public Operator getOperator() {
+		return operator;
+	}
 
+	public GregorianCalendar getFilterValue1() {
+		return filterValue1;
+	}
+
+	public GregorianCalendar getFilterValue2() {
+		return filterValue2;
+	}
 
 }
