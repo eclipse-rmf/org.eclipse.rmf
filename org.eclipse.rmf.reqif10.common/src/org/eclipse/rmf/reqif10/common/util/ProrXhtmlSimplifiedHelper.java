@@ -8,7 +8,7 @@
  * Contributors:
  *     Lukas Ladenberger - initial API and implementation
  ******************************************************************************/
-package org.eclipse.rmf.reqif10.pror.util;
+package org.eclipse.rmf.reqif10.common.util;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.rmf.reqif10.XhtmlContent;
-import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
 
