@@ -89,7 +89,7 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 			if (v instanceof GregorianCalendar) {
 				GregorianCalendar cal = (GregorianCalendar) v;
 				Date date = cal.getTime();
-				stringValue = DateFormat.getDateInstance().format(date);
+				stringValue = DateFormat.getDateTimeInstance().format(date);
 			} else if (v instanceof List<?>) {
 				stringValue = convertListToString((List<?>) v);
 			} else if (v instanceof XhtmlContent && v != null) {
