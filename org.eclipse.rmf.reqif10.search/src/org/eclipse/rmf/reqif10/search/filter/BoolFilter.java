@@ -57,7 +57,11 @@ public class BoolFilter implements IFilter {
 
 		AttributeValueBoolean attributeValue = (AttributeValueBoolean) ReqIF10Util.getAttributeValue(element, attributeDefinition);
 		
-		if (null == attributeValue){
+		if (attributeValue == null && attributeDefinition.isSetDefaultValue()){
+			attributeValue = attributeDefinition.getDefaultValue();
+		}
+		
+		if (attributeValue == null){
 			return false;
 		}
 		

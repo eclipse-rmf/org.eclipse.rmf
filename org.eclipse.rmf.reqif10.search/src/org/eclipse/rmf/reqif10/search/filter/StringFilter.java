@@ -101,4 +101,13 @@ public class StringFilter extends AbstractTextFilter {
 		return SUPPORTED_OPERATORS;
 	}
 
+	@Override
+	protected String getDefaultValue() {
+		if (attributeDefinition instanceof AttributeDefinitionString) {
+			AttributeDefinitionString ad = (AttributeDefinitionString) attributeDefinition;
+			return ad.isSetDefaultValue() ? ad.getDefaultValue().getTheValue() : null;
+		}
+		throw new IllegalStateException("Expected an AttributeDefinitionString as attribute but found " + attributeDefinition.getClass());
+	}
+
 }

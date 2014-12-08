@@ -122,6 +122,11 @@ public abstract class AbstractTextFilter implements IFilter {
 			theValue = getAttributeValue(element);
 		}
 		
+		if (theValue == null){
+			/* Check if there is any default value for this attribute */
+			theValue = getDefaultValue();
+		}
+		
 		/* 1. handle empty attribute case */ 
 		if (theValue == null){
 			switch (operator) {
@@ -165,6 +170,8 @@ public abstract class AbstractTextFilter implements IFilter {
 		}
 	}
 
+
+	protected abstract String getDefaultValue();
 
 	/**
 	 * returns the value of the Internal Attribute that is defined by this.internalAttribute

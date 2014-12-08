@@ -95,7 +95,14 @@ public class NumberFilter implements IFilter {
 	public boolean match(SpecElementWithAttributes element) {
 		Number theValue = getTheValue(element);
 		
-		if (null == theValue){
+		
+		if (theValue == null){
+			/* Check if there is any default value for this attribute */
+			theValue = getDefaultValue();
+		}
+		
+		
+		if (theValue == null){
 			if (operator.equals(Operator.IS)){
 				return false;
 			}
@@ -124,6 +131,18 @@ public class NumberFilter implements IFilter {
 		
 	}
 	
+	private Number getDefaultValue() {
+		if (attributeDefinition instanceof AttributeDefinitionInteger) {
+			AttributeDefinitionInteger ad = (AttributeDefinitionInteger) attributeDefinition;
+			return ad.isSetDefaultValue() ? ad.getDefaultValue().getTheValue() : null; 
+		}
+		if (attributeDefinition instanceof AttributeDefinitionReal) {
+			AttributeDefinitionReal ad = (AttributeDefinitionReal) attributeDefinition;
+			return ad.isSetDefaultValue() ? ad.getDefaultValue().getTheValue() : null;
+		}
+		throw new IllegalStateException("Expected an AttributeDefinitionInteger or AttributeDefinitionReal as attribute but found " + attributeDefinition.getClass());
+	}
+
 	private Number getTheValue(SpecElementWithAttributes element){
 		if (attributeDefinition instanceof AttributeDefinitionInteger){
 			AttributeValueInteger attributeValue = (AttributeValueInteger) ReqIF10Util.getAttributeValue(element, attributeDefinition);

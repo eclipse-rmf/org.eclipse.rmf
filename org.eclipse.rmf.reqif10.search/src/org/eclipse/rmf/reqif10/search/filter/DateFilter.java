@@ -127,6 +127,10 @@ public class DateFilter implements IFilter {
 		}
 		
 		if (theValue == null){
+			theValue = getDefaultValue();
+		}
+		
+		if (theValue == null){
 			if (operator.equals(Operator.IS_NOT)){
 				return true;
 			}else{
@@ -150,6 +154,14 @@ public class DateFilter implements IFilter {
 					"This filter does not support the " + this.operator
 							+ " operation");
 		}
+	}
+
+	private GregorianCalendar getDefaultValue() {
+		if (attributeDefinition instanceof AttributeDefinitionDate) {
+			AttributeDefinitionDate ad = (AttributeDefinitionDate) attributeDefinition;
+			return ad.isSetDefaultValue() ? ad.getDefaultValue().getTheValue() : null;
+		}
+		throw new IllegalStateException("Expected an AttributeDefinitionString as attribute but found " + attributeDefinition.getClass());
 	}
 
 	@Override
