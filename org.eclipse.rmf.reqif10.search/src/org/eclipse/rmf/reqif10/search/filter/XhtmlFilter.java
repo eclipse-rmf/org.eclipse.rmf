@@ -53,7 +53,14 @@ public class XhtmlFilter extends AbstractTextFilter {
 	public boolean match(SpecElementWithAttributes element) {
 		if (operator.equals(Operator.REGEXP_PLAIN)){
 			AttributeValueXHTML attributeValue = (AttributeValueXHTML) ReqIF10Util.getAttributeValue(element, attributeDefinition);
-			String simplifiedString = ProrXhtmlSimplifiedHelper.xhtmlToSimplifiedString(attributeValue.getTheValue());
+			XhtmlContent theValue = attributeValue.getTheValue();
+			
+			if (theValue == null){
+				theValue = getDefaultXhtmlContent();
+			}
+			
+			String simplifiedString = ProrXhtmlSimplifiedHelper.xhtmlToSimplifiedString(theValue);
+			
 			return matchRegexp(simplifiedString);
 		}else{
 			return super.match(element);
@@ -86,6 +93,29 @@ public class XhtmlFilter extends AbstractTextFilter {
 	@Override
 	protected ImmutableSet<Operator> getSupportedOperators() {
 		return SUPPORTED_OPERATORS;
+	}
+
+	
+	/**
+	 * returns the NON-simplified default Value
+	 */
+	@Override
+	protected String getDefaultValue() {
+		try {
+			XhtmlContent xhtmlContent = getDefaultXhtmlContent();
+			return xhtmlContent == null ? null : ReqIF10XhtmlUtil.getXhtmlString(xhtmlContent);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}	 
+	}
+	
+	
+	private XhtmlContent getDefaultXhtmlContent() {
+		if (attributeDefinition instanceof AttributeDefinitionXHTML) {
+			AttributeDefinitionXHTML ad = (AttributeDefinitionXHTML) attributeDefinition;
+			return (ad.isSetDefaultValue() ? ad.getDefaultValue().getTheValue() : null);
+		}
+		throw new IllegalStateException("Expected an AttributeDefinitionString as attribute but found " + attributeDefinition.getClass());
 	}
 	
 	

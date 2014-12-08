@@ -11,10 +11,14 @@
 package org.eclipse.rmf.reqif10.pror.editor.util;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -33,6 +37,7 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
@@ -45,19 +50,30 @@ public class ProrEditorUtil {
 		StringBuilder sb = new StringBuilder();
 		String title = ConfigurationUtil.getSpecElementLabel(spec,
 				adapterFactory);
+		
+		// Getting the file path is an absolute nightmare!
+		List<String> segments = spec.eResource().getURI().segmentsList();
+		IPath filepath = ResourcesPlugin.getWorkspace().getRoot()
+				.getRawLocation();
+		for (int i = 1; i < segments.size() - 1; i++) {
+			filepath = filepath.append(segments.get(i));
+		}		
+		String baseURL = filepath.toPortableString() + "/";
 
 		sb.append("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n");
 		sb.append("<html>\n");
 		sb.append("<head>\n");
+		sb.append("<base href=\"" + baseURL + "\" />\n");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n");
 		sb.append("<meta name=\"GENERATOR\" content=\"ProR (www.pror.org)\">\n");
 		sb.append("<title>" + title + "</title>\n");
 		sb.append("<style type=\"text/css\">\n");
 		sb.append("body {font-family: Arial, sans-serif;}\n");
 		sb.append("h1 {text-align: center;}\n");
-		sb.append("table, th, td { border-bottom: 1px solid #cccccc; }\n");
-		sb.append("td { padding: 2pt; }\n");
-		sb.append("table { border-collapse: collapse; }");
+		sb.append(".container{display:table; width:100%; border-collapse: collapse; table-layout: fixed; }");
+		sb.append(".heading{ font-weight: bold; width:100%; display: table-row; }");
+		sb.append(".table-row{ display: table-row; }");
+		sb.append(".col{ display: table-cell; border: 1px solid #CCC; }");		
 		sb.append("</style>\n");
 		sb.append("</head>\n\n");
 		sb.append("<body>\n");
@@ -92,6 +108,10 @@ public class ProrEditorUtil {
 				textValue = xhtmlString;
 			} catch (IOException e) {
 			}
+		} else if (value instanceof GregorianCalendar) {
+			GregorianCalendar cal = (GregorianCalendar)value;
+			SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MMM-dd hh:mm:ss z");  
+			textValue = formatter.format(cal.getTime());
 		} else {
 			textValue = value.toString();
 		}
@@ -106,17 +126,28 @@ public class ProrEditorUtil {
 			if (child.getObject() != null) {
 				SpecObject specObject = child.getObject();
 				boolean first = true;
-				html.append("<tr>");
+				html.append("<div class='table-row'>");
 				for (Column col : config.getColumns()) {
-					html.append("<td valign='top'>");
+					html.append("<div class='col'>");
 
 					// Handle indenting
 					if (first) {
 						html.append("<div style='margin-left: " + (indent * 20)
 								+ "px;'>");
 					}
-					AttributeValue av = ReqIF10Util.getAttributeValueForLabel(
-							specObject, col.getLabel());
+					
+					AttributeValue av;
+					if (col instanceof UnifiedColumn) {
+						av = ReqIF10Util.getAttributeValueForLabel(
+								specObject, "ReqIF.Text");
+						if (av == null || ReqIF10Util.getTheValue(av) == null) {
+							av = ReqIF10Util.getAttributeValueForLabel(
+									specObject, "ReqIF.ChapterName");							
+						}
+					} else {
+						av = ReqIF10Util.getAttributeValueForLabel(
+								specObject, col.getLabel());
+					}
 					DatatypeDefinition dd = ReqIF10Util
 							.getDatatypeDefinition(av);
 					ProrPresentationConfiguration configuration = ConfigurationUtil
@@ -146,9 +177,9 @@ public class ProrEditorUtil {
 						first = false;
 						html.append("</div>");
 					}
-					html.append("</td>");
+					html.append("</div>");
 				}
-				html.append("</tr>\n");
+				html.append("</div>\n");
 			}
 			printRecursive(html, config, indent + 1, child.getChildren(),
 					adapterFactory);
@@ -165,15 +196,15 @@ public class ProrEditorUtil {
 
 		// Draw the header
 		html.append(ProrEditorUtil.createHtmlHeader(spec, adapterFactory));
-		html.append("<table><tr>");
+		html.append("<div class='container'><div class='heading'>");
 		EList<Column> cols = config.getColumns();
 		for (Column col : cols) {
-			html.append("<td><b>" + col.getLabel() + "</b></td>");
+			html.append("<div class='col'>" + col.getLabel() + "</div>");
 		}
-		html.append("</tr>\n");
+		html.append("</div>\n");
 		printRecursive(html, config, 0, spec.getChildren(),
 				adapterFactory);
-		html.append("</table>");
+		html.append("</div>");
 
 		return html.toString();
 
