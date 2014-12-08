@@ -11,6 +11,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -45,6 +46,14 @@ public class SimpleCompoundFilter implements IFilter {
 	public SimpleCompoundFilter(List<IFilter> filters, boolean orFilter) {
 		this.orFilter = orFilter ;
 		this.filters = new LinkedList<IFilter>(filters);
+	}
+	
+	public boolean isOrFilter() {
+		return orFilter;
+	}
+	
+	public List<IFilter> getFilters() {
+		return Collections.unmodifiableList(filters);
 	}
 	
 	
