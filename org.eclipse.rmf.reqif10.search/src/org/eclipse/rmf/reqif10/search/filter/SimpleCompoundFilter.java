@@ -59,15 +59,17 @@ public class SimpleCompoundFilter implements IFilter {
 	
 	@Override
 	public boolean match(SpecElementWithAttributes element) {
-		boolean result = false;
 		for (IFilter filter : filters) {
 			boolean match = filter.match(element);
-			if (match && orFilter){
-				return true;
+			if (orFilter) {
+				if (match) return true;
+			} else {
+				if (! match) return false;
 			}
-			result &= match;
 		}
-		return result;
+
+		// If we don't know by now:
+		return ! orFilter;
 	}
 
 	@Override
