@@ -16,17 +16,17 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
-import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
+import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.ui.UsageSearchResult;
 import org.eclipse.search.ui.ISearchQuery;
 import org.eclipse.search.ui.ISearchResult;
 
 public class FilterSearchQuery implements ISearchQuery {
-	private ReqifFilter filter;
+	private IFilter filter;
 	private ReqIF reqif;
 	private UsageSearchResult usageSearchResult;
 
-	public FilterSearchQuery(ReqIF reqif, ReqifFilter filter) {
+	public FilterSearchQuery(ReqIF reqif, IFilter filter) {
 		this.filter = filter;
 		this.reqif = reqif;
 	}
