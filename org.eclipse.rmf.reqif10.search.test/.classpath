@@ -51,5 +51,22 @@
 	<classpathentry kind="src" path="/org.eclipse.rmf.reqif10.search"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.rmf.reqif10.pror"/>
 	<classpathentry kind="src" path="/org.eclipse.rmf.reqif10.common"/>
+	<classpathentry kind="lib" path="/home/iw/workspaces/org.eclipse.rmf/.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/com.google.guava_12.0.0.v201212092141.jar" sourcepath="/home/iw/workspaces/org.eclipse.rmf/.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/com.google.guava_12.0.0.v201212092141.jar">
+		<accessrules>
+			<accessrule kind="accessible" pattern="com/google/common/net/*"/>
+			<accessrule kind="accessible" pattern="com/google/common/collect/*"/>
+			<accessrule kind="accessible" pattern="com/google/common/primitives/*"/>
+			<accessrule kind="accessible" pattern="com/google/common/base/*"/>
+			<accessrule kind="accessible" pattern="com/google/common/cache/*"/>
+			<accessrule kind="accessible" pattern="com/google/common/eventbus/*"/>
+			<accessrule kind="accessible" pattern="com/google/common/util/concurrent/*"/>
+			<accessrule kind="accessible" pattern="com/google/common/hash/*"/>
+			<accessrule kind="accessible" pattern="com/google/common/io/*"/>
+			<accessrule kind="accessible" pattern="com/google/common/reflect/*"/>
+			<accessrule kind="accessible" pattern="com/google/common/math/*"/>
+			<accessrule kind="accessible" pattern="com/google/common/annotations/*"/>
+			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
+		</accessrules>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
