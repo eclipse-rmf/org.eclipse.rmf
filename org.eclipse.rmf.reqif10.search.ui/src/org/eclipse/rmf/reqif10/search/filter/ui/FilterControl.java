@@ -10,6 +10,8 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter.ui;
 
+import java.util.ResourceBundle;
+
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
@@ -69,6 +71,15 @@ public abstract class FilterControl extends Composite {
 			return new FilterControlDate(parent, (AttributeDefinitionDate)attribute);
 		}
 		throw new IllegalArgumentException("Don't know how to create (yet): " + attribute); 
+	}
+	
+	/**
+	 * This method retrieves a value from the Plugin.
+	 */
+	public static String getString(String key) {
+		// Note that ResourceBundle has nothing to do with Eclipse.  But it's a convenient
+		// means of accessing plugin.properties, which we need anyway.
+		return ResourceBundle.getBundle("plugin").getString(key);
 	}
 
 }
