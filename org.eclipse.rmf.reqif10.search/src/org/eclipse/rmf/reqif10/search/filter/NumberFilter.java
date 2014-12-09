@@ -108,8 +108,7 @@ public class NumberFilter implements IFilter {
 			}
 			return false;
 		}
-		
-		value1.compareTo(theValue);
+	
 		
 		switch (operator) {
 		case IS:
@@ -134,11 +133,23 @@ public class NumberFilter implements IFilter {
 	private Number getDefaultValue() {
 		if (attributeDefinition instanceof AttributeDefinitionInteger) {
 			AttributeDefinitionInteger ad = (AttributeDefinitionInteger) attributeDefinition;
-			return ad.isSetDefaultValue() ? ad.getDefaultValue().getTheValue() : null; 
+			if (!ad.isSetDefaultValue()){
+				return null;
+			}
+			if (!ad.getDefaultValue().isSetTheValue()){
+				return null;
+			}
+			return ad.getDefaultValue().getTheValue(); 
 		}
 		if (attributeDefinition instanceof AttributeDefinitionReal) {
 			AttributeDefinitionReal ad = (AttributeDefinitionReal) attributeDefinition;
-			return ad.isSetDefaultValue() ? ad.getDefaultValue().getTheValue() : null;
+			if (!ad.isSetDefaultValue()){
+				return null;
+			}
+			if (!ad.getDefaultValue().isSetTheValue()){
+				return null;
+			}
+			return ad.getDefaultValue().getTheValue();
 		}
 		throw new IllegalStateException("Expected an AttributeDefinitionInteger or AttributeDefinitionReal as attribute but found " + attributeDefinition.getClass());
 	}
@@ -146,11 +157,17 @@ public class NumberFilter implements IFilter {
 	private Number getTheValue(SpecElementWithAttributes element){
 		if (attributeDefinition instanceof AttributeDefinitionInteger){
 			AttributeValueInteger attributeValue = (AttributeValueInteger) ReqIF10Util.getAttributeValue(element, attributeDefinition);
-			return (null==attributeValue ? null : attributeValue.getTheValue());
+			if (attributeValue == null || !attributeValue.isSetTheValue()){
+				return null;
+			}
+			return attributeValue.getTheValue();
 		}
 		if (attributeDefinition instanceof AttributeDefinitionReal){
 			AttributeValueReal attributeValue = (AttributeValueReal) ReqIF10Util.getAttributeValue(element, attributeDefinition);
-			return (null==attributeValue ? null : attributeValue.getTheValue());
+			if (attributeValue == null || !attributeValue.isSetTheValue()){
+				return null;
+			}
+			return attributeValue.getTheValue();
 		}
 		else{
 			throw new IllegalArgumentException("SpecElementType is not supported");
