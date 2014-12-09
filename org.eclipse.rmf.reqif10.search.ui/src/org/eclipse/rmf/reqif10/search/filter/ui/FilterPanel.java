@@ -12,6 +12,7 @@ package org.eclipse.rmf.reqif10.search.filter.ui;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,11 +52,41 @@ public class FilterPanel extends Composite {
 	private ReqIF reqif;
 	private ComboViewer attributeCombo;
 
+	/**
+	 * This constructor creates an empty {@link FilterPanel}.
+	 */
 	public FilterPanel(final Composite parent, ReqIF reqif) {
 		super(parent, SWT.BORDER);
 		this.reqif = reqif;
 		setLayout(new GridLayout(3, false));
 
+		createCloseButton(parent);
+		createAttributeCombo();
+	}
+
+	/**
+	 * This constructor uses an existing {@link IFilter} to populate the panel.
+	 */
+	public FilterPanel(Composite parent, ReqIF reqif, IFilter filter) {
+		this(parent, reqif);
+		
+		// see whether the attribute of the filter still exists
+		Object[] input = ((Object[])attributeCombo.getInput());
+		int attributeIndex = Arrays.asList(input).indexOf(filter.getAttribute());
+		if (attributeIndex == -1) return;
+
+		attributeCombo.getCombo().select(attributeIndex);
+		FilterControl filterControl = FilterControl.createFilterControl(this, filter);
+		filterControl.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		layout();
+		getParent().pack();
+	}
+
+	/**
+	 * The close button disposes the {@link FilterPanel} and repacks the parent.
+	 * @param parent
+	 */
+	private void createCloseButton(final Composite parent) {
 		Label close = new Label(this, SWT.FLAT);
 		close.setText("\u2716");
 		close.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
@@ -66,8 +97,16 @@ public class FilterPanel extends Composite {
 				parent.pack();
 			}
 		});
-		
-		attributeCombo = new ComboViewer(this, SWT.DROP_DOWN | SWT.BORDER | SWT.READ_ONLY);
+	}
+
+	/**
+	 * Create the combo that contains both internal attributes and the model's
+	 * attributes. Upon selection change, the corresponding
+	 * {@link FilterControl} is built.
+	 */
+	private void createAttributeCombo() {
+		attributeCombo = new ComboViewer(this, SWT.DROP_DOWN | SWT.BORDER
+				| SWT.READ_ONLY);
 		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
 		layoutData.widthHint = 180;
 		attributeCombo.getControl().setLayoutData(layoutData);
@@ -89,24 +128,10 @@ public class FilterPanel extends Composite {
 	}
 
 	/**
-	 * This constructor uses an existing {@link IFilter} to populate the panel.
+	 * Create a {@link List} that acts as the input for {@link #attributeCombo}.
+	 * The list is first sorted by {@link SpecType} and then sorted by
+	 * {@link AttributeDefinition}.
 	 */
-	public FilterPanel(Composite parent, ReqIF reqif, IFilter filter) {
-		this(parent, reqif);
-		
-		// see whether the attribute of the filter still exists
-		Object[] input = ((Object[])attributeCombo.getInput());
-		int attributeIndex = Arrays.asList(input).indexOf(filter.getAttribute());
-		if (attributeIndex == -1) return;
-
-		attributeCombo.getCombo().select(attributeIndex);
-		FilterControl filterControl = FilterControl.createFilterControl(this, filter);
-		filterControl.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-		layout();
-		getParent().pack();
-	}
-
-
 	private List<?> createAttributeInput() {
 		List<? super Object> list = new ArrayList<Object>();
 
@@ -124,6 +149,7 @@ public class FilterPanel extends Composite {
 
 		// Add them in alphabetical order.
 		List<String> sortedKeys = new ArrayList<String>(attributes.keySet());
+		Collections.sort(sortedKeys);
 		for (String key : sortedKeys) {
 			list.add(attributes.get(key));			
 		}
@@ -192,5 +218,4 @@ public class FilterPanel extends Composite {
 			return element.toString();
 		}
 	}
-
 }
