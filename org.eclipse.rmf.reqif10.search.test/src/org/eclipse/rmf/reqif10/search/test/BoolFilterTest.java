@@ -27,7 +27,7 @@ import org.junit.Test;
 
 public class BoolFilterTest extends AbstractFilterTest {
 
-	private AttributeDefinitionBoolean attributeDefinition;
+	AttributeDefinitionBoolean attributeDefinition;
 
 	@Before
 	public void setUp(){
