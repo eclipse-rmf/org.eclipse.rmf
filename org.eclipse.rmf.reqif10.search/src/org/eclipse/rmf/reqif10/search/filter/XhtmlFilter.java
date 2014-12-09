@@ -53,13 +53,25 @@ public class XhtmlFilter extends AbstractTextFilter {
 	public boolean match(SpecElementWithAttributes element) {
 		if (operator.equals(Operator.REGEXP_PLAIN)){
 			AttributeValueXHTML attributeValue = (AttributeValueXHTML) ReqIF10Util.getAttributeValue(element, attributeDefinition);
-			XhtmlContent theValue = attributeValue.getTheValue();
+			
+			XhtmlContent theValue = null;
+					
+			if (attributeValue != null){
+				theValue = attributeValue.getTheValue();
+			}
 			
 			if (theValue == null){
 				theValue = getDefaultXhtmlContent();
 			}
 			
-			String simplifiedString = ProrXhtmlSimplifiedHelper.xhtmlToSimplifiedString(theValue);
+			String simplifiedString;
+			if (theValue == null){
+				// according to the spec a regexp_plain match on on an empty
+				// value is equivalent to "regexp applied to empty string"
+				simplifiedString = "";
+			}else{
+				simplifiedString = ProrXhtmlSimplifiedHelper.xhtmlToSimplifiedString(theValue);
+			}
 			
 			return matchRegexp(simplifiedString);
 		}else{
@@ -91,7 +103,7 @@ public class XhtmlFilter extends AbstractTextFilter {
 
 
 	@Override
-	protected ImmutableSet<Operator> getSupportedOperators() {
+	public ImmutableSet<Operator> getSupportedOperators() {
 		return SUPPORTED_OPERATORS;
 	}
 

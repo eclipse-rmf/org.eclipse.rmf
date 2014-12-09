@@ -13,98 +13,121 @@
 
 package org.eclipse.rmf.reqif10.search.test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import java.util.Set;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.AttributeValueBoolean;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecObject;
-import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.search.filter.BoolFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.junit.Before;
 import org.junit.Test;
 
-public class BoolFilterTest extends AbstractItemProviderTest {
+public class BoolFilterTest extends AbstractFilterTest {
 
-	
-	private AttributeDefinitionBoolean attributeDefinitionBool;
+	private AttributeDefinitionBoolean attributeDefinition;
 
-	@Test
-	public void testBoolean() throws Exception {
-		attributeDefinitionBool = createAttributeDefinitionBoolean("AD_Bool_ID");
-		SpecObject specObject = createSpecObjectWithBool("X", true, attributeDefinitionBool);
-		
-		BoolFilter boolFilter = new BoolFilter(Operator.IS, true, attributeDefinitionBool);
-		assertTrue(boolFilter.match(specObject));
-		
-		boolFilter = new BoolFilter(Operator.IS, false, attributeDefinitionBool);
-		assertFalse(boolFilter.match(specObject));
-		
-		specObject = createSpecObjectWithBool("X", false, attributeDefinitionBool);
-		boolFilter = new BoolFilter(Operator.IS, false, attributeDefinitionBool);
-		assertTrue(boolFilter.match(specObject));
+	@Before
+	public void setUp(){
+		createFixture(true);
 	}
 	
-	/* A match on a specObject that does not contain this attribute should always return false
-	 * 
+
+	@Test
+	public void testIsTrue() throws Exception {
+		BoolFilter filter;
+		filter = new BoolFilter(Operator.IS, true, attributeDefinition);
+		doMatch(filter, true);
+		
+		filter = new BoolFilter(Operator.IS, false, attributeDefinition);
+		doMatch(filter, false);
+	}
+	
+	@Test
+	public void testIsFalse() throws Exception {
+		createFixture(false);
+		
+		BoolFilter filter;
+		filter = new BoolFilter(Operator.IS, true, attributeDefinition);
+		doMatch(filter, false);
+		
+		filter = new BoolFilter(Operator.IS, false, attributeDefinition);
+		doMatch(filter, true);
+	}
+	
+
+	
+	/* 
+	 * A match on a specObject that does not contain this attribute should always return false
 	 */
-	@Test
-	public void testEmpty() throws Exception {
-		attributeDefinitionBool = createAttributeDefinitionBoolean("AD_Bool_ID");
-		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
+	public void doEmptyTest() throws Exception {
 		
-		BoolFilter boolFilter = new BoolFilter(Operator.IS, false, attributeDefinitionBool);
-		assertFalse(boolFilter.match(specObject));
+		BoolFilter filter = new BoolFilter(Operator.IS, true, attributeDefinition);
+		doMatch(filter, false);
 		
-		boolFilter = new BoolFilter(Operator.IS, true, attributeDefinitionBool);
-		assertFalse(boolFilter.match(specObject));
-	}
-
+		filter = new BoolFilter(Operator.IS, false, attributeDefinition);
+		doMatch(filter, false);
+	}	
 	
 	
-	AttributeDefinitionBoolean createAttributeDefinitionBoolean(String id) {
-		AttributeDefinitionBoolean ad = ReqIF10Factory.eINSTANCE
-				.createAttributeDefinitionBoolean();
-		ad.setIdentifier(id);
-		return ad;
-	}
-	
-	
-	DatatypeDefinitionBoolean createDatatypeDefinitionBoolean(String id) {
-		DatatypeDefinitionBoolean dd = ReqIF10Factory.eINSTANCE
-				.createDatatypeDefinitionBoolean();
-		dd.setIdentifier(id);
-		return dd;
-	}
-	
-
-	AttributeValueBoolean createAttributeValueBoolean(Boolean theValue) {
-		AttributeValueBoolean av = ReqIF10Factory.eINSTANCE
-				.createAttributeValueBoolean();
-		av.setTheValue(theValue);
-		return av;
-	}
-
 		
-	SpecObject createSpecObject(String id) {
-		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
-		specObject.setIdentifier(id);
-		return specObject;
-	}
-
-	SpecObject createSpecObjectWithBool(String id, Boolean value,
-			AttributeDefinitionBoolean attributeDefinition) {
-		DatatypeDefinitionBoolean definition = createDatatypeDefinitionBoolean("DD_INT_ID");
+	public void createFixture(Object value){
+		if ((value != null) && ! (value instanceof Boolean)) {
+			throw new IllegalArgumentException();	
+		}
+		
+		attributeDefinition = ReqIF10Factory.eINSTANCE.createAttributeDefinitionBoolean();
+		attributeDefinition.setIdentifier("AD_ID0");
+		DatatypeDefinitionBoolean definition = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionBoolean();
+		definition.setIdentifier("DD_ID0");
 		attributeDefinition.setType(definition);
-		AttributeValueBoolean attributeValue = createAttributeValueBoolean(value);
+		AttributeValueBoolean attributeValue = ReqIF10Factory.eINSTANCE.createAttributeValueBoolean();
 		attributeValue.setDefinition(attributeDefinition);
-		SpecObject specObject = createSpecObject(id);
+		if (value == null){
+			//attributeValue.setTheValue(false);
+			// we do nothing here to simulate a non set value
+			// attributeValue.isSetTheValue() will return false
+		}else{
+			attributeValue.setTheValue((Boolean) value);
+		}
+		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		specObject.getValues().add(attributeValue);
-		return specObject;
+		
+//		try {
+//			dumpEObjectToConsole(specObject);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		System.out.println(attributeValue.isTheValue());
+//		System.out.println(attributeValue.isSetTheValue());
+		
+		setFixture(specObject);
 	}
+
+
+	@Override
+	public BoolFilter createFilterInstance(Operator operator) {
+		return new BoolFilter(operator, true, attributeDefinition); 
+	}
+
+
+	@Override
+	public Set<Operator> getSupportedOperators() {
+		return BoolFilter.SUPPORTED_OPERATORS;
+	}
+
+
+
 	
+	
+	
+	
+
+
+
 	
 
 }

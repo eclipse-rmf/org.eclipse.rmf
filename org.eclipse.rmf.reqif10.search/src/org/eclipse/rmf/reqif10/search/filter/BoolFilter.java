@@ -61,7 +61,7 @@ public class BoolFilter implements IFilter {
 			attributeValue = attributeDefinition.getDefaultValue();
 		}
 		
-		if (attributeValue == null){
+		if (attributeValue == null || !attributeValue.isSetTheValue()){
 			return false;
 		}
 		
@@ -81,5 +81,27 @@ public class BoolFilter implements IFilter {
 	public Object getAttribute() {
 		return attributeDefinition;
 	}
+
+	@Override
+	public Operator getOperator() {
+		return operator;
+	}
+
+	@Override
+	public Object getFilterValue1() {
+		return filterValue;
+	}
+
+	@Override
+	public Object getFilterValue2() {
+		return null;
+	}
+
+	@Override
+	public ImmutableSet<Operator> getSupportedOperators() {
+		return SUPPORTED_OPERATORS;
+	}
+	
+	
 
 }

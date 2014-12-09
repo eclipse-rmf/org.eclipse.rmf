@@ -103,10 +103,10 @@ public class NumberFilter implements IFilter {
 		
 		
 		if (theValue == null){
-			if (operator.equals(Operator.IS)){
-				return false;
+			if (operator.equals(Operator.IS_NOT)){
+				return true;
 			}
-			return true;
+			return false;
 		}
 		
 		value1.compareTo(theValue);
@@ -158,8 +158,28 @@ public class NumberFilter implements IFilter {
 	}
 
 	@Override
-	public Object getAttribute() {
+	public AttributeDefinition getAttribute() {
 		return attributeDefinition;
+	}
+
+	@Override
+	public Operator getOperator() {
+		return operator;
+	}
+
+	@Override
+	public Number getFilterValue1() {
+		return (Number) value1;
+	}
+
+	@Override
+	public Number getFilterValue2() {
+		return (Number) value2;
+	}
+
+	@Override
+	public ImmutableSet<Operator> getSupportedOperators() {
+		return SUPPORTED_OPERATORS;
 	}
 	
 	

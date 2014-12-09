@@ -17,6 +17,8 @@ import java.util.List;
 
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 
+import com.google.common.collect.ImmutableSet;
+
 
 /**
  * A filter that is composed of other Filters. 
@@ -74,6 +76,26 @@ public class SimpleCompoundFilter implements IFilter {
 
 	@Override
 	public Object getAttribute() {
+		return null;
+	}
+
+	@Override
+	public Operator getOperator() {
+		return null;
+	}
+
+	@Override
+	public Object getFilterValue1() {
+		return null;
+	}
+
+	@Override
+	public Object getFilterValue2() {
+		return null;
+	}
+
+	@Override
+	public ImmutableSet<Operator> getSupportedOperators() {
 		return null;
 	}
 
