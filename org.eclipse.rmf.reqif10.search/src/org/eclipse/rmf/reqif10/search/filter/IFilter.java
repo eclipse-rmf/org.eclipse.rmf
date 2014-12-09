@@ -15,6 +15,8 @@ package org.eclipse.rmf.reqif10.search.filter;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
 
+import com.google.common.collect.ImmutableSet;
+
 public interface IFilter extends ReqifFilter {
 
 	/**
@@ -58,5 +60,13 @@ public interface IFilter extends ReqifFilter {
 	 * Returns the Attribute for this filter.
 	 */
 	public Object getAttribute();
+	
+	public Operator getOperator();
+	
+	public Object getFilterValue1();
+	
+	public Object getFilterValue2();
+	
+	public ImmutableSet<Operator> getSupportedOperators();
 	
 }
