@@ -16,7 +16,7 @@ import org.junit.Test;
 public class RealFilterTest extends AbstractFilterTest {
 
 	
-	private AttributeDefinitionReal attributeDefinition;
+	AttributeDefinitionReal attributeDefinition;
 
 	
 	
@@ -144,7 +144,11 @@ public class RealFilterTest extends AbstractFilterTest {
 		attributeDefinition.setType(definition);
 		AttributeValueReal attributeValue = ReqIF10Factory.eINSTANCE.createAttributeValueReal();
 		attributeValue.setDefinition(attributeDefinition);
-		attributeValue.setTheValue(theValue);
+		
+		if (theValue != null){
+			attributeValue.setTheValue(theValue);
+		}
+		
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		specObject.getValues().add(attributeValue);
 		
