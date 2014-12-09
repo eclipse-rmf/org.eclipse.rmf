@@ -74,7 +74,7 @@ public class FilterControlString extends FilterControl {
 		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
 		attr.setLayoutData(layoutData);
 		for (Operator operator : StringFilter.SUPPORTED_OPERATORS) {
-			attr.add(operator.toString());			
+			attr.add(getString(operator.toString()));			
 		}
 		attr.select(0);
 		if (templateFilter != null)
