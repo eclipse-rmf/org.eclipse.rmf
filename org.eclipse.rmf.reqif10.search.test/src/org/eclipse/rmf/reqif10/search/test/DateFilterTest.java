@@ -11,45 +11,54 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import java.util.GregorianCalendar;
+import java.util.Set;
 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
 import org.eclipse.rmf.reqif10.AttributeValueDate;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionDate;
-import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecObject;
-import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.search.filter.DateFilter;
+import org.eclipse.rmf.reqif10.search.filter.DateFilter.InternalAttribute;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
-import org.eclipse.rmf.reqif10.search.testdata.TestData;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-public class DateFilterTest extends AbstractItemProviderTest{
+public class DateFilterTest extends AbstractFilterTest{
 
 	SpecObject specObject;
 	AttributeDefinitionDate attributeDefinition; 
 
 	@Rule public ExpectedException thrown= ExpectedException.none();
 	
-	@Before
-	public void init(){
-		attributeDefinition = createAttributeDefinitionDate("AD_DATE_ID");
-		GregorianCalendar calendar = new GregorianCalendar(2014, 12, 03);
-		specObject = createSpecObjectWithDate("SO_ID", calendar, attributeDefinition);
+	@Override	
+	public void createFixture(Object value){
+		GregorianCalendar theValue = (GregorianCalendar) value;
+		
+		attributeDefinition = ReqIF10Factory.eINSTANCE.createAttributeDefinitionDate();
+		attributeDefinition.setIdentifier("AD_ID0");
+		DatatypeDefinitionDate definition = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionDate();
+		definition.setIdentifier("DD_ID0");
+		attributeDefinition.setType(definition);
+		AttributeValueDate attributeValue = ReqIF10Factory.eINSTANCE.createAttributeValueDate();
+		attributeValue.setDefinition(attributeDefinition);
+		attributeValue.setTheValue(theValue);
+		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
+		specObject.getValues().add(attributeValue);
 		specObject.setLastChange(new GregorianCalendar(2014, 12, 03));
-	}
+		
+		setFixture(specObject);
+	}	
 	
+	
+	@Before
+	public void setUp(){
+		createFixture(new GregorianCalendar(2014, 12, 03));
+	}
 	
 	
 	@Test
@@ -57,42 +66,52 @@ public class DateFilterTest extends AbstractItemProviderTest{
 		DateFilter filter;
 			
 		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014, 12, 03), null,  attributeDefinition);
-		assertTrue(filter.match(specObject));
+		doMatch(filter, true);
 		
 		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014, 12, 04), null,  attributeDefinition);
-		assertFalse(filter.match(specObject));
+		doMatch(filter, false);
 
 		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014,12,03,0,0,0), null,  attributeDefinition);
-		assertTrue(filter.match(specObject));
-		
-		//// Same for internal Attribute
-		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014, 12, 03), null,  DateFilter.InternalAttribute.LAST_CHANGE);
-		assertTrue(filter.match(specObject));
-		
-		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014, 12, 04), null,  DateFilter.InternalAttribute.LAST_CHANGE);
-		assertFalse(filter.match(specObject));
-
-		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014,12,03,0,0,0), null,  DateFilter.InternalAttribute.LAST_CHANGE);
-		assertTrue(filter.match(specObject));		
-		
+		doMatch(filter, true);		
 	}
 	
+	
 	@Test
-	public void testNotEquals() throws Exception {
+	public void testIsOnInternal() throws Exception {
+		DateFilter filter;
+		
+		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014, 12, 03), null,  DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
+		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014, 12, 04), null,  DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, false);
+
+		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014,12,03,0,0,0), null,  DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+	}
+	
+	
+	@Test
+	public void testIsNot() throws Exception {
 		DateFilter filter;
 		
 		filter = new DateFilter(IFilter.Operator.IS_NOT, new GregorianCalendar(2014, 12, 04), null,  attributeDefinition);
-		assertTrue(filter.match(specObject));
+		doMatch(filter, true);
 
 		filter = new DateFilter(IFilter.Operator.IS_NOT, new GregorianCalendar(2014, 12, 03), null,  attributeDefinition);
-		assertFalse(filter.match(specObject));
+		doMatch(filter, false);
+	}
+	
+	
+	@Test
+	public void testIsNotOnInternal() throws Exception {
+		DateFilter filter;
 		
-		//// Same for internal Attribute
 		filter = new DateFilter(IFilter.Operator.IS_NOT, new GregorianCalendar(2014, 12, 04), null,  DateFilter.InternalAttribute.LAST_CHANGE);
-		assertTrue(filter.match(specObject));
+		doMatch(filter, true);
 
 		filter = new DateFilter(IFilter.Operator.IS_NOT, new GregorianCalendar(2014, 12, 03), null,  DateFilter.InternalAttribute.LAST_CHANGE);
-		assertFalse(filter.match(specObject));
+		doMatch(filter, false);
 	}
 	
 
@@ -101,23 +120,27 @@ public class DateFilterTest extends AbstractItemProviderTest{
 		DateFilter filter;
 		
 		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 12, 01), new GregorianCalendar(2014, 12, 04), attributeDefinition);
-		assertTrue(filter.match(specObject));
+		doMatch(filter, true);
 
 		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 12, 03), new GregorianCalendar(2014, 12, 03), attributeDefinition);
-		assertTrue(filter.match(specObject));
+		doMatch(filter, true);
 		
 		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 01, 01), new GregorianCalendar(2014, 12, 01), attributeDefinition);
-		assertFalse(filter.match(specObject));
+		doMatch(filter, false);
+	}
 		
-		//// Same for internal Attribute
+	@Test
+	public void testBetweenOnInternal() throws Exception {
+		DateFilter filter;
+		
 		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 12, 01), new GregorianCalendar(2014, 12, 04), DateFilter.InternalAttribute.LAST_CHANGE);
-		assertTrue(filter.match(specObject));
+		doMatch(filter, true);
 
 		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 12, 03), new GregorianCalendar(2014, 12, 03), DateFilter.InternalAttribute.LAST_CHANGE);
-		assertTrue(filter.match(specObject));
+		doMatch(filter, true);
 		
 		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 01, 01), new GregorianCalendar(2014, 12, 01), DateFilter.InternalAttribute.LAST_CHANGE);
-		assertFalse(filter.match(specObject));
+		doMatch(filter, false);
 	}
 	
 	@Test
@@ -125,23 +148,26 @@ public class DateFilterTest extends AbstractItemProviderTest{
 		DateFilter filter;
 		
 		filter = new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2015, 1, 1), new GregorianCalendar(2014, 12, 04), attributeDefinition);
-		assertTrue(filter.match(specObject));
+		doMatch(filter, true);
 
 		filter = new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2014, 12, 3), null, attributeDefinition);
-		assertFalse(filter.match(specObject));
+		doMatch(filter, false);
 		
 		filter = new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
-		assertFalse(filter.match(specObject));
-		
-		//// Same for internal Attribute
+		doMatch(filter, false);
+	}
+	
+	@Test
+	public void testBeforeOnInternal(){
+		DateFilter filter;
 		filter = new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2015, 1, 1), new GregorianCalendar(2014, 12, 04), DateFilter.InternalAttribute.LAST_CHANGE);
-		assertTrue(filter.match(specObject));
+		doMatch(filter, true);
 
 		filter = new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2014, 12, 3), null, DateFilter.InternalAttribute.LAST_CHANGE);
-		assertFalse(filter.match(specObject));
+		doMatch(filter, false);
 		
 		filter = new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2014, 1, 1), null, DateFilter.InternalAttribute.LAST_CHANGE);
-		assertFalse(filter.match(specObject));
+		doMatch(filter, false);
 	}
 	
 	@Test
@@ -149,99 +175,85 @@ public class DateFilterTest extends AbstractItemProviderTest{
 		DateFilter filter;
 		
 		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2000, 1, 1), null, attributeDefinition);
-		assertTrue(filter.match(specObject));
+		doMatch(filter, true);
 
 		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(3000, 1, 1), null, attributeDefinition);
-		assertFalse(filter.match(specObject));
+		doMatch(filter, false);
 		
 		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 12, 03), null, attributeDefinition);
-		assertFalse(filter.match(specObject));
-		
-		//// Same for internal Attribute
-		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2000, 1, 1), null, DateFilter.InternalAttribute.LAST_CHANGE);
-		assertTrue(filter.match(specObject));
-
-		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(3000, 1, 1), null, DateFilter.InternalAttribute.LAST_CHANGE);
-		assertFalse(filter.match(specObject));
-		
-		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 12, 03), null, DateFilter.InternalAttribute.LAST_CHANGE);
-		assertFalse(filter.match(specObject));
+		doMatch(filter, false);
 	}
 	
+	@Test
+	public void testAfterOnInternal() throws Exception {
+		DateFilter filter;
+		
+		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2000, 1, 1), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
 
+		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(3000, 1, 1), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, false);
+		
+		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 12, 03), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, false);
+	}
+	
 	
 	
 	@Test
-	public void testEmptyAttribute() throws Exception {
-		fail("Not yet implemented");
+	public void testOnEmptyAttribute() {
+		getFixture().getValues().clear();
+		doEmptyTest();
 	}
 	
+	
+	@Test
+	public void testOnNullValue() {
+		AttributeValueDate attributeValue = (AttributeValueDate) getFixture().getValues().get(0);
+		attributeValue.setTheValue(null);
+		doEmptyTest();
+	}
+	
+	
+	public void doEmptyTest(){
+		DateFilter filter;
+		
+		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
+		doMatch(filter, false);
+		
+		filter = new DateFilter(IFilter.Operator.IS_NOT, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
+		doMatch(filter, true);
+		
+		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
+		doMatch(filter, false);
+		
+		filter = new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
+		doMatch(filter, false);
+		
+		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
+		doMatch(filter, false);
+	}
 	
 	@Test
 	public void testExceptionsAttributeDefinition() throws Exception {
 		thrown.expect(IllegalArgumentException.class);
-		fail("Not yet implemented");
+		new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2014, 1, 1), null, (AttributeDefinitionDate) null);
 	}
 	
 	@Test
 	public void testExceptionsInternalAttribute() throws Exception {
 		thrown.expect(IllegalArgumentException.class);
-		fail("Not yet implemented");
+		new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2014, 1, 1), null, (InternalAttribute) null);
 	}
 	
-	@Test
-	public void testExceptionsUnsupportedOperation() throws Exception {
-		thrown.expect(IllegalArgumentException.class);
-		thrown.expectMessage(Operator.BEFORE.toString());
-		fail("Not yet implemented");
-	}
-	
-	
-
-
-	
-	AttributeDefinitionDate createAttributeDefinitionDate(String id){
-		AttributeDefinitionDate ad = ReqIF10Factory.eINSTANCE.createAttributeDefinitionDate();
-		ad.setIdentifier(id);
-		return ad;
-	}
-	
-	DatatypeDefinitionDate createDatatypeDefinitionDate(String id){
-		DatatypeDefinitionDate dd = ReqIF10Factory.eINSTANCE.createDatatypeDefinitionDate();
-		dd.setIdentifier(id);
-		return dd;
-	}
-	
-	AttributeValueDate createAttributeValueDate(GregorianCalendar theValue){
-		AttributeValueDate av = ReqIF10Factory.eINSTANCE.createAttributeValueDate();
-		av.setTheValue(theValue);
-		return av;
-	}
-	
-	SpecObject createSpecObject(String id){
-		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
-		specObject.setIdentifier(id);
-		return specObject;
-	}
-	
-	SpecObject createSpecObjectWithDate(String id, GregorianCalendar value, AttributeDefinitionDate attributeDefinition){
-		DatatypeDefinitionDate definitionDate = createDatatypeDefinitionDate("DD_DATE_ID");
-		attributeDefinition.setType(definitionDate);
-		AttributeValueDate attributeValue = createAttributeValueDate(value);
-		attributeValue.setDefinition(attributeDefinition);
-		SpecObject specObject = createSpecObject(id);
-		specObject.getValues().add(attributeValue);
-		return specObject;
+	@Override
+	public DateFilter createFilterInstance(Operator operator) {
+		return new DateFilter(operator, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
 	}
 
-	public ReqIF reqifFromFile(String fileName) throws Exception{
-		URI uri = TestData.getURI(fileName);
-		final Resource resource = editingDomain.getResourceSet().getResource(uri, true);
-		final ReqIF reqif = (ReqIF) resource.getContents().get(0);
-		if (reqif == null){
-			throw new NullPointerException();
-		}
-		return reqif;
+	@Override
+	public Set<Operator> getSupportedOperators() {
+		return DateFilter.SUPPORTED_OPERATORS;
 	}
 	
 }

@@ -72,7 +72,16 @@ public class SimpleCompoundFilterTest extends AbstractItemProviderTest {
 		for (SpecObject specObject : reqif.getCoreContent().getSpecObjects()) {
 			assertFalse(andFilter.match(specObject));
 		}
+		
+		filters = new LinkedList<IFilter>();
+		filters.add(new DateFilter(Operator.AFTER, new GregorianCalendar(2014, 1, 1), null, adDate)); // matches
+		filters.add(new StringFilter(Operator.CONTAINS, "c", adString, false)); // matches
 
+		andFilter = new SimpleCompoundFilter(filters, false);
+		for (SpecObject specObject : reqif.getCoreContent().getSpecObjects()) {
+			assertTrue(andFilter.match(specObject));
+		}
+		
 	}
 	
 }
