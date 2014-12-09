@@ -150,6 +150,7 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 		ScrolledComposite sc = new ScrolledComposite(parent, SWT.V_SCROLL
 				| SWT.NONE);
 		sc.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
+		sc.setBackground(parent.getBackground());
 		Composite pane = new Composite(sc, SWT.NONE);
 		pane.setLayout(new GridLayout());
 		sc.setContent(pane);
