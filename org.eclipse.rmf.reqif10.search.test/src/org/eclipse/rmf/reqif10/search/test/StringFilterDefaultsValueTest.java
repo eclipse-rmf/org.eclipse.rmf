@@ -10,7 +10,7 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.junit.Test;
 
-public class StringFilterDefaultValueTest extends StringFilterTest {
+public class StringFilterDefaultsValueTest extends StringFilterTest {
 
 	@Test
 	public void testOnEmptyAttribute() throws Exception {
