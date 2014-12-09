@@ -17,7 +17,7 @@ import org.junit.Test;
 public class IntegerFilterTest extends AbstractFilterTest {
 
 	
-	private AttributeDefinitionInteger attributeDefinition;
+	AttributeDefinitionInteger attributeDefinition;
 
 	
 	
