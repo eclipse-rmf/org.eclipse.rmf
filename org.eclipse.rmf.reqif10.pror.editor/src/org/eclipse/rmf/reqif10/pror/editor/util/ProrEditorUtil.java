@@ -17,8 +17,6 @@ import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -51,14 +49,16 @@ public class ProrEditorUtil {
 		String title = ConfigurationUtil.getSpecElementLabel(spec,
 				adapterFactory);
 		
+		// TODO does not work in headless mode.
 		// Getting the file path is an absolute nightmare!
-		List<String> segments = spec.eResource().getURI().segmentsList();
-		IPath filepath = ResourcesPlugin.getWorkspace().getRoot()
-				.getRawLocation();
-		for (int i = 1; i < segments.size() - 1; i++) {
-			filepath = filepath.append(segments.get(i));
-		}		
-		String baseURL = filepath.toPortableString() + "/";
+//		List<String> segments = spec.eResource().getURI().segmentsList();
+//		IPath filepath = ResourcesPlugin.getWorkspace().getRoot()
+//				.getRawLocation();
+//		for (int i = 1; i < segments.size() - 1; i++) {
+//			filepath = filepath.append(segments.get(i));
+//		}		
+//		String baseURL = filepath.toPortableString() + "/";
+		String baseURL = ".";
 
 		sb.append("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n");
 		sb.append("<html>\n");
