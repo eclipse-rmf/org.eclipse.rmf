@@ -12,6 +12,7 @@ package org.eclipse.rmf.reqif10.search.filter.ui;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,9 +25,9 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
-import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecType;
+import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter;
 import org.eclipse.rmf.reqif10.search.filter.DateFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.StringFilter;
@@ -49,41 +50,18 @@ import org.eclipse.swt.widgets.Label;
 public class FilterPanel extends Composite {
 
 	private ReqIF reqif;
-	private ComboViewer attr;
+	private ComboViewer attributeCombo;
 
+	/**
+	 * This constructor creates an empty {@link FilterPanel}.
+	 */
 	public FilterPanel(final Composite parent, ReqIF reqif) {
 		super(parent, SWT.BORDER);
 		this.reqif = reqif;
 		setLayout(new GridLayout(3, false));
 
-		Label close = new Label(this, SWT.FLAT);
-		close.setText("\u274C");
-		close.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
-		close.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseUp(MouseEvent e) {
-				dispose();
-				parent.pack();
-			}
-		});
-		
-		attr = new ComboViewer(this, SWT.DROP_DOWN | SWT.BORDER | SWT.READ_ONLY);
-		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
-		layoutData.widthHint = 180;
-		attr.getControl().setLayoutData(layoutData);
-		attr.setLabelProvider(new AttributeLabelProvider());
-		attr.setContentProvider(new ArrayContentProvider());
-		attr.setInput(createAttributeInput().toArray());
-
-		attr.addSelectionChangedListener(new ISelectionChangedListener() {
-			@Override
-			public void selectionChanged(SelectionChangedEvent event) {
-				if (! event.getSelection().isEmpty()) {
-					Object selectedAttr = ((IStructuredSelection)event.getSelection()).getFirstElement();
-					attributeChanged(selectedAttr);					
-				}
-			}
-		});
+		createCloseButton(parent);
+		createAttributeCombo();
 	}
 
 	/**
@@ -93,18 +71,67 @@ public class FilterPanel extends Composite {
 		this(parent, reqif);
 		
 		// see whether the attribute of the filter still exists
-		Object[] input = ((Object[])attr.getInput());
+		Object[] input = ((Object[])attributeCombo.getInput());
 		int attributeIndex = Arrays.asList(input).indexOf(filter.getAttribute());
 		if (attributeIndex == -1) return;
 
-		attr.getCombo().select(attributeIndex);
-		FilterControl filterControl = new FilterControlString(this, (StringFilter)filter);
+		attributeCombo.getCombo().select(attributeIndex);
+		FilterControl filterControl = FilterControl.createFilterControl(this, filter);
 		filterControl.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		layout();
 		getParent().pack();
 	}
 
+	/**
+	 * The close button disposes the {@link FilterPanel} and repacks the parent.
+	 * @param parent
+	 */
+	private void createCloseButton(final Composite parent) {
+		Label close = new Label(this, SWT.FLAT);
+		close.setText("\u2716");
+		close.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
+		close.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseUp(MouseEvent e) {
+				dispose();
+				parent.pack();
+			}
+		});
+	}
 
+	/**
+	 * Create the combo that contains both internal attributes and the model's
+	 * attributes. Upon selection change, the corresponding
+	 * {@link FilterControl} is built.
+	 */
+	private void createAttributeCombo() {
+		attributeCombo = new ComboViewer(this, SWT.DROP_DOWN | SWT.BORDER
+				| SWT.READ_ONLY);
+		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
+		layoutData.widthHint = 180;
+		attributeCombo.getControl().setLayoutData(layoutData);
+		attributeCombo.setLabelProvider(new AttributeLabelProvider());
+		attributeCombo.setContentProvider(new ArrayContentProvider());
+		attributeCombo.setInput(createAttributeInput().toArray());
+
+		attributeCombo
+				.addSelectionChangedListener(new ISelectionChangedListener() {
+					@Override
+					public void selectionChanged(SelectionChangedEvent event) {
+						if (!event.getSelection().isEmpty()) {
+							Object selectedAttr = ((IStructuredSelection) event
+									.getSelection()).getFirstElement();
+							attributeChanged(selectedAttr);
+						}
+					}
+				});
+	}
+
+	/**
+	 * Create a {@link List} that acts as the input for {@link #attributeCombo}.
+	 * The list is first sorted by {@link SpecType} and then sorted by
+	 * {@link AttributeDefinition}.
+	 */
 	private List<?> createAttributeInput() {
 		List<? super Object> list = new ArrayList<Object>();
 
@@ -122,6 +149,7 @@ public class FilterPanel extends Composite {
 
 		// Add them in alphabetical order.
 		List<String> sortedKeys = new ArrayList<String>(attributes.keySet());
+		Collections.sort(sortedKeys);
 		for (String key : sortedKeys) {
 			list.add(attributes.get(key));			
 		}
@@ -129,21 +157,31 @@ public class FilterPanel extends Composite {
 		return list;
 	}
 
+	/**
+	 * Reacts to attribute changes by creating the correct {@link FilterControl}
+	 * . If there already is a {@link FilterControl}, it is discarded.
+	 */
 	protected void attributeChanged(Object attribute) {
-		FilterControl filterControl;
 		if (getFilterControl() != null) getFilterControl().dispose();
 		
-		
-		if (Arrays.asList(StringFilter.InternalAttribute.values()).contains(attribute)) {
-			filterControl = new FilterControlString(this, (StringFilter.InternalAttribute)attribute);
-		} else if (attribute instanceof AttributeDefinitionString) {
-			filterControl = new FilterControlString(this, (AttributeDefinitionString)attribute);
+		FilterControl filterControl;
+		if (attribute instanceof AbstractTextFilter.InternalAttribute) {
+			filterControl = FilterControl.createFilterControl(this,
+					(AbstractTextFilter.InternalAttribute) attribute);
+		} else if (attribute instanceof DateFilter.InternalAttribute) {
+			filterControl = FilterControl.createFilterControl(this,
+					(DateFilter.InternalAttribute) attribute);
+		} else if (attribute instanceof AttributeDefinition) {
+			filterControl = FilterControl.createFilterControl(this,
+					(AttributeDefinition) attribute);
 		} else {
-			MessageDialog.openError(getShell(), "Invalid Selection", "Cannot handle (yet): " + attribute);
+			MessageDialog.openError(getShell(), "Invalid Selection",
+					"Cannot handle (yet): " + attribute);
 			filterControl = null;
 		}
 
-		filterControl.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		filterControl.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
+				false));
 		layout();
 		getParent().pack();
 	}
@@ -180,5 +218,4 @@ public class FilterPanel extends Composite {
 			return element.toString();
 		}
 	}
-
 }

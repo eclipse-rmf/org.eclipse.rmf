@@ -150,6 +150,7 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 		ScrolledComposite sc = new ScrolledComposite(parent, SWT.V_SCROLL
 				| SWT.NONE);
 		sc.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
+		sc.setBackground(parent.getBackground());
 		Composite pane = new Composite(sc, SWT.NONE);
 		pane.setLayout(new GridLayout());
 		sc.setContent(pane);
@@ -230,9 +231,10 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	}
 
 	/**
-	 * Retrieves the filters from the pane.
+	 * Retrieves the filters from the pane in a {@link SimpleCompoundFilter}.
 	 */
 	private SimpleCompoundFilter getFilter() {
+		if (pane == null) return null;
 		ArrayList<IFilter> filters = new ArrayList<IFilter>();
 		for (Control control : pane.getChildren()) {
 			if (control instanceof FilterPanel) {
