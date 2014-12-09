@@ -97,7 +97,7 @@ public class StringFilter extends AbstractTextFilter {
 	}
 
 	@Override
-	protected ImmutableSet<Operator> getSupportedOperators() {
+	public ImmutableSet<Operator> getSupportedOperators() {
 		return SUPPORTED_OPERATORS;
 	}
 

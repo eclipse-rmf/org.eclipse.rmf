@@ -172,7 +172,7 @@ public class DateFilter implements IFilter {
 	public Operator getOperator() {
 		return operator;
 	}
-
+	
 	public GregorianCalendar getFilterValue1() {
 		return filterValue1;
 	}
@@ -180,5 +180,11 @@ public class DateFilter implements IFilter {
 	public GregorianCalendar getFilterValue2() {
 		return filterValue2;
 	}
+
+	@Override
+	public ImmutableSet<Operator> getSupportedOperators() {
+		return SUPPORTED_OPERATORS;
+	}
+
 
 }

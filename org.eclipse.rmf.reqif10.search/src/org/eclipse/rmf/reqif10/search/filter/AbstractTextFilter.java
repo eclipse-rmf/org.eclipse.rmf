@@ -138,7 +138,6 @@ public abstract class AbstractTextFilter implements IFilter {
 				return true;
 			case REGEXP:
 				// apply regexp to the empty string
-				//return "".matches(filterValue);
 				return matchRegexp("");
 			default:
 				break;
@@ -193,7 +192,7 @@ public abstract class AbstractTextFilter implements IFilter {
 	 * Has to return the instance of this.SUPPORTED_OPERATORS
 	 * @return
 	 */
-	protected abstract ImmutableSet<Operator> getSupportedOperators();
+	public abstract ImmutableSet<Operator> getSupportedOperators();
 	
 	
 	
@@ -218,14 +217,22 @@ public abstract class AbstractTextFilter implements IFilter {
 		return caseSensitive;
 	}
 	
-	public String getfilterValue() {
+	@Override
+	public String getFilterValue1() {
 		return filterValue;
 	}
+	
+	@Override
+	public String getFilterValue2() {
+		return null;
+	}
 
+	@Override
 	public Operator getOperator() {
 		return operator;
 	}
 	
+	@Override
 	public Object getAttribute() {
 		return isInternal ? internalAttribute : attributeDefinition;
 	}
