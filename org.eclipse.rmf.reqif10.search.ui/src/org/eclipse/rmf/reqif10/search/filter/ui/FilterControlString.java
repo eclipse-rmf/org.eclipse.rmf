@@ -57,7 +57,7 @@ public class FilterControlString extends FilterControl {
 		text = new Text(this, SWT.SINGLE | SWT.BORDER | SWT.FILL);
 		GridData layoutData = new GridData(SWT.FILL, SWT.CENTER, true, false);
 		text.setLayoutData(layoutData);
-		if (templateFilter != null) text.setText(templateFilter.getfilterValue());
+		if (templateFilter != null) text.setText(templateFilter.getFilterValue1());
 	}
 
 	private void createCaseSensitive() {
