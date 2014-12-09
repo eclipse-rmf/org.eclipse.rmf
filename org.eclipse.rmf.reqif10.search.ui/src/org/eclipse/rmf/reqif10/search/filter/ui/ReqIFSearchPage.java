@@ -230,9 +230,10 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	}
 
 	/**
-	 * Retrieves the filters from the pane.
+	 * Retrieves the filters from the pane in a {@link SimpleCompoundFilter}.
 	 */
 	private SimpleCompoundFilter getFilter() {
+		if (pane == null) return null;
 		ArrayList<IFilter> filters = new ArrayList<IFilter>();
 		for (Control control : pane.getChildren()) {
 			if (control instanceof FilterPanel) {
