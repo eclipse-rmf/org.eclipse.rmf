@@ -47,7 +47,17 @@ public class NumberFilter implements IFilter {
 			AttributeDefinitionReal attributeDefinition) {
 		init(operator, value1, value2, attributeDefinition);
 	}
-	
+
+	/**
+	 * TODO (mj) How about abandoning the above two constructors in favor of
+	 * this one? Maybe after adding some sanity checks.
+	 */
+	public NumberFilter(Operator operator, Number value1, Number value2,
+			AttributeDefinition attributeDefinition) {
+		
+		init(operator, (Comparable<? extends Number>) value1,
+				(Comparable<? extends Number>) value2, attributeDefinition);
+	}
 	
 	/**
 	 * 
