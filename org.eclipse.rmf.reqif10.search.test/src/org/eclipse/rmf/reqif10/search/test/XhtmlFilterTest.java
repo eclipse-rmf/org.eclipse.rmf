@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
-import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
@@ -43,7 +43,7 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 	
 	@Before
 	public void seUp(){
-		createFixture(null);
+		createFixture("");
 	}
 		
 	
@@ -101,7 +101,7 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP_PLAIN, "hello\\s* world",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP_PLAIN, "hello.* world",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP_PLAIN, "hello.*world",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
 	}	
 	
@@ -109,47 +109,23 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 	
 	
 
-	
-	@Test
-	public void testInternalFeatures() throws Exception {
-		fail("Not yet implemented");
-	}
-	
-	
+
 	@Test
 	public void testExceptionsAttributeDefinition() throws Exception {
 		thrown.expect(IllegalArgumentException.class);
 		new StringFilter(IFilter.Operator.EQUALS, "abcdef",  (AttributeDefinitionString) null, false);
 	}
 	
-	@Test
-	public void testExceptionsInternalAttribute() throws Exception {
-		fail("Not yet implemented");
-	}
 	
-	@Test
-	public void testExceptionsUnsupportedOperation() throws Exception {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testExceptionsUnsupportedOperation2() throws Exception {
-		fail("Not yet implemented");
-	}
-	
-	
-
 	@Override
 	public Set<Operator> getSupportedOperators() {
-		// TODO Auto-generated method stub
-		return null;
+		return XhtmlFilter.SUPPORTED_OPERATORS;
 	}
 
 
 	@Override
 	public IFilter createFilterInstance(Operator operator) {
-		// TODO Auto-generated method stub
-		return null;
+		return new XhtmlFilter(operator, "", attributeDefinition, true);
 	}
 
 
@@ -203,9 +179,13 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 			final Resource resource = editingDomain.getResourceSet().getResource(uri, true);
 			final ReqIF reqif = (ReqIF) resource.getContents().get(0);
 			specObject = reqif.getCoreContent().getSpecObjects().get(0);
-			AttributeValue attributeValue = specObject.getValues().get(1);
+			AttributeValueXHTML attributeValue = (AttributeValueXHTML) specObject.getValues().get(1);
+			
+			if (value == null){
+				attributeValue.setTheValue(null);
+			}
+			
 			attributeDefinition = (AttributeDefinitionXHTML) ReqIF10Util.getAttributeDefinition(attributeValue);
-			System.out.println(attributeDefinition);
 			setFixture(specObject);
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
