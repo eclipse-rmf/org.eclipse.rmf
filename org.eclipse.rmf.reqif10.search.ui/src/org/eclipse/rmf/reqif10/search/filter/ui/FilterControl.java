@@ -10,13 +10,20 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter.ui;
 
+import java.util.ResourceBundle;
+
 import org.eclipse.rmf.reqif10.AttributeDefinition;
+import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
+import org.eclipse.rmf.reqif10.AttributeDefinitionInteger;
+import org.eclipse.rmf.reqif10.AttributeDefinitionReal;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
+import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter;
+import org.eclipse.rmf.reqif10.search.filter.BoolFilter;
 import org.eclipse.rmf.reqif10.search.filter.DateFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.StringFilter;
+import org.eclipse.rmf.reqif10.search.filter.NumberFilter;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
@@ -42,8 +49,10 @@ public abstract class FilterControl extends Composite {
 	 * This factory instantiates the correct FilterControl for a given filter.
 	 */
 	public static FilterControl createFilterControl(FilterPanel parent, IFilter filter) {
-		if (filter instanceof StringFilter) return new FilterControlString(parent, (StringFilter)filter);
+		if (filter instanceof AbstractTextFilter) return new FilterControlString(parent, (AbstractTextFilter)filter);
 		if (filter instanceof DateFilter) return new FilterControlDate(parent, (DateFilter)filter);
+		if (filter instanceof NumberFilter) return new FilterControlNumber(parent, (NumberFilter)filter);
+		if (filter instanceof BoolFilter) return new FilterControlBoolean(parent, (BoolFilter)filter);
 
 		throw new IllegalArgumentException("Don't know how to create: " + filter);		
 	}
@@ -63,12 +72,30 @@ public abstract class FilterControl extends Composite {
 
 	public static FilterControl createFilterControl(FilterPanel parent,
 			AttributeDefinition attribute) {
-		if (attribute instanceof AttributeDefinitionString) {
-			return new FilterControlString(parent, (AttributeDefinitionString)attribute);
+		if (attribute instanceof AttributeDefinitionString
+				|| attribute instanceof AttributeDefinitionXHTML) {
+			return new FilterControlString(parent, attribute);
+		} else if (attribute instanceof AttributeDefinitionInteger
+				|| attribute instanceof AttributeDefinitionReal) {
+			return new FilterControlNumber(parent, attribute);
 		} else if (attribute instanceof AttributeDefinitionDate) {
-			return new FilterControlDate(parent, (AttributeDefinitionDate)attribute);
+			return new FilterControlDate(parent,
+					(AttributeDefinitionDate) attribute);
+		} else if (attribute instanceof AttributeDefinitionBoolean) {
+			return new FilterControlBoolean(parent,
+					(AttributeDefinitionBoolean) attribute);
 		}
-		throw new IllegalArgumentException("Don't know how to create (yet): " + attribute); 
+		throw new IllegalArgumentException("Don't know how to create (yet): "
+				+ attribute);
+	}
+	
+	/**
+	 * This method retrieves a value from the Plugin.
+	 */
+	public static String getString(String key) {
+		// Note that ResourceBundle has nothing to do with Eclipse.  But it's a convenient
+		// means of accessing plugin.properties, which we need anyway.
+		return ResourceBundle.getBundle("plugin").getString(key);
 	}
 
 }
