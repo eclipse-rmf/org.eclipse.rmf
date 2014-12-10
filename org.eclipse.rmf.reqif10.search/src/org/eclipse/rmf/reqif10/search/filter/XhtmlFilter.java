@@ -73,6 +73,8 @@ public class XhtmlFilter extends AbstractTextFilter {
 				simplifiedString = ProrXhtmlSimplifiedHelper.xhtmlToSimplifiedString(theValue);
 			}
 			
+			System.out.println(simplifiedString);
+			
 			return matchRegexp(simplifiedString);
 		}else{
 			return super.match(element);
