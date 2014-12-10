@@ -91,6 +91,13 @@ public class DateFilter implements IFilter {
 					"Value can not be null");
 		}
 		
+		if (operator.equals(Operator.BETWEEN) ){
+			if (value2 == null){
+				throw new IllegalArgumentException("Value2 can not be null when using the operator " + operator.toString());
+			}
+		}
+		
+		
 		this.operator = operator;
 		if (operator.equals(Operator.BETWEEN) && value1.after(value2)){
 			this.filterValue1 = value2;
@@ -123,7 +130,11 @@ public class DateFilter implements IFilter {
 			AttributeValue attributeValue = ReqIF10Util.getAttributeValue(
 					element, attributeDefinition);
 			// TODO
-			theValue = (null == attributeValue ? null : ((AttributeValueDate) attributeValue).getTheValue());
+			if (attributeValue == null || !((AttributeValueDate) attributeValue).isSetTheValue()){
+				theValue = null;
+			}else{
+				theValue = ((AttributeValueDate) attributeValue).getTheValue();
+			}
 		}
 		
 		if (theValue == null){
