@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="769accad-0e26-41d2-b336-ce59fba43b1b">
+      <COMMENT>Created by: iw</COMMENT>
+      <CREATION-TIME>2014-12-04T17:09:36.070+01:00</CREATION-TIME>
+      <REQ-IF-TOOL-ID>ProR (http://pror.org)</REQ-IF-TOOL-ID>
+      <REQ-IF-VERSION>1.0.1</REQ-IF-VERSION>
+      <SOURCE-TOOL-ID>ProR (http://pror.org)</SOURCE-TOOL-ID>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_8Q8OY3vPEeSShJpFBALhDQ" LAST-CHANGE="2014-12-04T17:09:36.070+01:00" LONG-NAME="T_String32k" MAX-LENGTH="32000"/>
+        <DATATYPE-DEFINITION-XHTML IDENTIFIER="_9FAIkHvPEeSShJpFBALhDQ" LAST-CHANGE="2014-12-04T17:09:39.734+01:00" LONG-NAME="T_Xhtml"/>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_8Q8OZHvPEeSShJpFBALhDQ" LAST-CHANGE="2014-12-04T17:09:36.070+01:00" LONG-NAME="Requirement Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_8Q8OZXvPEeSShJpFBALhDQ" LAST-CHANGE="2014-12-04T17:09:36.070+01:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_8Q8OY3vPEeSShJpFBALhDQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            
+            
+            <ATTRIBUTE-DEFINITION-XHTML IDENTIFIER="_-wMfEHvPEeSShJpFBALhDQ" LAST-CHANGE="2014-12-04T17:09:51.233+01:00" LONG-NAME="xhtml_content">
+              <TYPE>
+                <DATATYPE-DEFINITION-XHTML-REF>_9FAIkHvPEeSShJpFBALhDQ</DATATYPE-DEFINITION-XHTML-REF>
+              </TYPE>
+
+			  
+			  
+              <DEFAULT-VALUE>
+                <ATTRIBUTE-VALUE-XHTML>
+                  <DEFINITION>
+                    <ATTRIBUTE-DEFINITION-XHTML-REF>_-wMfEHvPEeSShJpFBALhDQ</ATTRIBUTE-DEFINITION-XHTML-REF>
+                  </DEFINITION>
+                  <THE-VALUE>
+                    <xhtml:div><xhtml:p style="text-align: left">hello</xhtml:p><xhtml:p style=" text-align: left">world</xhtml:p></xhtml:div>
+                  </THE-VALUE>
+                </ATTRIBUTE-VALUE-XHTML>
+              </DEFAULT-VALUE>			  
+			  
+			  
+			  
+            </ATTRIBUTE-DEFINITION-XHTML>
+                        
+            
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE IDENTIFIER="_8Q8OZnvPEeSShJpFBALhDQ" LAST-CHANGE="2014-12-04T17:09:36.070+01:00" LONG-NAME="Specification Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_8Q8OZ3vPEeSShJpFBALhDQ" LAST-CHANGE="2014-12-04T17:09:36.070+01:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_8Q8OY3vPEeSShJpFBALhDQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT IDENTIFIER="_8Q8OaHvPEeSShJpFBALhDQ" LAST-CHANGE="2014-12-04T17:10:53.129+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Start editing here.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_8Q8OZXvPEeSShJpFBALhDQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_-wMfEHvPEeSShJpFBALhDQ</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-XHTML>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_8Q8OZHvPEeSShJpFBALhDQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="_8Q8OanvPEeSShJpFBALhDQ" LAST-CHANGE="2014-12-04T17:09:36.070+01:00" LONG-NAME="Specification Document">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Requirements Document">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_8Q8OZ3vPEeSShJpFBALhDQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>_8Q8OZnvPEeSShJpFBALhDQ</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="_8Q81cXvPEeSShJpFBALhDQ" LAST-CHANGE="2014-12-04T17:09:36.070+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_8Q8OaHvPEeSShJpFBALhDQ</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration specification="_8Q8OanvPEeSShJpFBALhDQ">
+            <configuration:columns>
+              <configuration:Column label="Description" width="300"/>
+              <configuration:Column label="xhtml_content"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration>
+                <defaultLabel>Description</defaultLabel>
+              </configuration:LabelConfiguration>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+        <configuration:presentationConfigurations>
+          <configuration:ProrPresentationConfigurations/>
+        </configuration:presentationConfigurations>
+      </configuration:ProrToolExtension>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>
