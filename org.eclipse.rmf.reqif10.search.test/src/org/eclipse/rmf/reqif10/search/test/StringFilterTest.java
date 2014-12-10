@@ -311,8 +311,7 @@ public class StringFilterTest extends AbstractFilterTest{
 
 	@Override
 	public IFilter createFilterInstance(Operator operator) {
-		// TODO Auto-generated method stub
-		return null;
+		return new StringFilter(operator, "", attributeDefinition, true);
 	}
 
 
