@@ -199,22 +199,6 @@ public class DateFilterTest extends AbstractFilterTest{
 	}
 	
 	
-	
-	@Test
-	public void testOnEmptyAttribute() {
-		getFixture().getValues().clear();
-		doEmptyTest();
-	}
-	
-	
-	@Test
-	public void testOnNullValue() {
-		AttributeValueDate attributeValue = (AttributeValueDate) getFixture().getValues().get(0);
-		attributeValue.setTheValue(null);
-		doEmptyTest();
-	}
-	
-	
 	public void doEmptyTest(){
 		DateFilter filter;
 		
@@ -224,13 +208,13 @@ public class DateFilterTest extends AbstractFilterTest{
 		filter = new DateFilter(IFilter.Operator.IS_NOT, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
 		doMatch(filter, true);
 		
-		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
+		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 1, 1), new GregorianCalendar(2014, 1, 1), attributeDefinition);
 		doMatch(filter, false);
 		
 		filter = new DateFilter(IFilter.Operator.BEFORE, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
 		doMatch(filter, false);
 		
-		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
+		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2000, 1, 1), null, attributeDefinition);
 		doMatch(filter, false);
 	}
 	
