@@ -25,6 +25,7 @@ import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServ
 import org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
@@ -106,6 +107,23 @@ public class ProrCellRenderer extends AbstractProrSpecCellRenderer {
 			rowHeight = renderer.doDrawCellContent(gc, rect, content);
 		} else {
 			rowHeight = doDrawCellContentDefault(gc, rect, content);
+		}
+
+		// Prevent Scrolling becoming impossible by truncating large cells vertically.
+		int tableSize = agileGrid.getSize().y;
+		if (rowHeight > (tableSize * .5)) {
+			rowHeight = (int) (tableSize * .5);
+			Color oldForeground = gc.getForeground();
+			Color oldBackground = gc.getBackground();
+			
+			gc.setBackground(COLOR_BACKGROUND);
+			gc.setForeground(COLOR_LINE_LIGHTGRAY);
+			gc.fillRectangle(rect.x, rect.y + rowHeight + 4 - 20, rect.width, 20);
+			gc.setForeground(COLOR_RED);
+			gc.drawLine(rect.x, rect.y + rowHeight + 4 - 20, rect.x + rect.width, rect.y + rowHeight + 4 - 20);
+			gc.drawText("Truncated", rect.x + 5, rect.y + rowHeight - 15);
+			gc.setForeground(oldForeground);
+			gc.setBackground(oldBackground);
 		}
 		updateCellHeight(row, col, rowHeight);
 	}
