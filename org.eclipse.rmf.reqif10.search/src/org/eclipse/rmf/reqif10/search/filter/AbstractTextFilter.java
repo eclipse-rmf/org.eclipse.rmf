@@ -205,9 +205,9 @@ public abstract class AbstractTextFilter implements IFilter {
 	protected boolean matchRegexp(String value){
 		Pattern p;
 		if (caseSensitive){
-			p = Pattern.compile(filterValue);
+			p = Pattern.compile(filterValue, Pattern.DOTALL);
 		}else{
-			p = Pattern.compile(filterValue, Pattern.CASE_INSENSITIVE);
+			p = Pattern.compile(filterValue, Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
 		}
 		Matcher matcher = p.matcher(value);
 		return matcher.find();
