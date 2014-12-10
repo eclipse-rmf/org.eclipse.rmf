@@ -13,12 +13,14 @@ package org.eclipse.rmf.reqif10.search.filter.ui;
 import java.util.ResourceBundle;
 
 import org.eclipse.rmf.reqif10.AttributeDefinition;
+import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
 import org.eclipse.rmf.reqif10.AttributeDefinitionInteger;
 import org.eclipse.rmf.reqif10.AttributeDefinitionReal;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter;
+import org.eclipse.rmf.reqif10.search.filter.BoolFilter;
 import org.eclipse.rmf.reqif10.search.filter.DateFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.NumberFilter;
@@ -50,6 +52,7 @@ public abstract class FilterControl extends Composite {
 		if (filter instanceof AbstractTextFilter) return new FilterControlString(parent, (AbstractTextFilter)filter);
 		if (filter instanceof DateFilter) return new FilterControlDate(parent, (DateFilter)filter);
 		if (filter instanceof NumberFilter) return new FilterControlNumber(parent, (NumberFilter)filter);
+		if (filter instanceof BoolFilter) return new FilterControlBoolean(parent, (BoolFilter)filter);
 
 		throw new IllegalArgumentException("Don't know how to create: " + filter);		
 	}
@@ -78,6 +81,9 @@ public abstract class FilterControl extends Composite {
 		} else if (attribute instanceof AttributeDefinitionDate) {
 			return new FilterControlDate(parent,
 					(AttributeDefinitionDate) attribute);
+		} else if (attribute instanceof AttributeDefinitionBoolean) {
+			return new FilterControlBoolean(parent,
+					(AttributeDefinitionBoolean) attribute);
 		}
 		throw new IllegalArgumentException("Don't know how to create (yet): "
 				+ attribute);
