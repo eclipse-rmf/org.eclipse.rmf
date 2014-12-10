@@ -15,7 +15,6 @@ import org.agilemore.agilegrid.SWTResourceManager;
 import org.agilemore.agilegrid.SWTX;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.rmf.reqif10.SpecRelation;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Rectangle;
@@ -23,7 +22,6 @@ import org.eclipse.swt.graphics.Rectangle;
 public abstract class AbstractProrSpecCellRenderer extends AbstractProrCellRenderer {
 
 	public static Color COLOR_LINK = SWTResourceManager.getColor(240, 240, 240);
-	public static Color COLOR_RED = SWTResourceManager.getColor(SWT.COLOR_RED);
 
 	public AbstractProrSpecCellRenderer(AgileGrid agileGrid,
 			AdapterFactory adapterFactory) {

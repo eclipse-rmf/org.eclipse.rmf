@@ -32,6 +32,7 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
@@ -52,6 +53,8 @@ import org.eclipse.ui.PlatformUI;
 public class AbstractProrCellRenderer extends TextCellRenderer {
 
 	protected final AdapterFactory adapterFactory;
+
+	public static Color COLOR_RED = SWTResourceManager.getColor(SWT.COLOR_RED);
 
 	private final Image IMG_WARN_FALSE = PlatformUI.getWorkbench()
 			.getSharedImages().getImage(ISharedImages.IMG_OBJS_INFO_TSK);
