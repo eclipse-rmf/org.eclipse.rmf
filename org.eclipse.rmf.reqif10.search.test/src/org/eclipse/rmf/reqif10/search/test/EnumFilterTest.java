@@ -1,7 +1,5 @@
 package org.eclipse.rmf.reqif10.search.test;
 
-import static org.junit.Assert.fail;
-
 import java.math.BigInteger;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -142,18 +140,34 @@ public class EnumFilterTest extends AbstractFilterTest{
 		doMatch(filter, false);
 	}
 	
-	
-	@Test
-	public void testName() throws Exception {
-		EnumFilter filter = new EnumFilter(Operator.CONTAINS_ALL, specifiedValues, attributeDefinition);
+
+	@Override
+	public void doEmptyTest() throws Exception {
+		EnumFilter filter;
+		LinkedList<EnumValue> emptyList = new LinkedList<EnumValue>();
+		
+		filter = new EnumFilter(Operator.EQUALS, specifiedValues, attributeDefinition);
+		doMatch(filter, false);
+		filter = new EnumFilter(Operator.EQUALS, emptyList, attributeDefinition);
+		doMatch(filter, true);
+		
+		filter = new EnumFilter(Operator.NOT_EQUALS, specifiedValues, attributeDefinition);
+		doMatch(filter, true);
+		filter = new EnumFilter(Operator.NOT_EQUALS, emptyList, attributeDefinition);
+		doMatch(filter, false);
+		
+		filter = new EnumFilter(Operator.CONTAINS_ALL, specifiedValues, attributeDefinition);
+		doMatch(filter, false);
+		filter = new EnumFilter(Operator.CONTAINS_ALL, emptyList, attributeDefinition);
 		doMatch(filter, true);
 		
 		filter = new EnumFilter(Operator.CONTAINS_ANY, specifiedValues, attributeDefinition);
+		doMatch(filter, false);
+		filter = new EnumFilter(Operator.CONTAINS_ANY, emptyList, attributeDefinition);
 		doMatch(filter, true);
 		
-		filter = new EnumFilter(Operator.EQUALS, specifiedValues, attributeDefinition);
-		doMatch(filter, true);
 	}
+	
 		
 	@Override
 	public Set<Operator> getSupportedOperators() {
@@ -165,11 +179,6 @@ public class EnumFilterTest extends AbstractFilterTest{
 		return new EnumFilter(operator, specifiedValues, attributeDefinition);
 	}
 
-	@Override
-	public void doEmptyTest() throws Exception {
-		// TODO Auto-generated method stub
-		fail("not yet implemented");
-	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -178,10 +187,10 @@ public class EnumFilterTest extends AbstractFilterTest{
 			throw new NullPointerException();
 		}
 		
-		Collection<EnumValue> enumValues;
+		Collection<EnumValue> enumValues = null;
 		if (values instanceof Collection<?>) {
 			enumValues = (Collection<EnumValue>) values;
-		}else{
+		}else if (values != null){
 			throw new IllegalArgumentException();
 		}
 		
@@ -195,7 +204,9 @@ public class EnumFilterTest extends AbstractFilterTest{
 		
 		AttributeValueEnumeration attributeValue = ReqIF10Factory.eINSTANCE.createAttributeValueEnumeration();
 		attributeValue.setDefinition(attributeDefinition);
-		attributeValue.getValues().addAll(enumValues);
+		if (enumValues != null){
+			attributeValue.getValues().addAll(enumValues);
+		}
 		
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		specObject.getValues().add(attributeValue);
