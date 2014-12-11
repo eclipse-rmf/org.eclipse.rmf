@@ -15,6 +15,9 @@ import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
+
 /**
  * implementation of operators that can be run on any {@link AttributeDefinition}
  * 
@@ -22,6 +25,8 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
  */
 public abstract class AbstractAttributeFilter implements IFilter {
 	
+	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
+			.immutableEnumSet(Operator.IS_SET, Operator.IS_NOT_SET);
 		
 	public AbstractAttributeFilter(){
 	}
@@ -67,4 +72,9 @@ public abstract class AbstractAttributeFilter implements IFilter {
 		return null;
 	}
 	
+	
+	@Override
+	public ImmutableSet<Operator> getSupportedOperators() {
+		return SUPPORTED_OPERATORS;
+	}
 }
