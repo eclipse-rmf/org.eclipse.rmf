@@ -51,12 +51,12 @@ public class FilterSearchQuery implements ISearchQuery {
 
 	@Override
 	public boolean canRunInBackground() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean canRerun() {
-		return false;
+		return true;
 	}
 	
 	private void doRun(IProgressMonitor monitor) {

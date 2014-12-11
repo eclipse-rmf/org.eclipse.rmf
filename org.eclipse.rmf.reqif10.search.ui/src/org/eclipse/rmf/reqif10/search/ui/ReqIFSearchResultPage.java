@@ -289,7 +289,6 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 
 		@Override
 		public String getText(Object object) {
-			System.out.println("Getting: " + object);
 			if (object instanceof EObject) {
 				ProrUtil.getItemProvider(adapterFactory, object)
 						.getText(object);
@@ -299,7 +298,6 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 
 		@Override
 		public Color getForeground(Object object) {
-			System.out.println("Testing: " + object);
 			if (!matchedObjects.contains(object)) {
 				return Display.getCurrent().getSystemColor(SWT.COLOR_GRAY);
 			}
