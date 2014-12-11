@@ -34,6 +34,9 @@ public class EnumFilter implements IFilter{
 	
 	private Operator operator;
 	private HashSet<EnumValue> filterValues;
+
+
+	private HashSet<EnumValue> defaultValues;
 	
 
 	public EnumFilter(Operator operator, Collection<EnumValue> value, AttributeDefinitionEnumeration attributeDefinition) {
@@ -55,6 +58,7 @@ public class EnumFilter implements IFilter{
 		this.attributeDefinition = attributeDefinition;
 		this.operator = operator;
 		this.filterValues =  new HashSet<EnumValue>(value);
+		this.defaultValues = new HashSet<EnumValue>(attributeDefinition.getDefaultValue().getValues());
 	}
 
 
@@ -63,10 +67,12 @@ public class EnumFilter implements IFilter{
 	public boolean match(SpecElementWithAttributes element) {	
 		AttributeValueEnumeration attributeValue = (AttributeValueEnumeration) ReqIF10Util.getAttributeValue(element, attributeDefinition);
 		
-		
+		boolean useDefaultValue;
 		if (attributeValue == null || !attributeValue.isSetValues()){
-			//TODO
-			// getDefaultValue
+			attributeValue = attributeDefinition.getDefaultValue();
+			useDefaultValue = true;
+		}else{
+			useDefaultValue = false;
 		}
 		
 		if (attributeValue == null || !attributeValue.isSetValues()){
@@ -84,7 +90,12 @@ public class EnumFilter implements IFilter{
 			}
 		}
 		
-		HashSet<EnumValue> elementValues = new HashSet<EnumValue>(attributeValue.getValues());
+		HashSet<EnumValue> elementValues;
+		if (useDefaultValue){
+			elementValues = defaultValues;
+		}else{
+			elementValues = new HashSet<EnumValue>(attributeValue.getValues());
+		}
 		
 		switch (operator) {
 		case EQUALS:

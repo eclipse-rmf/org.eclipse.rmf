@@ -31,7 +31,7 @@ import org.junit.Test;
 public class EnumFilterTest extends AbstractFilterTest{
 
 	AttributeDefinitionEnumeration attributeDefinition;
-	private LinkedList<EnumValue> specifiedValues;
+	LinkedList<EnumValue> specifiedValues;
 	
 	@Before
 	public void setUp(){
