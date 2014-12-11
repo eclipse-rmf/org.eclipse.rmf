@@ -28,9 +28,9 @@ public class EnumFilterTest extends AbstractFilterTest{
 	@Before
 	public void setUp(){
 		specifiedValues = new LinkedList<EnumValue>();
-		specifiedValues.add(createEnumValue("1"));
-		specifiedValues.add(createEnumValue("2"));
-		specifiedValues.add(createEnumValue("3"));
+		specifiedValues.add(createEnumValue(1));
+		specifiedValues.add(createEnumValue(2));
+		specifiedValues.add(createEnumValue(3));
 		
 		createFixture(specifiedValues);
 	}
@@ -208,12 +208,12 @@ public class EnumFilterTest extends AbstractFilterTest{
 	 * 
 	 * The id and embeddedValue is derived from the number parameter, hence only numbers should be given 
 	 */
-	private EnumValue createEnumValue(String number){
+	private EnumValue createEnumValue(Integer number){
 		EnumValue enumValue = ReqIF10Factory.eINSTANCE.createEnumValue();
 		enumValue.setIdentifier("ENUMVALUE_" + number);
 		EmbeddedValue embeddedValue = ReqIF10Factory.eINSTANCE.createEmbeddedValue();
-		embeddedValue.setKey(new BigInteger(number));
-		embeddedValue.setOtherContent(number);
+		embeddedValue.setKey(new BigInteger(number.toString()));
+		embeddedValue.setOtherContent(number.toString());
 		enumValue.setProperties(embeddedValue);
 		
 		return enumValue;
