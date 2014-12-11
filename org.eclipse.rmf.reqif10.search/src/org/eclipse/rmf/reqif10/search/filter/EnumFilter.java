@@ -12,10 +12,13 @@
 package org.eclipse.rmf.reqif10.search.filter;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
+import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
@@ -24,15 +27,15 @@ public class EnumFilter implements IFilter{
 
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
 			.immutableEnumSet(Operator.EQUALS, Operator.NOT_EQUALS,
-					Operator.CONTAINS, Operator.CONTAINS_ANY);
+					Operator.CONTAINS_ALL, Operator.CONTAINS_ANY);
 	
 	
 	private AttributeDefinitionEnumeration attributeDefinition;
+	
 	private Operator operator;
-	private Collection<EnumValue> values;
+	private HashSet<EnumValue> filterValues;
+	
 
-	
-	
 	public EnumFilter(Operator operator, Collection<EnumValue> value, AttributeDefinitionEnumeration attributeDefinition) {
 		// ensure that operator is supported
 		if (!SUPPORTED_OPERATORS.contains(operator)){
@@ -51,18 +54,43 @@ public class EnumFilter implements IFilter{
 		
 		this.attributeDefinition = attributeDefinition;
 		this.operator = operator;
-		this.values =  value;
+		this.filterValues =  new HashSet<EnumValue>(value);
 	}
 
 
 
 	@Override
-	public boolean match(SpecElementWithAttributes element) {
+	public boolean match(SpecElementWithAttributes element) {	
+		AttributeValueEnumeration attributeValue = (AttributeValueEnumeration) ReqIF10Util.getAttributeValue(element, attributeDefinition);
 		
 		
+		if (attributeValue == null || !attributeValue.isSetValues()){
+			//TODO
+			// getDefaultValue
+		}
 		
+		HashSet<EnumValue> elementValues = new HashSet<EnumValue>(attributeValue.getValues());
 		
-		return false;
+		switch (operator) {
+		case EQUALS:
+			return elementValues.equals(filterValues);
+		case NOT_EQUALS:
+			return !elementValues.equals(filterValues);
+		case CONTAINS_ALL:
+			return elementValues.containsAll(filterValues);
+		case CONTAINS_ANY:
+			for (EnumValue enumValue : filterValues) {
+				if (elementValues.contains(enumValue)){
+					return true;
+				}
+			}
+			return false;
+		default:
+			throw new IllegalArgumentException(
+					"This filter does not support the " + this.operator
+							+ " operation");
+		}
+		
 	}
 
 
@@ -79,7 +107,7 @@ public class EnumFilter implements IFilter{
 
 	@Override
 	public Collection<EnumValue> getFilterValue1() {
-		return values;
+		return filterValues;
 	}
 
 	@Override
