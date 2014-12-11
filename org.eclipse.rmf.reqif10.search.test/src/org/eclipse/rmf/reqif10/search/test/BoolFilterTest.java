@@ -9,8 +9,6 @@
  *     Ingo Weigelt - initial API and implementation
  ******************************************************************************/
 
-
-
 package org.eclipse.rmf.reqif10.search.test;
 
 import java.util.Set;
