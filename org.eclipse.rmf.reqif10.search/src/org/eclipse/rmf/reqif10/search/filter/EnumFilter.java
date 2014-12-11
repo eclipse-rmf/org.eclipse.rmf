@@ -69,6 +69,21 @@ public class EnumFilter implements IFilter{
 			// getDefaultValue
 		}
 		
+		if (attributeValue == null || !attributeValue.isSetValues()){
+			switch (operator) {
+			case NOT_EQUALS:
+				return filterValues.isEmpty() ? false : true;
+			case EQUALS:
+			case CONTAINS_ALL:
+			case CONTAINS_ANY:
+				return filterValues.isEmpty() ? true : false;
+			default:
+				throw new IllegalArgumentException(
+						"This filter does not support the " + this.operator
+								+ " operation");
+			}
+		}
+		
 		HashSet<EnumValue> elementValues = new HashSet<EnumValue>(attributeValue.getValues());
 		
 		switch (operator) {
