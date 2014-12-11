@@ -19,6 +19,7 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -26,6 +27,7 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
@@ -39,8 +41,11 @@ import org.eclipse.rmf.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
 import org.eclipse.search.ui.ISearchResult;
 import org.eclipse.search.ui.ISearchResultPage;
 import org.eclipse.search.ui.ISearchResultViewPart;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.part.Page;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
@@ -61,12 +66,14 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 	private TreeViewer treeViewer;
 	private AdapterFactoryLabelProvider labelProvider;
 	private AdapterFactoryContentProvider contentProvider;
-	private Set<Object> objectsFound = new HashSet<Object>();
+	private Set<Object> matchedObjectsWithParents = new HashSet<Object>();
 	private ComposedAdapterFactory adapterFactory;
 	/**
 	 * This is the property sheet page.
 	 */
 	protected ProrPropertySheetPage propertySheetPage;
+
+	private Set<Object> matchedObjects;
 
 	private ComposedAdapterFactory createAdapterFactory() {
 		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
@@ -91,16 +98,7 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 	public void createControl(final Composite parent) {
 		treeViewer = new TreeViewer(parent);
 		adapterFactory = createAdapterFactory();
-		labelProvider = new AdapterFactoryLabelProvider(adapterFactory) {
-			@Override
-			public String getText(Object object) {
-				if (object instanceof EObject) {
-					ProrUtil.getItemProvider(adapterFactory, object).getText(
-							object);
-				}
-				return super.getText(object);
-			}
-		};
+		labelProvider = new ResultLabelProvider(adapterFactory);
 		treeViewer.setLabelProvider(labelProvider);
 		contentProvider = new AdapterFactoryContentProvider(adapterFactory) {
 			@Override
@@ -117,7 +115,7 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 			@Override
 			public boolean select(Viewer viewer, Object parentElement,
 					Object element) {
-				if (objectsFound.contains(element)) {
+				if (matchedObjectsWithParents.contains(element)) {
 					return true;
 				}
 				return false;
@@ -137,26 +135,26 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 		if (searchResult instanceof UsageSearchResult) {
 			this.searchResult = (UsageSearchResult) searchResult;
 
-			Set<Object> objects = new HashSet<Object>();
+			matchedObjects = new HashSet<Object>();
 			Map<Resource, Collection<EObject>> resultMap = this.searchResult
 					.getSearchEntries();
 			for (Entry<Resource, Collection<EObject>> entry : resultMap
 					.entrySet()) {
 				if (false == entry.getValue().isEmpty()) {
-					objects.addAll(entry.getValue());
+					matchedObjects.addAll(entry.getValue());
 				}
 			}
 
-			objectsFound.clear();
-			objectsFound.addAll(objects);
+			matchedObjectsWithParents.clear();
+			matchedObjectsWithParents.addAll(matchedObjects);
 			Set<Resource> inputSet = new HashSet<Resource>();
-			for (Object object : objects) {
+			for (Object object : matchedObjects) {
 				Object temp = contentProvider.getParent(object);
 				while (temp != null) {
 					if (temp instanceof Resource) {
 						inputSet.add((Resource) temp);
 					}
-					objectsFound.add(temp);
+					matchedObjectsWithParents.add(temp);
 					temp = contentProvider.getParent(temp);
 				}
 
@@ -280,8 +278,33 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 		if (labelProvider != null) {
 			labelProvider.dispose();
 		}
-		objectsFound.clear();
+		matchedObjectsWithParents.clear();
 		super.dispose();
+	}
+
+	private final class ResultLabelProvider extends AdapterFactoryLabelProvider implements IColorProvider {
+		private ResultLabelProvider(AdapterFactory adapterFactory) {
+			super(adapterFactory);
+		}
+
+		@Override
+		public String getText(Object object) {
+			System.out.println("Getting: " + object);
+			if (object instanceof EObject) {
+				ProrUtil.getItemProvider(adapterFactory, object)
+						.getText(object);
+			}
+			return super.getText(object);
+		}
+
+		@Override
+		public Color getForeground(Object object) {
+			System.out.println("Testing: " + object);
+			if (!matchedObjects.contains(object)) {
+				return Display.getCurrent().getSystemColor(SWT.COLOR_GRAY);
+			}
+			return super.getForeground(object);
+		}
 	}
 
 }
