@@ -36,6 +36,7 @@ public class FilterSearchQuery implements ISearchQuery {
 			throws OperationCanceledException {
 		doRun(monitor);
 		// TODO better status
+		monitor.done();
 		return Status.OK_STATUS;
 	}
 
@@ -46,7 +47,7 @@ public class FilterSearchQuery implements ISearchQuery {
 
 	@Override
 	public String getLabel() {
-		return "My Search Label";
+		return "ReqIF Search...";
 	}
 
 	@Override
