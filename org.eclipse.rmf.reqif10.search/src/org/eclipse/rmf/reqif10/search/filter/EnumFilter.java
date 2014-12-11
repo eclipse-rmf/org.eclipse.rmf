@@ -23,11 +23,11 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 
-public class EnumFilter implements IFilter{
+public class EnumFilter extends AbstractAttributeFilter{
 
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
 			.immutableEnumSet(Operator.EQUALS, Operator.NOT_EQUALS,
-					Operator.CONTAINS_ALL, Operator.CONTAINS_ANY);
+					Operator.CONTAINS_ALL, Operator.CONTAINS_ANY, Operator.IS_SET, Operator.IS_NOT_SET);
 	
 	
 	private AttributeDefinitionEnumeration attributeDefinition;
@@ -145,6 +145,5 @@ public class EnumFilter implements IFilter{
 	public ImmutableSet<Operator> getSupportedOperators() {
 		return SUPPORTED_OPERATORS;
 	}
-	
 
 }

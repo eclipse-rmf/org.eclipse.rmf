@@ -25,7 +25,7 @@ import com.google.common.collect.Sets;
 /**
  * Filter for String-based values.
  */
-public abstract class AbstractTextFilter implements IFilter {
+public abstract class AbstractTextFilter extends AbstractAttributeFilter {
 
 	public enum InternalAttribute {
 		IDENTIFIER, DESC, LONG_NAME
@@ -34,7 +34,7 @@ public abstract class AbstractTextFilter implements IFilter {
 	// TODO cross-check this with supported operators.
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
 			.immutableEnumSet(Operator.EQUALS, Operator.NOT_EQUALS,
-					Operator.CONTAINS, Operator.NOT_CONTAINS, Operator.REGEXP);
+					Operator.CONTAINS, Operator.NOT_CONTAINS, Operator.REGEXP, Operator.IS_SET, Operator.IS_NOT_SET);
 
 	protected Operator operator;
 	protected String filterValue;
@@ -163,9 +163,7 @@ public abstract class AbstractTextFilter implements IFilter {
 //					              : theValue.toLowerCase().matches(filterValue.toLowerCase()));
 			return matchRegexp(theValue);
 		default:
-			throw new IllegalArgumentException(
-					"This filter does not support the " + this.operator
-							+ " operation");
+			return super.match(element);
 		}
 	}
 
