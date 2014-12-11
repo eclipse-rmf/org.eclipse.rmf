@@ -42,11 +42,9 @@ public class EnumFilter implements IFilter{
 	public EnumFilter(Operator operator, Collection<EnumValue> value, AttributeDefinitionEnumeration attributeDefinition) {
 		// ensure that operator is supported
 		if (!SUPPORTED_OPERATORS.contains(operator)){
-			if (!SUPPORTED_OPERATORS.contains(operator)){
 				throw new IllegalArgumentException(
 						"This filter does not support the " + operator.toString()
 								+ " operation");
-			}
 		};
 		
 		// ensure that value1 is not null
