@@ -96,7 +96,6 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 
 	@Override
 	protected void fireCancelEditor() {
-//		itemList = null;
 		super.fireCancelEditor();
 	}
 	/**
@@ -113,4 +112,10 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 			fireApplyEditorValue();
 		}
 	}
+	
+	@Override
+	protected void updateLabel(Object value) {
+		super.updateLabel("Select below.");
+	}
+	
 }
