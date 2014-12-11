@@ -72,11 +72,9 @@ public class NumberFilter implements IFilter {
 		
 		// ensure that operator is supported
 		if (!SUPPORTED_OPERATORS.contains(operator)){
-			if (!SUPPORTED_OPERATORS.contains(operator)){
 				throw new IllegalArgumentException(
 						"This filter does not support the " + operator.toString()
 								+ " operation");
-			}
 		};
 		
 		// ensure that value1 is not null
