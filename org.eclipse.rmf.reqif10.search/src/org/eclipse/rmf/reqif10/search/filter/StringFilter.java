@@ -28,7 +28,7 @@ public class StringFilter extends AbstractTextFilter {
 	// TODO cross-check this with supported operators.
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
 			.immutableEnumSet(Operator.EQUALS, Operator.NOT_EQUALS,
-					Operator.CONTAINS, Operator.NOT_CONTAINS, Operator.REGEXP);
+					Operator.CONTAINS, Operator.NOT_CONTAINS, Operator.REGEXP, Operator.IS_SET, Operator.IS_NOT_SET);
 
 	/**
 	 * Constructor used to create a filter for an
@@ -75,11 +75,11 @@ public class StringFilter extends AbstractTextFilter {
 	protected String getInternalAttributeValue(SpecElementWithAttributes element) {
 		switch (internalAttribute) {
 		case IDENTIFIER:
-			return element.getIdentifier();
+			return element.isSetIdentifier() ? element.getIdentifier() : null;
 		case DESC:
-			return element.getDesc();
+			return element.isSetDesc() ? element.getDesc() : null;
 		case LONG_NAME:
-			return element.getLongName();
+			return element.isSetLongName() ? element.getLongName() : null;
 		default:
 			throw new UnsupportedOperationException();
 		}

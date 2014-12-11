@@ -11,6 +11,8 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.test;
 
+import static org.junit.Assert.fail;
+
 import java.util.GregorianCalendar;
 import java.util.Set;
 
@@ -217,6 +219,60 @@ public class DateFilterTest extends AbstractFilterTest{
 		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2000, 1, 1), null, attributeDefinition);
 		doMatch(filter, false);
 	}
+	
+	
+	@Test
+	public void testInternalAttributes() throws Exception {
+		// TODO: validate that all operators are tested against internalAttribute 
+		fail("not yet implemented");
+	}
+	
+	
+	@Test
+	public void testIsSet() throws Exception {
+		DateFilter filter;
+		
+		filter = new DateFilter(IFilter.Operator.IS_SET, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
+		doMatch(filter, true);
+		
+		AttributeDefinitionDate attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionDate();
+		attributeDefinition2.setIdentifier("AD_ID1");
+		
+		filter = new DateFilter(IFilter.Operator.IS_SET, new GregorianCalendar(2014, 1, 1), null, attributeDefinition2);
+		doMatch(filter, false);
+	}
+	
+	
+	@Test
+	public void testIsSetInternal() throws Exception {
+		DateFilter filter;
+		
+		filter = new DateFilter(Operator.IS_SET, new GregorianCalendar(2014, 1, 1), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
+		filter = new DateFilter(Operator.IS_SET, null, null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
+		getFixture().setLastChange(null);
+		filter = new DateFilter(Operator.IS_SET, null, null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, false);
+	}
+	
+	@Test
+	public void testIsNotSetInternal() throws Exception {
+		DateFilter filter;
+		
+		filter = new DateFilter(Operator.IS_NOT_SET, new GregorianCalendar(2014, 1, 1), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, false);
+		
+		filter = new DateFilter(Operator.IS_NOT_SET, null, null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, false);
+		
+		getFixture().setLastChange(null);
+		filter = new DateFilter(Operator.IS_NOT_SET, null, null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+	}
+	
 	
 	@Test
 	public void testExceptionsAttributeDefinition() throws Exception {

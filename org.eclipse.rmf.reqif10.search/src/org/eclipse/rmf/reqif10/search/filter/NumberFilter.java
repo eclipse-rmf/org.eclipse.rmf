@@ -24,11 +24,11 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 
-public class NumberFilter implements IFilter {
+public class NumberFilter extends AbstractAttributeFilter {
 
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
 			.immutableEnumSet(Operator.IS, Operator.IS_NOT,
-					Operator.BETWEEN, Operator.GREATER, Operator.SMALLER);
+					Operator.BETWEEN, Operator.GREATER, Operator.SMALLER, Operator.IS_SET, Operator.IS_NOT_SET);
 	
 	private AttributeDefinition attributeDefinition;
 

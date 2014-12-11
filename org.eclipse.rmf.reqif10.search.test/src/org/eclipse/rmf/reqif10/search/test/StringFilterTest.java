@@ -13,6 +13,7 @@ package org.eclipse.rmf.reqif10.search.test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.GregorianCalendar;
 import java.util.Set;
@@ -28,6 +29,7 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter;
 import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter.InternalAttribute;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
@@ -149,7 +151,7 @@ public class StringFilterTest extends AbstractFilterTest{
 	
 	@Test
 	public void testInternalFeatures() throws Exception {
-		
+		fail("not yet implemented");
 	}
 	
 	
@@ -223,6 +225,30 @@ public class StringFilterTest extends AbstractFilterTest{
 		assertFalse(stringFilter.match(so0));
 		assertTrue(stringFilter.match(so1));
 		
+	}
+	
+	
+	@Test
+	public void testIsSet() throws Exception {
+		AttributeDefinitionString attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
+		attributeDefinition2.setIdentifier("AD_ID1");
+		
+		StringFilter filter = new StringFilter(IFilter.Operator.IS_SET, "",  attributeDefinition2, false);
+		doMatch(filter, false);
+
+		filter = new StringFilter(IFilter.Operator.IS_SET, "",  attributeDefinition, false);
+		doMatch(filter, true);
+		
+		fail("write more tests here");
+	}
+	
+	
+	@Test
+	public void isSetInternal() throws Exception {
+		StringFilter filter = new StringFilter(IFilter.Operator.IS_SET, null, AbstractTextFilter.InternalAttribute.DESC, false);
+		doMatch(filter, false);
+		
+		fail("write more tests here");
 	}
 	
 	

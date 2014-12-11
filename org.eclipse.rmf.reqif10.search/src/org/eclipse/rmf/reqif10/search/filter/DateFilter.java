@@ -25,16 +25,16 @@ import com.google.common.collect.Sets;
 /**
  * Filter for String-based values.
  */
-public class DateFilter implements IFilter {
+public class DateFilter extends AbstractAttributeFilter {
 
-	public enum InternalAttribute {
+	public static enum InternalAttribute {
 		LAST_CHANGE
 	}
 
 	// TODO cross-check this with supported operators.
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
 			.immutableEnumSet(Operator.IS, Operator.IS_NOT,
-					Operator.BETWEEN, Operator.BEFORE, Operator.AFTER);
+					Operator.BETWEEN, Operator.BEFORE, Operator.AFTER, Operator.IS_SET, Operator.IS_NOT_SET);
 
 	private Operator operator;
 	private GregorianCalendar filterValue1;
@@ -80,13 +80,13 @@ public class DateFilter implements IFilter {
 	
 	private DateFilter(Operator operator, GregorianCalendar value1, GregorianCalendar value2, 
 			InternalAttribute internalFeature, AttributeDefinitionDate attributeDefinition){
-
+		
 		if (!SUPPORTED_OPERATORS.contains(operator)){
 			throw new IllegalArgumentException(
 					"This filter does not support the " + operator.toString()
 							+ " operation");
 		}
-		if (null == value1){
+		if (null == value1 && operator != Operator.IS_SET && operator != Operator.IS_NOT_SET  ){
 			throw new IllegalArgumentException(
 					"Value can not be null");
 		}
@@ -121,15 +121,10 @@ public class DateFilter implements IFilter {
 		// retrieve the value to check depending on this is a filter on an
 		// internal Attribute or a value
 		if (isInternal) {
-			if (internalAttribute.equals(InternalAttribute.LAST_CHANGE)){
-				theValue = element.getLastChange();
-			}else{
-				throw new IllegalArgumentException(internalAttribute + " is not supported by this feature");
-			}
+			theValue = getInternalAttributeValue(element);
 		} else {
 			AttributeValue attributeValue = ReqIF10Util.getAttributeValue(
 					element, attributeDefinition);
-			// TODO
 			if (attributeValue == null || !((AttributeValueDate) attributeValue).isSetTheValue()){
 				theValue = null;
 			}else{
@@ -142,10 +137,16 @@ public class DateFilter implements IFilter {
 		}
 		
 		if (theValue == null){
-			if (operator.equals(Operator.IS_NOT)){
+			switch (operator) {
+			case IS_NOT:
 				return true;
-			}else{
+			case IS:
+			case BEFORE:
+			case AFTER:
+			case BETWEEN:
 				return false;
+			default:
+				return super.match(element);
 			}
 		}
 
@@ -161,17 +162,21 @@ public class DateFilter implements IFilter {
 		case BETWEEN:	
 			return theValue.compareTo(filterValue1) >= 0 && theValue.compareTo(filterValue2) <= 0;
 		default:
-			throw new IllegalArgumentException(
-					"This filter does not support the " + this.operator
-							+ " operation");
+			return super.match(element);
 		}
 	}
 
 	private GregorianCalendar getDefaultValue() {
-		if (attributeDefinition instanceof AttributeDefinitionDate) {
+		if (!isInternal && attributeDefinition instanceof AttributeDefinitionDate) {
 			AttributeDefinitionDate ad = (AttributeDefinitionDate) attributeDefinition;
 			return ad.isSetDefaultValue() ? ad.getDefaultValue().getTheValue() : null;
 		}
+		if (isInternal){
+			// What is the default Value for LAST_CHANGE
+			// I am not even sure if a non set LAST_CHANGE is valid
+			return null;
+		}
+		
 		throw new IllegalStateException("Expected an AttributeDefinitionString as attribute but found " + attributeDefinition.getClass());
 	}
 
@@ -195,6 +200,18 @@ public class DateFilter implements IFilter {
 	@Override
 	public ImmutableSet<Operator> getSupportedOperators() {
 		return SUPPORTED_OPERATORS;
+	}
+
+	@Override
+	protected GregorianCalendar getInternalAttributeValue(SpecElementWithAttributes element) {
+		if (internalAttribute.equals(InternalAttribute.LAST_CHANGE)){
+			if (!element.isSetLastChange()){
+				return null;
+			}
+			return element.getLastChange();
+		}else{
+			throw new IllegalArgumentException(internalAttribute + " is not supported by this feature");
+		}
 	}
 
 

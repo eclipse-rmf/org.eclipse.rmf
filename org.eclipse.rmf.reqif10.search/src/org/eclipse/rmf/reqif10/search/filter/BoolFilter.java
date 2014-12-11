@@ -22,10 +22,10 @@ import com.google.common.collect.Sets;
 /**
  * Filter for String-based values.
  */
-public class BoolFilter implements IFilter {
+public class BoolFilter extends AbstractAttributeFilter {
 
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
-			.immutableEnumSet(Operator.IS);
+			.immutableEnumSet(Operator.IS, Operator.IS_SET, Operator.IS_NOT_SET);
 
 	private Operator operator;
 	private Boolean filterValue;
@@ -101,7 +101,5 @@ public class BoolFilter implements IFilter {
 	public ImmutableSet<Operator> getSupportedOperators() {
 		return SUPPORTED_OPERATORS;
 	}
-	
-	
 
 }

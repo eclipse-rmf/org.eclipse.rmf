@@ -33,7 +33,7 @@ public class XhtmlFilter extends AbstractTextFilter {
 	// TODO cross-check this with supported operators.
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
 			.immutableEnumSet(Operator.CONTAINS, Operator.NOT_CONTAINS,
-					Operator.REGEXP, Operator.REGEXP_PLAIN);
+					Operator.REGEXP, Operator.REGEXP_PLAIN, Operator.IS_SET, Operator.IS_NOT_SET);
 
 
 	public XhtmlFilter(Operator operator, String value,
