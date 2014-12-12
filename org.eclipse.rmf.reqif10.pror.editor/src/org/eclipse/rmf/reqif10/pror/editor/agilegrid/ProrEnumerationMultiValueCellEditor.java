@@ -21,27 +21,14 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
-import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.EnumSelector;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.ui.ISharedImages;
-import org.eclipse.ui.PlatformUI;
 
 public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
-
-	private ArrayList<EnumValue> itemList = new ArrayList<EnumValue>();
 	private final DatatypeDefinitionEnumeration dde;
 
 	/**
@@ -51,6 +38,7 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 	private final EditingDomain editingDomain;
 	private Object parent;
 	private Object affectedObject;
+	private EnumSelector selector;
 
 	public ProrEnumerationMultiValueCellEditor(AgileGrid agileGrid,
 			DatatypeDefinitionEnumeration dde,
@@ -65,70 +53,12 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 
 	@Override
 	protected Control createContents(Composite parent) {
-		Composite composite = new Composite(parent, SWT.BORDER_SOLID);
-		GridLayout layout = new GridLayout();
-		layout.marginHeight = 0;
-		layout.marginWidth = 0;
-		layout.horizontalSpacing = 0;
-		layout.verticalSpacing = 5;
-		composite.setLayout(layout);
-		Table table = new Table(composite, SWT.CHECK);
-		GridData gd = new GridData(SWT.FILL, SWT.FILL, true, true);
-		gd.heightHint = 150;
-		table.setLayoutData(gd);
-		table.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				if (e.detail == SWT.CHECK && e.item instanceof TableItem) {
-					TableItem item = (TableItem) e.item;
-					if (item.getChecked()) {
-						itemList.add((EnumValue) item.getData());
-					} else {
-						itemList.remove((EnumValue) item.getData());
-					}
-				}
-			}
-		});
-
-		for (EnumValue enumValue : dde.getSpecifiedValues()) {
-			TableItem tableItem = new TableItem(table, SWT.NONE);
-			String enumId = enumValue.getLongName() == null ? enumValue.getIdentifier() : enumValue.getLongName();
-			tableItem.setText(enumId);
-			tableItem.setData(enumValue);
-			if (attributeValue.getValues().contains(enumValue)) {
-				tableItem.setChecked(true);
-				itemList.add(enumValue);
-			}
-		}
-
-		Composite buttonPanel = new Composite(composite, SWT.NONE);
-		buttonPanel.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
-		buttonPanel.setLayout(new FillLayout(SWT.HORIZONTAL));
-		Button cancel = new Button(buttonPanel, SWT.PUSH);
-		cancel.setImage(PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_TOOL_DELETE));
-		cancel.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				fireCancelEditor();
-			}
-		});
-		
-		Button ok = new Button(buttonPanel, SWT.PUSH);
-		ok.setImage(PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_ETOOL_SAVE_EDIT));
-		ok.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				fireApplyEditorValue();
-			}
-		});
-		return composite;
+		selector = new EnumSelector(dde.getSpecifiedValues(), attributeValue.getValues(), parent, SWT.BORDER_SOLID);
+		return selector;
 	}
 
 	@Override
 	protected Object doGetValue() {
-		if (itemList == null) {
-			return super.doGetValue();
-		}
 
 		CompoundCommand cmd = new CompoundCommand("Set Enumeration") {
 			public java.util.Collection<?> getAffectedObjects() {
@@ -150,7 +80,7 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 				.create(editingDomain,
 						attributeValue,
 						ReqIF10Package.Literals.ATTRIBUTE_VALUE_ENUMERATION__VALUES,
-						itemList));
+						selector.getItems()));
 
 		editingDomain.getCommandStack().execute(cmd);
 		return attributeValue;
@@ -166,7 +96,6 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 
 	@Override
 	protected void fireCancelEditor() {
-		itemList = null;
 		super.fireCancelEditor();
 	}
 	/**
@@ -176,17 +105,17 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 	@Override
 	protected void openPopupBox(Control parent) {
 		super.openPopupBox(parent);
-
-		// Workaround to prevent shell from closing right after opening on Linux.
-		Display display = Display.getCurrent();
-		Shell shell = display.getActiveShell();
-		shell.pack();
-
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
+		int result = selector.showEnumSelector(Display.getCurrent().getActiveShell());
+		if (result == SWT.CANCEL) {
+			fireCancelEditor();
+		} else {
+			fireApplyEditorValue();
 		}
 	}
-
+	
+	@Override
+	protected void updateLabel(Object value) {
+		super.updateLabel("Select below.");
+	}
+	
 }
