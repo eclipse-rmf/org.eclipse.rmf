@@ -22,5 +22,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.jface.databinding,
  org.eclipse.core.databinding.property,
  org.eclipse.rmf.reqif10.xhtml.edit,
- com.google.guava
+ com.google.guava,
+ org.eclipse.help
 Bundle-ActivationPolicy: lazy
