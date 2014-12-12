@@ -143,7 +143,7 @@ public class FilterPanel extends Composite {
 		Map<String, AttributeDefinition> attributes = new HashMap<String, AttributeDefinition>();
 		for (SpecType specType : reqif.getCoreContent().getSpecTypes()) {
 			for (AttributeDefinition ad : specType.getSpecAttributes()) {
-				attributes.put(specType.getLongName() + "." + ad.getLongName(), ad);
+				attributes.put(specType.getLongName() + "." + ad.getLongName() + "." + ad.getIdentifier(), ad);
 			}
 		}
 
