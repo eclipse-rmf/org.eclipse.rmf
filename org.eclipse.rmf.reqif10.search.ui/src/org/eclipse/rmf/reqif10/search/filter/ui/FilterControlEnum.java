@@ -109,6 +109,7 @@ public class FilterControlEnum extends FilterControl {
 			if (i.hasNext()) sb.append(", ");
 		}
 		valueControl.setText(sb.toString());
+		layout();
 		getParent().layout();
 		getParent().getParent().layout();
 	}
