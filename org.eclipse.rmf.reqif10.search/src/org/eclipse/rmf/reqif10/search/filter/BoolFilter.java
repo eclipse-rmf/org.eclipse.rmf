@@ -52,7 +52,11 @@ public class BoolFilter extends AbstractAttributeFilter {
 
 	@Override
 	public boolean match(SpecElementWithAttributes element) {
-
+		if (operator == Operator.IS_SET || operator == Operator.IS_NOT_SET){
+			return super.match(element);
+		}
+		
+		
 		Boolean theValue;
 
 		AttributeValueBoolean attributeValue = (AttributeValueBoolean) ReqIF10Util.getAttributeValue(element, attributeDefinition);

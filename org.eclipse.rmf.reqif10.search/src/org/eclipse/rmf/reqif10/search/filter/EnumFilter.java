@@ -56,13 +56,21 @@ public class EnumFilter extends AbstractAttributeFilter{
 		this.attributeDefinition = attributeDefinition;
 		this.operator = operator;
 		this.filterValues =  new HashSet<EnumValue>(value);
-		this.defaultValues = new HashSet<EnumValue>(attributeDefinition.getDefaultValue().getValues());
+		if (attributeDefinition.getDefaultValue() != null){
+			this.defaultValues = new HashSet<EnumValue>(attributeDefinition.getDefaultValue().getValues());
+		}else{
+			this.defaultValues = new HashSet<EnumValue>();
+		}
 	}
 
 
 
 	@Override
 	public boolean match(SpecElementWithAttributes element) {	
+		if (operator == Operator.IS_SET || operator == Operator.IS_NOT_SET){
+			return super.match(element);
+		}
+		
 		AttributeValueEnumeration attributeValue = (AttributeValueEnumeration) ReqIF10Util.getAttributeValue(element, attributeDefinition);
 		
 		boolean useDefaultValue;

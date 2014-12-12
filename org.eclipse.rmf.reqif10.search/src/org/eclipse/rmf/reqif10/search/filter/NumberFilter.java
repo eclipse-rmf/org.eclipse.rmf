@@ -101,6 +101,11 @@ public class NumberFilter extends AbstractAttributeFilter {
 
 	@Override
 	public boolean match(SpecElementWithAttributes element) {
+		if (operator == Operator.IS_SET || operator == Operator.IS_NOT_SET){
+			return super.match(element);
+		}
+		
+		
 		Number theValue = getTheValue(element);
 		
 		
