@@ -20,17 +20,26 @@
             class="org.eclipse.rmf.reqif10.search.ui.ReqIFSearchPage"
             icon="icons/full/obj16/ReqIf.png"
             id="org.eclipse.rmf.reqif10.search.ui.page.reqif"
-            label="ReqIF"
-            showScopeSection="true">
+            label="ReqIF Search (Raw)"
+            showScopeSection="true"
+            tabPosition="0">
       </page>
       <page
             class="org.eclipse.rmf.reqif10.search.filter.ui.ReqIFSearchPage"
             icon="icons/full/obj16/ReqIf.png"
             id="org.eclipse.rmf.reqif10.search.filter.ui.page"
             label="ReqIF Search"
+            searchViewHelpContextId="reqifSearchHelp"
             showScopeSection="false"
             tabPosition="0">
       </page>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="help-contexts.xml"
+            plugin="org.eclipse.rmf.reqif10.search.ui">
+      </contexts>
    </extension>
 
 </plugin>

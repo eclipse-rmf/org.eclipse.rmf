@@ -88,6 +88,20 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 
 		// Restore previous filters.
 		restoreFilter();
+		
+		// The plugin help-id is broken.
+		PlatformUI
+				.getWorkbench()
+				.getHelpSystem()
+				.setHelp(parent,
+						"org.eclipse.rmf.reqif10.search.ui.reqifSearchHelp");
+	}
+	
+	@Override
+	public void setVisible(boolean visible) {
+		super.setVisible(visible);
+		// Required, so that the correct help is shown.
+		if (true) pane.setFocus();
 	}
 
 	private void createNoSearchMessage(Composite parent) {
@@ -250,5 +264,5 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	@Override
 	public void setContainer(ISearchPageContainer container) {
 	}
-
+	
 }
