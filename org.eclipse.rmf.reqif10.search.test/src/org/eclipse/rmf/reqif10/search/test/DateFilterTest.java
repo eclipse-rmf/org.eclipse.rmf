@@ -123,8 +123,15 @@ public class DateFilterTest extends AbstractFilterTest{
 		
 		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 12, 01), new GregorianCalendar(2014, 12, 04), attributeDefinition);
 		doMatch(filter, true);
+		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 12, 04), new GregorianCalendar(2014, 12, 01), attributeDefinition);
+		doMatch(filter, true);
 
 		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 12, 03), new GregorianCalendar(2014, 12, 03), attributeDefinition);
+		doMatch(filter, true);
+		
+		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 12, 01), new GregorianCalendar(2014, 12, 03), attributeDefinition);
+		doMatch(filter, true);
+		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 12, 03), new GregorianCalendar(2014, 12, 06), attributeDefinition);
 		doMatch(filter, true);
 		
 		filter = new DateFilter(IFilter.Operator.BETWEEN, new GregorianCalendar(2014, 01, 01), new GregorianCalendar(2014, 12, 01), attributeDefinition);
@@ -241,6 +248,22 @@ public class DateFilterTest extends AbstractFilterTest{
 		filter = new DateFilter(IFilter.Operator.IS_SET, new GregorianCalendar(2014, 1, 1), null, attributeDefinition2);
 		doMatch(filter, false);
 	}
+	
+	
+	@Test
+	public void testIsNotSet() throws Exception {
+		DateFilter filter;
+		
+		filter = new DateFilter(IFilter.Operator.IS_NOT_SET, new GregorianCalendar(2014, 1, 1), null, attributeDefinition);
+		doMatch(filter, false);
+		
+		AttributeDefinitionDate attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionDate();
+		attributeDefinition2.setIdentifier("AD_ID1");
+		
+		filter = new DateFilter(IFilter.Operator.IS_NOT_SET, new GregorianCalendar(2014, 1, 1), null, attributeDefinition2);
+		doMatch(filter, true);
+	}
+	
 	
 	
 	@Test

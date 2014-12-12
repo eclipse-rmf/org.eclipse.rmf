@@ -230,16 +230,31 @@ public class StringFilterTest extends AbstractFilterTest{
 	
 	@Test
 	public void testIsSet() throws Exception {
-		AttributeDefinitionString attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
-		attributeDefinition2.setIdentifier("AD_ID1");
+		StringFilter filter;
 		
-		StringFilter filter = new StringFilter(IFilter.Operator.IS_SET, "",  attributeDefinition2, false);
-		doMatch(filter, false);
-
 		filter = new StringFilter(IFilter.Operator.IS_SET, "",  attributeDefinition, false);
 		doMatch(filter, true);
 		
-		fail("write more tests here");
+		AttributeDefinitionString attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
+		attributeDefinition2.setIdentifier("AD_ID1");
+		
+		filter = new StringFilter(IFilter.Operator.IS_SET, "",  attributeDefinition2, false);
+		doMatch(filter, false);
+	}
+	
+	
+	@Test
+	public void testIsNotSet() throws Exception {
+		StringFilter filter;
+		
+		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "",  attributeDefinition, false);
+		doMatch(filter, false);
+		
+		AttributeDefinitionString attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
+		attributeDefinition2.setIdentifier("AD_ID1");
+		
+		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "",  attributeDefinition2, false);
+		doMatch(filter, true);
 	}
 	
 	

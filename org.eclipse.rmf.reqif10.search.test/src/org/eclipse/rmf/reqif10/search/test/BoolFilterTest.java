@@ -56,6 +56,33 @@ public class BoolFilterTest extends AbstractFilterTest {
 	}
 	
 
+	@Test
+	public void testIsSet() throws Exception {
+		BoolFilter filter;
+		filter = new BoolFilter(Operator.IS_SET, true, attributeDefinition);
+		doMatch(filter, true);
+		
+		AttributeDefinitionBoolean nonExistingAttributeDefinition = ReqIF10Factory.eINSTANCE.createAttributeDefinitionBoolean();
+		nonExistingAttributeDefinition.setIdentifier("AD_ID0");
+		
+		filter = new BoolFilter(Operator.IS, false, nonExistingAttributeDefinition);
+		doMatch(filter, false);
+	}
+	
+	
+	@Test
+	public void testIsNotSet() throws Exception {
+		BoolFilter filter;
+		filter = new BoolFilter(Operator.IS_NOT_SET, true, attributeDefinition);
+		doMatch(filter, false);
+		
+		AttributeDefinitionBoolean nonExistingAttributeDefinition = ReqIF10Factory.eINSTANCE.createAttributeDefinitionBoolean();
+		nonExistingAttributeDefinition.setIdentifier("AD_ID1");
+		
+		filter = new BoolFilter(Operator.IS_NOT_SET, false, nonExistingAttributeDefinition);
+		doMatch(filter, true);
+	}	
+	
 	
 	/* 
 	 * A match on a specObject that does not contain this attribute should always return false

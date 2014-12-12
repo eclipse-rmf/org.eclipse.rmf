@@ -115,6 +115,35 @@ public class IntegerFilterTest extends AbstractFilterTest {
 	}
 	
 	
+	@Test
+	public void testIsSet() throws Exception {
+		NumberFilter filter;
+		
+		filter = new NumberFilter(Operator.IS_SET, new BigInteger("2"), null, attributeDefinition);
+		doMatch(filter, true);
+		
+		AttributeDefinitionInteger attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionInteger();
+		attributeDefinition2.setIdentifier("AD_ID1");
+		
+		filter = new NumberFilter(Operator.IS_SET, new BigInteger("2"), null, attributeDefinition2);
+		doMatch(filter, false);
+	}
+	
+	
+	@Test
+	public void testIsNotSet() throws Exception {
+		NumberFilter filter;
+		
+		filter = new NumberFilter(Operator.IS_NOT_SET, new BigInteger("2"), null, attributeDefinition);
+		doMatch(filter, false);
+		
+		AttributeDefinitionInteger attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionInteger();
+		attributeDefinition2.setIdentifier("AD_ID1");
+		
+		filter = new NumberFilter(Operator.IS_NOT_SET, new BigInteger("2"), null, attributeDefinition2);
+		doMatch(filter, true);
+	}	
+	
 	
 	@Override
 	public IFilter createFilterInstance(Operator operator) {

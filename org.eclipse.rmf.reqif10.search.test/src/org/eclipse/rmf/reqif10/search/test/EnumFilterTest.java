@@ -150,6 +150,37 @@ public class EnumFilterTest extends AbstractFilterTest{
 		doMatch(filter, false);
 	}
 	
+	
+	
+	@Test
+	public void testIsSet() throws Exception {
+		EnumFilter filter;
+		
+		filter = new EnumFilter(IFilter.Operator.IS_SET, specifiedValues, attributeDefinition);
+		doMatch(filter, true);
+		
+		AttributeDefinitionEnumeration attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionEnumeration();
+		attributeDefinition2.setIdentifier("AD_ID1");
+		
+		filter = new EnumFilter(IFilter.Operator.IS_SET, specifiedValues, attributeDefinition2);
+		doMatch(filter, false);
+	}
+	
+	
+	@Test
+	public void testIsNotSet() throws Exception {
+		EnumFilter filter;
+		
+		filter = new EnumFilter(IFilter.Operator.IS_NOT_SET, specifiedValues, attributeDefinition);
+		doMatch(filter, false);
+		
+		AttributeDefinitionEnumeration attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionEnumeration();
+		attributeDefinition2.setIdentifier("AD_ID1");
+		
+		filter = new EnumFilter(IFilter.Operator.IS_NOT_SET, specifiedValues, attributeDefinition2);
+		doMatch(filter, true);
+	}	
+	
 
 	@Override
 	public void doEmptyTest() throws Exception {

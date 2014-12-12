@@ -12,6 +12,7 @@ package org.eclipse.rmf.reqif10.search.test;
 
 import java.util.Set;
 
+import org.eclipse.rmf.reqif10.AttributeDefinitionInteger;
 import org.eclipse.rmf.reqif10.AttributeDefinitionReal;
 import org.eclipse.rmf.reqif10.AttributeValueReal;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionReal;
@@ -112,6 +113,36 @@ public class RealFilterTest extends AbstractFilterTest {
 		filter = new NumberFilter(Operator.SMALLER, new Double("0"), new Double("2"), attributeDefinition);
 		doMatch(filter, false);
 	}
+	
+	
+	@Test
+	public void testIsSet() throws Exception {
+		NumberFilter filter;
+		
+		filter = new NumberFilter(Operator.IS_SET, new Double("2"), null, attributeDefinition);
+		doMatch(filter, true);
+		
+		AttributeDefinitionReal attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionReal();
+		attributeDefinition2.setIdentifier("AD_ID1");
+		
+		filter = new NumberFilter(Operator.IS_SET, new Double("2"), null, attributeDefinition2);
+		doMatch(filter, false);
+	}
+	
+	
+	@Test
+	public void testIsNotSet() throws Exception {
+		NumberFilter filter;
+		
+		filter = new NumberFilter(Operator.IS_NOT_SET, new Double("2"), null, attributeDefinition);
+		doMatch(filter, false);
+		
+		AttributeDefinitionInteger attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionInteger();
+		attributeDefinition2.setIdentifier("AD_ID1");
+		
+		filter = new NumberFilter(Operator.IS_NOT_SET, new Double("2"), null, attributeDefinition2);
+		doMatch(filter, true);
+	}	
 	
 	
 	
