@@ -22,6 +22,7 @@ import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
@@ -105,9 +106,33 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 		doMatch(xhtmlFilter, true);
 	}	
 	
+	@Test
+	public void testIsSet() throws Exception {
+		XhtmlFilter xhtmlFilter;
+		
+		xhtmlFilter = new XhtmlFilter(IFilter.Operator.IS_SET, "hello",  attributeDefinition, true);
+		doMatch(xhtmlFilter, true);
+		
+		AttributeDefinitionXHTML attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML();
+		attributeDefinition2.setIdentifier("AD_ID1");
+		
+		xhtmlFilter = new XhtmlFilter(IFilter.Operator.IS_SET, "hello",  attributeDefinition2, true);
+		doMatch(xhtmlFilter, false);
+	}
 	
-	
-	
+	@Test
+	public void testIsNotSet() throws Exception {
+		XhtmlFilter xhtmlFilter;
+		
+		xhtmlFilter = new XhtmlFilter(IFilter.Operator.IS_NOT_SET, "hello",  attributeDefinition, true);
+		doMatch(xhtmlFilter, false);
+		
+		AttributeDefinitionXHTML attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML();
+		attributeDefinition2.setIdentifier("AD_ID1");
+		
+		xhtmlFilter = new XhtmlFilter(IFilter.Operator.IS_NOT_SET, "hello",  attributeDefinition2, true);
+		doMatch(xhtmlFilter, true);
+	}
 
 
 	@Test
