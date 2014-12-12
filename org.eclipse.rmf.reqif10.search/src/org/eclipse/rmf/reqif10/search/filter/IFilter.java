@@ -43,7 +43,7 @@ public interface IFilter extends ReqifFilter {
 		CONTAINS_ALL("operator_contains_all"),
 		CONTAINS_ANY("operator_contains_any"),
 		IS_SET("operator_is_set"),
-		IS_NOT_SET("operator_is_not");
+		IS_NOT_SET("operator_is_not_set");
 		
 		private String label;
 		private Operator(String label) {
