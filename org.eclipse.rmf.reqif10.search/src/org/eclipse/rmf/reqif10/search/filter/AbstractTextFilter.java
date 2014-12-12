@@ -111,7 +111,11 @@ public abstract class AbstractTextFilter extends AbstractAttributeFilter {
 	
 	@Override
 	public boolean match(SpecElementWithAttributes element) {
-
+		if (operator == Operator.IS_SET || operator == Operator.IS_NOT_SET){
+			return super.match(element);
+		}
+		
+		
 		String theValue;
 
 		// retrieve the value to check depending on this is a filter on an
