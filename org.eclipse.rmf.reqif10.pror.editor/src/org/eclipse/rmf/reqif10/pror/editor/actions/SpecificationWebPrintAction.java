@@ -11,7 +11,6 @@
 package org.eclipse.rmf.reqif10.pror.editor.actions;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -20,7 +19,7 @@ import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.ReqifSpecificationEditorInput;
-import org.eclipse.rmf.reqif10.pror.editor.util.ProrEditorUtil;
+import org.eclipse.rmf.reqif10.pror.editor.util.HTMLPrinter;
 import org.eclipse.swt.program.Program;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
@@ -54,21 +53,9 @@ public class SpecificationWebPrintAction extends Action {
 		Specification spec = ((ReqifSpecificationEditorInput)input).getSpec();
 		
 		try {
-			File folder = File.createTempFile("pror-", "");
-			folder.delete();
-			folder = new File(folder.getAbsolutePath() + "/");
-			folder.mkdir();
-
-			String createHtmlContent = ProrEditorUtil.createHtmlContent(spec,
-					editingDomain, adapterFactory);
-
-			File htmlFile = new File(folder, "pror.html");
-			FileWriter writer = new FileWriter(htmlFile);
-			writer.write(createHtmlContent);
-			writer.close();
-			htmlFile.deleteOnExit();
-			Program.launch(htmlFile.toURI().toString());
-			System.out.println("Launched: " + htmlFile.toURI());
+			HTMLPrinter htmlPrinter = new HTMLPrinter(spec, editingDomain, adapterFactory);
+			File htmlSpec = htmlPrinter.print();
+			Program.launch(htmlSpec.getAbsolutePath());
 			MessageDialog.openInformation(
 					Display.getCurrent().getActiveShell(), "Output produced",
 					"Switch to your web browser to see the output.");
