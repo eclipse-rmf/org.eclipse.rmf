@@ -34,27 +34,40 @@ public abstract class AbstractAttributeFilter implements IFilter {
 	
 	@Override
 	public boolean match(SpecElementWithAttributes element) {
-		Object attributeValue = null;
 		
-		
-		if (getAttribute() instanceof AttributeDefinition) {
-			attributeValue = ReqIF10Util.getAttributeValue(element, (AttributeDefinition) getAttribute());
+		if (getAttribute() instanceof AttributeDefinition){
+			switch (getOperator()) {
+			case IS_SET:
+				return isSetAttribute(element, (AttributeDefinition) getAttribute());
+			case IS_NOT_SET:
+				return !isSetAttribute(element, (AttributeDefinition) getAttribute());
+			default:
+				throw new IllegalArgumentException(
+						"This filter does not support the " + getOperator()
+								+ " operation");
+			}	
 		}else{
-			attributeValue = getInternalAttributeValue(element);
-		}
-		
-		
-		switch (getOperator()) {
-		case IS_SET:
-			return attributeValue != null;
-		case IS_NOT_SET:
-			return attributeValue == null;
-		default:
-			throw new IllegalArgumentException(
-					"This filter does not support the " + getOperator()
-							+ " operation");
+			Object attributeValue = getInternalAttributeValue(element);
+			switch (getOperator()) {
+			case IS_SET:
+				return attributeValue != null;
+			case IS_NOT_SET:
+				return attributeValue == null;
+			default:
+				throw new IllegalArgumentException(
+						"This filter does not support the " + getOperator()
+								+ " operation");
+			}
 		}
 	}
+	
+	
+	
+	public static boolean isSetAttribute(SpecElementWithAttributes element, AttributeDefinition attributeDefinition){
+		return ReqIF10Util.getSpecType(element).getSpecAttributes().contains(attributeDefinition);
+	}
+	
+	
 
 	/**
 	 * Filters that can be applied to internalAttributes have to implement this

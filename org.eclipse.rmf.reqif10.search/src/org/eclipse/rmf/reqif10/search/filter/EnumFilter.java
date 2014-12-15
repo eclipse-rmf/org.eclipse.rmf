@@ -72,16 +72,19 @@ public class EnumFilter extends AbstractAttributeFilter{
 		}
 		
 		AttributeValueEnumeration attributeValue = (AttributeValueEnumeration) ReqIF10Util.getAttributeValue(element, attributeDefinition);
+		HashSet<EnumValue> elementValues = null;
 		
-		boolean useDefaultValue;
 		if (attributeValue == null || !attributeValue.isSetValues()){
-			attributeValue = attributeDefinition.getDefaultValue();
-			useDefaultValue = true;
+			if (AbstractAttributeFilter.isSetAttribute(element, attributeDefinition)){
+				elementValues = defaultValues;
+			}else{
+				elementValues = null;
+			}
 		}else{
-			useDefaultValue = false;
+			elementValues = new HashSet<EnumValue>(attributeValue.getValues());
 		}
 		
-		if (attributeValue == null || !attributeValue.isSetValues()){
+		if (elementValues == null || elementValues.size() == 0){
 			switch (operator) {
 			case NOT_EQUALS:
 				return filterValues.isEmpty() ? false : true;
@@ -96,12 +99,6 @@ public class EnumFilter extends AbstractAttributeFilter{
 			}
 		}
 		
-		HashSet<EnumValue> elementValues;
-		if (useDefaultValue){
-			elementValues = defaultValues;
-		}else{
-			elementValues = new HashSet<EnumValue>(attributeValue.getValues());
-		}
 		
 		switch (operator) {
 		case EQUALS:

@@ -61,7 +61,7 @@ public class XhtmlFilter extends AbstractTextFilter {
 			}
 			
 			if (theValue == null){
-				theValue = getDefaultXhtmlContent();
+				theValue = getDefaultXhtmlContent(element);
 			}
 			
 			String simplifiedString;
@@ -114,9 +114,13 @@ public class XhtmlFilter extends AbstractTextFilter {
 	 * returns the NON-simplified default Value
 	 */
 	@Override
-	protected String getDefaultValue() {
+	protected String getDefaultValue(SpecElementWithAttributes element) {
+		if (!AbstractAttributeFilter.isSetAttribute(element, attributeDefinition)){
+			return null;
+		}
+		
 		try {
-			XhtmlContent xhtmlContent = getDefaultXhtmlContent();
+			XhtmlContent xhtmlContent = getDefaultXhtmlContent(element);
 			return xhtmlContent == null ? null : ReqIF10XhtmlUtil.getXhtmlString(xhtmlContent);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
@@ -124,7 +128,11 @@ public class XhtmlFilter extends AbstractTextFilter {
 	}
 	
 	
-	private XhtmlContent getDefaultXhtmlContent() {
+	private XhtmlContent getDefaultXhtmlContent(SpecElementWithAttributes element) {
+		if (!AbstractAttributeFilter.isSetAttribute(element, attributeDefinition)){
+			return null;
+		}
+		
 		if (attributeDefinition instanceof AttributeDefinitionXHTML) {
 			AttributeDefinitionXHTML ad = (AttributeDefinitionXHTML) attributeDefinition;
 			return (ad.isSetDefaultValue() ? ad.getDefaultValue().getTheValue() : null);

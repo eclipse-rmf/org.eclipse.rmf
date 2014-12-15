@@ -128,7 +128,7 @@ public abstract class AbstractTextFilter extends AbstractAttributeFilter {
 		
 		if (theValue == null){
 			/* Check if there is any default value for this attribute */
-			theValue = getDefaultValue();
+			theValue = getDefaultValue(element);
 		}
 		
 		/* 1. handle empty attribute case */ 
@@ -172,7 +172,15 @@ public abstract class AbstractTextFilter extends AbstractAttributeFilter {
 	}
 
 
-	protected abstract String getDefaultValue();
+	/**
+	 * return the default Value of the AttributeDefinition if the attribute is defined in elements specType
+	 * Otherwise return null 
+	 * 
+	 * @param element
+	 * @return the default Value of the AttributeDefinition if the attribute is defined in elements specType
+	 * Otherwise null
+	 */
+	protected abstract String getDefaultValue(SpecElementWithAttributes element);
 
 	/**
 	 * returns the value of the Internal Attribute that is defined by this.internalAttribute

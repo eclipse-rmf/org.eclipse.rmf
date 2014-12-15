@@ -62,7 +62,9 @@ public class BoolFilter extends AbstractAttributeFilter {
 		AttributeValueBoolean attributeValue = (AttributeValueBoolean) ReqIF10Util.getAttributeValue(element, attributeDefinition);
 		
 		if (attributeValue == null && attributeDefinition.isSetDefaultValue()){
-			attributeValue = attributeDefinition.getDefaultValue();
+			if (AbstractAttributeFilter.isSetAttribute(element, attributeDefinition)){
+				attributeValue = attributeDefinition.getDefaultValue();
+			}
 		}
 		
 		if (attributeValue == null || !attributeValue.isSetTheValue()){
