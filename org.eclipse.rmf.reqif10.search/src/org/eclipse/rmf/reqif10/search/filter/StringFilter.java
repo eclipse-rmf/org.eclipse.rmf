@@ -102,7 +102,11 @@ public class StringFilter extends AbstractTextFilter {
 	}
 
 	@Override
-	protected String getDefaultValue() {
+	protected String getDefaultValue(SpecElementWithAttributes element) {
+		if (!AbstractAttributeFilter.isSetAttribute(element, attributeDefinition)){
+			return null;
+		}
+		
 		if (attributeDefinition instanceof AttributeDefinitionString) {
 			AttributeDefinitionString ad = (AttributeDefinitionString) attributeDefinition;
 			return ad.isSetDefaultValue() ? ad.getDefaultValue().getTheValue() : null;

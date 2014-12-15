@@ -111,7 +111,7 @@ public class NumberFilter extends AbstractAttributeFilter {
 		
 		if (theValue == null){
 			/* Check if there is any default value for this attribute */
-			theValue = getDefaultValue();
+			theValue = getDefaultValue(element);
 		}
 		
 		
@@ -143,7 +143,11 @@ public class NumberFilter extends AbstractAttributeFilter {
 		
 	}
 	
-	private Number getDefaultValue() {
+	private Number getDefaultValue(SpecElementWithAttributes element) {
+		if (!AbstractAttributeFilter.isSetAttribute(element, attributeDefinition)){
+			return null;
+		}
+		
 		if (attributeDefinition instanceof AttributeDefinitionInteger) {
 			AttributeDefinitionInteger ad = (AttributeDefinitionInteger) attributeDefinition;
 			if (!ad.isSetDefaultValue()){

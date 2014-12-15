@@ -133,7 +133,7 @@ public class DateFilter extends AbstractAttributeFilter {
 		}
 		
 		if (theValue == null){
-			theValue = getDefaultValue();
+			theValue = getDefaultValue(element);
 		}
 		
 		if (theValue == null){
@@ -149,7 +149,10 @@ public class DateFilter extends AbstractAttributeFilter {
 				return super.match(element);
 			}
 		}
-
+			
+		
+		
+		
 		switch (operator) {
 		case IS:
 			return theValue.equals(filterValue1);
@@ -166,7 +169,11 @@ public class DateFilter extends AbstractAttributeFilter {
 		}
 	}
 
-	private GregorianCalendar getDefaultValue() {
+	private GregorianCalendar getDefaultValue(SpecElementWithAttributes element) {
+		if (!AbstractAttributeFilter.isSetAttribute(element, attributeDefinition)){
+			return null;
+		}
+		
 		if (!isInternal && attributeDefinition instanceof AttributeDefinitionDate) {
 			AttributeDefinitionDate ad = (AttributeDefinitionDate) attributeDefinition;
 			return ad.isSetDefaultValue() ? ad.getDefaultValue().getTheValue() : null;
