@@ -91,7 +91,7 @@ public class DateFilterTest extends AbstractFilterTest{
 		
 		GregorianCalendar fixtureDate = new GregorianCalendar(2014, 11, 3, 23, 0, 0);
 		fixtureDate.setTimeZone(TimeZone.getTimeZone("GMT"));
-		GregorianCalendar filterDate = new GregorianCalendar(TimeZone.getTimeZone("GMT-9"));
+		GregorianCalendar filterDate = new GregorianCalendar(TimeZone.getTimeZone("GMT+9"));
 		filterDate.set(2014, 11, 4, 8, 0, 0);
 		System.out.println((filterDate.getTimeInMillis() - fixtureDate.getTimeInMillis()) / 1000 / 60 / 60);
 		
