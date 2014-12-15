@@ -188,6 +188,8 @@ public class IntegerFilterTest extends AbstractFilterTest {
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		specObject.getValues().add(attributeValue);
 		
+		createSpecObjectType(specObject, attributeDefinition);
+		
 		setFixture(specObject);
 	}
 

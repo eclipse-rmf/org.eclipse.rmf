@@ -48,7 +48,8 @@ public class EnumFilterDefaultsTest extends EnumFilterTest {
 		attributeDefinition.setDefaultValue(attributeValue);
 		
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
-		//specObject.getValues().add(attributeValue);
+		
+		createSpecObjectType(specObject, attributeDefinition);
 		
 		setFixture(specObject);
 	}
