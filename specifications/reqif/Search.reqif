@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <THE-HEADER>
-    <REQ-IF-HEADER IDENTIFIER="rmf-68935202-07b7-41c0-addf-06083966c21a">
+    <REQ-IF-HEADER IDENTIFIER="rmf-bead925c-82e4-447f-ab8f-e9b4960fa028">
       <COMMENT>Created by: jastram</COMMENT>
       <CREATION-TIME>2014-12-04T08:14:06.220+01:00</CREATION-TIME>
       <REQ-IF-TOOL-ID>ProR (http://pror.org)</REQ-IF-TOOL-ID>
@@ -795,7 +795,7 @@
         <configuration:specViewConfigurations>
           <configuration:ProrSpecViewConfiguration specification="_Ii3vKnuFEeS1tthkGDp8zA">
             <configuration:columns>
-              <configuration:UnifiedColumn label="Main" width="589"/>
+              <configuration:UnifiedColumn label="Main" width="508"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column label="Lead Header Column" width="59"/>
@@ -809,6 +809,7 @@
                 <defaultLabel>ID</defaultLabel>
                 <defaultLabel>ReqIF.ChapterName</defaultLabel>
                 <defaultLabel>ReqIF.Text</defaultLabel>
+                <defaultLabel>Description</defaultLabel>
               </configuration:LabelConfiguration>
             </configuration:labelConfiguration>
           </configuration:ProrGeneralConfiguration>
