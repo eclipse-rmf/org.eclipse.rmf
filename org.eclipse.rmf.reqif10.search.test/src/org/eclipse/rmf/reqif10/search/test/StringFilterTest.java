@@ -215,7 +215,7 @@ public class StringFilterTest extends AbstractFilterTest{
 		AttributeDefinitionString adString = null;
 		for (AttributeValue attributeValue : so0.getValues()) {
 			AttributeDefinition attributeDefinition = ReqIF10Util.getAttributeDefinition(attributeValue);
-			System.out.println(attributeDefinition.getClass());
+			//System.out.println(attributeDefinition.getClass());
 			if (attributeDefinition instanceof AttributeDefinitionString) {
 				adString = (AttributeDefinitionString) attributeDefinition;
 			}
