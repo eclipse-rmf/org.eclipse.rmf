@@ -21,7 +21,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.rmf.reqif10.AttributeDefinition;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.SpecObject;
+import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
@@ -117,4 +121,17 @@ public abstract class AbstractFilterTest extends AbstractItemProviderTest {
 	
 	
 	public abstract void createFixture(Object object);
+	
+	
+	/**
+	 * create a specObjectType, adds the give attributeDefinition and sets it as the type of the specObject
+	 * 
+	 * @param specObject
+	 */
+	protected void createSpecObjectType(SpecObject specObject, AttributeDefinition attributeDefinition){
+		SpecObjectType specObjectType = ReqIF10Factory.eINSTANCE.createSpecObjectType();
+		specObjectType.getSpecAttributes().add(attributeDefinition);
+		specObject.setType(specObjectType);
+		
+	}
 }

@@ -10,7 +10,6 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.test;
 
-import java.io.IOException;
 import java.util.GregorianCalendar;
 
 import org.eclipse.rmf.reqif10.AttributeValueString;
@@ -27,6 +26,30 @@ public class StringFilterDefaultsValueTest extends StringFilterTest {
 		// Do nothing, since this test will fall back on default values 
 	}
 	
+//	@Override
+//	@Test
+//	public void testIsSet() throws Exception {
+//		fail("not yet implemented");
+//	}
+//	
+//	@Override
+//	@Test
+//	public void testNotContains() throws Exception {
+//		fail("not yet implemented");
+//	}
+//	
+//	@Override
+//	@Test
+//	public void testContains() throws Exception {
+//		fail("not yet implemented");
+//	}
+//	
+//	@Override
+//	@Test
+//	public void testIsNotSet() throws Exception {
+//		fail("not yet implemented");
+//	}
+//	
 
 	/**
 	 * Sets the value as the defaultValue.
@@ -58,12 +81,7 @@ public class StringFilterDefaultsValueTest extends StringFilterTest {
 		specObject.setDesc("THE_SPECOBJECT_DESC");
 		specObject.setLongName("THE_SPECOBJECT_LONG_NAME");
 		
-		try {
-			dumpEObjectToConsole(attributeDefinition);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		createSpecObjectType(specObject, attributeDefinition);
 		
 		setFixture(specObject);
 

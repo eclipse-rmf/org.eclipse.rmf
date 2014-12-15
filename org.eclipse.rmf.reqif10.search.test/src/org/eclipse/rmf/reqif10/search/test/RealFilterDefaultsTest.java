@@ -24,6 +24,7 @@ public class RealFilterDefaultsTest extends RealFilterTest {
 		// Do nothing, since this test will fall back on default values 
 	}
 	
+	
 	/**
 	 * Sets the value as the defaultValue.
 	 * No value is set on the specObject
@@ -51,6 +52,7 @@ public class RealFilterDefaultsTest extends RealFilterTest {
 		specObjectType.getSpecAttributes().add(attributeDefinition);
 		
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
+		specObject.setType(specObjectType);
 		
 		setFixture(specObject);
 	}

@@ -53,6 +53,8 @@ public class DateFilterTest extends AbstractFilterTest{
 		specObject.getValues().add(attributeValue);
 		specObject.setLastChange(new GregorianCalendar(2014, 12, 03));
 		
+		createSpecObjectType(specObject, attributeDefinition);
+		
 		setFixture(specObject);
 	}	
 	
@@ -74,7 +76,13 @@ public class DateFilterTest extends AbstractFilterTest{
 		doMatch(filter, false);
 
 		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014,12,03,0,0,0), null,  attributeDefinition);
-		doMatch(filter, true);		
+		doMatch(filter, true);
+		
+		// we do the match on date only, the time of the day should be ignored 
+		createFixture(new GregorianCalendar(2014, 12, 03, 13, 14, 15));		
+		
+		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014,12,03), null,  attributeDefinition);
+		doMatch(filter, true);
 	}
 	
 	

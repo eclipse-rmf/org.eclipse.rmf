@@ -211,6 +211,9 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 			}
 			
 			attributeDefinition = (AttributeDefinitionXHTML) ReqIF10Util.getAttributeDefinition(attributeValue);
+			
+			createSpecObjectType(specObject, attributeDefinition);
+			
 			setFixture(specObject);
 		} catch (URISyntaxException e) {
 			e.printStackTrace();

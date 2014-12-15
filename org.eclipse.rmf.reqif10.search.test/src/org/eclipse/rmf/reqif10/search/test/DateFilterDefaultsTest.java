@@ -49,6 +49,8 @@ public class DateFilterDefaultsTest extends DateFilterTest {
 		//specObject.getValues().add(attributeValue);
 		specObject.setLastChange(new GregorianCalendar(2014, 12, 03));
 		
+		createSpecObjectType(specObject, attributeDefinition);
+		
 		setFixture(specObject);
 	}
 

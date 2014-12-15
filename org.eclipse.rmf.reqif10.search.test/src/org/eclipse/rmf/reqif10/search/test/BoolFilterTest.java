@@ -120,14 +120,7 @@ public class BoolFilterTest extends AbstractFilterTest {
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		specObject.getValues().add(attributeValue);
 		
-//		try {
-//			dumpEObjectToConsole(specObject);
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		System.out.println(attributeValue.isTheValue());
-//		System.out.println(attributeValue.isSetTheValue());
+		createSpecObjectType(specObject, attributeDefinition);
 		
 		setFixture(specObject);
 	}

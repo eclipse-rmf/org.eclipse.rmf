@@ -260,8 +260,8 @@ public class StringFilterTest extends AbstractFilterTest{
 	
 	@Test
 	public void isSetInternal() throws Exception {
-		StringFilter filter = new StringFilter(IFilter.Operator.IS_SET, null, AbstractTextFilter.InternalAttribute.DESC, false);
-		doMatch(filter, false);
+		StringFilter filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
+		doMatch(filter, true);
 		
 		fail("write more tests here");
 	}
@@ -298,6 +298,8 @@ public class StringFilterTest extends AbstractFilterTest{
 		specObject.setIdentifier("THE_SPECOBJECT_ID");
 		specObject.setDesc("THE_SPECOBJECT_DESC");
 		specObject.setLongName("THE_SPECOBJECT_LONG_NAME");
+		
+		createSpecObjectType(specObject, attributeDefinition);
 		
 		setFixture(specObject);
 		

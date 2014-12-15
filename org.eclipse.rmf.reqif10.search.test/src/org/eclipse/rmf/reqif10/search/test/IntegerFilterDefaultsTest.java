@@ -16,7 +16,6 @@ import org.eclipse.rmf.reqif10.AttributeValueInteger;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecObject;
-import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.junit.Test;
 
 public class IntegerFilterDefaultsTest extends IntegerFilterTest {
@@ -46,10 +45,8 @@ public class IntegerFilterDefaultsTest extends IntegerFilterTest {
 		attributeValue.setTheValue(theValue);
 		attributeDefinition.setDefaultValue(attributeValue);
 		
-		SpecObjectType specObjectType = ReqIF10Factory.eINSTANCE.createSpecObjectType();
-		specObjectType.getSpecAttributes().add(attributeDefinition);
-		
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
+		createSpecObjectType(specObject, attributeDefinition);
 		
 		setFixture(specObject);
 	}
