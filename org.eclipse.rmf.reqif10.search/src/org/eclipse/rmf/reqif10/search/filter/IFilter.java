@@ -12,6 +12,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
+import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
@@ -48,16 +49,22 @@ public interface IFilter extends ReqifFilter {
 		IS_NOT_SET("operator_is_not_set");
 		
 		private String label;
+		
 		private Operator(String label) {
 			this.label = label;
 		}
+		
 		@Override
 		public String toString() {
 			return label;
 		}
 		
 		public String toLocaleString(){
-			return ResourceBundle.getBundle("plugin").getString(label);
+			try{
+				return ResourceBundle.getBundle("plugin").getString(label);
+			}catch (MissingResourceException e){
+				return label;
+			}
 		}
 	}
 	

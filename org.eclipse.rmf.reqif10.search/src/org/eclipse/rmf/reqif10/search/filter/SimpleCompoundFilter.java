@@ -12,6 +12,7 @@
 package org.eclipse.rmf.reqif10.search.filter;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -100,5 +101,17 @@ public class SimpleCompoundFilter implements IFilter {
 	}
 
 	
-
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		String op = orFilter ? " OR " : " AND ";
+		for (Iterator<IFilter> iterator = filters.iterator(); iterator.hasNext();) {
+			IFilter filter = (IFilter) iterator.next();
+			
+			sb.append(filter.toString());
+			if (iterator.hasNext()){
+				sb.append(op + System.getProperty("line.separator"));
+			}
+		}
+		return sb.toString();
+	}
 }

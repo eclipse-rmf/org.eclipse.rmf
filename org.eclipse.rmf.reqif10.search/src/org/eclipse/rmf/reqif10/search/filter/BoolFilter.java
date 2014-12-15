@@ -108,4 +108,5 @@ public class BoolFilter extends AbstractAttributeFilter {
 		return SUPPORTED_OPERATORS;
 	}
 
+	
 }

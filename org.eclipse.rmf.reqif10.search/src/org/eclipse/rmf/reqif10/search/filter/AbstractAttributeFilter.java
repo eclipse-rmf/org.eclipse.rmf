@@ -90,4 +90,51 @@ public abstract class AbstractAttributeFilter implements IFilter {
 	public ImmutableSet<Operator> getSupportedOperators() {
 		return SUPPORTED_OPERATORS;
 	}
+	
+	
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		
+		String attribute = null;
+		if (getAttribute() instanceof AttributeDefinition) {
+			AttributeDefinition ad = (AttributeDefinition) getAttribute();
+			attribute = ad.getLongName();
+			if (attribute == null){
+				attribute = ad.getDesc();
+			}
+			if (attribute == null){
+				attribute = "Attribute with ID="+ad.getIdentifier();
+			}
+		}else{
+			attribute = getAttribute().toString();
+		}
+		
+		sb.append(attribute);
+		sb.append(" ");
+		
+		sb.append(getOperator().toLocaleString());
+		
+		if (getOperator() == Operator.IS_SET || getOperator() == Operator.IS_NOT_SET){
+			// we dont want any values for these operations and return;
+			return sb.toString();
+		}
+		
+		sb.append(" ");
+		sb.append(getFilterValue1AsString());
+		if (getOperator().equals(Operator.BETWEEN)){
+			sb.append(" and ").append(getFilterValue2AsString());
+		}
+		
+		return sb.toString();
+	}
+	
+	public String getFilterValue1AsString() {
+		return getFilterValue1().toString();
+	}
+	
+	public String getFilterValue2AsString() {
+		return getFilterValue2().toString();
+	}	
+	
+	
 }

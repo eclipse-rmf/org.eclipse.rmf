@@ -11,6 +11,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
@@ -59,6 +60,7 @@ public class DateFilter extends AbstractAttributeFilter {
 		if (null == attributeDefinition){
 			throw new IllegalArgumentException("AttributeDefinition can not be null");
 		}
+		System.out.println("Instatiated new Filter: " + toString());
 	}
 
 	/**
@@ -76,6 +78,7 @@ public class DateFilter extends AbstractAttributeFilter {
 		if (null == internalFeature){
 			throw new IllegalArgumentException("AttributeDefinition can not be null");
 		}
+		System.out.println("Instatiated new Filter: " + toString());
 	}
 	
 	private DateFilter(Operator operator, GregorianCalendar value1, GregorianCalendar value2, 
@@ -234,4 +237,16 @@ public class DateFilter extends AbstractAttributeFilter {
 	}
 
 
+	@Override
+	public String getFilterValue1AsString() {
+	    SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MMM-dd");
+	    return fmt.format(getFilterValue1().getTime());
+	}
+	
+	@Override
+	public String getFilterValue2AsString() {
+	    SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MMM-dd");
+	    return fmt.format(getFilterValue2().getTime());
+	}
+	
 }

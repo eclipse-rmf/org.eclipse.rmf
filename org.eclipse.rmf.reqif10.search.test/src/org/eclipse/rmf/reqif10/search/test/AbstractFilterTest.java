@@ -27,6 +27,7 @@ import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
+import org.eclipse.rmf.reqif10.search.filter.AbstractAttributeFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
 import org.junit.Test;
@@ -64,6 +65,16 @@ public abstract class AbstractFilterTest extends AbstractItemProviderTest {
 		Integer c = operatorCounts.get(filter.getOperator());
 		c = (c == null ? 1 : ++c);
 		operatorCounts.put(filter.getOperator(), c);
+		
+		//System.out.println("runnging Filter:");
+		System.out.println(filter.toString());
+		
+		if (filter instanceof AbstractAttributeFilter) {
+			AbstractAttributeFilter new_name = (AbstractAttributeFilter) filter;
+			//System.out.println(new_name.getFilterValue1AsString());
+			
+		}
+		//System.out.println(filter.getFilterValue1());
 		
 		assertEquals(expected, filter.match(getFixture()));
 	}
