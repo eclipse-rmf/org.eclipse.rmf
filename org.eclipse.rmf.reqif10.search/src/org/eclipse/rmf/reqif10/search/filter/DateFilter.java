@@ -108,6 +108,20 @@ public class DateFilter extends AbstractAttributeFilter {
 		}
 		
 		
+		if (operator.equals(Operator.IS) || operator.equals(Operator.IS_NOT)){
+			filterValue1.set(GregorianCalendar.HOUR, 0);
+			filterValue1.set(GregorianCalendar.MINUTE, 0);
+			filterValue1.set(GregorianCalendar.SECOND, 0);
+			
+			filterValue2 = (GregorianCalendar) filterValue1.clone();
+			filterValue2.add(GregorianCalendar.HOUR, 24);
+			
+//			SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MMM-dd");
+//			System.out.println(fmt.format(filterValue1.getTime()));
+//			System.out.println(fmt.format(filterValue2.getTime()));
+		}
+		
+		
 		this.internalAttribute = internalFeature;
 		this.attributeDefinition = attributeDefinition;
 	}
@@ -149,15 +163,13 @@ public class DateFilter extends AbstractAttributeFilter {
 				return super.match(element);
 			}
 		}
-			
-		
 		
 		
 		switch (operator) {
 		case IS:
-			return theValue.equals(filterValue1);
+			return theValue.compareTo(filterValue1) >= 0 && theValue.before(filterValue2);
 		case IS_NOT:
-			return !theValue.equals(filterValue1);
+			return !(theValue.compareTo(filterValue1) >= 0 && theValue.before(filterValue2));
 		case BEFORE:
 			return theValue.compareTo(filterValue1) < 0;
 		case AFTER:
