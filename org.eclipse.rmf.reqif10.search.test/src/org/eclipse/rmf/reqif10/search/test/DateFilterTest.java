@@ -89,8 +89,8 @@ public class DateFilterTest extends AbstractFilterTest{
 		doMatch(filter, true);
 		
 		
-		GregorianCalendar fixtureDate = new GregorianCalendar(2014, 11, 3, 23, 0, 0);
-		fixtureDate.setTimeZone(TimeZone.getTimeZone("GMT"));
+		GregorianCalendar fixtureDate = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+		fixtureDate.set(2014, 11, 3, 23, 0, 0);
 		GregorianCalendar filterDate = new GregorianCalendar(TimeZone.getTimeZone("GMT+9"));
 		filterDate.set(2014, 11, 4, 8, 0, 0);
 		System.out.println((filterDate.getTimeInMillis() - fixtureDate.getTimeInMillis()) / 1000 / 60 / 60);
@@ -98,6 +98,8 @@ public class DateFilterTest extends AbstractFilterTest{
 		createFixture(fixtureDate);		
 		filter = new DateFilter(IFilter.Operator.IS, filterDate, null,  attributeDefinition);
 		doMatch(filter, true);
+		
+		fail("write more tests");
 	}
 	
 	
