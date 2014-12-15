@@ -47,7 +47,7 @@ public class DateFilterDefaultsTest extends DateFilterTest {
 		
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		//specObject.getValues().add(attributeValue);
-		specObject.setLastChange(new GregorianCalendar(2014, 12, 03));
+		specObject.setLastChange(new GregorianCalendar(2014, 11, 03));
 		
 		createSpecObjectType(specObject, attributeDefinition);
 		
