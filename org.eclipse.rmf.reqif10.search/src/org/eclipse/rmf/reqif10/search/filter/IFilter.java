@@ -12,6 +12,8 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
+import java.util.ResourceBundle;
+
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
 
@@ -51,8 +53,11 @@ public interface IFilter extends ReqifFilter {
 		}
 		@Override
 		public String toString() {
-			// TODO NS-Lookup
 			return label;
+		}
+		
+		public String toLocaleString(){
+			return ResourceBundle.getBundle("plugin").getString(label);
 		}
 	}
 	
@@ -70,5 +75,9 @@ public interface IFilter extends ReqifFilter {
 	public Object getFilterValue2();
 	
 	public ImmutableSet<Operator> getSupportedOperators();
+
+	
+	
+	
 	
 }

@@ -72,7 +72,7 @@ public class FilterControlNumber extends FilterControl {
 		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
 		attr.setLayoutData(layoutData);
 		for (Operator operator : NumberFilter.SUPPORTED_OPERATORS) {
-			attr.add(getString(operator.toString()));			
+			attr.add(operator.toLocaleString());			
 		}
 		attr.select(0);
 		if (templateFilter != null)
