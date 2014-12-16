@@ -85,6 +85,7 @@ public class SimpleCompoundFilter implements IFilter {
 		return null;
 	}
 
+
 	@Override
 	public Object getFilterValue1() {
 		return null;

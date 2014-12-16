@@ -82,9 +82,5 @@ public interface IFilter extends ReqifFilter {
 	public Object getFilterValue2();
 	
 	public ImmutableSet<Operator> getSupportedOperators();
-
-	
-	
-	
 	
 }

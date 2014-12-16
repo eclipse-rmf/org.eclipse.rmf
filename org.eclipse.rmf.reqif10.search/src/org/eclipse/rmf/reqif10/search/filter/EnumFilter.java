@@ -152,7 +152,6 @@ public class EnumFilter extends AbstractAttributeFilter{
 		return SUPPORTED_OPERATORS;
 	}
 	
-	
 		
 	@Override
 	public String getFilterValue1AsString() {

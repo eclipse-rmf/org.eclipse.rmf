@@ -236,7 +236,6 @@ public class DateFilter extends AbstractAttributeFilter {
 		}
 	}
 
-
 	@Override
 	public String getFilterValue1AsString() {
 	    SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MMM-dd");
@@ -249,4 +248,5 @@ public class DateFilter extends AbstractAttributeFilter {
 	    return fmt.format(getFilterValue2().getTime());
 	}
 	
+
 }

@@ -136,5 +136,5 @@ public abstract class AbstractAttributeFilter implements IFilter {
 		return getFilterValue2().toString();
 	}	
 	
-	
+
 }

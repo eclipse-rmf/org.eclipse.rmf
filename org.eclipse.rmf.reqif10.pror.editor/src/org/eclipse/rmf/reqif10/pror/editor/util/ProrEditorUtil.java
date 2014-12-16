@@ -70,10 +70,9 @@ public class ProrEditorUtil {
 		sb.append("<style type=\"text/css\">\n");
 		sb.append("body {font-family: Arial, sans-serif;}\n");
 		sb.append("h1 {text-align: center;}\n");
-		sb.append(".container{display:table; width:100%; border-collapse: collapse; table-layout: fixed; }");
-		sb.append(".heading{ font-weight: bold; width:100%; display: table-row; }");
-		sb.append(".table-row{ display: table-row; }");
-		sb.append(".col{ display: table-cell; border: 1px solid #CCC; }");		
+		sb.append("table, th, td { border-bottom: 1px solid #cccccc; }\n");
+		sb.append("td { padding: 2pt; }\n");
+		sb.append("table { border-collapse: collapse; }");
 		sb.append("</style>\n");
 		sb.append("</head>\n\n");
 		sb.append("<body>\n");
@@ -126,9 +125,9 @@ public class ProrEditorUtil {
 			if (child.getObject() != null) {
 				SpecObject specObject = child.getObject();
 				boolean first = true;
-				html.append("<div class='table-row'>");
+				html.append("<tr>");
 				for (Column col : config.getColumns()) {
-					html.append("<div class='col'>");
+					html.append("<td valign='top'>");
 
 					// Handle indenting
 					if (first) {
@@ -177,9 +176,9 @@ public class ProrEditorUtil {
 						first = false;
 						html.append("</div>");
 					}
-					html.append("</div>");
+					html.append("</td>");
 				}
-				html.append("</div>\n");
+				html.append("</tr>\n");
 			}
 			printRecursive(html, config, indent + 1, child.getChildren(),
 					adapterFactory);
@@ -196,15 +195,15 @@ public class ProrEditorUtil {
 
 		// Draw the header
 		html.append(ProrEditorUtil.createHtmlHeader(spec, adapterFactory));
-		html.append("<div class='container'><div class='heading'>");
+		html.append("<table><tr>");
 		EList<Column> cols = config.getColumns();
 		for (Column col : cols) {
-			html.append("<div class='col'>" + col.getLabel() + "</div>");
+			html.append("<td><b>" + col.getLabel() + "</b></td>");
 		}
-		html.append("</div>\n");
+		html.append("</tr>\n");
 		printRecursive(html, config, 0, spec.getChildren(),
 				adapterFactory);
-		html.append("</div>");
+		html.append("</table>");
 
 		return html.toString();
 
