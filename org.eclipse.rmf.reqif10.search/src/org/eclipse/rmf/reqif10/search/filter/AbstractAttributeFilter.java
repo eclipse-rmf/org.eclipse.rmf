@@ -12,6 +12,7 @@
 package org.eclipse.rmf.reqif10.search.filter;
 
 import org.eclipse.rmf.reqif10.AttributeDefinition;
+import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
@@ -38,9 +39,9 @@ public abstract class AbstractAttributeFilter implements IFilter {
 		if (getAttribute() instanceof AttributeDefinition){
 			switch (getOperator()) {
 			case IS_SET:
-				return isSetAttribute(element, (AttributeDefinition) getAttribute());
-			case IS_NOT_SET:
-				return !isSetAttribute(element, (AttributeDefinition) getAttribute());
+				return isSetAttribute(element, (AttributeDefinition) getAttribute()) && hasNonNullValue(element) ;
+			case IS_NOT_SET:		
+				return isSetAttribute(element, (AttributeDefinition) getAttribute()) && !hasNonNullValue(element); 
 			default:
 				throw new IllegalArgumentException(
 						"This filter does not support the " + getOperator()
@@ -65,6 +66,19 @@ public abstract class AbstractAttributeFilter implements IFilter {
 	
 	public static boolean isSetAttribute(SpecElementWithAttributes element, AttributeDefinition attributeDefinition){
 		return ReqIF10Util.getSpecType(element).getSpecAttributes().contains(attributeDefinition);
+	}
+	
+	
+	private boolean hasNonNullValue(SpecElementWithAttributes element){
+		AttributeValue attributeValue = ReqIF10Util.getAttributeValue(element, (AttributeDefinition) getAttribute());
+		if (attributeValue == null){
+			return false;
+		}
+		Object theValue = ReqIF10Util.getTheValue(attributeValue);
+		if (theValue == null){
+			return false;
+		}
+		return true;
 	}
 	
 	
