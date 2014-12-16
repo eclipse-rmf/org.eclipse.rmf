@@ -81,9 +81,10 @@ public class DateFilter extends AbstractAttributeFilter {
 		System.out.println("Instatiated new Filter: " + toString());
 	}
 	
+	
 	private DateFilter(Operator operator, GregorianCalendar value1, GregorianCalendar value2, 
 			InternalAttribute internalFeature, AttributeDefinitionDate attributeDefinition){
-		
+
 		if (!SUPPORTED_OPERATORS.contains(operator)){
 			throw new IllegalArgumentException(
 					"This filter does not support the " + operator.toString()
@@ -98,37 +99,77 @@ public class DateFilter extends AbstractAttributeFilter {
 			if (value2 == null){
 				throw new IllegalArgumentException("Value2 can not be null when using the operator " + operator.toString());
 			}
+		}		
+		
+		
+		if (value2 != null){
+			filterValue2 = copyCalendar(value2, true);
+			filterValue2.set(GregorianCalendar.HOUR_OF_DAY, 23);
+			filterValue2.set(GregorianCalendar.MINUTE, 59);
+			filterValue2.set(GregorianCalendar.SECOND, 59);
+			filterValue2.set(GregorianCalendar.MILLISECOND, 999);
+			
+			// Calling getTimeInMillis() forces the GregorianCalendar to compute the time.
+			// If the time is not computed a compareTo might fail
+			filterValue2.getTimeInMillis();
+		}
+		
+		
+		if (value1 != null){
+			if (operator == Operator.IS || operator == Operator.IS_NOT){
+				filterValue1 = copyCalendar(value1, false);
+				filterValue2 = copyCalendar(value1, false);
+				filterValue2.add(GregorianCalendar.HOUR, 24);		
+				filterValue2.getTimeInMillis();
+			}else{
+				filterValue1 = copyCalendar(value1, true);
+			}
+			// Calling getTimeInMillis() forces the GregorianCalendar to compute the time.
+			// If the time is not computed a compareTo might fail
+			filterValue1.getTimeInMillis();
 		}
 		
 		
 		this.operator = operator;
-		if (operator.equals(Operator.BETWEEN) && value1.after(value2)){
-			this.filterValue1 = value2;
-			this.filterValue2 = value1;
-		}else{
-			this.filterValue1 = value1;
-			this.filterValue2 = value2;			
-		}
-		
-		
-		if (operator.equals(Operator.IS) || operator.equals(Operator.IS_NOT)){
-			filterValue1.set(GregorianCalendar.HOUR, 0);
-			filterValue1.set(GregorianCalendar.MINUTE, 0);
-			filterValue1.set(GregorianCalendar.SECOND, 0);
-			
-			filterValue2 = (GregorianCalendar) filterValue1.clone();
-			filterValue2.add(GregorianCalendar.HOUR, 24);
-			
-//			SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MMM-dd");
-//			System.out.println(fmt.format(filterValue1.getTime()));
-//			System.out.println(fmt.format(filterValue2.getTime()));
-		}
-		
+		if (operator.equals(Operator.BETWEEN) && filterValue1.after(filterValue2)){
+			GregorianCalendar fv1 = filterValue1;
+			this.filterValue1 = this.filterValue2;
+			this.filterValue2 = fv1;
+		}		
 		
 		this.internalAttribute = internalFeature;
 		this.attributeDefinition = attributeDefinition;
+		
 	}
 
+	
+	/* 
+	 * 
+	 */
+	private GregorianCalendar copyCalendar(GregorianCalendar source, boolean copyTimeOfDay ){
+		source.getTimeInMillis();
+		
+		GregorianCalendar calendar = new GregorianCalendar(source.getTimeZone());
+		
+		calendar.set(GregorianCalendar.YEAR, source.get(GregorianCalendar.YEAR));
+		calendar.set(GregorianCalendar.MONTH, source.get(GregorianCalendar.MONTH));
+		calendar.set(GregorianCalendar.DAY_OF_MONTH, source.get(GregorianCalendar.DAY_OF_MONTH));
+		
+		if (copyTimeOfDay){
+			calendar.set(GregorianCalendar.HOUR_OF_DAY, source.get(GregorianCalendar.HOUR_OF_DAY));
+			calendar.set(GregorianCalendar.MINUTE, source.get(GregorianCalendar.MINUTE));
+			calendar.set(GregorianCalendar.SECOND, source.get(GregorianCalendar.SECOND));
+			calendar.set(GregorianCalendar.MILLISECOND, source.get(GregorianCalendar.MILLISECOND));
+		}else{
+			calendar.set(GregorianCalendar.HOUR_OF_DAY, 0);
+			calendar.set(GregorianCalendar.MINUTE, 0);
+			calendar.set(GregorianCalendar.SECOND, 0);
+			calendar.set(GregorianCalendar.MILLISECOND, 0);
+		}
+		
+		return calendar;
+	}
+	
 	
 	@Override
 	public boolean match(SpecElementWithAttributes element) {
@@ -166,6 +207,11 @@ public class DateFilter extends AbstractAttributeFilter {
 				return super.match(element);
 			}
 		}
+		
+		
+		// Calling getTimeInMillis() forces the GregorianCalendar to compute the time.
+		// If the time is not computed a compareTo might fail
+		theValue.getTimeInMillis();
 		
 		
 		switch (operator) {
