@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <THE-HEADER>
-    <REQ-IF-HEADER IDENTIFIER="rmf-24aaaedf-0752-4818-80db-8d7326f6f612">
+    <REQ-IF-HEADER IDENTIFIER="rmf-a6ccd7d6-675f-4d98-a86b-4cec4d2dd83f">
       <COMMENT>Created by: jastram</COMMENT>
       <CREATION-TIME>2014-12-04T08:14:06.220+01:00</CREATION-TIME>
       <REQ-IF-TOOL-ID>ProR (http://pror.org)</REQ-IF-TOOL-ID>
@@ -1287,7 +1287,7 @@
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_daicAIUREeScH7zcd23EKQ" LAST-CHANGE="2014-12-16T11:52:35.196+01:00">
+        <SPEC-OBJECT IDENTIFIER="_daicAIUREeScH7zcd23EKQ" LAST-CHANGE="2014-12-16T13:29:21.202+01:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="is set: If a non-null-value exists, return true.  Ignore default values (i.e. if there is a default value but no explicitly set one, return false).">
               <DEFINITION>
@@ -1296,7 +1296,7 @@
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-ENUMERATION>
               <VALUES>
-                <ENUM-VALUE-REF>_p2YykIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
               </VALUES>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
@@ -1307,7 +1307,7 @@
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_kTHdYIUREeScH7zcd23EKQ" LAST-CHANGE="2014-12-16T11:53:27.156+01:00">
+        <SPEC-OBJECT IDENTIFIER="_kTHdYIUREeScH7zcd23EKQ" LAST-CHANGE="2014-12-16T13:29:23.448+01:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="is not set: return true only if the attribute exisits, but is not set (irrespective of default value).">
               <DEFINITION>
@@ -1316,7 +1316,7 @@
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-ENUMERATION>
               <VALUES>
-                <ENUM-VALUE-REF>_p2YykIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
               </VALUES>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
