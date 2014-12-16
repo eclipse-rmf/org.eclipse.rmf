@@ -46,18 +46,64 @@ public class StringFilterInternalTest extends AbstractFilterTest {
 		
 		
 		ArrayList<Object[]> testData = new ArrayList<Object[]>();
-		
-		Operator operator = IFilter.Operator.EQUALS; 
+		 
 		for (AbstractTextFilter.InternalAttribute attribute : values.keySet()) {
+			// match the value on the value
 			testData.add(new Object[] { 
-					operator, values.get(attribute), attribute, true,
+					IFilter.Operator.EQUALS, values.get(attribute), attribute, true,
 					true });
 			testData.add(new Object[] { 
-					operator, values.get(attribute).toLowerCase(), attribute, false,
-					true });
-			testData.add(new Object[] { 
-					operator, values.get(attribute).toLowerCase(), attribute, true,
+					IFilter.Operator.NOT_EQUALS, values.get(attribute), attribute, true,
 					false });
+			
+			// match the value on the value.toLowerCase and caseInSensitive
+			testData.add(new Object[] { 
+					IFilter.Operator.EQUALS, values.get(attribute).toLowerCase(), attribute, false,
+					true });
+			testData.add(new Object[] { 
+					IFilter.Operator.NOT_EQUALS, values.get(attribute).toLowerCase(), attribute, false,
+					false });
+			
+			// match the value on the value.toLowerCase and caseSensitive
+			testData.add(new Object[] { 
+					IFilter.Operator.EQUALS, values.get(attribute).toLowerCase(), attribute, true,
+					false });
+			testData.add(new Object[] { 
+					IFilter.Operator.NOT_EQUALS, values.get(attribute).toLowerCase(), attribute, true,
+					true });
+			
+			
+			testData.add(new Object[] { 
+					IFilter.Operator.CONTAINS, "THE_", attribute, true,
+					true });
+			testData.add(new Object[] { 
+					IFilter.Operator.CONTAINS, "THE_", attribute, false,
+					true });
+			testData.add(new Object[] { 
+					IFilter.Operator.CONTAINS, "the_", attribute, true,
+					false });
+			
+			
+			testData.add(new Object[] { 
+					IFilter.Operator.NOT_CONTAINS, "E", attribute, true,
+					false });
+			testData.add(new Object[] { 
+					IFilter.Operator.NOT_CONTAINS, "e", attribute, false,
+					false });
+			testData.add(new Object[] { 
+					IFilter.Operator.NOT_CONTAINS, "XXX", attribute, true,
+					true });
+			
+			testData.add(new Object[] { 
+					IFilter.Operator.REGEXP, ".*E.*", attribute, true,
+					true });
+			testData.add(new Object[] { 
+					IFilter.Operator.REGEXP, ".*e.*", attribute, false,
+					true });
+			testData.add(new Object[] { 
+					IFilter.Operator.REGEXP, ".*e.*", attribute, true,
+					false });
+			
 		}
 		
 		
