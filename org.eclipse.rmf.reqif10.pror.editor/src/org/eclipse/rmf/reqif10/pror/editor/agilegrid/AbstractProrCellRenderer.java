@@ -49,6 +49,7 @@ import org.eclipse.ui.PlatformUI;
 /**
  * @author Lukas Ladenberger
  * @author Ingo Weigelt
+ * @author Michael Jastram
  */
 public class AbstractProrCellRenderer extends TextCellRenderer {
 
@@ -160,6 +161,8 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 	protected void initialColor(int row, int col) {
 		if (agileGrid.isCellSelected(row, col)) {
 			background = SWTResourceManager.getColor(223, 227, 237);
+		} else {
+			background = SWTResourceManager.getColor(SWT.COLOR_WHITE);
 		}
 	}
 
