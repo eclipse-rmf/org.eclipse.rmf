@@ -13,7 +13,6 @@ package org.eclipse.rmf.reqif10.search.test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.util.GregorianCalendar;
 import java.util.Set;
@@ -149,12 +148,7 @@ public class StringFilterTest extends AbstractFilterTest{
 		doMatch(filter, true);
 		
 	}
-	
-	@Test
-	public void testInternalFeatures() throws Exception {
-		fail("not yet implemented");
-	}
-	
+		
 	
 	@Override
 	public void doEmptyTest(){
@@ -310,6 +304,7 @@ public class StringFilterTest extends AbstractFilterTest{
 	}
 
 
+	
 
 	@Override
 	public void createFixture(Object value) {
@@ -333,7 +328,6 @@ public class StringFilterTest extends AbstractFilterTest{
 		createSpecObjectType(specObject, attributeDefinition);
 		
 		setFixture(specObject);
-		
 	}
 	
 }

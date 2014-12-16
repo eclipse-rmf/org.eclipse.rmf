@@ -226,6 +226,12 @@ public class DateFilterTest extends AbstractFilterTest{
 		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(3000, 1, 1), null, DateFilter.InternalAttribute.LAST_CHANGE);
 		doMatch(filter, false);
 		
+		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 11, 02), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
+		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 11, 03, 0, 0, 0), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
 		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 11, 03), null, DateFilter.InternalAttribute.LAST_CHANGE);
 		doMatch(filter, true);
 		
