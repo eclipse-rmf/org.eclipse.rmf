@@ -87,7 +87,7 @@ public abstract class AbstractTextFilter extends AbstractAttributeFilter {
 					"This filter does not support the " + operator.toString()
 							+ " operation");
 		}
-		if (null == value){
+		if (null == value && operator != Operator.IS_SET && operator != Operator.IS_NOT_SET  ){
 			throw new IllegalArgumentException(
 					"Value can not be null");
 		}

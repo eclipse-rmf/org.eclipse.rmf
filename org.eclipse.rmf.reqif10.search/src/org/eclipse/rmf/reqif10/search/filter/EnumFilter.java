@@ -49,7 +49,7 @@ public class EnumFilter extends AbstractAttributeFilter{
 		};
 		
 		// ensure that value1 is not null
-		if (null == value){
+		if (null == value && operator != Operator.IS_SET && operator != Operator.IS_NOT_SET  ){
 			throw new IllegalArgumentException(
 					"value1 can not be null");
 		}
