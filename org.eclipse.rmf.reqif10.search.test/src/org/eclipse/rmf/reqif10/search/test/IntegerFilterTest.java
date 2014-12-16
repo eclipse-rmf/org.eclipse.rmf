@@ -141,7 +141,7 @@ public class IntegerFilterTest extends AbstractFilterTest {
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
 		filter = new NumberFilter(Operator.IS_NOT_SET, new BigInteger("2"), null, attributeDefinition2);
-		doMatch(filter, true);
+		doMatch(filter, false);
 	}	
 	
 	

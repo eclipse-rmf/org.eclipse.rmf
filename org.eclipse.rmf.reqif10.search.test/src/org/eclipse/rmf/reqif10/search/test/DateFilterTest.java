@@ -286,7 +286,7 @@ public class DateFilterTest extends AbstractFilterTest{
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
 		filter = new DateFilter(IFilter.Operator.IS_NOT_SET, new GregorianCalendar(2014, 1, 1), null, attributeDefinition2);
-		doMatch(filter, true);
+		doMatch(filter, false);
 	}
 	
 	

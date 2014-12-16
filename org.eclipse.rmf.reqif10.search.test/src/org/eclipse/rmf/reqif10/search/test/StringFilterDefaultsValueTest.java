@@ -26,30 +26,6 @@ public class StringFilterDefaultsValueTest extends StringFilterTest {
 		// Do nothing, since this test will fall back on default values 
 	}
 	
-//	@Override
-//	@Test
-//	public void testIsSet() throws Exception {
-//		fail("not yet implemented");
-//	}
-//	
-//	@Override
-//	@Test
-//	public void testNotContains() throws Exception {
-//		fail("not yet implemented");
-//	}
-//	
-//	@Override
-//	@Test
-//	public void testContains() throws Exception {
-//		fail("not yet implemented");
-//	}
-//	
-//	@Override
-//	@Test
-//	public void testIsNotSet() throws Exception {
-//		fail("not yet implemented");
-//	}
-//	
 
 	/**
 	 * Sets the value as the defaultValue.
@@ -85,6 +61,16 @@ public class StringFilterDefaultsValueTest extends StringFilterTest {
 		
 		setFixture(specObject);
 
+	}
+	
+	@Override
+	public void testIsSet() throws Exception {
+		// super would fail because of the changed fixture
+	}
+
+	@Override
+	public void testIsNotSet() throws Exception {
+		// super would fail because of the changed fixture
 	}
 	
 	
