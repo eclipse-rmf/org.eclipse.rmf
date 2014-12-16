@@ -227,13 +227,13 @@ public class StringFilterTest extends AbstractFilterTest{
 	public void testIsSet() throws Exception {
 		StringFilter filter;
 		
-		filter = new StringFilter(IFilter.Operator.IS_SET, "",  attributeDefinition, false);
+		filter = new StringFilter(IFilter.Operator.IS_SET, null,  attributeDefinition, false);
 		doMatch(filter, true);
 		
 		AttributeDefinitionString attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
-		filter = new StringFilter(IFilter.Operator.IS_SET, "",  attributeDefinition2, false);
+		filter = new StringFilter(IFilter.Operator.IS_SET, null,  attributeDefinition2, false);
 		doMatch(filter, false);
 	}
 	
@@ -242,13 +242,13 @@ public class StringFilterTest extends AbstractFilterTest{
 	public void testIsNotSet() throws Exception {
 		StringFilter filter;
 		
-		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "",  attributeDefinition, false);
+		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, null,  attributeDefinition, false);
 		doMatch(filter, false);
 		
 		AttributeDefinitionString attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
-		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "",  attributeDefinition2, false);
+		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, null,  attributeDefinition2, false);
 		doMatch(filter, false);
 	}
 	
