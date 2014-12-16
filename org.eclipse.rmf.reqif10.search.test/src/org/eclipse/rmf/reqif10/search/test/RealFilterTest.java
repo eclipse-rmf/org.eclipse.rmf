@@ -141,7 +141,7 @@ public class RealFilterTest extends AbstractFilterTest {
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
 		filter = new NumberFilter(Operator.IS_NOT_SET, new Double("2"), null, attributeDefinition2);
-		doMatch(filter, true);
+		doMatch(filter, false);
 	}	
 	
 	
@@ -187,6 +187,7 @@ public class RealFilterTest extends AbstractFilterTest {
 		attributeValue.setDefinition(attributeDefinition);
 		
 		if (theValue != null){
+			System.out.println("seeting the value " + theValue);
 			attributeValue.setTheValue(theValue);
 		}
 		

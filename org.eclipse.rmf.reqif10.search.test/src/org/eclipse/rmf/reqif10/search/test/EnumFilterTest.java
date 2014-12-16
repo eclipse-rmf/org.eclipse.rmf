@@ -178,7 +178,7 @@ public class EnumFilterTest extends AbstractFilterTest{
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
 		filter = new EnumFilter(IFilter.Operator.IS_NOT_SET, specifiedValues, attributeDefinition2);
-		doMatch(filter, true);
+		doMatch(filter, false);
 	}	
 	
 

@@ -131,7 +131,7 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
 		xhtmlFilter = new XhtmlFilter(IFilter.Operator.IS_NOT_SET, "hello",  attributeDefinition2, true);
-		doMatch(xhtmlFilter, true);
+		doMatch(xhtmlFilter, false);
 	}
 
 

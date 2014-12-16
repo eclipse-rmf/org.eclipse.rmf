@@ -65,6 +65,8 @@ public abstract class AbstractFilterTest extends AbstractItemProviderTest {
 		c = (c == null ? 1 : ++c);
 		operatorCounts.put(filter.getOperator(), c);
 		
+		System.out.println(filter.toString());
+		
 		assertEquals(expected, filter.match(getFixture()));
 	}
 	

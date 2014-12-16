@@ -13,6 +13,7 @@ package org.eclipse.rmf.reqif10.search.filter;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
@@ -150,5 +151,40 @@ public class EnumFilter extends AbstractAttributeFilter{
 	public ImmutableSet<Operator> getSupportedOperators() {
 		return SUPPORTED_OPERATORS;
 	}
-
+	
+		
+	@Override
+	public String getFilterValue1AsString() {
+		return enumValuesAsString(getFilterValue1());
+	}
+	
+	@Override
+	public String getFilterValue2AsString() {
+		return null;
+	}
+	
+	
+	private String enumValuesAsString(Collection<EnumValue> values){
+		StringBuilder sb = new StringBuilder("[");
+		for (Iterator<EnumValue> iterator = values.iterator(); iterator
+				.hasNext();) {
+			EnumValue enumValue = (EnumValue) iterator.next();
+			String label = enumValue.getLongName();
+			if (label == null){
+				label = enumValue.getDesc();
+			}
+			if (label == null){
+				label = "ID="+enumValue.getIdentifier();
+			}
+			sb.append(label);
+			
+			if (iterator.hasNext()){
+				sb.append(", ");
+			}
+		}
+		sb.append("]");
+		
+		return sb.toString();
+	}
+	
 }

@@ -80,7 +80,7 @@ public class BoolFilterTest extends AbstractFilterTest {
 		nonExistingAttributeDefinition.setIdentifier("AD_ID1");
 		
 		filter = new BoolFilter(Operator.IS_NOT_SET, false, nonExistingAttributeDefinition);
-		doMatch(filter, true);
+		doMatch(filter, false);
 	}	
 	
 	

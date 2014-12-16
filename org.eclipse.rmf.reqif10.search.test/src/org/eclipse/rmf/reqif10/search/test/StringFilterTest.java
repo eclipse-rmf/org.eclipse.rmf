@@ -13,7 +13,6 @@ package org.eclipse.rmf.reqif10.search.test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.util.GregorianCalendar;
 import java.util.Set;
@@ -27,6 +26,7 @@ import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter;
@@ -148,12 +148,7 @@ public class StringFilterTest extends AbstractFilterTest{
 		doMatch(filter, true);
 		
 	}
-	
-	@Test
-	public void testInternalFeatures() throws Exception {
-		fail("not yet implemented");
-	}
-	
+		
 	
 	@Override
 	public void doEmptyTest(){
@@ -215,7 +210,7 @@ public class StringFilterTest extends AbstractFilterTest{
 		AttributeDefinitionString adString = null;
 		for (AttributeValue attributeValue : so0.getValues()) {
 			AttributeDefinition attributeDefinition = ReqIF10Util.getAttributeDefinition(attributeValue);
-			System.out.println(attributeDefinition.getClass());
+			//System.out.println(attributeDefinition.getClass());
 			if (attributeDefinition instanceof AttributeDefinitionString) {
 				adString = (AttributeDefinitionString) attributeDefinition;
 			}
@@ -254,16 +249,46 @@ public class StringFilterTest extends AbstractFilterTest{
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
 		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "",  attributeDefinition2, false);
-		doMatch(filter, true);
+		doMatch(filter, false);
 	}
 	
 	
 	@Test
 	public void isSetInternal() throws Exception {
-		StringFilter filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
+		StringFilter filter; 
+		
+		filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
+		doMatch(filter, true);
+		filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.IDENTIFIER, false);
+		doMatch(filter, true);
+		filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.LONG_NAME, false);
 		doMatch(filter, true);
 		
-		fail("write more tests here");
+		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
+		doMatch(filter, false);
+		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.IDENTIFIER, false);
+		doMatch(filter, false);
+		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.LONG_NAME, false);
+		doMatch(filter, false);
+		
+		SpecElementWithAttributes specObject = getFixture();
+		specObject.setDesc(null);
+		specObject.setLongName(null);
+		specObject.setIdentifier(null);
+		
+		filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
+		doMatch(filter, false);
+		filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.IDENTIFIER, false);
+		doMatch(filter, false);
+		filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.LONG_NAME, false);
+		doMatch(filter, false);
+		
+		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
+		doMatch(filter, true);
+		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.IDENTIFIER, false);
+		doMatch(filter, true);
+		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.LONG_NAME, false);
+		doMatch(filter, true);
 	}
 	
 	
@@ -279,6 +304,7 @@ public class StringFilterTest extends AbstractFilterTest{
 	}
 
 
+	
 
 	@Override
 	public void createFixture(Object value) {
@@ -302,7 +328,6 @@ public class StringFilterTest extends AbstractFilterTest{
 		createSpecObjectType(specObject, attributeDefinition);
 		
 		setFixture(specObject);
-		
 	}
 	
 }

@@ -11,8 +11,6 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.test;
 
-import static org.junit.Assert.fail;
-
 import java.util.GregorianCalendar;
 import java.util.Set;
 import java.util.TimeZone;
@@ -52,7 +50,7 @@ public class DateFilterTest extends AbstractFilterTest{
 		attributeValue.setTheValue(theValue);
 		SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
 		specObject.getValues().add(attributeValue);
-		specObject.setLastChange(new GregorianCalendar(2014, 11, 03));
+		specObject.setLastChange(new GregorianCalendar(2014, 11, 03, 12, 0, 0));
 		
 		createSpecObjectType(specObject, attributeDefinition);
 		
@@ -88,18 +86,18 @@ public class DateFilterTest extends AbstractFilterTest{
 		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(2014,11,03,20,0,0), null,  attributeDefinition);
 		doMatch(filter, true);
 		
-		
+		// match two different representations of the same point in time (i.e. different time zones)
 		GregorianCalendar fixtureDate = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
 		fixtureDate.set(2014, 11, 3, 23, 0, 0);
 		GregorianCalendar filterDate = new GregorianCalendar(TimeZone.getTimeZone("GMT+9"));
 		filterDate.set(2014, 11, 4, 8, 0, 0);
-		System.out.println((filterDate.getTimeInMillis() - fixtureDate.getTimeInMillis()) / 1000 / 60 / 60);
+		//System.out.println((filterDate.getTimeInMillis() - fixtureDate.getTimeInMillis()) / 1000 / 60 / 60);
 		
-		createFixture(fixtureDate);		
+		createFixture(fixtureDate);
 		filter = new DateFilter(IFilter.Operator.IS, filterDate, null,  attributeDefinition);
 		doMatch(filter, true);
 		
-		fail("write more tests");
+		
 	}
 	
 	
@@ -228,7 +226,16 @@ public class DateFilterTest extends AbstractFilterTest{
 		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(3000, 1, 1), null, DateFilter.InternalAttribute.LAST_CHANGE);
 		doMatch(filter, false);
 		
+		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 11, 02), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
+		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 11, 03, 0, 0, 0), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
 		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 11, 03), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
+		filter = new DateFilter(IFilter.Operator.AFTER, new GregorianCalendar(2014, 11, 03, 12, 0, 0), null, DateFilter.InternalAttribute.LAST_CHANGE);
 		doMatch(filter, false);
 	}
 	
@@ -255,9 +262,98 @@ public class DateFilterTest extends AbstractFilterTest{
 	
 	@Test
 	public void testInternalAttributes() throws Exception {
-		// TODO: validate that all operators are tested against internalAttribute 
-		fail("not yet implemented");
+		DateFilter filter;
+
+		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(
+				2014, 11, 3), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+
+		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(
+				2014, 11, 3, 17, 0, 0), null,
+				DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+
+		filter = new DateFilter(IFilter.Operator.IS, new GregorianCalendar(
+				2014, 11, 4), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, false);
+
+		filter = new DateFilter(IFilter.Operator.IS_NOT, new GregorianCalendar(
+				2014, 11, 4), null, DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+
+		filter = new DateFilter(IFilter.Operator.IS_NOT,
+				new GregorianCalendar(2014, 11, 3, 23, 59, 59),
+				null,
+				DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, false);
+
+		filter = new DateFilter(IFilter.Operator.BETWEEN,
+				new GregorianCalendar(2014, 11, 3, 23, 59, 59),
+				new GregorianCalendar(2014, 11, 3, 23, 59, 59),
+				DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, false);
+
+		filter = new DateFilter(IFilter.Operator.BETWEEN,
+				new GregorianCalendar(2014, 11, 3, 0, 0, 0),
+				new GregorianCalendar(2014, 11, 3, 23, 59, 59),
+				DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
+		filter = new DateFilter(IFilter.Operator.BETWEEN,
+				new GregorianCalendar(2014, 11, 3, 12, 0, 0),
+				new GregorianCalendar(2014, 11, 3, 23, 59, 59),
+				DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
+		filter = new DateFilter(IFilter.Operator.BETWEEN,
+				new GregorianCalendar(2014, 11, 3, 0, 0, 0),
+				new GregorianCalendar(2014, 11, 3, 12, 0, 0),
+				DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
+		filter = new DateFilter(IFilter.Operator.BEFORE,
+				new GregorianCalendar(2014, 11, 3, 23, 59, 59),
+				null,
+				DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
+		filter = new DateFilter(IFilter.Operator.BEFORE,
+				new GregorianCalendar(2014, 11, 3, 12, 0, 0),
+				null,
+				DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, false);
+		
+		filter = new DateFilter(IFilter.Operator.BEFORE,
+				new GregorianCalendar(2014, 11, 4),
+				null,
+				DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
+		filter = new DateFilter(IFilter.Operator.BEFORE,
+				new GregorianCalendar(2014, 11, 3),
+				null,
+				DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, false);
+		
+		filter = new DateFilter(IFilter.Operator.AFTER,
+				new GregorianCalendar(2014, 11, 3),
+				null,
+				DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, true);
+		
+		filter = new DateFilter(IFilter.Operator.AFTER,
+				new GregorianCalendar(2014, 11, 3, 12, 0, 0),
+				null,
+				DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, false);
+		
+		filter = new DateFilter(IFilter.Operator.AFTER,
+				new GregorianCalendar(2014, 11, 5),
+				null,
+				DateFilter.InternalAttribute.LAST_CHANGE);
+		doMatch(filter, false);
 	}
+	
 	
 	
 	@Test
@@ -286,9 +382,8 @@ public class DateFilterTest extends AbstractFilterTest{
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
 		filter = new DateFilter(IFilter.Operator.IS_NOT_SET, new GregorianCalendar(2014, 1, 1), null, attributeDefinition2);
-		doMatch(filter, true);
+		doMatch(filter, false);
 	}
-	
 	
 	
 	@Test
