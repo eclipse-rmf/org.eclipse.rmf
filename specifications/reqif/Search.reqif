@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <THE-HEADER>
-    <REQ-IF-HEADER IDENTIFIER="rmf-bead925c-82e4-447f-ab8f-e9b4960fa028">
+    <REQ-IF-HEADER IDENTIFIER="rmf-38ad5938-224f-4eb9-aa2e-4922f123c3a7">
       <COMMENT>Created by: jastram</COMMENT>
       <CREATION-TIME>2014-12-04T08:14:06.220+01:00</CREATION-TIME>
       <REQ-IF-TOOL-ID>ProR (http://pror.org)</REQ-IF-TOOL-ID>
@@ -15,6 +15,33 @@
         <DATATYPE-DEFINITION-STRING IDENTIFIER="_Ii3vI3uFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:14:06.220+01:00" LONG-NAME="T_String32k" MAX-LENGTH="32000"/>
         <DATATYPE-DEFINITION-STRING IDENTIFIER="_NO484HuGEeS48tWDFoyOsw" LAST-CHANGE="2014-12-04T08:21:42.499+01:00" LONG-NAME="T_ChapterName"/>
         <DATATYPE-DEFINITION-XHTML IDENTIFIER="_wPv3kHuGEeS48tWDFoyOsw" LAST-CHANGE="2014-12-04T08:25:39.770+01:00" LONG-NAME="T_XHTML"/>
+        <DATATYPE-DEFINITION-DATE IDENTIFIER="_QcQsMH7FEeS-kbr2itXc9A" LAST-CHANGE="2014-12-08T11:30:36.777+01:00" LONG-NAME="T_Date"/>
+        <DATATYPE-DEFINITION-INTEGER IDENTIFIER="_KyTGQH_GEeSYdsnACTHR5g" LAST-CHANGE="2014-12-09T18:09:40.169+01:00" LONG-NAME="T_Integer"/>
+        <DATATYPE-DEFINITION-REAL IDENTIFIER="_MlKyEH_GEeSYdsnACTHR5g" LAST-CHANGE="2014-12-09T18:09:53.379+01:00" LONG-NAME="T_Real"/>
+        <DATATYPE-DEFINITION-ENUMERATION IDENTIFIER="_iNIiMYRqEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T15:56:18.817+01:00" LONG-NAME="T_Status">
+          <SPECIFIED-VALUES>
+            <ENUM-VALUE IDENTIFIER="_p2YykIRqEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T15:57:10.829+01:00" LONG-NAME="Ready">
+              <PROPERTIES>
+                <EMBEDDED-VALUE/>
+              </PROPERTIES>
+            </ENUM-VALUE>
+            <ENUM-VALUE IDENTIFIER="_knXwAIRqEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T15:56:36.997+01:00" LONG-NAME="In progress">
+              <PROPERTIES>
+                <EMBEDDED-VALUE/>
+              </PROPERTIES>
+            </ENUM-VALUE>
+            <ENUM-VALUE IDENTIFIER="_oM33EIRqEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T15:56:58.984+01:00" LONG-NAME="Done">
+              <PROPERTIES>
+                <EMBEDDED-VALUE/>
+              </PROPERTIES>
+            </ENUM-VALUE>
+            <ENUM-VALUE IDENTIFIER="_eqI4YIRxEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:45:58.503+01:00" LONG-NAME="Won't implement">
+              <PROPERTIES>
+                <EMBEDDED-VALUE/>
+              </PROPERTIES>
+            </ENUM-VALUE>
+          </SPECIFIED-VALUES>
+        </DATATYPE-DEFINITION-ENUMERATION>
       </DATATYPES>
       <SPEC-TYPES>
         <SPECIFICATION-TYPE IDENTIFIER="_Ii3vJnuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:14:06.220+01:00" LONG-NAME="Specification Type">
@@ -43,6 +70,18 @@
                 <DATATYPE-DEFINITION-STRING-REF>_NO484HuGEeS48tWDFoyOsw</DATATYPE-DEFINITION-STRING-REF>
               </TYPE>
             </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-ENUMERATION IDENTIFIER="_s29AkIRqEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T15:57:31.283+01:00" LONG-NAME="Status">
+              <TYPE>
+                <DATATYPE-DEFINITION-ENUMERATION-REF>_iNIiMYRqEeSo3fPbjIH42w</DATATYPE-DEFINITION-ENUMERATION-REF>
+              </TYPE>
+              <DEFAULT-VALUE>
+                <ATTRIBUTE-VALUE-ENUMERATION>
+                  <DEFINITION>
+                    <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+                  </DEFINITION>
+                </ATTRIBUTE-VALUE-ENUMERATION>
+              </DEFAULT-VALUE>
+            </ATTRIBUTE-DEFINITION-ENUMERATION>
           </SPEC-ATTRIBUTES>
         </SPEC-OBJECT-TYPE>
         <SPEC-OBJECT-TYPE IDENTIFIER="_rGI5cHuGEeS48tWDFoyOsw" LAST-CHANGE="2014-12-04T08:25:02.124+01:00" LONG-NAME="Information Type">
@@ -54,15 +93,19 @@
             </ATTRIBUTE-DEFINITION-XHTML>
           </SPEC-ATTRIBUTES>
         </SPEC-OBJECT-TYPE>
+        <SPEC-RELATION-TYPE IDENTIFIER="_tHrFwIFMEeSAeqAN7wsrbQ" LAST-CHANGE="2014-12-11T16:45:14.128+01:00" LONG-NAME="Link Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_u7mhgIFMEeSAeqAN7wsrbQ" LAST-CHANGE="2014-12-11T16:45:18.638+01:00" LONG-NAME="ReqIF.Text">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_Ii3vI3uFEeS1tthkGDp8zA</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-RELATION-TYPE>
       </SPEC-TYPES>
       <SPEC-OBJECTS>
-        <SPEC-OBJECT IDENTIFIER="_Rd7loHuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:15:06.106+01:00">
+        <SPEC-OBJECT IDENTIFIER="_Rd7loHuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-08T13:48:00.220+01:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="">
-              <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsXuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
-              </DEFINITION>
-            </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="While there is very basic search support available, it is currently not suitable for professional work.  The objective of this project is to improve this, as follows:">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
@@ -73,13 +116,21 @@
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_ReHL0HuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-07T16:47:29.263+01:00">
+        <SPEC-OBJECT IDENTIFIER="_ReHL0HuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-08T14:20:41.356+01:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="The following is a proposal on how the interface could look like, based on best practices in user interface design.">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -97,6 +148,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_p2YykIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -114,14 +173,22 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_bBoUAHuGEeS48tWDFoyOsw" LAST-CHANGE="2014-12-04T08:23:14.270+01:00">
+        <SPEC-OBJECT IDENTIFIER="_bBoUAHuGEeS48tWDFoyOsw" LAST-CHANGE="2014-12-08T14:56:30.927+01:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="User-Friendly Searcing">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User-Friendly Searcing Title">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>_KcpewHuGEeS48tWDFoyOsw</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -131,14 +198,14 @@
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_xpa_cH4nEeSJSKCeNoEp0g" LAST-CHANGE="2014-12-07T16:52:58.879+01:00">
+        <SPEC-OBJECT IDENTIFIER="_xpa_cH4nEeSJSKCeNoEp0g" LAST-CHANGE="2014-12-08T11:26:31.234+01:00">
           <VALUES>
             <ATTRIBUTE-VALUE-XHTML>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-XHTML-REF>_tdtNwHuGEeS48tWDFoyOsw</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div><xhtml:p style="text-align: left;"><xhtml:object data="Search/search-mockup.png" style="max-width:100%;" type="image/png" width="100">This is what will show if the image can't be displayed.</xhtml:object></xhtml:p></xhtml:div>
+                <xhtml:div><xhtml:p style="text-align: left;"><xhtml:object data="Search/search-mockup.png" style="max-width:100%;" type="image/png">This is what will show if the image can't be displayed.</xhtml:object></xhtml:p></xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
           </VALUES>
@@ -165,6 +232,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -189,6 +264,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -201,6 +284,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -225,7 +316,7 @@
                 <ATTRIBUTE-DEFINITION-XHTML-REF>_tdtNwHuGEeS48tWDFoyOsw</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div><xhtml:p style="text-align: left;"><xhtml:object data="Search/arrows.png" style="max-width:100%;" type="image/png" width="100">This is what will show if the image can't be displayed.</xhtml:object></xhtml:p></xhtml:div>
+                <xhtml:div><xhtml:p style="text-align: left;"><xhtml:object data="Search/arrows.png" style="max-width:100%;" type="image/png">This is what will show if the image can't be displayed.</xhtml:object></xhtml:p></xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
           </VALUES>
@@ -252,6 +343,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -276,6 +375,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -288,6 +395,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_p2YykIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -300,7 +415,7 @@
                 <ATTRIBUTE-DEFINITION-XHTML-REF>_tdtNwHuGEeS48tWDFoyOsw</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div><xhtml:p style="text-align: left;"><xhtml:object data="Search/search-result.png" style="max-width:100%;" type="image/png" width="100">This is what will show if the image can't be displayed.</xhtml:object></xhtml:p></xhtml:div>
+                <xhtml:div><xhtml:p style="text-align: left;"><xhtml:object data="Search/search-result.png" style="max-width:100%;" type="image/png">This is what will show if the image can't be displayed.</xhtml:object></xhtml:p></xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
           </VALUES>
@@ -308,7 +423,7 @@
             <SPEC-OBJECT-TYPE-REF>_rGI5cHuGEeS48tWDFoyOsw</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_AIIZ0H4qEeSJSKCeNoEp0g" LAST-CHANGE="2014-12-07T16:59:19.021+01:00">
+        <SPEC-OBJECT IDENTIFIER="_AIIZ0H4qEeSJSKCeNoEp0g" LAST-CHANGE="2014-12-15T16:27:09.053+01:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="Search-Conditions">
               <DEFINITION>
@@ -339,6 +454,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -363,6 +486,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -399,6 +530,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -411,6 +550,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -423,6 +570,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -435,6 +590,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -447,6 +610,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -459,6 +630,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -471,6 +650,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -483,6 +670,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -495,6 +690,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -507,6 +710,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -519,6 +730,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -531,6 +750,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -543,6 +770,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -555,12 +790,493 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_eqI4YIRxEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_1XObsIRuEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:27:09.035+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Search-Conditions Interface">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_KcpewHuGEeS48tWDFoyOsw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_7Xf8EIRuEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:29:49.296+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="String">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_KcpewHuGEeS48tWDFoyOsw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_9P0voIRuEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:28:00.017+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="equal:one text field (if empty: false)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_BUYKMIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:28:29.266+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="not equal: one text field (if empty: true)&#xA;">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_D_z1sIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:28:47.243+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="contains: one text field (if empty: false)&#xA;">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_GUXSQIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:29:02.820+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="not contains: one text field (if empty: true)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_I0jXEIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:29:19.617+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="regexp: one text field (if empty: regexp applied to empty string)&#xA;">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_NPWucIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:32:06.719+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Date">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_KcpewHuGEeS48tWDFoyOsw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_P6ISoIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:30:01.717+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="is: one date selector (if empty: false)&#xA;">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Tz2WMIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:30:33.363+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="is not: one date selector (if empty: true)&#xA;">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_YhH9oIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:31:04.954+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="between: two date selectors (if empty: false)&#xA;">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_apgmcIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:31:19.255+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="before: one date selector (if empty: false)&#xA;">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_ftZ-IIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:31:53.218+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="after: one date selector (if empty: false)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_ht7EYIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:32:35.285+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Bool">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_KcpewHuGEeS48tWDFoyOsw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_jY7NoIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:32:15.567+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="is: dropwdown: true/false (if empty: false)&#xA;">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_l-apMIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:34:37.137+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Number">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_KcpewHuGEeS48tWDFoyOsw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_qYF_MIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:33:01.426+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="is: one number field (if empty: false)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_updGsIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:33:33.467+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="is not: one number field (if empty: true)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_xhUrsIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:33:52.747+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="between: two number fields (if empty: false)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_z9RJsIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:34:09.098+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="greater: one number field (if empty: false)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_2QODwIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:34:24.508+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="smaller: one number field (if empty: false)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_4IhCIIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:36:01.253+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="XHTML">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_KcpewHuGEeS48tWDFoyOsw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_5837sIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:34:47.704+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="contains: one text field (if empty: false)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_8qk4EIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:35:07.537+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="not contains: one text field (if empty: true)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="__MW4UIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:35:24.501+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="regexp: one text field (if empty: regexp applied to empty string)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_CRnZEIRwEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:35:45.185+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="regexp plain: one text field (if empty: regexp applied to empty string)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_EqsJQIRwEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:36:01.236+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Enum">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_KcpewHuGEeS48tWDFoyOsw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_G3v2sIRwEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:36:12.940+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="equal: multiple choice (if empty: false, unless empty)&#xA;">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Ka83sIRwEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:36:39.851+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="not equal: multiple choice (if empty: true, unless empty)&#xA;">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_MrsyUIRwEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:36:55.028+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="contains all: multiple choice (if empty: false, unless empty)&#xA;">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_PGUaoIRwEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:37:11.242+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="contains any: multiple choice (if emtpy: false, unless empty)&#xA;">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_GvRwkIUHEeSBv4sQQMMdsA" LAST-CHANGE="2014-12-16T10:37:09.141+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Documentation">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_KcpewHuGEeS48tWDFoyOsw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_IjTS8IUHEeSBv4sQQMMdsA" LAST-CHANGE="2014-12-16T10:37:19.371+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Context-Sensitive Integration">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_KU82wIUHEeSBv4sQQMMdsA" LAST-CHANGE="2014-12-16T10:37:33.228+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Help Content">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_p2YykIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
       </SPEC-OBJECTS>
+      <SPEC-RELATIONS/>
       <SPECIFICATIONS>
         <SPECIFICATION IDENTIFIER="_Ii3vKnuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:14:06.220+01:00" LONG-NAME="Specification Document">
           <VALUES>
@@ -782,6 +1498,192 @@
                     </SPEC-HIERARCHY>
                   </CHILDREN>
                 </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_1XYMsIRuEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:27:09.035+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_1XObsIRuEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_7XulkIRuEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:27:47.337+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_7Xf8EIRuEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN>
+                        <SPEC-HIERARCHY IDENTIFIER="_9QCyEIRuEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:28:00.017+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_9P0voIRuEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_BUhUIIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:28:29.267+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_BUYKMIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_D_9msIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:28:47.243+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_D_z1sIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_GUgcMIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:29:02.820+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_GUXSQIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_I0tvIIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:29:19.617+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_I0jXEIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                      </CHILDREN>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_NPlX8IRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:29:49.271+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_NPWucIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN>
+                        <SPEC-HIERARCHY IDENTIFIER="_P6RckIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:30:01.717+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_P6ISoIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_Tz_gIIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:30:33.363+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_Tz2WMIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_YhRHkIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:31:04.954+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_YhH9oIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_apszsIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:31:19.255+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_apgmcIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_ftjvIIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:31:53.218+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_ftZ-IIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                      </CHILDREN>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_huKU8IRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:32:06.694+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_ht7EYIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN>
+                        <SPEC-HIERARCHY IDENTIFIER="_jZGz0IRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:32:15.567+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_jY7NoIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                      </CHILDREN>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_l-loUIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:32:35.267+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_l-apMIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN>
+                        <SPEC-HIERARCHY IDENTIFIER="_qYTakIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:33:01.426+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_qYF_MIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_upmQoIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:33:33.467+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_updGsIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_xhd1oIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:33:52.747+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_xhUrsIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_z9cv4IRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:34:09.099+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_z9RJsIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_2QXNsIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:34:24.508+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_2QODwIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                      </CHILDREN>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_4IqMEIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:34:37.122+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_4IhCIIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN>
+                        <SPEC-HIERARCHY IDENTIFIER="_59F-IIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:34:47.704+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_5837sIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_8qta8IRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:35:07.537+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_8qk4EIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="__MhQYIRvEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:35:24.501+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>__MW4UIRvEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_CRv78IRwEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:35:45.185+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_CRnZEIRwEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                      </CHILDREN>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_Eq2hUIRwEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:36:01.236+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_EqsJQIRwEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                      </OBJECT>
+                      <CHILDREN>
+                        <SPEC-HIERARCHY IDENTIFIER="_G35nsIRwEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:36:12.940+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_G3v2sIRwEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_KbFakIRwEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:36:39.851+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_Ka83sIRwEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_Mr4_kIRwEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:36:55.029+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_MrsyUIRwEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                        <SPEC-HIERARCHY IDENTIFIER="_PGdkkIRwEeSo3fPbjIH42w" LAST-CHANGE="2014-12-15T16:37:11.242+01:00">
+                          <OBJECT>
+                            <SPEC-OBJECT-REF>_PGUaoIRwEeSo3fPbjIH42w</SPEC-OBJECT-REF>
+                          </OBJECT>
+                        </SPEC-HIERARCHY>
+                      </CHILDREN>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_GvfzAIUHEeSBv4sQQMMdsA" LAST-CHANGE="2014-12-16T10:37:09.141+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_GvRwkIUHEeSBv4sQQMMdsA</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_IjdrAIUHEeSBv4sQQMMdsA" LAST-CHANGE="2014-12-16T10:37:19.371+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_IjTS8IUHEeSBv4sQQMMdsA</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_KVGnwIUHEeSBv4sQQMMdsA" LAST-CHANGE="2014-12-16T10:37:33.228+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_KU82wIUHEeSBv4sQQMMdsA</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
               </CHILDREN>
             </SPEC-HIERARCHY>
           </CHILDREN>
@@ -795,7 +1697,8 @@
         <configuration:specViewConfigurations>
           <configuration:ProrSpecViewConfiguration specification="_Ii3vKnuFEeS1tthkGDp8zA">
             <configuration:columns>
-              <configuration:UnifiedColumn label="Main" width="508"/>
+              <configuration:UnifiedColumn label="Main" width="393"/>
+              <configuration:Column label="Status"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column label="Lead Header Column" width="59"/>
