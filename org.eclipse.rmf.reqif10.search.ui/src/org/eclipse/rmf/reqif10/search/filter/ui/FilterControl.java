@@ -68,11 +68,17 @@ public abstract class FilterControl extends Composite {
 		return new FilterControlString(parent, internalTextAttribute);
 	}
 
+	/**
+	 * This factory instantiates the correct FilterControl for a given filter.
+	 */
 	public static FilterControl createFilterControl(FilterPanel parent,
 			DateFilter.InternalAttribute internalDateAttribute) {
 		return new FilterControlDate(parent, internalDateAttribute);
 	}
 
+	/**
+	 * This factory instantiates the correct FilterControl for a given filter.
+	 */
 	public static FilterControl createFilterControl(FilterPanel parent,
 			AttributeDefinition attribute) {
 		if (attribute instanceof AttributeDefinitionString

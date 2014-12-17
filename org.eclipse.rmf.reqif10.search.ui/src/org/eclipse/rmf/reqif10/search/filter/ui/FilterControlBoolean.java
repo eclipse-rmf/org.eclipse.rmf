@@ -13,11 +13,16 @@ package org.eclipse.rmf.reqif10.search.filter.ui;
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.search.filter.BoolFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
+import org.eclipse.rmf.reqif10.search.filter.NumberFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
+
+import com.google.common.collect.ImmutableList;
 
 /**
  * Used for plain text and XHTML
@@ -55,18 +60,27 @@ public class FilterControlBoolean extends FilterControl {
 	}
 
 	private void createValueControl() {
-		valueControl = new Combo(this, SWT.DROP_DOWN | SWT.BORDER | SWT.READ_ONLY);
-		valueControl.add("FALSE"); // index: 0
-		valueControl.add("TRUE");  // index: 1
-		valueControl.select(0);
-		GridData layoutData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-		valueControl.setLayoutData(layoutData);
+		showValueControl(true);
 		if (templateFilter != null) {
 			boolean value = (Boolean)templateFilter.getFilterValue1();
 			valueControl.select(value ? 1 : 0);
 		}
 	}
 
+	private void showValueControl(boolean show) {
+		if (show && valueControl == null) {
+			valueControl = new Combo(this, SWT.DROP_DOWN | SWT.BORDER | SWT.READ_ONLY);
+			valueControl.add("FALSE"); // index: 0
+			valueControl.add("TRUE");  // index: 1
+			valueControl.select(0);
+			GridData layoutData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+			valueControl.setLayoutData(layoutData);			
+		} else if (!show && valueControl != null) {
+			valueControl.dispose();
+			valueControl = null;
+		}
+	}
+	
 	private void createOperators() {
 		attr = new Combo(this, SWT.DROP_DOWN | SWT.BORDER | SWT.READ_ONLY);
 		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
@@ -74,15 +88,36 @@ public class FilterControlBoolean extends FilterControl {
 		for (Operator operator : BoolFilter.SUPPORTED_OPERATORS) {
 			attr.add(operator.toLocaleString());			
 		}
+		attr.addSelectionListener(new SelectionAdapter() {			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				updateValueControls();
+				layout(true);
+			}
+		});
+
 		attr.select(0);
 		if (templateFilter != null)
 			attr.select(BoolFilter.SUPPORTED_OPERATORS.asList().indexOf(
 					templateFilter.getOperator()));
 	}
 	
+	protected void updateValueControls() {
+		ImmutableList<Operator> operatorList = NumberFilter.SUPPORTED_OPERATORS.asList();
+
+		if (operatorList.indexOf(Operator.IS_SET) == attr.getSelectionIndex()
+				|| NumberFilter.SUPPORTED_OPERATORS.asList().indexOf(
+						Operator.IS_NOT_SET) == attr.getSelectionIndex()) {
+			showValueControl(false);
+		} else {
+			showValueControl(true);
+		}
+		layout();
+	}
+
 	public IFilter getFilter() {
 		Operator operator = BoolFilter.SUPPORTED_OPERATORS.asList().get(attr.getSelectionIndex());
-		Boolean value = new Boolean(valueControl.getSelectionIndex() == 1);
+		Boolean value = valueControl == null ? null : new Boolean(valueControl.getSelectionIndex() == 1);
 		return new BoolFilter(operator, value, attribute);
 	}
 }
