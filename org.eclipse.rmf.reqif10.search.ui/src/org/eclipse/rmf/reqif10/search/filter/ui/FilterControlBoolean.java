@@ -10,61 +10,45 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter.ui;
 
+import java.util.List;
+
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.search.filter.BoolFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.NumberFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 
-import com.google.common.collect.ImmutableList;
-
 /**
- * Used for plain text and XHTML
+ * Used for Boolean
  * 
  * @author jastram
  */
 public class FilterControlBoolean extends FilterControl {
 	
 	private Combo valueControl;
-	private Combo attr;
-	private AttributeDefinitionBoolean attribute;
-	private BoolFilter templateFilter;
 
 	public FilterControlBoolean(FilterPanel parent,
 			AttributeDefinitionBoolean attribute) {
-		super(parent, SWT.FLAT);
-		this.attribute = attribute;
-		init();
+		super(parent, attribute);
 	}
 
 	public FilterControlBoolean(FilterPanel parent, BoolFilter template) {
-		super(parent, SWT.FLAT);
-		this.attribute = (AttributeDefinitionBoolean) template.getAttribute();
-		this.templateFilter = template;			
-		init();		
+		super(parent, template);
 	}
 
-	private void init() {
-		if (!(attribute instanceof AttributeDefinitionBoolean)) {
-			throw new IllegalArgumentException("Not allowed: " + attribute);
-		}
-		setLayout(new GridLayout(2, false));
-		createOperators();
-		createValueControl();
-	}
-
-	private void createValueControl() {
-		showValueControl(true);
-		if (templateFilter != null) {
-			boolean value = (Boolean)templateFilter.getFilterValue1();
-			valueControl.select(value ? 1 : 0);
-		}
+	protected void updateValueControls(boolean initialize) {
+		if (getOperator() == Operator.IS_SET || getOperator() == Operator.IS_NOT_SET) {
+			showValueControl(false);			
+		} else {
+			showValueControl(true);
+			if (initialize) {
+				Boolean defaultValue = (Boolean) templateFilter.getFilterValue1();
+				valueControl.select(Boolean.TRUE.equals(defaultValue) ? 1 : 0);
+			}
+		}		
+		layout();
 	}
 
 	private void showValueControl(boolean show) {
@@ -80,44 +64,15 @@ public class FilterControlBoolean extends FilterControl {
 			valueControl = null;
 		}
 	}
-	
-	private void createOperators() {
-		attr = new Combo(this, SWT.DROP_DOWN | SWT.BORDER | SWT.READ_ONLY);
-		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
-		attr.setLayoutData(layoutData);
-		for (Operator operator : BoolFilter.SUPPORTED_OPERATORS) {
-			attr.add(operator.toLocaleString());			
-		}
-		attr.addSelectionListener(new SelectionAdapter() {			
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				updateValueControls();
-				layout(true);
-			}
-		});
-
-		attr.select(0);
-		if (templateFilter != null)
-			attr.select(BoolFilter.SUPPORTED_OPERATORS.asList().indexOf(
-					templateFilter.getOperator()));
-	}
-	
-	protected void updateValueControls() {
-		ImmutableList<Operator> operatorList = NumberFilter.SUPPORTED_OPERATORS.asList();
-
-		if (operatorList.indexOf(Operator.IS_SET) == attr.getSelectionIndex()
-				|| NumberFilter.SUPPORTED_OPERATORS.asList().indexOf(
-						Operator.IS_NOT_SET) == attr.getSelectionIndex()) {
-			showValueControl(false);
-		} else {
-			showValueControl(true);
-		}
-		layout();
-	}
 
 	public IFilter getFilter() {
-		Operator operator = BoolFilter.SUPPORTED_OPERATORS.asList().get(attr.getSelectionIndex());
 		Boolean value = valueControl == null ? null : new Boolean(valueControl.getSelectionIndex() == 1);
-		return new BoolFilter(operator, value, attribute);
+		return new BoolFilter(getOperator(), value, (AttributeDefinitionBoolean) attribute);
 	}
+
+	@Override
+	protected List<Operator> getOperators() {
+		return BoolFilter.SUPPORTED_OPERATORS.asList();
+	}
+
 }

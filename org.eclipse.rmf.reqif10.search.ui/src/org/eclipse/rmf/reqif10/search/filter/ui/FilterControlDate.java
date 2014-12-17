@@ -12,6 +12,7 @@ package org.eclipse.rmf.reqif10.search.filter.ui;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
 import org.eclipse.rmf.reqif10.search.filter.DateFilter;
@@ -19,104 +20,88 @@ import org.eclipse.rmf.reqif10.search.filter.DateFilter.InternalAttribute;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.DateTime;
 
 public class FilterControlDate extends FilterControl {
-	
-	private DateTime date1;
-	private DateTime date2;
-	private Combo attr;
-	private Object attribute;
-	private DateFilter templateFilter;
+
+	private DateTime control[];
 
 	public FilterControlDate(FilterPanel parent, DateFilter.InternalAttribute attribute) {
-		this(parent, (DateFilter)null);
-		this.attribute = attribute;
+		super(parent, attribute);
 	}
 
 	public FilterControlDate(FilterPanel parent,
 			AttributeDefinitionDate attribute) {
-		this(parent, (DateFilter)null);
-		this.attribute = attribute;
+		super(parent, attribute);
 	}
 
 	public FilterControlDate(FilterPanel parent, DateFilter template) {
-		super(parent, SWT.FLAT);
-		if (template != null) {
-			this.attribute = template.getAttribute();
-			this.templateFilter = template;			
-		}
-		setLayout(new GridLayout(3, false));
-		createOperators();
-		createValueControls();		
+		super(parent, template);		
 	}
 
-	private void createValueControls() {
-		date1 = new DateTime(this, SWT.DATE | SWT.DROP_DOWN | SWT.BORDER);
-		GridData layoutData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-		date1.setLayoutData(layoutData);
-		updateValueControls();
-		
-		if (templateFilter != null) {
-			GregorianCalendar cal1 = templateFilter.getFilterValue1();
-			date1.setDate(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH));
-			GregorianCalendar cal2 = templateFilter.getFilterValue2();
-			if (cal2 != null) {
-				date2.setDate(cal2.get(Calendar.YEAR), cal2.get(Calendar.MONTH), cal2.get(Calendar.DAY_OF_MONTH));				
-			}
-		}
+	@Override
+	protected List<Operator> getOperators() {
+		return DateFilter.SUPPORTED_OPERATORS.asList();
 	}
 
-	private void createOperators() {
-		attr = new Combo(this, SWT.DROP_DOWN | SWT.BORDER | SWT.READ_ONLY);
-		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
-		attr.setLayoutData(layoutData);
-		for (Operator operator : DateFilter.SUPPORTED_OPERATORS) {
-			attr.add(operator.toLocaleString());			
+	@Override
+	protected void updateValueControls(boolean initialize) {
+		if (getOperator() == Operator.IS_SET
+				|| getOperator() == Operator.IS_NOT_SET) {
+			showControl(0, false);
+			showControl(1, false);
 		}
-		attr.select(0);
-		if (templateFilter != null)
-			attr.select(DateFilter.SUPPORTED_OPERATORS.asList().indexOf(
-					templateFilter.getOperator()));
-		
-		attr.addSelectionListener(new SelectionAdapter() {			
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				updateValueControls();
-				layout(true);
-			}
-		});
-	}
-	
-	protected void updateValueControls() {
-		if (DateFilter.SUPPORTED_OPERATORS.asList().indexOf(Operator.BETWEEN) == attr.getSelectionIndex()) {
-			if (date2 == null) {
-				date2 = new DateTime(this, SWT.DATE | SWT.DROP_DOWN | SWT.BORDER);
-				GridData layoutData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-				date2.setLayoutData(layoutData);
-			} 
+		else if (getOperator() == Operator.BETWEEN) {
+			showControl(0, true);
+			showControl(1, true);
 		} else {
-			if (date2 != null) {
-				date2.dispose();
-				date2 = null;
+			showControl(0, true);
+			showControl(1, false);
+		}
+		
+		if (initialize) {
+			if (templateFilter.getFilterValue1() != null) {
+				GregorianCalendar cal = (GregorianCalendar) templateFilter.getFilterValue1();
+				control[0].setDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
+			}
+			if (templateFilter.getFilterValue2() != null) {
+				GregorianCalendar cal = (GregorianCalendar) templateFilter.getFilterValue2();
+				control[1].setDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 			}
 		}
+
 		layout();
 	}
 
+	private void showControl(int controlId, boolean show) {
+		 if (control == null) control = new DateTime[2];
+		 
+		if (show && control[controlId] == null) {
+			control[controlId] = new DateTime(this, SWT.DATE | SWT.DROP_DOWN | SWT.BORDER);
+			GridData layoutData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+			control[controlId].setLayoutData(layoutData);
+		} 
+		if (! show && control[controlId] != null) {
+			control[controlId].dispose();
+			control[controlId] = null;
+		}
+	}
+
+	@Override
 	public IFilter getFilter() {
-		Operator operator = DateFilter.SUPPORTED_OPERATORS.asList().get(attr.getSelectionIndex());
-		GregorianCalendar value1 = new GregorianCalendar(date1.getYear(), date1.getMonth(), date1.getDay());
-		GregorianCalendar value2 = date2 == null ? null : new GregorianCalendar(date2.getYear(), date2.getMonth(), date2.getDay());
+		GregorianCalendar value1 = control[0] == null ? null
+				: new GregorianCalendar(control[0].getYear(),
+						control[0].getMonth(), control[0].getDay());
+		GregorianCalendar value2 = control[1] == null ? null
+				: new GregorianCalendar(control[1].getYear(),
+						control[1].getMonth(), control[1].getDay());
 		if (attribute instanceof InternalAttribute) {
-			return new DateFilter(operator, value1, value2, (InternalAttribute)attribute);
+			return new DateFilter(getOperator(), value1, value2,
+					(InternalAttribute) attribute);
 		} else {
-			return new DateFilter(operator, value1, value2, (AttributeDefinitionDate)attribute);
+			return new DateFilter(getOperator(), value1, value2,
+					(AttributeDefinitionDate) attribute);
 		}
 	}
 }

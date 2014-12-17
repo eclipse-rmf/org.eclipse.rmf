@@ -10,6 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter.ui;
 
+import java.util.List;
 import java.util.ResourceBundle;
 
 import org.eclipse.rmf.reqif10.AttributeDefinition;
@@ -23,41 +24,155 @@ import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter;
 import org.eclipse.rmf.reqif10.search.filter.BoolFilter;
 import org.eclipse.rmf.reqif10.search.filter.DateFilter;
+import org.eclipse.rmf.reqif10.search.filter.DateFilter.InternalAttribute;
 import org.eclipse.rmf.reqif10.search.filter.EnumFilter;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.NumberFilter;
+import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
 /**
- * Represents the actual {@link Control} that holds the settings for the contained filter.
+ * Represents the actual {@link Control} that holds the settings for the
+ * contained filter. The infrastructure manages the operator.
+ * 
  * Also provides factory methods for building {@link FilterControl} instances.
  * 
  * @author jastram
  */
 public abstract class FilterControl extends Composite {
 
-	public FilterControl(Composite parent, int style) {
-		super(parent, style);
+	protected IFilter templateFilter;
+	protected Object attribute;
+
+	private Combo operatorControl;
+
+	/**
+	 * New {@link FilterControl} for the given {@link #attribute}, which can be
+	 * an internal attribute or an {@link AttributeDefinition}.
+	 */
+	public FilterControl(FilterPanel parent, AttributeDefinition attribute) {
+		super(parent, SWT.FLAT);
+		this.attribute = attribute;
+		init();
+	}
+
+	public FilterControl(FilterPanel parent, InternalAttribute attribute) {
+		super(parent, SWT.FLAT);
+		this.attribute = attribute;
+		init();
+	}
+
+	public FilterControl(
+			FilterPanel parent,
+			org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter.InternalAttribute attribute) {
+		super(parent, SWT.FLAT);
+		this.attribute = attribute;
+		init();
 	}
 
 	/**
+	 * New {@link FilterControl} for the given template {@link IFilter}.
+	 */
+	public FilterControl(FilterPanel parent, IFilter template) {
+		super(parent, SWT.FLAT);
+		this.templateFilter = template;
+		this.attribute = template.getAttribute();
+		init();
+	}
+
+
+
+	/**
+	 * Returns the operator selected in the GUI, never null.
+	 * 
+	 * @return
+	 */
+	protected final Operator getOperator() {
+		return getOperators().get(operatorControl.getSelectionIndex());
+	}
+
+	/**
+	 * Typical implementation:
+	 * 
+	 * <pre>
+	 * return ABCFilter.SUPPORTED_OPERATORS.asList();
+	 * </pre>
+	 */
+	protected abstract List<Operator> getOperators();
+
+	/**
+	 * Called when the operator changes. As different operators require
+	 * different numbers of values, the GUI may need to be adapted accordingly.
+	 * 
+	 * If initialize is true, the controls should be initialized from the
+	 * template.
+	 */
+	protected abstract void updateValueControls(boolean initialize);
+
+	/**
 	 * Constructs a Filter object from the current configuration of the Control.
+	 * 
 	 * @return the {@link IFilter} object.
 	 */
 	abstract public IFilter getFilter();
-	
+
+	private void init() {
+		if (attribute == null) throw new NullPointerException();
+		setLayout(new GridLayout(3, false));
+		createOperators();
+		updateValueControls(templateFilter != null);
+	}
+
+	private void createOperators() {
+		operatorControl = new Combo(this, SWT.DROP_DOWN | SWT.BORDER
+				| SWT.READ_ONLY);
+		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
+		operatorControl.setLayoutData(layoutData);
+		for (Operator operator : getOperators()) {
+			operatorControl.add(operator.toLocaleString());
+		}
+		operatorControl.select(0);
+		if (templateFilter != null) {
+			operatorControl.select(getOperators().indexOf(
+					templateFilter.getOperator()));
+		}
+
+		operatorControl.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				updateValueControls(false);
+				layout(true);
+			}
+		});
+	}
+
+	// //////////////////////////////////////////////////////////////////////////
+
 	/**
 	 * This factory instantiates the correct FilterControl for a given filter.
 	 */
-	public static FilterControl createFilterControl(FilterPanel parent, IFilter filter) {
-		if (filter instanceof AbstractTextFilter) return new FilterControlString(parent, (AbstractTextFilter)filter);
-		if (filter instanceof DateFilter) return new FilterControlDate(parent, (DateFilter)filter);
-		if (filter instanceof NumberFilter) return new FilterControlNumber(parent, (NumberFilter)filter);
-		if (filter instanceof BoolFilter) return new FilterControlBoolean(parent, (BoolFilter)filter);
-		if (filter instanceof EnumFilter) return new FilterControlEnum(parent, (EnumFilter)filter);
+	public static FilterControl createFilterControl(FilterPanel parent,
+			IFilter filter) {
+		if (filter instanceof AbstractTextFilter)
+			return new FilterControlString(parent, (AbstractTextFilter) filter);
+		if (filter instanceof DateFilter)
+			return new FilterControlDate(parent, (DateFilter) filter);
+		if (filter instanceof NumberFilter)
+			return new FilterControlNumber(parent, (NumberFilter) filter);
+		if (filter instanceof BoolFilter)
+			return new FilterControlBoolean(parent, (BoolFilter) filter);
+		if (filter instanceof EnumFilter)
+			return new FilterControlEnum(parent, (EnumFilter) filter);
 
-		throw new IllegalArgumentException("Don't know how to create: " + filter);		
+		throw new IllegalArgumentException("Don't know how to create: "
+				+ filter);
 	}
 
 	/**
@@ -100,12 +215,13 @@ public abstract class FilterControl extends Composite {
 		throw new IllegalArgumentException("Don't know how to create (yet): "
 				+ attribute);
 	}
-	
+
 	/**
 	 * This method retrieves a value from the Plugin.
 	 */
 	public static String getString(String key) {
-		// Note that ResourceBundle has nothing to do with Eclipse.  But it's a convenient
+		// Note that ResourceBundle has nothing to do with Eclipse. But it's a
+		// convenient
 		// means of accessing plugin.properties, which we need anyway.
 		return ResourceBundle.getBundle("plugin").getString(key);
 	}

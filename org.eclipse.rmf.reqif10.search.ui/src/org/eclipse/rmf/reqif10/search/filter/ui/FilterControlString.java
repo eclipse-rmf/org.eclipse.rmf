@@ -10,6 +10,8 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter.ui;
 
+import java.util.List;
+
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
@@ -21,12 +23,8 @@ import org.eclipse.rmf.reqif10.search.filter.StringFilter;
 import org.eclipse.rmf.reqif10.search.filter.XhtmlFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Text;
-
-import com.google.common.collect.ImmutableSet;
 
 /**
  * Used for plain text and XHTML
@@ -34,88 +32,83 @@ import com.google.common.collect.ImmutableSet;
  * @author jastram
  */
 public class FilterControlString extends FilterControl {
-	
+
 	private Text text;
-	private Combo attr;
 	private Button caseSensitive;
-	private Object attribute;
-	private AbstractTextFilter templateFilter;
-	private ImmutableSet<Operator> operators;
 
 	public FilterControlString(FilterPanel parent, StringFilter.InternalAttribute attribute) {
-		super(parent, SWT.FLAT);
-		this.attribute = attribute;
-		init();
+		super(parent, attribute);
 	}
 
 	public FilterControlString(FilterPanel parent,
 			AttributeDefinition attribute) {
-		super(parent, SWT.FLAT);
-		this.attribute = attribute;
-		init();
+		super(parent, attribute);
 	}
 
 	public FilterControlString(FilterPanel parent, AbstractTextFilter template) {
-		super(parent, SWT.FLAT);
-		this.attribute = template.getAttribute();
-		this.templateFilter = template;			
-		init();		
+		super(parent, template);
 	}
 
-	private void init() {
-		if (!(attribute instanceof AttributeDefinitionXHTML
-				|| attribute instanceof AttributeDefinitionString || attribute instanceof InternalAttribute)) {
-			throw new IllegalArgumentException("Not allowed: " + attribute);
+	@Override
+	protected List<Operator> getOperators() {
+		if (attribute instanceof AttributeDefinitionXHTML) {
+			return XhtmlFilter.SUPPORTED_OPERATORS.asList();
+		} else {
+			return StringFilter.SUPPORTED_OPERATORS.asList();
 		}
-		setLayout(new GridLayout(3, false));
-		createOperators();
-		createCaseSensitive();
-		createText();
 	}
 
-	private void createText() {
-		text = new Text(this, SWT.SINGLE | SWT.BORDER | SWT.FILL);
-		GridData layoutData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-		text.setLayoutData(layoutData);
-		if (templateFilter != null) text.setText(templateFilter.getFilterValue1());
-	}
-
-	private void createCaseSensitive() {
-		caseSensitive = new Button(this, SWT.CHECK);
-		caseSensitive.setText("Aa");
-		caseSensitive.setToolTipText("Case Sensitive");
-		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
-		caseSensitive.setLayoutData(layoutData);
-		if (templateFilter != null) caseSensitive.setSelection(templateFilter.isCaseSensitive());
-	}
-
-	private void createOperators() {
-		operators = attribute instanceof AttributeDefinitionXHTML ? XhtmlFilter.SUPPORTED_OPERATORS
-				: StringFilter.SUPPORTED_OPERATORS;
-		
-		attr = new Combo(this, SWT.DROP_DOWN | SWT.BORDER | SWT.READ_ONLY);
-		GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
-		attr.setLayoutData(layoutData);
-		for (Operator operator : operators) {
-			attr.add(operator.toLocaleString());			
+	@Override
+	protected void updateValueControls(boolean initialize) {
+		if (getOperator() == Operator.IS_SET
+				|| getOperator() == Operator.IS_NOT_SET) {
+			showControl(false);
+		} else {
+			showControl(true);
 		}
-		attr.select(0);
-		if (templateFilter != null)
-			attr.select(operators.asList().indexOf(
-					templateFilter.getOperator()));
-	}
+		if (initialize) {
+			if (text != null) {
+				caseSensitive.setSelection(((StringFilter) templateFilter)
+						.isCaseSensitive());
+				text.setText((String) templateFilter.getFilterValue1());
 	
+			}
+		}
+	}
+
+	private void showControl(boolean show) {
+		if (show && text == null) {
+			caseSensitive = new Button(this, SWT.CHECK);
+			caseSensitive.setText("Aa");
+			caseSensitive.setToolTipText("Case Sensitive");
+			GridData layoutData = new GridData(SWT.LEFT, SWT.CENTER, false, false);
+			caseSensitive.setLayoutData(layoutData);
+			
+			text = new Text(this, SWT.SINGLE | SWT.BORDER | SWT.FILL);
+			layoutData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+			text.setLayoutData(layoutData);
+		}
+		if (!show && text != null) {
+			text.dispose();
+			text = null;
+			caseSensitive.dispose();
+			caseSensitive = null;
+		}
+	}
+
 	public IFilter getFilter() {
-		Operator operator = operators.asList().get(attr.getSelectionIndex());
-		String value = text.getText();
+		String value = text == null ? null : text.getText();
+		boolean cv = caseSensitive == null ? false : caseSensitive.getSelection();
+		
 		if (attribute instanceof InternalAttribute) {
-			return new StringFilter(operator, value, (InternalAttribute) attribute, caseSensitive.getSelection());
+			return new StringFilter(getOperator(), value, (InternalAttribute) attribute, cv);
 		} else if (attribute instanceof AttributeDefinitionString) {
-			return new StringFilter(operator, value, (AttributeDefinitionString) attribute, caseSensitive.getSelection());
+			return new StringFilter(getOperator(), value, (AttributeDefinitionString) attribute, cv);
 		} else if (attribute instanceof AttributeDefinitionXHTML) {
-			return new XhtmlFilter(operator, value, (AttributeDefinitionXHTML) attribute, caseSensitive.getSelection());
+			return new XhtmlFilter(getOperator(), value, (AttributeDefinitionXHTML) attribute, cv);
 		} else {
 			throw new IllegalStateException("Can't handle: " + attribute);
 		}
 	}
+
 }
