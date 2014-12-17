@@ -56,7 +56,7 @@ public class EnumFilter extends AbstractAttributeFilter{
 		
 		this.attributeDefinition = attributeDefinition;
 		this.operator = operator;
-		this.filterValues =  new HashSet<EnumValue>(value);
+		this.filterValues = value == null ? new HashSet<EnumValue>() : new HashSet<EnumValue>(value);
 		if (attributeDefinition.getDefaultValue() != null){
 			this.defaultValues = new HashSet<EnumValue>(attributeDefinition.getDefaultValue().getValues());
 		}else{
