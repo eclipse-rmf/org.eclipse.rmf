@@ -29,10 +29,16 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.widgets.Text;
 
+import com.google.common.collect.ImmutableList;
+
+/**
+ * This control handles Integers and Reals.
+
+ * @author jastram
+ */
 public class FilterControlNumber extends FilterControl {
 	
-	private NumberControl num1;
-	private NumberControl num2;
+	private NumberControl num[] = new NumberControl[2];
 	private Combo attr;
 	private AttributeDefinition attribute;
 	private NumberFilter templateFilter;
@@ -54,15 +60,15 @@ public class FilterControlNumber extends FilterControl {
 	private void init() {
 		setLayout(new GridLayout(3, false));
 		createOperators();
-		num1 = new NumberControl(this, attribute instanceof AttributeDefinitionReal);
-		GridData layoutData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-		num1.getControl().setLayoutData(layoutData);
+		showNum(1, true);
 		updateValueControls();
 		
 		if (templateFilter != null) {
-			num1.setValue(templateFilter.getFilterValue1());
+			if (templateFilter.getFilterValue1() != null) {
+				num[0].setValue(templateFilter.getFilterValue1());
+			}
 			if (templateFilter.getFilterValue2() != null) {
-				num2.setValue(templateFilter.getFilterValue2());
+				num[1].setValue(templateFilter.getFilterValue2());
 			}
 		}
 	}
@@ -89,25 +95,40 @@ public class FilterControlNumber extends FilterControl {
 	}
 	
 	protected void updateValueControls() {
-		if (NumberFilter.SUPPORTED_OPERATORS.asList().indexOf(Operator.BETWEEN) == attr.getSelectionIndex()) {
-			if (num2 == null) {
-				num2 = new NumberControl(this, attribute instanceof AttributeDefinitionReal);
-				GridData layoutData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-				num2.getControl().setLayoutData(layoutData);
-			} 
+		ImmutableList<Operator> operatorList = NumberFilter.SUPPORTED_OPERATORS.asList();
+
+		if (operatorList.indexOf(Operator.IS_SET) == attr.getSelectionIndex()
+				|| NumberFilter.SUPPORTED_OPERATORS.asList().indexOf(
+						Operator.IS_NOT_SET) == attr.getSelectionIndex()) {
+			showNum(0, false);
+			showNum(1, false);
+		}
+		else if (NumberFilter.SUPPORTED_OPERATORS.asList().indexOf(Operator.BETWEEN) == attr.getSelectionIndex()) {
+			showNum(0, true);
+			showNum(1, true);
 		} else {
-			if (num2 != null) {
-				num2.getControl().dispose();
-				num2 = null;
-			}
+			showNum(0, true);
+			showNum(1, false);
 		}
 		layout();
 	}
 
+	private void showNum(int controlId, boolean show) {
+		if (show && num[controlId] == null) {
+			num[controlId] = new NumberControl(this, attribute instanceof AttributeDefinitionReal);
+			GridData layoutData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+			num[controlId].getControl().setLayoutData(layoutData);
+		} 
+		if (! show && num[controlId] != null) {
+			num[controlId].getControl().dispose();
+			num[controlId] = null;
+		}
+	}
+
 	public IFilter getFilter() {
 		Operator operator = NumberFilter.SUPPORTED_OPERATORS.asList().get(attr.getSelectionIndex());
-		Number value1 = num1.getNumber();
-		Number value2 = num2 == null ? null : num2.getNumber();
+		Number value1 = num[0] == null ? null : num[0].getNumber();
+		Number value2 = num[1] == null ? null : num[1].getNumber();
 
 		return new NumberFilter(operator, value1,
 				value2, attribute);
