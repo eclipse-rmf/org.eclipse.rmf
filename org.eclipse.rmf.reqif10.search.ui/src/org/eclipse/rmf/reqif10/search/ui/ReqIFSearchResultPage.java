@@ -27,13 +27,19 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IColorProvider;
+import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
+import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertySheetPage;
+import org.eclipse.rmf.reqif10.pror.editor.util.ProrEditorUtil;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIFContentItemProvider;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
@@ -123,6 +129,39 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 		};
 		treeViewer.addFilter(viewerFilter);
 		getSite().setSelectionProvider(treeViewer);
+		
+		treeViewer.addDoubleClickListener(new IDoubleClickListener() {
+			
+			@Override
+			public void doubleClick(DoubleClickEvent event) {
+				// Only reacts on SpecHierarchies and Specifications
+				if (event.getSelection() instanceof IStructuredSelection) {
+					IStructuredSelection selection = (IStructuredSelection)event.getSelection();
+						showIfPossible(selection.getFirstElement());
+				}
+			}
+		});
+	}
+
+	/**
+	 * If the provided object is a {@link SpecHierarchy} or
+	 * {@link Specification}, then the corresponding {@link Specification} will
+	 * be opened or activated, and the object will be selected.
+	 */
+	protected void showIfPossible(Object object) {
+		if (object instanceof SpecHierarchy) {
+			SpecHierarchy sh = (SpecHierarchy)object;
+			while (sh.eContainer() instanceof SpecHierarchy) {
+				sh = (SpecHierarchy) sh.eContainer();
+			}
+			object = sh.eContainer();
+		}
+		if (object instanceof Specification) {
+			// Find the corresponding Editor
+
+			Specification spec = (Specification) object;
+			ProrEditorUtil.getEditor(spec);
+		}
 	}
 
 	@Override

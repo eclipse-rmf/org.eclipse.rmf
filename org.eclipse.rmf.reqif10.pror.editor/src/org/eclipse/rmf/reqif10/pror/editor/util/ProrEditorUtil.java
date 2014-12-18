@@ -21,10 +21,12 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.EnumValue;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
@@ -36,10 +38,19 @@ import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.ReqifSpecificationEditorInput;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.ide.IDE;
 
 public class ProrEditorUtil {
 
@@ -49,21 +60,9 @@ public class ProrEditorUtil {
 		String title = ConfigurationUtil.getSpecElementLabel(spec,
 				adapterFactory);
 		
-		// TODO does not work in headless mode.
-		// Getting the file path is an absolute nightmare!
-//		List<String> segments = spec.eResource().getURI().segmentsList();
-//		IPath filepath = ResourcesPlugin.getWorkspace().getRoot()
-//				.getRawLocation();
-//		for (int i = 1; i < segments.size() - 1; i++) {
-//			filepath = filepath.append(segments.get(i));
-//		}		
-//		String baseURL = filepath.toPortableString() + "/";
-		String baseURL = ".";
-
 		sb.append("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n");
 		sb.append("<html>\n");
 		sb.append("<head>\n");
-		sb.append("<base href=\"" + baseURL + "\" />\n");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n");
 		sb.append("<meta name=\"GENERATOR\" content=\"ProR (www.pror.org)\">\n");
 		sb.append("<title>" + title + "</title>\n");
@@ -219,5 +218,67 @@ public class ProrEditorUtil {
 			}
 		};
 	}
+	
+	/**
+	 * Attempts to find the {@link Reqif10Editor} or {@link SpecificationEditor}
+	 * for the given EObject by walking up the parent hierarchy to the enclosing
+	 * {@link ReqIF} or {@link Specification}. If the {@link Reqif10Editor} is
+	 * found for a Specification, the corresponding editor will be opened.
+	 * 
+	 * @return the Editor or null if none found.
+	 */
+	public static IEditorPart getEditor(EObject eObject) {
+		ReqIF reqif = null;
+		Specification spec = null;
+		while (eObject != null) {
+			if (eObject instanceof Specification) {
+				spec = (Specification) eObject;
+			}
+			if (eObject instanceof ReqIF) {
+				reqif = (ReqIF) eObject;
+				break;
+			}
+			eObject = eObject.eContainer();
+		}
+		if (reqif == null) return null;
+		
+		// Find the editor(s)
+		IWorkbenchPage activePage = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				.getActivePage();
+
+		IEditorReference[] eRefs = activePage.getEditorReferences();
+		for (IEditorReference eRef : eRefs) {
+			IEditorPart editor = eRef.getEditor(false);
+			if (editor instanceof SpecificationEditor) {
+				SpecificationEditor specEditor = (SpecificationEditor) editor;
+
+				// Case 1: We found the right SpecificationEditor
+				if (specEditor.getSpecification().equals(spec)) {
+					return specEditor;
+				}
+			}
+			if (editor instanceof Reqif10Editor) {
+				Reqif10Editor reqifEditor = (Reqif10Editor) editor;
+				if (reqifEditor.getReqif().equals(reqif)) {
+					
+					// Case 2: We found the right Reqif10Editor
+					if (spec == null) return reqifEditor;
+					
+					// Case 3: We found the Reqif10Editor, but need the SpecificationEditor
+					ReqifSpecificationEditorInput editorInput = new ReqifSpecificationEditorInput(
+							reqifEditor, spec);
+					try {
+						return IDE.openEditor(activePage, editorInput,
+								SpecificationEditor.EDITOR_ID, false);
+					} catch (PartInitException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+		// Case 4: Nothing found
+		return null;		
+	}
+
 	
 }

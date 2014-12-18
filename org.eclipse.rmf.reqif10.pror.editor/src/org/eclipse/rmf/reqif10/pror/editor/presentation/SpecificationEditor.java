@@ -160,6 +160,10 @@ public class SpecificationEditor extends EditorPart implements
 		}
 		buildContextMenu();
 	}
+	
+	public Specification getSpecification() {
+		return specification;
+	}
 
 	/**
 	 * Registers a command stack listener that updates the save state and
