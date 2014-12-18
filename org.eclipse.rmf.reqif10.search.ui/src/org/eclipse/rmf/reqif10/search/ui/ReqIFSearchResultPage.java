@@ -149,18 +149,8 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 	 * be opened or activated, and the object will be selected.
 	 */
 	protected void showIfPossible(Object object) {
-		if (object instanceof SpecHierarchy) {
-			SpecHierarchy sh = (SpecHierarchy)object;
-			while (sh.eContainer() instanceof SpecHierarchy) {
-				sh = (SpecHierarchy) sh.eContainer();
-			}
-			object = sh.eContainer();
-		}
-		if (object instanceof Specification) {
-			// Find the corresponding Editor
-
-			Specification spec = (Specification) object;
-			ProrEditorUtil.getEditor(spec);
+		if (object instanceof EObject) {
+			ProrEditorUtil.getEditor((EObject) object);
 		}
 	}
 
