@@ -97,6 +97,9 @@ public class ResultNavigator implements IEditorActionDelegate, IExecutableExtens
 			ReqIFSearchResultPage page = (ReqIFSearchResultPage)view.getActivePage();
 			UsageSearchResult result = page.getSearchResult();
 			Collection<EObject> entries = result.getSearchEntries().get(spec.eResource());
+			if (entries == null) {
+				return set;
+			}
 			for (EObject entry: entries) {
 				if (entry instanceof SpecHierarchy) {
 					set.add((SpecHierarchy) entry);
