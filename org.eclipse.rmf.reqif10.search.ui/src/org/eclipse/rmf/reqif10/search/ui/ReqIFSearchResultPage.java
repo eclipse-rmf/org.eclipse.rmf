@@ -195,6 +195,13 @@ public class ReqIFSearchResultPage extends Page implements ISearchResultPage,
 		}
 	}
 
+	/** 
+	 * Returns the current search result.
+	 */
+	UsageSearchResult getSearchResult() {
+		return searchResult;
+	}
+	
 	@Override
 	public void setViewPart(final ISearchResultViewPart part) {
 		// do nothing
