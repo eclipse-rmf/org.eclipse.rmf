@@ -63,7 +63,7 @@ public class UsageSearchResult implements ISearchResult {
 	 */
 	@Override
 	public String getLabel() {
-		StringBuilder builder = new StringBuilder("Search in file(s) ");
+		StringBuilder builder = new StringBuilder();
 
 		// add a maximum of 3 filenames
 		int count = 0;
@@ -83,7 +83,8 @@ public class UsageSearchResult implements ISearchResult {
 			total += entry.size();
 		}
 
-		builder.append("result: ").append(total).append(" matches");
+		builder.append("count: ").append(total).append(". Query: \"")
+				.append(query.getLabel()).append("\"");
 		return builder.toString();
 	}
 

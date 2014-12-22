@@ -47,7 +47,7 @@ public class FilterSearchQuery implements ISearchQuery {
 
 	@Override
 	public String getLabel() {
-		return "ReqIF Search...";
+		return filter != null ? filter.toString() : "ReqIF Search...";
 	}
 
 	@Override
