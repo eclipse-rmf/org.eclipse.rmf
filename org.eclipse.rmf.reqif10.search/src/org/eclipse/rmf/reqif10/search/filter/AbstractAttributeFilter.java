@@ -14,6 +14,7 @@ package org.eclipse.rmf.reqif10.search.filter;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 import com.google.common.collect.ImmutableSet;
@@ -65,7 +66,9 @@ public abstract class AbstractAttributeFilter implements IFilter {
 	
 	
 	public static boolean isSetAttribute(SpecElementWithAttributes element, AttributeDefinition attributeDefinition){
-		return ReqIF10Util.getSpecType(element).getSpecAttributes().contains(attributeDefinition);
+		SpecType specType = ReqIF10Util.getSpecType(element);
+		if (specType == null) return false;
+		return specType.getSpecAttributes().contains(attributeDefinition);
 	}
 	
 	
