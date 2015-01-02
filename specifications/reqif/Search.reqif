@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <THE-HEADER>
-    <REQ-IF-HEADER IDENTIFIER="rmf-bc5513ca-a625-4ebf-a7c8-0ffb1fe59faa">
+    <REQ-IF-HEADER IDENTIFIER="rmf-e82c1946-823d-40de-8c66-eedcbbbca843">
       <COMMENT>Created by: jastram</COMMENT>
       <CREATION-TIME>2014-12-04T08:14:06.220+01:00</CREATION-TIME>
       <REQ-IF-TOOL-ID>ProR (http://pror.org)</REQ-IF-TOOL-ID>
@@ -162,7 +162,7 @@
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_ReRj4HuFEeS1tthkGDp8zA" LAST-CHANGE="2014-12-04T08:15:06.141+01:00">
+        <SPEC-OBJECT IDENTIFIER="_ReRj4HuFEeS1tthkGDp8zA" LAST-CHANGE="2015-01-02T12:29:02.928+01:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="Spec-Nav">
               <DEFINITION>
@@ -176,7 +176,7 @@
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-ENUMERATION>
               <VALUES>
-                <ENUM-VALUE-REF>_p2YykIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
               </VALUES>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
@@ -278,6 +278,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -414,7 +422,7 @@
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_r1rNQH4pEeSJSKCeNoEp0g" LAST-CHANGE="2014-12-07T16:57:02.867+01:00">
+        <SPEC-OBJECT IDENTIFIER="_r1rNQH4pEeSJSKCeNoEp0g" LAST-CHANGE="2015-01-02T12:29:13.038+01:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="Double-Clicking on a SpecHierarchy will open the corresponding Specification, with the clicked SpecHierarchy selected.">
               <DEFINITION>
@@ -423,7 +431,7 @@
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-ENUMERATION>
               <VALUES>
-                <ENUM-VALUE-REF>_p2YykIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
               </VALUES>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
@@ -500,6 +508,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -532,6 +548,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -544,6 +568,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -868,6 +900,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -880,6 +920,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -892,6 +940,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -904,6 +960,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -916,6 +980,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -948,6 +1020,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -960,6 +1040,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -972,6 +1060,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -984,6 +1080,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -996,6 +1100,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1060,6 +1172,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1072,6 +1192,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1084,6 +1212,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1096,6 +1232,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1108,6 +1252,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1140,6 +1292,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1152,6 +1312,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1164,6 +1332,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1176,6 +1352,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1208,6 +1392,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1220,6 +1412,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1232,6 +1432,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1244,6 +1452,14 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>_RdybsnuFEeS1tthkGDp8zA</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_oM33EIRqEeSo3fPbjIH42w</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_s29AkIRqEeSo3fPbjIH42w</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
           </VALUES>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>_RdybsHuFEeS1tthkGDp8zA</SPEC-OBJECT-TYPE-REF>
@@ -1797,6 +2013,14 @@
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column label="Lead Header Column" width="59"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+          <configuration:ProrSpecViewConfiguration>
+            <configuration:columns>
+              <configuration:UnifiedColumn label="Main" width="458"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="30"/>
             </configuration:leftHeaderColumn>
           </configuration:ProrSpecViewConfiguration>
         </configuration:specViewConfigurations>
