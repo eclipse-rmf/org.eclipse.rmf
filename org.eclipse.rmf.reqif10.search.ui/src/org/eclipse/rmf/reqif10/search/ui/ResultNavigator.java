@@ -37,10 +37,7 @@ public class ResultNavigator implements IEditorActionDelegate, IExecutableExtens
 		if (action.getId().equals(NEXT_ID)) {
 			match = next();
 		} else if (action.getId().equals(PREV_ID)) {
-//			match = prev();
-			MessageDialog.openInformation(editor.getSite().getShell(),
-					"No implemented", "Previous not yet implemented.");
-			return;
+			match = prev();
 		} else {
 			throw new IllegalStateException(action + "");
 		}
@@ -71,7 +68,6 @@ public class ResultNavigator implements IEditorActionDelegate, IExecutableExtens
 
 	@Override
 	public void setActiveEditor(IAction action, IEditorPart targetEditor) {
-		System.out.println("Activated:" + action);
 		if (targetEditor instanceof SpecificationEditor) {
 			this.editor = (SpecificationEditor)targetEditor;
 			this.spec = ((SpecificationEditor)targetEditor).getSpecification();
@@ -166,18 +162,24 @@ public class ResultNavigator implements IEditorActionDelegate, IExecutableExtens
 		return null;
 	}
 
-	/**
-	 * FIXME not working yet.
-	 */
 	private SpecHierarchy oneUp(SpecHierarchy sh) {
 		EObject element = sh;
 		while (element instanceof SpecHierarchy) {
 			EObject container = element.eContainer();
 			int pos = container.eContents().indexOf(element);		
 			if (pos > 0) {
-				return (SpecHierarchy) container.eContents().get(pos - 1);
+				sh = (SpecHierarchy) container.eContents().get(pos - 1);
+				while (sh.getChildren().size() > 0) {
+					sh = sh.getChildren().get(sh.getChildren().size() - 1);
+				}
+				return sh;
 			} else {
-				element = container;
+				// Go one up, then as deep as possible
+				if (container instanceof SpecHierarchy) {
+					return (SpecHierarchy) container;
+				} else {
+					return null;
+				}
 			}
 		}
 		return null;
