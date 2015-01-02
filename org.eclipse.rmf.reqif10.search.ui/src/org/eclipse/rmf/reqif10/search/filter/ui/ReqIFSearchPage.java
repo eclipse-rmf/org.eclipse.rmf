@@ -13,7 +13,9 @@ package org.eclipse.rmf.reqif10.search.filter.ui;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.DialogPage;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.rmf.reqif10.ReqIF;
@@ -22,10 +24,13 @@ import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.SimpleCompoundFilter;
 import org.eclipse.rmf.reqif10.search.ui.ReqIFSearchUIPlugin;
+import org.eclipse.rmf.reqif10.search.ui.UsageSearchResult;
 import org.eclipse.search.ui.ISearchPage;
 import org.eclipse.search.ui.ISearchPageContainer;
 import org.eclipse.search.ui.ISearchQuery;
+import org.eclipse.search.ui.ISearchResult;
 import org.eclipse.search.ui.NewSearchUI;
+import org.eclipse.search2.internal.ui.SearchView;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -37,6 +42,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IPartListener2;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchPartReference;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
@@ -48,6 +56,7 @@ import org.eclipse.ui.PlatformUI;
  * 
  * @author jastram
  */
+@SuppressWarnings("restriction")
 public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 
 	/**
@@ -64,6 +73,7 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	/** A search always relates to a {@link ReqIF}. */
 	private ReqIF reqif;
 
+	private static IPartListener2 listener;
 
 	@Override
 	public void createControl(Composite parent) {
@@ -72,7 +82,7 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 		setControl(parent);
 
 		// Forbit use without a ReqIF.
-		reqif = findRelevantReqif();
+		reqif = getReqifEditor() != null ? getReqifEditor().getReqif() : null;
 		if (reqif == null) {
 			createNoSearchMessage(parent);
 			return;
@@ -88,20 +98,23 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 
 		// Restore previous filters.
 		restoreFilter();
-		
+
 		// The plugin help-id is broken.
 		PlatformUI
 				.getWorkbench()
 				.getHelpSystem()
 				.setHelp(parent,
 						"org.eclipse.rmf.reqif10.search.ui.reqifSearchHelp");
+
+		attachPartListener();
 	}
-	
+
 	@Override
 	public void setVisible(boolean visible) {
 		super.setVisible(visible);
 		// Required, so that the correct help is shown.
-		if (true) pane.setFocus();
+		if (true)
+			pane.setFocus();
 	}
 
 	private void createNoSearchMessage(Composite parent) {
@@ -173,11 +186,12 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	}
 
 	private void restoreFilter() {
-		 SimpleCompoundFilter wrapperFilter = lastSearches.get(reqif);
-		if (wrapperFilter == null) return;
-		
+		SimpleCompoundFilter wrapperFilter = lastSearches.get(reqif);
+		if (wrapperFilter == null)
+			return;
+
 		or.setSelection(wrapperFilter.isOrFilter());
-		and.setSelection(! wrapperFilter.isOrFilter());
+		and.setSelection(!wrapperFilter.isOrFilter());
 
 		for (IFilter filter : wrapperFilter.getFilters()) {
 			FilterPanel filterPanel = new FilterPanel(pane, reqif, filter);
@@ -189,34 +203,42 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 
 	/**
 	 * Looks for an active ReqIF editor.
+	 * 
 	 * @return the active ReqIF or null if none found.
 	 */
-	private ReqIF findRelevantReqif() {
+	private Reqif10Editor getReqifEditor() {
 		IEditorPart editor = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 		if (editor instanceof Reqif10Editor) {
-			return ((Reqif10Editor) editor).getReqif();
+			return (Reqif10Editor) editor;
 		}
 		if (editor instanceof SpecificationEditor) {
-			return ((SpecificationEditor) editor).getReqifEditor().getReqif();
+			return ((SpecificationEditor) editor).getReqifEditor();
 		}
 		return null;
 	}
 
-	@SuppressWarnings("restriction")
 	@Override
 	public boolean performAction() {
 		SimpleCompoundFilter filter = getFilter();
 
 		// Only search if we have filters.
-		if (filter == null || filter.getFilters().size() == 0) return false;
+		if (filter == null || filter.getFilters().size() == 0)
+			return false;
 
 		// Stores the current query as last query.
 		lastSearches.put(reqif, filter);
 		ISearchQuery query = new FilterSearchQuery(reqif, filter);
 
-		// Actual search, as taken from org.eclipse.rmf.reqif10.search.ui.page
-		org.eclipse.search2.internal.ui.SearchView searchView = null;
+		NewSearchUI.runQueryInForeground(new ProgressMonitorDialog(getShell()),
+				query);
+		getSearchView().showSearchResult(query.getSearchResult());
+		return true;
+	}
+
+	// Actual search, as taken from org.eclipse.rmf.reqif10.search.ui.page
+	private SearchView getSearchView() {
+		SearchView searchView = null;
 		try {
 			searchView = (org.eclipse.search2.internal.ui.SearchView) PlatformUI
 					.getWorkbench().getActiveWorkbenchWindow().getActivePage()
@@ -224,16 +246,10 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 		} catch (final PartInitException e) {
 			ReqIFSearchUIPlugin.INSTANCE.log(e);
 		}
-
-		NewSearchUI.runQueryInForeground(new ProgressMonitorDialog(getShell()),
-				query);
-		if (searchView != null) {
-			searchView.showSearchResult(query.getSearchResult());
-		}
-		return true;
+		return searchView;
 	}
 
-	/** 
+	/**
 	 * Saving the last search upon closing.
 	 */
 	@Override
@@ -248,7 +264,8 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	 * Retrieves the filters from the pane in a {@link SimpleCompoundFilter}.
 	 */
 	private SimpleCompoundFilter getFilter() {
-		if (pane == null) return null;
+		if (pane == null)
+			return null;
 		ArrayList<IFilter> filters = new ArrayList<IFilter>();
 		for (Control control : pane.getChildren()) {
 			if (control instanceof FilterPanel) {
@@ -257,12 +274,80 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 					filters.add(filter);
 			}
 		}
-		
+
 		return new SimpleCompoundFilter(filters, or.getSelection());
 	}
 
 	@Override
 	public void setContainer(ISearchPageContainer container) {
 	}
-	
+
+	/**
+	 * We attach a part listener to close related searches in the Search view.
+	 * There is only one (static) PartListener, which is created lazily.
+	 */
+	private void attachPartListener() {
+		// Don't do anything if it already exists.
+		if (listener != null) return;
+
+		listener = new IPartListener2() {
+			@Override
+			public void partClosed(IWorkbenchPartReference partRef) {
+				IWorkbenchPart part = partRef.getPart(false);
+				if (!(part instanceof Reqif10Editor)) {
+					return;
+				}
+
+				ReqIF closingReqif = ((Reqif10Editor) part).getReqif();
+
+				ISearchResult searchResult = getSearchView()
+						.getCurrentSearchResult();
+				if (searchResult instanceof UsageSearchResult) {
+					Set<Resource> keys = ((UsageSearchResult) searchResult)
+							.getSearchEntries().keySet();
+					for (Resource resource : keys) {
+						if (resource.getURI().equals(
+								closingReqif.eResource().getURI())) {
+							getSearchView().showEmptySearchPage(partRef.getId());
+							return;
+						}
+					}
+				}
+			}
+
+			@Override
+			public void partVisible(IWorkbenchPartReference partRef) {
+			}
+
+			@Override
+			public void partOpened(IWorkbenchPartReference partRef) {
+			}
+
+			@Override
+			public void partInputChanged(IWorkbenchPartReference partRef) {
+			}
+
+			@Override
+			public void partHidden(IWorkbenchPartReference partRef) {
+			}
+
+			@Override
+			public void partDeactivated(IWorkbenchPartReference partRef) {
+			}
+
+			@Override
+			public void partBroughtToTop(IWorkbenchPartReference partRef) {
+			}
+
+			@Override
+			public void partActivated(IWorkbenchPartReference partRef) {
+			}
+		};
+
+		System.out.println("Attaching listener.");
+		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+				.addPartListener(listener);
+
+	}
+
 }
