@@ -69,7 +69,7 @@ public class FilterControlNumber extends FilterControl {
 				control[0].setValue((Number) templateFilter.getFilterValue1());
 			}
 			if (templateFilter.getFilterValue2() != null) {
-				control[1].setValue((Number) templateFilter.getFilterValue1());
+				control[1].setValue((Number) templateFilter.getFilterValue2());
 			}
 		}
 
