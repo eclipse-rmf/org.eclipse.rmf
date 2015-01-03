@@ -56,7 +56,6 @@ public class BoolFilter extends AbstractAttributeFilter {
 			return super.match(element);
 		}
 		
-		
 		Boolean theValue;
 
 		AttributeValueBoolean attributeValue = (AttributeValueBoolean) ReqIF10Util.getAttributeValue(element, attributeDefinition);
@@ -75,7 +74,7 @@ public class BoolFilter extends AbstractAttributeFilter {
 	
 		switch (operator) {
 		case IS:
-			return filterValue == theValue;
+			return filterValue.equals(theValue);
 		default:
 			throw new IllegalArgumentException(
 					"This filter does not support the " + this.operator
@@ -107,6 +106,4 @@ public class BoolFilter extends AbstractAttributeFilter {
 	public ImmutableSet<Operator> getSupportedOperators() {
 		return SUPPORTED_OPERATORS;
 	}
-
-	
 }
