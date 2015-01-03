@@ -68,7 +68,7 @@ public class FilterControlString extends FilterControl {
 		}
 		if (initialize) {
 			if (text != null) {
-				caseSensitive.setSelection(((StringFilter) templateFilter)
+				caseSensitive.setSelection(((AbstractTextFilter) templateFilter)
 						.isCaseSensitive());
 				text.setText((String) templateFilter.getFilterValue1());
 	
