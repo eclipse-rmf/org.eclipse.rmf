@@ -7,6 +7,7 @@ import java.util.Set;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -142,9 +143,9 @@ public class ResultNavigator implements IEditorActionDelegate, IExecutableExtens
 		EObject element = sh;
 		while (element instanceof SpecHierarchy) {
 			EObject container = element.eContainer();
-			int pos = container.eContents().indexOf(element);		
-			if (pos < container.eContents().size() - 1) {
-				return (SpecHierarchy) container.eContents().get(pos +1);
+			int pos = getSpecHierarchies(container).indexOf(element);		
+			if (pos < getSpecHierarchies(container).size() - 1) {
+				return (SpecHierarchy) getSpecHierarchies(container).get(pos +1);
 			} else {
 				element = container;
 			}
@@ -166,9 +167,12 @@ public class ResultNavigator implements IEditorActionDelegate, IExecutableExtens
 		EObject element = sh;
 		while (element instanceof SpecHierarchy) {
 			EObject container = element.eContainer();
-			int pos = container.eContents().indexOf(element);		
+			if (! (container instanceof SpecHierarchy || container instanceof Specification)) {
+				return null;
+			}
+			int pos = getSpecHierarchies(container).indexOf(element);		
 			if (pos > 0) {
-				sh = (SpecHierarchy) container.eContents().get(pos - 1);
+				sh = (SpecHierarchy) getSpecHierarchies(container).get(pos - 1);
 				while (sh.getChildren().size() > 0) {
 					sh = sh.getChildren().get(sh.getChildren().size() - 1);
 				}
@@ -181,6 +185,16 @@ public class ResultNavigator implements IEditorActionDelegate, IExecutableExtens
 					return null;
 				}
 			}
+		}
+		return null;
+	}
+	
+	private EList<SpecHierarchy> getSpecHierarchies(EObject eObject) {
+		if (eObject instanceof SpecHierarchy) {
+			return ((SpecHierarchy)eObject).getChildren();
+		}
+		if (eObject instanceof Specification) {
+			return ((Specification)eObject).getChildren();
 		}
 		return null;
 	}
