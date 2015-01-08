@@ -369,7 +369,7 @@ public class SpecificationEditor extends EditorPart implements
 	}
 
 	/**
-	 * @return true
+	 * Only allowed from main editor.
 	 */
 	@Override
 	public boolean isSaveAsAllowed() {
