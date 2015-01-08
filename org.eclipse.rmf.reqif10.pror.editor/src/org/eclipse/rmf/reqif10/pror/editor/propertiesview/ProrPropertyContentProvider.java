@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 Formal Mind GmbH, University of Duesseldorf and others.
+ * Copyright (c) 2014, 2015 Formal Mind GmbH, University of Duesseldorf and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -21,7 +21,6 @@ import java.util.TreeSet;
 import org.agilemore.agilegrid.AbstractContentProvider;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor.PropertyValueWrapper;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
@@ -99,11 +98,6 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 		if (row >= getRowCount())
 			return null;
 		return getRows().get(row);
-	}
-
-	public IItemLabelProvider getItemLabelProvider(int row) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public void setContent(Object content) {
