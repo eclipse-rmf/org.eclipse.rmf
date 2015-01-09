@@ -92,7 +92,7 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 				config, "Configure columns for "
 						+ ConfigurationUtil.getSpecElementLabel(
 								config.getSpecification(),
-								editor.getAdapterFactory()),
+								editor.getReqifEditor().getAdapterFactory()),
 				"org.eclipse.rmf.reqif10.pror.editor.columnConfiguration");
 		dialog.setActions(new IAction[] { buildAddColumnAction(config), buildUnifiedColumnAction(config) }, false);
 		dialog.open();

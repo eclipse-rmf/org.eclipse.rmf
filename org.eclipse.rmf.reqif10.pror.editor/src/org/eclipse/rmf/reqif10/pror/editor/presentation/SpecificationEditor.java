@@ -460,14 +460,6 @@ public class SpecificationEditor extends EditorPart implements
 		return false;
 	}
 
-	public Reqif10ActionBarContributor getReqifActionBarContributor() {
-		return reqifActionBarContributor;
-	}
-
-	public AdapterFactory getAdapterFactory() {
-		return reqifEditor.getAdapterFactory();
-	}
-
 	public void setFilter(ReqifFilter filter) {
 		prorAgileGridViewer.setFilter(filter);
 	}
