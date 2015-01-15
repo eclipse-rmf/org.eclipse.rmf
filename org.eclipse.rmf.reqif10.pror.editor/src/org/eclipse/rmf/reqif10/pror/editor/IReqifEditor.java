@@ -15,6 +15,7 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.ui.IEditorPart;
 
 /**
@@ -29,4 +30,6 @@ public interface IReqifEditor extends IEditorPart, IEditingDomainProvider, ISele
 	public AdapterFactory getAdapterFactory();
 	
 	public EditingDomainActionBarContributor getActionBarContributor();
+
+	public ISpecificationEditor openSpecEditor(Specification spec);
 }

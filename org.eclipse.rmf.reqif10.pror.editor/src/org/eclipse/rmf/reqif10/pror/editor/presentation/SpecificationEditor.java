@@ -19,11 +19,13 @@ import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -34,6 +36,7 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecRelation;
@@ -461,6 +464,39 @@ public class SpecificationEditor extends EditorPart implements
 
 	public void setFilter(ReqifFilter filter) {
 		prorAgileGridViewer.setFilter(filter);
+	}
+
+	public ReqIF getReqif() {
+		return reqifEditor.getReqif();
+	}
+
+	public AdapterFactory getAdapterFactory() {
+		return reqifEditor.getAdapterFactory();
+	}
+
+	public EditingDomainActionBarContributor getActionBarContributor() {
+		return reqifEditor.getActionBarContributor();
+	}
+
+	public void addSelectionChangedListener(ISelectionChangedListener listener) {
+		reqifEditor.addSelectionChangedListener(listener);
+	}
+
+	public ISelection getSelection() {
+		return reqifEditor.getSelection();
+	}
+
+	public void removeSelectionChangedListener(
+			ISelectionChangedListener listener) {
+		reqifEditor.removeSelectionChangedListener(listener);
+	}
+
+	public void setSelection(ISelection selection) {
+		reqifEditor.setSelection(selection);
+	}
+
+	public ISpecificationEditor openSpecEditor(Specification spec) {
+		return reqifEditor.openSpecEditor(spec);
 	}
 
 }

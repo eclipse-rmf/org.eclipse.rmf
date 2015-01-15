@@ -12,7 +12,7 @@ package org.eclipse.rmf.reqif10.pror.editor.actions;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
+import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -34,8 +34,8 @@ public class ToggleSpecRelationsActionDelegate implements
 	 * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
 	 */
 	public void run(IAction action) {
-		if (editor != null && editor instanceof SpecificationEditor) {
-			((SpecificationEditor) editor).setShowSpecRelations(action
+		if (editor != null && editor instanceof ISpecificationEditor) {
+			((ISpecificationEditor) editor).setShowSpecRelations(action
 					.isChecked());
 		}
 	}

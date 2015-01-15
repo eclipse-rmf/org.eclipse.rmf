@@ -53,6 +53,7 @@ import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.SpecRelationType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.AgileCellEditorActionHandler;
 import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
 import org.eclipse.rmf.reqif10.pror.filter.SimpleStringFilter;
@@ -273,13 +274,13 @@ public class Reqif10ActionBarContributor
 		quicksearch = new Text(parent, SWT.SEARCH | SWT.ICON_CANCEL
 				| SWT.ICON_SEARCH);
 		quicksearch.setSize(500, 0);
-		quicksearch.setEnabled(activeEditorPart instanceof SpecificationEditor);
+		quicksearch.setEnabled(activeEditorPart instanceof ISpecificationEditor);
 		quicksearch.addModifyListener(new ModifyListener() {
 
 			public void modifyText(ModifyEvent e) {
-				if (activeEditorPart instanceof SpecificationEditor) {
+				if (activeEditorPart instanceof ISpecificationEditor) {
 					quicksearch.setEnabled(true);
-					SpecificationEditor specEditor = (SpecificationEditor) activeEditor;
+					ISpecificationEditor specEditor = (ISpecificationEditor) activeEditor;
 					final String text = quicksearch.getText();
 					if (text == null || "".equals(text)) {
 						specEditor.setFilter(null);

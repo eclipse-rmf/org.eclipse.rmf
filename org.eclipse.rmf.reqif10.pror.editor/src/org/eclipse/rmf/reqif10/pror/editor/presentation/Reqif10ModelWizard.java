@@ -25,8 +25,6 @@ import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 import java.util.UUID;
 
-import javax.xml.datatype.XMLGregorianCalendar;
-
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -73,7 +71,6 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;

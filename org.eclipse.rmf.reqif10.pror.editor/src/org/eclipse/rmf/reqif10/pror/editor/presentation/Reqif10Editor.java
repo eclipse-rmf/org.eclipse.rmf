@@ -106,6 +106,7 @@ import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
+import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertySheetPage;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
@@ -150,7 +151,7 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
  * This is an example of a Reqif10 model editor. <!-- begin-user-doc --> We
  * modified the generated Editor as little as possible to keep the benefits of
  * working Code. Note that this Editor doesn't do that much. The
- * {@link SpecificationEditor} is much more important and powerful. It uses some
+ * {@link ISpecificationEditor} is much more important and powerful. It uses some
  * elements from this Editor, however (PropertyView, OutlineView...) <!--
  * end-user-doc -->
  * 
@@ -1887,5 +1888,17 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 			}
 		}
 	}
+
+	public ISpecificationEditor openSpecEditor(Specification spec) {
+		ReqifSpecificationEditorInput editorInput = new ReqifSpecificationEditorInput(
+				this, spec);
+		try {
+			return (ISpecificationEditor) IDE.openEditor(getSite().getPage(),
+					editorInput, SpecificationEditor.EDITOR_ID, false);
+		} catch (PartInitException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 
 }

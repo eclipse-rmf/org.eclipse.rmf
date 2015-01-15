@@ -20,7 +20,6 @@ import org.eclipse.jface.dialogs.DialogPage;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.SimpleCompoundFilter;
 import org.eclipse.rmf.reqif10.search.ui.ReqIFSearchUIPlugin;
@@ -211,9 +210,6 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 		if (editor instanceof IReqifEditor) {
 			return (IReqifEditor) editor;
-		}
-		if (editor instanceof SpecificationEditor) {
-			return ((SpecificationEditor) editor).getReqifEditor();
 		}
 		return null;
 	}

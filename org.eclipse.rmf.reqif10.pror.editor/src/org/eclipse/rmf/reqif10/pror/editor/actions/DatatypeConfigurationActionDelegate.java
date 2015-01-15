@@ -18,7 +18,6 @@ import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIFToolExtension;
 import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.reqif10.pror.provider.VirtualSpecObjectItemProvider;
 import org.eclipse.rmf.reqif10.pror.provider.VirtualSpecRelationGroupItemProvider;
 import org.eclipse.rmf.reqif10.pror.provider.VirtualSpecRelationsItemProvider;
@@ -37,8 +36,6 @@ public class DatatypeConfigurationActionDelegate implements
 	public void setActiveEditor(IAction action, IEditorPart editor) {
 		if (editor instanceof IReqifEditor) {
 			this.editor = (IReqifEditor) editor;
-		} else if (editor instanceof SpecificationEditor) {
-			this.editor = ((SpecificationEditor) editor).getReqifEditor();
 		} else {
 			this.editor = null;
 		}

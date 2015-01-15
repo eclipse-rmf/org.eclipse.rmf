@@ -21,7 +21,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
+import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -58,9 +58,9 @@ public class ShiftLevelDownActionDelegate implements IEditorActionDelegate,
 			return;
 		// SpecType type = specHierarchy.getObject().getType();
 
-		if (!(editor instanceof SpecificationEditor))
+		if (!(editor instanceof ISpecificationEditor))
 			return;
-		SpecificationEditor specificationEditor = (SpecificationEditor) editor;
+		ISpecificationEditor specificationEditor = (ISpecificationEditor) editor;
 
 		// Shell shell = window != null ? window.getShell() : editor.getSite()
 		// .getShell();

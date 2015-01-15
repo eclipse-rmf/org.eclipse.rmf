@@ -31,8 +31,8 @@ import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
+import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.ReqifSpecificationEditorInput;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
@@ -40,14 +40,14 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class ColumnConfigurationActionDelegate implements IEditorActionDelegate {
 
-	private SpecificationEditor editor;
+	private ISpecificationEditor editor;
 
 	/**
 	 * Retrieves the {@link EditingDomain} from the Editor if present.
 	 */
 	public void setActiveEditor(IAction action, IEditorPart editor) {
-		if (editor instanceof SpecificationEditor) {
-			this.editor = (SpecificationEditor) editor;
+		if (editor instanceof ISpecificationEditor) {
+			this.editor = (ISpecificationEditor) editor;
 		} else {
 			this.editor = null;
 		}
@@ -88,11 +88,11 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 	}
 
 	private void launchColumnDialog(final ProrSpecViewConfiguration config) {
-		SubtreeDialog dialog = new SubtreeDialog(editor.getReqifEditor(),
+		SubtreeDialog dialog = new SubtreeDialog(editor,
 				config, "Configure columns for "
 						+ ConfigurationUtil.getSpecElementLabel(
 								config.getSpecification(),
-								editor.getReqifEditor().getAdapterFactory()),
+								editor.getAdapterFactory()),
 				"org.eclipse.rmf.reqif10.pror.editor.columnConfiguration");
 		dialog.setActions(new IAction[] { buildAddColumnAction(config), buildUnifiedColumnAction(config) }, false);
 		dialog.open();

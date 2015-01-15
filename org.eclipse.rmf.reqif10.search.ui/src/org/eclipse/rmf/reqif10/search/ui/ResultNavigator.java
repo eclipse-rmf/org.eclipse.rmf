@@ -16,7 +16,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
+import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
 import org.eclipse.search.ui.ISearchResultViewPart;
 import org.eclipse.search.ui.NewSearchUI;
 import org.eclipse.ui.IEditorActionDelegate;
@@ -29,7 +29,7 @@ public class ResultNavigator implements IEditorActionDelegate, IExecutableExtens
 
 	private Specification spec;
 	private SpecHierarchy selectedSpecHierarchy;
-	private SpecificationEditor editor;
+	private ISpecificationEditor editor;
 
 	@Override
 	public void run(IAction action) {
@@ -69,9 +69,9 @@ public class ResultNavigator implements IEditorActionDelegate, IExecutableExtens
 
 	@Override
 	public void setActiveEditor(IAction action, IEditorPart targetEditor) {
-		if (targetEditor instanceof SpecificationEditor) {
-			this.editor = (SpecificationEditor)targetEditor;
-			this.spec = ((SpecificationEditor)targetEditor).getSpecification();
+		if (targetEditor instanceof ISpecificationEditor) {
+			this.editor = (ISpecificationEditor)targetEditor;
+			this.spec = ((ISpecificationEditor)targetEditor).getSpecification();
 		} else {
 			this.spec = null;
 			this.editor = null;

@@ -39,8 +39,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
 import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.ReqifSpecificationEditorInput;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
+import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
@@ -48,9 +47,7 @@ import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.ide.IDE;
 
 public class ProrEditorUtil {
 
@@ -220,7 +217,7 @@ public class ProrEditorUtil {
 	}
 	
 	/**
-	 * Attempts to find the {@link IReqifEditor} or {@link SpecificationEditor}
+	 * Attempts to find the {@link IReqifEditor} or {@link ISpecificationEditor}
 	 * for the given EObject by walking up the parent hierarchy to the enclosing
 	 * {@link ReqIF} or {@link Specification}. If the {@link IReqifEditor} is
 	 * found for a Specification, the corresponding editor will be opened.
@@ -249,8 +246,8 @@ public class ProrEditorUtil {
 		IEditorReference[] eRefs = activePage.getEditorReferences();
 		for (IEditorReference eRef : eRefs) {
 			IEditorPart editor = eRef.getEditor(false);
-			if (editor instanceof SpecificationEditor) {
-				SpecificationEditor specEditor = (SpecificationEditor) editor;
+			if (editor instanceof ISpecificationEditor) {
+				ISpecificationEditor specEditor = (ISpecificationEditor) editor;
 
 				// Case 1: We found the right SpecificationEditor
 				if (specEditor.getSpecification().equals(spec)) {
@@ -265,14 +262,7 @@ public class ProrEditorUtil {
 					if (spec == null) return reqifEditor;
 					
 					// Case 3: We found the Reqif10Editor, but need the SpecificationEditor
-					ReqifSpecificationEditorInput editorInput = new ReqifSpecificationEditorInput(
-							reqifEditor, spec);
-					try {
-						return IDE.openEditor(activePage, editorInput,
-								SpecificationEditor.EDITOR_ID, false);
-					} catch (PartInitException e) {
-						e.printStackTrace();
-					}
+					return reqifEditor.openSpecEditor(spec);
 				}
 			}
 		}
