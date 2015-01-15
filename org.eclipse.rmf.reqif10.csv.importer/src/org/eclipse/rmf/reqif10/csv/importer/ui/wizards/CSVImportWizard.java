@@ -42,12 +42,12 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
-public class CSVImportWziard extends Wizard implements IImportWizard {
+public class CSVImportWizard extends Wizard implements IImportWizard {
 
 	private CSVImportWizardPage importWizardPage;
 	private CSVMappingWizardPage mappingWizardPage;
 
-	public CSVImportWziard() {
+	public CSVImportWizard() {
 		setWindowTitle("CSV Import Wizard");
 		setNeedsProgressMonitor(true);
 	}

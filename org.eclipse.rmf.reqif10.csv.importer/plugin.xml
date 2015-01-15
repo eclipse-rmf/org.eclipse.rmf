@@ -31,7 +31,7 @@
          point="org.eclipse.ui.importWizards">
       <wizard
             category="org.eclipse.rmf.pror.import.category"
-            class="org.eclipse.rmf.reqif10.csv.importer.ui.wizards.CSVImportWziard"
+            class="org.eclipse.rmf.reqif10.csv.importer.ui.wizards.CSVImportWizard"
             icon="icons/full/obj16/excel.png"
             id="org.eclipse.rmf.reqif10.csv.importer.ui.wizard"
             name="CSV">
