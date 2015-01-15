@@ -86,7 +86,6 @@ import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -158,7 +157,7 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
  * @generated
  */
 public class Reqif10Editor extends MultiPageEditorPart implements
-		IReqifEditor, ISelectionProvider, IMenuListener,
+		IReqifEditor, IMenuListener,
 		IViewerProvider, IGotoMarker {
 
 	/**

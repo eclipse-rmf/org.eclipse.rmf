@@ -38,7 +38,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor;
+import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.ReqifSpecificationEditorInput;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
@@ -220,9 +220,9 @@ public class ProrEditorUtil {
 	}
 	
 	/**
-	 * Attempts to find the {@link Reqif10Editor} or {@link SpecificationEditor}
+	 * Attempts to find the {@link IReqifEditor} or {@link SpecificationEditor}
 	 * for the given EObject by walking up the parent hierarchy to the enclosing
-	 * {@link ReqIF} or {@link Specification}. If the {@link Reqif10Editor} is
+	 * {@link ReqIF} or {@link Specification}. If the {@link IReqifEditor} is
 	 * found for a Specification, the corresponding editor will be opened.
 	 * 
 	 * @return the Editor or null if none found.
@@ -257,8 +257,8 @@ public class ProrEditorUtil {
 					return specEditor;
 				}
 			}
-			if (editor instanceof Reqif10Editor) {
-				Reqif10Editor reqifEditor = (Reqif10Editor) editor;
+			if (editor instanceof IReqifEditor) {
+				IReqifEditor reqifEditor = (IReqifEditor) editor;
 				if (reqifEditor.getReqif().equals(reqif)) {
 					
 					// Case 2: We found the right Reqif10Editor

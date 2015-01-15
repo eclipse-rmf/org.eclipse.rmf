@@ -32,6 +32,7 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIFContentItemProvider;
 import org.eclipse.rmf.reqif10.pror.provider.VirtualSpecificationsItemProvider;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
@@ -67,13 +68,13 @@ public class ReqifMainForm {
 
 	private final ReqIF reqif;
 
-	private final Reqif10Editor reqifEditor;
+	private final IReqifEditor reqifEditor;
 
 	private ComposedAdapterFactory getAdapterFactory() {
 		return (ComposedAdapterFactory) reqifEditor.getAdapterFactory();
 	}
 
-	public ReqifMainForm(Composite parent, Reqif10Editor rifEditor) {
+	public ReqifMainForm(Composite parent, IReqifEditor rifEditor) {
 
 		this.reqifEditor = rifEditor;
 		this.reqif = rifEditor.getReqif();

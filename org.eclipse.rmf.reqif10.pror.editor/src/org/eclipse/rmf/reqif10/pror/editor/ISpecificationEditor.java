@@ -15,6 +15,6 @@ package org.eclipse.rmf.reqif10.pror.editor;
  * 
  * @author jastram
  */
-public interface ISpecificationEditor extends IReqifEditor {
+public interface ISpecificationEditor /* extends IReqifEditor */ {
 
 }

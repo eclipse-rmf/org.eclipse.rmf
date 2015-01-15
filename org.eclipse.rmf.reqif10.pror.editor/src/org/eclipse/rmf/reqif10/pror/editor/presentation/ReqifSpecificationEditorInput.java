@@ -13,6 +13,7 @@ package org.eclipse.rmf.reqif10.pror.editor.presentation;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
@@ -25,16 +26,16 @@ public class ReqifSpecificationEditorInput implements IEditorInput {
 
 
 	private final Specification spec;
-	private final Reqif10Editor rifEditor;
+	private final IReqifEditor reqifEditor;
 
-	public ReqifSpecificationEditorInput(Reqif10Editor rifEditor,
+	public ReqifSpecificationEditorInput(IReqifEditor rifEditor,
 			Specification spec) {
-		this.rifEditor = rifEditor;
+		this.reqifEditor = rifEditor;
 		this.spec = spec;
 	}
 
-	public Reqif10Editor getReqifEditor() {
-		return rifEditor;
+	public IReqifEditor getReqifEditor() {
+		return reqifEditor;
 	}
 
 	public Specification getSpec() {
@@ -67,7 +68,7 @@ public class ReqifSpecificationEditorInput implements IEditorInput {
 	 * @see org.eclipse.ui.IEditorInput#getName()
 	 */
 	public String getName() {
-		ItemProviderAdapter ip = ProrUtil.getItemProvider(rifEditor.getAdapterFactory(), spec);
+		ItemProviderAdapter ip = ProrUtil.getItemProvider(reqifEditor.getAdapterFactory(), spec);
 		return ip.getText(spec);
 	}
 

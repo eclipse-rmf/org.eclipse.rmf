@@ -19,12 +19,10 @@ import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.jface.action.IMenuListener;
@@ -108,7 +106,7 @@ public class SpecificationEditor extends EditorPart implements
 		}
 
 		// Extracting Info from the input
-		reqifEditor = ((ReqifSpecificationEditorInput) input).getReqifEditor();
+		reqifEditor = (Reqif10Editor) ((ReqifSpecificationEditorInput) input).getReqifEditor();
 		specification = ((ReqifSpecificationEditorInput) input).getSpec();
 
 		reqifActionBarContributor = (Reqif10ActionBarContributor) site

@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.DialogPage;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.rmf.reqif10.ReqIF;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor;
+import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
 import org.eclipse.rmf.reqif10.search.filter.IFilter;
 import org.eclipse.rmf.reqif10.search.filter.SimpleCompoundFilter;
@@ -206,11 +206,11 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 	 * 
 	 * @return the active ReqIF or null if none found.
 	 */
-	private Reqif10Editor getReqifEditor() {
+	private IReqifEditor getReqifEditor() {
 		IEditorPart editor = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		if (editor instanceof Reqif10Editor) {
-			return (Reqif10Editor) editor;
+		if (editor instanceof IReqifEditor) {
+			return (IReqifEditor) editor;
 		}
 		if (editor instanceof SpecificationEditor) {
 			return ((SpecificationEditor) editor).getReqifEditor();
@@ -294,11 +294,11 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage {
 			@Override
 			public void partClosed(IWorkbenchPartReference partRef) {
 				IWorkbenchPart part = partRef.getPart(false);
-				if (!(part instanceof Reqif10Editor)) {
+				if (!(part instanceof IReqifEditor)) {
 					return;
 				}
 
-				ReqIF closingReqif = ((Reqif10Editor) part).getReqif();
+				ReqIF closingReqif = ((IReqifEditor) part).getReqif();
 
 				ISearchResult searchResult = getSearchView()
 						.getCurrentSearchResult();

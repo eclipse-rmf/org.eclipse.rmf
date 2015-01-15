@@ -34,7 +34,7 @@ import org.eclipse.rmf.reqif10.csv.importer.ui.wizards.pages.CSVImportWizardPage
 import org.eclipse.rmf.reqif10.csv.importer.ui.wizards.pages.CSVMappingWizardPage;
 import org.eclipse.rmf.reqif10.csv.importer.utils.Importer;
 import org.eclipse.rmf.reqif10.csv.importer.utils.Utils;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor;
+import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IImportWizard;
@@ -118,7 +118,7 @@ public class CSVImportWizard extends Wizard implements IImportWizard {
 				.getEditorReferences();
 		for (IEditorReference editorReference : editorReferences) {
 			IEditorPart editorPart = editorReference.getEditor(false);
-			if (editorPart instanceof Reqif10Editor) {
+			if (editorPart instanceof IReqifEditor) {
 				try {
 					uriMap.put(EditUIUtil.getURI(editorReference
 							.getEditorInput()),
