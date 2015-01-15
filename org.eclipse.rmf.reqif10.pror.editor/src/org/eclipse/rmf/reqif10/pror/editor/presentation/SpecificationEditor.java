@@ -40,6 +40,7 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
 import org.eclipse.rmf.reqif10.pror.editor.actions.SpecificationWebPrintAction;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGrid;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridViewer;
@@ -63,7 +64,7 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
  * @author Michael Jastram
  */
 public class SpecificationEditor extends EditorPart implements
-		IEditingDomainProvider, IMenuListener {
+		ISpecificationEditor, IMenuListener {
 
 	public static final String EDITOR_ID = "org.eclipse.rmf.reqif10.pror.SpecificationEditor";
 

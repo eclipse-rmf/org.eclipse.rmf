@@ -106,6 +106,7 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
+import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertySheetPage;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
@@ -157,7 +158,7 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
  * @generated
  */
 public class Reqif10Editor extends MultiPageEditorPart implements
-		IEditingDomainProvider, ISelectionProvider, IMenuListener,
+		IReqifEditor, ISelectionProvider, IMenuListener,
 		IViewerProvider, IGotoMarker {
 
 	/**
