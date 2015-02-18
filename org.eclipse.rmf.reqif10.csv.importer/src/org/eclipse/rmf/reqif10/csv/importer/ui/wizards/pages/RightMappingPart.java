@@ -150,7 +150,7 @@ public class RightMappingPart extends Composite {
 	}
 
 	private void createColumnMappingComboViewer(Composite composite) {
-		columnMappingComboViewer = createComboViewer("Column Mapping : ",
+		columnMappingComboViewer = createComboViewer("Column Mapping: ",
 				composite, columnMappingInput);
 	}
 
@@ -164,11 +164,11 @@ public class RightMappingPart extends Composite {
 	}
 
 	private void createAttributeNameTextWidget(Composite composite) {
-		attributeNameTextWidget = createText("Attribute name", composite);
+		attributeNameTextWidget = createText("Attribute Name:", composite);
 	}
 
 	private void createDataTypeComboViewer(Composite composite) {
-		dataTypeComboViewer = createComboViewer("Data Type : ", composite,
+		dataTypeComboViewer = createComboViewer("Data Type: ", composite,
 				DataType.values());
 	}
 
