@@ -114,8 +114,8 @@ import org.eclipse.rmf.reqif10.pror.provider.VirtualDatatypeDefinitionItemProvid
 import org.eclipse.rmf.reqif10.pror.provider.VirtualSpecTypeItemProvider;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResource;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceSetImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;

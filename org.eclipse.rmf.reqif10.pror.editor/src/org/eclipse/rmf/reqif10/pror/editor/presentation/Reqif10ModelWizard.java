@@ -71,7 +71,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceSetImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;

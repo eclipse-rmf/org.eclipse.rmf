@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLSave;
 import org.eclipse.emf.ecore.xmi.impl.XMLMapImpl;
-import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingSaveImpl;
+import org.eclipse.sphinx.emf.serialization.internal.XMLPersistenceMappingSaveImpl;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceImpl;
 
 public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 

@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLMapImpl;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceImpl;
 
 public class NodesResourceImpl extends XMLPersistenceMappingResourceImpl {
 
@@ -51,7 +51,7 @@ public class NodesResourceImpl extends XMLPersistenceMappingResourceImpl {
 
 	/**
 	 * Return <code>true</code>.
-	 * 
+	 *
 	 * @return <code>true</code>.
 	 * @see org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl#useUUIDs()
 	 */
@@ -62,7 +62,7 @@ public class NodesResourceImpl extends XMLPersistenceMappingResourceImpl {
 
 	/**
 	 * Return <code>true</code>.
-	 * 
+	 *
 	 * @return <code>true</code>.
 	 * @see org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl#assignIDsWhileLoading()
 	 */
@@ -75,7 +75,7 @@ public class NodesResourceImpl extends XMLPersistenceMappingResourceImpl {
 	 * Sets the ID of the object. The default implementation will update the {@link #eObjectToIDMap}. This behavior is
 	 * override to set the ID in a object's specific attribute to set the id in the
 	 * {@link Identifiable#setIdentifier(String)} and call the super method.
-	 * 
+	 *
 	 * @param eObject
 	 *            : The object where the Id must be set.
 	 * @param id

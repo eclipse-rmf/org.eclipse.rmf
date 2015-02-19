@@ -12,7 +12,7 @@ package org.eclipse.rmf.tests.serialization.model.nodes.serialization;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 
 public class NodesResourceFactoryImpl extends XMLPersistenceMappingResourceFactoryImpl {
 	@Override

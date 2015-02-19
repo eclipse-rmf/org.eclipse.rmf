@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *   itemis AG - initial API and implementation
  */
@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaData;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingExtendedMetaData;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -53,7 +53,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 			EStructuralFeature feature = nodeEClass.getEStructuralFeature(featureName);
 			assertNotNull("EReference '" + featureName + "' not found", feature);
 
-			int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
+			int featureSerializationStructure = metadata.getXMLPersistenceMappingStrategy(feature);
 			assertSame(i, featureSerializationStructure);
 		}
 	}
@@ -68,7 +68,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 			EStructuralFeature feature = nodeEClass.getEStructuralFeature(featureName);
 			assertNotNull("EReference '" + featureName + "' not found", feature);
 
-			int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
+			int featureSerializationStructure = metadata.getXMLPersistenceMappingStrategy(feature);
 			assertSame(i, featureSerializationStructure);
 		}
 	}
@@ -83,7 +83,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 			EStructuralFeature feature = nodeEClass.getEStructuralFeature(featureName);
 			assertNotNull("EReference '" + featureName + "' not found", feature);
 
-			int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
+			int featureSerializationStructure = metadata.getXMLPersistenceMappingStrategy(feature);
 			assertSame(i, featureSerializationStructure);
 		}
 	}
@@ -98,7 +98,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 			EStructuralFeature feature = nodeEClass.getEStructuralFeature(featureName);
 			assertNotNull("EReference '" + featureName + "' not found", feature);
 
-			int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
+			int featureSerializationStructure = metadata.getXMLPersistenceMappingStrategy(feature);
 			assertSame(i, featureSerializationStructure);
 		}
 	}
@@ -113,7 +113,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 			EStructuralFeature feature = nodeEClass.getEStructuralFeature(featureName);
 			assertNotNull("EAttribute '" + featureName + "' not found", feature);
 
-			int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
+			int featureSerializationStructure = metadata.getXMLPersistenceMappingStrategy(feature);
 			assertSame(i, featureSerializationStructure);
 		}
 	}
@@ -128,7 +128,7 @@ public class XMLPersistenceExtendedMetaDataTests {
 			EStructuralFeature feature = nodeEClass.getEStructuralFeature(featureName);
 			assertNotNull("Attribute '" + featureName + "' not found", feature);
 
-			int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
+			int featureSerializationStructure = metadata.getXMLPersistenceMappingStrategy(feature);
 			assertSame(i, featureSerializationStructure);
 		}
 	}
@@ -138,8 +138,8 @@ public class XMLPersistenceExtendedMetaDataTests {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EStructuralFeature feature = NodesPackage.eINSTANCE.getNode_EReference_EmptyAnnotationSingle();
-		int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
-		assertSame(XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT,
+		int featureSerializationStructure = metadata.getXMLPersistenceMappingStrategy(feature);
+		assertSame(XMLPersistenceMappingExtendedMetaData.XML_PERSISTENCE_MAPPING_STRATEGY__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT,
 				featureSerializationStructure);
 	}
 
@@ -148,9 +148,9 @@ public class XMLPersistenceExtendedMetaDataTests {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EStructuralFeature feature = NodesPackage.eINSTANCE.getNode_EReference_NoAnnotationSingle();
-		int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
+		int featureSerializationStructure = metadata.getXMLPersistenceMappingStrategy(feature);
 		// assume standard EMF serialization if not specified explicitly
-		assertSame(XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT, featureSerializationStructure);
+		assertSame(XMLPersistenceMappingExtendedMetaData.XML_PERSISTENCE_MAPPING_STRATEGY__0100__FEATURE_ELEMENT, featureSerializationStructure);
 	}
 
 	@Test
@@ -158,8 +158,8 @@ public class XMLPersistenceExtendedMetaDataTests {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EStructuralFeature feature = NodesPackage.eINSTANCE.getNode_EReference_EmptyAnnotationMany();
-		int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
-		assertSame(XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT,
+		int featureSerializationStructure = metadata.getXMLPersistenceMappingStrategy(feature);
+		assertSame(XMLPersistenceMappingExtendedMetaData.XML_PERSISTENCE_MAPPING_STRATEGY__1001__FEATURE_WRAPPER_ELEMENT__CLASSIFIER_ELEMENT,
 				featureSerializationStructure);
 	}
 
@@ -168,9 +168,9 @@ public class XMLPersistenceExtendedMetaDataTests {
 		XMLPersistenceMappingExtendedMetaData metadata = new XMLPersistenceMappingExtendedMetaDataImpl(identitySerializationStructureConfiguration);
 
 		EStructuralFeature feature = NodesPackage.eINSTANCE.getNode_EReference_NoAnnotationMany();
-		int featureSerializationStructure = metadata.getFeatureSerializationStructure(feature);
+		int featureSerializationStructure = metadata.getXMLPersistenceMappingStrategy(feature);
 		// use default: standard emf serialization structure
-		assertSame(XMLPersistenceMappingExtendedMetaData.SERIALIZATION_STRUCTURE__0100__FEATURE_ELEMENT, featureSerializationStructure);
+		assertSame(XMLPersistenceMappingExtendedMetaData.XML_PERSISTENCE_MAPPING_STRATEGY__0100__FEATURE_ELEMENT, featureSerializationStructure);
 	}
 
 	@Test

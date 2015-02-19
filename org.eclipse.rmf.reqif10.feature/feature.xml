@@ -28,15 +28,12 @@ http://www.eclipse.org/legal/epl-v10.html
          id="org.eclipse.rmf.reqif10.thirdparty.feature"
          version="0.0.0"/>
 
-   <plugin
-         id="org.eclipse.rmf.reqif10"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+   <requires>
+      <import feature="org.eclipse.sphinx.emf.serialization" version="0.8.1.201409171422" match="greaterOrEqual"/>
+   </requires>
 
    <plugin
-         id="org.eclipse.rmf.serialization"
+         id="org.eclipse.rmf.reqif10"
          download-size="0"
          install-size="0"
          version="0.0.0"
