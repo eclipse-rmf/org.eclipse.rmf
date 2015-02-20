@@ -1,29 +1,15 @@
-/*******************************************************************************
- * Copyright (c) 2011, 2013 Formal Mind GmbH and University of Dusseldorf.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *     Michael Jastram - initial API and implementation
- ******************************************************************************/
-
+/**
+ */
 package org.eclipse.rmf.reqif10.pror.configuration.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.rmf.reqif10.pror.configuration.*;
-import org.eclipse.rmf.reqif10.pror.configuration.Column;
-import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
-import org.eclipse.rmf.reqif10.pror.configuration.LabelConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrGeneralConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 
 /**
  * <!-- begin-user-doc -->
@@ -257,4 +243,4 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //ConfigAdapterFactory
+} //ConfigurationAdapterFactory

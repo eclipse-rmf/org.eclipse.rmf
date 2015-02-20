@@ -1,24 +1,20 @@
-/*******************************************************************************
- * Copyright (c) 2011, 2013 Formal Mind GmbH and University of Dusseldorf.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *     Michael Jastram - initial API and implementation
- ******************************************************************************/
-
+/**
+ */
 package org.eclipse.rmf.reqif10.pror.configuration.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
+
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+
 import org.eclipse.rmf.reqif10.impl.ReqIF10PackageImpl;
+
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
@@ -29,7 +25,6 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
-
 
 /**
  * <!-- begin-user-doc -->
@@ -618,4 +613,4 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		   });
 	}
 
-} //ConfigPackageImpl
+} //ConfigurationPackageImpl

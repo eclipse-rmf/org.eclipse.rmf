@@ -23,11 +23,4 @@
             genModel="model/prostep.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated prostep -->
-      <parser
-            type="prostep"
-            class="org.eclipse.rmf.ext.prostep.util.ProstepResourceFactoryImpl"/>
-   </extension>
-
 </plugin>

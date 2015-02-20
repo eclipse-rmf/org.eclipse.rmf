@@ -6,8 +6,8 @@
     usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace"
     importOrganizing="true">
   <foreignModel>configuration.ecore</foreignModel>
-  <genPackages prefix="Configuration" basePackage="org.eclipse.rmf.reqif10.pror" resource="XML"
-      disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
+  <genPackages prefix="Configuration" basePackage="org.eclipse.rmf.reqif10.pror" disposableProviderFactory="true"
+      fileExtensions="" ecorePackage="configuration.ecore#/">
     <genClasses image="false" ecoreClass="configuration.ecore#//ProrToolExtension">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrToolExtension/specViewConfigurations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProrToolExtension/generalConfiguration"/>
@@ -36,8 +36,8 @@
     </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//UnifiedColumn"/>
   </genPackages>
-  <genPackages prefix="ReqIF10" basePackage="org.eclipse.rmf" resource="XML" disposableProviderFactory="true"
-      providerPackageSuffix="pror.provider" ecorePackage="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#/">
+  <genPackages prefix="ReqIF10" basePackage="org.eclipse.rmf" disposableProviderFactory="true"
+      providerPackageSuffix="pror.provider" fileExtensions="" ecorePackage="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#/">
     <genDataTypes ecoreDataType="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//DateTime"/>
     <genDataTypes ecoreDataType="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//ID"/>
     <genClasses image="false" ecoreClass="../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AccessControlledElement">
