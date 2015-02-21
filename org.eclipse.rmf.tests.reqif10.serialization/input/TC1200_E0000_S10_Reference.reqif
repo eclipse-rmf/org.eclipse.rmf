@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<reqif:REQ-IF xmlns:reqif="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <reqif:THE-HEADER>
-    <reqif:REQ-IF-HEADER IDENTIFIER="ID_TC1200_ReqIfHeader">
-      <reqif:CREATION-TIME>2013-08-13T16:58:30.965+02:00</reqif:CREATION-TIME>
-      <reqif:REQ-IF-TOOL-ID>RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)</reqif:REQ-IF-TOOL-ID>
-      <reqif:REQ-IF-VERSION>1.0</reqif:REQ-IF-VERSION>
-      <reqif:SOURCE-TOOL-ID>RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)</reqif:SOURCE-TOOL-ID>
-      <reqif:TITLE>TC 1200 'Formated Content'</reqif:TITLE>
-    </reqif:REQ-IF-HEADER>
-  </reqif:THE-HEADER>
-  <reqif:CORE-CONTENT>
-    <reqif:REQ-IF-CONTENT>
-      <reqif:DATATYPES>
-        <reqif:DATATYPE-DEFINITION-XHTML IDENTIFIER="ID_TC1200_DatatypeDefinitionXHTML" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1200 XHTML"/>
-        <reqif:DATATYPE-DEFINITION-STRING IDENTIFIER="ID_TC1200_DatatypeDefinitionString" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1200 String" MAX-LENGTH="255"/>
-      </reqif:DATATYPES>
-      <reqif:SPEC-TYPES>
-        <reqif:SPEC-OBJECT-TYPE IDENTIFIER="ID_TC1200_SpecObjectType" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1200 SpecObjectType">
-          <reqif:SPEC-ATTRIBUTES>
-            <reqif:ATTRIBUTE-DEFINITION-XHTML IDENTIFIER="ID_TC1200_AttributeDefinitionXHTML" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1200 AttributeDefinitionXHTML">
-              <reqif:TYPE>
-                <reqif:DATATYPE-DEFINITION-XHTML-REF>ID_TC1200_DatatypeDefinitionXHTML</reqif:DATATYPE-DEFINITION-XHTML-REF>
-              </reqif:TYPE>
-            </reqif:ATTRIBUTE-DEFINITION-XHTML>
-            <reqif:ATTRIBUTE-DEFINITION-STRING IDENTIFIER="ID_TC1200_AttributeDefinitionString" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1200 AttributeDefinitionString">
-              <reqif:TYPE>
-                <reqif:DATATYPE-DEFINITION-STRING-REF>ID_TC1200_DatatypeDefinitionString</reqif:DATATYPE-DEFINITION-STRING-REF>
-              </reqif:TYPE>
-            </reqif:ATTRIBUTE-DEFINITION-STRING>
-          </reqif:SPEC-ATTRIBUTES>
-        </reqif:SPEC-OBJECT-TYPE>
-        <reqif:SPECIFICATION-TYPE IDENTIFIER="ID_TC1200_SpecificationType" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1200 SpecificationType"/>
-      </reqif:SPEC-TYPES>
-      <reqif:SPEC-OBJECTS>
-        <reqif:SPEC-OBJECT IDENTIFIER="ID_TC1200_SpecObject_xhtml.a.type" LAST-CHANGE="2012-04-07T01:51:37.112+02:00">
-          <reqif:VALUES>
-            <reqif:ATTRIBUTE-VALUE-STRING THE-VALUE="xhtml.a.type">
-              <reqif:DEFINITION>
-                <reqif:ATTRIBUTE-DEFINITION-STRING-REF>ID_TC1200_AttributeDefinitionString</reqif:ATTRIBUTE-DEFINITION-STRING-REF>
-              </reqif:DEFINITION>
-            </reqif:ATTRIBUTE-VALUE-STRING>
-            <reqif:ATTRIBUTE-VALUE-XHTML>
-              <reqif:DEFINITION>
-                <reqif:ATTRIBUTE-DEFINITION-XHTML-REF>ID_TC1200_AttributeDefinitionXHTML</reqif:ATTRIBUTE-DEFINITION-XHTML-REF>
-              </reqif:DEFINITION>
-              <reqif:THE-VALUE>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="rmf-3a1a7a04-0f5e-417a-ad77-40ab1842c534">
+      <CREATION-TIME>2013-08-13T16:58:30.965+02:00</CREATION-TIME>
+      <REQ-IF-TOOL-ID>RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)</REQ-IF-TOOL-ID>
+      <REQ-IF-VERSION>1.0</REQ-IF-VERSION>
+      <SOURCE-TOOL-ID>RMF - Requirements Modeling Framework (http://www.eclipse.org/rmf)</SOURCE-TOOL-ID>
+      <TITLE>TC 1200 'Formated Content'</TITLE>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-XHTML IDENTIFIER="ID_TC1200_DatatypeDefinitionXHTML" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1200 XHTML"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="ID_TC1200_DatatypeDefinitionString" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1200 String" MAX-LENGTH="255"/>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-OBJECT-TYPE IDENTIFIER="ID_TC1200_SpecObjectType" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1200 SpecObjectType">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-XHTML IDENTIFIER="ID_TC1200_AttributeDefinitionXHTML" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1200 AttributeDefinitionXHTML">
+              <TYPE>
+                <DATATYPE-DEFINITION-XHTML-REF>ID_TC1200_DatatypeDefinitionXHTML</DATATYPE-DEFINITION-XHTML-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-XHTML>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="ID_TC1200_AttributeDefinitionString" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1200 AttributeDefinitionString">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>ID_TC1200_DatatypeDefinitionString</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE IDENTIFIER="ID_TC1200_SpecificationType" LAST-CHANGE="2012-04-07T01:51:37.112+02:00" LONG-NAME="TC1200 SpecificationType"/>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT IDENTIFIER="ID_TC1200_SpecObject_xhtml.a.type" LAST-CHANGE="2012-04-07T01:51:37.112+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="xhtml.a.type">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>ID_TC1200_AttributeDefinitionString</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>ID_TC1200_AttributeDefinitionXHTML</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
                 <xhtml:p>XhtmlPType<xhtml:a accesskey="a" charset="UTF-8" href="http://eclipse.org/rmf" hreflang="en" rel="LinkTypes" rev="LinkTypes" style="text-decoration:underline" tabindex="1" title="text" type="text/html">
                     text before br<xhtml:br/>text after br
                     text before span<xhtml:span>XhtmlSpanType</xhtml:span>text after span
@@ -68,28 +68,60 @@
                     text before sup<xhtml:sup>XhtmlInlPresType</xhtml:sup>text after sup
                     text before ins<xhtml:ins>XhtmlEditType</xhtml:ins>text after ins
                     text before del<xhtml:del>XhtmlEditType</xhtml:del>text after del</xhtml:a></xhtml:p>
-              </reqif:THE-VALUE>
-            </reqif:ATTRIBUTE-VALUE-XHTML>
-          </reqif:VALUES>
-          <reqif:TYPE>
-            <reqif:SPEC-OBJECT-TYPE-REF>ID_TC1200_SpecObjectType</reqif:SPEC-OBJECT-TYPE-REF>
-          </reqif:TYPE>
-        </reqif:SPEC-OBJECT>
-      </reqif:SPEC-OBJECTS>
-      <reqif:SPECIFICATIONS>
-        <reqif:SPECIFICATION IDENTIFIER="ID_TC1200_Specification" LAST-CHANGE="2012-04-07T01:51:37.112+02:00">
-          <reqif:TYPE>
-            <reqif:SPECIFICATION-TYPE-REF>ID_TC1200_SpecificationType</reqif:SPECIFICATION-TYPE-REF>
-          </reqif:TYPE>
-          <reqif:CHILDREN>
-            <reqif:SPEC-HIERARCHY IDENTIFIER="ID_TC1200_SpecHierarchy_16" LAST-CHANGE="2012-04-07T01:51:37.112+02:00">
-              <reqif:OBJECT>
-                <reqif:SPEC-OBJECT-REF>ID_TC1200_SpecObject_xhtml.a.type</reqif:SPEC-OBJECT-REF>
-              </reqif:OBJECT>
-            </reqif:SPEC-HIERARCHY>
-          </reqif:CHILDREN>
-        </reqif:SPECIFICATION>
-      </reqif:SPECIFICATIONS>
-    </reqif:REQ-IF-CONTENT>
-  </reqif:CORE-CONTENT>
-</reqif:REQ-IF>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>ID_TC1200_SpecObjectType</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="ID_TC1200_Specification" LAST-CHANGE="2012-04-07T01:51:37.112+02:00">
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>ID_TC1200_SpecificationType</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="ID_TC1200_SpecHierarchy_16" LAST-CHANGE="2012-04-07T01:51:37.112+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>ID_TC1200_SpecObject_xhtml.a.type</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration specification="ID_TC1200_Specification">
+            <configuration:columns>
+              <configuration:Column label="TC1200 AttributeDefinitionXHTML" width="100"/>
+              <configuration:Column label="TC1200 AttributeDefinitionString" width="100"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration>
+                <defaultLabel>ReqIF.ChapterNumber</defaultLabel>
+                <defaultLabel>ReqIF.ChapterName</defaultLabel>
+                <defaultLabel>ReqIF.Name</defaultLabel>
+                <defaultLabel>ReqIF.Text</defaultLabel>
+                <defaultLabel>ID</defaultLabel>
+                <defaultLabel>Name</defaultLabel>
+                <defaultLabel>Description</defaultLabel>
+              </configuration:LabelConfiguration>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+      </configuration:ProrToolExtension>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>
