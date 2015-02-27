@@ -160,12 +160,12 @@ public class ProrEditorUtil {
 							if (content != null) {
 								html.append(content);
 							} else {
-								html.append(getDefaultValue(av));
+								html.append(HTMLPrinter.normalizeHtmlString(getDefaultValue(av)));
 							}
 						}
 
 					} else {
-						html.append(getDefaultValue(av));
+						html.append(HTMLPrinter.normalizeHtmlString(getDefaultValue(av)));
 					}
 
 					if (first) {

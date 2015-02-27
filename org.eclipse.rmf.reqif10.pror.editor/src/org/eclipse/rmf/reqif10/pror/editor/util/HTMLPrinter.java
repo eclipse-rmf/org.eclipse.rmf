@@ -193,12 +193,12 @@ public class HTMLPrinter {
 							if (content != null) {
 								html.append(content);
 							} else {
-								html.append(getValueAsString(av));
+								html.append(HTMLPrinter.normalizeHtmlString(getValueAsString(av)));
 							}
 						}
 
 					} else {
-						html.append(getValueAsString(av));
+						html.append(HTMLPrinter.normalizeHtmlString(getValueAsString(av)));
 					}
 
 					if (first) {
@@ -298,5 +298,33 @@ public class HTMLPrinter {
 		}
 		return textValue;
 	}
+	
+	
+	/**
+	 * O.T.G.O.T.L.J.C. - david lall
+	 * @Bugfix 456675
+	 * Normalize a string using decimal code to render non-english language characters in html. 
+	 * @param inputStr
+	 */
+	public static String normalizeHtmlString(String inputStr){
+		//1. Parameter condition check.
+		if(inputStr==null || inputStr.trim().length()==0)
+			return "";
+		
+		//2. Convert each char of input string to its decimal code & apply formatting.  
+		StringBuilder htmlString = new StringBuilder();
+		inputStr=inputStr.trim();
+		for(int i=0;i<inputStr.length();i++){
+			int decimalValue=(int)inputStr.charAt(i);
+			if((decimalValue>=48 && decimalValue<=57) || (decimalValue>=65 && decimalValue<=90) || (decimalValue>=97 && decimalValue<=122)){
+				htmlString.append((char)decimalValue);
+			}//end of if
+			else{
+				htmlString.append("&#"+decimalValue+";");
+			}//end of else
+		}//end of for
+		
+		return htmlString.toString();
+	}//end of method
 
 }
