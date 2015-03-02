@@ -11,8 +11,10 @@
 package org.eclipse.rmf.reqif10.pror.editor.util;
 
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
@@ -94,7 +96,7 @@ public class HTMLPrinter {
 
 		// Write the HTML
 		File htmlFile = new File(targetFolder, spec.getIdentifier() + ".html");
-		FileWriter writer = new FileWriter(htmlFile);
+		OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(htmlFile),Charset.forName("UTF-8").newEncoder());
 		writer.write(html.toString());
 		writer.close();
 		htmlFile.deleteOnExit();
@@ -193,12 +195,12 @@ public class HTMLPrinter {
 							if (content != null) {
 								html.append(content);
 							} else {
-								html.append(HTMLPrinter.normalizeHtmlString(getValueAsString(av)));
+								html.append(getValueAsString(av));
 							}
 						}
 
 					} else {
-						html.append(HTMLPrinter.normalizeHtmlString(getValueAsString(av)));
+						html.append(getValueAsString(av));
 					}
 
 					if (first) {
@@ -299,32 +301,4 @@ public class HTMLPrinter {
 		return textValue;
 	}
 	
-	
-	/**
-	 * O.T.G.O.T.L.J.C. - david lall
-	 * @Bugfix 456675
-	 * Normalize a string using decimal code to render non-english language characters in html. 
-	 * @param inputStr
-	 */
-	public static String normalizeHtmlString(String inputStr){
-		//1. Parameter condition check.
-		if(inputStr==null || inputStr.trim().length()==0)
-			return "";
-		
-		//2. Convert each char of input string to its decimal code & apply formatting.  
-		StringBuilder htmlString = new StringBuilder();
-		inputStr=inputStr.trim();
-		for(int i=0;i<inputStr.length();i++){
-			int decimalValue=(int)inputStr.charAt(i);
-			if((decimalValue>=48 && decimalValue<=57) || (decimalValue>=65 && decimalValue<=90) || (decimalValue>=97 && decimalValue<=122)){
-				htmlString.append((char)decimalValue);
-			}//end of if
-			else{
-				htmlString.append("&#"+decimalValue+";");
-			}//end of else
-		}//end of for
-		
-		return htmlString.toString();
-	}//end of method
-
 }
