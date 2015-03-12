@@ -29,6 +29,8 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.common.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
@@ -242,7 +244,20 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 			AttributeValue av = ReqIF10Util.getAttributeValueForLabel(element,
 					"ReqIF.ChapterName");
 			if (av != null && ReqIF10Util.getTheValue(av) != null) {
-				return av;
+				Object value = ReqIF10Util.getTheValue(av);
+				if (value instanceof XhtmlContent) {
+					XhtmlContent xhtmlContent = (XhtmlContent) value;
+					String s = ProrXhtmlSimplifiedHelper
+							.xhtmlToSimplifiedString(xhtmlContent);
+					if (s != null && s.trim().length() > 0) {
+						return av;
+					}
+
+				} else {
+					if (value.toString().trim().length() > 0) {
+						return av;
+					}
+				}
 			}
 			return ReqIF10Util.getAttributeValueForLabel(element, "ReqIF.Text");
 		}
