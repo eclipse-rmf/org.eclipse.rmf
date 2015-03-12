@@ -323,11 +323,11 @@ public class ConfigurationUtil {
 		}
 
 		
-		// Collect all names from the types
+		// Collect all names from the types.  We use a list to maintain order.
 		final List<String> colNames = new ArrayList<String>();
 		for (SpecType type : types) {
 			for (AttributeDefinition ad : type.getSpecAttributes()) {
-				// Duplicates will disappear due to HashSet
+				
 				String colName = ad.getLongName();
 				if (colName != null && !colNames.contains(colName)) {
 					colNames.add(ad.getLongName());
@@ -346,6 +346,7 @@ public class ConfigurationUtil {
 				if (unifiedColumn) continue;
 				column = ConfigurationFactory.eINSTANCE.createUnifiedColumn();
 				colName = "Main";
+				unifiedColumn = true;
 			}
 			
 			column.setWidth(100);
