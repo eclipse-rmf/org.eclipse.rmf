@@ -60,12 +60,14 @@ import org.eclipse.rmf.reqif10.pror.presentation.ui.IdLabelCellRenderer;
  * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * @generated
+ * @generated NOT
  */
 public class IdConfigurationItemProvider
 	extends ProrPresentationConfigurationItemProvider
 	implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+		IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
+		PresentationEditorInterface {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
