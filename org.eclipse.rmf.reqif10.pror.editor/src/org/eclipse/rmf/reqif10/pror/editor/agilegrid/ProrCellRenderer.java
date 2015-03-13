@@ -139,7 +139,7 @@ public class ProrCellRenderer extends AbstractProrSpecCellRenderer {
 
 		ProrRow prorRow = contentProvider.getProrRow(row);
 
-		int offset = prorRow.getLevel() * 20;
+		int offset = prorRow.getLevel() * 8;
 		Image icon;
 		if (prorRow.getSpecElement() instanceof SpecObject) {
 			icon = specObjectIcon;
