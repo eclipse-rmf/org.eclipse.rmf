@@ -94,12 +94,12 @@ public class ReqIFSearchQuery implements ISearchQuery {
 
 	@Override
 	public boolean canRerun() {
-		return true;
+		return false;
 	}
 
 	@Override
 	public boolean canRunInBackground() {
-		return true;
+		return false;
 	}
 
 	@Override

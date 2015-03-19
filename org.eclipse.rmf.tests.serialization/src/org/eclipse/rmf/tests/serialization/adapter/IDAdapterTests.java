@@ -22,13 +22,13 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesFactory;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
 import org.eclipse.rmf.tests.serialization.model.nodes.serialization.NodesResourceFactoryImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.serialization.NodesResourceImpl;
 import org.eclipse.rmf.tests.serialization.util.AbstractTestCase;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResource;
 import org.junit.Before;
 import org.junit.Test;
 

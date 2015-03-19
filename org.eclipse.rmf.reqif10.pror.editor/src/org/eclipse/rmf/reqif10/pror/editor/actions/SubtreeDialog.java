@@ -45,8 +45,8 @@ import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.ProrAdapterFactoryContentProvider;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertySheetPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
@@ -92,9 +92,9 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	private final List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
 	private final AdapterFactory adapterFactory;
 	private final EditingDomain editingDomain;
-	private final Reqif10Editor reqifEditor;
+	private final IReqifEditor reqifEditor;
 
-	protected SubtreeDialog(Reqif10Editor reqifEditor, EObject input, String title,
+	protected SubtreeDialog(IReqifEditor reqifEditor, EObject input, String title,
 			String helpContext) {
 		super(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
 		this.reqifEditor = reqifEditor;

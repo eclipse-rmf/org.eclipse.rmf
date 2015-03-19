@@ -23,9 +23,9 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
 import org.eclipse.rmf.tests.serialization.util.AbstractTestCase;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.junit.Before;
 import org.xml.sax.InputSource;
 

@@ -35,8 +35,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
+import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -184,7 +184,7 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 
 	/**
 	 * This method is called if a selection was changed in the
-	 * {@link SpecificationEditor}.
+	 * {@link ISpecificationEditor}.
 	 */
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 		EditingDomain newEditingDomain = null;

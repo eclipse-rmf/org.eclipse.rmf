@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contexts>
+   <context id="reqifSearchHelp" title="ReqIF Search">
+      <description>Allows you to search the active ReqIF file.  Add as many criteria as you like.  Upon search, the result will be shown in the Search View.  See the Handbook for more details.
+
+Please consult the Handbook for more information.</description>
+      <topic href="../com.formalmind.handbook/sec-search.html" label="Details on Search (right-click to open in new window)"/>
+   </context>
+</contexts>

@@ -32,6 +32,7 @@ import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIFContentItemProvider;
 import org.eclipse.rmf.reqif10.pror.provider.VirtualSpecificationsItemProvider;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
@@ -40,9 +41,6 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.events.ExpansionAdapter;
 import org.eclipse.ui.forms.events.ExpansionEvent;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -50,7 +48,6 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
-import org.eclipse.ui.ide.IDE;
 
 /**
  * 
@@ -67,13 +64,13 @@ public class ReqifMainForm {
 
 	private final ReqIF reqif;
 
-	private final Reqif10Editor reqifEditor;
+	private final IReqifEditor reqifEditor;
 
 	private ComposedAdapterFactory getAdapterFactory() {
 		return (ComposedAdapterFactory) reqifEditor.getAdapterFactory();
 	}
 
-	public ReqifMainForm(Composite parent, Reqif10Editor rifEditor) {
+	public ReqifMainForm(Composite parent, IReqifEditor rifEditor) {
 
 		this.reqifEditor = rifEditor;
 		this.reqif = rifEditor.getReqif();
@@ -178,7 +175,7 @@ public class ReqifMainForm {
 				Object element = ((IStructuredSelection) event.getSelection())
 						.getFirstElement();
 				if (element instanceof Specification) {
-					openSpec((Specification) element);
+					reqifEditor.openSpecEditor((Specification) element);
 				}
 			}
 		});
@@ -303,18 +300,6 @@ public class ReqifMainForm {
 
 	public ScrolledForm getForm() {
 		return form;
-	}
-
-	private void openSpec(Specification spec) {
-		try {
-			IWorkbenchPage page = PlatformUI.getWorkbench()
-					.getActiveWorkbenchWindow().getActivePage();
-			ReqifSpecificationEditorInput editorInput = new ReqifSpecificationEditorInput(
-					reqifEditor, spec);
-			IDE.openEditor(page, editorInput, SpecificationEditor.EDITOR_ID);
-		} catch (PartInitException e) {
-			e.printStackTrace();
-		}
 	}
 
 	private String getString(String key) {

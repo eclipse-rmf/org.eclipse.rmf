@@ -10,8 +10,12 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipse.rmf.reqif10.search.criteria,
  org.eclipse.rmf.reqif10.search.criteria.impl,
  org.eclipse.rmf.reqif10.search.criteria.util,
+ org.eclipse.rmf.reqif10.search.filter,
  org.eclipse.rmf.reqif10.search.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.rmf.reqif10
+ org.eclipse.rmf.reqif10,
+ com.google.guava,
+ org.eclipse.rmf.reqif10.pror;bundle-version="0.11.0"
 Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.rmf.reqif10.common.util

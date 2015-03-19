@@ -18,5 +18,9 @@
 <unit id="org.apache.poi" version="3.9.0.v201405241750"/>
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository"/>
 </location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.sphinx.emf.serialization.feature.group" version="0.8.1.201409171422"/>
+<repository location="http://download.eclipse.org/sphinx/updates/releases/0.8.x"/>
+</location>
 </locations>
 </target>

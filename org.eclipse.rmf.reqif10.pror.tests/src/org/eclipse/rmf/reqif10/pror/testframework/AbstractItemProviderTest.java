@@ -46,7 +46,7 @@ import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.testdata.TestData;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceImpl;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceSetImpl;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceSetImpl;
 import org.junit.After;
 import org.junit.Before;
 

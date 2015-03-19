@@ -1,28 +1,15 @@
-/*******************************************************************************
- * Copyright (c) 2011, 2013 Formal Mind GmbH and University of Dusseldorf.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *     Michael Jastram - initial API and implementation
- ******************************************************************************/
-
+/**
+ */
 package org.eclipse.rmf.reqif10.pror.configuration.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.rmf.reqif10.pror.configuration.Column;
-import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
-import org.eclipse.rmf.reqif10.pror.configuration.LabelConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrGeneralConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
+
+import org.eclipse.rmf.reqif10.pror.configuration.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -107,6 +94,10 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseLabelConfiguration(LabelConfiguration object) {
 				return createLabelConfigurationAdapter();
+			}
+			@Override
+			public Adapter caseUnifiedColumn(UnifiedColumn object) {
+				return createUnifiedColumnAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -227,6 +218,20 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn <em>Unified Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn
+	 * @generated
+	 */
+	public Adapter createUnifiedColumnAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for the default case.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null.
@@ -238,4 +243,4 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //ConfigAdapterFactory
+} //ConfigurationAdapterFactory

@@ -14,9 +14,7 @@ package org.eclipse.rmf.reqif10.search.ui;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -27,17 +25,16 @@ import org.eclipse.search.ui.ISearchResultListener;
 
 /**
  * @author Hussein MHANNA
- * 
  */
 public class UsageSearchResult implements ISearchResult {
 
-	private final ReqIFSearchQuery query;
+	private final ISearchQuery query;
 
 	private final Map<Resource, Collection<EObject>> searchEntries;
 
 	private final Collection<ISearchResultListener> searchResultListeners = new ArrayList<ISearchResultListener>();
 
-	public UsageSearchResult(final ReqIFSearchQuery query) {
+	public UsageSearchResult(final ISearchQuery query) {
 		this.query = query;
 		this.searchEntries = new HashMap<Resource, Collection<EObject>>();
 	}
@@ -66,29 +63,28 @@ public class UsageSearchResult implements ISearchResult {
 	 */
 	@Override
 	public String getLabel() {
-		StringBuilder builder = new StringBuilder("Search in files '");
-		int resultFoundSize = 0;
-		for (Entry<Resource, Collection<EObject>> entry : searchEntries
-				.entrySet()) {
-			if (false == entry.getValue().isEmpty()) {
-				resultFoundSize++;
+		StringBuilder builder = new StringBuilder();
+
+		// add a maximum of 3 filenames
+		int count = 0;
+		for (Resource resource : searchEntries.keySet()) {
+			builder.append(resource.getURI().lastSegment());
+			if (++count > 2) {
+				builder.append("..., ");
+				break;
+			} else {
+				builder.append(", ");
 			}
 		}
-		// to limit the label, we take only max three resources
-		int max = resultFoundSize > 0 ? Math.min(3, resultFoundSize) : 3;
-		int count = 0;
-		Collection<Resource> resources = searchEntries.keySet();
-		for (Iterator<Resource> iterator = resources.iterator(); iterator
-				.hasNext() && count < max;) {
-			Resource resource = iterator.next();
-			builder.append(resource.getURI().lastSegment()).append(" - ");
-			count++;
+
+		Collection<Collection<EObject>> entries = searchEntries.values();
+		int total = 0;
+		for (Collection<EObject> entry : entries) {
+			total += entry.size();
 		}
-		if (count < resultFoundSize) {
-			builder.append("... - ");
-		}
-		builder.append("' result : ").append(resultFoundSize)
-				.append(" occurences");
+
+		builder.append("count: ").append(total).append(". Query: \"")
+				.append(query.getLabel()).append("\"");
 		return builder.toString();
 	}
 

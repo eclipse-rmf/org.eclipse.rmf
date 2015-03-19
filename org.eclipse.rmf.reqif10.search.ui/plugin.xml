@@ -7,6 +7,40 @@
 <plugin>
 
    <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="org.eclipse.rmf.reqif10.search.ui.SpecificationEditorSearchNavigation"
+            targetID="org.eclipse.rmf.reqif10.pror.SpecificationEditor">
+         <action
+               class="org.eclipse.rmf.reqif10.search.ui.ResultNavigator"
+               enablesFor="999999"
+               icon="icons/full/obj16/Next_Result.png"
+               id="org.eclipse.rmf.reqif10.search.next"
+               label="Next Search Result"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+            <class
+                  class="org.eclipse.rmf.reqif10.search.ui.ResultNavigator">
+            </class>
+         </action>
+         <action
+               class="org.eclipse.rmf.reqif10.search.ui.ResultNavigator"
+               enablesFor="999999"
+               icon="icons/full/obj16/Prev_Result.png"
+               id="org.eclipse.rmf.reqif10.search.prev"
+               label="Previous Search Result"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+            <class
+                  class="org.eclipse.rmf.reqif10.search.ui.ResultNavigator">
+            </class>
+         </action>
+      </editorContribution>
+   </extension>
+
+   <extension
          point="org.eclipse.search.searchResultViewPages">
       <viewPage
             class="org.eclipse.rmf.reqif10.search.ui.ReqIFSearchResultPage"
@@ -20,9 +54,25 @@
             class="org.eclipse.rmf.reqif10.search.ui.ReqIFSearchPage"
             icon="icons/full/obj16/ReqIf.png"
             id="org.eclipse.rmf.reqif10.search.ui.page.reqif"
-            label="ReqIF"
-            showScopeSection="true">
+            label="ReqIF Search (Raw)"
+            showScopeSection="true"
+            tabPosition="0">
+      </page>
+      <page
+            class="org.eclipse.rmf.reqif10.search.filter.ui.ReqIFSearchPage"
+            icon="icons/full/obj16/ReqIf.png"
+            id="org.eclipse.rmf.reqif10.search.filter.ui.page"
+            label="ReqIF Search"
+            searchViewHelpContextId="reqifSearchHelp"
+            showScopeSection="false"
+            tabPosition="0">
       </page>
    </extension>
-
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="help-contexts.xml"
+            plugin="org.eclipse.rmf.reqif10.search.ui">
+      </contexts>
+   </extension>
 </plugin>

@@ -20,8 +20,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.configuration.LabelConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrGeneralConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor;
-import org.eclipse.rmf.reqif10.pror.editor.presentation.SpecificationEditor;
+import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
@@ -29,16 +28,14 @@ import org.eclipse.ui.IEditorPart;
 public class GeneralConfigurationActionDelegate implements
 		IEditorActionDelegate {
 
-	private Reqif10Editor editor;
+	private IReqifEditor editor;
 
 	/**
 	 * Retrieves the {@link EditingDomain} from the Editor if present.
 	 */
 	public void setActiveEditor(IAction action, IEditorPart editor) {
-		if (editor instanceof Reqif10Editor) {
-			this.editor = (Reqif10Editor) editor;
-		} else if (editor instanceof SpecificationEditor) {
-			this.editor = ((SpecificationEditor) editor).getReqifEditor();
+		if (editor instanceof IReqifEditor) {
+			this.editor = (IReqifEditor) editor;
 		} else {
 			this.editor = null;
 		}

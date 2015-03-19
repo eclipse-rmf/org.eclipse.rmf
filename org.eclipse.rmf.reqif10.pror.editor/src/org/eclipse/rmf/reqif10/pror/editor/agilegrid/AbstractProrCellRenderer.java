@@ -27,11 +27,12 @@ import org.eclipse.rmf.reqif10.AttributeValueBoolean;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.common.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
-import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
@@ -48,10 +49,13 @@ import org.eclipse.ui.PlatformUI;
 /**
  * @author Lukas Ladenberger
  * @author Ingo Weigelt
+ * @author Michael Jastram
  */
 public class AbstractProrCellRenderer extends TextCellRenderer {
 
 	protected final AdapterFactory adapterFactory;
+
+	public static Color COLOR_RED = SWTResourceManager.getColor(SWT.COLOR_RED);
 
 	private final Image IMG_WARN_FALSE = PlatformUI.getWorkbench()
 			.getSharedImages().getImage(ISharedImages.IMG_OBJS_INFO_TSK);
@@ -89,7 +93,7 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 			if (v instanceof GregorianCalendar) {
 				GregorianCalendar cal = (GregorianCalendar) v;
 				Date date = cal.getTime();
-				stringValue = DateFormat.getDateInstance().format(date);
+				stringValue = DateFormat.getDateTimeInstance().format(date);
 			} else if (v instanceof List<?>) {
 				stringValue = convertListToString((List<?>) v);
 			} else if (v instanceof XhtmlContent && v != null) {
@@ -157,6 +161,8 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 	protected void initialColor(int row, int col) {
 		if (agileGrid.isCellSelected(row, col)) {
 			background = SWTResourceManager.getColor(223, 227, 237);
+		} else {
+			background = SWTResourceManager.getColor(SWT.COLOR_WHITE);
 		}
 	}
 

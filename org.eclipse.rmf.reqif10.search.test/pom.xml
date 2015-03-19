@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.eclipse.rmf</groupId>
+		<artifactId>org.eclipse.rmf.releng</artifactId>
+		<version>0.12.0-SNAPSHOT</version>
+		<relativePath>../org.eclipse.rmf.releng/pom.xml</relativePath>
+	</parent>
+	<groupId>org.eclipse.rmf.plugins</groupId>
+	<artifactId>org.eclipse.rmf.reqif10.search.test</artifactId>
+	<properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	</properties>
+	<packaging>eclipse-test-plugin</packaging>
+	<profiles>
+		<profile>
+			<id>macosx</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<test.vmargs>-Xmx512m -XX:MaxPermSize=256m -XstartOnFirstThread</test.vmargs>
+			</properties>
+		</profile>
+		<profile>
+			<id>other-os</id>
+			<activation>
+				<os>
+					<family>!mac</family>
+				</os>
+			</activation>
+			<properties>
+				<test.vmargs>-Xmx512m -XX:MaxPermSize=256m</test.vmargs>
+			</properties>
+		</profile>
+	</profiles>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<includes>
+						<include>**/*Test.class</include>
+					</includes>
+					<useUIHarness>false</useUIHarness>
+					<useUIThread>false</useUIThread>
+					<argLine>${test.vmargs}</argLine>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>${antrun.version}</version>
+				<executions>
+					<execution>
+						<id>generate-commit-id</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<mkdir dir="${project.build.outputDirectory}"/>
+								<touch file = "${project.build.outputDirectory}/commit-id" /> 
+								<exec executable="git" output="${project.build.outputDirectory}/commit-id">
+									<arg value="rev-parse" />
+									<arg value="HEAD" />
+								</exec>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -24,8 +24,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -36,10 +36,12 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
 import org.eclipse.rmf.reqif10.pror.editor.actions.SpecificationWebPrintAction;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGrid;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridViewer;
@@ -63,7 +65,7 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
  * @author Michael Jastram
  */
 public class SpecificationEditor extends EditorPart implements
-		IEditingDomainProvider, IMenuListener {
+		ISpecificationEditor, IMenuListener {
 
 	public static final String EDITOR_ID = "org.eclipse.rmf.reqif10.pror.SpecificationEditor";
 
@@ -107,7 +109,7 @@ public class SpecificationEditor extends EditorPart implements
 		}
 
 		// Extracting Info from the input
-		reqifEditor = ((ReqifSpecificationEditorInput) input).getReqifEditor();
+		reqifEditor = (Reqif10Editor) ((ReqifSpecificationEditorInput) input).getReqifEditor();
 		specification = ((ReqifSpecificationEditorInput) input).getSpec();
 
 		reqifActionBarContributor = (Reqif10ActionBarContributor) site
@@ -159,6 +161,10 @@ public class SpecificationEditor extends EditorPart implements
 					prorAgileGridViewer.getSelection());
 		}
 		buildContextMenu();
+	}
+	
+	public Specification getSpecification() {
+		return specification;
 	}
 
 	/**
@@ -365,7 +371,7 @@ public class SpecificationEditor extends EditorPart implements
 	}
 
 	/**
-	 * @return true
+	 * Only allowed from main editor.
 	 */
 	@Override
 	public boolean isSaveAsAllowed() {
@@ -456,16 +462,41 @@ public class SpecificationEditor extends EditorPart implements
 		return false;
 	}
 
-	public Reqif10ActionBarContributor getReqifActionBarContributor() {
-		return reqifActionBarContributor;
+	public void setFilter(ReqifFilter filter) {
+		prorAgileGridViewer.setFilter(filter);
+	}
+
+	public ReqIF getReqif() {
+		return reqifEditor.getReqif();
 	}
 
 	public AdapterFactory getAdapterFactory() {
 		return reqifEditor.getAdapterFactory();
 	}
 
-	public void setFilter(ReqifFilter filter) {
-		prorAgileGridViewer.setFilter(filter);
+	public EditingDomainActionBarContributor getActionBarContributor() {
+		return reqifEditor.getActionBarContributor();
+	}
+
+	public void addSelectionChangedListener(ISelectionChangedListener listener) {
+		reqifEditor.addSelectionChangedListener(listener);
+	}
+
+	public ISelection getSelection() {
+		return reqifEditor.getSelection();
+	}
+
+	public void removeSelectionChangedListener(
+			ISelectionChangedListener listener) {
+		reqifEditor.removeSelectionChangedListener(listener);
+	}
+
+	public void setSelection(ISelection selection) {
+		reqifEditor.setSelection(selection);
+	}
+
+	public ISpecificationEditor openSpecEditor(Specification spec) {
+		return reqifEditor.openSpecEditor(spec);
 	}
 
 }

@@ -6,8 +6,8 @@
     testsDirectory="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
     copyrightFields="false" language="" operationReflection="true" importOrganizing="true">
   <foreignModel>prostep.ecore</foreignModel>
-  <genPackages prefix="Prostep" basePackage="org.eclipse.rmf.ext" resource="XML" disposableProviderFactory="true"
-      ecorePackage="prostep.ecore#/">
+  <genPackages prefix="Prostep" basePackage="org.eclipse.rmf.ext" disposableProviderFactory="true"
+      fileExtensions="" ecorePackage="prostep.ecore#/">
     <genClasses ecoreClass="prostep.ecore#//ExchangeConversation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute prostep.ecore#//ExchangeConversation/identifier"/>
     </genClasses>

@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *   itemis AG - initial API and implementation
  */
@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.FeatureNotFoundException;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
 import org.eclipse.rmf.tests.serialization.util.AbstractTestCase;
 import org.eclipse.rmf.tests.serialization.util.LoadSaveUtil;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceFactoryImpl;
 import org.junit.Before;
 import org.junit.Test;
 

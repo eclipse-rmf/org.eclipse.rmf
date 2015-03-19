@@ -19,5 +19,9 @@
 <unit id="org.eclipse.platform.sdk" version="3.8.2.M20130131-0800"/>
 <repository location="http://download.eclipse.org/eclipse/updates/3.8"/>
 </location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.sphinx.emf.serialization.feature.group" version="0.8.1.201409171422"/>
+<repository location="http://download.eclipse.org/sphinx/updates/releases/0.8.x"/>
+</location>
 </locations>
 </target>

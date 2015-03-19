@@ -16,5 +16,9 @@
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.9.1.v20130902-0605"/>
 <repository location="http://download.eclipse.org/releases/kepler/"/>
 </location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.sphinx.emf.serialization.feature.group" version="0.8.1.201409171422"/>
+<repository location="http://download.eclipse.org/sphinx/updates/releases/0.8.x"/>
+</location>
 </locations>
 </target>

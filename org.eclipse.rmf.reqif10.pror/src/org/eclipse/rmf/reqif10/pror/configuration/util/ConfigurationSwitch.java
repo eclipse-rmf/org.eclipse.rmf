@@ -1,28 +1,13 @@
-/*******************************************************************************
- * Copyright (c) 2011, 2013 Formal Mind GmbH and University of Dusseldorf.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *     Michael Jastram - initial API and implementation
- ******************************************************************************/
-
+/**
+ */
 package org.eclipse.rmf.reqif10.pror.configuration.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.util.Switch;
-import org.eclipse.rmf.reqif10.pror.configuration.Column;
-import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
-import org.eclipse.rmf.reqif10.pror.configuration.LabelConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrGeneralConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 
+import org.eclipse.emf.ecore.util.Switch;
+
+import org.eclipse.rmf.reqif10.pror.configuration.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -120,6 +105,13 @@ public class ConfigurationSwitch<T> extends Switch<T> {
 			case ConfigurationPackage.LABEL_CONFIGURATION: {
 				LabelConfiguration labelConfiguration = (LabelConfiguration)theEObject;
 				T result = caseLabelConfiguration(labelConfiguration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigurationPackage.UNIFIED_COLUMN: {
+				UnifiedColumn unifiedColumn = (UnifiedColumn)theEObject;
+				T result = caseUnifiedColumn(unifiedColumn);
+				if (result == null) result = caseColumn(unifiedColumn);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -233,6 +225,21 @@ public class ConfigurationSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unified Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unified Column</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnifiedColumn(UnifiedColumn object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -248,4 +255,4 @@ public class ConfigurationSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //ConfigSwitch
+} //ConfigurationSwitch

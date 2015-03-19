@@ -11,7 +11,9 @@
 package org.eclipse.rmf.reqif10.pror.editor.util;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -19,24 +21,33 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.EnumValue;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.common.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
+import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
+import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
-import org.eclipse.rmf.reqif10.pror.util.ProrXhtmlSimplifiedHelper;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PlatformUI;
 
 public class ProrEditorUtil {
 
@@ -45,7 +56,7 @@ public class ProrEditorUtil {
 		StringBuilder sb = new StringBuilder();
 		String title = ConfigurationUtil.getSpecElementLabel(spec,
 				adapterFactory);
-
+		
 		sb.append("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n");
 		sb.append("<html>\n");
 		sb.append("<head>\n");
@@ -92,6 +103,10 @@ public class ProrEditorUtil {
 				textValue = xhtmlString;
 			} catch (IOException e) {
 			}
+		} else if (value instanceof GregorianCalendar) {
+			GregorianCalendar cal = (GregorianCalendar)value;
+			SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MMM-dd hh:mm:ss z");  
+			textValue = formatter.format(cal.getTime());
 		} else {
 			textValue = value.toString();
 		}
@@ -115,8 +130,19 @@ public class ProrEditorUtil {
 						html.append("<div style='margin-left: " + (indent * 20)
 								+ "px;'>");
 					}
-					AttributeValue av = ReqIF10Util.getAttributeValueForLabel(
-							specObject, col.getLabel());
+					
+					AttributeValue av;
+					if (col instanceof UnifiedColumn) {
+						av = ReqIF10Util.getAttributeValueForLabel(
+								specObject, "ReqIF.Text");
+						if (av == null || ReqIF10Util.getTheValue(av) == null) {
+							av = ReqIF10Util.getAttributeValueForLabel(
+									specObject, "ReqIF.ChapterName");							
+						}
+					} else {
+						av = ReqIF10Util.getAttributeValueForLabel(
+								specObject, col.getLabel());
+					}
 					DatatypeDefinition dd = ReqIF10Util
 							.getDatatypeDefinition(av);
 					ProrPresentationConfiguration configuration = ConfigurationUtil
@@ -189,5 +215,60 @@ public class ProrEditorUtil {
 			}
 		};
 	}
+	
+	/**
+	 * Attempts to find the {@link IReqifEditor} or {@link ISpecificationEditor}
+	 * for the given EObject by walking up the parent hierarchy to the enclosing
+	 * {@link ReqIF} or {@link Specification}. If the {@link IReqifEditor} is
+	 * found for a Specification, the corresponding editor will be opened.
+	 * 
+	 * @return the Editor or null if none found.
+	 */
+	public static IEditorPart getEditor(EObject eObject) {
+		ReqIF reqif = null;
+		Specification spec = null;
+		while (eObject != null) {
+			if (eObject instanceof Specification) {
+				spec = (Specification) eObject;
+			}
+			if (eObject instanceof ReqIF) {
+				reqif = (ReqIF) eObject;
+				break;
+			}
+			eObject = eObject.eContainer();
+		}
+		if (reqif == null) return null;
+		
+		// Find the editor(s)
+		IWorkbenchPage activePage = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				.getActivePage();
+
+		IEditorReference[] eRefs = activePage.getEditorReferences();
+		for (IEditorReference eRef : eRefs) {
+			IEditorPart editor = eRef.getEditor(false);
+			if (editor instanceof ISpecificationEditor) {
+				ISpecificationEditor specEditor = (ISpecificationEditor) editor;
+
+				// Case 1: We found the right SpecificationEditor
+				if (specEditor.getSpecification().equals(spec)) {
+					return specEditor;
+				}
+			}
+			if (editor instanceof IReqifEditor) {
+				IReqifEditor reqifEditor = (IReqifEditor) editor;
+				if (reqifEditor.getReqif().equals(reqif)) {
+					
+					// Case 2: We found the right Reqif10Editor
+					if (spec == null) return reqifEditor;
+					
+					// Case 3: We found the Reqif10Editor, but need the SpecificationEditor
+					return reqifEditor.openSpecEditor(spec);
+				}
+			}
+		}
+		// Case 4: Nothing found
+		return null;		
+	}
+
 	
 }

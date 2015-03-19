@@ -41,6 +41,7 @@ import org.eclipse.jface.dialogs.DialogPage;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor;
 import org.eclipse.rmf.reqif10.search.criteria.Criteria;
 import org.eclipse.rmf.reqif10.search.edit.util.ReqIFEditSearcher;
@@ -175,7 +176,7 @@ public class ReqIFSearchPage extends DialogPage implements ISearchPage,
 						.getEditorReferences();
 				for (IEditorReference editorReference : editorReferences) {
 					IEditorPart editorPart = editorReference.getEditor(false);
-					if (editorPart instanceof Reqif10Editor) {
+					if (editorPart instanceof IReqifEditor) {
 						try {
 							uriMap.put(EditUIUtil.getURI(editorReference
 									.getEditorInput()),

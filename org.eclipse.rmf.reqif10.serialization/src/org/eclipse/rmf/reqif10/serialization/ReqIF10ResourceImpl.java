@@ -16,14 +16,19 @@ import java.util.Map;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.XMLLoad;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLSave;
 import org.eclipse.emf.ecore.xmi.impl.XMLMapImpl;
-import org.eclipse.rmf.internal.serialization.XMLPersistenceMappingSaveImpl;
+import org.eclipse.sphinx.emf.serialization.internal.XMLPersistenceMappingLoadImpl;
+import org.eclipse.sphinx.emf.serialization.internal.XMLPersistenceMappingSaveImpl;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResourceImpl;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingExtendedMetaData;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceImpl;
 
 public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 
@@ -35,15 +40,21 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 		super(uri);
 	}
 
+	
+	/**
+	 * the resource expects all relevant EPackages to be registered before loading the resource.
+	 * This avoids delays and errors by network lookups for EPackages by their namespace URI
+	 */
 	@Override
 	public void initDefaultOptions() {
 		super.initDefaultOptions();
+				
 		// ========= create options map===================
 		final XMLResource.XMLMap optionsMap = new XMLMapImpl();
 		optionsMap
 				.setIDAttributeName(ReqIF10Package.Literals.IDENTIFIABLE__IDENTIFIER
 						.getName().toUpperCase());
-
+				
 		// ========= default save options ===================
 		Map<Object, Object> saveOptions = getDefaultSaveOptions();
 		Map<String, String> namespaceToPrefixMap = new HashMap<String, String>();
@@ -127,5 +138,10 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 	
 	public void setIsLoading(boolean isLoading) {
 		this.isLoading = isLoading;
+	}
+	
+	@Override
+	protected XMLLoad createXMLLoad() {
+		return new ReqIF10LoadImpl(createXMLHelper());
 	}
 }

@@ -29,8 +29,12 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.common.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
+import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow.ProrRowSpecHierarchy;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow.ProrRowSpecRelation;
 import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
@@ -42,7 +46,7 @@ import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
 public class ProrAgileGridContentProvider extends AbstractContentProvider {
 
 	private final Specification root;
-	private final ProrSpecViewConfiguration specViewConfig;
+	final ProrSpecViewConfiguration specViewConfig;
 	private ArrayList<ProrRow> cache = null;
 	private Map<Identifiable, ProrRow> rowMap = new HashMap<Identifiable, ProrRow>();
 
@@ -234,7 +238,31 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		if (col >= specViewConfig.getColumns().size())
 			return null;
 
-		String label = specViewConfig.getColumns().get(col).getLabel();
+		// Handle the Unified Column
+		Column column = specViewConfig.getColumns().get(col);
+		if (column instanceof UnifiedColumn) {
+			AttributeValue av = ReqIF10Util.getAttributeValueForLabel(element,
+					"ReqIF.ChapterName");
+			if (av != null && ReqIF10Util.getTheValue(av) != null) {
+				Object value = ReqIF10Util.getTheValue(av);
+				if (value instanceof XhtmlContent) {
+					XhtmlContent xhtmlContent = (XhtmlContent) value;
+					String s = ProrXhtmlSimplifiedHelper
+							.xhtmlToSimplifiedString(xhtmlContent);
+					if (s != null && s.trim().length() > 0) {
+						return av;
+					}
+
+				} else {
+					if (value.toString().trim().length() > 0) {
+						return av;
+					}
+				}
+			}
+			return ReqIF10Util.getAttributeValueForLabel(element, "ReqIF.Text");
+		}
+
+		String label = column.getLabel();
 
 		return ReqIF10Util.getAttributeValueForLabel(element, label);
 	}
@@ -309,6 +337,5 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 
 	public int getRowCount() {
 		return getCache().size();
-	}
-
+	}	
 }

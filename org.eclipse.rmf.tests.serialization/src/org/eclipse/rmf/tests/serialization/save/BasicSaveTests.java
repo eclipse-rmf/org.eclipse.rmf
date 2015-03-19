@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *   itemis AG - initial API and implementation
  */
@@ -1244,8 +1244,7 @@ public class BasicSaveTests extends AbstractSaveTestCase {
 			assertEquals("node", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-0100-MANY-REF[1]", root, XPathConstants.STRING));
 			assertEquals("", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-0100-MANY-REF[1]/@xsi:type", root, XPathConstants.STRING));
 			assertEquals("subNode", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-0100-MANY-REF[2]", root, XPathConstants.STRING));
-			assertEquals("nodes:SUB-NODE",
-					xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-0100-MANY-REF[2]/@xsi:type", root, XPathConstants.STRING));
+			assertEquals("SUB-NODE", xpath.evaluate("/nodes:NODE/nodes:EREFERENCE-REFERENCED-0100-MANY-REF[2]/@TYPE", root, XPathConstants.STRING));
 
 		} catch (Exception ex) {
 			ex.printStackTrace();

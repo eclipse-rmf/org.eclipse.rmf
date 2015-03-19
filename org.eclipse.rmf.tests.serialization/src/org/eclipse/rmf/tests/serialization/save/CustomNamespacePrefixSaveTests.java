@@ -21,7 +21,6 @@ import javax.xml.xpath.XPathConstants;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.rmf.serialization.XMLPersistenceMappingResource;
 import org.eclipse.rmf.tests.serialization.model.extnodes.ExtNodesFactory;
 import org.eclipse.rmf.tests.serialization.model.extnodes.ExtNodesPackage;
 import org.eclipse.rmf.tests.serialization.model.extnodes.ExtendedNode;
@@ -29,6 +28,7 @@ import org.eclipse.rmf.tests.serialization.model.extnodes.Extension;
 import org.eclipse.rmf.tests.serialization.model.nodes.Node;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesFactory;
 import org.eclipse.rmf.tests.serialization.model.nodes.NodesPackage;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResource;
 import org.junit.Test;
 import org.w3c.dom.NodeList;
 

@@ -23,12 +23,6 @@
             genModel="model/xhtml.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated xhtml -->
-      <parser
-            type="xhtml"
-            class="org.eclipse.rmf.reqif10.xhtml.util.XhtmlResourceFactoryImpl"/>
-   </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated xhtml -->

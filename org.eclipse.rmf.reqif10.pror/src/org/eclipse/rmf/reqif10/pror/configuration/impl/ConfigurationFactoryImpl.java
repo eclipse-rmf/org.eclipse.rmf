@@ -1,29 +1,16 @@
-/*******************************************************************************
- * Copyright (c) 2011, 2013 Formal Mind GmbH and University of Dusseldorf.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *     Michael Jastram - initial API and implementation
- ******************************************************************************/
-
+/**
+ */
 package org.eclipse.rmf.reqif10.pror.configuration.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.rmf.reqif10.pror.configuration.Column;
-import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
-import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
-import org.eclipse.rmf.reqif10.pror.configuration.LabelConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrGeneralConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfigurations;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
-import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
+
+import org.eclipse.rmf.reqif10.pror.configuration.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +27,7 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 	 */
 	public static ConfigurationFactory init() {
 		try {
-			ConfigurationFactory theConfigurationFactory = (ConfigurationFactory)EPackage.Registry.INSTANCE.getEFactory("http://eclipse.org/rmf/pror/toolextensions/1.0"); 
+			ConfigurationFactory theConfigurationFactory = (ConfigurationFactory)EPackage.Registry.INSTANCE.getEFactory(ConfigurationPackage.eNS_URI);
 			if (theConfigurationFactory != null) {
 				return theConfigurationFactory;
 			}
@@ -75,6 +62,7 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 			case ConfigurationPackage.PROR_PRESENTATION_CONFIGURATIONS: return createProrPresentationConfigurations();
 			case ConfigurationPackage.PROR_GENERAL_CONFIGURATION: return createProrGeneralConfiguration();
 			case ConfigurationPackage.LABEL_CONFIGURATION: return createLabelConfiguration();
+			case ConfigurationPackage.UNIFIED_COLUMN: return createUnifiedColumn();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -145,6 +133,16 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UnifiedColumn createUnifiedColumn() {
+		UnifiedColumnImpl unifiedColumn = new UnifiedColumnImpl();
+		return unifiedColumn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ConfigurationPackage getConfigurationPackage() {
 		return (ConfigurationPackage)getEPackage();
 	}
@@ -160,4 +158,4 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 		return ConfigurationPackage.eINSTANCE;
 	}
 
-} //ConfigFactoryImpl
+} //ConfigurationFactoryImpl
