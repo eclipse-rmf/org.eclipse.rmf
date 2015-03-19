@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Fragment-Host: org.eclipse.rmf.reqif10.search
 Bundle-Name: Tests for Search
 Bundle-SymbolicName: org.eclipse.rmf.reqif10.search.test
-Bundle-Version: 0.12.0.qualifier
+Bundle-Version: 0.13.0.qualifier
 Export-Package: org.eclipse.rmf.reqif10.search.test,
  org.eclipse.rmf.reqif10.search.testdata
 Bundle-Vendor: Formal Mind GmbH

@@ -2,5 +2,5 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Metamodel Plug-in
 Bundle-SymbolicName: org.eclipse.rmf.releng.devtools.modelcleaner
-Bundle-Version: 0.12.0.qualifier
+Bundle-Version: 0.13.0.qualifier
 Bundle-Vendor: 
