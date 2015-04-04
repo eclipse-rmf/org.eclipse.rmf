@@ -1100,7 +1100,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 				updateProblemIndication();
 				// if the model has exactly one Specification, then open it.
 				if (reqif.getCoreContent().getSpecifications().size() == 1) {
-					openSpecification(reqif.getCoreContent().getSpecifications().get(0));
+					openSpecEditor(reqif.getCoreContent().getSpecifications().get(0));
 				}
 			}
 		});
@@ -1339,7 +1339,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 												.getSelection())
 												.getFirstElement();
 										if (obj instanceof Specification) {
-											openSpecification((Specification)obj);
+											openSpecEditor((Specification)obj);
 										}
 
 									}
@@ -1379,20 +1379,6 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 					});
 		}
 		return contentOutlinePage;
-	}
-
-	/**	
-	 * Tries to open the given Specification.
-	 */
-	private void openSpecification(Specification spec) {
-		ReqifSpecificationEditorInput editorInput = new ReqifSpecificationEditorInput(
-				Reqif10Editor.this, (Specification) spec);
-		try {
-			IDE.openEditor(getSite().getPage(), editorInput,
-					SpecificationEditor.EDITOR_ID, true);
-		} catch (PartInitException e) {
-			e.printStackTrace();
-		}
 	}
 
 	/**
@@ -1894,11 +1880,9 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 				this, spec);
 		try {
 			return (ISpecificationEditor) IDE.openEditor(getSite().getPage(),
-					editorInput, SpecificationEditor.EDITOR_ID, false);
+					editorInput, SpecificationEditor.EDITOR_ID, true);
 		} catch (PartInitException e) {
 			throw new RuntimeException(e);
 		}
 	}
-	
-
 }
