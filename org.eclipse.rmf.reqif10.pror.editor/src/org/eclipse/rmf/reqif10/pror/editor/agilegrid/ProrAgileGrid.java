@@ -151,6 +151,6 @@ public class ProrAgileGrid extends AgileGrid {
 			neighborCell = getLayoutAdvisor().mergeInto(cell.row-1, getLayoutAdvisor().getColumnCount()-1);
 		}
 		return neighborCell != null ?  neighborCell : cell;
-	};
+	}
 	
 }
