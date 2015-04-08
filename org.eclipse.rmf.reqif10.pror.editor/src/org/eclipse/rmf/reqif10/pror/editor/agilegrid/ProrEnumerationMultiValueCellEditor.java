@@ -105,6 +105,7 @@ public class ProrEnumerationMultiValueCellEditor extends PopupCellEditor {
 	@Override
 	protected void openPopupBox(Control parent) {
 		super.openPopupBox(parent);
+		selector.setFocus();
 		int result = selector.showEnumSelector(Display.getCurrent().getActiveShell());
 		if (result == SWT.CANCEL) {
 			fireCancelEditor();

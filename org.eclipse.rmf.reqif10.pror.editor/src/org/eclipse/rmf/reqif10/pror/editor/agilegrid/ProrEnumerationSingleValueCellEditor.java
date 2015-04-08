@@ -26,6 +26,7 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.TraverseEvent;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Control;
 
@@ -38,6 +39,8 @@ public class ProrEnumerationSingleValueCellEditor extends CellEditor {
 	private Object parent;
 	private Object affectedObject;
 
+	private Combo combo;
+	
 	public ProrEnumerationSingleValueCellEditor(AgileGrid agileGrid,
 			DatatypeDefinitionEnumeration dde,
 			Object parent, Object affectedObject, EditingDomain editingDomain,
@@ -48,7 +51,7 @@ public class ProrEnumerationSingleValueCellEditor extends CellEditor {
 		this.parent = parent;
 		this.affectedObject = affectedObject;
 
-		Combo combo = (Combo) getControl();
+		combo = (Combo) getControl();
 		String[] items = populateItemList(dde);
 		combo.setItems(items);
 	}
@@ -130,6 +133,13 @@ public class ProrEnumerationSingleValueCellEditor extends CellEditor {
 				int index = itemList.indexOf(list.get(0));
 				((Combo) getControl()).select(index);
 			}
+		}
+	}
+	
+	
+	protected void onTraverse(TraverseEvent traverseEvent) {
+		if (!combo.isVisible()){
+			super.onTraverse(traverseEvent);
 		}
 	}
 

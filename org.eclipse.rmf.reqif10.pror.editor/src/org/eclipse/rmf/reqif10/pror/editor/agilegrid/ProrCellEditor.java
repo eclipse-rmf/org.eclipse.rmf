@@ -11,6 +11,7 @@
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
 import org.agilemore.agilegrid.AgileGrid;
+import org.agilemore.agilegrid.Cell;
 import org.agilemore.agilegrid.EditorActivationEvent;
 import org.agilemore.agilegrid.editors.TextCellEditor;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -20,6 +21,7 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.TraverseEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorSite;
@@ -169,4 +171,31 @@ public abstract class ProrCellEditor extends TextCellEditor {
 
 		return false;
 	}
+	
+	@Override
+	protected void onTraverse(TraverseEvent traverseEvent) {
+		Cell cellBefore = agileGrid.getFocusCell();
+		super.onTraverse(traverseEvent);
+		Cell cellAfter = agileGrid.getFocusCell();
+		
+		
+		if ((traverseEvent.keyCode == SWT.ARROW_UP || traverseEvent.keyCode == SWT.ARROW_DOWN) && !cellBefore.equals(cellAfter)){
+			if (traverseEvent.keyCode == SWT.ARROW_DOWN && cellAfter.row ==0){
+				// Do not activate another editor if ARROW_DOWN was pressed in the last row 
+				return;
+			}
+			
+			if (cellAfter != null && cellAfter.row>=0){
+				// FIXME: activating the editor here selects the wrong cell.
+				// Focusing the cell that has focus does not fire selectionChange but closes the editor. Thats why we call it twice here 
+				agileGrid.focusCell(cellAfter);
+				agileGrid.triggerEditorActivationEvent(new EditorActivationEvent(cellAfter, null, traverseEvent),null);
+				agileGrid.focusCell(cellAfter);
+				agileGrid.triggerEditorActivationEvent(new EditorActivationEvent(cellAfter, null, traverseEvent),null);
+			}
+		}
+
+	}
+	
+	
 }
