@@ -28,5 +28,5 @@ Contributors:
 	<properties>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	</properties>
-	<version>1.3.3-SNAPSHOT</version>
+	<version>1.4.0-SNAPSHOT</version>
 </project>
