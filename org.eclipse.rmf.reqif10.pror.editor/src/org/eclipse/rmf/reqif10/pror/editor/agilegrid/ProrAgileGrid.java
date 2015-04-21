@@ -35,8 +35,8 @@ public class ProrAgileGrid extends AgileGrid {
 	public static final int DND_DROP_AS_SIBLING = 0;
 	public static final int DND_DROP_AS_CHILD = 1;
 
-	protected Cell dndHoverCell;
-	protected int dndHoverDropMode;
+	public Cell dndHoverCell;
+	public int dndHoverDropMode;
 	
 
 	public ProrAgileGrid(Composite parent, int style) {
@@ -79,7 +79,6 @@ public class ProrAgileGrid extends AgileGrid {
 			return Integer.MIN_VALUE;
 		}
 		
-
 		int y = getLinePixels();
 		
 		if (layoutAdvisor.isTopHeaderVisible()) {
@@ -106,7 +105,8 @@ public class ProrAgileGrid extends AgileGrid {
 
 		return Integer.MIN_VALUE;
 	}
-	
+
+
 	@Override
 	public void triggerEditorActivationEvent(
 			EditorActivationEvent editorActivationEvent, Object hint) {
