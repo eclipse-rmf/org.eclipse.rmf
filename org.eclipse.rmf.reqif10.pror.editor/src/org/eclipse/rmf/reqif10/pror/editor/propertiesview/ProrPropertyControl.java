@@ -188,6 +188,8 @@ public class ProrPropertyControl extends AgileGrid implements
 	// listen to property changes in content
 	// reload Content and redraw on change event
 	public void propertyChange(PropertyChangeEvent event) {
+		if (isDisposed()) return;
+		
 		if (event.getPropertyName().equals("")) {
 			contentProvider.setContent(object);
 			redraw();
