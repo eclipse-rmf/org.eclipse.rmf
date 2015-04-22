@@ -19,7 +19,11 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.agilemore.agilegrid.AbstractContentProvider;
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor.PropertyValueWrapper;
@@ -41,7 +45,7 @@ import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
  * @author Michael Jastram
  * 
  */
-public class ProrPropertyContentProvider extends AbstractContentProvider {
+public class ProrPropertyContentProvider extends AbstractContentProvider implements Adapter {
 
 	// Special categories that should be ordered differently
 	public static String SPEC_HIERARCHY_NAME = "Spec Hierarchy";
@@ -100,7 +104,22 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 		return getRows().get(row);
 	}
 
+	/**
+	 * Besides setting the content, we register this as an Adapter to react to content changes.
+	 */
 	public void setContent(Object content) {
+		if (content == this.content) return;
+
+		if (this.content instanceof EObject) {
+			EObject eobj = (EObject) this.content;
+			eobj.eAdapters().remove(this);			
+		}
+
+		if (content instanceof EObject) {
+			EObject eobj = (EObject) content;
+			eobj.eAdapters().add(this);
+		}
+		
 		this.content = content;
 		rows = null;
 	}
@@ -354,5 +373,31 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 			return ReqIF10Util.getAttributeValueForLabel(specElement,
 					descriptor.getDisplayName(specElement));
 		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////////
+	// Methods from Interface Adapter
+	//////////////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * We register this object with the content in #setContent(). Upon a notification,
+	 * we fire a property change to inform the agileGrid to update itself.
+	 */
+	public void notifyChanged(Notification notification) {
+		firePropertyChange("", null, content);
+	}
+
+	// Not used.
+	public Notifier getTarget() {
+		return null;
+	}
+
+	// Not used.
+	public void setTarget(Notifier newTarget) {
+	}
+
+	// Not used.
+	public boolean isAdapterForType(Object type) {
+		return false;
 	}
 }
