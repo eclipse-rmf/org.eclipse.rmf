@@ -40,7 +40,7 @@ Contributors:
       <editor
             class="org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10Editor"
             contributorClass="org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10ActionBarContributor"
-            default="true"
+            default="false"
             extensions="reqif"
             icon="icons/full/obj16/ReqIf.png"
             id="org.eclipse.rmf.reqif10.presentation.Reqif10EditorID"
