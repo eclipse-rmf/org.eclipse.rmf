@@ -140,6 +140,17 @@ public class ProrAgileGrid extends AgileGrid {
 			}
 			return findSelectedCell;
 		}
+
+		/**
+		 * When we gain focus, we do not want to make the focused cell visible.
+		 */
+		public boolean isNavigationEvent(AgileGrid agileGrid, Event event) {
+			if (event.type == SWT.FocusIn) {
+				event.doit = false;
+				return false;
+			}
+			return super.isNavigationEvent(agileGrid, event);
+		};
 	};
 	
 	public Cell getCyclingNeighbor(Cell cell, int directionMask, boolean sameLevel) {

@@ -72,13 +72,40 @@ public class ProrCellRenderer extends AbstractProrSpecCellRenderer {
 			return;
 		}
 
-		// draw text and image in the given area.
-		Object content = contentProvider.getContentAt(row, col);
-
 		// Only do indenting and icon drawing for Column 0
 		if (col == 0) {
 			rect = doIndenting(gc, rect, row);
 		}
+
+		int rowHeight = getHeightAndDrawCell(gc, rect, row, col);
+
+		// Prevent Scrolling becoming impossible by truncating large cells vertically.
+		int tableSize = agileGrid.getSize().y;
+		if (rowHeight > (tableSize * .5)) {
+			rowHeight = (int) (tableSize * .5);
+			Color oldForeground = gc.getForeground();
+			Color oldBackground = gc.getBackground();
+			
+			gc.setBackground(COLOR_BACKGROUND);
+			gc.setForeground(COLOR_LINE_LIGHTGRAY);
+			gc.fillRectangle(rect.x, rect.y + rowHeight + 4 - 20, rect.width, 20);
+			gc.setForeground(COLOR_RED);
+			gc.drawLine(rect.x, rect.y + rowHeight + 4 - 20, rect.x + rect.width, rect.y + rowHeight + 4 - 20);
+			gc.drawText("Truncated", rect.x + 5, rect.y + rowHeight - 15);
+			gc.setForeground(oldForeground);
+			gc.setBackground(oldBackground);
+		}
+		updateCellHeight(row, col, rowHeight);
+	}
+
+	/**
+	 * Does the actual drawing, without truncating.
+	 */
+	public int getHeightAndDrawCell(GC gc, Rectangle rect, int row, int col) {
+		ProrAgileGridContentProvider contentProvider = (ProrAgileGridContentProvider) agileGrid
+				.getContentProvider();
+		ProrRow prorRow = contentProvider.getProrRow(row);
+		Object content = contentProvider.getContentAt(row, col);
 
 		int rowHeight;
 		IProrCellRenderer renderer = null;
@@ -108,31 +135,14 @@ public class ProrCellRenderer extends AbstractProrSpecCellRenderer {
 		} else {
 			rowHeight = doDrawCellContentDefault(gc, rect, content);
 		}
-
-		// Prevent Scrolling becoming impossible by truncating large cells vertically.
-		int tableSize = agileGrid.getSize().y;
-		if (rowHeight > (tableSize * .5)) {
-			rowHeight = (int) (tableSize * .5);
-			Color oldForeground = gc.getForeground();
-			Color oldBackground = gc.getBackground();
-			
-			gc.setBackground(COLOR_BACKGROUND);
-			gc.setForeground(COLOR_LINE_LIGHTGRAY);
-			gc.fillRectangle(rect.x, rect.y + rowHeight + 4 - 20, rect.width, 20);
-			gc.setForeground(COLOR_RED);
-			gc.drawLine(rect.x, rect.y + rowHeight + 4 - 20, rect.x + rect.width, rect.y + rowHeight + 4 - 20);
-			gc.drawText("Truncated", rect.x + 5, rect.y + rowHeight - 15);
-			gc.setForeground(oldForeground);
-			gc.setBackground(oldBackground);
-		}
-		updateCellHeight(row, col, rowHeight);
+		return rowHeight;
 	}
 
 	/**
 	 * Computes the hierarchy depth and modifies rect to reflect the
 	 * corresponding indenting. It also draws the Icon
 	 */
-	private Rectangle doIndenting(GC gc, Rectangle rect, int row) {
+	public Rectangle doIndenting(GC gc, Rectangle rect, int row) {
 
 		ProrAgileGridContentProvider contentProvider = (ProrAgileGridContentProvider) agileGrid
 				.getContentProvider();
