@@ -538,7 +538,13 @@ public class Reqif10ActionBarContributor
 	 */
 	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
-		super.menuAboutToShow(menuManager);
+		// This taken and modified from super.menuAboutToShow(menuManager);
+		menuManager.add(new Separator("additions"));
+		menuManager.add(new Separator("edit"));
+		menuManager.add(new ActionContributionItem(deleteAction));
+		menuManager.add(new Separator("additions-end"));
+		addGlobalActions(menuManager);
+
 		MenuManager submenuManager = null;
 
 		submenuManager = new MenuManager(Reqif10EditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
@@ -660,16 +666,13 @@ public class Reqif10ActionBarContributor
 	/**
 	 * This inserts global actions before the "additions-end" separator.
 	 * <!-- begin-user-doc -->
+	 * We don't want Refresh and Properties View - redundant in our application
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void addGlobalActions(IMenuManager menuManager) {
 		menuManager.insertAfter("additions-end", new Separator("ui-actions"));
-		menuManager.insertAfter("ui-actions", showPropertiesViewAction);
-
-		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());		
-		menuManager.insertAfter("ui-actions", refreshViewerAction);
 
 		super.addGlobalActions(menuManager);
 	}
