@@ -228,14 +228,7 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		data.right = new FormAttachment(100, 0);
 		propertySheet.getControl().setLayoutData(data);
 
-		// We just wire these two controls, to show the tree's properties.
-		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-			public void selectionChanged(SelectionChangedEvent event) {
-				propertySheet.selectionChanged(null, event.getSelection());
-			}
-		});
-
-		// The Editor must know about changes, so that the context
+		// The and Property Sheet Editor must know about changes, so that the context
 		// menu contains the correct child creation actions.
 		originalSelectionProvider = getActionBarContributor().getActiveEditor()
 				.getSite().getSelectionProvider();
@@ -243,6 +236,8 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 				.setSelectionProvider(viewer);
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
+				((ISelectionChangedListener)getActionBarContributor()).selectionChanged(event);
+				propertySheet.selectionChanged(null, event.getSelection());
 				((ISelectionProvider) getActionBarContributor()
 						.getActiveEditor()).setSelection(event.getSelection());
 			}
