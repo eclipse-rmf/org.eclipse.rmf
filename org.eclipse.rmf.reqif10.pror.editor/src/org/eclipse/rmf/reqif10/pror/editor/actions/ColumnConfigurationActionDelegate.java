@@ -10,6 +10,9 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.actions;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.Notification;
@@ -148,9 +151,18 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 		IAction addColumnAction = new Action("Add Column") {
 			@Override
 			public void run() {
+				final Column newColumn = ConfigurationFactory.eINSTANCE.createColumn();
+
 				// This is a compound command: We resize all existing columns to
 				// squeeze in the new one
-				CompoundCommand compoundCmd = new CompoundCommand("Add Column");
+				CompoundCommand compoundCmd = new CompoundCommand("Add Column") {
+					@Override
+					public Collection<?> getAffectedObjects() {
+						HashSet<? super Object> affectedObjects = new HashSet<Object>();
+						affectedObjects.add(newColumn);
+						return affectedObjects;
+					}
+				};
 				int shrink = 0;
 				if (config.getColumns().size() > 0)
 					shrink = 100 / config.getColumns().size();
@@ -172,7 +184,7 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 								editor.getEditingDomain(),
 								config,
 								ConfigurationPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
-								ConfigurationFactory.eINSTANCE.createColumn());
+								newColumn );
 				compoundCmd.append(command);
 				editor.getEditingDomain().getCommandStack()
 						.execute(compoundCmd);
