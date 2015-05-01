@@ -226,7 +226,7 @@ public class Reqif10ModelWizard extends Wizard implements INewWizard {
 		header.setCreationTime(reqIFLastChange);
 		header.setSourceToolId("ProR (http://pror.org)");
 		header.setIdentifier("rmf-" + UUID.randomUUID());
-		header.setReqIFVersion("1.0.1");
+		header.setReqIFVersion("1.0");
 		header.setReqIFToolId("ProR (http://pror.org)");
 		header.setComment("Created by: " + System.getProperty("user.name"));
 
