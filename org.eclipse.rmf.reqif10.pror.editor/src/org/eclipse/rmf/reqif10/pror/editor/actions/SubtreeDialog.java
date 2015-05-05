@@ -24,12 +24,15 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.ui.action.CommandActionHandler;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
@@ -347,6 +350,19 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 
 	public void menuAboutToShow(IMenuManager menuManager) {
 		getActionBarContributor().menuAboutToShow(menuManager);
+
+		// Some actions may have the wrong selection, because the
+		// ActionBarContributor grabs it from the associated editor.
+		for (IContributionItem item : menuManager.getItems()) {
+			if (item instanceof ActionContributionItem) {
+				IAction action = ((ActionContributionItem) item).getAction();
+				if (action instanceof CommandActionHandler) {
+					CommandActionHandler handler = (CommandActionHandler) action;
+					handler.updateSelection((IStructuredSelection) viewer.getSelection());
+				}
+			}
+		}
+		
 	}
 
 	private EditingDomainActionBarContributor getActionBarContributor() {
