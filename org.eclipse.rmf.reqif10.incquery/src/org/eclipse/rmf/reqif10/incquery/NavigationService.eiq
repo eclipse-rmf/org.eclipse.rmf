@@ -1,0 +1,48 @@
+package org.eclipse.rmf.reqif10.incquery
+
+import "http://www.omg.org/spec/ReqIF/20110401/reqif.xsd"
+import "http://www.eclipse.org/emf/2002/Ecore"
+
+
+pattern datatypeDefinitionStrings(datatypeDefinitionString : DatatypeDefinitionString) {
+	DatatypeDefinitionString(datatypeDefinitionString);
+}
+
+pattern datatypeDefinitionString_maxLengths(datatypeDefinitionString : DatatypeDefinitionString, maxLength) {
+	DatatypeDefinitionString.maxLength(datatypeDefinitionString,maxLength);
+}
+
+pattern identifiables(identifiable : Identifiable) {
+	Identifiable(identifiable);
+}
+
+pattern identifiables_identifier(identifiable : Identifiable, identifier) {
+	Identifiable.identifier(identifiable, identifier);
+}
+
+pattern referenedSpecObjects(specObject : SpecObject) {
+	SpecRelation.target(_,specObject); 
+}
+
+pattern referenedOrReferencingSpecObjects(specObject : SpecObject) {
+	SpecRelation.source(_,specObject); 
+} or {
+	SpecRelation.target(_,specObject);
+}
+
+pattern specRelations(specRelation : SpecRelation, source : SpecObject, target : SpecObject) {
+	SpecRelation.source(specRelation, source);
+	SpecRelation.target(specRelation, target);
+}
+
+pattern relationGroups(relationGroup : RelationGroup) {
+	RelationGroup(relationGroup);
+}
+
+
+pattern complexPattern(specObject : SpecObject, value : AttributeValue ) {
+	SpecObject.values(specObject,value);
+	AttributeValueString.definition(value, definition);
+	AttributeDefinitionString.type(definition, datatype);
+	DatatypeDefinitionString.maxLength(datatype,_);	
+}

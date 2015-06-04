@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ide
+Bundle-SymbolicName: org.eclipse.rmf.reqif10.ide;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.rmf.internal.reqif10.ide.Activator$Implementation
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.rmf.reqif10.serialization;bundle-version="0.13.0",
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.sphinx.emf,
+ org.eclipse.rmf.reqif.ide,
+ org.eclipse.rmf.reqif10
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
