@@ -143,8 +143,7 @@ public final class ProrUtil {
 	 * case this method takes care of that as well.
 	 */
 	public static void setTheValue(final AttributeValue av, Object value,
-			Object parent,
-			final Object affectedObject, EditingDomain ed) {
+			Object parent, final Object affectedObject, EditingDomain ed) {
 
 		// The Command that sets the value
 		EStructuralFeature feature = ReqIF10Util.getTheValueFeature(av);
@@ -323,8 +322,9 @@ public final class ProrUtil {
 				AddCommand.class, typeParameter));
 		String name = newSpecElement.getClass().getSimpleName();
 		name = name.length() > 4 ? name.substring(0, name.length() - 4) : name;
-		cmd.setLabel(name + " (" + ((SpecType) specType).getLongName() + ")");
-
+		String label = name + " (" + ((SpecType) specType).getLongName() + ")";
+		cmd.setLabel(label);
+		cmd.setDescription("Adding " + label);
 		return cmd;
 	}
 
@@ -577,33 +577,32 @@ public final class ProrUtil {
 		}
 	}
 
-	
 	/**
-	 * Helper function for drag and drop operations:
-	 * Tests if the element source may be dropped onto the target object.
+	 * Helper function for drag and drop operations: Tests if the element source
+	 * may be dropped onto the target object.
 	 * 
 	 * @param source
 	 * @param target
 	 * @return true if the drop should be accepted, false otherwise
 	 */
 	public static boolean isValidDrop(SpecHierarchy source, Object target) {
-			if (source == target){
-				return false;
-			}
-			
-			if (source.getChildren().contains(target)){
-				return false;
-			}
-			
-			for (EObject child : source.getChildren()) {
-				if (child instanceof SpecHierarchy){
-					if (!isValidDrop((SpecHierarchy) child, target)){
-						return false;
-					}
+		if (source == target) {
+			return false;
+		}
+
+		if (source.getChildren().contains(target)) {
+			return false;
+		}
+
+		for (EObject child : source.getChildren()) {
+			if (child instanceof SpecHierarchy) {
+				if (!isValidDrop((SpecHierarchy) child, target)) {
+					return false;
 				}
 			}
-			
-			return true;
+		}
+
+		return true;
 	}
 
 	/**
@@ -612,7 +611,8 @@ public final class ProrUtil {
 	 */
 	public static ProrPresentationConfigurationItemProvider getConfigItemProvider(
 			ProrPresentationConfiguration config, AdapterFactory adapterFactory) {
-		ProrPresentationConfigurationItemProvider itemprovider = (ProrPresentationConfigurationItemProvider) getItemProvider(adapterFactory, config);
+		ProrPresentationConfigurationItemProvider itemprovider = (ProrPresentationConfigurationItemProvider) getItemProvider(
+				adapterFactory, config);
 		return itemprovider;
 	}
 
