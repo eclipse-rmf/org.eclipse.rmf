@@ -42,34 +42,23 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 	private IStructuredSelection selection;
 	private IEditorPart editor;
 
-	// private IWorkbenchWindow window;
-
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
 	 */
 	public void run(IAction action) {
-	System.out.println(selection);
-//		if (selection.size() != 1)
-//			return; 
-//		
-		System.out.println(selection.getFirstElement());
 		if (!(selection.getFirstElement() instanceof SpecHierarchy))
 			return;
 		SpecHierarchy specHierarchy = (SpecHierarchy) selection
 				.getFirstElement();
 		if (specHierarchy.getObject() == null)
 			return;
-		// SpecType type = specHierarchy.getObject().getType();
 	
 		if (!(editor instanceof ISpecificationEditor))
 			return;
 		ISpecificationEditor specificationEditor = (ISpecificationEditor) editor;
 
-		// Shell shell = window != null ? window.getShell() : editor.getSite()
-		// .getShell();
 	
 		EObject eContainer = specHierarchy.eContainer();
-		System.out.println(eContainer);
 		if(!(eContainer instanceof SpecHierarchy))
 			return;
 		
@@ -82,7 +71,6 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 		EditingDomain ed = specificationEditor.getEditingDomain();
 		
 		for(SpecHierarchy follower: followers) {
-			//		cmd.append(RemoveCommand.create(ed, parent, ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN, follower));
 		cmd.append(AddCommand.create(ed, specHierarchy, ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN, follower));
 		}
 		
@@ -101,7 +89,6 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 							ReqIF10Package.Literals.SPECIFICATION__CHILDREN,
 							specHierarchy,pIndexOf+1));
 		}
-		System.out.println("--->"+pIndexOf);
 
 		
 
@@ -128,7 +115,6 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 	 * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#init(org.eclipse.ui.IWorkbenchWindow)
 	 */
 	public void init(IWorkbenchWindow window) {
-		// this.window = window;
 	}
 
 	/* (non-Javadoc)
