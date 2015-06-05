@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.eclipse.rmf.reqif10.incquery
 Bundle-SymbolicName: org.eclipse.rmf.reqif10.incquery;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.13.0.qualifier
 Export-Package: org.eclipse.rmf.reqif10.incquery,
  org.eclipse.rmf.reqif10.incquery.util
 Require-Bundle: org.eclipse.rmf.reqif10,

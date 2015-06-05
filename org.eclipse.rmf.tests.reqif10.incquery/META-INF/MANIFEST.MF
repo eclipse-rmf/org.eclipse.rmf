@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Incquery
+Bundle-SymbolicName: org.eclipse.rmf.tests.reqif10.incquery
+Bundle-Version: 0.13.0.qualifier
+Bundle-Activator: org.eclipse.rmf.tests.reqif10.incquery.Activator$Implementation
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.sphinx.emf.serialization;bundle-version="0.8.1",
+ org.eclipse.rmf.reqif10.serialization;bundle-version="0.12.0",
+ org.eclipse.rmf.reqif10;bundle-version="0.12.0",
+ org.junit,
+ org.eclipse.incquery.runtime,
+ org.eclipse.rmf.reqif10.incquery;bundle-version="0.0.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
