@@ -154,7 +154,6 @@ public class Importer {
 				.getSpecifications().get(0);
 		SpecObjectType specObjectType = getSpecObjectType(mappingItems,
 				getSpecTypeName());
-		System.out.println();
 		String[] nextLine;
 		while ((nextLine = reader.readNext()) != null) {
 			Command command = CreateChildCommand.create(editingDomain,
