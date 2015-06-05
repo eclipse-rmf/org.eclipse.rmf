@@ -15,7 +15,7 @@
    <extension
          point="org.eclipse.ui.navigator.navigatorContent">
       <navigatorContent
-            contentProvider="org.eclipse.sphinx.emf.explorer.BasicExplorerContentProvider"
+            contentProvider="org.eclipse.rmf.reqif10.ide.providers.ReqIF10ExplorerContentProvider"
             id="org.eclipse.rmf.reqif10.ide.ui.navigationContent.reqif"
             labelProvider="org.eclipse.sphinx.emf.explorer.BasicExplorerLabelProvider"
             name="ReqIF Content">
@@ -73,6 +73,9 @@
             extensions="Specification"
             id="org.eclipse.rmf.reqif10.ide.ui.editors.reqif"
             name="ReqIF Example Editor">
+         <contentTypeBinding
+               contentTypeId="org.eclipse.rmf.reqif10.reqif10XMLFile">
+         </contentTypeBinding>
          
       </editor>
    </extension>

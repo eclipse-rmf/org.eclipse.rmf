@@ -7,20 +7,19 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.provider.ReqIFItemProvider;
 
-public class ExtendedReqIFItemProvider extends ReqIFItemProvider {
+public class ExtendedReqIF10ItemProvider extends ReqIFItemProvider {
 
-	public ExtendedReqIFItemProvider(AdapterFactory adapterFactory) {
+	public ExtendedReqIF10ItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
+	
 
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(
 			Object object) {
-		Collection<? extends EStructuralFeature> features = super.getChildrenFeatures(object);
-		features.remove(ReqIF10Package.eINSTANCE.getReqIF_ToolExtensions());
-		return features;
+		super.getChildrenFeatures(object);
+		childrenFeatures.remove(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS);
+		return childrenFeatures;
 	}
-	
-	
 
 }

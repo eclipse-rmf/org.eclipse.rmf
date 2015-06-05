@@ -8,16 +8,14 @@ import org.eclipse.sphinx.emf.edit.TransientItemProvider;
 
 public class ExtendedReqIF10ItemProviderAdapterFactory extends
 		ReqIF10ItemProviderAdapterFactory {
+	
 	protected Disposable disposable = new Disposable();
 
-	public ExtendedReqIF10ItemProviderAdapterFactory() {
-		super();
-	}
 
 	@Override
 	public Adapter createReqIFAdapter() {
 		if (reqIFItemProvider == null) {
-			reqIFItemProvider = new ExtendedReqIFItemProvider(this);
+			reqIFItemProvider = new ExtendedReqIF10ItemProvider(this);
 		}
 		return reqIFItemProvider;
 	}
