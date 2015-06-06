@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cheatsheet title="Create a ReqIF Model">
+
+  <intro>
+    <description>
+      This cheat sheet is a step-by-step description of how to create a ReqIF
+      model.
+We will use the ReqIF terminology, which can be confusing. Therefore, please familiarize yourself with the terminology first (Help link).
+
+In ReqIF terminology, a requirement is called SpecObject, a link is a SpecRelation, and the document view consists of SpecHierarchies. Confused? Then please have a look at Help link, where the terminology is described.
+    </description>
+  </intro>
+
+  <item title="Set up the environment">
+  	<description>
+  	  Your environment must be set up before you can perform the steps in this cheat sheet.
+  	  <br/><br/>
+The easiest way for installing fmStudio is downloading formalmind Stu­dio. This is a standalone-application that is based on Eclipse ProR, combined with some enhancements.
+
+Alternatively, you can install ProR in any Eclipse-Installation via its update site (listed on the RMF Download page). This is recommended for advanced users only who need to integrate RMF with other Eclipse-based components.
+  	</description>
+  </item>
+
+  <item
+        dialog="true"
+        href="/org.eclipse.emf.doc/tutorials/clibmod/clibmod.html#newEmptyEMFProj"
+        skip="true"
+        title="Create an empty project">
+    <description>
+      If you do not already have one, create a new project: Select File | New | Project;
+    </description>
+
+    <subitem label="Select &quot;File &gt;New &gt;Project...&quot;. Expand &quot;General&quot;, select &quot;Project&quot; and click &quot;Next&quot;." skip="true">
+      <action
+        pluginId="org.eclipse.rmf.cheatsheets"
+        class="org.eclipse.rmf.cheatsheets.handlers.CreateProjectHandler"
+        translate="" />
+    </subitem>
+
+  </item>
+
+  <item
+        dialog="true"
+        skip="true"
+        title="Create ReqIF model">
+    <description>
+      Create the ReqIF model by selecting File | New | Reqif10 Model
+Select the project and name the file “tutorial.reqif”. Click Finish;
+
+Upon completion, the model will be opened, as well as the one and only Specification contained in this model.
+    </description>
+    <subitem label="Create the ReqIF model." skip="true">
+      <action
+        pluginId="org.eclipse.rmf.cheatsheets"
+        class="org.eclipse.rmf.cheatsheets.handlers.CreateReqIFModelHandler"
+        translate="" />
+    </subitem>
+  </item>
+
+
+
+</cheatsheet>

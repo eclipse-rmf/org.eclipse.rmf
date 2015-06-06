@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.ui.cheatsheets.cheatSheetContent">
+      <category
+            id="org.eclipse.rmf"
+            name="%_UI_CheatSheetCategory_title"/>
+      <cheatsheet
+            category="org.eclipse.rmf"
+            composite="false"
+            contentFile="cheatsheets/CreateReqIFModel.xml"
+            id="org.eclipse.rmf.createReqDoc"
+            name="%_UI_CheatsheetCreateModel_title">
+         <description>
+            %_UI_CheatsheetCreateModel_description
+         </description>
+      </cheatsheet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="org.eclipse.rmf.cheatsheets.handlers.CreateProjectHandler"
+            id="org.eclipse.rmf.cheatsheets.createProject"
+            name="Create Project">
+      </command>
+      <command
+            defaultHandler="org.eclipse.rmf.cheatsheets.handlers.CreateReqIFModelHandler"
+            id="org.eclipse.rmf.cheatsheets.createReqIFModel"
+            name="Create ReqIF Model">
+      </command>
+   </extension>
+</plugin>
