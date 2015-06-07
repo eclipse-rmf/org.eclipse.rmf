@@ -67,8 +67,8 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="org.eclipse.sphinx.emf.editors.forms.BasicTransactionalFormEditor"
-            contributorClass="org.eclipse.sphinx.emf.editors.forms.BasicTransactionalEditorActionBarContributor"
+            class="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor"
+            contributorClass="org.eclipse.rmf.reqif10.ide.editor.Reqif10ActionBarContributor"
             default="false"
             extensions="Specification"
             id="org.eclipse.rmf.reqif10.ide.ui.editors.reqif"

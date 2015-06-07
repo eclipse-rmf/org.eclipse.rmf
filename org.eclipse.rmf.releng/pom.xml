@@ -67,6 +67,10 @@
 		<module>../org.eclipse.rmf.reqif10.common</module>
 		<module>../org.eclipse.rmf.reqif10.constraints</module>
 		<module>../org.eclipse.rmf.reqif10.serialization</module>
+		<module>../org.eclipse.rmf.reqif.ide</module>
+		<module>../org.eclipse.rmf.reqif10.ide</module>
+		<module>../org.eclipse.rmf.reqif10.ide.ui</module>
+		<module>../org.eclipse.rmf.reqif10.incquery</module>
 		
 		<module>../org.eclipse.rmf.ext.prostep</module>
 		
