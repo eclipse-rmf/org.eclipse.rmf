@@ -13,6 +13,7 @@ package org.eclipse.rmf.reqif10.serialization;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.SegmentSequence;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
@@ -140,6 +141,23 @@ public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 		this.isLoading = isLoading;
 	}
 	
+	
+	
+	/**
+	 * Searches the EObject in the idToEObjectMap only. 
+	 */
+	@Override
+	public EObject getEObject(String uriFragment) {
+		if (idToEObjectMap != null) {
+			EObject eObject = idToEObjectMap.get(uriFragment);
+			if (eObject != null) {
+				return eObject;
+			}
+		}
+
+		return null;
+	}
+
 	@Override
 	protected XMLLoad createXMLLoad() {
 		return new ReqIF10LoadImpl(createXMLHelper());
