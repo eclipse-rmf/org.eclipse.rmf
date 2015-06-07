@@ -10,6 +10,8 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,8 +32,8 @@ import org.eclipse.swt.graphics.Rectangle;
 
 public class ProrLinkCellRenderer extends AbstractProrSpecCellRenderer {
 
-	private Set<SpecRelation> incoming;
-	private Set<SpecRelation> outgoing;
+	private Collection<SpecRelation> incoming;
+	private Collection<SpecRelation> outgoing;
 	
 	private final Image specRelationConnectorIcon;
 
@@ -81,22 +83,12 @@ public class ProrLinkCellRenderer extends AbstractProrSpecCellRenderer {
 	 */
 	private void updateIncomingAndOutgoing(
 			SpecElementWithAttributes specElement) {
-		ReqIF reqif = ReqIF10Util.getReqIF(specElement);
-		incoming = new HashSet<SpecRelation>();
-		outgoing = new HashSet<SpecRelation>();
-		if (specElement == null || reqif == null)
-			return;
-		EList<SpecRelation> relations = reqif.getCoreContent()
-				.getSpecRelations();
-		for (SpecRelation relation : relations) {
-			if (relation.getTarget() != null
-					&& relation.getTarget().equals(specElement)) {
-				incoming.add(relation);
-			}
-			if (relation.getSource() != null
-					&& relation.getSource().equals(specElement)) {
-				outgoing.add(relation);
-			}
+		if (specElement instanceof SpecObject) {
+			incoming = ReqIF10Util.getIncomingSpecRelationsOf((SpecObject)specElement);
+			outgoing = ReqIF10Util.getOutgoingSpecRelationsOf((SpecObject)specElement);
+		} else {
+			incoming = Collections.<SpecRelation> emptyList();
+			outgoing = Collections.<SpecRelation> emptyList();
 		}
 	}
 	

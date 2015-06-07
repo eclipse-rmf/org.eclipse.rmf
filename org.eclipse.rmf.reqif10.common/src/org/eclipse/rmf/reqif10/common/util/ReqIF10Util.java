@@ -4,18 +4,22 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Nirmal Sasidharan - initial API and implementation
  *     François Rey - better use of EMF reflective API
+ *     itemis - fixed [469356] Poor performance in Case of Big Files with many SpecRelations
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.common.util;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
+import java.util.List;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -49,7 +53,16 @@ import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.SpecObject;
+import org.eclipse.rmf.reqif10.SpecRelation;
+import org.eclipse.rmf.reqif10.SpecRelationType;
 import org.eclipse.rmf.reqif10.SpecType;
+import org.eclipse.rmf.reqif10.common.services.IReqIFModelQueryService;
+import org.eclipse.sphinx.emf.metamodel.IMetaModelDescriptor;
+import org.eclipse.sphinx.emf.metamodel.MetaModelDescriptorRegistry;
+import org.eclipse.sphinx.emf.metamodel.services.DefaultMetaModelServiceProvider;
+import org.eclipse.sphinx.emf.query.IModelQueryService;
+import org.eclipse.sphinx.emf.util.EObjectUtil;
 
 /**
  * This class contains various static helper methods for working with ReqIf data objects. Amongst others, we solve a
@@ -57,10 +70,22 @@ import org.eclipse.rmf.reqif10.SpecType;
  * decided not to touch the generated code. We decided to use reflection over long if-then-else blocks to
  * <p>
  * This class is not intended to be instantiated.
- * 
+ *
  * @author jastram
  */
 public class ReqIF10Util {
+
+	static protected IReqIFModelQueryService reqIFModelQueryService = null;
+	static protected IModelQueryService modelQueryService = null;
+
+	static {
+		IMetaModelDescriptor descriptor = MetaModelDescriptorRegistry.INSTANCE.getDescriptor("org.eclipse.rmf.reqif10"); //$NON-NLS-1$
+		if (descriptor != null) {
+			DefaultMetaModelServiceProvider metaModelServiceProvider = new DefaultMetaModelServiceProvider();
+			reqIFModelQueryService = metaModelServiceProvider.getService(descriptor, IReqIFModelQueryService.class);
+			modelQueryService = metaModelServiceProvider.getService(descriptor, IModelQueryService.class);
+		}
+	}
 
 	/**
 	 * This class is not designed to be instantiated.
@@ -72,7 +97,7 @@ public class ReqIF10Util {
 	/**
 	 * Returns the root ReqIF object for the corresponding EObject or null if none exists. This method simply traverses
 	 * the object tree to the root - there may be more efficient ways for finding the root ReqIF.
-	 * 
+	 *
 	 * @return the root {@link ReqIF} object or null if none found.
 	 */
 	public static ReqIF getReqIF(Object obj) {
@@ -101,7 +126,7 @@ public class ReqIF10Util {
 
 	/**
 	 * Reflectively sets the value.
-	 * 
+	 *
 	 * @param attributeValue
 	 */
 	@SuppressWarnings("unchecked")
@@ -185,7 +210,7 @@ public class ReqIF10Util {
 
 	/**
 	 * Returns the {@link DatatypeDefinition} for the given {@link AttributeValue}.
-	 * 
+	 *
 	 * @return the corresponding {@link DatatypeDefinition} or null if it cannot be determined.
 	 */
 	public static DatatypeDefinition getDatatypeDefinition(AttributeValue value) {
@@ -235,7 +260,7 @@ public class ReqIF10Util {
 	 * Returns the "the value" feature for the given attributeValue. For instance, for an {@link AttributeValueString}
 	 * it returns {@link Reqif10Package.Literals#ATTRIBUTE_VALUE_STRING__THE_VALUE}. The one exception is
 	 * {@link AttributeValueEnumeration}, where the feature name is "values", rather than "the value".
-	 * 
+	 *
 	 * @throws IllegalArgumentException
 	 *             for unknown {@link AttributeValue}s.
 	 */
@@ -267,7 +292,7 @@ public class ReqIF10Util {
 	 * Returns the "the value" feature for the given attributeValue. For instance, for an {@link AttributeValueString}
 	 * it returns {@link Reqif10Package.Literals#ATTRIBUTE_VALUE_STRING__THE_VALUE}. The one exception is
 	 * {@link AttributeValueEnumeration}, where the feature name is "values", rather than "the value".
-	 * 
+	 *
 	 * @throws IllegalArgumentException
 	 *             for unknown {@link AttributeValue}s.
 	 */
@@ -299,7 +324,7 @@ public class ReqIF10Util {
 	 * Returns the "defaultValue" feature for the given attributeDefinition. For instance, for an
 	 * {@link AttributeDefinitionString} it returns
 	 * {@link Reqif10Package.Literals#ATTRIBUTE_DEFINITION_STRING__DEFAULT_VALUE}.
-	 * 
+	 *
 	 * @throws IllegalArgumentException
 	 *             for an unknown {@link AttributeDefinition}.
 	 */
@@ -399,7 +424,7 @@ public class ReqIF10Util {
 	/**
 	 * This method returns the current date as an {@link XMLGregorianCalendar} object already formatted into a
 	 * Specification conform format.
-	 * 
+	 *
 	 * @return the current date/time formatted for ReqIF
 	 */
 	public static GregorianCalendar getReqIFLastChange() {
@@ -416,6 +441,108 @@ public class ReqIF10Util {
 		GregorianCalendar cal = new GregorianCalendar();
 		cal.setTime(date);
 		return cal;
+	}
+
+	public static Collection<SpecRelation> getIncomingSpecRelationsOf(SpecObject specObject) {
+		final Collection<SpecRelation> incoming;
+		if (specObject != null) {
+			if (reqIFModelQueryService != null) {
+				incoming = reqIFModelQueryService.getIncomingSpecRelationsOf(specObject);
+			} else {
+				Collection<SpecRelation> relations = getAllInstancesOf(specObject, SpecRelation.class);
+
+				incoming = new HashSet<SpecRelation>();
+				for (SpecRelation relation : relations) {
+					if (specObject.equals(relation.getTarget())) {
+						incoming.add(relation);
+					}
+				}
+			}
+		} else {
+			incoming = Collections.<SpecRelation> emptySet();
+		}
+
+		return incoming;
+
+	}
+
+	public static Collection<SpecRelation> getOutgoingSpecRelationsOf(SpecObject specObject) {
+		final Collection<SpecRelation> outgoing;
+		if (specObject != null) {
+			if (reqIFModelQueryService != null) {
+				outgoing = reqIFModelQueryService.getOutgoingSpecRelationsOf(specObject);
+			} else {
+				Collection<SpecRelation> relations = getAllInstancesOf(specObject, SpecRelation.class);
+
+				outgoing = new HashSet<SpecRelation>();
+				for (SpecRelation relation : relations) {
+					if (specObject.equals(relation.getSource())) {
+						outgoing.add(relation);
+					}
+				}
+			}
+		} else {
+			outgoing = Collections.<SpecRelation> emptySet();
+		}
+
+		return outgoing;
+	}
+
+	public static Collection<SpecRelation> getIncomingSpecRelationsOf(SpecObject specObject, SpecRelationType specRelationType) {
+		final Collection<SpecRelation> incoming;
+		if (specObject != null) {
+			if (reqIFModelQueryService != null) {
+				incoming = reqIFModelQueryService.getIncomingSpecRelationsOf(specObject);
+			} else {
+				Collection<SpecRelation> relations = getAllInstancesOf(specObject, SpecRelation.class);
+
+				incoming = new HashSet<SpecRelation>();
+				for (SpecRelation relation : relations) {
+					if (specRelationType == relation.getType() || specRelationType != null && specRelationType.equals(relation.getType())) {
+						if (specObject.equals(relation.getTarget())) {
+							incoming.add(relation);
+						}
+					}
+				}
+			}
+		} else {
+			incoming = Collections.<SpecRelation> emptySet();
+		}
+
+		return incoming;
+	}
+
+	public static Collection<SpecRelation> getOutgoingSpecRelationsOf(SpecObject specObject, SpecRelationType specRelationType) {
+		final Collection<SpecRelation> outgoing;
+		if (specObject != null) {
+			if (reqIFModelQueryService != null) {
+				outgoing = reqIFModelQueryService.getOutgoingSpecRelationsOf(specObject);
+			} else {
+				Collection<SpecRelation> relations = getAllInstancesOf(specObject, SpecRelation.class);
+
+				outgoing = new HashSet<SpecRelation>();
+				for (SpecRelation relation : relations) {
+					if (specRelationType == relation.getType() || specRelationType != null && specRelationType.equals(relation.getType())) {
+						if (specObject.equals(relation.getSource())) {
+							outgoing.add(relation);
+						}
+					}
+				}
+			}
+		} else {
+			outgoing = Collections.<SpecRelation> emptySet();
+		}
+
+		return outgoing;
+
+	}
+
+	public static <T> List<T> getAllInstancesOf(EObject contextObject, Class<T> type) {
+		if (modelQueryService != null) {
+			return modelQueryService.getAllInstancesOf(contextObject, type);
+		} else {
+			return EObjectUtil.getAllInstancesOf(contextObject, type, false);
+		}
 	}
 
 }
