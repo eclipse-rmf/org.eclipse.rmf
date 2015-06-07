@@ -2,4 +2,9 @@
   <extension id="org.eclipse.rmf.reqif10.incquery.NavigationService" point="org.eclipse.incquery.runtime.queryspecification">
     <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:org.eclipse.rmf.reqif10.incquery.NavigationService" id="org.eclipse.rmf.reqif10.incquery.NavigationService"/>
   </extension>
+  <extension point="org.eclipse.sphinx.emf.metaModelServices">
+    <service class="org.eclipse.rmf.reqif10.incquery.ReqIFModelQueryService" id="org.eclipse.rmf.reqif10.incquery.service.ReqIFModelQueryService" type="org.eclipse.rmf.reqif10.common.services.IReqIFModelQueryService">
+      <applicableFor metaModelDescriptorIdPattern="org.eclipse.rmf.reqif10"/>
+    </service>
+  </extension>
 </plugin>
