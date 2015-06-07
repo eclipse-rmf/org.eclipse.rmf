@@ -10,6 +10,8 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.action.IMenuListener;
+import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -43,7 +45,7 @@ import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
 import org.eclipse.ui.ide.FileStoreEditorInput;
 
-public class ReqIFSpecificationSection extends AbstractViewerFormSection {
+public class ReqIFSpecificationSection extends AbstractViewerFormSection implements IMenuListener {
 
 	private ProrAgileGridViewer prorAgileGridViewer;
 	protected ComposedAdapterFactory adapterFactory;
@@ -188,15 +190,23 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection {
 		MenuManager contextMenu = new MenuManager("#PopUp");
 		contextMenu.add(new Separator("additions"));
 		contextMenu.setRemoveAllWhenShown(true);
-		// contextMenu.addMenuListener(this);
+		contextMenu.addMenuListener(this);
 
 		Menu menu = contextMenu.createContextMenu(prorAgileGridViewer
 				.getControl());
 		prorAgileGridViewer.getControl().setMenu(menu);
-		// getSite().registerContextMenu(contextMenu,
-		// new UnwrappingSelectionProvider(prorAgileGridViewer));
+		
+		getFormPage().getSite().registerContextMenu(contextMenu,
+				 new UnwrappingSelectionProvider(prorAgileGridViewer));
+
 
 		return contextMenu;
+	}
+
+	@Override
+	public void menuAboutToShow(IMenuManager manager) {
+			((IMenuListener) getFormPage().getTransactionalFormEditor().getEditorSite().getActionBarContributor())
+					.menuAboutToShow(manager);
 	}
 
 }

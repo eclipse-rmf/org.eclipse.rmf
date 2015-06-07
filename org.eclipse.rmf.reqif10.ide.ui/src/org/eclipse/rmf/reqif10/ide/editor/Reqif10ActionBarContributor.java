@@ -245,9 +245,46 @@ public class Reqif10ActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("reqif10-settings"));
 		toolBarManager.add(new Separator("reqif10-additions"));
 		toolBarManager.add(createQuickSearchToolbar());
+	}
+	
+	
+
+	@Override
+	public void contributeToMenu(IMenuManager menuManager) {
+		//super.contributeToMenu(menuManager);
+		
+		IMenuManager submenuManager = new MenuManager(Reqif10EditorPlugin.INSTANCE.getString("_UI_Reqif10Editor_menu"), "org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue");
+		menuManager.insertAfter("additions", submenuManager);
+		submenuManager.add(new Separator("settings"));
+		submenuManager.add(new Separator("actions"));
+		submenuManager.add(new Separator("additions"));
+		submenuManager.add(new Separator("additions-end"));
+
+		// Prepare for CreateChild item addition or removal.
+		//
+		createChildMenuManager = new MenuManager(Reqif10EditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		submenuManager.insertBefore("additions", createChildMenuManager);
+
+		// Prepare for CreateSibling item addition or removal.
+		//
+		createSiblingMenuManager = new MenuManager(Reqif10EditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		submenuManager.insertBefore("additions", createSiblingMenuManager);
+
+		// Force an update because Eclipse hides empty menus now.
+		//
+		submenuManager.addMenuListener
+			(new IMenuListener() {
+				 public void menuAboutToShow(IMenuManager menuManager) {
+					 menuManager.updateAll(true);
+				 }
+			 });
+
+		addGlobalActions(submenuManager);
+
 	}
 
 	private IContributionItem createQuickSearchToolbar() {
@@ -311,46 +348,11 @@ public class Reqif10ActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void selectionChanged_(SelectionChangedEvent event) {
-		// Remove any menu items for old selection.
-		//
-		if (createChildMenuManager != null) {
-			depopulateManager(createChildMenuManager, createChildActions);
-		}
-		if (createSiblingMenuManager != null) {
-			depopulateManager(createSiblingMenuManager, createSiblingActions);
-		}
-
-		// Query the new selection for appropriate new child/sibling descriptors
-		//
-		Collection<?> newChildDescriptors = null;
-		Collection<?> newSiblingDescriptors = null;
-
-		ISelection selection = event.getSelection();
-		if (selection instanceof IStructuredSelection && ((IStructuredSelection)selection).size() == 1) {
-			Object object = ((IStructuredSelection)selection).getFirstElement();
-
-			EditingDomain domain = ((IEditingDomainProvider)activeEditorPart).getEditingDomain();
-
-			newChildDescriptors = domain.getNewChildDescriptors(object, null);
-			newSiblingDescriptors = domain.getNewChildDescriptors(null, object);
-		}
-
-		// Generate actions for selection; populate and redraw the menus.
-		//
-		createChildActions = generateCreateChildActions(newChildDescriptors, selection);
-		createSiblingActions = generateCreateSiblingActions(newSiblingDescriptors, selection);
-
-		if (createChildMenuManager != null) {
-			populateManager(createChildMenuManager, createChildActions, null);
-			createChildMenuManager.update(true);
-		}
-		if (createSiblingMenuManager != null) {
-			populateManager(createSiblingMenuManager, createSiblingActions, null);
-			createSiblingMenuManager.update(true);
-		}
+	public void selectionChanged(SelectionChangedEvent event) {
+		super.selectionChanged(event);
 		
 		// Stores the selection that is needed for link management.
+		ISelection selection = event.getSelection();
 		saveLinkingSelection(selection);
 	}
 
@@ -382,6 +384,7 @@ public class Reqif10ActionBarContributor
 	 */
 	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
+		//super.menuAboutToShow(menuManager);
 		// This taken and modified from super.menuAboutToShow(menuManager);
 		menuManager.add(new Separator("additions"));
 		menuManager.add(new Separator("edit"));
@@ -455,7 +458,7 @@ public class Reqif10ActionBarContributor
 	}
 		
 	private void populateLinkMenu(IContributionManager manager, List<SpecObject> source, List<SpecObject> target) {
-		final EditingDomain domain = ((IEditingDomainProvider)activeEditorPart).getEditingDomain();
+		final EditingDomain domain = ((IEditingDomainProvider)getActiveEditor()).getEditingDomain();
 		ReqIFContent coreContent = ReqIF10Util.getReqIF(linkSource.get(0)).getCoreContent();
 		
 		manager.add(createLinkCommand(source, target, domain,
@@ -535,5 +538,7 @@ public class Reqif10ActionBarContributor
 	public AgileCellEditorActionHandler getAgileCellEditorActionHandler() {
 		return agileCellEditorActionHandler;
 	}
+	
+	
 	
 }

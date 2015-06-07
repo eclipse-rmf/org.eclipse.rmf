@@ -149,7 +149,7 @@ public class ConfigurationUtil {
 			leftHeaderColumn = ConfigurationFactory.eINSTANCE.createColumn();
 			leftHeaderColumn.setLabel(DEFAULT_LEFT_HEADER_COLUMN_NAME);
 			leftHeaderColumn.setWidth(DEFAULT_LEFT_HEADER_COLUMN_WIDTH);
-			specViewConfiguration.setLeftHeaderColumn(leftHeaderColumn);
+			//TODO specViewConfiguration.setLeftHeaderColumn(leftHeaderColumn);
 		}
 
 		return leftHeaderColumn;
