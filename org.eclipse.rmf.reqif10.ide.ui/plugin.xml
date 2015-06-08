@@ -149,102 +149,77 @@
                toolbarPath="additions">
          </action>
       </editorContribution>
-      <editorContribution
-            id="org.eclipse.rmf.reqif10.pror.SpecificationEditorContribution"
-            targetID="org.eclipse.rmf.reqif10.ide.ui.editors.reqif">
-         <action
-               class="org.eclipse.rmf.reqif10.pror.editor.actions.AddTestObjectsActionDelegate"
-               icon="icons/full/obj16/Debug.png"
-               id="org.eclipse.rmf.reqif10.pror.editor.AddTestElements"
-               label="Add Test Elements"
-               menubarPath="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue/additions"
-               style="push"
-               toolbarPath="additions">
-         </action>
-         <action
-               class="org.eclipse.rmf.reqif10.pror.editor.actions.ToggleSpecRelationsActionDelegate"
-               icon="icons/full/obj16/SpecRelation.png"
-               id="org.eclipse.rmf.reqif10.pror.editor.toggleSpecRelations"
-               label="%_Action_Toggle_Links"
-               menubarPath="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue/additions"
-               state="false"
-               style="toggle"
-               toolbarPath="additions">
-         </action>
-         <action
-               class="org.eclipse.rmf.reqif10.pror.editor.actions.ColumnConfigurationActionDelegate"
-               icon="icons/full/obj16/Column.png"
-               id="org.eclipse.rmf.reqif10.pror.editor.ColumnConfiguration"
-               label="%_Action_Column_Config"
-               menubarPath="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue/additions"
-               style="push"
-               toolbarPath="additions">
-         </action>
-         <action
-               class="org.eclipse.rmf.reqif10.pror.editor.actions.PresentationConfigurationActionDelegate"
-               icon="icons/full/obj16/ReqIFToolExtension.png"
-               id="org.eclipse.rmf.reqif10.pror.editor.ProRConfiguration"
-               label="%_Action_Presentation_Config"
-               menubarPath="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue/additions"
-               style="push"
-               toolbarPath="additions">
-         </action>
-         <action
-               class="org.eclipse.rmf.reqif10.pror.editor.actions.DatatypeConfigurationActionDelegate"
-               icon="icons/full/obj16/SpecType.png"
-               id="org.eclipse.rmf.reqif10.pror.editor.DatatypeConfiguration"
-               label="%_Action_Datatype_Config"
-               menubarPath="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue/additions"
-               style="push"
-               toolbarPath="additions">
-         </action>
-         <action
-               class="org.eclipse.rmf.reqif10.pror.editor.actions.GeneralConfigurationActionDelegate"
-               icon="icons/full/obj16/ProRGeneralConfiguration.png"
-               id="org.eclipse.rmf.reqif10.pror.editor.GeneralConfiguration"
-               label="%_Action_General_Config"
-               menubarPath="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue/additions"
-               style="push"
-               toolbarPath="additions">
-         </action>
-         <action
-               class="org.eclipse.rmf.reqif10.pror.editor.actions.WebsiteActionDelegate"
-               icon="icons/full/prorIcon/prorIcon16.png"
-               id="org.eclipse.rmf.reqif10.pror.editor.WebsiteConfiguration"
-               label="%_Action_Website"
-               menubarPath="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue/additions"
-               style="push"
-               toolbarPath="additions">
-         </action>
-         <action
-               class="org.eclipse.rmf.reqif10.pror.editor.actions.ShiftLevelDownActionDelegate"
-               icon="icons/full/obj16/ShiftDown.png"
-               id="org.eclipse.rmf.reqif10.pror.editor.ShiftLevelDown"
-               label="Shift Level Down"
-               menubarPath="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue/additions"
-               style="push"
-               toolbarPath="additions">
-         </action>
-         <action
-               class="org.eclipse.rmf.reqif10.pror.editor.actions.ShiftLevelUpActionDelegate"
-               icon="icons/full/obj16/ShiftUp.png"
-               id="org.eclipse.rmf.reqif10.pror.editor.ShiftLevelUp"
-               label="Shift Level Up"
-               menubarPath="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue/additions"
-               style="push"
-               toolbarPath="additions">
-         </action>
-      </editorContribution>
    </extension>
       <extension
             point="org.eclipse.ui.menus">
          <menuContribution
                allPopups="false"
-               locationURI="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue/additions">
-            <menu
-                  label="MyMenue">
-            </menu>
+               locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+            <toolbar
+                  id="org.eclipse.rmf.reqif10.ide.ui.toolbar1">
+               <command
+                     commandId="org.eclipse.rmf.reqif10.ide.ui.commands.shiftLevelDown"
+                     icon="icons/full/obj16/ShiftDown.png"
+                     style="push">
+                      <visibleWhen>
+                     <reference
+                           definitionId="org.eclipse.rmf.reqif10.ide.editors.reqif.isActive">
+                     </reference>
+               </visibleWhen>
+               </command>
+               <command
+                     commandId="org.eclipse.rmf.reqif10.ide.ui.commands.shiftLevelUp"
+                     icon="icons/full/obj16/ShiftUp.png"
+                     style="push">
+                      <visibleWhen>
+                     <reference
+                           definitionId="org.eclipse.rmf.reqif10.ide.editors.reqif.isActive">
+                     </reference>
+               </visibleWhen>
+               </command>
+                <command
+                     commandId="org.eclipse.rmf.reqif10.ide.ui.commands.toggleSpecRelations"
+                     icon="icons/full/obj16/SpecRelation.png"
+                     style="toggle">
+                      <visibleWhen>
+                     <reference
+                           definitionId="org.eclipse.rmf.reqif10.ide.editors.reqif.isActive">
+                     </reference>
+               </visibleWhen>
+               </command>
+            </toolbar>
          </menuContribution>
+         
       </extension>
+      <extension
+            id="org.eclipse.rmf.reqif10.ide.editor.commands"
+            point="org.eclipse.ui.commands">
+         <command
+               defaultHandler="org.eclipse.rmf.reqif10.ide.commands.toolbar.handler.ShiftLevelDownHandler"
+               id="org.eclipse.rmf.reqif10.ide.ui.commands.shiftLevelDown"
+               name="Shift Level Down">
+         </command>
+                 <command
+               defaultHandler="org.eclipse.rmf.reqif10.ide.commands.toolbar.handler.ShiftLevelUpHandler"
+               id="org.eclipse.rmf.reqif10.ide.ui.commands.shiftLevelUp"
+               name="Shift Level Up">
+         </command>
+         <command
+               defaultHandler="org.eclipse.rmf.reqif10.ide.commands.toolbar.handler.ToggleSpecRelationsHandler"
+               id="org.eclipse.rmf.reqif10.ide.ui.commands.toggleSpecRelations"
+               name="Toggle SpecRelations">
+               <state class="org.eclipse.ui.handlers.RegistryToggleState:false" id="org.eclipse.rmf.reqif10.ide.ui.commands.toggleSpecRelations.state">
+               </state>
+         </command>
+      </extension>
+      <extension point = "org.eclipse.core.expressions.definitions">
+      
+  	<definition id="org.eclipse.rmf.reqif10.ide.editors.reqif.isActive">    
+     <with variable="activeEditorId">
+        <equals value="org.eclipse.rmf.reqif10.ide.ui.editors.reqif"/>
+     </with>
+  </definition>
+</extension>
+      
 
 </plugin>

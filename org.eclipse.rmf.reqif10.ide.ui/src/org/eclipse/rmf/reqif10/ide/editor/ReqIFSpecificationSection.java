@@ -14,13 +14,17 @@ import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.internal.reqif10.ide.ui.Activator;
+import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridViewer;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
+import org.eclipse.sphinx.emf.editors.forms.BasicTransactionalFormEditor;
 import org.eclipse.sphinx.emf.editors.forms.pages.AbstractFormPage;
 import org.eclipse.sphinx.emf.editors.forms.sections.AbstractFormSection;
 import org.eclipse.sphinx.emf.editors.forms.sections.AbstractViewerFormSection;
@@ -54,13 +58,11 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 	public ReqIFSpecificationSection(AbstractFormPage formPage,
 			Object sectionInput, int style) {
 		super(formPage, sectionInput, style);
-		// TODO Auto-generated constructor stub
 	}
 
 	public ReqIFSpecificationSection(AbstractFormPage formPage,
 			Object sectionInput) {
 		super(formPage, sectionInput);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -156,32 +158,11 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 	 * and for supporting {@link org.eclipse.emf.edit.ui.action.CommandAction}.
 	 */
 	public EditingDomain getEditingDomain() {
-		URI uri = EcoreUIUtil.getURIFromEditorInput(this.getFormPage()
-				.getEditorInput());
-		return getEditingDomain(uri);
+		BasicTransactionalFormEditor editor = (BasicTransactionalFormEditor)getFormPage().getEditor();
+		return editor.getEditingDomain();
 	}
 
-	protected TransactionalEditingDomain getEditingDomain(final URI uri) {
-		TransactionalEditingDomain editingDomain = WorkspaceEditingDomainUtil
-				.getEditingDomain(uri);
-		if (editingDomain == null
-				&& sectionInput instanceof FileStoreEditorInput) {
-			// If the file has been deleted
-			if (((FileStoreEditorInput) sectionInput).exists()) {
-				String modelNamespace = EcoreResourceUtil.readModelNamespace(
-						null, EcoreUIUtil.getURIFromEditorInput(getFormPage()
-								.getEditorInput()));
-				editingDomain = WorkspaceEditingDomainManager.INSTANCE
-						.getEditingDomainMapping().getEditingDomain(
-								null,
-								MetaModelDescriptorRegistry.INSTANCE
-										.getDescriptor(java.net.URI
-												.create(modelNamespace)));
-			}
-		}
-		return editingDomain;
 
-	}
 
 	/**
 	 * Delegate populating the context menu to EMF.
@@ -207,6 +188,27 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 	public void menuAboutToShow(IMenuManager manager) {
 			((IMenuListener) getFormPage().getTransactionalFormEditor().getEditorSite().getActionBarContributor())
 					.menuAboutToShow(manager);
+	}
+	
+	public void setShowSpecRelations(boolean checked) {
+
+		ISelection sel = prorAgileGridViewer.getSelection();
+
+		prorAgileGridViewer.setShowSpecRelations(checked);
+
+		// Set the correct selection after showing/hiding SpecRelations
+		if (sel instanceof IStructuredSelection) {
+			IStructuredSelection selection = (IStructuredSelection) sel;
+			Object firstElement = selection.getFirstElement();
+			// If a SpecRelation was selected, select after hiding the
+			// SpecRealtions the first SpecHierarchy of the Specification
+			if (firstElement instanceof SpecRelation) {
+				selection = new StructuredSelection(((Specification)sectionInput).getChildren()
+						.get(0));
+			}
+			prorAgileGridViewer.setSelection(selection);
+		}
+
 	}
 
 }
