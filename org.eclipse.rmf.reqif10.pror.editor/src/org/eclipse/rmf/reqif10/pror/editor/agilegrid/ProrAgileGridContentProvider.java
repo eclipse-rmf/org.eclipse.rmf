@@ -11,6 +11,7 @@
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -272,21 +273,11 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * SpecHierarchy) as a source. This method checks {@link #showSpecRelations}
 	 * and returns immediately if it is false.
 	 */
-	private List<SpecRelation> getSpecRelationsFor(SpecHierarchy specHierarchy) {
+	private Collection<SpecRelation> getSpecRelationsFor(SpecHierarchy specHierarchy) {
 		if (specHierarchy.getObject() == null)
 			return Collections.emptyList();
 		SpecObject source = specHierarchy.getObject();
-		ReqIF reqif = ReqIF10Util.getReqIF(source);
-		// Can happen if source is detached from the reqif model (e.g. just
-		// being deleted)
-		if (reqif == null)
-			return Collections.emptyList();
-		List<SpecRelation> list = new ArrayList<SpecRelation>();
-		for (SpecRelation relation : reqif.getCoreContent().getSpecRelations()) {
-			if (source.equals(relation.getSource())) {
-				list.add(relation);
-			}
-		}
+		Collection<SpecRelation> list = ReqIF10Util.getOutgoingSpecRelationsOf(source);
 		return list;
 	}
 
