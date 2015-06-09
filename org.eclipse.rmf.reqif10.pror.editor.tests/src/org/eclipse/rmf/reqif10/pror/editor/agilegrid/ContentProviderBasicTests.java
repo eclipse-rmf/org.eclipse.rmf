@@ -16,7 +16,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
@@ -173,18 +172,18 @@ public class ContentProviderBasicTests extends AbstractContentProviderTests {
 
 		SpecRelation[] sr = createSpecRelations();
 		
-		Collection<SpecRelation> relations = Arrays.asList(sr);
+		ArrayList<SpecRelation> relations = new ArrayList<SpecRelation>();
+		relations.addAll(Arrays.asList(sr));
+		
 		Object relation = contentProvider.getContentAt(1, 3);
-		assertTrue(relations.contains(relation));
-		relations.remove(relation);
+		assertTrue(relations.remove(relation));
 		
 		relation = contentProvider.getContentAt(3, 3);
-		assertTrue(relations.contains(relation));
-		relations.remove(relation);
+		assertTrue(relations.remove(relation));
 		
 		relation = contentProvider.getContentAt(4, 3);
-		assertTrue(relations.contains(relation));
-		relations.remove(relation);
+		assertTrue(relations.remove(relation));
+	
 	}
 
 	@Test
