@@ -14,6 +14,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
@@ -103,26 +107,29 @@ public class ContentProviderBasicTests extends AbstractContentProviderTests {
 						.getSpecHierarchy());
 	}
 
-	@Test
+	
+	// already covered by  testGetContentOfLinkColumnSpecRelation()
+	/*
 	public void testGetProrRowSpecRelationRow0() {
 		SpecRelation[] sr = createSpecRelations();
 
 		assertEquals(sr[0], (contentProvider.getProrRow(1)).getSpecElement());
 	}
 
-	@Test
+	// already covered by  testGetContentOfLinkColumnSpecRelation()
 	public void testGetProrRowSpecRelationRow1() {
 		SpecRelation[] sr = createSpecRelations();
 
 		assertEquals(sr[1], contentProvider.getProrRow(3).getSpecElement());
 	}
 
-	@Test
+	// already covered by  testGetContentOfLinkColumnSpecRelation()
 	public void testGetProrRowSpecRelationRow2() {
 		SpecRelation[] sr = createSpecRelations();
 
 		assertEquals(sr[2], contentProvider.getProrRow(4).getSpecElement());
 	}
+	*/
 
 	/**
 	 * 
@@ -165,10 +172,19 @@ public class ContentProviderBasicTests extends AbstractContentProviderTests {
 		addColumn("Third Column");
 
 		SpecRelation[] sr = createSpecRelations();
-
-		assertEquals(sr[0], contentProvider.getContentAt(1, 3));
-		assertEquals(sr[1], contentProvider.getContentAt(3, 3));
-		assertEquals(sr[2], contentProvider.getContentAt(4, 3));
+		
+		Collection<SpecRelation> relations = Arrays.asList(sr);
+		Object relation = contentProvider.getContentAt(1, 3);
+		assertTrue(relations.contains(relation));
+		relations.remove(relation);
+		
+		relation = contentProvider.getContentAt(3, 3);
+		assertTrue(relations.contains(relation));
+		relations.remove(relation);
+		
+		relation = contentProvider.getContentAt(4, 3);
+		assertTrue(relations.contains(relation));
+		relations.remove(relation);
 	}
 
 	@Test

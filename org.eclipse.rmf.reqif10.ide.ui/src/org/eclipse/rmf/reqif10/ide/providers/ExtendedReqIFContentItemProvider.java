@@ -97,13 +97,9 @@ public class ExtendedReqIFContentItemProvider extends ReqIFContentItemProvider {
 		switch (notification.getFeatureID(ReqIFContent.class)) {
 	    case ReqIF10Package.REQ_IF_CONTENT__SPEC_OBJECTS:
 	    case ReqIF10Package.REQ_IF_CONTENT__SPECIFICATIONS:
-	      
 	    case ReqIF10Package.REQ_IF_CONTENT__DATATYPES:
-		     
 	    case ReqIF10Package.REQ_IF_CONTENT__SPEC_RELATION_GROUPS:
-		    
 	    case ReqIF10Package.REQ_IF_CONTENT__SPEC_RELATIONS:
-		     
 	    case ReqIF10Package.REQ_IF_CONTENT__SPEC_TYPES:
 		      fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 		      return;
