@@ -17,8 +17,8 @@
       <navigatorContent
             contentProvider="org.eclipse.rmf.reqif10.ide.providers.ReqIF10ExplorerContentProvider"
             id="org.eclipse.rmf.reqif10.ide.ui.navigationContent.reqif"
-            labelProvider="org.eclipse.sphinx.emf.explorer.BasicExplorerLabelProvider"
-            name="ReqIF Content">
+            labelProvider="org.eclipse.rmf.reqif10.ide.providers.ReqIFExplorerLabelProvider"
+            name="ReqIF Content" >
          <triggerPoints>
             <and>
                <instanceof

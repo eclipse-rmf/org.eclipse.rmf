@@ -153,8 +153,8 @@ public class ExtendedReqIF10ItemProviderAdapterFactory extends
 			return new TransientSpecificationsItemProvider(this);
 		} else if (type == TransientSpecRelationsItemProvider.class) {
 			return new TransientSpecRelationsItemProvider(this);
-		} else if (type == TransientSpecTypesItemProvider.class) {
-			return new TransientSpecTypesItemProvider(this);
+		} else if (type == TransientTypesItemProvider.class) {
+			return new TransientTypesItemProvider(this);
 		}
 		return super.createAdapter(target, type);
 	}

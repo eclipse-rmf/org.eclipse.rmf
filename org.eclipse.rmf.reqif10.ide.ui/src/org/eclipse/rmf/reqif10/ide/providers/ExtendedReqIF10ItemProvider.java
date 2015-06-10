@@ -19,6 +19,7 @@ public class ExtendedReqIF10ItemProvider extends ReqIFItemProvider {
 			Object object) {
 		super.getChildrenFeatures(object);
 		childrenFeatures.remove(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS);
+		childrenFeatures.remove(ReqIF10Package.Literals.REQ_IF__CORE_CONTENT);
 		return childrenFeatures;
 	}
 

@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.rmf.internal.reqif10.ide.ui.Activator;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.provider.ReqIFContentItemProvider;
@@ -43,8 +44,8 @@ public class ExtendedReqIFContentItemProvider extends ReqIFContentItemProvider {
 	  children.add(adapterFactory.adapt(object, TransientSpecRelationsItemProvider.class));
 	  //children.add(adapterFactory.adapt(object, TransientSpecRelationGroupsItemProvider.class));
 	  children.add(adapterFactory.adapt(object, TransientSpecObjectsItemProvider.class));
-	  children.add(adapterFactory.adapt(object, TransientSpecTypesItemProvider.class));
-	  children.add(adapterFactory.adapt(object, TransientDataTypesItemProvider.class));
+	  children.add(adapterFactory.adapt(object, TransientTypesItemProvider.class));
+	  // merge with spec types: children.add(adapterFactory.adapt(object, TransientDataTypesItemProvider.class));
 	  return children;
 	} 
 	
@@ -78,9 +79,9 @@ public class ExtendedReqIFContentItemProvider extends ReqIFContentItemProvider {
 		        	} else if (feature == ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS) {
 		        		affected = Collections.singleton(adapterFactory.adapt(owner, TransientSpecRelationsItemProvider.class));
 		        	} else if (feature == ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_TYPES) {
-		        		affected = Collections.singleton(adapterFactory.adapt(owner, TransientSpecTypesItemProvider.class));
+		        		affected = Collections.singleton(adapterFactory.adapt(owner, TransientTypesItemProvider.class));
 		        	} else if (feature == ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES) {
-		        		affected = Collections.singleton(adapterFactory.adapt(owner, TransientDataTypesItemProvider.class));
+		        		affected = Collections.singleton(adapterFactory.adapt(owner, TransientTypesItemProvider.class));
 		        	} else if (feature == ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATION_GROUPS) {
 		        		// TODO;
 		        	}
@@ -105,7 +106,4 @@ public class ExtendedReqIFContentItemProvider extends ReqIFContentItemProvider {
 		      return;
 	  }
 	}
-
-	
-	
 }

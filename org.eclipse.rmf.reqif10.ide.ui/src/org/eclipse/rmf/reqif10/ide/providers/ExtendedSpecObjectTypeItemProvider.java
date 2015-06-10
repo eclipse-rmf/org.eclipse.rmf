@@ -13,7 +13,7 @@ public class ExtendedSpecObjectTypeItemProvider extends SpecObjectTypeItemProvid
 	@Override
 	public Object getParent(Object object) { 
 	  Object parent = super.getParent(object);
-	  return adapterFactory.adapt(parent, TransientSpecTypesItemProvider.class); 
+	  return adapterFactory.adapt(parent, TransientTypesItemProvider.class); 
 	}
 
 }

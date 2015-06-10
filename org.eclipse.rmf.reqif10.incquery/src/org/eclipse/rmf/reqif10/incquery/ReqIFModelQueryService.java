@@ -3,6 +3,7 @@ package org.eclipse.rmf.reqif10.incquery;
 import java.util.Collection;
 import java.util.Collections;
 
+import org.eclipse.incquery.runtime.api.IncQueryEngine;
 import org.eclipse.incquery.runtime.exception.IncQueryException;
 import org.eclipse.rmf.internal.reqif10.incquery.Activator;
 import org.eclipse.rmf.reqif10.SpecObject;
@@ -39,7 +40,8 @@ public class ReqIFModelQueryService implements IReqIFModelQueryService {
 	public Collection<SpecRelation> getIncomingSpecRelationsOf(
 			SpecObject specObject) {
 		try {
-			SpecRelationsMatcher matcher = SpecRelationsMatcher.on(getIncQueryEngineHelper().getEngine(specObject));			
+			IncQueryEngine engine = getIncQueryEngineHelper().getEngine(specObject);
+			SpecRelationsMatcher matcher = SpecRelationsMatcher.on(engine);			
 			return matcher.getAllValuesOfspecRelation(null, specObject);
 		} catch (IncQueryException ex) {
 			PlatformLogUtil.logAsError(Activator.getPlugin(), ex);

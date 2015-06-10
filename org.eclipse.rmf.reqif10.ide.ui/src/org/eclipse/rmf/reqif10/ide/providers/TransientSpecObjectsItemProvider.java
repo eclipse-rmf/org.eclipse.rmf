@@ -65,4 +65,12 @@ public class TransientSpecObjectsItemProvider extends TransientItemProvider {
 	public ResourceLocator getResourceLocator() { 
 	  return Activator.INSTANCE;
 	}
+	
+	@Override
+	public Object getImage(Object object) {
+		if (object != null) {
+			return overlayImage(object, Activator.INSTANCE.getImage("full/obj16/TransientSpecObjects.png")); //$NON-NLS-1$
+		}
+		return null;
+	}
 }
