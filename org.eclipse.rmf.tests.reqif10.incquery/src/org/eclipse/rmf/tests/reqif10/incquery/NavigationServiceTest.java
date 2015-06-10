@@ -26,7 +26,7 @@ public class NavigationServiceTest {
 		ResourceSet resourceSet = new XMLPersistenceMappingResourceSetImpl();
 	    URI fileURI = URI.createPlatformPluginURI(Activator.getPlugin().getBundle()
 				.getSymbolicName()
-				+ "/resources/input/SpecsWithRelations20k.reqif", false);
+				+ "/resources/input/SpecsWithRelations26000.reqif", false);
 		XMLResource resource = (XMLResource)resourceSet.getResource(fileURI, true);
 		resource.load(null);
 		resource.getEObject("not found");
