@@ -1,5 +1,7 @@
 package org.eclipse.rmf.reqif10.ide.editor;
 
+import org.eclipse.core.commands.Command;
+import org.eclipse.core.commands.State;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
@@ -17,16 +19,22 @@ import org.eclipse.sphinx.emf.editors.forms.BasicTransactionalFormEditor;
 import org.eclipse.sphinx.emf.editors.forms.pages.GenericContentsTreePage;
 import org.eclipse.sphinx.emf.editors.forms.sections.IFormSection;
 import org.eclipse.sphinx.platform.util.PlatformLogUtil;
+import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.commands.ICommandService;
+import org.eclipse.ui.forms.editor.FormEditor;
+import org.eclipse.ui.handlers.RegistryToggleState;
 
 public class ReqIFSpecificationEditor extends BasicTransactionalFormEditor {
+	
+	boolean showSpecRelations = false;
 
 	
 	private Reqif10ActionBarContributor reqifActionBarContributor;
-
 
 	
 	public ReqIFSpecificationEditor() {
@@ -65,6 +73,9 @@ public class ReqIFSpecificationEditor extends BasicTransactionalFormEditor {
 	 * Forward requests to show or hide SpecRelations.
 	 */
 	public void setShowSpecRelations(boolean checked) {
+		showSpecRelations = checked;
+		
+		System.out.println("setShowSpecRelations to " + showSpecRelations);
 		
 		// find the section that shows the ReqIF specification
 		for (Object page : pages) {
@@ -80,11 +91,26 @@ public class ReqIFSpecificationEditor extends BasicTransactionalFormEditor {
 			
 		}
 	}
-
-
-	
-
 	
 	
+	@Override
+	protected void handleActivate() {
+		ICommandService service = (ICommandService) PlatformUI.getWorkbench().getService(ICommandService.class);
+		Command command = service.getCommand("org.eclipse.rmf.reqif10.ide.ui.commands.toggleSpecRelations");
+		State state = command.getState(RegistryToggleState.STATE_ID);
+		
+		boolean buttonState = (Boolean)state.getValue();	
+			if (buttonState != showSpecRelations) {				
+			    state.setValue(new Boolean(showSpecRelations));
+			} 
+	
+	}
+	
 
+		
+
+	
+	public boolean getShowSpecRelations() {
+		return showSpecRelations;
+	}
 }

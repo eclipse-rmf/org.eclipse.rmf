@@ -20,6 +20,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor;
 import org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationSection;
 import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
+import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -29,27 +30,19 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.part.EditorPart;
 
-/**
- * @author jastram
- * 
- */
+
 public class ToggleSpecRelationsHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		ICommandService service = (ICommandService) PlatformUI.getWorkbench().getService(ICommandService.class);
-		Command command = service.getCommand("org.eclipse.rmf.reqif10.ide.ui.commands.toggleSpecRelations");
-		State state = command.getState("org.eclipse.rmf.reqif10.ide.ui.commands.toggleSpecRelations.state");
-		Boolean showSpecRelations = (Boolean) state.getValue();
-		
-		
+		Command command = event.getCommand();
+		Boolean oldValue = HandlerUtil.toggleCommandState(command);
+				
 		IEditorPart editor = HandlerUtil.getActiveEditor(event);
 		if (editor instanceof ReqIFSpecificationEditor) {
-			((ReqIFSpecificationEditor)editor).setShowSpecRelations(showSpecRelations);
+			((ReqIFSpecificationEditor)editor).setShowSpecRelations(! oldValue );
 		}
 		
-		state.setValue(!showSpecRelations);
-		// TODO Auto-generated method stub
 		return null;
 	}
 

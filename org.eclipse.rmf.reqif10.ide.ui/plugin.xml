@@ -185,7 +185,10 @@
                      <reference
                            definitionId="org.eclipse.rmf.reqif10.ide.editors.reqif.isActive">
                      </reference>
+
+               
                </visibleWhen>
+                                    
                </command>
             </toolbar>
          </menuContribution>
@@ -208,8 +211,9 @@
                defaultHandler="org.eclipse.rmf.reqif10.ide.commands.toolbar.handler.ToggleSpecRelationsHandler"
                id="org.eclipse.rmf.reqif10.ide.ui.commands.toggleSpecRelations"
                name="Toggle SpecRelations">
-               <state class="org.eclipse.ui.handlers.RegistryToggleState:false" id="org.eclipse.rmf.reqif10.ide.ui.commands.toggleSpecRelations.state">
+             <state class="org.eclipse.ui.handlers.RegistryToggleState:false" id="org.eclipse.ui.commands.toggleState">
                </state>
+               
          </command>
       </extension>
       <extension point = "org.eclipse.core.expressions.definitions">
