@@ -353,6 +353,7 @@ public class Reqif10ActionBarContributor
 		
 		// Stores the selection that is needed for link management.
 		ISelection selection = event.getSelection();
+		
 		saveLinkingSelection(selection);
 	}
 

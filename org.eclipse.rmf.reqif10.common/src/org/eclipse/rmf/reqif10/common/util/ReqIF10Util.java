@@ -57,6 +57,7 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.SpecRelationType;
 import org.eclipse.rmf.reqif10.SpecType;
+import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.common.services.IReqIFModelQueryService;
 import org.eclipse.sphinx.emf.metamodel.IMetaModelDescriptor;
 import org.eclipse.sphinx.emf.metamodel.MetaModelDescriptorRegistry;
@@ -543,6 +544,18 @@ public class ReqIF10Util {
 		} else {
 			return EObjectUtil.getAllInstancesOf(contextObject, type, false);
 		}
+	}
+
+	public static Specification getOwningSpecification(EObject eObject) {
+		EObject container = eObject;
+		while (container != null) {
+			if (container instanceof Specification) {
+				return (Specification) container;
+			} else {
+				container = container.eContainer();
+			}
+		}
+		return null;
 	}
 
 }

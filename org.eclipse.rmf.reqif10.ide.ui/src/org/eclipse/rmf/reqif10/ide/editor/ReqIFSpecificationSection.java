@@ -7,6 +7,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.State;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -75,13 +76,27 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 			Object sectionInput) {
 		super(formPage, sectionInput);
 	}
+	
+	Specification getOwningSpecification(EObject eObject) {
+		EObject container = eObject;
+		while (container != null) {
+			if (container instanceof Specification) {
+				return (Specification)container;
+			} else {
+				container = container.eContainer();
+			}
+		}
+		return null;
+ 	}
 
 	@Override
 	protected void createSectionClientContent(IManagedForm managedForm,
 			SectionPart sectionPart, Composite sectionClient) {
+		if (sectionInput instanceof EObject) {
+			EObject eObject = (EObject)sectionInput;
+			Specification specification  = getOwningSpecification(eObject);
 
-		if (sectionInput instanceof Specification) {
-			Specification specification = (Specification) sectionInput;
+		if (specification != null) {
 			adapterFactory = new ComposedAdapterFactory(
 					ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
@@ -119,6 +134,8 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 			PlatformLogUtil.logAsError(Activator.getPlugin(),
 					"not supported input type of Specification editor");
 		}
+		}
+		
 	}
 
 	@Override

@@ -2,6 +2,9 @@ package org.eclipse.rmf.reqif10.ide.editor;
 
 import org.eclipse.core.commands.Command;
 import org.eclipse.core.commands.State;
+import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
@@ -11,6 +14,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.internal.reqif10.ide.ui.Activator;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridViewer;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
@@ -18,6 +22,9 @@ import org.eclipse.rmf.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
 import org.eclipse.sphinx.emf.editors.forms.BasicTransactionalFormEditor;
 import org.eclipse.sphinx.emf.editors.forms.pages.GenericContentsTreePage;
 import org.eclipse.sphinx.emf.editors.forms.sections.IFormSection;
+import org.eclipse.sphinx.emf.ui.util.ExtendedURIEditorInput;
+import org.eclipse.sphinx.emf.util.EcorePlatformUtil;
+import org.eclipse.sphinx.emf.util.EcoreResourceUtil;
 import org.eclipse.sphinx.platform.util.PlatformLogUtil;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.widgets.Composite;
@@ -28,11 +35,17 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.handlers.RegistryToggleState;
+import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
 public class ReqIFSpecificationEditor extends BasicTransactionalFormEditor {
 	
 	boolean showSpecRelations = false;
 
+	
+	@Override
+	protected AdapterFactory getCustomAdapterFactory() {
+		return org.eclipse.rmf.reqif10.ide.providers.ReqIF10ItemProviderAdapterFactory.INSTANCE;
+	}
 	
 	private Reqif10ActionBarContributor reqifActionBarContributor;
 
@@ -44,7 +57,20 @@ public class ReqIFSpecificationEditor extends BasicTransactionalFormEditor {
 	@Override
 	public void init(IEditorSite site, IEditorInput editorInput) {
 		// TODO Auto-generated method stub
-		super.init(site, editorInput);
+		IEditorInput cleanedEditorInput = null;
+		if (editorInput instanceof ExtendedURIEditorInput) {
+			EObject eObject = EcorePlatformUtil.getEObject(((ExtendedURIEditorInput)editorInput).getURI());
+			Specification specification = ReqIF10Util.getOwningSpecification(eObject);
+			if (specification != null) {
+				cleanedEditorInput = new ExtendedURIEditorInput(EcoreResourceUtil.getURI(specification));
+			}
+		}
+		
+		if (cleanedEditorInput !=null) {
+			super.init(site, cleanedEditorInput);
+		} else {
+			super.init(site, editorInput);
+		}
 		
 		reqifActionBarContributor = (Reqif10ActionBarContributor)site.getActionBarContributor();
 		
@@ -106,11 +132,21 @@ public class ReqIFSpecificationEditor extends BasicTransactionalFormEditor {
 	
 	}
 	
-
-		
-
 	
 	public boolean getShowSpecRelations() {
 		return showSpecRelations;
+	}
+	
+	
+	@Override
+	protected void setInput(IEditorInput input) {
+		// TODO Auto-generated method stub
+		super.setInput(input);
+	}
+	
+	@Override
+	protected void updateEditorInput(URI newURI) {
+		// TODO Auto-generated method stub
+		super.updateEditorInput(newURI);
 	}
 }

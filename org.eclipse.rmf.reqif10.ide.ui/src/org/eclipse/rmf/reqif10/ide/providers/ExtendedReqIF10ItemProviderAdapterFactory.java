@@ -12,6 +12,7 @@ import org.eclipse.rmf.reqif10.provider.DatatypeDefinitionStringItemProvider;
 import org.eclipse.rmf.reqif10.provider.DatatypeDefinitionXHTMLItemProvider;
 import org.eclipse.rmf.reqif10.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.provider.ReqIFToolExtensionItemProvider;
+import org.eclipse.rmf.reqif10.provider.SpecHierarchyItemProvider;
 import org.eclipse.sphinx.emf.edit.TransientItemProvider;
 
 public class ExtendedReqIF10ItemProviderAdapterFactory extends
@@ -25,6 +26,14 @@ public class ExtendedReqIF10ItemProviderAdapterFactory extends
 			reqIFItemProvider = new ExtendedReqIF10ItemProvider(this);
 		}
 		return reqIFItemProvider;
+	}
+	
+	@Override
+	public Adapter createSpecHierarchyAdapter() {
+		if (specHierarchyItemProvider == null) {
+			specHierarchyItemProvider = new ExtendedSpecHierarchyItemProvider(this);
+		}
+		return specHierarchyItemProvider;
 	}
 
 	@Override

@@ -32,6 +32,10 @@
                   pattern="org.eclipse.rmf.reqif10.ide.providers.reqIFModelEditActionProvider">
             </actionExtension>
             <actionExtension
+                  pattern="org.eclipse.rmf.reqif10.ide.ui.editorActions">
+            </actionExtension>
+            
+            <actionExtension
                   pattern="org.eclipse.sphinx.emf.explorer.basicModelUndoRedoActions">
             </actionExtension>
             <actionExtension
@@ -133,7 +137,8 @@
             class="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor"
             contributorClass="org.eclipse.rmf.reqif10.ide.editor.Reqif10ActionBarContributor"
             default="false"
-            extensions="Specification"
+            extensions="Specification, SpecHierarchy"
+            matchingStrategy="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditorMatchingStrategy"
             id="org.eclipse.rmf.reqif10.ide.ui.editors.reqif"
             name="ReqIF Example Editor">
          <!--
@@ -322,5 +327,21 @@
       </viewerContentBinding>
    </extension>
       
-
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <actionProvider
+            class="org.eclipse.rmf.reqif10.ide.providers.ReqIFSpecificationEditorActionProvider"
+            id="org.eclipse.rmf.reqif10.ide.ui.editorActions">
+         <enablement>
+            <or>
+               <instanceof
+                     value="org.eclipse.emf.ecore.EObject">
+               </instanceof>
+               <instanceof
+                     value="org.eclipse.emf.edit.provider.IWrapperItemProvider">
+               </instanceof>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
 </plugin>
