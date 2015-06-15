@@ -1,14 +1,14 @@
 package org.eclipse.rmf.reqif10.ide.providers;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.sphinx.emf.explorer.BasicExplorerLabelProvider;
+import org.eclipse.sphinx.emf.explorer.actions.providers.BasicModelEditActionProvider;
 
-public class ReqIFExplorerLabelProvider extends BasicExplorerLabelProvider {
+public class ReqIFModelEditActionProvider extends BasicModelEditActionProvider {
 
-	public ReqIFExplorerLabelProvider() {
+	public ReqIFModelEditActionProvider() {
+		super();
 	}
 	
-
 	@Override
 	protected AdapterFactory getCustomAdapterFactory() {
 		return ReqIF10ItemProviderAdapterFactory.INSTANCE;

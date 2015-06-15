@@ -25,6 +25,8 @@ public class ExtendedReqIFContentItemProvider extends ReqIFContentItemProvider {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) { 
 	  super.getChildrenFeatures(object);
@@ -48,6 +50,7 @@ public class ExtendedReqIFContentItemProvider extends ReqIFContentItemProvider {
 	  // merge with spec types: children.add(adapterFactory.adapt(object, TransientDataTypesItemProvider.class));
 	  return children;
 	} 
+	
 	
 	@Override
 	protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Collection<?> collection, int index) { 
@@ -94,7 +97,7 @@ public class ExtendedReqIFContentItemProvider extends ReqIFContentItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		super.notifyChanged(notification);
-		//updateChildren(notification);
+		updateChildren(notification);
 		switch (notification.getFeatureID(ReqIFContent.class)) {
 	    case ReqIF10Package.REQ_IF_CONTENT__SPEC_OBJECTS:
 	    case ReqIF10Package.REQ_IF_CONTENT__SPECIFICATIONS:
@@ -104,6 +107,8 @@ public class ExtendedReqIFContentItemProvider extends ReqIFContentItemProvider {
 	    case ReqIF10Package.REQ_IF_CONTENT__SPEC_TYPES:
 		      fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 		      return;
+		      
 	  }
+		super.notifyChanged(notification);
 	}
 }

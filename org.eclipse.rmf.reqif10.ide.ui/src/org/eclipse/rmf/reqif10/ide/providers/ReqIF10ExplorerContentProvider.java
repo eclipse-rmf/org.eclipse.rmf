@@ -20,8 +20,9 @@ public class ReqIF10ExplorerContentProvider extends BasicExplorerContentProvider
 
 	@Override
 	protected AdapterFactory getCustomAdapterFactory() {
-		return new ReqIF10ItemProviderAdapterFactory();
+		return ReqIF10ItemProviderAdapterFactory.INSTANCE;
 	}
+	
 	@Override
 	public Object[] getChildren(Object parentElement) {
 		List<Object> roots = new ArrayList<Object>();
@@ -36,19 +37,26 @@ public class ReqIF10ExplorerContentProvider extends BasicExplorerContentProvider
 		return roots.toArray();
 	}
 	
-	@Override
-	protected List<Object> getModelContentRoots(Resource modelResource) {
+	//@Override
+	protected List<Object> getModelContentRoots_(Resource modelResource) {
 		List<Object> roots = new ArrayList<Object>();
+
+		if (modelResource != null) {
 		for (EObject eObject : modelResource.getContents()) {
 			if (eObject instanceof ReqIF) {
 				ReqIF reqIF = (ReqIF)eObject;
 				roots.add(reqIF);
-				ReqIFContent reqIFContent = reqIF.getCoreContent();
+				/*
+				 ReqIFContent reqIFContent = reqIF.getCoreContent();
+				
 				if (reqIFContent != null) {
 					roots.add(reqIFContent);
 				}
+				 */
 			}
 		}
+		}
+		
 		if (roots.isEmpty()) {
 			return super.getModelContentRoots(modelResource);
 		} else {

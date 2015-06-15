@@ -25,6 +25,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.internal.reqif10.ide.ui.Activator;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.ide.providers.ExtendedReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridViewer;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
@@ -87,7 +88,7 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 			adapterFactory
 					.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 			adapterFactory
-					.addAdapterFactory(new ReqIF10ItemProviderAdapterFactory());
+					.addAdapterFactory(new ExtendedReqIF10ItemProviderAdapterFactory());
 			adapterFactory
 					.addAdapterFactory(new XhtmlItemProviderAdapterFactory());
 			adapterFactory

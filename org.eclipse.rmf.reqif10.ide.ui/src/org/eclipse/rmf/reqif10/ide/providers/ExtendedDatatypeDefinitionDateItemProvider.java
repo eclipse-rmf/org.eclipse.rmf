@@ -15,6 +15,6 @@ public class ExtendedDatatypeDefinitionDateItemProvider extends
 	@Override
 	public Object getParent(Object object) { 
 	  Object parent = super.getParent(object);
-	  return adapterFactory.adapt(parent, TransientDataTypesItemProvider.class); 
+	  return adapterFactory.adapt(parent, TransientTypesItemProvider.class); 
 	}
 }

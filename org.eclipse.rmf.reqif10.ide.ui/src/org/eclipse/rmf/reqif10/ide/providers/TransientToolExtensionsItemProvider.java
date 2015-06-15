@@ -13,23 +13,24 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.StyledString.Style;
 import org.eclipse.rmf.internal.reqif10.ide.ui.Activator;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.sphinx.emf.edit.TransientItemProvider;
 
-public class TransientDataTypesItemProvider extends TransientItemProvider {
+public class TransientToolExtensionsItemProvider extends TransientItemProvider {
 	
 	
 
-	public TransientDataTypesItemProvider(AdapterFactory adapterFactory) {
+	public TransientToolExtensionsItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
-	
 	@Override
 	public String getText(Object object) { 
-	  return "Data Types (" +  ((ReqIFContent)getParent(object)).getDatatypes().size() + ")";//$NON-NLS-1$
+		ReqIF reqIF = (ReqIF)getParent(object);
+	  return "Tool Extensions (" + reqIF.getToolExtensions().size() + ")"; //$NON-NLS-1$
 	} 
 	
 	@Override
@@ -41,7 +42,7 @@ public class TransientDataTypesItemProvider extends TransientItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) { 
 	  if (childrenFeatures == null) {
 	    super.getChildrenFeatures(object);
-	    childrenFeatures.add(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES); 
+	    childrenFeatures.add(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS); 
 	  }
 	  return childrenFeatures; 
 	} 
@@ -49,18 +50,13 @@ public class TransientDataTypesItemProvider extends TransientItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) { 
 	  super.collectNewChildDescriptors(newChildDescriptors, object);
-	  newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,ReqIF10Factory.eINSTANCE.createDatatypeDefinitionBoolean()));
-	  newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,ReqIF10Factory.eINSTANCE.createDatatypeDefinitionDate()));
-	  newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,ReqIF10Factory.eINSTANCE.createDatatypeDefinitionEnumeration()));
-	  newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,ReqIF10Factory.eINSTANCE.createDatatypeDefinitionInteger()));
-	  newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,ReqIF10Factory.eINSTANCE.createDatatypeDefinitionReal()));
-	  newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,ReqIF10Factory.eINSTANCE.createDatatypeDefinitionString()));
-	  newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES,ReqIF10Factory.eINSTANCE.createDatatypeDefinitionXHTML()));
+	  newChildDescriptors.add(createChildParameter(ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS,ReqIF10Factory.eINSTANCE.createReqIFToolExtension()));
 	} 
+
 	
 	@Override
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations, int operation, Collection<?> collection) { 
-	  if (new AddCommand(domain, (EObject) owner, ReqIF10Package.Literals.REQ_IF_CONTENT__DATATYPES, collection).canExecute()) {
+	  if (new AddCommand(domain, (EObject) owner, ReqIF10Package.Literals.REQ_IF__TOOL_EXTENSIONS, collection).canExecute()) {
 	    return super.createDragAndDropCommand(domain, owner, location, operations, operation, collection); 
 	  } 
 	  return UnexecutableCommand.INSTANCE; 
@@ -70,4 +66,14 @@ public class TransientDataTypesItemProvider extends TransientItemProvider {
 	public ResourceLocator getResourceLocator() { 
 	  return Activator.INSTANCE;
 	}
+	
+@Override
+public Object getImage(Object object) {
+	if (object != null) {
+		return overlayImage(object, Activator.INSTANCE.getImage("full/obj16/TransientReqIFToolExtensions.gif")); //$NON-NLS-1$
+	}
+	return null;
+}
+	
+
 }

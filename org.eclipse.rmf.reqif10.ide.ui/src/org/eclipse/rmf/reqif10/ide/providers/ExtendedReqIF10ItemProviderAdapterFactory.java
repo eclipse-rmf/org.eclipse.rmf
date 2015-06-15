@@ -11,11 +11,12 @@ import org.eclipse.rmf.reqif10.provider.DatatypeDefinitionRealItemProvider;
 import org.eclipse.rmf.reqif10.provider.DatatypeDefinitionStringItemProvider;
 import org.eclipse.rmf.reqif10.provider.DatatypeDefinitionXHTMLItemProvider;
 import org.eclipse.rmf.reqif10.provider.ReqIF10ItemProviderAdapterFactory;
+import org.eclipse.rmf.reqif10.provider.ReqIFToolExtensionItemProvider;
 import org.eclipse.sphinx.emf.edit.TransientItemProvider;
 
 public class ExtendedReqIF10ItemProviderAdapterFactory extends
 		ReqIF10ItemProviderAdapterFactory {
-
+	
 	protected Disposable disposable = new Disposable();
 
 	@Override
@@ -69,6 +70,14 @@ public class ExtendedReqIF10ItemProviderAdapterFactory extends
 	}
 	
 	@Override
+	public Adapter createSpecRelationAdapter() {
+		if (specRelationItemProvider == null) {
+			specRelationItemProvider = new ExtendedSpecRelationItemProvider(this);
+		}
+		return specRelationItemProvider;
+	}
+	
+	@Override
 	public Adapter createSpecObjectTypeAdapter() {
 		if (specObjectTypeItemProvider == null) {
 			specObjectTypeItemProvider = new ExtendedSpecObjectTypeItemProvider(this);
@@ -79,7 +88,7 @@ public class ExtendedReqIF10ItemProviderAdapterFactory extends
 	@Override
 	public Adapter createDatatypeDefinitionBooleanAdapter() {
 		if (datatypeDefinitionBooleanItemProvider == null) {
-			datatypeDefinitionBooleanItemProvider = new DatatypeDefinitionBooleanItemProvider(this);
+			datatypeDefinitionBooleanItemProvider = new ExtendedDatatypeDefinitionBooleanItemProvider(this);
 		}
 		return datatypeDefinitionBooleanItemProvider;
 	}
@@ -87,7 +96,7 @@ public class ExtendedReqIF10ItemProviderAdapterFactory extends
 	@Override
 	public Adapter createDatatypeDefinitionDateAdapter() {
 		if (datatypeDefinitionDateItemProvider == null) {
-			datatypeDefinitionDateItemProvider = new DatatypeDefinitionDateItemProvider(this);
+			datatypeDefinitionDateItemProvider = new ExtendedDatatypeDefinitionDateItemProvider(this);
 		}
 		return datatypeDefinitionDateItemProvider;
 	}
@@ -95,7 +104,7 @@ public class ExtendedReqIF10ItemProviderAdapterFactory extends
 	@Override
 	public Adapter createDatatypeDefinitionEnumerationAdapter() {
 		if (datatypeDefinitionEnumerationItemProvider == null){
-			datatypeDefinitionEnumerationItemProvider = new DatatypeDefinitionEnumerationItemProvider(this);
+			datatypeDefinitionEnumerationItemProvider = new ExtendedDatatypeDefinitionEnumerationItemProvider(this);
 		}
 		return datatypeDefinitionEnumerationItemProvider;
 	}
@@ -103,7 +112,7 @@ public class ExtendedReqIF10ItemProviderAdapterFactory extends
 	@Override
 	public Adapter createDatatypeDefinitionIntegerAdapter() {
 		if (datatypeDefinitionIntegerItemProvider == null) {
-			datatypeDefinitionIntegerItemProvider = new DatatypeDefinitionIntegerItemProvider(this);
+			datatypeDefinitionIntegerItemProvider = new ExtendedDatatypeDefinitionIntegerItemProvider(this);
 		}
 		return datatypeDefinitionIntegerItemProvider;
 		
@@ -112,7 +121,7 @@ public class ExtendedReqIF10ItemProviderAdapterFactory extends
 	@Override
 	public Adapter createDatatypeDefinitionRealAdapter() {
 		if (datatypeDefinitionRealItemProvider == null) {
-			datatypeDefinitionRealItemProvider = new DatatypeDefinitionRealItemProvider(this);
+			datatypeDefinitionRealItemProvider = new ExtendedDatatypeDefinitionRealItemProvider(this);
 		}
 		return datatypeDefinitionRealItemProvider;
 	}
@@ -120,7 +129,7 @@ public class ExtendedReqIF10ItemProviderAdapterFactory extends
 	@Override
 	public Adapter createDatatypeDefinitionStringAdapter() {
 		if (datatypeDefinitionStringItemProvider == null) {
-			datatypeDefinitionStringItemProvider = new DatatypeDefinitionStringItemProvider(this);
+			datatypeDefinitionStringItemProvider = new ExtendedDatatypeDefinitionStringItemProvider(this);
 		}
 		return datatypeDefinitionStringItemProvider;
 	}
@@ -128,9 +137,17 @@ public class ExtendedReqIF10ItemProviderAdapterFactory extends
 	@Override
 	public Adapter createDatatypeDefinitionXHTMLAdapter() {
 		if (datatypeDefinitionXHTMLItemProvider == null) {
-			datatypeDefinitionXHTMLItemProvider = new DatatypeDefinitionXHTMLItemProvider(this);
+			datatypeDefinitionXHTMLItemProvider = new ExtendedDatatypeDefinitionXHTMLItemProvider(this);
 		}
 		return datatypeDefinitionXHTMLItemProvider;
+	}
+	
+	@Override
+	public Adapter createReqIFToolExtensionAdapter() {
+		if (reqIFToolExtensionItemProvider == null) {
+			reqIFToolExtensionItemProvider = new ExtendedReqIFToolExtensionItemProvider(this);
+		}
+		return reqIFToolExtensionItemProvider;
 	}
 	@Override
 	public Object adapt(Object target, Object type) {
@@ -147,14 +164,14 @@ public class ExtendedReqIF10ItemProviderAdapterFactory extends
 	protected Adapter createAdapter(Notifier target, Object type) {
 		if (type == TransientSpecObjectsItemProvider.class) {
 			return new TransientSpecObjectsItemProvider(this);
-		} else if (type == TransientDataTypesItemProvider.class) {
-			return new TransientDataTypesItemProvider(this);
 		} else if (type == TransientSpecificationsItemProvider.class) {
 			return new TransientSpecificationsItemProvider(this);
 		} else if (type == TransientSpecRelationsItemProvider.class) {
 			return new TransientSpecRelationsItemProvider(this);
 		} else if (type == TransientTypesItemProvider.class) {
 			return new TransientTypesItemProvider(this);
+		} else if (type == TransientToolExtensionsItemProvider.class) {
+			return new TransientToolExtensionsItemProvider(this);
 		}
 		return super.createAdapter(target, type);
 	}

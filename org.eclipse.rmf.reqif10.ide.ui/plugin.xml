@@ -2,6 +2,17 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            class="org.eclipse.sphinx.emf.explorer.ExtendedCommonNavigator"
+            icon="icons/full/obj16/ReqIF.png"
+            id="org.eclipse.rmf.reqif.views.explorer"
+            name="ReqIF Explorer"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
          point="org.eclipse.ui.navigator.viewer">
       <viewerContentBinding
             viewerId="org.eclipse.sphinx.examples.explorer.views.modelExplorer">
@@ -11,6 +22,23 @@
             </contentExtension>
          </includes>
       </viewerContentBinding>
+      <viewerActionBinding
+            viewerId="org.eclipse.sphinx.examples.explorer.views.modelExplorer">
+         <includes>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.*">
+            </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.rmf.reqif10.ide.providers.reqIFModelEditActionProvider">
+            </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.sphinx.emf.explorer.basicModelUndoRedoActions">
+            </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.sphinx.emf.explorer.resourceMgmtOverrideActionProvider">
+            </actionExtension>
+         </includes>
+      </viewerActionBinding>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.navigatorContent">
@@ -35,15 +63,35 @@
             </and>
          </triggerPoints>
          <possibleChildren>
-            <and>
-               <instanceof
-                     value="org.eclipse.emf.ecore.EObject">
-               </instanceof>
-               <test
-                     property="org.eclipse.sphinx.emf.classNameMatches"
-                     value="org\.eclipse\.rmf\..*">
-               </test>
-            </and>
+            <or>
+               <and>
+                  <instanceof
+                        value="org.eclipse.emf.edit.provider.IWrapperItemProvider">
+                  </instanceof>
+                  <test
+                        property="org.eclipse.sphinx.emf.ownerClassNameMatches"
+                        value="org\.eclipse\.rmf\..*">
+                  </test>
+               </and>
+               <and>
+                  <instanceof
+                        value="org.eclipse.emf.ecore.EObject">
+                  </instanceof>
+                  <test
+                        property="org.eclipse.sphinx.emf.classNameMatches"
+                        value="org\.eclipse\.rmf\..*">
+                  </test>
+               </and>
+                <and>
+                  <instanceof
+                        value="org.eclipse.sphinx.emf.edit.TransientItemProvider">
+                  </instanceof>
+                  <test
+               		    property="org.eclipse.sphinx.emf.parentClassNameMatches"
+                        value="org\.eclipse\.rmf\..*">
+                   </test>
+               </and>
+            </or>
          </possibleChildren>
          <dropAssistant
                class="org.eclipse.sphinx.emf.explorer.BasicDropAdapterAssistant"
@@ -53,6 +101,21 @@
                      value="org.eclipse.emf.ecore.EObject">
                </instanceof></possibleDropTargets>
          </dropAssistant>
+         <actionProvider
+               class="org.eclipse.rmf.reqif10.ide.providers.ReqIFModelEditActionProvider"
+               id="org.eclipse.rmf.reqif10.ide.providers.reqIFModelEditActionProvider"
+               overrides="org.eclipse.sphinx.emf.explorer.basicModelEditActions">
+               <enablement>
+            <or>
+               <instanceof
+                     value="org.eclipse.emf.ecore.EObject" />
+               <instanceof
+                     value="org.eclipse.emf.edit.provider.IWrapperItemProvider" />
+               <instanceof
+                     value="org.eclipse.sphinx.emf.edit.TransientItemProvider" />
+            </or>
+         </enablement>
+         </actionProvider>
       </navigatorContent>
    </extension>
    <extension
@@ -122,28 +185,10 @@
                toolbarPath="additions">
          </action>
          <action
-               class="org.eclipse.rmf.reqif10.pror.editor.actions.DatatypeConfigurationActionDelegate"
-               icon="icons/full/obj16/SpecType.png"
-               id="org.eclipse.rmf.reqif10.pror.editor.DatatypeConfiguration"
-               label="%_Action_Datatype_Config"
-               menubarPath="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue/additions"
-               style="push"
-               toolbarPath="additions">
-         </action>
-         <action
                class="org.eclipse.rmf.reqif10.pror.editor.actions.GeneralConfigurationActionDelegate"
                icon="icons/full/obj16/ProRGeneralConfiguration.png"
                id="org.eclipse.rmf.reqif10.pror.editor.GeneralConfiguration"
                label="%_Action_General_Config"
-               menubarPath="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue/additions"
-               style="push"
-               toolbarPath="additions">
-         </action>
-         <action
-               class="org.eclipse.rmf.reqif10.pror.editor.actions.WebsiteActionDelegate"
-               icon="icons/full/prorIcon/prorIcon16.png"
-               id="org.eclipse.rmf.reqif10.pror.editor.WebsiteConfiguration"
-               label="%_Action_Website"
                menubarPath="org.eclipse.rmf.reqif10.ide.editor.ReqIFSpecificationEditor.menue/additions"
                style="push"
                toolbarPath="additions">
@@ -224,6 +269,58 @@
      </with>
   </definition>
 </extension>
+
+
+
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewer
+            viewerId="org.eclipse.rmf.reqif.views.explorer">
+      </viewer>
+      <viewerActionBinding
+            viewerId="org.eclipse.rmf.reqif.views.explorer">
+         <includes>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.*">
+            </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.sphinx.emf.explorer.linkHelper">
+            </actionExtension>
+         </includes>
+      </viewerActionBinding>
+      <viewerContentBinding
+            viewerId="org.eclipse.rmf.reqif.views.explorer">
+         <includes>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resourceContent">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.workingSets">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.filters.*">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.jdt.java.ui.javaContent">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.jdt.java.ui.filters.*">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.linkHelper">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.sphinx.emf.explorer.linkHelper">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.rmf.reqif10.ide.ui.navigationContent.reqif">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eatop.eel.workspace.ui.filters.*">
+            </contentExtension>
+         </includes>
+      </viewerContentBinding>
+   </extension>
       
 
 </plugin>

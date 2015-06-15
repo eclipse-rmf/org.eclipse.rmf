@@ -28,7 +28,7 @@ public class TransientSpecificationsItemProvider extends TransientItemProvider {
 
 	
 	@Override
-	public String getText(Object object) { 
+	public String getText(Object object) {
 	  return "Specifications (" +  ((ReqIFContent)getParent(object)).getSpecifications().size() + ")";//$NON-NLS-1$
 	} 
 	

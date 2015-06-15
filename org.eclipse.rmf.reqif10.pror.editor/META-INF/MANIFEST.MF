@@ -8,6 +8,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.rmf.reqif10.pror.editor,
+ org.eclipse.rmf.reqif10.pror.editor.actions,
  org.eclipse.rmf.reqif10.pror.editor.agilegrid,
  org.eclipse.rmf.reqif10.pror.editor.presentation,
  org.eclipse.rmf.reqif10.pror.editor.presentation.service,
