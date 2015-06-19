@@ -41,15 +41,7 @@ public class ReqIF10MMDescriptor extends ReqIFMMDescriptor {
 		return XML_CONTENT_TYPE_ID;
 	}
 
-	/*
-	 * @see org.eclipse.sphinx.emf.metamodel.AbstractMetaModelDescriptor#getCompatibleResourceVersionDescriptors()
-	 */
-	@Override
-	public Collection<IMetaModelDescriptor> getCompatibleResourceVersionDescriptors() {
-		//TODO: fixme
-		Set<IMetaModelDescriptor> descriptors = new HashSet<IMetaModelDescriptor>();
-		//descriptors.add(Hummingbird20MMCompatibility.HUMMINGBIRD_2_0_0_RESOURCE_DESCRIPTOR);
-		return Collections.unmodifiableSet(descriptors);
-	}
+
+	
 }
 

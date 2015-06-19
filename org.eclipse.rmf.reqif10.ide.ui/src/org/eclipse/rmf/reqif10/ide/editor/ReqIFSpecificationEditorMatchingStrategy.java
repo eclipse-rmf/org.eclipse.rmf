@@ -22,7 +22,7 @@ public class ReqIFSpecificationEditorMatchingStrategy implements
 		Object currentEditorInput;
 		try {
 			currentEditorInput = editorRef.getEditorInput();
-			if (currentEditorInput != null && input != null) {
+			if (currentEditorInput != null && input != null && input instanceof ExtendedURIEditorInput) {
 				ExtendedURIEditorInput extCurrent = (ExtendedURIEditorInput)currentEditorInput;
 				ExtendedURIEditorInput extInput = (ExtendedURIEditorInput)input;
 				EObject eObjectCurrent = EcorePlatformUtil.loadEObject(extCurrent.getURI());

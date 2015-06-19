@@ -1,12 +1,7 @@
 package org.eclipse.rmf.reqif10.ide.editor;
 
-import java.util.HashMap;
-
-import org.eclipse.core.commands.Command;
-import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.commands.State;
 import org.eclipse.core.runtime.Assert;
-import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -15,7 +10,6 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
@@ -26,46 +20,32 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.internal.reqif10.ide.ui.Activator;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.ide.providers.ExtendedReqIF10ItemProviderAdapterFactory;
+import org.eclipse.rmf.reqif10.ide.providers.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridViewer;
-import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.xhtml.provider.XhtmlItemProviderAdapterFactory;
 import org.eclipse.sphinx.emf.editors.forms.BasicTransactionalFormEditor;
 import org.eclipse.sphinx.emf.editors.forms.pages.AbstractFormPage;
-import org.eclipse.sphinx.emf.editors.forms.sections.AbstractFormSection;
 import org.eclipse.sphinx.emf.editors.forms.sections.AbstractViewerFormSection;
-import org.eclipse.sphinx.emf.metamodel.MetaModelDescriptorRegistry;
-import org.eclipse.sphinx.emf.ui.util.EcoreUIUtil;
-import org.eclipse.sphinx.emf.util.EcorePlatformUtil;
-import org.eclipse.sphinx.emf.util.EcoreResourceUtil;
-import org.eclipse.sphinx.emf.util.WorkspaceEditingDomainUtil;
-import org.eclipse.sphinx.emf.workspace.domain.WorkspaceEditingDomainManager;
 import org.eclipse.sphinx.platform.util.PlatformLogUtil;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.Tree;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.commands.ICommandService;
+import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.SectionPart;
-import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.widgets.FormToolkit;
-import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
-import org.eclipse.ui.handlers.HandlerUtil;
-import org.eclipse.ui.ide.FileStoreEditorInput;
+
 
 public class ReqIFSpecificationSection extends AbstractViewerFormSection implements IMenuListener {
 
 	private ProrAgileGridViewer prorAgileGridViewer;
-	protected ComposedAdapterFactory adapterFactory;
 	Reqif10ActionBarContributor reqifActionBarContributor;
+	ComposedAdapterFactory adapterFactory;
 
 	public ReqIFSpecificationSection(AbstractFormPage formPage,
 			Object sectionInput, int style) {
@@ -76,7 +56,7 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 			Object sectionInput) {
 		super(formPage, sectionInput);
 	}
-	
+
 	Specification getOwningSpecification(EObject eObject) {
 		EObject container = eObject;
 		while (container != null) {
@@ -87,7 +67,8 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 			}
 		}
 		return null;
- 	}
+	}
+	
 
 	@Override
 	protected void createSectionClientContent(IManagedForm managedForm,
@@ -96,46 +77,36 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 			EObject eObject = (EObject)sectionInput;
 			Specification specification  = getOwningSpecification(eObject);
 
-		if (specification != null) {
-			adapterFactory = new ComposedAdapterFactory(
-					ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
-			adapterFactory
-					.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-			adapterFactory
-					.addAdapterFactory(new ExtendedReqIF10ItemProviderAdapterFactory());
-			adapterFactory
-					.addAdapterFactory(new XhtmlItemProviderAdapterFactory());
-			adapterFactory
-					.addAdapterFactory(new ConfigurationItemProviderAdapterFactory());
-			adapterFactory
-					.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+			if (specification != null) {
+				
+				sectionClient.setLayoutData(new GridData(GridData.FILL_BOTH));
 
-			reqifActionBarContributor = (Reqif10ActionBarContributor) getFormPage()
-					.getTransactionalFormEditor().getActionBarContributor();
+				reqifActionBarContributor = (Reqif10ActionBarContributor) getFormPage()
+						.getTransactionalFormEditor().getActionBarContributor();
 
-			sectionClient.setLayoutData(new GridData(GridData.FILL_BOTH));
+				prorAgileGridViewer = new ProrAgileGridViewer(sectionClient,
+						getCustomAdapterFactory(), getEditingDomain(),
+						reqifActionBarContributor.getAgileCellEditorActionHandler());
 
-			prorAgileGridViewer = new ProrAgileGridViewer(sectionClient,
-					adapterFactory, getEditingDomain(),
-					reqifActionBarContributor.getAgileCellEditorActionHandler());
-
-			prorAgileGridViewer.getControl().setLayoutData(
-					new GridData(GridData.FILL_BOTH));
-			prorAgileGridViewer.setInput(specification);
-			// setsetSelectionProvider(prorAgileGridViewer);
-			if (false == specification.getChildren().isEmpty()) {
-				prorAgileGridViewer.setSelection(new StructuredSelection(
-						specification.getChildren().get(0)));
+				prorAgileGridViewer.getControl().setLayoutData(
+						new GridData(GridData.FILL_BOTH));
+				prorAgileGridViewer.setInput(specification);
+				// setsetSelectionProvider(prorAgileGridViewer);
+				
+				setViewer(prorAgileGridViewer);
+				
+				if (false == specification.getChildren().isEmpty()) {
+					getViewer().setSelection(new StructuredSelection(
+							specification.getChildren().get(0)));
+				}
+				
+			} else {
+				PlatformLogUtil.logAsError(Activator.getPlugin(),
+						"not supported input type of Specification editor");
 			}
-			setViewer(prorAgileGridViewer);
-			buildContextMenu();
-		} else {
-			PlatformLogUtil.logAsError(Activator.getPlugin(),
-					"not supported input type of Specification editor");
 		}
-		}
-		
+
 	}
 
 	@Override
@@ -191,36 +162,15 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 	}
 
 
-
-	/**
-	 * Delegate populating the context menu to EMF.
-	 */
-	private MenuManager buildContextMenu() {
-		MenuManager contextMenu = new MenuManager("#PopUp");
-		contextMenu.add(new Separator("additions"));
-		contextMenu.setRemoveAllWhenShown(true);
-		contextMenu.addMenuListener(this);
-
-		Menu menu = contextMenu.createContextMenu(prorAgileGridViewer
-				.getControl());
-		prorAgileGridViewer.getControl().setMenu(menu);
-		
-		getFormPage().getSite().registerContextMenu(contextMenu,
-				 new UnwrappingSelectionProvider(prorAgileGridViewer));
-
-
-		return contextMenu;
-	}
-
 	@Override
 	public void menuAboutToShow(IMenuManager manager) {
-			((IMenuListener) getFormPage().getTransactionalFormEditor().getEditorSite().getActionBarContributor())
-					.menuAboutToShow(manager);
+		((IMenuListener) getFormPage().getTransactionalFormEditor().getEditorSite().getActionBarContributor())
+		.menuAboutToShow(manager);
 	}
-	
+
 	public void setShowSpecRelations(boolean checked) {
 
-		ISelection sel = prorAgileGridViewer.getSelection();
+		ISelection sel = getViewer().getSelection();
 
 		prorAgileGridViewer.setShowSpecRelations(checked);
 
@@ -238,7 +188,46 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 		}
 
 	}
+
 	
 	
+	@Override
+	protected AdapterFactory getCustomAdapterFactory() {
+		if (adapterFactory == null) {
+			adapterFactory = new ComposedAdapterFactory(
+					ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+			adapterFactory
+			.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+			adapterFactory
+			.addAdapterFactory(ReqIF10ItemProviderAdapterFactory.INSTANCE);
+			adapterFactory
+			.addAdapterFactory(new XhtmlItemProviderAdapterFactory());
+			adapterFactory
+			.addAdapterFactory(new ConfigurationItemProviderAdapterFactory());
+			adapterFactory
+			.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+		}
+		return adapterFactory;
+	}
+	
+	
+	@Override
+	protected void createViewerContextMenu() {
+		super.createViewerContextMenu();
+		MenuManager contextMenu = new MenuManager("#PopUp");
+		
+		contextMenu.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+		contextMenu.setRemoveAllWhenShown(true);
+		contextMenu.addMenuListener(this);
+		
+		Control control = getViewer().getControl();
+
+		Menu menu = contextMenu.createContextMenu(control);
+		control.setMenu(menu);
+		
+		getFormPage().getSite().registerContextMenu(contextMenu,
+				new UnwrappingSelectionProvider(getViewer()));
+	}
+
 
 }

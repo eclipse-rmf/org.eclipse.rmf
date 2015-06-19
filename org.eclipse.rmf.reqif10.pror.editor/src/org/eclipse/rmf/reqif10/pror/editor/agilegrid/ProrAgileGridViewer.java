@@ -571,12 +571,14 @@ public class ProrAgileGridViewer extends Viewer {
 		EList<Column> cols = specViewConfig.getColumns();
 		Column leftHeaderColumn = ConfigurationUtil.getLeftHeaderColumn(
 				specification, editingDomain);
-		// Handle first column
-		if (leftHeaderColumn != null)
-			agileGrid.getLayoutAdvisor().setLeftHeaderWidth(
-					leftHeaderColumn.getWidth());
-		// One more column for the links
+		
+		
 		if (!agileGrid.isDisposed()) {
+			// Handle first column
+			if (leftHeaderColumn != null)
+				agileGrid.getLayoutAdvisor().setLeftHeaderWidth(
+						leftHeaderColumn.getWidth());
+			// One more column for the links
 			agileGrid.getLayoutAdvisor().setColumnCount(cols.size() + 1);
 			for (int i = 0; i < cols.size(); i++) {
 				agileGrid.getLayoutAdvisor().setTopHeaderLabel(i,

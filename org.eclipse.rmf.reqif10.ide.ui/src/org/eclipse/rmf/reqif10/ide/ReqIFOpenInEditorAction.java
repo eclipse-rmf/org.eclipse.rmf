@@ -18,7 +18,7 @@ public class ReqIFOpenInEditorAction extends BasicOpenInEditorAction {
 	public void run() {
 		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
 		if (page != null) {
-			getStructuredSelection();
+			//getStructuredSelection();
 			for (String editorId : editorIdToEditorInputObjectsMap.keySet()) {
 				for (Object object : editorIdToEditorInputObjectsMap.get(editorId)) {
 					try {

@@ -278,8 +278,11 @@ public class SpecificationEditor extends EditorPart implements
 						Object item = i.next();
 						if (item instanceof SpecHierarchy) {
 							prorAgileGridViewer.setSelection(selection);
+							// FIXME: why do we have to check this
+							if (!prorAgileGridViewer.getControl().isDisposed()) {
 							((ProrAgileGrid) prorAgileGridViewer.getControl())
 									.scrollToFocus();
+							}
 							return;
 						}
 					}
