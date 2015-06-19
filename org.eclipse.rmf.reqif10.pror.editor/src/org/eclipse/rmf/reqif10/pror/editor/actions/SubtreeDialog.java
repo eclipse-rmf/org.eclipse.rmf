@@ -103,7 +103,7 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	private final IReqifEditor reqifEditor;
 	private CommandStackListener commandStackListener;
 
-	protected SubtreeDialog(IReqifEditor reqifEditor, EObject input, String title,
+	public SubtreeDialog(IReqifEditor reqifEditor, EObject input, String title,
 			String helpContext) {
 		super(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
 		this.reqifEditor = reqifEditor;
