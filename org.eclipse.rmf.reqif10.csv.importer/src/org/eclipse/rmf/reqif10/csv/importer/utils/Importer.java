@@ -64,10 +64,13 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.common.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.csv.importer.mapping.DataType;
 import org.eclipse.rmf.reqif10.csv.importer.mapping.MappingItem;
 import org.eclipse.rmf.reqif10.csv.importer.mapping.MappingLibrary;
+import org.eclipse.rmf.reqif10.xhtml.XhtmlDivType;
 
 import au.com.bytecode.opencsv.CSVReader;
 
@@ -95,13 +98,13 @@ public class Importer {
 		attributeDefinitionMap = new HashMap<String, AttributeDefinition>();
 	}
 
-	public static void importReq(EditingDomain editingDomain, IFile file, String path,
-			MappingLibrary library, char separator, boolean header)
+	public static void importReq(EditingDomain editingDomain, IFile file,
+			String path, MappingLibrary library, char separator, boolean header)
 			throws IOException {
 		boolean needDispose = false;
 		if (editingDomain == null) {
-			URI uri = URI.createPlatformResourceURI(
-					file.getFullPath().toOSString(), true);
+			URI uri = URI.createPlatformResourceURI(file.getFullPath()
+					.toOSString(), true);
 			editingDomain = Utils.createReqIFEditingDomain();
 			editingDomain.getResourceSet().getResource(uri, true);
 			needDispose = true;
@@ -151,7 +154,6 @@ public class Importer {
 				.getSpecifications().get(0);
 		SpecObjectType specObjectType = getSpecObjectType(mappingItems,
 				getSpecTypeName());
-		System.out.println();
 		String[] nextLine;
 		while ((nextLine = reader.readNext()) != null) {
 			Command command = CreateChildCommand.create(editingDomain,
@@ -191,6 +193,30 @@ public class Importer {
 												Collections
 														.singleton(enumValue));
 									} else if (attributeValue instanceof AttributeValueXHTML) {
+										AttributeValueXHTML attributeValueXHTML = (AttributeValueXHTML) attributeValue;
+										// The formatted text is edited
+										XhtmlDivType div = ProrXhtmlSimplifiedHelper
+												.stringToSimplifiedXhtml(attributeStringValue);
+
+										XhtmlContent origTheValue = attributeValueXHTML
+												.getTheValue();
+										if (origTheValue == null) {
+											origTheValue = ReqIF10Factory.eINSTANCE
+													.createXhtmlContent();
+											attributeValueXHTML
+													.setTheValue(origTheValue);
+										}
+										if (!attributeValueXHTML.isSimplified()) {
+
+											boolean formattedAttribute = ProrXhtmlSimplifiedHelper
+													.isFormattedAttribute(origTheValue);
+
+											if (formattedAttribute) {
+												attributeValueXHTML
+														.setSimplified(true);
+											}
+										}
+										origTheValue.setXhtml(div);
 									} else {
 										EAttribute eAttribute = (EAttribute) ReqIF10Util
 												.getTheValueFeature(attributeValue);
