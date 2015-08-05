@@ -41,8 +41,8 @@
 		<system>Eclipse Hudson</system>
 	</ciManagement>
 	<properties>
-		<tycho.version>0.19.0</tycho.version>
-		<antrun.version>1.6</antrun.version>
+		<tycho.version>0.23.0</tycho.version>
+		<antrun.version>1.8</antrun.version>
 		<next.release>0.13.0-SNAPSHOT</next.release>
 	</properties>
 	<repositories>
@@ -355,9 +355,13 @@
 			</plugin>
 		</plugins>
 	</build>
+
 	<profiles>
 	    <profile>
 			<id>platform-mars</id>
+			<activation>
+      			<activeByDefault>true</activeByDefault>
+      		</activation>
 			<properties>
 				<platform.version.name>mars</platform.version.name>
 			</properties>

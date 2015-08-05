@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="MARS" sequenceNumber="22">
+<?pde version="3.8"?><target name="MARS" sequenceNumber="25">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.sdk.ide" version="0.0.0"/>
 <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
-<repository location="http://download.eclipse.org/eclipse/updates/4.5milestones"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.4/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.sdk.feature.group" version="0.0.0"/>
@@ -13,14 +13,14 @@
 <repository location="http://download.eclipse.org/releases/mars"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="com.google.guava" version="15.0.0.v201403281430"/>
-<unit id="org.apache.xerces" version="2.9.0.v201101211617"/>
-<unit id="org.apache.poi" version="3.9.0.v201405241750"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository"/>
+<unit id="org.eclipse.sphinx.emf.serialization.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/sphinx/updates/releases/0.9.x"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.sphinx.emf.serialization.feature.group" version="0.0.0"/>
-<repository location="http://download.eclipse.org/sphinx/updates/interim"/>
+<unit id="com.google.guava" version="15.0.0.v201403281430"/>
+<unit id="org.apache.poi" version="3.9.0.v201405241750"/>
+<unit id="org.apache.xerces" version="2.9.0.v201101211617"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/"/>
 </location>
 </locations>
 </target>
