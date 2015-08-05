@@ -7,7 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
- *     Mark Brörkens -   optimized rendering of links
+ *     Mark Broerkens -   optimized rendering of links
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 

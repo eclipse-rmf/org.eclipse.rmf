@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2013 Formal Mind GmbH and University of Dusseldorf.
+ * Copyright (c) 2011, 2013 Formal Mind GmbH and University of Dusseldorf and others.
  * 
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -8,6 +8,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Mark Broerkens  - optimized incoming and outgoing links calculation
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
@@ -89,7 +90,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.part.PluginTransfer;
-import org.eclipse.ui.themes.ColorUtil;
 
 /**
  * A Viewer that manages an {@link AgileGrid} rendering a
