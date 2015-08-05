@@ -79,13 +79,17 @@ import org.eclipse.swt.dnd.DropTargetListener;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Cursor;
+import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.part.PluginTransfer;
+import org.eclipse.ui.themes.ColorUtil;
 
 /**
  * A Viewer that manages an {@link AgileGrid} rendering a
@@ -140,6 +144,9 @@ public class ProrAgileGridViewer extends Viewer {
 		// agileGrid.setAgileGridEditor(new ProrAgileGridEditor(agileGrid));
 		agileGrid.setEditorActivationStrategy(new EditorActivationStrategy(
 				agileGrid, true));
+		Device device = Display.getCurrent ();
+		Color white = device.getSystemColor(SWT.COLOR_WHITE);
+		agileGrid.setBackground(white);
 		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
 		this.agileCellEditorActionHandler = agileCellEditorActionHandler;
