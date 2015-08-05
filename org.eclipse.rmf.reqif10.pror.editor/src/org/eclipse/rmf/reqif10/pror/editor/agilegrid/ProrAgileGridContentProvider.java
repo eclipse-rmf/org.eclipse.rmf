@@ -212,12 +212,15 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 				prorRowSH.setVisible(true);
 			}
 			tmpCache.add(current, prorRowSH);
-			if (prorRowSH.isShowSpecRelation()) {
-				for (SpecRelation specRelation : getSpecRelationsFor(element)) {
-					++current;
-					ProrRowSpecRelation prorRowSR = (ProrRowSpecRelation) getProrRowForSpecElement(
-							specRelation, current, depth + 1);
-					tmpCache.add(current, prorRowSR);
+			SpecObject specObject = element.getObject();
+			if (specObject != null) {
+				if (prorRowSH.isShowSpecRelation()) {
+					for (SpecRelation specRelation : ReqIF10Util.getOutgoingSpecRelationsOf(specObject)) {
+						++current;
+						ProrRowSpecRelation prorRowSR = (ProrRowSpecRelation) getProrRowForSpecElement(
+								specRelation, current, depth + 1);
+						tmpCache.add(current, prorRowSR);
+					}
 				}
 			}
 			int result = recurseSpecHierarchyForRow(++current, depth + 1,
