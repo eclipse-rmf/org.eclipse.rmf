@@ -1,13 +1,7 @@
 package org.eclipse.rmf.reqif10.ide.editor;
 
-import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.rmf.internal.reqif10.ide.ui.Activator;
-import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridViewer;
 import org.eclipse.sphinx.emf.editors.forms.layouts.LayoutFactory;
 import org.eclipse.sphinx.emf.editors.forms.pages.AbstractFormPage;
-import org.eclipse.sphinx.emf.editors.forms.sections.GenericContentsTreeSection;
-import org.eclipse.sphinx.platform.util.PlatformLogUtil;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormEditor;

@@ -3,12 +3,9 @@ package org.eclipse.rmf.reqif10.ide.providers;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.provider.ReqIFToolExtensionItemProvider;
-import org.eclipse.rmf.reqif10.provider.SpecRelationTypeItemProvider;
 
 public class ExtendedReqIFToolExtensionItemProvider extends ReqIFToolExtensionItemProvider {
 

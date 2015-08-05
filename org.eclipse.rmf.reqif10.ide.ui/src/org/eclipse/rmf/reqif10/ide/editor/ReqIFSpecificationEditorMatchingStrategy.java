@@ -1,8 +1,6 @@
 package org.eclipse.rmf.reqif10.ide.editor;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.rmf.reqif10.SpecHierarchy;
-import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.sphinx.emf.ui.util.ExtendedURIEditorInput;
 import org.eclipse.sphinx.emf.util.EcorePlatformUtil;
 import org.eclipse.ui.IEditorInput;

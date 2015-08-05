@@ -15,7 +15,6 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
-import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.provider.ReqIFItemProvider;
 
 public class ExtendedReqIF10ItemProvider extends ReqIFItemProvider {

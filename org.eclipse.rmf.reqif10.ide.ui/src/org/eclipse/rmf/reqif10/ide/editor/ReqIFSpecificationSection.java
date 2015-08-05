@@ -28,10 +28,14 @@ import org.eclipse.sphinx.emf.editors.forms.BasicTransactionalFormEditor;
 import org.eclipse.sphinx.emf.editors.forms.pages.AbstractFormPage;
 import org.eclipse.sphinx.emf.editors.forms.sections.AbstractViewerFormSection;
 import org.eclipse.sphinx.platform.util.PlatformLogUtil;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.forms.IManagedForm;
@@ -80,7 +84,15 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 
 			if (specification != null) {
 				
-				sectionClient.setLayoutData(new GridData(GridData.FILL_BOTH));
+				//sectionClient.setLayoutData(new GridData(GridData.FILL_BOTH));
+				// seems to be optional
+				GridData data = new GridData(GridData.FILL_BOTH) ;
+				data.verticalIndent = 0;
+				data.horizontalIndent = 0;
+				data.verticalSpan =0;
+				data.horizontalSpan=0;
+				sectionClient.setLayoutData(data);
+
 
 				reqifActionBarContributor = (Reqif10ActionBarContributor) getFormPage()
 						.getTransactionalFormEditor().getActionBarContributor();
@@ -93,6 +105,8 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 						new GridData(GridData.FILL_BOTH));
 				prorAgileGridViewer.setInput(specification);
 				// setsetSelectionProvider(prorAgileGridViewer);
+				
+				
 				
 				setViewer(prorAgileGridViewer);
 				
@@ -117,6 +131,7 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 		// Create section part
 		FormToolkit toolkit = managedForm.getToolkit();
 		SectionPart sectionPart = createSectionPart(parent, toolkit);
+		
 
 		// Initialize section
 		section = sectionPart.getSection();
@@ -127,13 +142,25 @@ public class ReqIFSpecificationSection extends AbstractViewerFormSection impleme
 			section.setDescription(description);
 		}
 		if (parent.getLayout() instanceof GridLayout) {
-			section.setLayoutData(new GridData(GridData.FILL_BOTH));
+			GridData data = new GridData(GridData.FILL_BOTH) ;
+			/*
+			data.verticalIndent = 0;
+			data.horizontalIndent = 0;
+			data.horizontalSpan = 0;
+			data.verticalSpan = 0;
+			*/
+			
+			section.setLayoutData(data);
 		} else if (parent.getLayout() instanceof TableWrapLayout) {
 			section.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB,
 					TableWrapData.FILL_GRAB));
 		}
 		section.marginWidth = 0;
 		section.marginHeight = 0;
+		
+		Device device = Display.getCurrent ();
+		Color red = device.getSystemColor(SWT.COLOR_WHITE);
+		section.setBackground(red);
 
 		// Create and set section client
 		Composite client = createSectionClient(managedForm, sectionPart);

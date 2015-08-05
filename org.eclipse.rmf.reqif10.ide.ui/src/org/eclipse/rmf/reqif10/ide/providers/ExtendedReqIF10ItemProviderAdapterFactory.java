@@ -3,16 +3,7 @@ package org.eclipse.rmf.reqif10.ide.providers;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.edit.provider.Disposable;
-import org.eclipse.rmf.reqif10.provider.DatatypeDefinitionBooleanItemProvider;
-import org.eclipse.rmf.reqif10.provider.DatatypeDefinitionDateItemProvider;
-import org.eclipse.rmf.reqif10.provider.DatatypeDefinitionEnumerationItemProvider;
-import org.eclipse.rmf.reqif10.provider.DatatypeDefinitionIntegerItemProvider;
-import org.eclipse.rmf.reqif10.provider.DatatypeDefinitionRealItemProvider;
-import org.eclipse.rmf.reqif10.provider.DatatypeDefinitionStringItemProvider;
-import org.eclipse.rmf.reqif10.provider.DatatypeDefinitionXHTMLItemProvider;
 import org.eclipse.rmf.reqif10.provider.ReqIF10ItemProviderAdapterFactory;
-import org.eclipse.rmf.reqif10.provider.ReqIFToolExtensionItemProvider;
-import org.eclipse.rmf.reqif10.provider.SpecHierarchyItemProvider;
 import org.eclipse.sphinx.emf.edit.TransientItemProvider;
 
 public class ExtendedReqIF10ItemProviderAdapterFactory extends

@@ -20,7 +20,7 @@ public class ExtendedSpecObjectItemProvider extends SpecObjectItemProvider {
 	
 	@Override
 	public String getText(Object object) {
-		String postfix = " ext";
+		String postfix = "";
 		if (object instanceof EObject) {
 			EObject eObject = (EObject)object;
 			if (eObject.eIsProxy()) {

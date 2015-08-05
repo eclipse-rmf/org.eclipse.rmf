@@ -4,17 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.rmf.reqif10.ReqIF;
-import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.sphinx.emf.explorer.BasicExplorerContentProvider;
-import org.eclipse.sphinx.emf.util.EcorePlatformUtil;
-import org.eclipse.sphinx.emf.util.EcoreResourceUtil;
 
 public class ReqIF10ExplorerContentProvider extends BasicExplorerContentProvider {
 
