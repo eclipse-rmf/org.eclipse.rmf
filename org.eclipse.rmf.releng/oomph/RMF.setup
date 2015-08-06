@@ -43,7 +43,6 @@
       storageURI="scope://Workspace"/>
   <setupTask
       xsi:type="setup.p2:P2Task">
-    <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
     <requirement
         name="org.eclipse.pde.api.tools.ee.feature.feature.group"/>
     <requirement
@@ -79,8 +78,6 @@
         url="http://download.eclipse.org/egit/updates-stable-nightly"/>
     <repository
         url="http://download.eclipse.org/oomph/updates"/>
-  </setupTask>
- 
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
