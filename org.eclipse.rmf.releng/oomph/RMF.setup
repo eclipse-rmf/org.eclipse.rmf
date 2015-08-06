@@ -44,6 +44,43 @@
   <setupTask
       xsi:type="setup.p2:P2Task">
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
+    <requirement
+        name="org.eclipse.pde.api.tools.ee.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.ide_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.java_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.pde_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.team_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.gerrit.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.git.feature.group"/>
+    <requirement
+        name="org.eclipse.egit.feature.group"/>
+    <requirement
+        name="org.eclipse.egit.mylyn.feature.group"/>
+    <requirement
+        name="org.eclipse.oomph.projectcopy.feature.group"/>
+    <requirement
+        name="org.eclipse.oomph.version.feature.group"/>
+    <requirement
+        name="org.eclipse.emf.ecoretools.sdk.feature.group"
+        optional="true"/>
+    <repository
+        url="http://download.eclipse.org/mylyn/snapshots/weekly"/>
+    <repository
+        url="http://download.eclipse.org/egit/updates-stable-nightly"/>
+    <repository
+        url="http://download.eclipse.org/oomph/updates"/>
+  </setupTask>
+ 
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
@@ -175,7 +212,7 @@
     <setupTask
         xsi:type="setup:VariableTask"
         name="rmf.bugzilla.components"
-        value="component=Documentation&amp;component=ProR&amp;component=Reqif-1.0&amp;component=Other"/>
+        value="component=Documentation&amp;component=ProR&amp;component=Reqif-1.0"/>
     <setupTask
         xsi:type="setup:VariableTask"
         name="rmf.bugzilla.open"
@@ -228,7 +265,17 @@
         userID="${bugzilla.id}"
         password="${eclipse.user.password}">
       <buildPlan
-          name="rmf-nighly"/>
+          name="rmf-nightly"/>
+      <description>RMF Nightly (shared Hudson)</description>
+    </setupTask>
+    <setupTask
+        xsi:type="mylyn:MylynBuildsTask"
+        serverURL="https://hudson.eclipse.org/rmf"
+        userID="${bugzilla.id}"
+        password="${eclipse.user.password}">
+      <buildPlan
+          name="rmf.documentation"/>
+      <description>RMF documentation</description>
     </setupTask>
   </setupTask>
   <setupTask
