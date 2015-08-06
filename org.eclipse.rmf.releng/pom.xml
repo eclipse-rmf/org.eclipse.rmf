@@ -109,14 +109,14 @@
 		<module>../org.eclipse.rmf.examples.feature</module>
 	</modules>
 
-
+<!--  
 	<pluginRepositories>
 		<pluginRepository>
 			<id>maven.eclipse.org</id>
 			<url>http://maven.eclipse.org/nexus/content/groups/public/</url>
 		</pluginRepository>
 	</pluginRepositories>
-    
+-->    
     
     
 	<build>
