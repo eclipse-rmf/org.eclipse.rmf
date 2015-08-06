@@ -12,7 +12,8 @@
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
+    xmlns:workingsets="http://www.eclipse.org/oomph/workingsets/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore http://www.eclipse.org/oomph/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/WorkingSets.ecore"
     name="rmf"
     label="RMF">
   <setupTask
@@ -192,6 +193,86 @@
             xsi:type="predicates:NamePredicate"
             pattern="org\.agilemore.*"/>
       </predicate>
+    </workingSet>
+    <workingSet
+        name="RMF Core"
+        id="">
+      <predicate
+          xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="org\.eclipse\.rmf\.ext.*"/>
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="org\.eclipse\.rmf.*"/>
+        </operand>
+        <operand
+            xsi:type="predicates:NotPredicate">
+          <operand
+              xsi:type="workingsets:ExclusionPredicate"
+              excludedWorkingSet="//@setupTasks.7/@workingSets.2 //@setupTasks.7/@workingSets.5 //@setupTasks.7/@workingSets.4 //@setupTasks.7/@workingSets.3 //@setupTasks.7/@workingSets.7 //@setupTasks.7/@workingSets.6"/>
+        </operand>
+      </predicate>
+    </workingSet>
+    <workingSet
+        name="Releng">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern="org\.eclipse\.rmf\.releng.*"/>
+    </workingSet>
+    <workingSet
+        name="RMF ProR"
+        id="pror">
+      <predicate
+          xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="org\.eclipse\.rmf\.reqif10\.pror.*"/>
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="org\.agilemore.*"/>
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="org\.eclipse\.rmf\.reqif10\.search.*"/>
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="org\.eclipse\.rmf\.reqif10\.csv.*"/>
+        </operand>
+        <operand
+            xsi:type="predicates:NotPredicate"/>
+      </predicate>
+    </workingSet>
+    <workingSet
+        name="RMF Examples"
+        id="examples">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern="org\.eclipse\.rmf\.examples.*"/>
+    </workingSet>
+    <workingSet
+        name="RMF documentation"
+        id="docs">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern="org\.eclipse\.rmf\.docs.*"/>
+    </workingSet>
+    <workingSet
+        name="RMF Tests"
+        id="tests">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern=".*test.*"/>
+    </workingSet>
+    <workingSet
+        name="RMF Features"
+        id="features">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern=".*feature.*"/>
     </workingSet>
     <description>The dynamic working sets for ${scope.project.label}</description>
   </setupTask>
