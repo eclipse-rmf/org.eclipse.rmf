@@ -368,7 +368,7 @@
     <setupTask
         xsi:type="mylyn:MylynBuildsTask"
         serverURL="https://hudson.eclipse.org/rmf"
-        userID="${git.user.id}"
+        userID="${bugzilla.id}"
         password="${eclipse.user.password}">
       <buildPlan
           name="rmf.documentation"/>
