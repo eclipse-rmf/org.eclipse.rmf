@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.rmf.reqif10.constraints;singleton:=true
 Bundle-Version: 0.13.0.qualifier
+Bundle-Localization: plugin
 Bundle-Activator: org.eclipse.rmf.internal.reqif10.constraints.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.validation;visibility:=reexport,
