@@ -108,16 +108,7 @@
 		<module>../org.eclipse.rmf.examples.installer</module>
 		<module>../org.eclipse.rmf.examples.feature</module>
 	</modules>
-
-<!--  
-	<pluginRepositories>
-		<pluginRepository>
-			<id>maven.eclipse.org</id>
-			<url>http://maven.eclipse.org/nexus/content/groups/public/</url>
-		</pluginRepository>
-	</pluginRepositories>
--->    
-    
+     
     
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -360,9 +351,6 @@
 	<profiles>
 	    <profile>
 			<id>platform-mars</id>
-			<activation>
-      			<activeByDefault>true</activeByDefault>
-      		</activation>
 			<properties>
 				<platform.version.name>mars</platform.version.name>
 			</properties>
