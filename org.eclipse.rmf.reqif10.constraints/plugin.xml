@@ -178,24 +178,6 @@
                      class="RelationGroup">
                </target>
             </constraint>
-            <constraint
-                  class="org.eclipse.rmf.reqif10.constraints.EnumerationMultiplicityConstraint"
-                  id="C2.1"
-                  lang="JAVA"
-                  mode="Batch"
-                  name="C2.1 Number of Attribute Values"
-                  severity="ERROR"
-                  statusCode="0201">
-               <message>
-                  {1}
-               </message>
-               <description>
-                  Number of values in AttributeValueEnumeration shall correspond to its AttributeDefinitionEnumeration
-               </description>
-               <target
-                     class="AttributeValueEnumeration">
-               </target>
-            </constraint>
          </constraints>
       </constraintProvider>
    </extension>
