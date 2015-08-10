@@ -371,6 +371,12 @@
         userID="${bugzilla.id}"
         password="${eclipse.user.password}">
       <buildPlan
+          name="rmf.develop.mars.gerrit"/>
+      <buildPlan
+          name="rmf.develop.luna"/>
+      <buildPlan
+          name="rmf.develop.mars"/>
+      <buildPlan
           name="rmf.documentation"/>
       <description>RMF documentation</description>
     </setupTask>
