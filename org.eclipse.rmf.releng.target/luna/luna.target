@@ -23,12 +23,12 @@
 <repository location="http://download.eclipse.org/incquery/updates/release"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.sphinx.sdk.feature.group" version="0.9.0.201506011104"/>
-<unit id="org.eclipse.sphinx.testutils.feature.group" version="0.9.0.201506011104"/>
-<unit id="org.eclipse.sphinx.thirdparty.feature.group" version="0.9.0.201506011104"/>
-<unit id="org.eclipse.sphinx.examples.feature.group" version="0.9.0.201506011104"/>
-<unit id="org.eclipse.sphinx.incquery.sdk.feature.group" version="0.9.0.201506011104"/>
-<repository location="http://download.eclipse.org/sphinx/updates/interim"/>
+<unit id="org.eclipse.sphinx.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.sphinx.testutils.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.sphinx.thirdparty.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.sphinx.examples.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.sphinx.incquery.sdk.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/sphinx/updates/releases/0.9.x"/>
 </location>
 </locations>
 </target>
