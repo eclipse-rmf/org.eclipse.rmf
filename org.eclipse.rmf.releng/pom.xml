@@ -41,7 +41,7 @@
 		<system>Eclipse Hudson</system>
 	</ciManagement>
 	<properties>
-		<tycho.version>0.19.0</tycho.version>
+		<tycho.version>0.23.0</tycho.version>
 		<antrun.version>1.6</antrun.version>
 		<next.release>0.13.0-SNAPSHOT</next.release>
 	</properties>
@@ -111,16 +111,6 @@
 		<module>../org.eclipse.rmf.examples.installer</module>
 		<module>../org.eclipse.rmf.examples.feature</module>
 	</modules>
-
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>maven.eclipse.org</id>
-			<url>http://maven.eclipse.org/nexus/content/groups/public/</url>
-		</pluginRepository>
-	</pluginRepositories>
-    
-    
     
 	<build>
 		<sourceDirectory>src</sourceDirectory>
