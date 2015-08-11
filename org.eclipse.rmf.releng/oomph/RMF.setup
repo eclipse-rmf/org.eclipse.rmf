@@ -378,6 +378,8 @@
           name="rmf.develop.mars"/>
       <buildPlan
           name="rmf.documentation"/>
+      <buildPlan
+          name="rmf.develop.luna.gerrit"/>
       <description>RMF documentation</description>
     </setupTask>
   </setupTask>
@@ -408,20 +410,6 @@
   </stream>
   <stream name="master"
       label="Master">
-    <setupTask
-        xsi:type="setup.p2:P2Task">
-      <requirement
-          name="org.eclipse.emf.sdk.feature.group"/>
-      <repository
-          url="http://download.eclipse.org/releases/mars"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="rmf.target.platform"
-        value="Mars"/>
-  </stream>
-  <stream name="streams/4.5-maintenance"
-      label="4.5 Maintenance">
     <setupTask
         xsi:type="setup.p2:P2Task">
       <requirement
