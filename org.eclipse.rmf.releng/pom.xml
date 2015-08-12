@@ -70,7 +70,7 @@
 		<module>../org.eclipse.rmf.reqif.ide</module>
 		<module>../org.eclipse.rmf.reqif10.ide</module>
 		<module>../org.eclipse.rmf.reqif10.ide.ui</module>
-		<module>../org.eclipse.rmf.reqif10.incquery</module>
+		
 		
 		<module>../org.eclipse.rmf.ext.prostep</module>
 		
@@ -84,6 +84,12 @@
 		<module>../org.eclipse.rmf.tests.reqif10.incquery</module>
 		<module>../org.eclipse.rmf.tests.ext.prostep</module>
 		<module>../org.eclipse.rmf.tests.reqif10.feature</module>
+		
+		<!-- IncQuery integration. 
+		     Extracted as separate feature since IncQuery is not yet 
+		     part of the Eclipse release train -->
+		<module>../org.eclipse.rmf.incquery</module>
+		<module>../org.eclipse.rmf.reqif10.incquery</module>
 
 		<!-- ReqIF UI ProR -->
 		<module>../org.eclipse.rmf.reqif10.pror</module>
