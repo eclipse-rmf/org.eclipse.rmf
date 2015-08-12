@@ -34,12 +34,12 @@ Contributors:
 
    <requires>
       <import feature="org.eclipse.rmf.reqif10.feature" version="0.9.0" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sphinx.emf.navigators" version="0.9.0.201506101027"/>
-      <import plugin="org.eclipse.sphinx.emf.editors"/>
-      <import plugin="org.eclipse.sphinx.emf.editors.forms"/>
-      <import feature="org.eclipse.sphinx.core" version="0.9.0.201506101027"/>
-      <import feature="org.eclipse.sphinx.examples.core" version="0.9.0.201506101027"/>
-      <import feature="org.eclipse.sphinx.examples.navigators" version="0.9.0.201506101027"/>
+      <import feature="org.eclipse.sphinx.emf.navigators"/>
+      <import feature="org.eclipse.sphinx.emf.editors"/>
+      <import feature="org.eclipse.sphinx.emf.editors.forms"/>
+      <import feature="org.eclipse.sphinx.core"/>
+      <import feature="org.eclipse.sphinx.examples.core"/>
+      <import feature="org.eclipse.sphinx.examples.navigators"/>
    </requires>
 
    <plugin
