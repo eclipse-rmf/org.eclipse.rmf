@@ -2,8 +2,8 @@
 <feature
       id="org.eclipse.rmf.incquery"
       label="%featureName"
+      version="0.13.0.qualifier"
       provider-name="%providerName"
-      version="0.14.0.qualifier"
       license-feature="org.eclipse.license"
       license-feature-version="1.0.1.qualifier">
 
@@ -23,6 +23,26 @@ http://www.eclipse.org/legal/epl-v10.html
       %license
    </license>
 
+   <url>
+      <discovery label="Sphinx 0.9.x Releases" url="http://download.eclipse.org/sphinx/updates/releases/0.9.x"/>
+      <discovery label="IncQuery Releases" url="http://download.eclipse.org/incquery/updates/release"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.rmf.reqif10"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.incquery.runtime"/>
+      <import plugin="org.eclipse.xtext.xbase.lib"/>
+      <import plugin="org.eclipse.incquery.runtime.evm" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.incquery.viewers.tooling.ui" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.incquery.tooling.generator.model.ui" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.incquery.patternlanguage.ui" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.incquery.tooling.ui" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.incquery.databinding.runtime" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.rmf.reqif10.common" version="0.13.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sphinx.emf.incquery" version="0.9.0" match="greaterOrEqual"/>
+      <import plugin="org.apache.log4j"/>
+   </requires>
 
    <plugin
          id="org.eclipse.rmf.reqif10.incquery"
