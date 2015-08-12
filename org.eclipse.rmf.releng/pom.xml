@@ -81,6 +81,7 @@
 		<module>../org.eclipse.rmf.tests.reqif10.serialization</module>
 		<module>../org.eclipse.rmf.tests.reqif10.common</module>
 		<module>../org.eclipse.rmf.tests.reqif10.constraints</module>
+		<module>../org.eclipse.rmf.tests.reqif10.incquery</module>
 		<module>../org.eclipse.rmf.tests.ext.prostep</module>
 		<module>../org.eclipse.rmf.tests.reqif10.feature</module>
 
