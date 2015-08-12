@@ -38,6 +38,8 @@ Contributors:
       <import plugin="org.eclipse.sphinx.emf.editors"/>
       <import plugin="org.eclipse.sphinx.emf.editors.forms"/>
       <import feature="org.eclipse.sphinx.core" version="0.9.0.201506101027"/>
+      <import feature="org.eclipse.sphinx.examples.core" version="0.9.0.201506101027"/>
+      <import feature="org.eclipse.sphinx.examples.navigators" version="0.9.0.201506101027"/>
    </requires>
 
    <plugin
