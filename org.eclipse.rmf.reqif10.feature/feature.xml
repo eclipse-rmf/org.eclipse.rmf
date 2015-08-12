@@ -24,6 +24,10 @@ http://www.eclipse.org/legal/epl-v10.html
       %license
    </license>
 
+   <url>
+      <discovery label="Sphinx 0.9.x Releases" url="http://download.eclipse.org/sphinx/updates/releases/0.9.x"/>
+   </url>
+   
    <includes
          id="org.eclipse.rmf.reqif10.thirdparty.feature"
          version="0.0.0"/>
