@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.rmf.incquery.sdk"
+      label="%featureName"
+      version="0.13.0.qualifier"
+      provider-name="%providerName"
+      license-feature="org.eclipse.license"
+      license-feature-version="1.0.1.qualifier">
+
+   <description url="http://www.eclipse.org/rmf">
+      %description
+   </description>
+
+   <copyright url="http://itemis.com/">
+      Copyright (c) 2015 itemis AG and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <discovery label="Sphinx 0.9.x Releases" url="http://download.eclipse.org/sphinx/updates/releases/0.9.x"/>
+      <discovery label="IncQuery Releases" url="http://download.eclipse.org/incquery/updates/release"/>
+   </url>
+
+   <requires>
+      <import feature="org.eclipse.incquery.runtime.feature" version="0.9.1.201502241438"/>
+      <import plugin="org.eclipse.sphinx.emf.incquery"/>
+   </requires>
+
+   <includes
+         id="org.eclipse.rmf.incquery"
+         version="0.0.0"/>
+   <includes
+         id="org.eclipse.rmf.incquery.source"
+         version="0.0.0"/>
+
+</feature>
