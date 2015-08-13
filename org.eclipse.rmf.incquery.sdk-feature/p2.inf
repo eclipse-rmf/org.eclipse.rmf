@@ -1,2 +1,4 @@
 instructions.configure=org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/sphinx/updates/releases/0.9.x,type:0,name:Sphinx 0.9.x - Releases,enabled:true); \
-   org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/incquery/updates/release,type:0,name:Inc Query - Releases,enabled:true);
+   org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/sphinx/updates/releases/0.9.x,type:1,name:Sphinx 0.9.x - Releases,enabled:true); \
+   org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/incquery/updates/release,type:0,name:Inc Query - Releases,enabled:true);  \
+   org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/incquery/updates/release,type:1,name:Inc Query - Releases,enabled:true);
