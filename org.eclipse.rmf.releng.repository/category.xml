@@ -18,6 +18,8 @@
    <feature url="features/org.eclipse.rmf.incquery_0.13.0.qualifier.jar" id="org.eclipse.rmf.incquery" version="0.13.0.qualifier">
       <category name="RMF Extras"/>
    </feature>
-   <category-def name="RMF" label="RMF"/>
-   <category-def name="RMF Extras" label="RMF Extras"/>
+   <category-def name="RMF" label="RMF (Incubation)"/>
+   <category-def name="RMF Extras" label="RMF Extras (Incubation)"/>
+   <repository-reference location="http://download.eclipse.org/sphinx/updates/releases/0.9.x" enabled="true" />
+   <repository-reference location="http://download.eclipse.org/incquery/updates/release" enabled="true" />
 </site>
