@@ -12,66 +12,43 @@
 	<artifactId>org.eclipse.rmf.releng.repository</artifactId>
 	<packaging>eclipse-repository</packaging>
 		
-<!--  
-	<properties>
-		<signer-version>1.0.5</signer-version>
-		<signer-input-directory>/home/data/httpd/download-staging.priv/tools/gef/gef4</signer-input-directory>
-	</properties>
-
-	<profiles>
-		<profile>
-			<id>hudson.eclipse.org</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.eclipse.dash.maven</groupId>
-						<artifactId>eclipse-signing-maven-plugin</artifactId>
-						<version>${signer-version}</version>
-						<executions>
-							<execution>
-								<id>pack</id>
-								<configuration>
-									<inputFile>${project.build.directory}/org.eclipse.gef4.repository.zip</inputFile>
-								</configuration>
-								<phase>package</phase>
-								<goals>
-									<goal>pack</goal>
-								</goals>
-							</execution>
-							<execution>
-								<id>sign</id>
-								<configuration>
-									<inputFile>${project.build.directory}/org.eclipse.gef4.repository.zip</inputFile>
-									<signerInputDirectory>${signer-input-directory}</signerInputDirectory>
-								</configuration>
-								<phase>package</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-							<execution>
-								<id>repack</id>
-								<configuration>
-									<inputFile>${project.build.directory}/signed/site_assembly.zip</inputFile>
-								</configuration>
-								<phase>package</phase>
-								<goals>
-									<goal>pack</goal>
-								</goals>
-							</execution>
-							<execution>
-								<id>fixCheckSums</id>
-								<phase>package</phase>
-								<goals>
-									<goal>fixCheckSums</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-	
-	-->
+  <pluginRepositories>
+    <pluginRepository>
+      <id>jboss-public-repository-group</id>
+      <name>JBoss Public Repository Group</name>
+      <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jboss.tools.tycho-plugins</groupId>
+        <artifactId>repository-utils</artifactId>
+        <executions>
+          <execution>
+            <id>generate-facade</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-repository-facade</goal>
+            </goals>
+            <configuration>
+              <siteTemplateFolder>siteTemplate/</siteTemplateFolder>
+              <!-- Symbols are used while expanding index.html template -->
+              <symbols>
+                <update.site.name>EGit p2 Repository</update.site.name>
+                <update.site.description>Use this URL in Eclipse to install EGit and JGit</update.site.description>
+                <update.site.version>${project.version}</update.site.version>
+                <target.eclipse.version>4.4.2 (Luna) or newer</target.eclipse.version>
+              </symbols>
+              <associateSites>
+                <site>http://download.eclipse.org/sphinx/updates/releases/0.9.x</site>
+                <site>http://download.eclipse.org/incquery/updates/release</site>
+              </associateSites>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  
 </project>
