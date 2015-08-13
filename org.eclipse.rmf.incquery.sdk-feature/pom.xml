@@ -25,9 +25,7 @@
 							<goal>source-feature</goal>
 						</goals>
 						<configuration>
-							<excludes>
-								<feature id="org.eclipse.rmf.reqif10.thirdparty.feature"/>
-							</excludes>
+							<skip>true</skip>
 						</configuration>
 					</execution>
 				</executions>
