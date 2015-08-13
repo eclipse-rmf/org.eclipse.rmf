@@ -28,7 +28,6 @@ Contributors:
    </license>
 
    <url>
-      <discovery label="RMF at Eclipse.org" url="http://eclipse.org/rmf"/>
       <discovery label="Sphinx 0.9.x Releases" url="http://download.eclipse.org/sphinx/updates/releases/0.9.x"/>
    </url>
 
