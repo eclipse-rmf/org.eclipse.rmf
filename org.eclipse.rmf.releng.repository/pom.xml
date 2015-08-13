@@ -35,8 +35,8 @@
               <siteTemplateFolder>siteTemplate/</siteTemplateFolder>
               <!-- Symbols are used while expanding index.html template -->
               <symbols>
-                <update.site.name>EGit p2 Repository</update.site.name>
-                <update.site.description>Use this URL in Eclipse to install EGit and JGit</update.site.description>
+                <update.site.name>RMF p2 Repository</update.site.name>
+                <update.site.description>Use this URL in Eclipse to install RMF</update.site.description>
                 <update.site.version>${project.version}</update.site.version>
                 <target.eclipse.version>4.4.2 (Luna) or newer</target.eclipse.version>
               </symbols>
