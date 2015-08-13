@@ -40,10 +40,12 @@
                 <update.site.version>${project.version}</update.site.version>
                 <target.eclipse.version>4.4.2 (Luna) or newer</target.eclipse.version>
               </symbols>
+              <!--  
               <associateSites>
                 <site>http://download.eclipse.org/sphinx/updates/releases/0.9.x</site>
                 <site>http://download.eclipse.org/incquery/updates/release</site>
               </associateSites>
+              -->
             </configuration>
           </execution>
         </executions>

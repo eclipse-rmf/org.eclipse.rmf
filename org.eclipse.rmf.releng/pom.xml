@@ -89,6 +89,7 @@
 		     Extracted as separate feature since IncQuery is not yet 
 		     part of the Eclipse release train -->
 		<module>../org.eclipse.rmf.incquery-feature</module>
+		<module>../org.eclipse.rmf.incquery.sdk-feature</module>
 		<module>../org.eclipse.rmf.reqif10.incquery</module>
 
 		<!-- ReqIF UI ProR -->
