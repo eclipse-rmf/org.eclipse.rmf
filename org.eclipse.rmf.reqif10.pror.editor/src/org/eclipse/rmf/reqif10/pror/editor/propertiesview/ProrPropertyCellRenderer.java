@@ -44,16 +44,20 @@ public class ProrPropertyCellRenderer extends AbstractProrCellRenderer {
 	
 	@Override
 	protected void doDrawCellContent(GC gc, Rectangle rect, int row, int col) {
-
-		ProrPropertyContentProvider contentProvider = (ProrPropertyContentProvider) agileGrid
-				.getContentProvider();
-		PropertyRow propertyRow = contentProvider.getRowContent(row);
-		if (!(propertyRow instanceof Descriptor))
-			return;
-
-		Descriptor descriptor = (Descriptor) propertyRow;
-		AttributeValue av = descriptor.getAttributeValue(); // May be null
-
+		AttributeValue av = null;
+		if (agileGrid.getContentProvider() instanceof ProrPropertyContentProvider){
+		
+			ProrPropertyContentProvider contentProvider = (ProrPropertyContentProvider) agileGrid
+					.getContentProvider();
+			PropertyRow propertyRow = contentProvider.getRowContent(row, col);
+			if (!(propertyRow instanceof Descriptor))
+				return;
+	
+			Descriptor descriptor = (Descriptor) propertyRow;
+			av = descriptor.getAttributeValue(); // May be null
+		}
+		
+		
 		// Get the default row height
 		int initRowHeight = ((DefaultLayoutAdvisor) agileGrid
 				.getLayoutAdvisor()).getInitialRowHeight(row);
