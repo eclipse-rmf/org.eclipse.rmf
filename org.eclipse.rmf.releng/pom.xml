@@ -41,8 +41,8 @@
 		<system>Eclipse Hudson</system>
 	</ciManagement>
 	<properties>
-		<tycho.version>0.19.0</tycho.version>
-		<antrun.version>1.6</antrun.version>
+		<tycho.version>0.23.0</tycho.version>
+		<antrun.version>1.8</antrun.version>
 		<next.release>0.13.0-SNAPSHOT</next.release>
 	</properties>
 	<repositories>
@@ -92,6 +92,7 @@
 		<module>../org.eclipse.rmf.reqif10.search.edit</module>
 		<module>../org.eclipse.rmf.reqif10.search.ui</module>
 		<module>../org.eclipse.rmf.reqif10.search.test</module>
+		<module>../org.eclipse.rmf.cheatsheets</module>
 		<module>../org.eclipse.rmf.reqif10.pror.genhtml</module>
 		<module>../org.eclipse.rmf.reqif10.csv.importer</module>
 		<module>../org.eclipse.rmf.reqif10.pror.feature</module>
@@ -107,16 +108,7 @@
 		<module>../org.eclipse.rmf.examples.installer</module>
 		<module>../org.eclipse.rmf.examples.feature</module>
 	</modules>
-
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>maven.eclipse.org</id>
-			<url>http://maven.eclipse.org/nexus/content/groups/public/</url>
-		</pluginRepository>
-	</pluginRepositories>
-    
-    
+     
     
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -355,6 +347,7 @@
 			</plugin>
 		</plugins>
 	</build>
+
 	<profiles>
 	    <profile>
 			<id>platform-mars</id>

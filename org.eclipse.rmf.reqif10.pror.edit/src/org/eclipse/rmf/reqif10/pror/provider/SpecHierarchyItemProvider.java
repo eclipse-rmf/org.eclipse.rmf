@@ -15,10 +15,12 @@ import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.REQ_IF_CONTENT__SP
 import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN;
 import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT;
 import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_OBJECT__TYPE;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.GregorianCalendar;
 import java.util.List;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -48,9 +50,10 @@ import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.SpecHierarchy} object.
- * <!-- begin-user-doc -->
+ * This is the item provider adapter for a
+ * {@link org.eclipse.rmf.reqif10.SpecHierarchy} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class SpecHierarchyItemProvider extends
@@ -113,25 +116,23 @@ public class SpecHierarchyItemProvider extends
 	}
 
 	/**
-	 * This adds a property descriptor for the Table Internal feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Table Internal feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addTableInternalPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SpecHierarchy_tableInternal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpecHierarchy_tableInternal_feature", "_UI_SpecHierarchy_type"),
-				 ReqIF10Package.Literals.SPEC_HIERARCHY__TABLE_INTERNAL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI_SpecHierarchyPropertyCategory"),
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_SpecHierarchy_tableInternal_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_SpecHierarchy_tableInternal_feature",
+						"_UI_SpecHierarchy_type"),
+				ReqIF10Package.Literals.SPEC_HIERARCHY__TABLE_INTERNAL, true,
+				false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				getString("_UI_SpecHierarchyPropertyCategory"), null));
 	}
 
 	/**
@@ -141,19 +142,17 @@ public class SpecHierarchyItemProvider extends
 	 * @generated
 	 */
 	protected void addObjectPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SpecHierarchy_object_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpecHierarchy_object_feature", "_UI_SpecHierarchy_type"),
-				 ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI_SpecHierarchyPropertyCategory"),
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_SpecHierarchy_object_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_SpecHierarchy_object_feature",
+						"_UI_SpecHierarchy_type"),
+				ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT, true, false,
+				true, null, getString("_UI_SpecHierarchyPropertyCategory"),
+				null));
 	}
 
 	/**
@@ -163,26 +162,27 @@ public class SpecHierarchyItemProvider extends
 	 * @generated
 	 */
 	protected void addEditableAttsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SpecHierarchy_editableAtts_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpecHierarchy_editableAtts_feature", "_UI_SpecHierarchy_type"),
-				 ReqIF10Package.Literals.SPEC_HIERARCHY__EDITABLE_ATTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI_SpecHierarchyPropertyCategory"),
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_SpecHierarchy_editableAtts_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_SpecHierarchy_editableAtts_feature",
+						"_UI_SpecHierarchy_type"),
+				ReqIF10Package.Literals.SPEC_HIERARCHY__EDITABLE_ATTS, true,
+				false, true, null,
+				getString("_UI_SpecHierarchyPropertyCategory"), null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This specifies how to implement {@link #getChildren} and is used to
+	 * deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand},
+	 * {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in
+	 * {@link #createCommand}. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -190,26 +190,29 @@ public class SpecHierarchyItemProvider extends
 			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN);
+			childrenFeatures
+					.add(ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN);
 		}
 		return childrenFeatures;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
+		// Check the type of the specified child object and return the proper
+		// feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -301,6 +304,19 @@ public class SpecHierarchyItemProvider extends
 	}
 
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCreateChildToolTipText(Object owner, Object feature,
+			Object child, Collection<?> selection) {
+		if (child instanceof SpecHierarchy) {
+			return "Adding SpecHierarchy";
+		}
+		return super
+				.getCreateChildToolTipText(owner, feature, child, selection);
+	}
+
+	/**
 	 * <p>
 	 * In addition to the regular functionality (creating a SpecHierarchy child
 	 * object), this method allows a SpecObject or a SpecType as an argument:
@@ -369,20 +385,21 @@ public class SpecHierarchyItemProvider extends
 	protected Command createDragAndDropCommand(EditingDomain domain,
 			Object owner, float location, int operations, int operation,
 			Collection<?> collection) {
-//
-//		// Ensure that the ID is unique if it's a copy operation.
-//		if (owner instanceof EObject
-//				&& operation == DragAndDropFeedback.DROP_COPY) {
-//			// We must create a copy, as the collection is not detached from the model yet.
-//			collection = EcoreUtil.copyAll(collection);
-//			
-//			for (Object object : collection) {
-//				if (object instanceof Identifiable)
-//					System.out.println("Updating collection: " + object);
-//					ReqIF10Util.ensureIdIsUnique(((EObject) owner).eResource(),
-//							(Identifiable) object);
-//			}
-//		}
+		//
+		// // Ensure that the ID is unique if it's a copy operation.
+		// if (owner instanceof EObject
+		// && operation == DragAndDropFeedback.DROP_COPY) {
+		// // We must create a copy, as the collection is not detached from the
+		// model yet.
+		// collection = EcoreUtil.copyAll(collection);
+		//
+		// for (Object object : collection) {
+		// if (object instanceof Identifiable)
+		// System.out.println("Updating collection: " + object);
+		// ReqIF10Util.ensureIdIsUnique(((EObject) owner).eResource(),
+		// (Identifiable) object);
+		// }
+		// }
 
 		for (Object obj : collection) {
 			if (obj instanceof SpecHierarchy) {
@@ -421,19 +438,21 @@ public class SpecHierarchyItemProvider extends
 
 		return dragAndDropCommand;
 	}
-	
+
 	/**
 	 * Ensures that added items have a unique ID
 	 */
 	@Override
 	protected Command createAddCommand(EditingDomain domain, EObject owner,
 			EStructuralFeature feature, Collection<?> collection, int index) {
-		
+
 		// Ensure that the ID is unique if it's a copy operation.
-		collection = ReqIF10Util.ensureIdIsUnique(owner.eResource(), collection);
-		return super.createAddCommand(domain, owner, feature, collection, index);
+		collection = ReqIF10Util
+				.ensureIdIsUnique(owner.eResource(), collection);
+		return super
+				.createAddCommand(domain, owner, feature, collection, index);
 	}
-	
+
 	/**
 	 * We extended the command in order to append an additional command for
 	 * setting the lastChanged attribute of the {@link SpecHierarchy} whenever

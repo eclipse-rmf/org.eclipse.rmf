@@ -16,8 +16,10 @@ import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPECIFICATION__CHI
 import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPECIFICATION__TYPE;
 import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_HIERARCHY__OBJECT;
 import static org.eclipse.rmf.reqif10.ReqIF10Package.Literals.SPEC_OBJECT__TYPE;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -43,17 +45,18 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.rmf.reqif10.Specification} object.
- * <!-- begin-user-doc -->
+ * This is the item provider adapter for a
+ * {@link org.eclipse.rmf.reqif10.Specification} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
-public class SpecificationItemProvider
-	extends SpecElementWithAttributesItemProvider {
+public class SpecificationItemProvider extends
+		SpecElementWithAttributesItemProvider {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecificationItemProvider(AdapterFactory adapterFactory) {
@@ -61,10 +64,10 @@ public class SpecificationItemProvider
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * Always call super.getPropertyDescriptors(object) to prevent caching of properties.
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!--
+	 * begin-user-doc --> Always call super.getPropertyDescriptors(object) to
+	 * prevent caching of properties. <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -75,60 +78,62 @@ public class SpecificationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Type feature. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Specification_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Specification_type_feature", "_UI_Specification_type"),
-				 ReqIF10Package.Literals.SPECIFICATION__TYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI_SpecificationPropertyCategory"),
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_Specification_type_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_Specification_type_feature",
+						"_UI_Specification_type"),
+				ReqIF10Package.Literals.SPECIFICATION__TYPE, true, false, true,
+				null, getString("_UI_SpecificationPropertyCategory"), null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This specifies how to implement {@link #getChildren} and is used to
+	 * deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand},
+	 * {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in
+	 * {@link #createCommand}. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(
+			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ReqIF10Package.Literals.SPECIFICATION__CHILDREN);
+			childrenFeatures
+					.add(ReqIF10Package.Literals.SPECIFICATION__CHILDREN);
 		}
 		return childrenFeatures;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
+		// Check the type of the specified child object and return the proper
+		// feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -138,14 +143,15 @@ public class SpecificationItemProvider
 
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Specification.png"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/Specification.png"));
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * Generalized label handling in {@link SpecElementWithAttributesItemProvider}
-	 * <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc
+	 * --> Generalized label handling in
+	 * {@link SpecElementWithAttributesItemProvider} <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -154,11 +160,11 @@ public class SpecificationItemProvider
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * React to changes in the type
-	 * <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to
+	 * update any cached children and by creating a viewer notification, which
+	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> React to
+	 * changes in the type <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -179,15 +185,16 @@ public class SpecificationItemProvider
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * We also allow the creation of SpecHierarchies with an attach SpecObject.
-	 * <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+	 * describing the children that can be created under this object. <!--
+	 * begin-user-doc --> We also allow the creation of SpecHierarchies with an
+	 * attach SpecObject. <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(SPECIFICATION__CHILDREN,
@@ -202,7 +209,6 @@ public class SpecificationItemProvider
 				object, SPECIFICATION__CHILDREN, SpecObjectType.class);
 
 	}
-
 
 	@Override
 	protected EStructuralFeature getSpecTypeFeature() {
@@ -221,8 +227,9 @@ public class SpecificationItemProvider
 		if (value instanceof SpecType) {
 			ReqIFContent content = ReqIF10Util.getReqIF(owner).getCoreContent();
 			SpecObject specObject = ReqIF10Factory.eINSTANCE.createSpecObject();
-			SpecHierarchy specHierarchy = ReqIF10Factory.eINSTANCE.createSpecHierarchy();
-			
+			SpecHierarchy specHierarchy = ReqIF10Factory.eINSTANCE
+					.createSpecHierarchy();
+
 			CompoundCommand cmd = ProrUtil.createAddTypedElementCommand(
 					content, REQ_IF_CONTENT__SPEC_OBJECTS, specObject,
 					SPEC_OBJECT__TYPE, (SpecType) value, -1, 3, domain,
@@ -250,11 +257,24 @@ public class SpecificationItemProvider
 					SPEC_HIERARCHY__OBJECT, value));
 			return cmd;
 		}
-		
-		return super.createCreateChildCommand(domain, owner, feature, value, index,
-				collection);
+
+		return super.createCreateChildCommand(domain, owner, feature, value,
+				index, collection);
 	}
-	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCreateChildToolTipText(Object owner, Object feature,
+			Object child, Collection<?> selection) {
+		if (child instanceof SpecHierarchy) {
+			return "Adding SpecHierarchy";
+		}
+		return super
+				.getCreateChildToolTipText(owner, feature, child, selection);
+	}
+
 	/**
 	 * Use the virtual intermediate provider as the parent, rather than
 	 * {@link ReqIFContentItemProvider}.
@@ -269,14 +289,14 @@ public class SpecificationItemProvider
 		return reqifProvider != null ? reqifProvider
 				.getVirtualSpecifications(content) : null;
 	}
-	
+
 	/**
 	 * Ensures that added items have a unique ID
 	 */
 	@Override
 	protected Command createAddCommand(EditingDomain domain, EObject owner,
 			EStructuralFeature feature, Collection<?> collection, int index) {
-		
+
 		// Ensure that the ID is unique if it's a copy operation.
 		for (Object object : collection) {
 			if (object instanceof Identifiable)
@@ -284,7 +304,8 @@ public class SpecificationItemProvider
 						(Identifiable) object);
 		}
 
-		return super.createAddCommand(domain, owner, feature, collection, index);
+		return super
+				.createAddCommand(domain, owner, feature, collection, index);
 	}
 
 }
