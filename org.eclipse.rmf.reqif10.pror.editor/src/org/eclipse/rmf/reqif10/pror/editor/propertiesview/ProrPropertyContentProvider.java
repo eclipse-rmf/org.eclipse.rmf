@@ -81,7 +81,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider impleme
 	 * It is either a {@link SpecElementWithAttributes} or a
 	 * {@link SpecHierarchy}.
 	 */
-	Object getElement() {
+	protected Object getElement() {
 		return content;
 	}
 
@@ -134,7 +134,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider impleme
 	 * 
 	 * @return
 	 */
-	private List<PropertyRow> getRows() {
+	protected List<PropertyRow> getRows() {
 		// Use cached version if it exists.
 		if (rows != null)
 			return rows;
@@ -234,14 +234,14 @@ public class ProrPropertyContentProvider extends AbstractContentProvider impleme
 	 * Three implementations of this interface are provided to represent the
 	 * rows of the Property View.
 	 */
-	interface PropertyRow extends Comparable<PropertyRow> {
+	public interface PropertyRow extends Comparable<PropertyRow> {
 		Object getContent(int column);
 	}
 
 	/**
 	 * Rows representing a Category
 	 */
-	class Category implements PropertyRow {
+	public class Category implements PropertyRow {
 		String name;
 
 		public Category(String name) {
@@ -273,7 +273,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider impleme
 	 * Rows representing an {@link IItemPropertyDescriptor}. This can one that
 	 * is RMF-Specific or EMF-Specific.
 	 */
-	class Descriptor implements PropertyRow {
+	public class Descriptor implements PropertyRow {
 		IItemPropertyDescriptor descriptor;
 		AttributeValue attributeValue;
 
@@ -400,4 +400,9 @@ public class ProrPropertyContentProvider extends AbstractContentProvider impleme
 	public boolean isAdapterForType(Object type) {
 		return false;
 	}
+
+	public PropertyRow getRowContent(int row, int col) {
+		return getRowContent(row);
+	}
+
 }

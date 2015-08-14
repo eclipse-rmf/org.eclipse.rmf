@@ -58,17 +58,20 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 
 	protected EditingDomain editingDomain;
 
-	private TabFolder tabFolder;
-	private ProrPropertyControl allProperties;
-	private ProrPropertyControl standardProperties;
+	protected TabFolder tabFolder;
+	protected ProrPropertyControl allProperties;
+	protected ProrPropertyControl standardProperties;
 
 	protected IAction locateValueAction = new LocateValueAction();
 
-	private AdapterFactory adapterFactory;
+	protected AdapterFactory adapterFactory;
 
 	private List<AttributeValue> objectsToSelect = new ArrayList<AttributeValue>();
 
 	private CommandStackListener commandStackListener;
+
+	protected TabItem tabStandard;
+	protected TabItem tabAll;
 
 	public ProrPropertySheetPage(EditingDomain editingDomain,
 			AdapterFactory adapterFactory) {
@@ -136,14 +139,14 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 
 			standardProperties = new ProrPropertyControl(tabFolder,
 					adapterFactory, false);
-			TabItem tabStandard = new TabItem(tabFolder, SWT.NONE);
+			tabStandard = new TabItem(tabFolder, SWT.NONE);
 			tabStandard.setText(Reqif10EditorPlugin.getPlugin().getString(
 					"_UI_Standard_Properties"));
 			tabStandard.setControl(standardProperties);
 
 			allProperties = new ProrPropertyControl(tabFolder, adapterFactory,
 					true);
-			TabItem tabAll = new TabItem(tabFolder, SWT.NONE);
+			tabAll = new TabItem(tabFolder, SWT.NONE);
 			tabAll.setText(Reqif10EditorPlugin.getPlugin().getString(
 					"_UI_All_Properties"));
 			tabAll.setControl(allProperties);
@@ -179,7 +182,9 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 
 	@Override
 	public void setFocus() {
-		getControl().setFocus();
+		if (!getControl().isDisposed()){
+			getControl().setFocus();
+		}
 	}
 
 	/**
@@ -208,7 +213,7 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 		}
 	}
 
-	private void updateEditingDomain(EditingDomain newEditingDomain) {
+	protected void updateEditingDomain(EditingDomain newEditingDomain) {
 		if (editingDomain != newEditingDomain) {
 			unRegisterCommandStackListener();
 			editingDomain = newEditingDomain;
@@ -272,4 +277,6 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 		super.dispose();
 	}
 
+
+	
 }
