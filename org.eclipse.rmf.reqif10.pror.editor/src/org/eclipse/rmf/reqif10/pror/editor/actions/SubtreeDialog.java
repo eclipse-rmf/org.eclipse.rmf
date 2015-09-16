@@ -11,9 +11,12 @@
 package org.eclipse.rmf.reqif10.pror.editor.actions;
 
 import java.util.ArrayList;
+import java.util.EventObject;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
@@ -21,12 +24,15 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.ui.action.CommandActionHandler;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
@@ -40,6 +46,7 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -62,6 +69,7 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
@@ -93,6 +101,7 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	private final AdapterFactory adapterFactory;
 	private final EditingDomain editingDomain;
 	private final IReqifEditor reqifEditor;
+	private CommandStackListener commandStackListener;
 
 	protected SubtreeDialog(IReqifEditor reqifEditor, EObject input, String title,
 			String helpContext) {
@@ -228,14 +237,7 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		data.right = new FormAttachment(100, 0);
 		propertySheet.getControl().setLayoutData(data);
 
-		// We just wire these two controls, to show the tree's properties.
-		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-			public void selectionChanged(SelectionChangedEvent event) {
-				propertySheet.selectionChanged(null, event.getSelection());
-			}
-		});
-
-		// The Editor must know about changes, so that the context
+		// The and Property Sheet Editor must know about changes, so that the context
 		// menu contains the correct child creation actions.
 		originalSelectionProvider = getActionBarContributor().getActiveEditor()
 				.getSite().getSelectionProvider();
@@ -243,10 +245,33 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 				.setSelectionProvider(viewer);
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
+				((ISelectionChangedListener)getActionBarContributor()).selectionChanged(event);
+				propertySheet.selectionChanged(null, event.getSelection());
 				((ISelectionProvider) getActionBarContributor()
 						.getActiveEditor()).setSelection(event.getSelection());
 			}
 		});
+		
+		commandStackListener = new CommandStackListener() {
+			public void commandStackChanged(final EventObject event) {
+				Display.getCurrent().asyncExec(new Runnable() {
+					public void run() {
+						Command mostRecentCommand = ((CommandStack) event
+								.getSource()).getMostRecentCommand();
+						if (mostRecentCommand != null) {
+							StructuredSelection selection = new StructuredSelection(
+									new ArrayList<Object>(mostRecentCommand
+											.getAffectedObjects()));
+							viewer.setSelection(selection);
+						}
+					}
+				});
+
+			}
+		};
+		editingDomain.getCommandStack().addCommandStackListener(
+				commandStackListener);
+		
 		return composite;
 	}
 
@@ -325,6 +350,19 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 
 	public void menuAboutToShow(IMenuManager menuManager) {
 		getActionBarContributor().menuAboutToShow(menuManager);
+
+		// Some actions may have the wrong selection, because the
+		// ActionBarContributor grabs it from the associated editor.
+		for (IContributionItem item : menuManager.getItems()) {
+			if (item instanceof ActionContributionItem) {
+				IAction action = ((ActionContributionItem) item).getAction();
+				if (action instanceof CommandActionHandler) {
+					CommandActionHandler handler = (CommandActionHandler) action;
+					handler.updateSelection((IStructuredSelection) viewer.getSelection());
+				}
+			}
+		}
+		
 	}
 
 	private EditingDomainActionBarContributor getActionBarContributor() {
@@ -335,6 +373,9 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	public boolean close() {
 		getActionBarContributor().getActiveEditor().getSite()
 				.setSelectionProvider(originalSelectionProvider);
+		if (commandStackListener != null) {
+			editingDomain.getCommandStack().removeCommandStackListener(commandStackListener);
+		}
 		return super.close();
 	}
 

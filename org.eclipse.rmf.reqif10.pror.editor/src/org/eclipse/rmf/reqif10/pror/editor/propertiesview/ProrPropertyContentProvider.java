@@ -19,7 +19,11 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.agilemore.agilegrid.AbstractContentProvider;
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor.PropertyValueWrapper;
@@ -41,7 +45,7 @@ import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
  * @author Michael Jastram
  * 
  */
-public class ProrPropertyContentProvider extends AbstractContentProvider {
+public class ProrPropertyContentProvider extends AbstractContentProvider implements Adapter {
 
 	// Special categories that should be ordered differently
 	public static String SPEC_HIERARCHY_NAME = "Spec Hierarchy";
@@ -77,7 +81,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * It is either a {@link SpecElementWithAttributes} or a
 	 * {@link SpecHierarchy}.
 	 */
-	Object getElement() {
+	protected Object getElement() {
 		return content;
 	}
 
@@ -100,7 +104,22 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 		return getRows().get(row);
 	}
 
+	/**
+	 * Besides setting the content, we register this as an Adapter to react to content changes.
+	 */
 	public void setContent(Object content) {
+		if (content == this.content) return;
+
+		if (this.content instanceof EObject) {
+			EObject eobj = (EObject) this.content;
+			eobj.eAdapters().remove(this);			
+		}
+
+		if (content instanceof EObject) {
+			EObject eobj = (EObject) content;
+			eobj.eAdapters().add(this);
+		}
+		
 		this.content = content;
 		rows = null;
 	}
@@ -115,7 +134,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * 
 	 * @return
 	 */
-	private List<PropertyRow> getRows() {
+	protected List<PropertyRow> getRows() {
 		// Use cached version if it exists.
 		if (rows != null)
 			return rows;
@@ -215,14 +234,14 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * Three implementations of this interface are provided to represent the
 	 * rows of the Property View.
 	 */
-	interface PropertyRow extends Comparable<PropertyRow> {
+	public interface PropertyRow extends Comparable<PropertyRow> {
 		Object getContent(int column);
 	}
 
 	/**
 	 * Rows representing a Category
 	 */
-	class Category implements PropertyRow {
+	public class Category implements PropertyRow {
 		String name;
 
 		public Category(String name) {
@@ -254,7 +273,7 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 	 * Rows representing an {@link IItemPropertyDescriptor}. This can one that
 	 * is RMF-Specific or EMF-Specific.
 	 */
-	class Descriptor implements PropertyRow {
+	public class Descriptor implements PropertyRow {
 		IItemPropertyDescriptor descriptor;
 		AttributeValue attributeValue;
 
@@ -355,4 +374,35 @@ public class ProrPropertyContentProvider extends AbstractContentProvider {
 					descriptor.getDisplayName(specElement));
 		}
 	}
+
+	//////////////////////////////////////////////////////////////////////////////////
+	// Methods from Interface Adapter
+	//////////////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * We register this object with the content in #setContent(). Upon a notification,
+	 * we fire a property change to inform the agileGrid to update itself.
+	 */
+	public void notifyChanged(Notification notification) {
+		firePropertyChange("", null, content);
+	}
+
+	// Not used.
+	public Notifier getTarget() {
+		return null;
+	}
+
+	// Not used.
+	public void setTarget(Notifier newTarget) {
+	}
+
+	// Not used.
+	public boolean isAdapterForType(Object type) {
+		return false;
+	}
+
+	public PropertyRow getRowContent(int row, int col) {
+		return getRowContent(row);
+	}
+
 }

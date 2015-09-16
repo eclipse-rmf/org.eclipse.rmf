@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -508,3 +509,517 @@
 	</profile>
 	</profiles>
 </project>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+	<groupId>org.eclipse.rmf</groupId>
+	<artifactId>org.eclipse.rmf.releng</artifactId>
+	<version>0.13.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>RMF Parent</name>
+	<url>http://www.eclipse.org/rmf</url>
+	<description>RMF is a framework for working with textual requirements, structured as ReqIF models, the industry standard for exchanging requirements. RMF uses natively ReqIF, the open standard for requirements exchange.</description>
+	<licenses>
+		<license>
+			<name>Eclipse Public License v1.0</name>
+			<comments>
+       All rights reserved.
+
+       This program and the accompanying materials are made
+       available under the terms of the Eclipse Public License v1.0
+       which accompanies this distribution, and is available at
+       http://www.eclipse.org/legal/epl-v10.htm
+			</comments>
+		</license>
+	</licenses>
+	<organization>
+		<name>Eclipse</name>
+		<url>http://www.eclipse.org</url>
+	</organization>
+	<scm>
+		
+	</scm>
+	<issueManagement>
+		<system>Eclipse Bugzilla</system>
+		<url>https://bugs.eclipse.org/bugs/enter_bug.cgi?product=MDT.RMF</url>
+	</issueManagement>
+	<ciManagement>
+		<url>https://hudson.eclipse.org/hudson/job/rmf-nightly/</url>
+		<system>Eclipse Hudson</system>
+	</ciManagement>
+	<properties>
+		<tycho.version>0.23.0</tycho.version>
+		<antrun.version>1.8</antrun.version>
+		<next.release>0.13.0-SNAPSHOT</next.release>
+	</properties>
+	<repositories>
+	<repository>
+      <id>license-feature</id>
+      <url>http://download.eclipse.org/cbi/updates/license/</url>
+      <layout>p2</layout>
+    </repository>
+    </repositories>
+    
+    
+    	<modules>
+		<!-- Release Engineering -->
+		<module>../org.eclipse.rmf.releng.target/${platform.version.name}</module>
+		<module>../org.eclipse.rmf.releng.repository</module>
+
+		<!-- ReqIF Core -->
+		<module>../org.eclipse.rmf.reqif10</module>
+		<module>../org.eclipse.rmf.reqif10.edit</module>
+		<module>../org.eclipse.rmf.reqif10.xhtml</module>
+		<module>../org.eclipse.rmf.reqif10.xhtml.edit</module>
+		<module>../org.eclipse.rmf.reqif10.common</module>
+		<module>../org.eclipse.rmf.reqif10.constraints</module>
+		<module>../org.eclipse.rmf.reqif10.serialization</module>
+		
+		<module>../org.eclipse.rmf.ext.prostep</module>
+		
+		<module>../org.eclipse.rmf.reqif10.feature</module>
+		<module>../org.eclipse.rmf.reqif10.thirdparty.feature</module>
+		<module>../org.eclipse.rmf.reqif10.sdk.feature</module>
+		<module>../org.eclipse.rmf.tests.serialization</module>
+		<module>../org.eclipse.rmf.tests.reqif10.serialization</module>
+		<module>../org.eclipse.rmf.tests.reqif10.common</module>
+		<module>../org.eclipse.rmf.tests.reqif10.constraints</module>
+		<module>../org.eclipse.rmf.tests.ext.prostep</module>
+		<module>../org.eclipse.rmf.tests.reqif10.feature</module>
+
+		<!-- ReqIF UI ProR -->
+		<module>../org.eclipse.rmf.reqif10.pror</module>
+		<module>../org.eclipse.rmf.reqif10.pror.edit</module>
+		<module>../org.eclipse.rmf.reqif10.pror.editor</module>
+		<module>../org.eclipse.rmf.reqif10.pror.editor.tests</module>
+		<module>../org.eclipse.rmf.reqif10.pror.presentation.headline</module>
+		<module>../org.eclipse.rmf.reqif10.pror.presentation.id</module>
+		<module>../org.eclipse.rmf.reqif10.pror.presentation.linewrap</module>
+		<module>../org.eclipse.rmf.reqif10.search</module>
+		<module>../org.eclipse.rmf.reqif10.search.edit</module>
+		<module>../org.eclipse.rmf.reqif10.search.ui</module>
+		<module>../org.eclipse.rmf.reqif10.search.test</module>
+		<module>../org.eclipse.rmf.cheatsheets</module>
+		<module>../org.eclipse.rmf.reqif10.pror.genhtml</module>
+		<module>../org.eclipse.rmf.reqif10.csv.importer</module>
+		<module>../org.eclipse.rmf.reqif10.pror.feature</module>
+		<module>../org.eclipse.rmf.reqif10.pror.sdk.feature</module>
+
+		<!-- 3rd Party Dependencies -->
+        <module>../org.agilemore.agilegrid</module>
+
+		<module>../org.eclipse.rmf.reqif10.pror.tests</module>
+		<!-- <module>../org.eclipse.rmf.reqif10.pror.presentation.id.tests</module> -->
+
+		<!-- RMF Examples Plugins -->
+		<module>../org.eclipse.rmf.examples.installer</module>
+		<module>../org.eclipse.rmf.examples.feature</module>
+	</modules>
+     
+    
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+		    <plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+					<compilerId>jdt</compilerId>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-compiler-jdt</artifactId>
+						<version>${tycho.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>${antrun.version}</version>
+				<executions>
+					<execution>
+						<id>replace-build-token</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+									classpathref="maven.plugin.classpath" />
+								<if>
+									<available file="about.mappings" />
+									<then>
+										<echo
+											message="Replacing @build@ token within about.mappings with build id." />
+										<replace file="about.mappings">
+											<replacefilter token="@build@"
+												value="${unqualifiedVersion}.${buildQualifier}" />
+										</replace>
+									</then>
+								</if>
+								<if>
+									<available file="javadocOptions.txt" />
+									<then>
+										<echo
+											message="Replacing @build@ token within javadocOptions.txt with build id." />
+										<replace file="javadocOptions.txt">
+											<replacefilter token="@build@"
+												value="${unqualifiedVersion}.${buildQualifier}" />
+										</replace>
+									</then>
+								</if>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>replace-back-build-token</id>
+						<phase>install</phase>
+						<configuration>
+							<target>
+								<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+									classpathref="maven.plugin.classpath" />
+								<if>
+									<available file="about.mappings" />
+									<then>
+										<echo
+											message="Replacing back build id within about.mappings with @build@ token." />
+										<replace file="about.mappings">
+											<replacefilter token="${unqualifiedVersion}.${buildQualifier}"
+												value="@build@" />
+										</replace>
+									</then>
+								</if>
+								<if>
+									<available file="javadocOptions.txt" />
+									<then>
+										<echo
+											message="Replacing back build id within javadocOptions.txt with @build@ token." />
+										<replace file="javadocOptions.txt">
+											<replacefilter token="${unqualifiedVersion}.${buildQualifier}"
+												value="@build@" />
+										</replace>
+									</then>
+								</if>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>ant-contrib</groupId>
+						<artifactId>ant-contrib</artifactId>
+						<version>20020829</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>org.eclipse.rmf.releng.target</groupId>
+							<artifactId>${platform.version.name}</artifactId>
+							<version>0.13.0-SNAPSHOT</version>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-source-feature-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>source-feature</id>
+						<phase>package</phase>
+						<goals>
+							<goal>source-feature</goal>
+						</goals>
+						<configuration>
+							<includeBinaryFeature>false</includeBinaryFeature>
+							<!-- Non-breakable space, as normal spaces are trimmed. -->
+							<labelSuffix>&#160;Source</labelSuffix>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<!-- Don't attach (default) metadata before the "generate-source-feature"
+							execution. -->
+						<id>default-p2-metadata-default</id>
+						<configuration>
+							<attachP2Metadata>false</attachP2Metadata>
+						</configuration>
+					</execution>
+					<execution>
+						<!-- Do attach metadata after the "generate-source-feature" execution. -->
+						<id>attach-p2-metadata</id>
+						<phase>package</phase>
+						<goals>
+							<goal>p2-metadata</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+					<includes>
+						<include>**/*Test.java</include>
+						<include>**/*Test2.java</include>
+					</includes>
+					<excludes>
+						<!-- Test mojo matches TestProject be default and treats it as PojoTest -->
+						<exclude>**/Test*.class</exclude>
+					</excludes>
+					<useUIHarness>false</useUIHarness>
+					<useUIThread>false</useUIThread>
+					<argLine>${tycho.surefire.extra.vmargs}</argLine>
+
+					<!-- Uncomment to remote debug tests run by Maven/Tycho build -->
+					<!-- <argLine>${tycho.surefire.extra.vmargs} -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=y</argLine> -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+	    <profile>
+			<id>platform-mars</id>
+			<properties>
+				<platform.version.name>mars</platform.version.name>
+			</properties>
+		</profile>
+		<profile>
+			<id>platform-juno</id>
+			<properties>
+				<platform.version.name>juno</platform.version.name>
+			</properties>
+		</profile>
+		<profile>
+			<id>platform-kepler</id>
+			<properties>
+				<platform.version.name>kepler</platform.version.name>
+			</properties>
+		</profile>
+		<profile>
+			<id>platform-luna</id>
+			<properties>
+				<platform.version.name>luna</platform.version.name>
+			</properties>
+		</profile>
+		<profile>
+			<id>os-macosx</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<!-- !!! Important Note !!! The following element MUST be written in a single line. Otherwise the build will fail under Max OS X
+				(see https://bugs.eclipse.org/bugs/show_bug.cgi?id=427693). In particular, be careful when auto formatting this file with Ctrl+Shift+F
+				as it tends to break up this line into several pieces. -->
+				<tycho.surefire.extra.vmargs>-Xmx512m -XX:MaxPermSize=256m -XstartOnFirstThread</tycho.surefire.extra.vmargs>
+			</properties>
+		</profile>
+		<profile>
+			<id>os-other</id>
+			<activation>
+				<os>
+					<family>!mac</family>
+				</os>
+			</activation>
+			<properties>
+				<tycho.surefire.extra.vmargs>-Xmx512m -XX:MaxPermSize=256m</tycho.surefire.extra.vmargs>
+			</properties>
+		</profile>
+	
+		<profile>
+			<id>eclipse-sign</id>
+
+			<pluginRepositories>
+				<pluginRepository>
+					<id>m2e-cbi</id>
+					<url>http://download.eclipse.org/technology/m2e/maven/</url>
+				</pluginRepository>
+			</pluginRepositories>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho.version}</version>
+						<configuration>
+							<includePackedArtifacts>true</includePackedArtifacts>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200a-plugin</artifactId>
+						<version>${tycho.version}</version>
+						<executions>
+							<execution>
+								<id>pack200-normalize</id>
+								<goals>
+									<goal>normalize</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.cbi.maven.plugins</groupId>
+						<artifactId>eclipse-jarsigner-plugin</artifactId>
+						<version>1.0.1</version>
+						<executions>
+							<execution>
+								<id>sign</id>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200b-plugin</artifactId>
+						<version>${tycho.version}</version>
+						<executions>
+							<execution>
+								<id>pack200-pack</id>
+								<goals>
+									<goal>pack</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-p2-plugin</artifactId>
+						<version>${tycho.version}</version>
+						<executions>
+							<execution>
+								<id>p2-metadata</id>
+								<phase>package</phase>
+								<goals>
+									<goal>p2-metadata</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<defaultP2Metadata>false</defaultP2Metadata>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	    <profile>
+		<id>prepare-for-next-release</id>
+		<activation>
+			<activeByDefault>false</activeByDefault>
+		</activation>
+		<build>
+			<defaultGoal>org.eclipse.tycho:tycho-versions-plugin:set-version</defaultGoal>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-versions-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<executions>
+						<execution>
+							<id>change-next-release</id>
+							<goals>
+								<goal>set-version</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+				 
+						<newVersion>${next.release}</newVersion>
+				
+						<!--  <newVersion>0.13.0</newVersion> -->
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+	</profiles>
+</project>
+>>>>>>> origin/develop

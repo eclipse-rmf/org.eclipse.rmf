@@ -152,7 +152,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * Finds the Object for the given row, which may be a SpecHierarchy or
 	 * SpecRelation.
 	 */
-	ProrRow getProrRow(int row) {
+	public ProrRow getProrRow(int row) {
 		if (row >= 0) {
 			return getCache().get(row);
 		}
@@ -290,7 +290,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		return list;
 	}
 
-	void updateElement(SpecElementWithAttributes element) {
+	public void updateElement(SpecElementWithAttributes element) {
 		recurseUpdateElement(0, element, root.getChildren());
 		flushCache();
 	}

@@ -387,7 +387,7 @@ public class ProrAgileGridViewer extends Viewer {
 	private void unregisterSpecRelationListener() {
 		if (specRelationContentAdapter != null) {
 			ReqIF10Util.getReqIF(specification).getCoreContent().eAdapters()
-					.remove(specHierarchyRootContentAdapter);
+					.remove(specRelationContentAdapter);
 		}
 	}
 

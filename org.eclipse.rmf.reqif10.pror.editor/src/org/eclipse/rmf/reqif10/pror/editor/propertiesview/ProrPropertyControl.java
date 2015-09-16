@@ -47,7 +47,7 @@ import org.eclipse.swt.widgets.MenuItem;
 
 /**
  * This control wraps an actual AgileGrid that displays the properties of the
- * current selection. It is instantiated twice, once for all and ones for those
+ * current selection. It is instantiated twice, once for all and once for those
  * properties relevant to users (via showAllProps).
  * 
  * @author Lukas Ladenberger
@@ -57,20 +57,23 @@ import org.eclipse.swt.widgets.MenuItem;
 public class ProrPropertyControl extends AgileGrid implements
 		PropertyChangeListener {
 
-	private ProrPropertyContentProvider contentProvider;
+	protected ProrPropertyContentProvider contentProvider;
 
 	private Object object;
 
 	private AttributeValue removeValue;
 
+	private AdapterFactory adapterFactory;
+
 	public ProrPropertyControl(Composite parent, AdapterFactory adapterFactory,
 			boolean showAllProps) {
 		super(parent, SWT.V_SCROLL | SWT.H_SCROLL | SWTX.FILL_WITH_LASTCOL
 				| SWT.MULTI | SWT.DOUBLE_BUFFERED);
+		this.adapterFactory = adapterFactory;
 		setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
 		this.contentProvider = new ProrPropertyContentProvider(adapterFactory,
 				showAllProps);
-		setContentProvider(this.contentProvider);
+		super.setContentProvider(this.contentProvider);
 		setCellRendererProvider(new ProrPropertyCellRendererProvider(this,
 				adapterFactory, contentProvider));
 		setLayoutAdvisor(new ProrPropertyLayoutAdvisor(this));
@@ -84,6 +87,23 @@ public class ProrPropertyControl extends AgileGrid implements
 
 		configurePopupMenu(parent);
 	}
+	
+	public void setContentProvider(ProrPropertyContentProvider prorPropertyContentProvider){
+		this.contentProvider = prorPropertyContentProvider;
+		super.setContentProvider(this.contentProvider);
+		setCellRendererProvider(new ProrPropertyCellRendererProvider(this,
+				adapterFactory, contentProvider));
+		setLayoutAdvisor(new ProrPropertyLayoutAdvisor(this));
+		setCellEditorProvider(new ProrPropertyCellEditorProvider(this,
+				adapterFactory,  this.contentProvider));
+		// listen to property changes in content
+		// Fix of 378041
+		contentProvider.addPropertyChangeListener(this);
+	}
+	
+	
+	
+	
 
 	/**
 	 * Sets up a context menu that allows the value to be removed from
@@ -169,7 +189,7 @@ public class ProrPropertyControl extends AgileGrid implements
 		}
 	}
 
-	void setSelection(ISelection selection) {
+	public void setSelection(ISelection selection) {
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection sel = (IStructuredSelection) selection;
 			if (sel.size() == 1) {
@@ -188,10 +208,14 @@ public class ProrPropertyControl extends AgileGrid implements
 	// listen to property changes in content
 	// reload Content and redraw on change event
 	public void propertyChange(PropertyChangeEvent event) {
+		if (isDisposed()) return;
+		
 		if (event.getPropertyName().equals("")) {
 			contentProvider.setContent(object);
 			redraw();
 		}
 	}
+
+	
 
 }
