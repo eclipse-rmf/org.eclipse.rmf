@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.rmf.reqif10.common
-Bundle-Version: 0.13.0.qualifier
+Bundle-Version: 0.14.0.qualifier
 Bundle-Activator: org.eclipse.rmf.reqif10.internal.common.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.rmf.reqif10;bundle-version="0.9.0",
