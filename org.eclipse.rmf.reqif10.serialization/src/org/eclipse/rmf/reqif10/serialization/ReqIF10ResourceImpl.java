@@ -16,19 +16,15 @@ import java.util.Map;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.XMLLoad;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLSave;
 import org.eclipse.emf.ecore.xmi.impl.XMLMapImpl;
-import org.eclipse.sphinx.emf.serialization.internal.XMLPersistenceMappingLoadImpl;
-import org.eclipse.sphinx.emf.serialization.internal.XMLPersistenceMappingSaveImpl;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.xhtml.XhtmlPackage;
-import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingExtendedMetaData;
-import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingExtendedMetaDataImpl;
 import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceImpl;
+import org.eclipse.sphinx.emf.serialization.internal.XMLPersistenceMappingSaveImpl;
 
 public class ReqIF10ResourceImpl extends XMLPersistenceMappingResourceImpl {
 
