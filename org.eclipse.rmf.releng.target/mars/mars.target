@@ -14,7 +14,7 @@
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.sphinx.emf.serialization.feature.group" version="0.0.0"/>
-<repository location="http://download.eclipse.org/sphinx/updates/releases/0.9.x"/>
+<repository location="http://download.eclipse.org/sphinx/releases/0.9.x/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="com.google.guava" version="15.0.0.v201403281430"/>

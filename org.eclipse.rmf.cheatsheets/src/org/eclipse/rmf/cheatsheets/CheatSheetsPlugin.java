@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
  * The <b>Plugin</b> for the RMF Cheat Sheets.
- * @since 0.13.0
+ * @since 0.14.0
  */
 public final class CheatSheetsPlugin extends EMFPlugin
 {
