@@ -39,7 +39,7 @@
                   id="C1.2"
                   lang="JAVA"
                   mode="Batch"
-                  name="C1.1 AttributeDefinitionBoolean - existence of long name"
+                  name="C1.2 AttributeDefinitionBoolean - existence of long name"
                   severity="ERROR"
                   statusCode="0102">
                <message>
@@ -178,6 +178,287 @@
                      class="RelationGroup">
                </target>
             </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.IdentifiableLongNameExistenceConstraint"
+               id="C1.10"
+               lang="JAVA"
+               mode="Batch"
+               name="C1.10 DatatypeDefinition - existence of long name"
+               severity="WARNING"
+               statusCode="0101">
+            <message>
+               LongName of {0} is not set
+            </message>
+            <description>
+               LongName of DatatypeDefinition must be set
+            </description>
+            <target
+                  class="DatatypeDefinition">
+            </target>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeDefinitionDatatypeDefinitionExistenceConstraint"
+               id="C2.0"
+               lang="JAVA"
+               mode="Batch"
+               name="C2.0 AttributeDefinition - existence of DatatypeDefinitiion"
+               severity="ERROR"
+               statusCode="0200">
+            <message>
+               DatatypeDefinition is not set
+            </message>
+            <target
+                  class="AttributeDefinition">
+            </target>
+            <description>
+               DatatypeDefinition of AttributeDefinition must be set
+            </description>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeDefinitionDatatypeDefinitionTypeConstraint"
+               id="C2.1"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="C2.1 AttributeDefinitionBoolean - existence of DatatypeDefinitionBoolean"
+               severity="ERROR"
+               statusCode="0201">
+            <message>
+               DatatypeDefinition of wrong type
+            </message>
+            <target
+                  class="AttributeDefinitionBoolean">
+            </target>
+            <description>
+               DatatypeDefinition of AttributeDefinition must have correct type
+            </description>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeDefinitionDatatypeDefinitionTypeConstraint"
+               id="C2.6"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="C2.6 AttributeDefinitionReal - existence of DatatypeDefinitionReal"
+               severity="ERROR"
+               statusCode="0201">
+            <message>
+               DatatypeDefinition of wrong type
+            </message>
+            <target
+                  class="AttributeDefinitionReal">
+            </target>
+            <description>
+               DatatypeDefinition of AttributeDefinition must have correct type
+            </description>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.DatatypeDefinitionMinValueConstraint"
+               id="C3.1"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="C3.1 DatatypeDefinition - minValue is set"
+               severity="ERROR"
+               statusCode="0301">
+            <target
+                  class="DatatypeDefinitionReal">
+            </target>
+            <target
+                  class="DatatypeDefinitionInteger"></target>
+            <message>
+               minValue of {0} is not set
+            </message>
+            <description>
+               minValue of DatatypeDefinitionReal or DatatypeDefinitionInteger is set.
+            </description>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.DatatypeDefinitionMaxValueConstraint"
+               id="C3.2"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="C3.2 DatatypeDefinition - maxValue is set"
+               severity="ERROR"
+               statusCode="0302">
+            <target
+                  class="DatatypeDefinitionReal">
+            </target>
+            <target
+                  class="DatatypeDefinitionInteger">
+            </target>
+            <message>
+               maxValue of {0} is not set
+            </message>
+            <description>
+               maxValue of DatatypeDefinitionReal or DatatypeDefinitionInteger is set.
+            </description>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.DatatypeDefinitionAccuracyConstraint"
+               id="C3.3"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="C3.3 DatatypeDefinition - Accuracy is set"
+               severity="ERROR"
+               statusCode="0303">
+            <target
+                  class="DatatypeDefinitionReal">
+            </target>
+            <message>
+               Accuracy of {0} is not set
+            </message>
+            <description>
+               Accuracy of DatatypeDefinitionReal is set.
+            </description>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.DatatypeDefinitionMaxLengthConstraint"
+               id="C3.4"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="C3.4 DatatypeDefinition - maxLength is set"
+               severity="ERROR"
+               statusCode="0304">
+            <target
+                  class="DatatypeDefinitionString">
+            </target>
+            <message>
+               maxLength of {0} is not set
+            </message>
+            <description>
+               maxLength of DatatypeDefinitionString is set.
+            </description>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.DatatypeDefinitionRealMinMax"
+               id="C3.5"
+               lang="JAVA"
+               mode="Batch"
+               name="C3.5 DatatypeDefinitionReal - minValue&lt;=maxValue"
+               severity="WARNING"
+               statusCode="0305">
+            <message>
+               DatatypeDefinitionReal minValue is greater than maxValue
+            </message>
+            <description>
+               minValue of DatatypeDefinitionReal should not be greater than maxValue
+            </description>
+            <target
+                  class="DatatypeDefinitionReal">
+            </target>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.DatatypeDefinitionIntegerMinMax"
+               id="C3.6"
+               lang="JAVA"
+               mode="Batch"
+               name="C3.6 DatatypeDefinitionInteger - minValue&lt;=maxValue"
+               severity="WARNING"
+               statusCode="0306">
+            <message>
+               DatatypeDefinitionInteger minValue is greater than maxValue
+            </message>
+            <description>
+               minValue of DatatypeDefinitionInteger should not be greater than maxValue
+            </description>
+            <target
+                  class="DatatypeDefinitionInteger">
+            </target>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeValueRealInRange"
+               id="AV1.1"
+               lang="JAVA"
+               mode="Batch"
+               name="AV1.1 AttributeValueReal - between min and max"
+               severity="ERROR"
+               statusCode="0401">
+            <message>
+               AttributeValueReal {0} than {1}
+            </message>
+            <description>
+               theValue of AttributeValueReal must be between minValue and maxValue
+            </description>
+            <target
+                  class="AttributeValueReal">
+            </target>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeValueIntegerInRange"
+               id="AV1.2"
+               lang="JAVA"
+               mode="Batch"
+               name="AV1.2 AttributeValueInteger - between min and max"
+               severity="ERROR"
+               statusCode="0402">
+            <message>
+               AttributeValueInteger {0} than {1}
+            </message>
+            <description>
+               theValue of AttributeValueInteger must be between minValue and maxValue
+            </description>
+            <target
+                  class="AttributeValueInteger">
+            </target>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeValueStringMaxLength"
+               id="AV1.3"
+               lang="JAVA"
+               mode="Batch"
+               name="AV1.3 AttributeValueString - not longer than maxLength"
+               severity="ERROR"
+               statusCode="0403">
+            <message>
+               AttributeValueString is longer than maxLength
+            </message>
+            <description>
+               theValue of AttributeString must not be longer than maxLength
+            </description>
+            <target
+                  class="AttributeValueString">
+            </target>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeValueEnumObeysMultiValued"
+               id="AV1.4"
+               lang="JAVA"
+               mode="Batch"
+               name="AV1.4 AttributeValueEnumeration Multiplicity - max one value if not multiValued"
+               severity="ERROR"
+               statusCode="0404">
+            <message>
+               AttributeValueEnumeration is single valued but contains {0} values
+            </message>
+            <description>
+               AttributeValueEnumeration must not contain more than one Value if its not multiValued
+            </description>
+            <target
+                  class="AttributeValueEnumeration">
+            </target>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeValueRealAccuracy"
+               id="AV1.5"
+               lang="JAVA"
+               mode="Batch"
+               name="AV1.5 AttributeValueReal - not more precise that accuracy"
+               severity="ERROR"
+               statusCode="0405">
+            <message>
+               AttributeValueReal {0} has {1} fracional digits but accuracy of DatatypeDefinition is {2}
+            </message>
+            <description>
+               AttributeValueReal must not have more fractional digits than accuracy
+            </description>
+            <target
+                  class="AttributeValueReal">
+            </target>
+         </constraint>
          </constraints>
       </constraintProvider>
    </extension>
