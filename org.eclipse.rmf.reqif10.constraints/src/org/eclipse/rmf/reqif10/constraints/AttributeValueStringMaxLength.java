@@ -31,11 +31,13 @@ public class AttributeValueStringMaxLength extends AbstractModelConstraint {
 
 		if (target instanceof AttributeValueString) {
 			AttributeValueString av = (AttributeValueString) target;
-			av.getTheValue();
+			String theValue = av.getTheValue();
 
 			DatatypeDefinitionString datatypeDefinition = (DatatypeDefinitionString) ReqIF10Util.getDatatypeDefinition(av);
+			if (datatypeDefinition == null) {
+				return Status.OK_STATUS;
+			}
 			BigInteger maxLength = datatypeDefinition.getMaxLength();
-			String theValue = av.getTheValue();
 
 			if (BigInteger.valueOf(theValue.length()).compareTo(maxLength) > 0) {
 				return ctx.createFailureStatus();
