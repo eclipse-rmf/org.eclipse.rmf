@@ -1,18 +1,11 @@
 package org.eclipse.rmf.reqif10.serialization;
 
-import java.io.InputStream;
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.Map;
-
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.ContentHandler;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.PackageNotFoundException;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
-import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.rmf.reqif10.Identifiable;
+import org.eclipse.rmf.reqif10.ReqIFHeader;
 import org.eclipse.sphinx.emf.serialization.internal.XMLPersistenceMappingHandler;
 import org.eclipse.sphinx.emf.serialization.internal.XMLPersistenceMappingLoadImpl;
 import org.xml.sax.helpers.DefaultHandler;
@@ -30,6 +23,19 @@ public class ReqIF10LoadImpl extends XMLPersistenceMappingLoadImpl {
 	@Override
 	protected DefaultHandler makeDefaultHandler() {
 		XMLPersistenceMappingHandler handler = new XMLPersistenceMappingHandler(resource, helper, options) {
+					
+			@Override
+			protected void handleObjectAttribs(EObject obj) {
+				super.handleObjectAttribs(obj);
+				
+				if (obj instanceof Identifiable && locator != null){
+					ReqIF10LocationStore.getInstance().savePosition(resource, ((Identifiable) obj).getIdentifier(), locator.getLineNumber());
+				}else if(obj instanceof ReqIFHeader){
+					ReqIF10LocationStore.getInstance().savePosition(resource, ((ReqIFHeader) obj).getIdentifier(), locator.getLineNumber());
+				}
+			}
+			
+			
 			@Override
 			protected EPackage getPackageForURI(String uriString) {
 			    if (uriString == null)
