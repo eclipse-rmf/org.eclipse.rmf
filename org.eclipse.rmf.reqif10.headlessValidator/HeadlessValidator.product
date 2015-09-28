@@ -36,6 +36,7 @@
       <plugin id="org.eclipse.core.resources"/>
       <plugin id="org.eclipse.core.runtime"/>
       <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
+      <plugin id="org.eclipse.emf"/>
       <plugin id="org.eclipse.emf.common"/>
       <plugin id="org.eclipse.emf.ecore"/>
       <plugin id="org.eclipse.emf.ecore.xmi"/>
@@ -51,6 +52,7 @@
       <plugin id="org.eclipse.rmf.reqif10"/>
       <plugin id="org.eclipse.rmf.reqif10.common"/>
       <plugin id="org.eclipse.rmf.reqif10.constraints"/>
+      <plugin id="org.eclipse.rmf.reqif10.constraints.validator"/>
       <plugin id="org.eclipse.rmf.reqif10.edit"/>
       <plugin id="org.eclipse.rmf.reqif10.headlessValidator"/>
       <plugin id="org.eclipse.rmf.reqif10.serialization"/>

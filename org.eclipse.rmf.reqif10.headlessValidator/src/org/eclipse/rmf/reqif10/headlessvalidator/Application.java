@@ -6,17 +6,15 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.validation.model.EvaluationMode;
-import org.eclipse.emf.validation.service.IBatchValidator;
-import org.eclipse.emf.validation.service.ModelValidationService;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.constraints.validator.Issue;
+import org.eclipse.rmf.reqif10.constraints.validator.ReqIFValidator;
 
 
 
@@ -39,7 +37,7 @@ public class Application implements IApplication {
 			   files.add(arg);
 		}
 		
-		if (appArgs.length == 0){
+		if (files.size() == 0){
 			System.err.println("ERROR: missing reqif file");
 			return IApplication.EXIT_OK;
 		}
@@ -48,30 +46,27 @@ public class Application implements IApplication {
 			System.err.println("ERROR: validating more than one reqif is not supported yet");
 			return IApplication.EXIT_OK;
 		}
-
-		
 		
 		try{
+			
 			String filename = files.get(0);
-					
-			IBatchValidator validator = ModelValidationService.getInstance().newValidator(EvaluationMode.BATCH);
-			validator.setReportSuccesses(false);
-			
 			ReqIF reqif = loadReqif(filename);
-			
 			System.out.println("Validating reqif " + filename + " ...");
 			
-			IStatus results = validator.validate(reqif);
-			IStatus[] children = results.getChildren();
-			for (IStatus iStatus : children) {
-				System.out.println(iStatus);
+			ReqIFValidator reqIFValidator = new ReqIFValidator();
+			List<Issue> validate = reqIFValidator.validate(reqif);
+			
+			for (Issue issue : validate) {
+				System.out.println(issue.toString());
 			}
 			
-			return IApplication.EXIT_OK;
 		}catch (FileNotFoundException e){
 			System.err.println("ERROR File not found:" + e.getMessage());
 			return IApplication.EXIT_OK;
 		}
+		
+		
+		return IApplication.EXIT_OK;
 		
 	}
 
