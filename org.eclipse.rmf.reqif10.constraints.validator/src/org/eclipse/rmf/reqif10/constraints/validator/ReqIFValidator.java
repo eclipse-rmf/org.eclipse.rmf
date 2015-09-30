@@ -45,8 +45,12 @@ public class ReqIFValidator {
 		if (children.length == 0){
 			// If there is only one result, children is empty and instead
 			// the results itself is the Status we need
-			children = new IStatus[1];
-			children[0] = validationResults;
+			if (validationResults.getSeverity() == IStatus.OK && validationResults.getCode() == 10){
+				children = new IStatus[0];
+			}else{
+				children = new IStatus[1];
+				children[0] = validationResults;
+			}
 		}
 		
 		for (IStatus childStatus : children) {
@@ -67,6 +71,7 @@ public class ReqIFValidator {
 				issue.setSeverity(Severity.ERROR);
 				break;
 			case IStatus.INFO:
+			case IStatus.OK:
 				issue.setSeverity(Severity.INFO);
 				break;
 			default:
