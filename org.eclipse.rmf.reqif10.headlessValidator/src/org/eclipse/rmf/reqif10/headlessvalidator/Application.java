@@ -1,20 +1,22 @@
 package org.eclipse.rmf.reqif10.headlessvalidator;
 
-import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.constraints.validator.Issue;
 import org.eclipse.rmf.reqif10.constraints.validator.ReqIFValidator;
+import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceImpl;
+import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceSetImpl;
 
 
 
@@ -25,6 +27,11 @@ import org.eclipse.rmf.reqif10.constraints.validator.ReqIFValidator;
  */
 public class Application implements IApplication {
 
+	
+	XMLPersistenceMappingResourceSetImpl resourceSet;
+	private List<ReqIF> reqifs;
+	
+	
 	/* (non-Javadoc)
 	 * @see org.eclipse.equinox.app.IApplication#start(org.eclipse.equinox.app.IApplicationContext)
 	 */
@@ -42,26 +49,24 @@ public class Application implements IApplication {
 			return IApplication.EXIT_OK;
 		}
 		
-		if (appArgs.length > 1){
-			System.err.println("ERROR: validating more than one reqif is not supported yet");
-			return IApplication.EXIT_OK;
-		}
-		
 		try{
+			resourceSet = new XMLPersistenceMappingResourceSetImpl();
+			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new ReqIF10ResourceFactoryImpl());
+			reqifs = new LinkedList<ReqIF>();
 			
-			String filename = files.get(0);
-			ReqIF reqif = loadReqif(filename);
-			System.out.println("Validating reqif " + filename + " ...");
+			loadReqifs(files);
 			
 			ReqIFValidator reqIFValidator = new ReqIFValidator();
-			List<Issue> validate = reqIFValidator.validate(reqif);
-			
-			for (Issue issue : validate) {
-				System.out.println(issue.toString());
+			for (ReqIF reqif : reqifs) {
+				System.out.println(reqif.eResource().getURI());
+				System.out.println(reqif);
+				List<Issue> validate = reqIFValidator.validate(reqif);
+				for (Issue issue : validate) {
+					System.out.println("    " + issue.toString());
+				}	
 			}
-			
 		}catch (FileNotFoundException e){
-			System.err.println("ERROR File not found:" + e.getMessage());
+			System.err.println("ERROR: File not found " + e.getMessage());
 			return IApplication.EXIT_OK;
 		}
 		
@@ -77,19 +82,18 @@ public class Application implements IApplication {
 	}
 	
 	
-	/**
-	 * load reqIF file from current selection
-	 * @return the ReqIF object
-	 * @throws FileNotFoundException 
-	 */
-	private ReqIF loadReqif(String filename) throws FileNotFoundException{
-		if (!(new File(filename)).exists()){
-			throw new FileNotFoundException(filename);
+	
+	public void loadReqifs(List<String> filenames) throws IOException{
+		for (String filename : filenames) {
+			URI emfURI = URI.createFileURI(filename);
+			XMLPersistenceMappingResourceImpl resource = (XMLPersistenceMappingResourceImpl) resourceSet.createResource(emfURI);
+			resource.load(null);
+			EList<EObject> rootObjects = resource.getContents();
+			if (!rootObjects.isEmpty()) {
+				reqifs.add((ReqIF) rootObjects.get(0));
+			}
+			
 		}
-		
-		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource resource = resourceSet.getResource(URI.createFileURI(filename), true);
-		ReqIF reqif = (ReqIF) resource.getContents().get(0);
-		return reqif;
 	}
+	
 }
