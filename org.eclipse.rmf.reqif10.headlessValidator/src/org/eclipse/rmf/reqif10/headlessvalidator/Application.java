@@ -1,5 +1,6 @@
 package org.eclipse.rmf.reqif10.headlessvalidator;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -68,6 +69,10 @@ public class Application implements IApplication {
 		}catch (FileNotFoundException e){
 			System.err.println("ERROR: File not found " + e.getMessage());
 			return IApplication.EXIT_OK;
+		}catch (IllegalArgumentException e) {
+			System.err.println(e.getMessage());
+		}catch (RuntimeException e){
+			System.err.println("ERROR: " + e.getMessage());
 		}
 		
 		
@@ -86,6 +91,15 @@ public class Application implements IApplication {
 	public void loadReqifs(List<String> filenames) throws IOException{
 		for (String filename : filenames) {
 			URI emfURI = URI.createFileURI(filename);
+			
+			if (!new File(emfURI.toFileString()).exists() ){
+				throw new FileNotFoundException(filename);
+			}
+			
+			if (emfURI.fileExtension() != "reqif"){
+				throw new IllegalArgumentException("Illegal File extension '" + emfURI.fileExtension() + "' for " + filename + "");
+			}
+			
 			XMLPersistenceMappingResourceImpl resource = (XMLPersistenceMappingResourceImpl) resourceSet.createResource(emfURI);
 			resource.load(null);
 			EList<EObject> rootObjects = resource.getContents();
