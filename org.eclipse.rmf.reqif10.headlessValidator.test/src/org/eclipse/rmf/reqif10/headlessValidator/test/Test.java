@@ -12,10 +12,7 @@ import org.eclipse.rmf.reqif10.headlessvalidator.Application;
 import org.junit.Before;
 
 public class Test {
-
-	
 	private Application application;
-
 
 	@Before
 	public void setup() {
@@ -85,4 +82,27 @@ public class Test {
 		application.loadReqifs(list);
 	}
 
+	
+	@org.junit.Test
+	public void testSpecRelationMissingTarget() throws Exception {
+		LinkedList<String> list = new LinkedList<String>();
+		list.add("testdata/resolveProxy/SpecRelations/source.reqif");
+		
+		application.setFiles(list);
+		List<Issue> issues = application.run();
+		assertTrue(issues.size() == 1);
+		assertTrue(issues.get(0).getMessage().contains("unresolved proxy"));
+	}
+	
+	@org.junit.Test
+	public void testSpecRelation() throws Exception {
+		LinkedList<String> list = new LinkedList<String>();
+		list.add("testdata/resolveProxy/SpecRelations/source.reqif");
+		list.add("testdata/resolveProxy/SpecRelations/target.reqif");
+		
+		application.setFiles(list);
+		List<Issue> issues = application.run();
+		assertTrue(issues.size() == 0);
+	}
+	
 }
