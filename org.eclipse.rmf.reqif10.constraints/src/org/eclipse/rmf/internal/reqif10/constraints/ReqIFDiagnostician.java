@@ -19,6 +19,9 @@ public class ReqIFDiagnostician extends Diagnostician {
 	}
 
 	public static String getReqIFObjectLabel(EObject identifiable) {
+		if (identifiable == null) {
+			return null;
+		}
 		if (identifiable instanceof DatatypeDefinition || identifiable instanceof AttributeDefinition) {
 			return identifiable.getClass().getInterfaces()[0].getSimpleName();
 		} else {
