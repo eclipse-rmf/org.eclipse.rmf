@@ -31,13 +31,14 @@ public class Application implements IApplication {
 	
 	XMLPersistenceMappingResourceSetImpl resourceSet;
 	private List<ReqIF> reqifs;
+	private List<String> files;
 	
 	
 	/* (non-Javadoc)
 	 * @see org.eclipse.equinox.app.IApplication#start(org.eclipse.equinox.app.IApplicationContext)
 	 */
 	public Object start(IApplicationContext context) throws Exception {
-		List<String> files = new LinkedList<String>();
+		files = new LinkedList<String>();
 		
 		final Map args = context.getArguments();  
 		final String[] appArgs = (String[]) args.get("application.args"); 
@@ -51,21 +52,7 @@ public class Application implements IApplication {
 		}
 		
 		try{
-			resourceSet = new XMLPersistenceMappingResourceSetImpl();
-			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new ReqIF10ResourceFactoryImpl());
-			reqifs = new LinkedList<ReqIF>();
-			
-			loadReqifs(files);
-			
-			ReqIFValidator reqIFValidator = new ReqIFValidator();
-			for (ReqIF reqif : reqifs) {
-				System.out.println(reqif.eResource().getURI());
-				System.out.println(reqif);
-				List<Issue> validate = reqIFValidator.validate(reqif);
-				for (Issue issue : validate) {
-					System.out.println("    " + issue.toString());
-				}	
-			}
+			run();
 		}catch (FileNotFoundException e){
 			System.err.println("ERROR: File not found " + e.getMessage());
 			return IApplication.EXIT_OK;
@@ -79,6 +66,31 @@ public class Application implements IApplication {
 		return IApplication.EXIT_OK;
 		
 	}
+	
+	
+	public List<Issue> run() throws IOException{
+		
+		resourceSet = new XMLPersistenceMappingResourceSetImpl();
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new ReqIF10ResourceFactoryImpl());
+		reqifs = new LinkedList<ReqIF>();
+		
+		loadReqifs(files);
+		
+		List<Issue> allIssues = new LinkedList<Issue>();
+		
+		ReqIFValidator reqIFValidator = new ReqIFValidator();
+		for (ReqIF reqif : reqifs) {
+			System.out.println(reqif.eResource().getURI());
+			System.out.println(reqif);
+			List<Issue> validate = reqIFValidator.validate(reqif);
+			allIssues.addAll(validate);
+			for (Issue issue : validate) {
+				System.out.println("    " + issue.toString());
+			}	
+		}
+		return allIssues;
+	}
+	
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.equinox.app.IApplication#stop()
@@ -92,12 +104,12 @@ public class Application implements IApplication {
 		for (String filename : filenames) {
 			URI emfURI = URI.createFileURI(filename);
 			
-			if (!new File(emfURI.toFileString()).exists() ){
-				throw new FileNotFoundException(filename);
+			if (!"reqif".equals(emfURI.fileExtension())){
+				throw new IllegalArgumentException("Illegal File extension '" + emfURI.fileExtension() + "' for " + filename + "");
 			}
 			
-			if (emfURI.fileExtension() != "reqif"){
-				throw new IllegalArgumentException("Illegal File extension '" + emfURI.fileExtension() + "' for " + filename + "");
+			if (!new File(emfURI.toFileString()).exists() ){
+				throw new FileNotFoundException(filename);
 			}
 			
 			XMLPersistenceMappingResourceImpl resource = (XMLPersistenceMappingResourceImpl) resourceSet.createResource(emfURI);
@@ -108,6 +120,11 @@ public class Application implements IApplication {
 			}
 			
 		}
+	}
+
+
+	public void setFiles(LinkedList<String> files) {
+		this.files = files;
 	}
 	
 }
