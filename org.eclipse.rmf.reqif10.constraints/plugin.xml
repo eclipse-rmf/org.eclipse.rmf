@@ -459,6 +459,24 @@
                   class="AttributeValueReal">
             </target>
          </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeValueXHTMLObjectsExist"
+               id="AV1.6"
+               lang="JAVA"
+               mode="Batch"
+               name="AV1.6 AttributeValueXHTML - referenced objects exist"
+               severity="ERROR"
+               statusCode="0406">
+            <message>
+               AttributeValueXHTML references {0} that can not be found: {1}
+            </message>
+            <description>
+               All files referenced by an AttributeValueXHTML exist
+            </description>
+            <target
+                  class="AttributeValueXHTML">
+            </target>
+         </constraint>
          </constraints>
       </constraintProvider>
    </extension>
