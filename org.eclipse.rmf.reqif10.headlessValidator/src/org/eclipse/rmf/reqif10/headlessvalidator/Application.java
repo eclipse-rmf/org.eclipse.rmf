@@ -81,7 +81,7 @@ public class Application implements IApplication {
 		ReqIFValidator reqIFValidator = new ReqIFValidator();
 		for (ReqIF reqif : reqifs) {
 			System.out.println(reqif.eResource().getURI());
-			System.out.println(reqif);
+			//System.out.println(reqif);
 			List<Issue> validate = reqIFValidator.validate(reqif);
 			allIssues.addAll(validate);
 			for (Issue issue : validate) {
