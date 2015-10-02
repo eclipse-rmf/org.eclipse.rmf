@@ -55,18 +55,6 @@ public class AttributeValueXHTMLObjectsExist extends AbstractModelConstraint {
 					missingObjects.add(objectPath);
 				}
 
-				System.out.println("sdsddsdsdsdsdsdsdsdsdsd");
-				//
-				// System.out.print(string + ": ");
-				// // System.out.println(new File(string).exists());
-				// System.out.println(((AttributeValueXHTML) target).eResource().getURI());
-				// Resource eResource = ((AttributeValueXHTML) target).eResource();
-				// URI base = ((AttributeValueXHTML) target).eResource().getURI().trimSegments(1);
-				// String dataObjectUri = base.toFileString() + "/" + string;
-				//
-				// System.out.println(dataObjectUri);
-				// System.out.println(new File(dataObjectUri).exists());
-				// System.out.println("---");
 			}
 
 			if (missingObjects.size() > 0) {
@@ -79,7 +67,7 @@ public class AttributeValueXHTMLObjectsExist extends AbstractModelConstraint {
 					}
 					sb.append(missingObjects.get(i));
 				}
-				return ctx.createFailureStatus(count == 1 ? "1 file" : count + "files", sb.toString());
+				return ctx.createFailureStatus(count == 1 ? "a file" : count + "files", sb.toString());
 			}
 
 		}
