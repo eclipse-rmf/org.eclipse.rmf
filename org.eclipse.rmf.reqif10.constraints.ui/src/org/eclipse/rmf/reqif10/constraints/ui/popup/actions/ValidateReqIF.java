@@ -1,5 +1,7 @@
 package org.eclipse.rmf.reqif10.constraints.ui.popup.actions;
 
+import java.util.List;
+
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -24,6 +26,8 @@ import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
+import org.eclipse.rmf.reqif10.constraints.validator.Issue;
+import org.eclipse.rmf.reqif10.constraints.validator.ReqIFValidator;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10LocationStore;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
@@ -57,15 +61,22 @@ public class ValidateReqIF implements IObjectActionDelegate {
 	 * @see IActionDelegate#run(IAction)
 	 */
 	public void run(IAction action) {
-		ReqIF reqif = loadReqif();	
-		validateReqIF(reqif);
-		
+		ReqIF reqif = loadReqif();
 		String filename = getFilenameFromCurrentSelection();
-		
- 		MessageDialog.openInformation(
-			shell,
-			"ReqIF Validation",
-			filename + " has been validated. Please check the Problems View for created Error Markers." );
+		try{
+			validateReqIF(reqif);
+
+			MessageDialog.openInformation(
+				shell,
+				"ReqIF Validation",
+				filename + " has been validated. Please check the Problems View for created Error Markers." );
+			
+		}catch(CoreException e){
+			MessageDialog.openError(
+					shell,
+					"ReqIF Validation",
+					"An error occured while validating " + filename + ": " + e.getMessage() );
+		}
 	}
 	
 	
@@ -113,219 +124,42 @@ public class ValidateReqIF implements IObjectActionDelegate {
 	}
 	
 	
-	private void validateReqIF(ReqIF reqif) {
-		try {
+	private void validateReqIF(ReqIF reqif) throws CoreException {
 	
-			IBatchValidator validator = ModelValidationService.getInstance().newValidator(EvaluationMode.BATCH);
-			validator.setReportSuccesses(false);
-			IStatus results = validator.validate(reqif);
-			
-			// let EMF-Validation create markers
-			// this does not set line numbers...
-			//MarkerUtil.createMarkers(results);
-			
-			
-			// create markers manually, so we are able to set the location
-			// maybe we can do this by overriding MarkerUtil's Adjust method ?		
-			IStatus[] children = results.getChildren();
-
-			if (children.length == 0){
-				// If there is only one result, children is empty and instead
-				// the results itself is the Status we need
-				children = new IStatus[1];
-				children[0] = results;
-			}
+			ReqIFValidator reqIFValidator = new ReqIFValidator();
 			
 			resource.deleteMarkers(markerType, true, IResource.DEPTH_ZERO);
 			
-			for (IStatus childStatus : children) {
-				IMarker marker = resource.createMarker(markerType);
-				
-				//marker.setAttribute(IMarker.TRANSIENT, false);
-				
-				switch (childStatus.getSeverity()) {
-					case IStatus.ERROR:
-						marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
-						break;
-					case IStatus.INFO:
-						marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_INFO);
-						break;
-					default:
-						marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_WARNING);
-						break;
-				}
-												
-				marker.setAttribute(IMarker.MESSAGE, childStatus.getMessage());
-								
-				if (childStatus instanceof ConstraintStatus){
-					
-					EObject target = ((ConstraintStatus) childStatus).getTarget();
-					Resource targetResource = target.eResource();
-					
-					String location = ((ConstraintStatus) childStatus).getTarget().toString();
-					
-//					if ( target instanceof Identifiable && targetResource instanceof XMLResource){
-//						Identifiable identifiable = (Identifiable) target;
-//						Integer lineNumber = ReqIF10LocationStore.getInstance().getPosition((XMLResource) targetResource, identifiable.getIdentifier());
-//						marker.setAttribute(IMarker.LINE_NUMBER, lineNumber);
-//						
-//						location = "line " + lineNumber + ": " + location;
-//					}
-					
-					Integer lineNumber = getLineNumber(target, targetResource);
-					if (lineNumber != null){
-						marker.setAttribute(IMarker.LINE_NUMBER, lineNumber);
-						location = "line " + lineNumber + ": " + location;
-					}
-					
-					marker.setAttribute(IMarker.LOCATION, location);
-					
-				}
+			List<Issue> validate = reqIFValidator.validate(reqif);
+			for (Issue issue : validate) {
+				System.out.println(issue);
+				createMarker(issue);
 			}
-			
-			
-			
-			// --- Use Diagnostician	
-			//Diagnostic diagnostic = Diagnostician.INSTANCE.validate(reqif);
-			Diagnostic diagnostic = ReqIFDiagnostician.INSTANCE.validate(reqif);
-			
-			//MarkerHelper markerHelper = new MarkerHelper();
-			//markerHelper.createMarkers(diagnostic);
-			
-			for (Diagnostic childDiagnostic : diagnostic.getChildren()){
-				createMarkers(resource, childDiagnostic, diagnostic);
-			}
-		      
-		    
-			
-//			try {
-//				
-//				ValidationResult result = new ValidationResult();
-//				
-//				LinkedList<Issue> issues = new LinkedList<Issue>();
-//				
-//				for (Diagnostic childDiagnostic : diagnostic.getChildren()){
-//					Issue issue = new Issue();
-//					issue.setLine(-1);
-//					
-//					issue.setMessage(childDiagnostic.getMessage());
-//					issue.setLocation(diagnostic.getData().get(0).toString());
-//					issues.add(issue);
-//				}
-//				
-//				result.setIssues(issues);
-//				
-//				JAXBContext jaxbContext = JAXBContext.newInstance( ValidationResult.class );
-//				Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-//				jaxbMarshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, true );
-//				
-//				jaxbMarshaller.marshal( result, System.out );
-//				
-//				
-//			} catch (JAXBException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-			
-			
-			
-		
-			
-		} catch (CoreException e) {
-			e.printStackTrace();
-		}
-		
-		
 	}
-	
-	
-	
-	private Integer getLineNumber(EObject element, Resource targetResource){
-		if (! (targetResource instanceof XMLResource)){
-			return -1;
-		}
-		
-		Identifiable identifiable = null ;
-		
-		if ( element instanceof Identifiable ){
-			identifiable = (Identifiable) element;
-		}else{
-			if (element instanceof AttributeValue) {
-				AttributeValue attributeValue = (AttributeValue) element;
-				EObject eContainer = attributeValue.eContainer();
-				if (eContainer instanceof Identifiable){
-					// If this is not a specObject, something is soo wrong here 
-					identifiable = (Identifiable) eContainer;
-				}
+			
+	protected void createMarker(Issue issue) throws CoreException{
+		if (resource != null && resource.exists()){
+			
+			IMarker marker = resource.createMarker(markerType);
+			
+			switch (issue.getSeverity()){
+				case ERROR:
+					marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
+					break;
+				case WARNING:
+					marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_WARNING);
+					break;
+				default:
+					marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_INFO);	
 			}
+			
+			marker.setAttribute(IMarker.MESSAGE, issue.getMessage() );
+			
+			marker.setAttribute(IMarker.LINE_NUMBER, issue.getLine() );
+			
+			marker.setAttribute(IMarker.LOCATION, issue.getLocation() );
 		}
-		
-		if (identifiable != null){
-			return ReqIF10LocationStore.getInstance().getPosition(
-					(XMLResource) targetResource, identifiable.getIdentifier());
-		}
-		
-		return null;
 	}
-	
-	
-	
-	protected void createMarkers(IResource resource, Diagnostic diagnostic, Diagnostic parentDiagnostic) throws CoreException
-	  {
-	    if (resource != null && resource.exists())
-	    {
-//	      IMarker marker = resource.createMarker(MarkerUtil.VALIDATION_MARKER_TYPE);
-	      IMarker marker = resource.createMarker(markerType);
-	      
-	      //if (diagnostic.getCode())
-	      
-	      int severity = diagnostic.getSeverity();
-	      if (severity < Diagnostic.WARNING)
-	      {
-	        marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_INFO);
-	      }
-	      else if (severity < Diagnostic.ERROR)
-	      {
-	        marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_WARNING);
-	      }
-	      else
-	      {
-	        marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
-	      }
-	          
-	      String message = diagnostic.getMessage();
-	      if (message != null)
-	      {
-	        marker.setAttribute(IMarker.MESSAGE, "[D] " + message );
-	      }
-	      
-	      Integer lineNumber = null;
-	      if (diagnostic.getData().size()>0){
-	    	  Object object = diagnostic.getData().get(0);
-	    	  if (object instanceof Identifiable) {
-				Identifiable element = (Identifiable) object;
-				lineNumber = ReqIF10LocationStore.getInstance().getPosition((XMLResource) element.eResource(), element.getIdentifier());
-				marker.setAttribute(IMarker.LINE_NUMBER, lineNumber);			
-			}else if(object instanceof ReqIFHeader){
-				ReqIFHeader element = (ReqIFHeader) object;
-				lineNumber = ReqIF10LocationStore.getInstance().getPosition((XMLResource) element.eResource(), element.getIdentifier());
-				marker.setAttribute(IMarker.LINE_NUMBER, lineNumber);
-			}
-	      }
-	      
-	      String location = "";
-	      if (lineNumber != null){
-	    	  location = "line: " + lineNumber + " ";
-	      }
-	      marker.setAttribute(IMarker.LOCATION, location + diagnostic.getData().get(0));
-	      
-	      
-	      
-	      
-	      
-	    }
-	  }
-	
 	
 }
 
