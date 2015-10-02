@@ -9,4 +9,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.junit
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.rmf.tests.reqif10.constraints
-Import-Package: org.eclipse.rmf.reqif10.common.util
+Import-Package: org.eclipse.rmf.reqif10.common.util,
+ org.eclipse.rmf.reqif10.serialization,
+ org.eclipse.sphinx.emf.serialization
