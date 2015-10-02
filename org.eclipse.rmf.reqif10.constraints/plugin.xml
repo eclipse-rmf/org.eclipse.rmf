@@ -336,6 +336,7 @@
          <constraint
                class="org.eclipse.rmf.reqif10.constraints.DatatypeDefinitionRealMinMax"
                id="C3.5"
+               isEnabledByDefault="true"
                lang="JAVA"
                mode="Batch"
                name="C3.5 DatatypeDefinitionReal - minValue&lt;=maxValue"
@@ -354,6 +355,7 @@
          <constraint
                class="org.eclipse.rmf.reqif10.constraints.DatatypeDefinitionIntegerMinMax"
                id="C3.6"
+               isEnabledByDefault="true"
                lang="JAVA"
                mode="Batch"
                name="C3.6 DatatypeDefinitionInteger - minValue&lt;=maxValue"
@@ -372,6 +374,7 @@
          <constraint
                class="org.eclipse.rmf.reqif10.constraints.AttributeValueRealInRange"
                id="AV1.1"
+               isEnabledByDefault="true"
                lang="JAVA"
                mode="Batch"
                name="AV1.1 AttributeValueReal - between min and max"
@@ -390,6 +393,7 @@
          <constraint
                class="org.eclipse.rmf.reqif10.constraints.AttributeValueIntegerInRange"
                id="AV1.2"
+               isEnabledByDefault="true"
                lang="JAVA"
                mode="Batch"
                name="AV1.2 AttributeValueInteger - between min and max"
@@ -408,6 +412,7 @@
          <constraint
                class="org.eclipse.rmf.reqif10.constraints.AttributeValueStringMaxLength"
                id="AV1.3"
+               isEnabledByDefault="true"
                lang="JAVA"
                mode="Batch"
                name="AV1.3 AttributeValueString - not longer than maxLength"
@@ -426,6 +431,7 @@
          <constraint
                class="org.eclipse.rmf.reqif10.constraints.AttributeValueEnumObeysMultiValued"
                id="AV1.4"
+               isEnabledByDefault="true"
                lang="JAVA"
                mode="Batch"
                name="AV1.4 AttributeValueEnumeration Multiplicity - max one value if not multiValued"
@@ -444,6 +450,7 @@
          <constraint
                class="org.eclipse.rmf.reqif10.constraints.AttributeValueRealAccuracy"
                id="AV1.5"
+               isEnabledByDefault="true"
                lang="JAVA"
                mode="Batch"
                name="AV1.5 AttributeValueReal - not more precise that accuracy"
@@ -462,6 +469,7 @@
          <constraint
                class="org.eclipse.rmf.reqif10.constraints.AttributeValueXHTMLObjectsExist"
                id="AV1.6"
+               isEnabledByDefault="true"
                lang="JAVA"
                mode="Batch"
                name="AV1.6 AttributeValueXHTML - referenced objects exist"
