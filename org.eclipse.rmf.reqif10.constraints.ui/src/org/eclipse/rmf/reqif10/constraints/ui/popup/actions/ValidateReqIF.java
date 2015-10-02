@@ -127,10 +127,11 @@ public class ValidateReqIF implements IObjectActionDelegate {
 	private void validateReqIF(ReqIF reqif) throws CoreException {
 	
 			ReqIFValidator reqIFValidator = new ReqIFValidator();
+						
+			List<Issue> validate = reqIFValidator.validate(reqif);
 			
 			resource.deleteMarkers(markerType, true, IResource.DEPTH_ZERO);
 			
-			List<Issue> validate = reqIFValidator.validate(reqif);
 			for (Issue issue : validate) {
 				System.out.println(issue);
 				createMarker(issue);
