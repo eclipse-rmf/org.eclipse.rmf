@@ -505,6 +505,25 @@
             </target>
          </constraint>
          <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeValueXHTMLObjectsAlternative"
+               id="C6.2"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="C6.2 Alternative images and texts must be exported"
+               severity="ERROR"
+               statusCode="0406">
+            <message>
+               AttributeValueXHTML missing alternative for data object
+            </message>
+            <description>
+               For XHTML object elements that refer to an external object that is not an image with the MIME-Type image/png, an alternative image AND an alternative text MUST be provided
+            </description>
+            <target
+                  class="AttributeValueXHTML">
+            </target>
+         </constraint>
+         <constraint
                class="org.eclipse.rmf.reqif10.constraints.AttributeValueXHTMLObjectOnlyAllowedAttributes"
                id="C6.3"
                isEnabledByDefault="true"
