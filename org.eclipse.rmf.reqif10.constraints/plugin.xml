@@ -308,7 +308,7 @@
                   class="DatatypeDefinitionReal">
             </target>
             <message>
-               Accuracy of {0} is not set
+               accuracy of {0} is not set
             </message>
             <description>
                Accuracy of DatatypeDefinitionReal is set.
@@ -479,7 +479,7 @@
                AttributeValueXHTML references {0} that can not be found: {1}
             </message>
             <description>
-               All files referenced by an AttributeValueXHTML exist
+               All files referenced in an AttributeValueXHTML by a file URI exist
             </description>
             <target
                   class="AttributeValueXHTML">
@@ -498,7 +498,7 @@
                AttributeValueXHTML references a non-file object {0}
             </message>
             <description>
-               Warning if a non-file URI is used
+               object should be referenced by a file URI
             </description>
             <target
                   class="AttributeValueXHTML">
@@ -517,7 +517,7 @@
                AttributeValueEnumeration uses an illegal EnumValue
             </message>
             <description>
-               AttributeValueEnumeration only references values that are defined by its DatatypeDefinitionEnumeration
+               An AttributeValueEnumeration only references values that are defined by its DatatypeDefinitionEnumeration
             </description>
             <target
                   class="AttributeValueEnumeration">
@@ -536,7 +536,7 @@
                AttributeValueXHTML contains {0} with a class attribute: {1}
             </message>
             <description>
-               The class attribute of the XHTML Core Attribute Collection MUST NOT be used
+               The &apos;class&apos; attribute of the XHTML Core Attribute Collection MUST NOT be used
             </description>
             <target
                   class="AttributeValueXHTML">
@@ -574,7 +574,7 @@
                AttributeValueXHTML contains {0} with illegal attributes: {1}
             </message>
             <description>
-               If there is a specific MIME-type for the application that handles the external object, it MUST be stored in the type attribute and no attribute in addition to the four attributes for the object element (data, type, width, height) MUST be used in that case.
+               If there is a specific MIME-type for the application that handles the external object, it MUST be stored in the &apos;type&apos; attribute and no other attributes than &apos;data&apos;, &apos;type&apos;, &apos;width&apos; and &apos;height&apos; MUST be used in that case.
             </description>
             <target
                   class="AttributeValueXHTML">
@@ -593,7 +593,7 @@
                AttributeValueXHTML missing data attribute in {0}
             </message>
             <description>
-               The location of an external object MUST be specified via the data attribute. The data attribute
+               The location of an external object MUST be specified via the &apos;data&apos; attribute.
             </description>
             <target
                   class="AttributeValueXHTML">
