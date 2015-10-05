@@ -486,6 +486,44 @@
             </target>
          </constraint>
          <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeValueXHTMLObjectsIsNotFile"
+               id="AV1.6a"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="AV1.6a AttributeValueXHTML - referenced objects is file"
+               severity="WARNING"
+               statusCode="0406">
+            <message>
+               AttributeValueXHTML references a non-file object {0}
+            </message>
+            <description>
+               Warning if a non-file URI is used
+            </description>
+            <target
+                  class="AttributeValueXHTML">
+            </target>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeValueEnumValidValue"
+               id="AV1.7"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="AV1.7 AttributeValueEnumeration uses valid EnumValue"
+               severity="ERROR"
+               statusCode="0404">
+            <message>
+               AttributeValueEnumeration uses an illegal EnumValue
+            </message>
+            <description>
+               AttributeValueEnumeration only references values that are defined by its DatatypeDefinitionEnumeration
+            </description>
+            <target
+                  class="AttributeValueEnumeration">
+            </target>
+         </constraint>
+         <constraint
                class="org.eclipse.rmf.reqif10.constraints.AttributeValueXHTMLNoClassAttribute"
                id="C6.1"
                isEnabledByDefault="true"
@@ -559,25 +597,6 @@
             </description>
             <target
                   class="AttributeValueXHTML">
-            </target>
-         </constraint>
-         <constraint
-               class="org.eclipse.rmf.reqif10.constraints.AttributeValueEnumValidValue"
-               id="AV1.7"
-               isEnabledByDefault="true"
-               lang="JAVA"
-               mode="Batch"
-               name="AV1.7 AttributeValueEnumeration uses valid EnumValue"
-               severity="ERROR"
-               statusCode="0404">
-            <message>
-               AttributeValueEnumeration uses an illegal EnumValue
-            </message>
-            <description>
-               AttributeValueEnumeration only references values that are defined by its DatatypeDefinitionEnumeration
-            </description>
-            <target
-                  class="AttributeValueEnumeration">
             </target>
          </constraint>
          </constraints>
