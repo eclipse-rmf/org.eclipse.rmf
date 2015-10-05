@@ -561,6 +561,25 @@
                   class="AttributeValueXHTML">
             </target>
          </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeValueEnumValidValue"
+               id="AV1.7"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="AV1.7 AttributeValueEnumeration uses valid EnumValue"
+               severity="ERROR"
+               statusCode="0404">
+            <message>
+               AttributeValueEnumeration uses an illegal EnumValue
+            </message>
+            <description>
+               AttributeValueEnumeration only references values that are defined by its DatatypeDefinitionEnumeration
+            </description>
+            <target
+                  class="AttributeValueEnumeration">
+            </target>
+         </constraint>
          </constraints>
       </constraintProvider>
    </extension>
