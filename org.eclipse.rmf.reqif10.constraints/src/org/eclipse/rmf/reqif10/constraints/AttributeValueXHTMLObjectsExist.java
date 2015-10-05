@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
@@ -25,9 +26,10 @@ public class AttributeValueXHTMLObjectsExist extends AbstractModelConstraint {
 
 		if (target instanceof AttributeValueXHTML) {
 
-			String basePath = ((AttributeValueXHTML) target).eResource().getURI().trimSegments(1).toFileString();
 			List<String> dataObjects = new LinkedList<String>();
 			List<String> missingObjects = new LinkedList<String>();
+
+			List<String> nonFileReferences = new LinkedList<String>();
 
 			AttributeValueXHTML xhtmlVal = (AttributeValueXHTML) target;
 
@@ -49,10 +51,20 @@ public class AttributeValueXHTMLObjectsExist extends AbstractModelConstraint {
 				}
 			}
 
+			URI baseUri = ((AttributeValueXHTML) target).eResource().getURI();
+
 			for (String objectPath : dataObjects) {
-				String dataObjectUri = basePath + "/" + objectPath;
-				if (!new File(dataObjectUri).exists()) {
-					missingObjects.add(objectPath);
+
+				URI objectUri = URI.createURI(objectPath);
+				URI resolvedUri = objectUri.resolve(baseUri);
+
+				if (resolvedUri.isFile()) {
+					if (!new File(resolvedUri.toFileString()).exists()) {
+						missingObjects.add(objectPath);
+					}
+				} else {
+					nonFileReferences.add(objectPath);
+					System.out.println("WARNING: non file URI " + objectPath);
 				}
 
 			}
@@ -74,10 +86,5 @@ public class AttributeValueXHTMLObjectsExist extends AbstractModelConstraint {
 
 		return Status.OK_STATUS;
 
-	}
-
-	protected boolean fileExists(String basePath, String objectPath) {
-		String dataObjectUri = basePath + "/" + objectPath;
-		return new File(dataObjectUri).exists();
 	}
 }
