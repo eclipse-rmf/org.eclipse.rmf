@@ -504,6 +504,25 @@
                   class="AttributeValueXHTML">
             </target>
          </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeValueXHTMLObjectOnlyAllowedAttributes"
+               id="C6.3"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="C6.3 Only data, type, width and height are allowed as attributes for XHTML &lt;object&gt;"
+               severity="ERROR"
+               statusCode="0406">
+            <message>
+               AttributeValueXHTML contains {0} with illegal attributes: {1}
+            </message>
+            <description>
+               If there is a specific MIME-type for the application that handles the external object, it MUST be stored in the type attribute and no attribute in addition to the four attributes for the object element (data, type, width, height) MUST be used in that case.
+            </description>
+            <target
+                  class="AttributeValueXHTML">
+            </target>
+         </constraint>
          </constraints>
       </constraintProvider>
    </extension>
