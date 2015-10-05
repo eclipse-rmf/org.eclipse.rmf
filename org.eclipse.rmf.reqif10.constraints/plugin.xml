@@ -485,6 +485,25 @@
                   class="AttributeValueXHTML">
             </target>
          </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeValueXHTMLNoClassAttribute"
+               id="C6.1"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="C6.1 The XHTML class attribute must not be used"
+               severity="ERROR"
+               statusCode="0406">
+            <message>
+               AttributeValueXHTML contains {0} with a class attribute: {1}
+            </message>
+            <description>
+               The class attribute of the XHTML Core Attribute Collection MUST NOT be used
+            </description>
+            <target
+                  class="AttributeValueXHTML">
+            </target>
+         </constraint>
          </constraints>
       </constraintProvider>
    </extension>
