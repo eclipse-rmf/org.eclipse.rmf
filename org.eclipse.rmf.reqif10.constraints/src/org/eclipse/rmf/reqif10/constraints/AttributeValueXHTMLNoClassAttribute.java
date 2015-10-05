@@ -1,6 +1,5 @@
 package org.eclipse.rmf.reqif10.constraints;
 
-import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -60,8 +59,4 @@ public class AttributeValueXHTMLNoClassAttribute extends AbstractModelConstraint
 
 	}
 
-	protected boolean fileExists(String basePath, String objectPath) {
-		String dataObjectUri = basePath + "/" + objectPath;
-		return new File(dataObjectUri).exists();
-	}
 }
