@@ -67,7 +67,7 @@ public class AttributeValueXHTMLObjectsExist extends AbstractModelConstraint {
 					}
 					sb.append(missingObjects.get(i));
 				}
-				return ctx.createFailureStatus(count == 1 ? "a file" : count + "files", sb.toString());
+				return ctx.createFailureStatus(count == 1 ? "a file" : count + " files", sb.toString());
 			}
 
 		}
