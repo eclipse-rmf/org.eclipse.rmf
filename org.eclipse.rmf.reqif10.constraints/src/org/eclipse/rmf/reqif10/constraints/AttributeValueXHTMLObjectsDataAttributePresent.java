@@ -14,7 +14,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-public class AttributeValueXHTMLNoClassAttribute extends AbstractModelConstraint {
+public class AttributeValueXHTMLObjectsDataAttributePresent extends AbstractModelConstraint {
 
 	@Override
 	public IStatus validate(IValidationContext ctx) {
@@ -28,30 +28,39 @@ public class AttributeValueXHTMLNoClassAttribute extends AbstractModelConstraint
 
 			Document xhtmlDom = ReqIF10XhtmlUtil.getXhtmlDom(xhtmlVal.getTheValue());
 
-			NodeList objectTags1 = xhtmlDom.getElementsByTagName("*");
+			NodeList objectTags1 = xhtmlDom.getElementsByTagName("xhtml:object"); //$NON-NLS-1$
+			NodeList objectTags2 = xhtmlDom.getElementsByTagName("reqif-xhtml:object"); //$NON-NLS-1$
 
-			List<Element> elementsWithClassAttribute = new LinkedList<Element>();
+			List<Element> items = new LinkedList<Element>();
 
 			for (int i = 0; i < objectTags1.getLength(); i++) {
 				Element item = (Element) objectTags1.item(i);
+				items.add(item);
+			}
+			for (int i = 0; i < objectTags2.getLength(); i++) {
+				Element item = (Element) objectTags2.item(i);
+				items.add(item);
+			}
 
-				String classAttribute = item.getAttribute("class");
-				if (classAttribute != null && !classAttribute.equals("")) { //$NON-NLS-1$
-					elementsWithClassAttribute.add(item);
+			List<Element> elementsWithoutDataAttribute = new LinkedList<Element>();
+			for (Element item : items) {
+				if (item.getAttribute("data") == null || item.getAttribute("data").equals("")) { //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					elementsWithoutDataAttribute.add(item);
 				}
 			}
 
-			if (elementsWithClassAttribute.size() > 0) {
-				// AttributeValueXHTML references {0} that can not be found: {1}
-				int count = elementsWithClassAttribute.size();
+			if (elementsWithoutDataAttribute.size() > 0) {
+				//
+				int count = elementsWithoutDataAttribute.size();
 				StringBuilder sb = new StringBuilder();
-				for (int i = 0; i < elementsWithClassAttribute.size(); i++) {
+				for (int i = 0; i < elementsWithoutDataAttribute.size(); i++) {
 					if (i > 0) {
 						sb.append(", ");
 					}
-					sb.append(elementsWithClassAttribute.get(i).getNodeName());
+					sb.append(elementsWithoutDataAttribute.get(i));
 				}
-				return ctx.createFailureStatus(count == 1 ? "an element" : count + " elements", sb.toString());
+				// AttributeValueXHTML missing data attribute in {0}
+				return ctx.createFailureStatus(count == 1 ? "an object" : count + " objects");
 			}
 
 		}

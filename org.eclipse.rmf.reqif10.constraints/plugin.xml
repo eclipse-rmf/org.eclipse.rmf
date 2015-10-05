@@ -523,6 +523,25 @@
                   class="AttributeValueXHTML">
             </target>
          </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeValueXHTMLObjectsDataAttributePresent"
+               id="C6.4"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="C6.4 The location of an external object MUST be specified via the data attribute"
+               severity="ERROR"
+               statusCode="0406">
+            <message>
+               AttributeValueXHTML missing data attribute in {0}
+            </message>
+            <description>
+               The location of an external object MUST be specified via the data attribute. The data attribute
+            </description>
+            <target
+                  class="AttributeValueXHTML">
+            </target>
+         </constraint>
          </constraints>
       </constraintProvider>
    </extension>
