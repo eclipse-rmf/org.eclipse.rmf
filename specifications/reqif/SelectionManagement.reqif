@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline" xmlns:id="http://pror.org/presentation/id" xmlns:linewrap="http://pror.org/presentation/linewrap">
   <THE-HEADER>
-    <REQ-IF-HEADER IDENTIFIER="rmf-d7dde2b5-8b0c-41f6-9b86-00758c04027e">
+    <REQ-IF-HEADER IDENTIFIER="rmf-5cb3b1d7-134d-4e15-8ab0-cebfb7b57dae">
       <CREATION-TIME>2012-06-04T09:35:54.414+02:00</CREATION-TIME>
       <SOURCE-TOOL-ID>ProR (http://pror.org)</SOURCE-TOOL-ID>
     </REQ-IF-HEADER>
@@ -76,14 +76,14 @@
             <SPEC-OBJECT-TYPE-REF>rmf-63798d5d-227b-433c-9a86-9697c72338bd</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_3g0qwNq4EeSF5ezi5-slJQ" LAST-CHANGE="2015-04-04T12:52:10.739+02:00">
+        <SPEC-OBJECT IDENTIFIER="_3g0qwNq4EeSF5ezi5-slJQ" LAST-CHANGE="2015-04-07T17:12:11.768+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-104">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-db38a9a3-3c4e-43cb-ab15-180bccae3d69</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user clicks on a cell">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user clicks on a cell foo">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-ad1599cf-c82e-45bb-a4e2-580561168617</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -98,7 +98,7 @@
             <SPEC-OBJECT-TYPE-REF>rmf-ac3acaed-864e-4fd6-8331-5abf37ee70f0</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_ESv9wNq8EeSF5ezi5-slJQ" LAST-CHANGE="2015-04-04T16:22:08.301+02:00">
+        <SPEC-OBJECT IDENTIFIER="_ESv9wNq8EeSF5ezi5-slJQ" LAST-CHANGE="2015-04-07T09:19:01.884+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-105">
               <DEFINITION>
@@ -108,6 +108,96 @@
             <ATTRIBUTE-VALUE-STRING THE-VALUE="New cell added. and edited.">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-ad1599cf-c82e-45bb-a4e2-580561168617</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-ac3acaed-864e-4fd6-8331-5abf37ee70f0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_ZNFHoNz2EeS4uchmT29hng" LAST-CHANGE="2015-04-07T09:19:10.790+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-106">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-db38a9a3-3c4e-43cb-ab15-180bccae3d69</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Fooo">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-ad1599cf-c82e-45bb-a4e2-580561168617</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-ac3acaed-864e-4fd6-8331-5abf37ee70f0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_rb5OYN0rEeSGN-8X9v7dIQ" LAST-CHANGE="2015-04-07T15:40:35.231+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-107">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-db38a9a3-3c4e-43cb-ab15-180bccae3d69</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Forth">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-ad1599cf-c82e-45bb-a4e2-580561168617</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-ac3acaed-864e-4fd6-8331-5abf37ee70f0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_o_rZYOD2EeSBgdq7ZsO9Xg" LAST-CHANGE="2015-04-12T11:31:02.286+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Outline">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-dc731705-e4e1-494e-abd3-4c7e7bb63cbb</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-63798d5d-227b-433c-9a86-9697c72338bd</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_qWFLoOD2EeSBgdq7ZsO9Xg" LAST-CHANGE="2015-04-12T11:31:10.800+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-108">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-db38a9a3-3c4e-43cb-ab15-180bccae3d69</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Editor activated">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-ad1599cf-c82e-45bb-a4e2-580561168617</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Outline updates">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_uyHOMNq4EeSF5ezi5-slJQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-ac3acaed-864e-4fd6-8331-5abf37ee70f0</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_uCvqoOD2EeSBgdq7ZsO9Xg" LAST-CHANGE="2015-04-12T11:32:14.257+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-109">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-db38a9a3-3c4e-43cb-ab15-180bccae3d69</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Outline clicked">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-ad1599cf-c82e-45bb-a4e2-580561168617</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Initially: Nothing&#xA;Optional: visible editor updates">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_uyHOMNq4EeSF5ezi5-slJQ</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
@@ -146,6 +236,28 @@
               <OBJECT>
                 <SPEC-OBJECT-REF>_ESv9wNq8EeSF5ezi5-slJQ</SPEC-OBJECT-REF>
               </OBJECT>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_rcGCsd0rEeSGN-8X9v7dIQ" LAST-CHANGE="2015-04-07T15:40:35.231+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_rb5OYN0rEeSGN-8X9v7dIQ</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_o_6C4OD2EeSBgdq7ZsO9Xg" LAST-CHANGE="2015-04-12T11:31:02.286+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_o_rZYOD2EeSBgdq7ZsO9Xg</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_qWT1IeD2EeSBgdq7ZsO9Xg" LAST-CHANGE="2015-04-12T11:31:10.801+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_qWFLoOD2EeSBgdq7ZsO9Xg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_uC9GAeD2EeSBgdq7ZsO9Xg" LAST-CHANGE="2015-04-12T11:31:33.373+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_uCvqoOD2EeSBgdq7ZsO9Xg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
             </SPEC-HIERARCHY>
           </CHILDREN>
         </SPECIFICATION>
@@ -192,7 +304,7 @@
             <configuration:presentationConfigurations>
               <headline:HeadlineConfiguration datatype="rmf-dba1992c-0cff-4d5a-85c8-3d5e6aeb28e7"/>
               <linewrap:LinewrapConfiguration datatype="rmf-5f2397ad-bd30-4fac-8afe-c0e197e4fd96"/>
-              <id:IdConfiguration datatype="rmf-5fcb8c77-3ae9-448e-becb-611dd456b8d0" count="105" verticalAlign="Center"/>
+              <id:IdConfiguration datatype="rmf-5fcb8c77-3ae9-448e-becb-611dd456b8d0" count="109" verticalAlign="Center"/>
             </configuration:presentationConfigurations>
           </configuration:ProrPresentationConfigurations>
         </configuration:presentationConfigurations>
