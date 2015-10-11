@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Mark Broerkens - initial API and implementation
- * 
+ *
  */
 package org.eclipse.rmf.tests.reqif10.constraints;
 
@@ -27,21 +27,23 @@ public abstract class AbstractConstraintTest {
 
 	@BeforeClass
 	public static void setupOnce() throws Exception {
-		validator = ModelValidationService.getInstance().newValidator(EvaluationMode.BATCH);
-		validator.setReportSuccesses(true);
+		// validator = ModelValidationService.getInstance().newValidator(EvaluationMode.BATCH);
+		// validator.setReportSuccesses(true);
 	}
 
 	@Before
 	public void setUp() throws Exception {
-		if (null == filter) {
-			filter = new IConstraintFilter() {
-				public boolean accept(IConstraintDescriptor constraint, EObject target) {
-					return constraint.getId().equals(getConstraintID());
-				}
-			};
+		validator = ModelValidationService.getInstance().newValidator(EvaluationMode.BATCH);
+		validator.setReportSuccesses(true);
 
-			validator.addConstraintFilter(filter);
-		}
+		filter = new IConstraintFilter() {
+			public boolean accept(IConstraintDescriptor constraint, EObject target) {
+				return constraint.getId().equals(getConstraintID());
+			}
+		};
+
+		validator.addConstraintFilter(filter);
+
 	}
 
 	protected abstract String getConstraintID();

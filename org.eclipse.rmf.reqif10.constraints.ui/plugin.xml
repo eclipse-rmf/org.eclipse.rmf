@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.eclipse.rmf.reqif10.constraints.ui.contribution1"
+            nameFilter="*.reqif"
+            objectClass="org.eclipse.core.resources.IResource">
+         <menu
+               label="Validate"
+               path="additions"
+               id="org.eclipse.rmf.reqif10.constraints.ui.menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.eclipse.rmf.reqif10.constraints.ui.popup.actions.ValidateReqIF"
+               enablesFor="1"
+               id="org.eclipse.rmf.reqif10.constraints.ui.newAction"
+               label="Validate ReqIF"
+               menubarPath="org.eclipse.rmf.reqif10.constraints.ui.menu1/group1">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         id="reqIFValidation"
+         name="ReqIF Validation Problem"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.emf.ecore.diagnostic">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+      <attribute
+            name="rule">
+      </attribute>
+   </extension>
+
+</plugin>

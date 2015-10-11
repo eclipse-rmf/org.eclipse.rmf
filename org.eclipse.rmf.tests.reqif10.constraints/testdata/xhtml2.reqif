@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="rmf-b1b13649-893d-4161-bdb6-1e8dcedb2116">
+      <COMMENT>Created by: iw</COMMENT>
+      <CREATION-TIME>2015-10-01T20:00:35.448+02:00</CREATION-TIME>
+      <REQ-IF-TOOL-ID>ProR (http://pror.org)</REQ-IF-TOOL-ID>
+      <REQ-IF-VERSION>1.0</REQ-IF-VERSION>
+      <SOURCE-TOOL-ID>ProR (http://pror.org)</SOURCE-TOOL-ID>
+      <TITLE>title</TITLE>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_ULJmk2hmEeWvFI3MuLkYbw" LAST-CHANGE="2015-10-01T20:00:35.448+02:00" LONG-NAME="T_String32k" MAX-LENGTH="32000"/>
+        <DATATYPE-DEFINITION-XHTML IDENTIFIER="_YNxHcGhmEeWvFI3MuLkYbw" LAST-CHANGE="2015-10-01T20:01:00.897+02:00" LONG-NAME="T_xhtml"/>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_ULJmlGhmEeWvFI3MuLkYbw" LAST-CHANGE="2015-10-01T20:00:35.448+02:00" LONG-NAME="Requirement Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_ULJmlWhmEeWvFI3MuLkYbw" LAST-CHANGE="2015-10-01T20:00:35.448+02:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_ULJmk2hmEeWvFI3MuLkYbw</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-XHTML IDENTIFIER="_Zj5z8GhmEeWvFI3MuLkYbw" LAST-CHANGE="2015-10-01T20:01:09.948+02:00" LONG-NAME="xhtmlcontent">
+              <TYPE>
+                <DATATYPE-DEFINITION-XHTML-REF>_YNxHcGhmEeWvFI3MuLkYbw</DATATYPE-DEFINITION-XHTML-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-XHTML>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE IDENTIFIER="_ULJmlmhmEeWvFI3MuLkYbw" LAST-CHANGE="2015-10-01T20:00:35.448+02:00" LONG-NAME="Specification Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_ULJml2hmEeWvFI3MuLkYbw" LAST-CHANGE="2015-10-01T20:00:35.448+02:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_ULJmk2hmEeWvFI3MuLkYbw</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT IDENTIFIER="_ULJmmGhmEeWvFI3MuLkYbw" LAST-CHANGE="2015-10-01T20:05:16.313+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Start editing here.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_ULJmlWhmEeWvFI3MuLkYbw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_Zj5z8GhmEeWvFI3MuLkYbw</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p style=" text-align: left">ProR</xhtml:p><xhtml:object data="xhtml/nonexisting_file.png" style="max-width:100%;" type="image/png">This is what will show if the image can't be displayed.</xhtml:object></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_ULJmlGhmEeWvFI3MuLkYbw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="_ULJmmmhmEeWvFI3MuLkYbw" LAST-CHANGE="2015-10-01T20:00:35.448+02:00" LONG-NAME="Specification Document">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Requirements Document">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_ULJml2hmEeWvFI3MuLkYbw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>_ULJmlmhmEeWvFI3MuLkYbw</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="_ULJmnGhmEeWvFI3MuLkYbw" LAST-CHANGE="2015-10-01T20:00:35.448+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_ULJmmGhmEeWvFI3MuLkYbw</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration specification="_ULJmmmhmEeWvFI3MuLkYbw">
+            <configuration:columns>
+              <configuration:Column label="Description" width="300"/>
+              <configuration:Column label="xhtmlcontent" width="100"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration>
+                <defaultLabel>Description</defaultLabel>
+              </configuration:LabelConfiguration>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+      </configuration:ProrToolExtension>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>
