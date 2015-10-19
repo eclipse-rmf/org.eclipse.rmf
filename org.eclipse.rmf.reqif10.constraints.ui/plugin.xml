@@ -20,7 +20,7 @@
                class="org.eclipse.rmf.reqif10.constraints.ui.popup.actions.ValidateReqIF"
                enablesFor="1"
                id="org.eclipse.rmf.reqif10.constraints.ui.newAction"
-               label="Validate ReqIF"
+               label="Consequent ReqIF Validation"
                menubarPath="org.eclipse.rmf.reqif10.constraints.ui.menu1/group1">
          </action>
       </objectContribution>
