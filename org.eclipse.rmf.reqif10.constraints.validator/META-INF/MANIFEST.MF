@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Validator
 Bundle-SymbolicName: org.eclipse.rmf.reqif10.constraints.validator
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.14.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.core.runtime;version="3.4.0",
  org.eclipse.emf.ecore.xmi,
@@ -11,6 +11,6 @@ Import-Package: org.eclipse.core.runtime;version="3.4.0",
  org.eclipse.rmf.internal.reqif10.constraints,
  org.eclipse.rmf.reqif10,
  org.eclipse.rmf.reqif10.serialization
-Require-Bundle: org.eclipse.emf.common;bundle-version="2.10.1",
- org.eclipse.emf.ecore;bundle-version="2.10.2"
+Require-Bundle: org.eclipse.emf.common,
+ org.eclipse.emf.ecore
 Export-Package: org.eclipse.rmf.reqif10.constraints.validator

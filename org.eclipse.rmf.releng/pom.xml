@@ -65,7 +65,6 @@
 		<module>../org.eclipse.rmf.reqif10.xhtml</module>
 		<module>../org.eclipse.rmf.reqif10.xhtml.edit</module>
 		<module>../org.eclipse.rmf.reqif10.common</module>
-		<module>../org.eclipse.rmf.reqif10.constraints</module>
 		<module>../org.eclipse.rmf.reqif10.serialization</module>
 		
 		<module>../org.eclipse.rmf.ext.prostep</module>
@@ -97,6 +96,12 @@
 		<module>../org.eclipse.rmf.reqif10.csv.importer</module>
 		<module>../org.eclipse.rmf.reqif10.pror.feature</module>
 		<module>../org.eclipse.rmf.reqif10.pror.sdk.feature</module>
+
+		<!-- Validator -->
+		<module>../org.eclipse.rmf.reqif10.constraints</module>
+		<module>../org.eclipse.rmf.reqif10.constraints.ui</module>
+		<module>../org.eclipse.rmf.reqif10.constraints.validator</module>
+		<module>../org.eclipse.rmf.reqif10.headlessValidator</module>
 
 		<!-- 3rd Party Dependencies -->
         <module>../org.agilemore.agilegrid</module>

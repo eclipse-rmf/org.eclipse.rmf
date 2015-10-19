@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Ui
+Bundle-Name: Validator UI
 Bundle-SymbolicName: org.eclipse.rmf.reqif10.constraints.ui;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.14.0.qualifier
 Bundle-Activator: org.eclipse.rmf.reqif10.constraints.ui.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
