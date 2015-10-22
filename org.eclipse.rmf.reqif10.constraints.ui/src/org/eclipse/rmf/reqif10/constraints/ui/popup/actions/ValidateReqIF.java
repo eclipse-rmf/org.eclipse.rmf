@@ -20,6 +20,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PlatformUI;
 
 public class ValidateReqIF implements IObjectActionDelegate {
 
@@ -52,7 +53,9 @@ public class ValidateReqIF implements IObjectActionDelegate {
 		String filename = getFilenameFromCurrentSelection();
 		try{
 			validateReqIF(reqif);
-
+			
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("org.eclipse.ui.views.ProblemView");
+			
 			MessageDialog.openInformation(
 				shell,
 				"ReqIF Validation",
