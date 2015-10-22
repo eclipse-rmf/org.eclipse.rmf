@@ -5,30 +5,17 @@ import java.util.List;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.emf.validation.model.ConstraintStatus;
-import org.eclipse.emf.validation.model.EvaluationMode;
-import org.eclipse.emf.validation.service.IBatchValidator;
-import org.eclipse.emf.validation.service.ModelValidationService;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.rmf.internal.reqif10.constraints.ReqIFDiagnostician;
-import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
-import org.eclipse.rmf.reqif10.ReqIFHeader;
 import org.eclipse.rmf.reqif10.constraints.validator.Issue;
 import org.eclipse.rmf.reqif10.constraints.validator.ReqIFValidator;
-import org.eclipse.rmf.reqif10.serialization.ReqIF10LocationStore;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
@@ -114,7 +101,11 @@ public class ValidateReqIF implements IObjectActionDelegate {
 				IResource file = (IResource) structuredSelection.getFirstElement();
 				resource = file; 
 				
+				// TODO: resolving proxies to other files doesnt work like this. We have to load all the possible targets to the same resourceSet 
 				ResourceSet resourceSet = new ResourceSetImpl();
+				//ResourceSet resourceSet = new XMLPersistenceMappingResourceSetImpl();
+				//resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new ReqIF10ResourceFactoryImpl());
+				
 				Resource resource = resourceSet.getResource(URI.createFileURI(file.getLocation().toString()), true);
 				ReqIF reqif = (ReqIF) resource.getContents().get(0);
 				return reqif;

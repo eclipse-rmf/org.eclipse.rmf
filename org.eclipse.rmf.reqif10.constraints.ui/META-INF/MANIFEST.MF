@@ -19,4 +19,5 @@ Import-Package: org.eclipse.emf.common.ui,
  org.eclipse.emf.edit.ui.action,
  org.eclipse.rmf.reqif10.common.util,
  org.eclipse.rmf.reqif10.constraints.validator,
+ org.eclipse.rmf.reqif10.pror.configuration,
  org.eclipse.rmf.reqif10.serialization

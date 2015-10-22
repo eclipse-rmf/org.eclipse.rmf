@@ -10,6 +10,7 @@ Import-Package: org.eclipse.core.runtime;version="3.4.0",
  org.eclipse.emf.validation.service,
  org.eclipse.rmf.internal.reqif10.constraints,
  org.eclipse.rmf.reqif10,
+ org.eclipse.rmf.reqif10.pror.configuration,
  org.eclipse.rmf.reqif10.serialization
 Require-Bundle: org.eclipse.emf.common,
  org.eclipse.emf.ecore

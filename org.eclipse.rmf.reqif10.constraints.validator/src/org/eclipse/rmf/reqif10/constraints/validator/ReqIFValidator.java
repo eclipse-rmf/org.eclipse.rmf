@@ -18,6 +18,7 @@ import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
 import org.eclipse.rmf.reqif10.constraints.validator.Issue.Severity;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10LocationStore;
 
 public class ReqIFValidator {
@@ -31,8 +32,10 @@ public class ReqIFValidator {
 
 		for (Diagnostic childDiagnostic : diagnosticResults.getChildren()) {
 			Issue issue = diagnosticToIssue(childDiagnostic);
-			issue.setReqif(reqif);
-			issues.add(issue);
+			if (!isInToolExtension(issue.getTarget())){
+				issue.setReqif(reqif);
+				issues.add(issue);
+			}
 		}
 		
 		// 2. run EMF Validation Framework
@@ -55,8 +58,10 @@ public class ReqIFValidator {
 		
 		for (IStatus childStatus : children) {
 			Issue issue = validationStatusToIssue(childStatus);
-			issue.setReqif(reqif);
-			issues.add(issue);
+			if (!isInToolExtension(issue.getTarget())){
+				issue.setReqif(reqif);
+				issues.add(issue);
+			}
 		}
 
 		return issues;
@@ -85,7 +90,7 @@ public class ReqIFValidator {
 			EObject target = ((ConstraintStatus) status).getTarget();
 			Resource targetResource = target.eResource();
 			
-			String location = ((ConstraintStatus) status).getTarget().toString();
+			String location = target.toString();
 		
 			Integer lineNumber = getLineNumber(target, targetResource);
 			if (lineNumber != null){
@@ -94,6 +99,7 @@ public class ReqIFValidator {
 			}
 			
 			issue.setLocation(location);
+			issue.setTarget(target);
 		}
 		
 
@@ -129,6 +135,8 @@ public class ReqIFValidator {
 			location = "line: " + lineNumber + " " + location;
 		}
 		issue.setLocation(location);
+		
+		issue.setTarget(diagnostic.getData().get(0));
 
 		return issue;
 	}
@@ -175,4 +183,28 @@ public class ReqIFValidator {
 		return null;
 	}
 
+	
+	public static boolean isInToolExtension(Object object){
+		
+		if (! (object instanceof EObject)){
+			return false;
+		}
+		
+		EObject target = (EObject) object;
+		
+		if (target instanceof ProrToolExtension){
+			return true;
+		}
+		
+		while (target.eContainer() != null){
+			EObject container = target.eContainer();
+			if (container instanceof ProrToolExtension){
+				return true;
+			}
+			target = container;
+		}
+		
+		return false;
+	}
+	
 }

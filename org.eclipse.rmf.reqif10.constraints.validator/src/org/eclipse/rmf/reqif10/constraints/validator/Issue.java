@@ -16,6 +16,7 @@ public class Issue {
 	private String location;
 	private Integer line;
 	private ReqIF reqif;
+	private Object target;
 
 	public Issue() {
 	}
@@ -67,6 +68,15 @@ public class Issue {
 
 	public String getLocation() {
 		return location;
+	}
+	
+	
+	public void setTarget(Object target) {
+		this.target = target;
+	}
+	
+	public Object getTarget() {
+		return target;
 	}
 	
 	@Override
