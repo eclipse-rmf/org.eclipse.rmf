@@ -46,7 +46,6 @@ public class AttributeValueXHTMLObjectOnlyAllowedAttributes extends AbstractMode
 
 			for (Element item : items) {
 				NamedNodeMap attributes = item.getAttributes();
-				System.out.println(item.getNodeName());
 				List<String> forbiddenAttributes = new LinkedList<String>();
 				for (int c = 0; c < attributes.getLength(); c++) {
 					Node node = attributes.item(c);

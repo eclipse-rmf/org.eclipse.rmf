@@ -64,7 +64,6 @@ public class AttributeValueXHTMLObjectsExist extends AbstractModelConstraint {
 					}
 				} else {
 					nonFileReferences.add(objectPath);
-					System.out.println("WARNING: non file URI " + objectPath);
 				}
 
 			}
