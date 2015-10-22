@@ -80,12 +80,15 @@ public class Application implements IApplication {
 		
 		ReqIFValidator reqIFValidator = new ReqIFValidator();
 		for (ReqIF reqif : reqifs) {
-			System.out.println(reqif.eResource().getURI());
-			//System.out.println(reqif);
+			String errorPrefix = "";
+			if (files.size()>1){
+				errorPrefix = reqif.eResource().getURI().toFileString();
+				errorPrefix = errorPrefix + " ";
+			}
 			List<Issue> validate = reqIFValidator.validate(reqif);
 			allIssues.addAll(validate);
 			for (Issue issue : validate) {
-				System.out.println("    " + issue.toString());
+				System.out.println(errorPrefix + issue.toString());
 			}	
 		}
 		return allIssues;
