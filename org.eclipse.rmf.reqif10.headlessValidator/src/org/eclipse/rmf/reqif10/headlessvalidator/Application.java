@@ -3,14 +3,9 @@ package org.eclipse.rmf.reqif10.headlessvalidator;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.StringWriter;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -117,7 +112,7 @@ public class Application implements IApplication {
 
 	public void printResults(ValidationResult validationResult){
 		if (resultAsXml){
-			System.out.println(getXMLResult(validationResult));
+			System.out.println(ValidationResult.getXMLResult(validationResult));
 		}else {
 			System.out.println(getTextResult(validationResult));
 		}
@@ -142,23 +137,7 @@ public class Application implements IApplication {
 	}
 	
 	
-	public String getXMLResult(ValidationResult validationResult) {
-		try {
-			JAXBContext context = JAXBContext
-					.newInstance(ValidationResult.class);
-			Marshaller m = context.createMarshaller();
-			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-			StringWriter stringWriter = new StringWriter();
-			m.marshal(validationResult, stringWriter);
-			
-			return stringWriter.toString();
-
-		} catch (JAXBException e) {
-			e.printStackTrace();
-			return "An Error occured while generating XML Data : " + e.getLocalizedMessage();
-		}
-	}
 	
 	
 	/* (non-Javadoc)

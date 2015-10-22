@@ -1,8 +1,12 @@
 package org.eclipse.rmf.reqif10.constraints.validator;
 
+import java.io.StringWriter;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -54,6 +58,27 @@ public class ValidationResult{
 	public List<Issue> getIssues() {
 		return issues;
 	}
+	
+	
+	public static String getXMLResult(ValidationResult validationResult) {
+		try {
+			JAXBContext context = JAXBContext
+					.newInstance(ValidationResult.class);
+			Marshaller m = context.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+			StringWriter stringWriter = new StringWriter();
+			m.marshal(validationResult, stringWriter);
+			
+			return stringWriter.toString();
+
+		} catch (JAXBException e) {
+			e.printStackTrace();
+			return "An Error occured while generating XML Data : " + e.getLocalizedMessage();
+		}
+	}
+	
+	
 	
 }
 

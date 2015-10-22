@@ -1,5 +1,9 @@
 package org.eclipse.rmf.reqif10.constraints.ui.popup.actions;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +27,10 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.constraints.validator.Issue;
 import org.eclipse.rmf.reqif10.constraints.validator.ReqIFValidator;
+import org.eclipse.rmf.reqif10.constraints.validator.ValidationResult;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
@@ -38,6 +45,7 @@ public class ValidateReqIF implements IObjectActionDelegate {
 	private IResource resource;
 
 	private final static String markerType = "org.eclipse.rmf.reqif10.constraints.ui.reqIFValidation";
+	private ValidationResult validationResult;
 
 	/**
 	 * Constructor for Action1.
@@ -111,13 +119,16 @@ public class ValidateReqIF implements IObjectActionDelegate {
 				Display.getDefault().syncExec(new Runnable() {
 					@Override
 					public void run() {
-						MessageDialog
-								.openInformation(
-										shell,
-										"ReqIF Validation",
-										filename
-												+ " has been validated. Please check the Problems View for created Error Markers.");
+//						MessageDialog.openInformation(shell, "ReqIF Validation",  filename + " has been validated. Please check the Problems View for created Error Markers.");
+						
+						boolean answer = MessageDialog.openQuestion(shell, "ReqIF Validation", filename
+								+ " has been validated. Please check the Problems View for created Error Markers." + System.lineSeparator() + System.lineSeparator() + 
+								"Do you want to export the validation Result as an Xml File?");
+						if (answer){
+							saveResultsDialog();
+						}
 					}
+
 				});
 
 			}
@@ -188,6 +199,10 @@ public class ValidateReqIF implements IObjectActionDelegate {
 		files.add(reqif.eResource().getURI().toFileString());
 
 		List<Issue> issues = reqIFValidator.validate(reqif);
+		
+		validationResult = new ValidationResult();
+		validationResult.setFiles(files);
+		validationResult.setIssues(issues);
 
 		resource.deleteMarkers(markerType, true, IResource.DEPTH_ZERO);
 
@@ -221,4 +236,54 @@ public class ValidateReqIF implements IObjectActionDelegate {
 		}
 	}
 
+	
+	private void saveResultsDialog(){
+		boolean ok = true;
+		String filename = null;
+		do{
+			FileDialog dialog = new FileDialog(shell, SWT.SAVE);
+			dialog.setFilterExtensions(new String[] { "*.xml", "*.*" });
+			
+			filename = dialog.open();
+			
+			if (new File(filename).exists()){
+				ok = MessageDialog.openQuestion(shell, "Save ReqIF Validation Results", filename
+						+ " already exists. Do you want to overwrite the file?");
+			}
+			
+		}while(!ok);
+		
+		if (filename != null){
+			try {
+				saveResults(filename);
+			} catch (IOException e) {
+				MessageDialog.openError(
+						shell,
+						"Save ReqIF Validation Results",
+						"An error occured while saving results to " + filename
+								+ ":" + System.lineSeparator()
+								+ System.lineSeparator()
+								+ e.getLocalizedMessage());
+			}
+		}
+	}
+	
+	
+	private void saveResults(String filename) throws IOException {
+		
+		String result = ValidationResult.getXMLResult(validationResult);
+		System.out.println("Dumping to " + filename);
+		System.out.println(result);
+		
+		File file = new File(filename);
+		if (!file.exists()) {
+			file.createNewFile();
+		}
+		
+		FileWriter fw = new FileWriter(file.getAbsoluteFile());
+		BufferedWriter bw = new BufferedWriter(fw);
+		bw.write(result);
+		bw.close();
+	}
+	
 }
