@@ -1,5 +1,6 @@
 package org.eclipse.rmf.reqif10.constraints.ui.popup.actions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.resources.IMarker;
@@ -182,12 +183,15 @@ public class ValidateReqIF implements IObjectActionDelegate {
 	private void validateReqIF(ReqIF reqif) throws CoreException {
 
 		ReqIFValidator reqIFValidator = new ReqIFValidator();
+		
+		List<String> files = new ArrayList<String>();
+		files.add(reqif.eResource().getURI().toFileString());
 
-		List<Issue> validate = reqIFValidator.validate(reqif);
+		List<Issue> issues = reqIFValidator.validate(reqif);
 
 		resource.deleteMarkers(markerType, true, IResource.DEPTH_ZERO);
 
-		for (Issue issue : validate) {
+		for (Issue issue : issues) {
 			System.out.println(issue);
 			createMarker(issue);
 		}

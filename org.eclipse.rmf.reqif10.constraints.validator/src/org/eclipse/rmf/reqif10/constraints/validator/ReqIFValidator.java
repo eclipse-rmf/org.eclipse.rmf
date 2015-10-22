@@ -1,7 +1,6 @@
 package org.eclipse.rmf.reqif10.constraints.validator;
 
 import java.util.LinkedList;
-import java.util.List;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -23,7 +22,7 @@ import org.eclipse.rmf.reqif10.serialization.ReqIF10LocationStore;
 
 public class ReqIFValidator {
 
-	public List<Issue> validate(ReqIF reqif) {
+	public LinkedList<Issue> validate(ReqIF reqif) {
 		LinkedList<Issue> issues = new LinkedList<Issue>();
 
 		// 1. run EMF Diagnostician
@@ -63,7 +62,7 @@ public class ReqIFValidator {
 				issues.add(issue);
 			}
 		}
-
+		
 		return issues;
 	}
 	
@@ -206,5 +205,7 @@ public class ReqIFValidator {
 		
 		return false;
 	}
+
+
 	
 }

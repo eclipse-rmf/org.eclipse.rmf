@@ -2,6 +2,7 @@ package org.eclipse.rmf.reqif10.constraints.validator;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.eclipse.rmf.reqif10.ReqIF;
 
@@ -20,18 +21,19 @@ public class Issue {
 
 	public Issue() {
 	}
+	
+	public Issue(int line, String message) {
+		this.line = line;
+		this.message = message;
+	}
 
 	public void setReqif(ReqIF reqif) {
 		this.reqif = reqif;
 	}
 
+	@XmlTransient
 	public ReqIF getReqif() {
 		return reqif;
-	}
-
-	public Issue(int line, String message) {
-		this.line = line;
-		this.message = message;
 	}
 
 	@XmlAttribute(name = "line_number")
@@ -75,8 +77,18 @@ public class Issue {
 		this.target = target;
 	}
 	
+	@XmlTransient
 	public Object getTarget() {
 		return target;
+	}
+	
+
+	@XmlAttribute(name = "uri")
+	public String getFile(){
+		return reqif.eResource().getURI().toString();
+	}
+	
+	public void setFile(){
 	}
 	
 	@Override

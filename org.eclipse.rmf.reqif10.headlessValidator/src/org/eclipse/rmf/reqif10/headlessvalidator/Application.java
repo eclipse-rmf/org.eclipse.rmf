@@ -3,9 +3,14 @@ package org.eclipse.rmf.reqif10.headlessvalidator;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -15,6 +20,7 @@ import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.constraints.validator.Issue;
 import org.eclipse.rmf.reqif10.constraints.validator.ReqIFValidator;
+import org.eclipse.rmf.reqif10.constraints.validator.ValidationResult;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
 import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceImpl;
 import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceSetImpl;
@@ -32,7 +38,7 @@ public class Application implements IApplication {
 	XMLPersistenceMappingResourceSetImpl resourceSet;
 	private List<ReqIF> reqifs;
 	private List<String> files;
-	
+	private boolean resultAsXml = false;
 	
 	/* (non-Javadoc)
 	 * @see org.eclipse.equinox.app.IApplication#start(org.eclipse.equinox.app.IApplicationContext)
@@ -43,7 +49,11 @@ public class Application implements IApplication {
 		final Map args = context.getArguments();  
 		final String[] appArgs = (String[]) args.get("application.args"); 
 		for (final String arg : appArgs) {  
-			   files.add(arg);
+			if ("-x".equals(arg)){
+				resultAsXml = true;
+			}else{
+				files.add(arg);
+			}
 		}
 		
 		if (files.size() == 0){
@@ -79,22 +89,78 @@ public class Application implements IApplication {
 		List<Issue> allIssues = new LinkedList<Issue>();
 		
 		ReqIFValidator reqIFValidator = new ReqIFValidator();
+		
+		ValidationResult validationResult = new ValidationResult();
+		validationResult.setFiles(files);
+		
 		for (ReqIF reqif : reqifs) {
-			String errorPrefix = "";
-			if (files.size()>1){
-				errorPrefix = reqif.eResource().getURI().toFileString();
-				errorPrefix = errorPrefix + " ";
-			}
-			List<Issue> validate = reqIFValidator.validate(reqif);
-			allIssues.addAll(validate);
-			for (Issue issue : validate) {
-				System.out.println(errorPrefix + issue.toString());
-			}	
+//			String errorPrefix = "";
+//			if (files.size()>1){
+//				errorPrefix = reqif.eResource().getURI().toFileString();
+//				errorPrefix = errorPrefix + " ";
+//			}
+			List<Issue> issues = reqIFValidator.validate(reqif);
+			allIssues.addAll(issues);
+			
+//			for (Issue issue : issues) {
+//				System.out.println(errorPrefix + issue.toString());
+//			}
+			
 		}
+		validationResult.setIssues(allIssues);
+		
+		printResults(validationResult);
+		
 		return allIssues;
 	}
 	
 
+	public void printResults(ValidationResult validationResult){
+		if (resultAsXml){
+			System.out.println(getXMLResult(validationResult));
+		}else {
+			System.out.println(getTextResult(validationResult));
+		}
+	}
+	
+	
+	public String getTextResult(ValidationResult validationResult){
+	
+		List<Issue> issues = validationResult.getIssues();
+		
+		StringBuilder sb = new StringBuilder();
+		for (Issue issue : issues) {
+			String errorPrefix = "";
+			if (validationResult.getFiles().size()>1){
+				errorPrefix = issue.getReqif().eResource().getURI().toFileString();
+				errorPrefix = errorPrefix + " ";
+			}
+			sb.append(errorPrefix + issue.toString());
+			sb.append(System.lineSeparator());
+		}
+		return sb.toString();
+	}
+	
+	
+	public String getXMLResult(ValidationResult validationResult) {
+		try {
+			JAXBContext context = JAXBContext
+					.newInstance(ValidationResult.class);
+			Marshaller m = context.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+			StringWriter stringWriter = new StringWriter();
+			m.marshal(validationResult, stringWriter);
+			
+			return stringWriter.toString();
+
+		} catch (JAXBException e) {
+			e.printStackTrace();
+			return "An Error occured while generating XML Data : " + e.getLocalizedMessage();
+		}
+	}
+	
+	
 	/* (non-Javadoc)
 	 * @see org.eclipse.equinox.app.IApplication#stop()
 	 */
