@@ -650,6 +650,32 @@ Note: this constraint checks for the prefix &quot;ReqIF.&quot; case sensitive
                   class="AttributeDefinition">
             </target>
          </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.ConflictingIsEditableForAttributeDefinitionEnumeration"
+               id="IG_2_10"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="IG_2_10 Conflicting IsEditable for AttributeDefinitionEnumeration"
+               severity="WARNING"
+               statusCode="0406">
+            <message>
+               DatatypeDefinitionEnumeration {0} is referenced by different AttributeDefinitionEnumeration of which some are editable and some are not editable
+            </message>
+            <description>
+               Generates a Warning if a DatatypeDefinitionEnumeration is used by more than one AttributeDefinition and one of the is set to isEditable while another one is set to Non-Editable.
+
+See Implementaion Guide Chapter 2.10 How to resolve conflicting isEditable values for AttributeDefinitionEnumeration:
+
+[...]Concerning AttributeDefinitionEnumeration, the following conflict may occur as a consequence: 
+one AttributeDefinitionEnumeration element (A) is editable a different AttributeDefinitionEnumeration element (B) is not editable both AttributeDefinitionEnumeration elements refer to the same DatatypeDefinitionEnumeration, which defines the enumeration literals.
+
+If that conflict occurs, it may not be clear whether the first AttributeDefinitionEnumeration element (A) should be treated as editable or not, as changes to the list of enumeration literals will be visible in the second AttributeDefinitionEnumeration element (B).
+            </description>
+            <target
+                  class="DatatypeDefinitionEnumeration">
+            </target>
+         </constraint>
          </constraints>
       </constraintProvider>
    </extension>
