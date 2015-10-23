@@ -25,7 +25,7 @@ public class AttributeValueXHTMLObjectsIsNotFile extends AbstractModelConstraint
 
 		if (target instanceof AttributeValueXHTML) {
 
-			String basePath = ((AttributeValueXHTML) target).eResource().getURI().trimSegments(1).toFileString();
+			//String basePath = ((AttributeValueXHTML) target).eResource().getURI().trimSegments(1).toFileString();
 			List<String> dataObjects = new LinkedList<String>();
 
 			List<String> nonFileReferences = new LinkedList<String>();
@@ -39,13 +39,13 @@ public class AttributeValueXHTMLObjectsIsNotFile extends AbstractModelConstraint
 
 			for (int i = 0; i < objectTags1.getLength(); i++) {
 				Element item = (Element) objectTags1.item(i);
-				if (!dataObjects.contains(item.getAttribute("data"))) {
+				if (!dataObjects.contains(item.getAttribute("data"))) { //$NON-NLS-1$
 					dataObjects.add(item.getAttribute("data")); //$NON-NLS-1$
 				}
 			}
 			for (int i = 0; i < objectTags2.getLength(); i++) {
 				Element item = (Element) objectTags2.item(i);
-				if (!dataObjects.contains(item.getAttribute("data"))) {
+				if (!dataObjects.contains(item.getAttribute("data"))) { //$NON-NLS-1$
 					dataObjects.add(item.getAttribute("data")); //$NON-NLS-1$
 				}
 			}

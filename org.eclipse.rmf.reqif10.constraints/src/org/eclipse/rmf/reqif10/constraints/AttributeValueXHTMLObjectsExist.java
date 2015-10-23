@@ -40,13 +40,13 @@ public class AttributeValueXHTMLObjectsExist extends AbstractModelConstraint {
 
 			for (int i = 0; i < objectTags1.getLength(); i++) {
 				Element item = (Element) objectTags1.item(i);
-				if (!dataObjects.contains(item.getAttribute("data"))) {
+				if (!dataObjects.contains(item.getAttribute("data"))) { //$NON-NLS-1$
 					dataObjects.add(item.getAttribute("data")); //$NON-NLS-1$
 				}
 			}
 			for (int i = 0; i < objectTags2.getLength(); i++) {
 				Element item = (Element) objectTags2.item(i);
-				if (!dataObjects.contains(item.getAttribute("data"))) {
+				if (!dataObjects.contains(item.getAttribute("data"))) { //$NON-NLS-1$
 					dataObjects.add(item.getAttribute("data")); //$NON-NLS-1$
 				}
 			}
