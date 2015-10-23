@@ -630,6 +630,26 @@
                the Reqif must comply the emf-schema
             </description>
          </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.AttributeNamePrefix"
+               id="IG_R3"
+               isEnabledByDefault="true"
+               lang="JAVA"
+               mode="Batch"
+               name="IG_R3 Name of Attributes should always be represented without a ReqIF. prefix"
+               severity="WARNING"
+               statusCode="0406">
+            <message>
+               Name of Attribute {0} has a ReqIF. prefix
+            </message>
+            <description>
+               According to the Implementaion Guide&quot;Names of user defined attributes should always be represented in ReqIF XML documents and requirements authoring tools without a ReqIF. prefix.&quot; [2.3.2 R3]
+Note: this constraint checks for the prefix &quot;ReqIF.&quot; case sensitive
+            </description>
+            <target
+                  class="AttributeDefinition">
+            </target>
+         </constraint>
          </constraints>
       </constraintProvider>
    </extension>
