@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.LinkedList;
+import java.util.List;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
@@ -39,26 +40,20 @@ public class ReqIFValidator {
 
 	public LinkedList<Issue> validate(ReqIF reqif) {
 		this.reqif = reqif;
+		LinkedList<Issue> issues = new LinkedList<Issue>();
 		
+		// 1. run Schema Validation
 		/* validate against Schema */
-		long start = System.currentTimeMillis();
-		System.out.println("running schema validation....");
 		String filename = reqif.eResource().getURI().toFileString();
-		System.out.println("File: " + filename);
 		try {
-			validateAgainstSchema(filename);
+			validateAgainstSchema(filename, issues);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		long end = System.currentTimeMillis();
-		System.out.println("Schema validation took " + (end - start) + "ms");
-		/* validate against Schema END */
+		
+		
 
-
-		LinkedList<Issue> issues = new LinkedList<Issue>();
-
-		// 1. run EMF Diagnostician
+		// 2. run EMF Diagnostician
 		Diagnostic diagnosticResults = ReqIFDiagnostician.INSTANCE
 				.validate(reqif);
 
@@ -70,7 +65,7 @@ public class ReqIFValidator {
 			issues.add(issue);
 		}
 
-		// 2. run EMF Validation Framework
+		// 3. run EMF Validation Framework
 		IBatchValidator validator = ModelValidationService.getInstance()
 				.newValidator(EvaluationMode.BATCH);
 		validator.setReportSuccesses(false);
@@ -235,7 +230,17 @@ public class ReqIFValidator {
 		return false;
 	}
 
-	protected void validateAgainstSchema(String filename) throws Exception {
+	
+	/**
+	 * validated the file defined by filename against the reqif.xsd schema
+	 * 
+	 * all found issues are stored in the result list
+	 * 
+	 * @param filename
+	 * @param issues
+	 * @throws Exception
+	 */
+	protected void validateAgainstSchema(String filename, final List<Issue> result) throws Exception {
 		StreamSource[] schemaDocuments = new StreamSource[] { new StreamSource("platform:/plugin/org.eclipse.rmf.reqif10/schema/reqif.xsd") };
 		
 		Source instanceDocument = new StreamSource(filename);
@@ -291,22 +296,28 @@ public class ReqIFValidator {
 			@Override
 			public void warning(SAXParseException exception)
 					throws SAXException {
-				// TODO Auto-generated method stub
-				System.out.println("SCHEMA-WARNING " + exception.getMessage());
+				createIssue(exception);
 			}
 
 			@Override
 			public void fatalError(SAXParseException exception)
 					throws SAXException {
-				// TODO Auto-generated method stub
-				System.out.println("SCHEMA-FATAL " + exception.getMessage());
+				createIssue(exception);
 			}
 
 			@Override
 			public void error(SAXParseException exception) throws SAXException {
-				// TODO Auto-generated method stub
-				System.out.println("SCHEMA-ERROR " + exception.getMessage());
+				createIssue(exception);
 			}
+			
+			private void createIssue(SAXParseException exception){
+				Issue issue = new Issue();
+				issue.setMessage(exception.getLocalizedMessage());
+				issue.setLine(exception.getLineNumber());
+				issue.setSeverity(Severity.ERROR);
+				result.add(issue);
+			}
+			
 		});
 		v.validate(instanceDocument);
 
