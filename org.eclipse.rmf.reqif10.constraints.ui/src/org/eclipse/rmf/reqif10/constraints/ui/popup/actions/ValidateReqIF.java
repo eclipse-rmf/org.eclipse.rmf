@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.validation.preferences.EMFModelValidationPreferences;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
@@ -194,6 +195,14 @@ public class ValidateReqIF implements IObjectActionDelegate {
 	private void validateReqIF(ReqIF reqif) throws CoreException {
 
 		ReqIFValidator reqIFValidator = new ReqIFValidator();
+		
+		if (EMFModelValidationPreferences.isConstraintDisabled("org.eclipse.rmf.reqif10.constraints.SCHEMA")){
+			reqIFValidator.disableSchemaValidation();
+		}
+		if (EMFModelValidationPreferences.isConstraintDisabled("org.eclipse.rmf.reqif10.constraints.EMFSCHEMA")){
+			reqIFValidator.disableDiagnostician();
+		}
+		
 		
 		List<String> files = new ArrayList<String>();
 		files.add(reqif.eResource().getURI().toFileString());

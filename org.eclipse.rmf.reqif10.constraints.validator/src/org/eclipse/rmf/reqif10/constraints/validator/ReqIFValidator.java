@@ -37,32 +37,38 @@ import org.xml.sax.SAXParseException;
 public class ReqIFValidator {
 
 	private ReqIF reqif;
+	private boolean schemaValidationDisabled = false;
+	private boolean diagnosticianDisabled = false;
 
 	public LinkedList<Issue> validate(ReqIF reqif) {
 		this.reqif = reqif;
 		LinkedList<Issue> issues = new LinkedList<Issue>();
 		
 		// 1. run Schema Validation
-		/* validate against Schema */
-		String filename = reqif.eResource().getURI().toFileString();
-		try {
-			validateAgainstSchema(filename, issues);
-		} catch (Exception e) {
-			e.printStackTrace();
+		
+		if (!schemaValidationDisabled){
+			String filename = reqif.eResource().getURI().toFileString();
+			try {
+				validateAgainstSchema(filename, issues);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		
 
 		// 2. run EMF Diagnostician
-		Diagnostic diagnosticResults = ReqIFDiagnostician.INSTANCE
-				.validate(reqif);
-
-		for (Diagnostic childDiagnostic : diagnosticResults.getChildren()) {
-			Issue issue = diagnosticToIssue(childDiagnostic);
-//			if (!isInToolExtension(issue.getTarget())) {
-//			}
-			issue.setReqif(reqif);
-			issues.add(issue);
+		if (!diagnosticianDisabled){
+			Diagnostic diagnosticResults = ReqIFDiagnostician.INSTANCE
+					.validate(reqif);
+	
+			for (Diagnostic childDiagnostic : diagnosticResults.getChildren()) {
+				Issue issue = diagnosticToIssue(childDiagnostic);
+	//			if (!isInToolExtension(issue.getTarget())) {
+	//			}
+				issue.setReqif(reqif);
+				issues.add(issue);
+			}
 		}
 
 		// 3. run EMF Validation Framework
@@ -321,6 +327,14 @@ public class ReqIFValidator {
 		});
 		v.validate(instanceDocument);
 
+	}
+
+	public void disableSchemaValidation() {
+		schemaValidationDisabled = true;
+	}
+
+	public void disableDiagnostician() {
+		diagnosticianDisabled = true;
 	}
 
 }

@@ -600,6 +600,36 @@
                   class="AttributeValueXHTML">
             </target>
          </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.schema"
+               id="SCHEMA"
+               lang="JAVA"
+               mode="Batch"
+               name="SCHEMA - reqif complies xsd schema"
+               severity="ERROR"
+               statusCode="10001">
+            <message>
+               {0}
+            </message>
+            <description>
+               The input file must comply the xsd schema
+            </description>
+         </constraint>
+         <constraint
+               class="org.eclipse.rmf.reqif10.constraints.emfschema"
+               id="EMFSCHEMA"
+               lang="JAVA"
+               mode="Batch"
+               name="EMFSCHEMA - reqif complies xsd schema"
+               severity="ERROR"
+               statusCode="10002">
+            <message>
+               {0}
+            </message>
+            <description>
+               the Reqif must comply the emf-schema
+            </description>
+         </constraint>
          </constraints>
       </constraintProvider>
    </extension>
