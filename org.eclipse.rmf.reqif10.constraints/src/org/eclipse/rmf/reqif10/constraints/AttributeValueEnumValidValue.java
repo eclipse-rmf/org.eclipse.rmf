@@ -13,7 +13,6 @@ package org.eclipse.rmf.reqif10.constraints;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
@@ -21,10 +20,10 @@ import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
-public class AttributeValueEnumValidValue extends AbstractModelConstraint {
+public class AttributeValueEnumValidValue extends ReqIFModelConstraint {
 
 	@Override
-	public IStatus validate(IValidationContext ctx) {
+	public IStatus doValidate(IValidationContext ctx) {
 		Object target = ctx.getTarget();
 		if (target == null) {
 			return Status.OK_STATUS;

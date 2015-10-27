@@ -12,7 +12,6 @@ package org.eclipse.rmf.reqif10.constraints;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
@@ -21,15 +20,16 @@ import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 /**
  *
  */
-public class AttributeDefinitionDatatypeDefinitionExistenceConstraint extends AbstractModelConstraint {
+public class AttributeDefinitionDatatypeDefinitionExistenceConstraint extends ReqIFModelConstraint {
 
 	@Override
-	public IStatus validate(IValidationContext ctx) {
+	public IStatus doValidate(IValidationContext ctx) {
 		Object target = ctx.getTarget();
 
 		if (target != null && target instanceof AttributeDefinition) {
 			AttributeDefinition attributeDefinition = (AttributeDefinition) target;
 			DatatypeDefinition datatypeDefinition = ReqIF10Util.getDatatypeDefinition(attributeDefinition);
+
 			if (datatypeDefinition == null) {
 				return ctx.createFailureStatus();
 			} else {

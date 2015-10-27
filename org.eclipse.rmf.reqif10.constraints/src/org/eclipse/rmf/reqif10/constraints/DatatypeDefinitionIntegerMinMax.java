@@ -14,14 +14,13 @@ import java.math.BigInteger;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
 
-public class DatatypeDefinitionIntegerMinMax extends AbstractModelConstraint {
+public class DatatypeDefinitionIntegerMinMax extends ReqIFModelConstraint {
 
 	@Override
-	public IStatus validate(IValidationContext ctx) {
+	public IStatus doValidate(IValidationContext ctx) {
 		Object target = ctx.getTarget();
 		if (target == null) {
 			return Status.OK_STATUS;
