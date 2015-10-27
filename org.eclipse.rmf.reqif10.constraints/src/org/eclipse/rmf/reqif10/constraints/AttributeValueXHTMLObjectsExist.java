@@ -9,6 +9,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
+import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
 import org.w3c.dom.Document;
@@ -32,6 +33,10 @@ public class AttributeValueXHTMLObjectsExist extends AbstractModelConstraint {
 			List<String> nonFileReferences = new LinkedList<String>();
 
 			AttributeValueXHTML xhtmlVal = (AttributeValueXHTML) target;
+
+			if (xhtmlVal.getTheValue() == null) {
+				return ConstraintStatus.createStatus(ctx, null, "Can not validate AttributeValueXHTML because the Value is null.");
+			}
 
 			Document xhtmlDom = ReqIF10XhtmlUtil.getXhtmlDom(xhtmlVal.getTheValue());
 
