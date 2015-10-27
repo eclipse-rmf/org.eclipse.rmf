@@ -34,7 +34,8 @@ public class AttributeValueXHTMLObjectsIsNotFile extends AbstractModelConstraint
 			AttributeValueXHTML xhtmlVal = (AttributeValueXHTML) target;
 
 			if (xhtmlVal.getTheValue() == null) {
-				return ConstraintStatus.createStatus(ctx, null, "Can not validate AttributeValueXHTML because the Value is null.");
+				return ConstraintStatus.createStatus(ctx, null, IStatus.ERROR, Integer.MAX_VALUE,
+						"Can not validate AttributeValueXHTML because the Value is null.");
 			}
 
 			Document xhtmlDom = ReqIF10XhtmlUtil.getXhtmlDom(xhtmlVal.getTheValue());
