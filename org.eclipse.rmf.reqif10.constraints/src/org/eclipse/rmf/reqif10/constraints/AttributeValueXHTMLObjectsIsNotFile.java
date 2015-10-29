@@ -87,7 +87,7 @@ public class AttributeValueXHTMLObjectsIsNotFile extends ReqIFModelConstraint {
 					}
 					sb.append(nonFileReferences.get(i));
 				}
-				return ctx.createFailureStatus(sb.toString());
+				return ctx.createFailureStatus(count, sb.toString());
 			}
 
 		}

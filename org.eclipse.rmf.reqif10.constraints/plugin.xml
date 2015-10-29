@@ -496,7 +496,7 @@
                severity="WARNING"
                statusCode="0406">
             <message>
-               [AV1.6a] AttributeValueXHTML references a non-file object {0}
+               [AV1.6a] AttributeValueXHTML references {0} non-file object(s) {1}
             </message>
             <description>
                object should be referenced by a file URI
