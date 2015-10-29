@@ -25,6 +25,8 @@ public abstract class AbstractConstraintTest {
 	static IValidator<EObject> validator = null;
 	static IConstraintFilter filter = null;
 
+	public String PLUGIN_ID = "org.eclipse.rmf.tests.reqif10.constraints";
+
 	@BeforeClass
 	public static void setupOnce() throws Exception {
 		// validator = ModelValidationService.getInstance().newValidator(EvaluationMode.BATCH);

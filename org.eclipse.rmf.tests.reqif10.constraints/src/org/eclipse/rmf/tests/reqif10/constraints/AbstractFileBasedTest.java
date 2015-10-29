@@ -1,10 +1,7 @@
 package org.eclipse.rmf.tests.reqif10.constraints;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.IOException;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -13,16 +10,10 @@ import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
 import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceImpl;
 import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceSetImpl;
 import org.junit.BeforeClass;
-import org.junit.Test;
 
-public class AV16_XhtmlValueTest extends AbstractFileBasedTest {
+public abstract class AbstractFileBasedTest extends AbstractConstraintTest {
 
 	private static XMLPersistenceMappingResourceSetImpl resourceSet;
-
-	@Override
-	protected String getConstraintID() {
-		return "org.eclipse.rmf.reqif10.constraints.AV1.6";
-	}
 
 	@BeforeClass
 	public static void setupOnce() throws Exception {
@@ -30,7 +21,6 @@ public class AV16_XhtmlValueTest extends AbstractFileBasedTest {
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqif", new ReqIF10ResourceFactoryImpl());
 	}
 
-	@Override
 	protected ReqIF loadReqif(URI uri) throws IOException {
 		XMLPersistenceMappingResourceImpl resource = (XMLPersistenceMappingResourceImpl) resourceSet.createResource(uri);
 		resource.load(null);
@@ -39,22 +29,6 @@ public class AV16_XhtmlValueTest extends AbstractFileBasedTest {
 			return (ReqIF) rootObjects.get(0);
 		}
 		return null;
-	}
-
-	@Test
-	public void testInvalid() throws Exception {
-		ReqIF reqif = loadReqif(URI.createPlatformPluginURI(PLUGIN_ID + "/testdata/xhtml2.reqif", false)); //$NON-NLS-1$
-		IStatus status = validator.validate(reqif);
-		assertEquals(IStatus.ERROR, status.getSeverity());
-		assertEquals(406, status.getCode());
-	}
-
-	@Test
-	public void testValid() throws Exception {
-		ReqIF reqif = loadReqif(URI.createPlatformPluginURI(PLUGIN_ID + "/testdata/xhtml1.reqif", false)); //$NON-NLS-1$
-		IStatus status = validator.validate(reqif);
-		System.out.println(status.getMessage());
-		assertEquals(IStatus.OK, status.getSeverity());
 	}
 
 }
