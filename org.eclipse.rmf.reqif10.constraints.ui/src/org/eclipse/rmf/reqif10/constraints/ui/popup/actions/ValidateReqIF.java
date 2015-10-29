@@ -48,6 +48,7 @@ public class ValidateReqIF implements IObjectActionDelegate {
 
 	private final static String markerType = "org.eclipse.rmf.reqif10.constraints.ui.reqIFValidation";
 	private ValidationResult validationResult;
+	private List<Issue> issues;
 
 	/**
 	 * Constructor for Action1.
@@ -69,13 +70,16 @@ public class ValidateReqIF implements IObjectActionDelegate {
 	public void run(IAction action) {
 		final ReqIF reqif = loadReqif();
 		final String filename = getFilenameFromCurrentSelection();
-
+		final List<Issue> issuesFound;
+		
 		Job job = new Job("Validating ReqIF") {
 
 			protected IStatus run(IProgressMonitor monitor) {
 				try {
-					validateReqIF(reqif);
+					issues = validateReqIF(reqif);
 					
+					
+					// Open the Problem View
 					Display.getDefault().syncExec(new Runnable() {
 						@Override
 						public void run() {
@@ -123,13 +127,20 @@ public class ValidateReqIF implements IObjectActionDelegate {
 					public void run() {
 //						MessageDialog.openInformation(shell, "ReqIF Validation",  filename + " has been validated. Please check the Problems View for created Error Markers.");
 						
-						boolean answer = MessageDialog.openQuestion(shell, "ReqIF Validation", filename
-								+ " has been validated. Please check the Problems View for created Error Markers." + System.lineSeparator() + System.lineSeparator() + 
+						String message;
+						if (issues.size() > 0){
+							message = filename + " has been validated. Please check the Problems View for created Error Markers.";
+						}else{
+							message = filename + " has been validated. No Issues were found.";
+						}
+						
+						boolean answer = MessageDialog.openQuestion(shell, "ReqIF Validation", message + System.lineSeparator() + System.lineSeparator() + 
 								"Do you want to export the validation Result as an Xml File?");
 						if (answer){
 							saveResultsDialog();
 						}
 					}
+
 
 				});
 
@@ -138,6 +149,8 @@ public class ValidateReqIF implements IObjectActionDelegate {
 
 	}
 
+	
+	
 	/**
 	 * @see IActionDelegate#selectionChanged(IAction, ISelection)
 	 */
@@ -193,7 +206,7 @@ public class ValidateReqIF implements IObjectActionDelegate {
 		return null;
 	}
 
-	private void validateReqIF(ReqIF reqif) throws CoreException {
+	private List<Issue> validateReqIF(ReqIF reqif) throws CoreException {
 
 		ReqIFValidator reqIFValidator = new ReqIFValidator();
 		
@@ -220,6 +233,7 @@ public class ValidateReqIF implements IObjectActionDelegate {
 			System.out.println(issue);
 			createMarker(issue);
 		}
+		return issues;
 	}
 
 	protected void createMarker(Issue issue) throws CoreException {
