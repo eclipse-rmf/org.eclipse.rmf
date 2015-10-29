@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -19,6 +20,8 @@ import org.eclipse.rmf.reqif10.constraints.validator.ValidationResult;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10ResourceFactoryImpl;
 import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceImpl;
 import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceSetImpl;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.Version;
 
 
 
@@ -29,6 +32,8 @@ import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceSetImpl
  */
 public class Application implements IApplication {
 
+	
+	private static final String PLUGIN_ID = "org.eclipse.rmf.reqif10.headlessValidator";
 	
 	XMLPersistenceMappingResourceSetImpl resourceSet;
 	private List<ReqIF> reqifs;
@@ -52,25 +57,41 @@ public class Application implements IApplication {
 		}
 		
 		if (files.size() == 0){
+			printUsage();
+			System.err.println();
 			System.err.println("ERROR: missing reqif file");
-			return IApplication.EXIT_OK;
+			return new Integer(1);
 		}
 		
 		try{
 			run();
 		}catch (FileNotFoundException e){
 			System.err.println("ERROR: File not found " + e.getMessage());
-			return IApplication.EXIT_OK;
+			printUsage();
+			return new Integer(2);
 		}catch (RuntimeException e){
 			System.err.println("ERROR: " + e.getMessage());
+			printUsage();
+			return new Integer(3);
 		}
-		
 		
 		return IApplication.EXIT_OK;
 		
 	}
 	
 	
+	private void printUsage() {
+		Bundle bundle = Platform.getBundle(PLUGIN_ID);//$NON-NLS-N$
+		Version version = bundle.getVersion();
+		System.err.println("Consequent ReqIF Validation v." + version.toString());
+		System.err.println("Usage: consequent [-consoleLog] [-x] FILE...");
+		System.err.println("       -x: output validation result as xml");
+		System.err.println("       -consolelog: Mirrors the error log to the console");
+		System.err.println("More information at http://formalmind.com/consequent");
+		System.err.println();
+	}
+
+
 	public List<Issue> run() throws IOException{
 		
 		resourceSet = new XMLPersistenceMappingResourceSetImpl();
