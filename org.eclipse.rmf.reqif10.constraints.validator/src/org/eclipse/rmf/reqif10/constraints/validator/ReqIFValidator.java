@@ -321,6 +321,7 @@ public class ReqIFValidator {
 				issue.setMessage(exception.getLocalizedMessage());
 				issue.setLine(exception.getLineNumber());
 				issue.setSeverity(Severity.ERROR);
+				issue.setReqif(reqif);
 				result.add(issue);
 			}
 			

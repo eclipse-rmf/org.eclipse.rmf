@@ -85,7 +85,14 @@ public class Issue {
 
 	@XmlAttribute(name = "uri")
 	public String getFile(){
-		return reqif.eResource().getURI().toString();
+		if (reqif == null){
+			return null;
+		}
+		try{
+			return reqif.eResource().getURI().toString();
+		}catch(NullPointerException e){
+			return null;
+		}
 	}
 	
 	public void setFile(){

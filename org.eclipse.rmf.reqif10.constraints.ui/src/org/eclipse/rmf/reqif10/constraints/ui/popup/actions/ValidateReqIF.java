@@ -30,6 +30,7 @@ import org.eclipse.rmf.reqif10.constraints.validator.Issue;
 import org.eclipse.rmf.reqif10.constraints.validator.ReqIFValidator;
 import org.eclipse.rmf.reqif10.constraints.validator.ValidationResult;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.SWTException;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
@@ -265,7 +266,7 @@ public class ValidateReqIF implements IObjectActionDelegate {
 		if (filename != null){
 			try {
 				saveResults(filename);
-			} catch (IOException e) {
+			} catch (Exception e) {
 				MessageDialog.openError(
 						shell,
 						"Save ReqIF Validation Results",
@@ -278,8 +279,7 @@ public class ValidateReqIF implements IObjectActionDelegate {
 	}
 	
 	
-	private void saveResults(String filename) throws IOException {
-		
+	private void saveResults(String filename) throws IOException, SWTException {
 		String result = ValidationResult.getXMLResult(validationResult);
 		System.out.println("Dumping to " + filename);
 		System.out.println(result);
