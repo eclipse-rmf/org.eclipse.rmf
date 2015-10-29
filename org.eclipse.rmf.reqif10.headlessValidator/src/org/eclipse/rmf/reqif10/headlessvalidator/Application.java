@@ -61,8 +61,6 @@ public class Application implements IApplication {
 		}catch (FileNotFoundException e){
 			System.err.println("ERROR: File not found " + e.getMessage());
 			return IApplication.EXIT_OK;
-		}catch (IllegalArgumentException e) {
-			System.err.println(e.getMessage());
 		}catch (RuntimeException e){
 			System.err.println("ERROR: " + e.getMessage());
 		}
@@ -89,17 +87,9 @@ public class Application implements IApplication {
 		validationResult.setFiles(files);
 		
 		for (ReqIF reqif : reqifs) {
-//			String errorPrefix = "";
-//			if (files.size()>1){
-//				errorPrefix = reqif.eResource().getURI().toFileString();
-//				errorPrefix = errorPrefix + " ";
-//			}
 			List<Issue> issues = reqIFValidator.validate(reqif);
 			allIssues.addAll(issues);
 			
-//			for (Issue issue : issues) {
-//				System.out.println(errorPrefix + issue.toString());
-//			}
 			
 		}
 		validationResult.setIssues(allIssues);
