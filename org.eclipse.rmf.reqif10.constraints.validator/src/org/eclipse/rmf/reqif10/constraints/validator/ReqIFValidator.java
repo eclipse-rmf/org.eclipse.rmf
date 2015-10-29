@@ -150,7 +150,7 @@ public class ReqIFValidator {
 			issue.setSeverity(Severity.ERROR);
 		}
 
-		issue.setMessage("[D]" + diagnostic.getMessage());
+		issue.setMessage("[D] " + diagnostic.getMessage());
 
 		Integer lineNumber = null;
 		if (diagnostic.getData().size() > 0) {
@@ -318,7 +318,7 @@ public class ReqIFValidator {
 			
 			private void createIssue(SAXParseException exception){
 				Issue issue = new Issue();
-				issue.setMessage(exception.getLocalizedMessage());
+				issue.setMessage("[XSD] " + exception.getLocalizedMessage());
 				issue.setLine(exception.getLineNumber());
 				issue.setSeverity(Severity.ERROR);
 				issue.setReqif(reqif);
