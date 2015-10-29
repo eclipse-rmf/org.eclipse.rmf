@@ -100,6 +100,10 @@ public class Issue {
 	
 	@Override
 	public String toString() {
-		return severity + " at " + line + ": " + getMessage();
+		if (line != null){
+			return severity + " at " + line + ": " + getMessage();
+		}else{
+			return severity + ": " + getMessage();
+		}
 	}
 }
