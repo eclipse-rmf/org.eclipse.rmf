@@ -26,7 +26,7 @@
                   severity="ERROR"
                   statusCode="0101">
                <message>
-                  LongName is not set
+                  [C1.1] LongName is not set
                </message>
                <description>
                   LongName of EnumValue must be set
@@ -44,7 +44,7 @@
                   severity="ERROR"
                   statusCode="0102">
                <message>
-                  LongName is not set
+                  [C1.2] LongName is not set
                </message>
                <description>
                   LongName of AttributeDefinitionBoolean must be set
@@ -62,7 +62,7 @@
                   severity="ERROR"
                   statusCode="0103">
                <message>
-                  LongName is not set
+                  [C1.3] LongName is not set
                </message>
                <description>
                   LongName of AttributeDefinitionDate must be set
@@ -80,7 +80,7 @@
                   severity="ERROR"
                   statusCode="0104">
                <message>
-                  LongName is not set
+                  [C1.4] LongName is not set
                </message>
                <description>
                   LongName of AttributeDefinitionEnumeration must be set
@@ -98,7 +98,7 @@
                   severity="ERROR"
                   statusCode="0105">
                <message>
-                  LongName is not set
+                  [C1.5] LongName is not set
                </message>
                <description>
                   LongName of AttributeDefinitionInteger must be set
@@ -116,7 +116,7 @@
                   severity="ERROR"
                   statusCode="0106">
                <message>
-                  LongName is not set
+                  [C1.6] LongName is not set
                </message>
                <description>
                   LongName of AttributeDefinitionReal must be set
@@ -134,7 +134,7 @@
                   severity="ERROR"
                   statusCode="0107">
                <message>
-                  LongName is not set
+                  [C1.7] LongName is not set
                </message>
                <description>
                   LongName of AttributeDefinitionString must be set
@@ -152,7 +152,7 @@
                   severity="ERROR"
                   statusCode="0108">
                <message>
-                  LongName is not set
+                  [C1.8] LongName is not set
                </message>
                <description>
                   LongName of AttributeDefinitionXHTML must be set
@@ -170,7 +170,7 @@
                   severity="ERROR"
                   statusCode="0109">
                <message>
-                  LongName is not set
+                  [C1.9] LongName is not set
                </message>
                <description>
                   LongName of RelationGroup must be set
@@ -188,7 +188,7 @@
                severity="WARNING"
                statusCode="0101">
             <message>
-               LongName of {0} is not set
+                [C1.10] LongName of {0} is not set
             </message>
             <description>
                LongName of DatatypeDefinition must be set
@@ -206,7 +206,7 @@
                severity="ERROR"
                statusCode="0200">
             <message>
-               DatatypeDefinition is not set
+               [C2.3] DatatypeDefinition is not set
             </message>
             <target
                   class="AttributeDefinition">
@@ -225,7 +225,7 @@
                severity="ERROR"
                statusCode="0201">
             <message>
-               DatatypeDefinition of wrong type
+               [C2.1] DatatypeDefinition of wrong type
             </message>
             <target
                   class="AttributeDefinitionBoolean">
@@ -244,7 +244,7 @@
                severity="ERROR"
                statusCode="0201">
             <message>
-               DatatypeDefinition of wrong type
+               [C2.6] DatatypeDefinition of wrong type
             </message>
             <target
                   class="AttributeDefinitionReal">
@@ -268,7 +268,7 @@
             <target
                   class="DatatypeDefinitionInteger"></target>
             <message>
-               minValue of {0} is not set
+               [C3.1] minValue of {0} is not set
             </message>
             <description>
                minValue of DatatypeDefinitionReal or DatatypeDefinitionInteger is set.
@@ -290,7 +290,7 @@
                   class="DatatypeDefinitionInteger">
             </target>
             <message>
-               maxValue of {0} is not set
+               [C3.2] maxValue of {0} is not set
             </message>
             <description>
                maxValue of DatatypeDefinitionReal or DatatypeDefinitionInteger is set.
@@ -309,7 +309,7 @@
                   class="DatatypeDefinitionReal">
             </target>
             <message>
-               accuracy of {0} is not set
+               [C3.3] accuracy of {0} is not set
             </message>
             <description>
                Accuracy of DatatypeDefinitionReal is set.
@@ -328,7 +328,7 @@
                   class="DatatypeDefinitionString">
             </target>
             <message>
-               maxLength of {0} is not set
+               [C3.4] maxLength of {0} is not set
             </message>
             <description>
                maxLength of DatatypeDefinitionString is set.
@@ -344,7 +344,7 @@
                severity="WARNING"
                statusCode="0305">
             <message>
-               DatatypeDefinitionReal minValue is greater than maxValue
+               [C3.5] DatatypeDefinitionReal minValue is greater than maxValue
             </message>
             <description>
                minValue of DatatypeDefinitionReal should not be greater than maxValue
@@ -363,7 +363,7 @@
                severity="WARNING"
                statusCode="0306">
             <message>
-               DatatypeDefinitionInteger minValue is greater than maxValue
+               [C3.6] DatatypeDefinitionInteger minValue is greater than maxValue
             </message>
             <description>
                minValue of DatatypeDefinitionInteger should not be greater than maxValue
@@ -382,7 +382,7 @@
                severity="ERROR"
                statusCode="0401">
             <message>
-               AttributeValueReal {0} than {1}
+               [AV1.1] AttributeValueReal {0} than {1}
             </message>
             <description>
                theValue of AttributeValueReal must be between minValue and maxValue
@@ -401,7 +401,7 @@
                severity="ERROR"
                statusCode="0402">
             <message>
-               AttributeValueInteger {0} than {1}
+               [AV1.2] AttributeValueInteger {0} than {1}
             </message>
             <description>
                theValue of AttributeValueInteger must be between minValue and maxValue
@@ -420,7 +420,7 @@
                severity="ERROR"
                statusCode="0403">
             <message>
-               AttributeValueString is longer than maxLength
+               [AV1.3] AttributeValueString is longer than maxLength
             </message>
             <description>
                theValue of AttributeString must not be longer than maxLength
@@ -439,7 +439,7 @@
                severity="ERROR"
                statusCode="0404">
             <message>
-               AttributeValueEnumeration is single valued but contains {0} values
+               [AV1.4] AttributeValueEnumeration is single valued but contains {0} values
             </message>
             <description>
                AttributeValueEnumeration must not contain more than one Value if its not multiValued
@@ -458,7 +458,7 @@
                severity="ERROR"
                statusCode="0405">
             <message>
-               AttributeValueReal {0} has {1} fracional digits but accuracy of DatatypeDefinition is {2}
+               [AV1.5] AttributeValueReal {0} has {1} fracional digits but accuracy of DatatypeDefinition is {2}
             </message>
             <description>
                AttributeValueReal must not have more fractional digits than accuracy
@@ -477,7 +477,7 @@
                severity="ERROR"
                statusCode="0406">
             <message>
-               AttributeValueXHTML references {0} that can not be found: {1}
+               [AV1.6] AttributeValueXHTML references {0} that can not be found: {1}
             </message>
             <description>
                All files referenced in an AttributeValueXHTML by a file URI exist
@@ -496,7 +496,7 @@
                severity="WARNING"
                statusCode="0406">
             <message>
-               AttributeValueXHTML references a non-file object {0}
+               [AV1.6a] AttributeValueXHTML references a non-file object {0}
             </message>
             <description>
                object should be referenced by a file URI
@@ -515,7 +515,7 @@
                severity="ERROR"
                statusCode="0404">
             <message>
-               AttributeValueEnumeration uses an illegal EnumValue
+               [AV1.7] AttributeValueEnumeration uses an illegal EnumValue
             </message>
             <description>
                An AttributeValueEnumeration only references values that are defined by its DatatypeDefinitionEnumeration
@@ -534,7 +534,7 @@
                severity="ERROR"
                statusCode="0406">
             <message>
-               AttributeValueXHTML contains {0} with a class attribute: {1}
+               [C6.1] AttributeValueXHTML contains {0} with a class attribute: {1}
             </message>
             <description>
                The &apos;class&apos; attribute of the XHTML Core Attribute Collection MUST NOT be used
@@ -553,7 +553,7 @@
                severity="ERROR"
                statusCode="0406">
             <message>
-               AttributeValueXHTML missing alternative for data object
+               [C6.2] AttributeValueXHTML missing alternative for data object
             </message>
             <description>
                For XHTML object elements that refer to an external object that is not an image with the MIME-Type image/png, an alternative image AND an alternative text MUST be provided
@@ -572,7 +572,7 @@
                severity="ERROR"
                statusCode="0406">
             <message>
-               AttributeValueXHTML contains {0} with illegal attributes: {1}
+               [C6.3] AttributeValueXHTML contains {0} with illegal attributes: {1}
             </message>
             <description>
                If there is a specific MIME-type for the application that handles the external object, it MUST be stored in the &apos;type&apos; attribute and no other attributes than &apos;data&apos;, &apos;type&apos;, &apos;width&apos; and &apos;height&apos; MUST be used in that case.
@@ -591,7 +591,7 @@
                severity="ERROR"
                statusCode="0406">
             <message>
-               AttributeValueXHTML missing data attribute in {0}
+               [C6.4] AttributeValueXHTML missing data attribute in {0}
             </message>
             <description>
                The location of an external object MUST be specified via the &apos;data&apos; attribute.
@@ -609,7 +609,7 @@
                severity="ERROR"
                statusCode="10001">
             <message>
-               {0}
+               [XSD] {0}
             </message>
             <description>
                The input file must comply the xsd schema
@@ -640,7 +640,7 @@
                severity="WARNING"
                statusCode="0406">
             <message>
-               Name of Attribute {0} has a ReqIF. prefix
+               [IG_R3] Name of Attribute {0} has a ReqIF. prefix
             </message>
             <description>
                According to the Implementaion Guide&quot;Names of user defined attributes should always be represented in ReqIF XML documents and requirements authoring tools without a ReqIF. prefix.&quot; [2.3.2 R3]
@@ -660,7 +660,7 @@ Note: this constraint checks for the prefix &quot;ReqIF.&quot; case sensitive
                severity="WARNING"
                statusCode="0406">
             <message>
-               DatatypeDefinitionEnumeration {0} is referenced by different AttributeDefinitionEnumeration of which some are editable and some are not editable
+               [IG_2_10] DatatypeDefinitionEnumeration {0} is referenced by different AttributeDefinitionEnumeration of which some are editable and some are not editable
             </message>
             <description>
                Generates a Warning if a DatatypeDefinitionEnumeration is used by more than one AttributeDefinition and one of the is set to isEditable while another one is set to Non-Editable.
