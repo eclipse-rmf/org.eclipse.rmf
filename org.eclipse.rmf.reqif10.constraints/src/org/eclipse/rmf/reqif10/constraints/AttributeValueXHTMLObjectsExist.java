@@ -52,6 +52,9 @@ public class AttributeValueXHTMLObjectsExist extends ReqIFModelConstraint {
 
 			NodeList objectTags1 = xhtmlDom.getElementsByTagName("xhtml:object"); //$NON-NLS-1$
 			NodeList objectTags2 = xhtmlDom.getElementsByTagName("reqif-xhtml:object"); //$NON-NLS-1$
+			NodeList objectTags3 = xhtmlDom.getElementsByTagName("*"); //$NON-NLS-1$
+
+			System.out.println(objectTags3.getLength());
 
 			for (int i = 0; i < objectTags1.getLength(); i++) {
 				Element item = (Element) objectTags1.item(i);
@@ -70,6 +73,8 @@ public class AttributeValueXHTMLObjectsExist extends ReqIFModelConstraint {
 
 			for (String objectPath : dataObjects) {
 
+				System.out.println(objectPath);
+
 				URI objectUri = URI.createURI(objectPath);
 				URI resolvedUri = objectUri.resolve(baseUri);
 
@@ -83,17 +88,37 @@ public class AttributeValueXHTMLObjectsExist extends ReqIFModelConstraint {
 
 			}
 
+			String nonFileURIWarning = null;
+			if (nonFileReferences.size() > 0) {
+				StringBuilder sb = new StringBuilder();
+				sb.append("WARNING the following Non-File-URIs were not evaluated: ");
+				for (int i = 0; i < nonFileReferences.size(); i++) {
+					if (i > 0) {
+						sb.append(", "); //$NON-NLS-1$
+					}
+					sb.append(nonFileReferences.get(i));
+				}
+				nonFileURIWarning = sb.toString();
+			}
+
 			if (missingObjects.size() > 0) {
 				// AttributeValueXHTML references {0} that can not be found: {1}
 				int count = missingObjects.size();
 				StringBuilder sb = new StringBuilder();
 				for (int i = 0; i < missingObjects.size(); i++) {
 					if (i > 0) {
-						sb.append(", ");
+						sb.append(", "); //$NON-NLS-1$
 					}
 					sb.append(missingObjects.get(i));
 				}
-				return ctx.createFailureStatus(count == 1 ? "a file" : count + " files", sb.toString());
+				return ctx.createFailureStatus(count == 1 ? "a file" : count + " files", sb.toString()
+						+ (nonFileURIWarning != null ? "; " + nonFileURIWarning : ""));
+			}
+
+			if (nonFileURIWarning != null) {
+				String id = ctx.getCurrentConstraintId().replace("org.eclipse.rmf.reqif10.constraints.", ""); //$NON-NLS-1$
+				nonFileURIWarning = "[" + id + "] " + nonFileURIWarning;
+				return ConstraintStatus.createStatus(ctx, null, IStatus.WARNING, 406, nonFileURIWarning, ctx.getTarget());
 			}
 
 		}
