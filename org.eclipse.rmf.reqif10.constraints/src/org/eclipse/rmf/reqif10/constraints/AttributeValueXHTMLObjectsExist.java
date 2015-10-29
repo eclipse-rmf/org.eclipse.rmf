@@ -54,8 +54,6 @@ public class AttributeValueXHTMLObjectsExist extends ReqIFModelConstraint {
 			NodeList objectTags2 = xhtmlDom.getElementsByTagName("reqif-xhtml:object"); //$NON-NLS-1$
 			NodeList objectTags3 = xhtmlDom.getElementsByTagName("*"); //$NON-NLS-1$
 
-			System.out.println(objectTags3.getLength());
-
 			for (int i = 0; i < objectTags1.getLength(); i++) {
 				Element item = (Element) objectTags1.item(i);
 				if (!dataObjects.contains(item.getAttribute("data"))) { //$NON-NLS-1$
@@ -72,9 +70,6 @@ public class AttributeValueXHTMLObjectsExist extends ReqIFModelConstraint {
 			URI baseUri = ((AttributeValueXHTML) target).eResource().getURI();
 
 			for (String objectPath : dataObjects) {
-
-				System.out.println(objectPath);
-
 				URI objectUri = URI.createURI(objectPath);
 				URI resolvedUri = objectUri.resolve(baseUri);
 
@@ -85,7 +80,6 @@ public class AttributeValueXHTMLObjectsExist extends ReqIFModelConstraint {
 				} else {
 					nonFileReferences.add(objectPath);
 				}
-
 			}
 
 			String nonFileURIWarning = null;
