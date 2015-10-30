@@ -63,6 +63,10 @@ public class Application implements IApplication {
 			return new Integer(1);
 		}
 		
+		
+		makePathsAbsolute();
+		
+		
 		try{
 			run();
 		}catch (FileNotFoundException e){
@@ -80,6 +84,14 @@ public class Application implements IApplication {
 	}
 	
 	
+	private void makePathsAbsolute() {
+		for (String string : files) {
+			
+		}
+		
+	}
+
+
 	private void printUsage() {
 		Bundle bundle = Platform.getBundle(PLUGIN_ID);//$NON-NLS-N$
 		Version version = bundle.getVersion();
@@ -161,7 +173,13 @@ public class Application implements IApplication {
 	
 	public void loadReqifs(List<String> filenames) throws IOException{
 		for (String filename : filenames) {
-			URI emfURI = URI.createFileURI(filename);
+			
+			//URI emfURI = URI.createFileURI(filename);
+			// We have to work with absolute Paths only!
+			// Otherwise EMF will throw an IllegalArgumentException: resolve against non-hierarchical or relative base
+			File file = new File(filename);
+			URI emfURI = URI.createFileURI(file.getAbsolutePath());
+			
 			
 			if (!"reqif".equals(emfURI.fileExtension())){
 				throw new IllegalArgumentException("Illegal File extension '" + emfURI.fileExtension() + "' for " + filename + "");
