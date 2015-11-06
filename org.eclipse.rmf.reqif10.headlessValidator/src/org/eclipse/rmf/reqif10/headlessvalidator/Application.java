@@ -65,10 +65,6 @@ public class Application implements IApplication {
 			return new Integer(1);
 		}
 		
-		
-		makePathsAbsolute();
-		
-		
 		try{
 			run();
 		}catch (FileNotFoundException e){
@@ -97,14 +93,6 @@ public class Application implements IApplication {
 		
 	}
 	
-	
-	private void makePathsAbsolute() {
-		for (String string : files) {
-			
-		}
-		
-	}
-
 	
 	private String getVersionString(){
 		Bundle bundle = Platform.getBundle(PLUGIN_ID);//$NON-NLS-N$
