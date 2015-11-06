@@ -33,9 +33,9 @@ import org.xml.sax.SAXException;
  * The Validation results are dumped to stdout
  */
 public class Application implements IApplication {
-
 	
 	private static final String PLUGIN_ID = "org.eclipse.rmf.reqif10.headlessValidator";
+	private static final String VALIDATOR_PLUGIN_ID = "org.eclipse.rmf.reqif10.constraints.validator";
 	
 	XMLPersistenceMappingResourceSetImpl resourceSet;
 	private List<ReqIF> reqifs;
@@ -97,7 +97,10 @@ public class Application implements IApplication {
 	private String getVersionString(){
 		Bundle bundle = Platform.getBundle(PLUGIN_ID);//$NON-NLS-N$
 		Version version = bundle.getVersion();
-		return "Consequent ReqIF Validation (cli) v." + version.toString();
+		
+		Bundle validatorBundle = Platform.getBundle(PLUGIN_ID);//$NON-NLS-N$
+		Version validatorVersion = bundle.getVersion();
+		return "Consequent ReqIF Validation (cli) v." + version.toString() + " (core: "+validatorVersion.toString()+")";
 	}
 	
 
