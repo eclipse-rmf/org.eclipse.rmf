@@ -11,6 +11,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource.IOWrappedException;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.rmf.reqif10.ReqIF;
@@ -22,6 +23,7 @@ import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceImpl;
 import org.eclipse.sphinx.emf.serialization.XMLPersistenceMappingResourceSetImpl;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.Version;
+import org.xml.sax.SAXException;
 
 
 
@@ -73,9 +75,21 @@ public class Application implements IApplication {
 			System.err.println("ERROR: File not found " + e.getMessage());
 			printUsage();
 			return new Integer(2);
-		}catch (RuntimeException e){
-			System.err.println("ERROR: " + e.getMessage());
-			printUsage();
+		}catch (Throwable e){
+			while (e instanceof IOWrappedException){
+				e = e.getCause();
+			}
+			
+			if (e instanceof SAXException) {
+				System.err.println("FATAL ERROR while Parsing the File: " + e.getMessage());
+				if (e.getCause() != null && e.getCause().getMessage() != null ){
+					System.err.println("FATAL ERROR: " + e.getCause().getMessage());
+				}
+			}else{
+				System.err.println("FATAL ERROR: " + e.getMessage());
+			}
+			
+			System.err.println("The File can not be validated!");
 			return new Integer(3);
 		}
 		
@@ -91,6 +105,9 @@ public class Application implements IApplication {
 		
 	}
 
+	
+	
+	
 
 	private void printUsage() {
 		Bundle bundle = Platform.getBundle(PLUGIN_ID);//$NON-NLS-N$
