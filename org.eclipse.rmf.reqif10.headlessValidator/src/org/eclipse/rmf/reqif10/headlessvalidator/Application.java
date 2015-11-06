@@ -109,7 +109,7 @@ public class Application implements IApplication {
 	private String getVersionString(){
 		Bundle bundle = Platform.getBundle(PLUGIN_ID);//$NON-NLS-N$
 		Version version = bundle.getVersion();
-		return "Consequent ReqIF Validation v." + version.toString();
+		return "Consequent ReqIF Validation (cli) v." + version.toString();
 	}
 	
 
