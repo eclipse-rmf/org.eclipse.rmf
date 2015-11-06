@@ -106,13 +106,15 @@ public class Application implements IApplication {
 	}
 
 	
-	
+	private String getVersionString(){
+		Bundle bundle = Platform.getBundle(PLUGIN_ID);//$NON-NLS-N$
+		Version version = bundle.getVersion();
+		return "Consequent ReqIF Validation v." + version.toString();
+	}
 	
 
 	private void printUsage() {
-		Bundle bundle = Platform.getBundle(PLUGIN_ID);//$NON-NLS-N$
-		Version version = bundle.getVersion();
-		System.err.println("Consequent ReqIF Validation v." + version.toString());
+		System.err.println("Consequent ReqIF Validation v." + getVersionString());
 		System.err.println("Usage: consequent [-consoleLog] [-x] FILE...");
 		System.err.println("       -x: output validation result as xml");
 		System.err.println("       -consolelog: Mirrors the error log to the console");
@@ -134,13 +136,12 @@ public class Application implements IApplication {
 		ReqIFValidator reqIFValidator = new ReqIFValidator();
 		
 		ValidationResult validationResult = new ValidationResult();
+		validationResult.setToolId(getVersionString());
 		validationResult.setFiles(files);
 		
 		for (ReqIF reqif : reqifs) {
 			List<Issue> issues = reqIFValidator.validate(reqif);
 			allIssues.addAll(issues);
-			
-			
 		}
 		validationResult.setIssues(allIssues);
 		
@@ -154,6 +155,7 @@ public class Application implements IApplication {
 		if (resultAsXml){
 			System.out.println(ValidationResult.getXMLResult(validationResult));
 		}else {
+			System.out.println(getVersionString());
 			System.out.println(getTextResult(validationResult));
 		}
 	}
@@ -162,6 +164,10 @@ public class Application implements IApplication {
 	public String getTextResult(ValidationResult validationResult){
 	
 		List<Issue> issues = validationResult.getIssues();
+		
+		if (issues.isEmpty()){
+			return "No Issues found";
+		}
 		
 		StringBuilder sb = new StringBuilder();
 		for (Issue issue : issues) {

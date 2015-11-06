@@ -29,6 +29,17 @@ public class ValidationResult{
 
 	private Date date = new Date();
 	
+	private String toolId;
+	
+	public String getToolId() {
+		return toolId;
+	}
+
+	@XmlAttribute( name = "toolId" )
+	public void setToolId(String toolId) {
+		this.toolId = toolId;
+	}
+
 	@XmlAttribute( name = "date" )
 	public void setDate(Date date) {
 		this.date = date;
