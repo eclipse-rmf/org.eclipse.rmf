@@ -226,6 +226,7 @@ public class ValidateReqIF implements IObjectActionDelegate {
 		validationResult = new ValidationResult();
 		validationResult.setFiles(files);
 		validationResult.setIssues(issues);
+		validationResult.setToolId(reqIFValidator.getVersionString());
 
 		resource.deleteMarkers(markerType, true, IResource.DEPTH_ZERO);
 

@@ -13,6 +13,7 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -28,6 +29,8 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIFHeader;
 import org.eclipse.rmf.reqif10.constraints.validator.Issue.Severity;
 import org.eclipse.rmf.reqif10.serialization.ReqIF10LocationStore;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.Version;
 import org.w3c.dom.ls.LSInput;
 import org.w3c.dom.ls.LSResourceResolver;
 import org.xml.sax.ErrorHandler;
@@ -36,6 +39,8 @@ import org.xml.sax.SAXParseException;
 
 public class ReqIFValidator {
 
+	private static final String PLUGIN_ID = "org.eclipse.rmf.reqif10.constraints.validator";
+	
 	private ReqIF reqif;
 	private boolean schemaValidationDisabled = false;
 	private boolean diagnosticianDisabled = false;
@@ -336,6 +341,12 @@ public class ReqIFValidator {
 
 	public void disableDiagnostician() {
 		diagnosticianDisabled = true;
+	}
+
+	public String getVersionString() {
+		Bundle bundle = Platform.getBundle(PLUGIN_ID);//$NON-NLS-N$
+		Version version = bundle.getVersion();
+		return "Consequent ReqIF Validation v." + version.toString();
 	}
 
 }
