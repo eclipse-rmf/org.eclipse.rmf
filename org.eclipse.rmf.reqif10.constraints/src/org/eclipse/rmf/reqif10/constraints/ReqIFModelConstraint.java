@@ -19,8 +19,6 @@ public abstract class ReqIFModelConstraint extends AbstractModelConstraint {
 		try {
 			return doValidate(ctx);
 		} catch (Throwable ex) {
-			ex.printStackTrace(System.err);
-
 			Bundle bundle = Platform.getBundle(bundleId);
 			ILog log = Platform.getLog(bundle);
 			log.log(new Status(IStatus.ERROR, bundleId, "Exception while running Validator", ex)); //$NON-NLS-1$
