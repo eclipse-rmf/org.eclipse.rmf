@@ -7,6 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Ingo Weigelt - support for incoming Links
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
@@ -48,10 +49,22 @@ public class ProrLinkCellRenderer extends AbstractProrSpecCellRenderer {
 	@Override
 	protected void doDrawCellContent(GC gc, Rectangle rect, int row, int col) {
 		Object content = agileGrid.getContentAt(row, col);
-		if (content instanceof SpecRelation) {
-			SpecObject target = ((SpecRelation) content).getTarget();
-			if (target != null) {
-				String label = ConfigurationUtil.getSpecElementLabel(target,
+		if (content instanceof WrappedSpecRelation) {
+			WrappedSpecRelation wrappedSpecRelation = (WrappedSpecRelation) content;
+			
+			if (wrappedSpecRelation.isSource() == null){
+				throw new IllegalArgumentException();
+			}
+			
+			SpecObject specObject;
+			if (wrappedSpecRelation.isSource()){
+				specObject = wrappedSpecRelation.getSpecRelation().getTarget();
+			}else{
+				specObject = wrappedSpecRelation.getSpecRelation().getSource();
+			}
+			
+			if (specObject != null) {
+				String label = ConfigurationUtil.getSpecElementLabel(specObject,
 						adapterFactory);
 				drawTextImage(gc, label, alignment, null, alignment,
 						rect.x + 3, rect.y + 2, rect.width - 6, rect.height - 4);

@@ -7,6 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Ingo Weigelt - support for incoming Links
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
@@ -22,7 +23,6 @@ import org.agilemore.agilegrid.IContentProvider;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.rmf.reqif10.AttributeValue;
-import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
@@ -48,7 +48,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	private final Specification root;
 	final ProrSpecViewConfiguration specViewConfig;
 	private ArrayList<ProrRow> cache = null;
-	private Map<Identifiable, ProrRow> rowMap = new HashMap<Identifiable, ProrRow>();
+	private Map<Object, ProrRow> rowMap = new HashMap<Object, ProrRow>();
 
 	private boolean showSpecRelations;
 	private ReqifFilter filter;
@@ -105,9 +105,15 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		SpecElementWithAttributes element = prorRow.getSpecElement();
 
 		if (col == specViewConfig.getColumns().size()) {
-			// For the Link column, we return the linked element.
-			return element instanceof SpecElementWithAttributes ? element
-					: null;
+			if (prorRow instanceof ProrRowSpecRelation){
+				return ((ProrRowSpecRelation) prorRow).getWrappedSpecRelation();
+			}
+			if (element instanceof SpecElementWithAttributes ){
+				return element;
+			}
+			return null;
+			
+//			// For the Link column, we return the linked element.
 		} else if (col <= specViewConfig.getColumns().size()) {
 			// we return the AttributeValue.
 			return getValueForColumn(element, row, col);
@@ -177,14 +183,23 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		return cache;
 	}
 
-	private ProrRow getProrRowForSpecElement(Identifiable e, int row, int level) {
+	private ProrRow getProrRowForSpecElement(Object e, int row, int level) {
 		ProrRow prorRow = rowMap.get(e);
 		if (prorRow == null) {
 			prorRow = ProrRow.createProrRow(e, row, level);
 			rowMap.put(e, prorRow);
 		} else {
-			prorRow.setLevel(row);
+			prorRow.setRow(row);
 			prorRow.setLevel(level);
+			
+			if (prorRow instanceof ProrRowSpecRelation && e instanceof WrappedSpecRelation){
+				ProrRowSpecRelation sRRow = (ProrRowSpecRelation) prorRow;
+				WrappedSpecRelation relation = (WrappedSpecRelation) e;
+				if (relation.isSource() != sRRow.isSource()){
+					throw new IllegalArgumentException();
+				}
+			}
+			
 		}
 		return prorRow;
 	}
@@ -212,10 +227,11 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 			}
 			tmpCache.add(current, prorRowSH);
 			if (prorRowSH.isShowSpecRelation()) {
-				for (SpecRelation specRelation : getSpecRelationsFor(element)) {
+				for (WrappedSpecRelation wrappedSpecRelation : getSpecRelationsFor(element)) {
+					//SpecRelation specRelation = specRelationRow.getSpecRelation();
 					++current;
 					ProrRowSpecRelation prorRowSR = (ProrRowSpecRelation) getProrRowForSpecElement(
-							specRelation, current, depth + 1);
+							wrappedSpecRelation, current, depth + 1);
 					tmpCache.add(current, prorRowSR);
 				}
 			}
@@ -272,7 +288,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * SpecHierarchy) as a source. This method checks {@link #showSpecRelations}
 	 * and returns immediately if it is false.
 	 */
-	private List<SpecRelation> getSpecRelationsFor(SpecHierarchy specHierarchy) {
+	private List<WrappedSpecRelation> getSpecRelationsFor(SpecHierarchy specHierarchy) {
 		if (specHierarchy.getObject() == null)
 			return Collections.emptyList();
 		SpecObject source = specHierarchy.getObject();
@@ -281,14 +297,22 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		// being deleted)
 		if (reqif == null)
 			return Collections.emptyList();
-		List<SpecRelation> list = new ArrayList<SpecRelation>();
+		List<WrappedSpecRelation> list = new ArrayList<WrappedSpecRelation>();
 		for (SpecRelation relation : reqif.getCoreContent().getSpecRelations()) {
 			if (source.equals(relation.getSource())) {
-				list.add(relation);
+				WrappedSpecRelation specRelationRow = new WrappedSpecRelation(relation,
+						true);
+				list.add(specRelationRow);
+			} else if (source.equals(relation.getTarget())) {
+				WrappedSpecRelation specRelationRow = new WrappedSpecRelation(relation,
+						false);
+				list.add(specRelationRow);
 			}
 		}
 		return list;
 	}
+	
+
 
 	public void updateElement(SpecElementWithAttributes element) {
 		recurseUpdateElement(0, element, root.getChildren());

@@ -7,6 +7,7 @@
  * 
  * Contributors:
  *     Michael Jastram - initial API and implementation
+ *     Ingo Weigelt - support for incoming Links
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
@@ -19,6 +20,7 @@ import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
+import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow.ProrRowSpecRelation;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServiceManager;
@@ -35,6 +37,7 @@ public class ProrCellRenderer extends AbstractProrSpecCellRenderer {
 	private final Image specHierarchyIcon;
 	private final Image specObjectIcon;
 	private final Image specRelationIcon;
+	private final Image specRelationIncomingIcon;
 	
 	/**
 	 * Create a ProRCellRenderer. Note that the associated ContentProvider must
@@ -58,6 +61,11 @@ public class ProrCellRenderer extends AbstractProrSpecCellRenderer {
 		specRelationIcon = ExtendedImageRegistry.getInstance().getImage(
 				Reqif10EditPlugin.INSTANCE
 						.getImage("full/obj16/SpecRelation.png"));
+		specRelationIncomingIcon = ExtendedImageRegistry.getInstance().getImage(
+				Reqif10EditPlugin.INSTANCE
+						.getImage("full/obj16/SpecRelationIncoming.png"));
+		
+		
 	}
 	
 	@Override
@@ -109,6 +117,7 @@ public class ProrCellRenderer extends AbstractProrSpecCellRenderer {
 
 		int rowHeight;
 		IProrCellRenderer renderer = null;
+		// TODO if prorRow instanceof ProRowSpecRelation...
 		AttributeValue attrValue = contentProvider.getValueForColumn(
 				prorRow.getSpecElement(), row, col);
 
@@ -151,7 +160,14 @@ public class ProrCellRenderer extends AbstractProrSpecCellRenderer {
 
 		int offset = prorRow.getLevel() * 8;
 		Image icon;
-		if (prorRow.getSpecElement() instanceof SpecObject) {
+		if (prorRow instanceof ProrRowSpecRelation){
+			if (!((ProrRowSpecRelation) prorRow).isSource()){
+				icon = specRelationIncomingIcon;
+			}else{
+				icon = specRelationIcon;
+			}
+		}
+		else if (prorRow.getSpecElement() instanceof SpecObject) {
 			icon = specObjectIcon;
 		} else if (prorRow.getSpecElement() instanceof SpecRelation) {
 			icon = specRelationIcon;

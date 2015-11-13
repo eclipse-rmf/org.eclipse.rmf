@@ -9,12 +9,12 @@
  *     Michael Jastram - initial API and implementation
  *     Said Salem - Refactoring of ProrRow
  *     Michael Jastram - support hiding rows.
+ *     Ingo Weigelt - support for incoming Links
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
-import org.eclipse.rmf.reqif10.SpecRelation;
 
 /**
  * Represents the row of a table. A row holds either a SpecHierarchy or a
@@ -73,8 +73,8 @@ public abstract class ProrRow {
 		if (row < 0 || level < 0)
 			throw new IndexOutOfBoundsException("row : " + row + " and level: "
 					+ level + " have to be >= 0");
-		if (element instanceof SpecRelation)
-			return (new ProrRowSpecRelation((SpecRelation) element, row, level));
+		if (element instanceof WrappedSpecRelation)
+			return (new ProrRowSpecRelation((WrappedSpecRelation) element, row, level));
 		else if (element instanceof SpecHierarchy)
 			return (new ProrRowSpecHierarchy((SpecHierarchy) element, row,
 					level));
@@ -123,16 +123,26 @@ public abstract class ProrRow {
 	}
 
 	public static class ProrRowSpecRelation extends ProrRow {
-		SpecRelation element;
+		private WrappedSpecRelation element;
+		private Boolean isSource;
 
-		private ProrRowSpecRelation(SpecRelation element, int row, int level) {
+		private ProrRowSpecRelation(WrappedSpecRelation element, int row, int level) {
 			super(row, level);
 			this.element = element;
+			this.isSource = element.isSource();
 		}
 
 		@Override
 		public SpecElementWithAttributes getSpecElement() {
+			return element.getSpecRelation();
+		}
+		
+		public WrappedSpecRelation getWrappedSpecRelation() {
 			return element;
+		}
+		
+		public Boolean isSource() {
+			return isSource;
 		}
 	}
 
