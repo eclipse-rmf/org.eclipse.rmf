@@ -212,7 +212,11 @@ public class ProrPropertyControl extends AgileGrid implements
 		
 		if (event.getPropertyName().equals("")) {
 			contentProvider.setContent(object);
-			redraw();
+			Display.getCurrent().asyncExec(new Runnable() {
+				public void run() {
+					redraw();
+				}
+			});
 		}
 	}
 
