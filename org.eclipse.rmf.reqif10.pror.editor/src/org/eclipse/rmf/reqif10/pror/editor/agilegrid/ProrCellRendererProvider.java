@@ -38,6 +38,15 @@ public class ProrCellRendererProvider extends DefaultCellRendererProvider {
 		prorLinkCellRenderer = new ProrLinkCellRenderer(agileGrid,
 				adapterFactory);
 	}
+	
+	
+	public ProrCellRendererProvider(AgileGrid agileGrid, AdapterFactory adapterFactory, EditingDomain editingDomain, ProrCellRenderer cellRenderer,  ProrLinkCellRenderer linkCellRenderer) {
+		super(agileGrid);
+		prorCellRenderer = cellRenderer;
+		headRenderer = new ProrHeaderCellRenderer(agileGrid);
+		prorLinkCellRenderer = linkCellRenderer;
+	}
+	
 
 	@Override
 	public ICellRenderer getCellRenderer(int row, int col) {
