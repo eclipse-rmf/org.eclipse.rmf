@@ -31,8 +31,8 @@ import org.eclipse.swt.graphics.Rectangle;
 
 public class ProrLinkCellRenderer extends AbstractProrSpecCellRenderer {
 
-	private Set<SpecRelation> incoming;
-	private Set<SpecRelation> outgoing;
+	protected Set<SpecRelation> incoming;
+	protected Set<SpecRelation> outgoing;
 	
 	private final Image specRelationConnectorIcon;
 
@@ -92,7 +92,7 @@ public class ProrLinkCellRenderer extends AbstractProrSpecCellRenderer {
 	/**
 	 * This method updates the two Sets {@link #incoming} and {@link #outgoing}.
 	 */
-	private void updateIncomingAndOutgoing(
+	protected void updateIncomingAndOutgoing(
 			SpecElementWithAttributes specElement) {
 		ReqIF reqif = ReqIF10Util.getReqIF(specElement);
 		incoming = new HashSet<SpecRelation>();
