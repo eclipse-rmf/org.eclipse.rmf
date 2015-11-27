@@ -288,7 +288,7 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	 * SpecHierarchy) as a source. This method checks {@link #showSpecRelations}
 	 * and returns immediately if it is false.
 	 */
-	private List<WrappedSpecRelation> getSpecRelationsFor(SpecHierarchy specHierarchy) {
+	protected List<WrappedSpecRelation> getSpecRelationsFor(SpecHierarchy specHierarchy) {
 		if (specHierarchy.getObject() == null)
 			return Collections.emptyList();
 		SpecObject source = specHierarchy.getObject();
