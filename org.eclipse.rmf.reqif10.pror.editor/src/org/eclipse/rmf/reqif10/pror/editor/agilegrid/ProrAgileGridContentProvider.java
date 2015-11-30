@@ -362,4 +362,8 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 	public int getRowCount() {
 		return getCache().size();
 	}	
+	
+	public Map<Object, ProrRow> getRowMap() {
+		return rowMap;
+	}
 }
