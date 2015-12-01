@@ -58,8 +58,6 @@ public class ReqIFValidator {
 			if (filename == null){
 				if (reqif.eResource().getURI().isPlatformResource()) {
 					filename = reqif.eResource().getURI().toPlatformString(false);
-					IResource findMember = ResourcesPlugin.getWorkspace().getRoot().findMember(filename);
-					System.out.println(findMember);
 					filename = ResourcesPlugin.getWorkspace().getRoot().findMember(filename).getLocation().toOSString();
 				}
 			}
