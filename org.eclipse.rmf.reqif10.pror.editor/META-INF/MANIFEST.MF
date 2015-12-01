@@ -24,5 +24,15 @@ Require-Bundle: org.eclipse.core.runtime;visibility:=reexport,
  org.eclipse.core.filesystem;bundle-version="1.3.100",
  org.eclipse.rmf.reqif10.serialization;bundle-version="0.14.0",
  org.eclipse.rmf.reqif10.xhtml.edit;bundle-version="0.14.0",
- org.eclipse.sphinx.emf.serialization;bundle-version="0.8.1"
+ org.eclipse.sphinx.emf.serialization;bundle-version="0.8.1",
+ org.eclipse.rmf.reqif10.constraints;bundle-version="0.14.0",
+ org.eclipse.rmf.reqif10.constraints.ui;bundle-version="0.14.0",
+ org.eclipse.rmf.reqif10.constraints.validator;bundle-version="0.14.0"
 Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.emf.validation.model,
+ org.eclipse.emf.validation.service,
+ org.eclipse.rmf.reqif10,
+ org.eclipse.rmf.reqif10.constraints,
+ org.eclipse.rmf.reqif10.constraints.ui,
+ org.eclipse.rmf.reqif10.constraints.ui.popup.actions,
+ org.eclipse.rmf.reqif10.constraints.validator

@@ -104,6 +104,7 @@ import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.XhtmlContent;
+import org.eclipse.rmf.reqif10.constraints.ui.popup.actions.ValidateReqIF;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
@@ -1491,11 +1492,29 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 					if ((first || !resource.getContents().isEmpty() || isPersisted(resource))
 							&& !editingDomain.isReadOnly(resource)) {
 						try {
+							monitor.beginTask("Saving resource...", 3);
+							monitor.setTaskName("Saving resource...");
+							monitor.worked(1);
+							
 							long timeStamp = resource.getTimeStamp();
 							resource.save(saveOptions);
 							if (resource.getTimeStamp() != timeStamp) {
 								savedResources.add(resource);
 							}
+							monitor.worked(1);
+							monitor.setTaskName("Validating ReqIF...");
+							
+							ValidateReqIF validate = new ValidateReqIF();
+							URI eUri = reqif.eResource().getURI();
+							IResource file = null;
+							if (eUri.isPlatformResource()) {
+								String platformString = eUri.toPlatformString(true);
+								file = ResourcesPlugin.getWorkspace().getRoot().findMember(platformString);
+
+								validate.setResource(file);
+							}
+							validate.validateReqIF(reqif);
+						
 						} catch (Exception exception) {
 							resourceToDiagnosticMap
 									.put(resource,
@@ -1512,8 +1531,9 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		try {
 			// This runs the options, and shows progress.
 			//
-			new ProgressMonitorDialog(getSite().getShell()).run(true, false,
-					operation);
+			ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(getSite().getShell());
+			
+			progressMonitorDialog.run(true, false, operation);
 
 			// Refresh the necessary state.
 			//
