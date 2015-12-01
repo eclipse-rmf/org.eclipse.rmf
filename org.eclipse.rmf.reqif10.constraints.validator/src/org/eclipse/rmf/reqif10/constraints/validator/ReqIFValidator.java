@@ -12,6 +12,8 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -53,6 +55,15 @@ public class ReqIFValidator {
 		
 		if (!schemaValidationDisabled){
 			String filename = reqif.eResource().getURI().toFileString();
+			if (filename == null){
+				if (reqif.eResource().getURI().isPlatformResource()) {
+					filename = reqif.eResource().getURI().toPlatformString(false);
+					IResource findMember = ResourcesPlugin.getWorkspace().getRoot().findMember(filename);
+					System.out.println(findMember);
+					filename = ResourcesPlugin.getWorkspace().getRoot().findMember(filename).getLocation().toOSString();
+				}
+			}
+			
 			try {
 				validateAgainstSchema(filename, issues);
 			} catch (Exception e) {

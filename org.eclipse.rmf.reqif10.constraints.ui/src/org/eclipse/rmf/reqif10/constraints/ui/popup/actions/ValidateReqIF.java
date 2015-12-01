@@ -206,7 +206,7 @@ public class ValidateReqIF implements IObjectActionDelegate {
 		return null;
 	}
 
-	private List<Issue> validateReqIF(ReqIF reqif) throws CoreException {
+	public List<Issue> validateReqIF(ReqIF reqif) throws CoreException {
 
 		ReqIFValidator reqIFValidator = new ReqIFValidator();
 		
@@ -231,11 +231,21 @@ public class ValidateReqIF implements IObjectActionDelegate {
 		resource.deleteMarkers(markerType, true, IResource.DEPTH_ZERO);
 
 		for (Issue issue : issues) {
-			System.out.println(issue);
+			//System.out.println(issue);
 			createMarker(issue);
 		}
 		return issues;
 	}
+	
+	
+	/**
+	 * all marker will be associated with this resource
+	 * @param resource
+	 */
+	public void setResource(IResource resource) {
+		this.resource = resource;
+	}
+	
 
 	protected void createMarker(Issue issue) throws CoreException {
 		if (resource != null && resource.exists()) {
