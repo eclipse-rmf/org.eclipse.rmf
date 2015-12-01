@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.validation.model.ConstraintStatus;
+import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -19,6 +20,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
@@ -31,6 +33,7 @@ public class ValidationResultDialog extends TitleAreaDialog {
 
 	public ValidationResultDialog(Shell parentShell) {
 		super((Shell)null);
+		setHelpAvailable(false);
 	}
 
 
@@ -149,4 +152,12 @@ public class ValidationResultDialog extends TitleAreaDialog {
 		this.targetViewer = viewer;
 	}
 
+	protected Button createButton(Composite parent, int id, String label,
+			boolean defaultButton) {
+		if (id == IDialogConstants.CANCEL_ID){
+			return null;
+		}
+		return super.createButton(parent, id, label, defaultButton);
+		
+	}
 }
