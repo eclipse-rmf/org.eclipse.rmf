@@ -26,6 +26,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.constraints.ui.Decorator;
 import org.eclipse.rmf.reqif10.constraints.validator.Issue;
 import org.eclipse.rmf.reqif10.constraints.validator.ReqIFValidator;
 import org.eclipse.rmf.reqif10.constraints.validator.ValidationResult;
@@ -35,7 +36,9 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
+import org.eclipse.ui.IDecoratorManager;
 import org.eclipse.ui.IObjectActionDelegate;
+import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
@@ -46,7 +49,7 @@ public class ValidateReqIF implements IObjectActionDelegate {
 	private ISelection selection;
 	private IResource resource;
 
-	private final static String markerType = "org.eclipse.rmf.reqif10.constraints.ui.reqIFValidation";
+	public final static String MARKER_TYPE = "org.eclipse.rmf.reqif10.constraints.ui.reqIFValidation";
 	private ValidationResult validationResult;
 	private List<Issue> issues;
 
@@ -228,12 +231,21 @@ public class ValidateReqIF implements IObjectActionDelegate {
 		validationResult.setIssues(issues);
 		validationResult.setToolId(reqIFValidator.getVersionString());
 
-		resource.deleteMarkers(markerType, true, IResource.DEPTH_ZERO);
+		resource.deleteMarkers(MARKER_TYPE, true, IResource.DEPTH_ZERO);
 
 		for (Issue issue : issues) {
 			//System.out.println(issue);
 			createMarker(issue);
 		}
+		
+		Display.getDefault().asyncExec(new Runnable() {
+			public void run() {
+				IWorkbench workbench = PlatformUI.getWorkbench();
+				IDecoratorManager manager = workbench.getDecoratorManager();
+				manager.update(Decorator.DECORATOR_ID);
+			}
+		});
+		
 		return issues;
 	}
 	
@@ -250,7 +262,7 @@ public class ValidateReqIF implements IObjectActionDelegate {
 	protected void createMarker(Issue issue) throws CoreException {
 		if (resource != null && resource.exists()) {
 
-			IMarker marker = resource.createMarker(markerType);
+			IMarker marker = resource.createMarker(MARKER_TYPE);
 
 			switch (issue.getSeverity()) {
 			case ERROR:
