@@ -14,13 +14,14 @@ import java.util.ArrayList;
 import java.util.EventObject;
 import java.util.List;
 
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -30,6 +31,9 @@ import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.validation.model.EvaluationMode;
+import org.eclipse.emf.validation.service.IBatchValidator;
+import org.eclipse.emf.validation.service.ModelValidationService;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IContributionItem;
@@ -39,7 +43,6 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.action.ToolBarManager;
 import org.eclipse.jface.dialogs.IDialogConstants;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.TrayDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -51,6 +54,7 @@ import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerFilter;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.ProrAdapterFactoryContentProvider;
@@ -134,20 +138,34 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	@Override
 	protected void buttonPressed(int buttonId) {
 		if (buttonId == VALIDATE_ID) {
-			IStructuredSelection selection = (IStructuredSelection) viewer
-					.getSelection();
-			if (selection.getFirstElement() instanceof EObject) {
-				EObject element = (EObject) selection.getFirstElement();
-				// TODO this is not yet working...
-				Diagnostic diagnostic = Diagnostician.INSTANCE
-						.validate(element);
-				MessageDialog.openInformation(this.getShell(),
-						"Validation Report", diagnostic.getMessage());
-			}
+			validate();
 		} else {
 			super.buttonPressed(buttonId);
 		}
 	}
+	
+	
+	protected void validate(){
+		EList<EObject> objects = new BasicEList<EObject>(); 
+		if (input instanceof ReqIFContent) {
+			ReqIFContent content = (ReqIFContent) input;
+			objects.addAll(content.getSpecTypes());
+			objects.addAll(content.getDatatypes());
+		}else{
+			objects.add(input);
+		}
+		
+		IBatchValidator validator = ModelValidationService.getInstance().newValidator(EvaluationMode.BATCH);
+		
+		validator.setReportSuccesses(true);
+		IStatus status = validator.validate(objects);
+		
+		ValidationResultDialog dialog = new ValidationResultDialog(this.getParentShell());
+		dialog.setResults(status);
+		dialog.setTargetViewer(viewer);
+		dialog.open();
+	}
+	
 
 	@Override
 	protected Point getInitialSize() {
