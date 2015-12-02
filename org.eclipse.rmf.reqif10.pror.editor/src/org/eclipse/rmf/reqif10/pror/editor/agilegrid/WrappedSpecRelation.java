@@ -26,8 +26,8 @@ public class WrappedSpecRelation {
 	private SpecRelation specRelation;
 	private Boolean isSource;
 
-	public WrappedSpecRelation(SpecRelation speRelation, boolean source){
-		this.specRelation = speRelation;
+	public WrappedSpecRelation(SpecRelation specRelation, boolean source){
+		this.specRelation = specRelation;
 		this.isSource = source;
 	}
 	
