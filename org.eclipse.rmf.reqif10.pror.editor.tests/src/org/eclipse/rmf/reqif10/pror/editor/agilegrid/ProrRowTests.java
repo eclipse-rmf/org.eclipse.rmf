@@ -14,7 +14,6 @@ package org.eclipse.rmf.reqif10.pror.editor.agilegrid;
 import static org.junit.Assert.assertSame;
 
 import org.eclipse.rmf.reqif10.SpecRelation;
-import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow;
 import org.junit.Test;
 
 /**
@@ -43,8 +42,8 @@ public class ProrRowTests extends AbstractContentProviderTests {
 	@Test
 	public void testCreateProrRowSpecRelation() {
 		SpecRelation specRelation = reqif.getCoreContent().getSpecRelations().get(0);
-		ProrRow prorRow = ProrRow.createProrRow(specRelation, 0, 0);
-
+		ProrRow prorRow = ProrRow.createProrRow(new WrappedSpecRelation(specRelation, true), 0, 0);
+		
 		assertSame(specRelation, prorRow.getSpecElement());
 	}
 

@@ -22,7 +22,6 @@ import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationFactory;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
-import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridContentProvider;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrRow.ProrRowSpecHierarchy;
 import org.junit.Test;
 
@@ -166,9 +165,9 @@ public class ContentProviderBasicTests extends AbstractContentProviderTests {
 
 		SpecRelation[] sr = createSpecRelations();
 
-		assertEquals(sr[0], contentProvider.getContentAt(1, 3));
-		assertEquals(sr[1], contentProvider.getContentAt(3, 3));
-		assertEquals(sr[2], contentProvider.getContentAt(4, 3));
+		assertEquals(sr[0], ((WrappedSpecRelation)contentProvider.getContentAt(1, 3)).getSpecRelation());
+		assertEquals(sr[1], ((WrappedSpecRelation)contentProvider.getContentAt(3, 3)).getSpecRelation());
+		assertEquals(sr[2], ((WrappedSpecRelation)contentProvider.getContentAt(4, 3)).getSpecRelation());
 	}
 
 	@Test

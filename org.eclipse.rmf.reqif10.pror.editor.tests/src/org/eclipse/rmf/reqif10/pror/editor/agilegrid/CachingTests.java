@@ -242,7 +242,7 @@ public class CachingTests extends AbstractContentProviderTests {
 
 		assertEquals(specH3.getObject(), contentProvider.getContentAt(3, 0));
 		contentProvider.setShowSpecRelations(true);
-		assertEquals(specRelation, contentProvider.getContentAt(3, 0));
+		assertEquals(specRelation, ((WrappedSpecRelation)contentProvider.getContentAt(3, 0)).getSpecRelation());
 	}
 
 	private ReqIF createReqIF(int numRows) {
