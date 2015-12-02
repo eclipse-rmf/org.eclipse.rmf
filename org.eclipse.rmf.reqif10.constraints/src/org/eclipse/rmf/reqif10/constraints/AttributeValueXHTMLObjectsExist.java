@@ -17,6 +17,7 @@ import java.util.List;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
@@ -68,13 +69,19 @@ public class AttributeValueXHTMLObjectsExist extends ReqIFModelConstraint {
 			}
 
 			URI baseUri = ((AttributeValueXHTML) target).eResource().getURI();
+			System.out.println("baseURI: " + baseUri);
 
 			for (String objectPath : dataObjects) {
 				URI objectUri = URI.createURI(objectPath);
 				URI resolvedUri = objectUri.resolve(baseUri);
+				System.out.println("resolvedUri: " + resolvedUri);
 
 				if (resolvedUri.isFile()) {
 					if (!new File(resolvedUri.toFileString()).exists()) {
+						missingObjects.add(objectPath);
+					}
+				} else if (resolvedUri.isPlatform()) {
+					if (!URIConverter.INSTANCE.exists(resolvedUri, null)) {
 						missingObjects.add(objectPath);
 					}
 				} else {

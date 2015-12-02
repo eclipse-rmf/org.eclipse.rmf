@@ -72,7 +72,7 @@ public class AttributeValueXHTMLObjectsIsNotFile extends ReqIFModelConstraint {
 				URI objectUri = URI.createURI(objectPath);
 				URI resolvedUri = objectUri.resolve(baseUri);
 
-				if (!resolvedUri.isFile()) {
+				if (!resolvedUri.isFile() && !resolvedUri.isPlatform()) {
 					nonFileReferences.add(objectPath);
 				}
 
