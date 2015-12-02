@@ -236,9 +236,14 @@ public class ReqifMainForm {
 		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 
 		toolkit.createLabel(client, getString("_UI_ReqifForm_ReqIfToolId") + ": ");
-		text = toolkit.createText(client, header.getReqIFToolId(), SWT.BORDER);
-		text.setEnabled(false);
-		text.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
+		final Text toolText = toolkit.createText(client, header.getReqIFToolId(), SWT.BORDER);
+		toolText.setEnabled(false);
+		toolText.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
+		header.eAdapters().add(new AdapterImpl(){
+			public void notifyChanged(Notification notification) {
+				toolText.setText(header.getReqIFToolId());
+			}
+		});
 
 		toolkit.createLabel(client, getString("_UI_ReqifForm_ReqIfVersion") + ": ");
 		text = toolkit.createText(client, header.getReqIFVersion(), SWT.BORDER);
