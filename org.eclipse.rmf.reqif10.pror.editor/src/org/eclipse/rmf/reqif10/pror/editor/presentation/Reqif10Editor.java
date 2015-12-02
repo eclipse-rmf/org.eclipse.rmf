@@ -162,6 +162,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		IReqifEditor, IMenuListener,
 		IViewerProvider, IGotoMarker {
 
+	
 	/**
 	 * Debugging shows the complete tree in the outline.
 	 */
@@ -313,6 +314,14 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 	 * @generated
 	 */
 	protected MarkerHelper markerHelper = new EditUIMarkerHelper();
+
+	/**
+	 * The ToolId to write into the reqifheader during save
+	 * 
+	 * @generated NOT
+	 */
+	public final static String RMF_TOOL_ID = "ProR (http://pror.org)";
+	
 
 	/**
 	 * This listens for when the outline becomes active <!-- begin-user-doc -->
@@ -1469,7 +1478,9 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		ISelection currentSelection = getSite().getSelectionProvider().getSelection();
 		// Update ReqIF ID.
 		reqif.getTheHeader().setIdentifier("rmf-" + UUID.randomUUID().toString());
-
+		reqif.getTheHeader().setReqIFToolId(getToolID());
+		
+		
 		// Save only resources that have actually changed.
 		//
 		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
@@ -1905,4 +1916,11 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 			throw new RuntimeException(e);
 		}
 	}
+	
+	
+	public String getToolID() {
+		return RMF_TOOL_ID;
+	}
+
+
 }
