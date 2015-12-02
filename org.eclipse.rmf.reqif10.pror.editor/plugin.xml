@@ -111,7 +111,7 @@ Contributors:
          </action>
          <action
                class="org.eclipse.rmf.reqif10.pror.editor.actions.ToggleSpecRelationsActionDelegate"
-               icon="icons/full/obj16/SpecRelation.png"
+               icon="icons/full/obj16/SpecRelationButton.png"
                id="org.eclipse.rmf.reqif10.pror.editor.toggleSpecRelations"
                label="%_Action_Toggle_Links"
                menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
