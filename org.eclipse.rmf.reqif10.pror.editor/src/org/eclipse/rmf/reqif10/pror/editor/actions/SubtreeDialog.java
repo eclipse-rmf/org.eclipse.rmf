@@ -10,6 +10,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.actions;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.EventObject;
 import java.util.LinkedList;
@@ -19,9 +20,11 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -51,6 +54,12 @@ import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerFilter;
+import org.eclipse.rmf.reqif10.DatatypeDefinition;
+import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
+import org.eclipse.rmf.reqif10.EmbeddedValue;
+import org.eclipse.rmf.reqif10.EnumValue;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.constraints.validator.Issue;
@@ -105,6 +114,7 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	private final EditingDomain editingDomain;
 	private final IReqifEditor reqifEditor;
 	private CommandStackListener commandStackListener;
+	private EContentAdapter enumValueAdapter;
 
 	protected SubtreeDialog(IReqifEditor reqifEditor, EObject input, String title,
 			String helpContext) {
@@ -116,10 +126,97 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		this.title = title;
 		this.helpContext = helpContext;
 		setHelpAvailable(true);
+		
+		addEnumValueListener();
+		
 	}
 
+	private void addEnumValueListener() {
+			enumValueAdapter = new EContentAdapter() {
+				public void notifyChanged(Notification notification) {
+					super.notifyChanged(notification);
+					
+					if (! notification.isTouch() 
+							&& notification.getNotifier() instanceof DatatypeDefinitionEnumeration
+							&& notification.getEventType() == Notification.ADD
+							&& notification.getFeatureID(DatatypeDefinitionEnumeration.class) == ReqIF10Package.DATATYPE_DEFINITION_ENUMERATION__SPECIFIED_VALUES
+							&& notification.getNewValue() instanceof EnumValue
+							){
+						EnumValue enumValue = (EnumValue) notification.getNewValue();
+						EmbeddedValue properties = getOrCreateProperties(enumValue);
+						initializeProperties(properties);
+						
+						if (properties.getKey() == null){
+							properties.setKey(BigInteger.ONE);
+						}
+						if (properties.getOtherContent() == null || "".equals(properties.getOtherContent())){
+							properties.setOtherContent("foo");
+						}
+					}
+				}
+			};
+			
+			input.eAdapters().add(enumValueAdapter);
+	}
+
+	
 	void addFilter(ViewerFilter filter) {
 		filters.add(filter);
+	}
+	
+	/**
+	 * Get or create an {@link EnumValue}s embeddedProperties
+	 * 
+	 * If enumValue does have an embeddedValue set, it is returned Otherwise a
+	 * new {@link EmbeddedValue} is created, set as the enumValues Properties
+	 * and the returned
+	 * 
+	 * @param enumValue
+	 * @return
+	 */
+	private EmbeddedValue getOrCreateProperties(EnumValue enumValue) {
+		EmbeddedValue properties = enumValue.getProperties();
+		if (null != properties){
+			return properties;
+		}
+		properties = ReqIF10Factory.eINSTANCE.createEmbeddedValue();
+		enumValue.setProperties(properties);
+		return properties;
+	}
+	
+	
+	/**
+	 * If embeddedValue does not have key and otherContent set:
+	 * 
+	 * Scan all {@link EmbeddedValue}s in the reqif document and find the highest key
+	 * Set key of embeddedValue to highest key + 1
+	 * Set OtherContent of embeddedValue to the String representaion of its key 
+	 * 
+	 * @param embeddedValue 
+	 */
+	private void initializeProperties(EmbeddedValue embeddedValue){
+		BigInteger max = BigInteger.valueOf(0);
+		
+		ReqIFContent content = (ReqIFContent) input;
+		EList<DatatypeDefinition> datatypes = content.getDatatypes();
+		for (DatatypeDefinition datatypeDefinition : datatypes) {
+			if (datatypeDefinition instanceof DatatypeDefinitionEnumeration) {
+				DatatypeDefinitionEnumeration ddEnum = (DatatypeDefinitionEnumeration) datatypeDefinition;
+				for (EnumValue enumValue : ddEnum.getSpecifiedValues()) {
+					EmbeddedValue properties = enumValue.getProperties();
+					if (properties!=null){
+						BigInteger key = properties.getKey();
+						if (key!=null){
+							max = max.max(key);
+						}
+					}
+				}
+				
+			}
+		}
+		
+		embeddedValue.setKey(max.add(BigInteger.ONE));
+		embeddedValue.setOtherContent(max.add(BigInteger.ONE).toString());
 	}
 
 	/**
@@ -395,6 +492,9 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		if (commandStackListener != null) {
 			editingDomain.getCommandStack().removeCommandStackListener(commandStackListener);
 		}
+		
+		input.eAdapters().remove(enumValueAdapter);
+		
 		return super.close();
 	}
 
