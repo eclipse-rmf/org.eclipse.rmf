@@ -108,6 +108,7 @@ import org.eclipse.rmf.reqif10.constraints.ui.popup.actions.ValidateReqIF;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
+import org.eclipse.rmf.reqif10.pror.editor.preferences.PreferenceConstants;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertySheetPage;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
@@ -167,7 +168,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 	 * Debugging shows the complete tree in the outline.
 	 */
 	private boolean DEBUG = false;
-
+	
 	/**
 	 * This keeps track of the editing domain that is used to track all changes
 	 * to the model. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -544,6 +545,8 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 			}
 		}
 	};
+
+	
 
 	/**
 	 * Handles activation of the editor or it's associated views. <!--
@@ -1466,6 +1469,24 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 				.isSaveNeeded();
 	}
 
+	
+	
+	/**
+	 * Get if the Editor should trigger validation on save
+	 * @param validateOnSave
+	 * 
+	 * @generated NOT
+	 */
+	public boolean getValidateOnSave(){
+		return 
+		Reqif10EditorPlugin
+		.getPlugin()
+		.getPreferenceStore()
+		.getBoolean(
+				PreferenceConstants.P_VALIDATE_ON_SAVE);
+	}
+	
+	
 	/**
 	 * This is for implementing {@link IEditorPart} and simply saves the model
 	 * file. <!-- begin-user-doc --> Upon each save, the ReqIF ID is updated.
@@ -1513,18 +1534,21 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 								savedResources.add(resource);
 							}
 							monitor.worked(1);
-							monitor.setTaskName("Validating ReqIF...");
 							
-							ValidateReqIF validate = new ValidateReqIF();
-							URI eUri = reqif.eResource().getURI();
-							IResource file = null;
-							if (eUri.isPlatformResource()) {
-								String platformString = eUri.toPlatformString(true);
-								file = ResourcesPlugin.getWorkspace().getRoot().findMember(platformString);
-
-								validate.setResource(file);
+							if (getValidateOnSave()){
+								monitor.setTaskName("Validating ReqIF...");
+								
+								ValidateReqIF validate = new ValidateReqIF();
+								URI eUri = reqif.eResource().getURI();
+								IResource file = null;
+								if (eUri.isPlatformResource()) {
+									String platformString = eUri.toPlatformString(true);
+									file = ResourcesPlugin.getWorkspace().getRoot().findMember(platformString);
+	
+									validate.setResource(file);
+								}
+								validate.validateReqIF(reqif);
 							}
-							validate.validateReqIF(reqif);
 						
 						} catch (Exception exception) {
 							resourceToDiagnosticMap

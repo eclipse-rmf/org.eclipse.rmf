@@ -29,6 +29,8 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	public void initializeDefaultPreferences() {
 		IPreferenceStore store = Reqif10EditorPlugin.getPlugin().getPreferenceStore();
 		store.setDefault(PreferenceConstants.P_STOP_IS_SIMPLIFIED_WARNING, false);
+		
+		store.setDefault(PreferenceConstants.P_VALIDATE_ON_SAVE, true);
 	}
 	
 }
