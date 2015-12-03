@@ -30,6 +30,9 @@
          name="ReqIF Validation Problem"
          point="org.eclipse.core.resources.markers">
       <super
+            type="org.eclipse.core.resources.marker">
+      </super>
+      <super
             type="org.eclipse.emf.ecore.diagnostic">
       </super>
       <persistent
@@ -38,6 +41,15 @@
       <attribute
             name="rule">
       </attribute>
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            class="org.eclipse.rmf.reqif10.constraints.ui.Decorator"
+            id="org.eclipse.rmf.reqif10.constraints.ui.decorator"
+            label="label"
+            state="true">
+      </decorator>
    </extension>
 
 </plugin>
