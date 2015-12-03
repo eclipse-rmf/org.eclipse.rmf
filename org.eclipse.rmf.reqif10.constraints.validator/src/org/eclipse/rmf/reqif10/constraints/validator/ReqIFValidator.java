@@ -12,7 +12,6 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
@@ -43,17 +42,29 @@ public class ReqIFValidator {
 
 	private static final String PLUGIN_ID = "org.eclipse.rmf.reqif10.constraints.validator";
 	
-	private ReqIF reqif;
 	private boolean schemaValidationDisabled = false;
 	private boolean diagnosticianDisabled = false;
 
-	public LinkedList<Issue> validate(ReqIF reqif) {
-		this.reqif = reqif;
+	private ReqIF reqif;
+
+	/**
+	 * Validate the given root recursively down
+	 * 
+	 * Ideally root should be a ReqIF in which case meaningful error markers can
+	 * be created Also the XML schema is only validated if root is a ReqIF
+	 * 
+	 * @param root
+	 * @return
+	 */
+	public List<Issue> validate(EObject root) {
+		this.reqif = null;
+		if (root instanceof ReqIF){
+			reqif = (ReqIF) root;
+		}
 		LinkedList<Issue> issues = new LinkedList<Issue>();
 		
 		// 1. run Schema Validation
-		
-		if (!schemaValidationDisabled){
+		if (!schemaValidationDisabled && null != reqif){
 			String filename = reqif.eResource().getURI().toFileString();
 			if (filename == null){
 				if (reqif.eResource().getURI().isPlatformResource()) {
@@ -74,12 +85,10 @@ public class ReqIFValidator {
 		// 2. run EMF Diagnostician
 		if (!diagnosticianDisabled){
 			Diagnostic diagnosticResults = ReqIFDiagnostician.INSTANCE
-					.validate(reqif);
+					.validate(root);
 	
 			for (Diagnostic childDiagnostic : diagnosticResults.getChildren()) {
 				Issue issue = diagnosticToIssue(childDiagnostic);
-	//			if (!isInToolExtension(issue.getTarget())) {
-	//			}
 				issue.setReqif(reqif);
 				issues.add(issue);
 			}
@@ -89,7 +98,7 @@ public class ReqIFValidator {
 		IBatchValidator validator = ModelValidationService.getInstance()
 				.newValidator(EvaluationMode.BATCH);
 		validator.setReportSuccesses(false);
-		IStatus validationResults = validator.validate(reqif);
+		IStatus validationResults = validator.validate(root);
 
 		IStatus[] children = validationResults.getChildren();
 		if (children.length == 0) {
@@ -225,29 +234,6 @@ public class ReqIFValidator {
 		}
 
 		return null;
-	}
-
-	public static boolean isInToolExtension(Object object) {
-
-//		 if (! (object instanceof EObject)){
-//		 return false;
-//		 }
-//		
-//		 EObject target = (EObject) object;
-//		
-//		 if (target instanceof ProrToolExtension){
-//		 return true;
-//		 }
-//		
-//		 while (target.eContainer() != null){
-//		 EObject container = target.eContainer();
-//		 if (container instanceof ProrToolExtension){
-//		 return true;
-//		 }
-//		 target = container;
-//		 }
-
-		return false;
 	}
 
 	
