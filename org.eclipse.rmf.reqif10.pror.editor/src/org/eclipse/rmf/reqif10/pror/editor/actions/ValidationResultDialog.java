@@ -1,11 +1,7 @@
 package org.eclipse.rmf.reqif10.pror.editor.actions;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
@@ -17,6 +13,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.rmf.reqif10.constraints.validator.Issue;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -28,7 +25,7 @@ import org.eclipse.swt.widgets.Shell;
 public class ValidationResultDialog extends TitleAreaDialog {
 
 	private ListViewer list;
-	private IStatus result;
+	private List<Issue> issues;
 	private TreeViewer targetViewer;
 
 	public ValidationResultDialog(Shell parentShell) {
@@ -41,11 +38,11 @@ public class ValidationResultDialog extends TitleAreaDialog {
 	public void create() {
 		super.create();
 		setTitle("Validation Results");
-		if (result.isOK()){
-			setMessage(result.getMessage(), IMessageProvider.INFORMATION );
+		if (issues.isEmpty()){
+			setMessage("All constraints passed.", IMessageProvider.INFORMATION );
 		}else{
-			String message = result.getMessage();
-			if (result.isMultiStatus() && getStatus().length>1){
+			String message = "At least one error condition was found in the model.";
+			if (issues.size()>1){
 				message += System.lineSeparator() + " Click a message below to select the affected element.";
 			}
 			setMessage(message,  IMessageProvider.ERROR);
@@ -75,8 +72,10 @@ public class ValidationResultDialog extends TitleAreaDialog {
 			}
 
 			public Object[] getElements(Object inputElement) {
-				return getStatus();
-				
+				if (issues.isEmpty()){
+					return new Object[]{"All constraints passed"};
+				}
+				return issues.toArray();
 			}
 		});
 		
@@ -84,15 +83,14 @@ public class ValidationResultDialog extends TitleAreaDialog {
 
 			@Override
 			public String getText(Object element) {
-				if (element instanceof IStatus) {
-					IStatus status = (IStatus) element;
-					return status.getMessage();
+				if (element instanceof Issue) {
+					return ((Issue) element).getMessage();
 				}
-				return null;
+				return element.toString();
 			}
 		});
 		
-		list.setInput(result);
+		list.setInput(issues);
 		list.setSelection(StructuredSelection.EMPTY);
 		
 		list.addSelectionChangedListener(new ISelectionChangedListener() {
@@ -104,8 +102,8 @@ public class ValidationResultDialog extends TitleAreaDialog {
 				if (list.getSelection() instanceof StructuredSelection) {
 					StructuredSelection selection = (StructuredSelection) list.getSelection();
 					Object element = selection.getFirstElement();
-					if (element instanceof ConstraintStatus) {
-						EObject target = ((ConstraintStatus) element).getTarget();
+					if (element instanceof Issue) {
+						Object target = ((Issue) element).getTarget();
 						targetViewer.setSelection(new StructuredSelection(target));
 					}
 				}
@@ -124,28 +122,8 @@ public class ValidationResultDialog extends TitleAreaDialog {
 	}
 	
 	
-	// return all status that are not OK
-	private Object[] getStatus() {
-		if (!result.isMultiStatus()){
-			return new IStatus[]{result};
-		}
-		
-		List<IStatus> list = new ArrayList<IStatus>(result.getChildren().length);
-		for (IStatus childStatus : result.getChildren()) {
-			if (!childStatus.isOK()){
-				list.add(childStatus);
-			}
-		}
-		
-		if (list.isEmpty()){
-			list.add(result);
-		}
-		
-		return list.toArray();
-	}
-
-	public void setResults(IStatus status) {
-		this.result = status;
+	public void setIssues(List<Issue> issues) {
+		this.issues = issues;
 	}
 
 	public void setTargetViewer(TreeViewer viewer) {
@@ -160,4 +138,7 @@ public class ValidationResultDialog extends TitleAreaDialog {
 		return super.createButton(parent, id, label, defaultButton);
 		
 	}
+
+
+	
 }

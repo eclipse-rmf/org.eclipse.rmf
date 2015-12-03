@@ -12,9 +12,9 @@ package org.eclipse.rmf.reqif10.pror.editor.actions;
 
 import java.util.ArrayList;
 import java.util.EventObject;
+import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
@@ -31,9 +31,6 @@ import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.validation.model.EvaluationMode;
-import org.eclipse.emf.validation.service.IBatchValidator;
-import org.eclipse.emf.validation.service.ModelValidationService;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IContributionItem;
@@ -56,6 +53,8 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.constraints.validator.Issue;
+import org.eclipse.rmf.reqif10.constraints.validator.ReqIFValidator;
 import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.ProrAdapterFactoryContentProvider;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertySheetPage;
@@ -155,18 +154,20 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 			objects.add(input);
 		}
 		
-		IBatchValidator validator = ModelValidationService.getInstance().newValidator(EvaluationMode.BATCH);
+		ReqIFValidator validator = new ReqIFValidator();
+		validator.disableSchemaValidation();
 		
-		validator.setReportSuccesses(true);
-		IStatus status = validator.validate(objects);
+		List<Issue> issues = new LinkedList<Issue>();
+		for (EObject eObject : objects) {
+			issues.addAll(validator.validate(eObject));
+		}
 		
 		ValidationResultDialog dialog = new ValidationResultDialog(this.getParentShell());
-		dialog.setResults(status);
+		dialog.setIssues(issues);
 		dialog.setTargetViewer(viewer);
 		dialog.open();
 	}
 	
-
 	@Override
 	protected Point getInitialSize() {
 		return new Point(500, 600);
