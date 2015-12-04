@@ -17,6 +17,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
@@ -97,7 +98,7 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 								config.getSpecification(),
 								editor.getAdapterFactory()),
 				"org.eclipse.rmf.reqif10.pror.editor.columnConfiguration");
-		dialog.setActions(new IAction[] { buildAddColumnAction(config), buildUnifiedColumnAction(config) }, false);
+		dialog.setActions(new IAction[] { buildAddColumnAction(config), buildUnifiedColumnAction(config), buildRebuildColumnsAction(config) }, false);
 		dialog.open();
 		return;
 	}
@@ -142,6 +143,53 @@ public class ColumnConfigurationActionDelegate implements IEditorActionDelegate 
 		}
 		return false;
 	}
+	
+	
+	/**
+	 * Removes all Columns and adds new ones by analysing the SpecObjectTypes referenced by the Specification 
+	 */
+	private IAction buildRebuildColumnsAction(final ProrSpecViewConfiguration config) {
+		IAction addColumnAction = new Action("Auto add Columns") {
+			@Override
+			public void run() {
+				
+				EList<Column> AutoColumns = ConfigurationUtil
+						.createColumns(config.getSpecification());
+				
+				// we need a fresh Object for the undo to work properly
+				EList<Column> existingColumns = new BasicEList<Column>(); 
+				existingColumns.addAll(config.getColumns());
+				
+				for (Column column : AutoColumns) {
+					boolean columnExisted = false;
+					for (Column existingColumn : existingColumns) {
+						if (column.getLabel().equals(existingColumn.getLabel())){
+							columnExisted = true;
+							break;
+						}
+					}
+					if (!columnExisted){
+						existingColumns.add(column);
+					}
+				}
+				
+				Command command = SetCommand
+						.create(editor.getEditingDomain(),
+								config,
+								ConfigurationPackage.Literals.PROR_SPEC_VIEW_CONFIGURATION__COLUMNS,
+								existingColumns);
+				editor.getEditingDomain().getCommandStack().execute(command);
+
+			}
+		};
+
+		ImageDescriptor imgDescriptor = AbstractUIPlugin
+				.imageDescriptorFromPlugin("org.eclipse.rmf.reqif10.pror.editor.editor",
+						"icons/full/obj16/AddColumn.png");
+		addColumnAction.setImageDescriptor(imgDescriptor);
+		return addColumnAction;
+	}
+	
 	
 	/**
 	 * Creates a new Column. If no Columns are present, this is the only way to
