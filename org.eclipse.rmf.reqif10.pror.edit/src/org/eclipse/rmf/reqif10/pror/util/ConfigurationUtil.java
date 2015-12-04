@@ -19,6 +19,7 @@ import java.util.Set;
 
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -275,6 +276,7 @@ public class ConfigurationUtil {
 		return labelConfig.getDefaultLabel();
 	}
 
+	
 	/**
 	 * Retrieves the {@link ProrSpecViewConfiguration} for the given
 	 * {@link Specification}. If none exists, it is built. The builder collects
@@ -297,9 +299,32 @@ public class ConfigurationUtil {
 		ProrSpecViewConfiguration specViewConfig = ConfigurationFactory.eINSTANCE
 				.createProrSpecViewConfiguration();
 		specViewConfig.setSpecification(specification);
-
-		// Collect all Types
 		
+		EList<Column> columns = createColumns(specViewConfig.getSpecification());
+		specViewConfig.getColumns().clear();
+		specViewConfig.getColumns().addAll(columns);
+
+		
+		domain.getCommandStack()
+				.execute(
+						AddCommand
+								.create(domain,
+										extension,
+										ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS,
+										specViewConfig));
+
+		return specViewConfig;
+
+	}
+
+	/**
+	 * Analyses the SpecObjects of the first 50 SpecHierarchies in the
+	 * {@link Specification} specification and creates a column for each
+	 * AttributeDefinition that is used by the scanned SpecObjects.
+	 **/
+	public static EList<Column> createColumns(Specification specification) {
+		
+		// Collect all Types
 		final List<SpecType> types = new ArrayList<SpecType>();
 		ReqIF10Switch<SpecHierarchy> visitor = new ReqIF10Switch<SpecHierarchy>() {
 			@Override
@@ -337,6 +362,7 @@ public class ConfigurationUtil {
 		
 
 		// Build all Columns from the names
+		EList<Column> columns = new BasicEList<Column>();
 		boolean unifiedColumn = false;
 		for (String colName : colNames) {
 			Column column = ConfigurationFactory.eINSTANCE.createColumn();
@@ -351,18 +377,12 @@ public class ConfigurationUtil {
 			
 			column.setWidth(100);
 			column.setLabel(colName);
-			specViewConfig.getColumns().add(column);
+			
+			
+			columns.add(column);
+			//specViewConfig.getColumns().add(column);
 		}
-		domain.getCommandStack()
-				.execute(
-						AddCommand
-								.create(domain,
-										extension,
-										ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS,
-										specViewConfig));
-
-		return specViewConfig;
-
+		return columns;
 	}
 
 	public static ProrPresentationConfiguration getPresentationConfig(
