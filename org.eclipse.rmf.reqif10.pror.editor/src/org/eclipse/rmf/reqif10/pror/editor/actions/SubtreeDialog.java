@@ -267,7 +267,7 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	
 	@Override
 	protected Point getInitialSize() {
-		return new Point(500, 600);
+		return new Point(600, 600);
 	}
 
 	@Override
@@ -439,7 +439,7 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		for (IAction action : actions) {
 			toolbarManager.add(action);
 		}
-
+		
 		toolbarManager.update(true);
 		return toolbar;
 	}
