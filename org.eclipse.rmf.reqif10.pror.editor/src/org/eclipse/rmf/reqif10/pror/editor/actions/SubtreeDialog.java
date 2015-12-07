@@ -434,7 +434,7 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	}
 
 	private ToolBar buildRowToolbar(Composite composite) {
-		ToolBar toolbar = new ToolBar(composite, SWT.PUSH);
+		ToolBar toolbar = new ToolBar(composite, SWT.PUSH | SWT.WRAP);
 		ToolBarManager toolbarManager = new ToolBarManager(toolbar);
 		for (IAction action : actions) {
 			toolbarManager.add(action);
