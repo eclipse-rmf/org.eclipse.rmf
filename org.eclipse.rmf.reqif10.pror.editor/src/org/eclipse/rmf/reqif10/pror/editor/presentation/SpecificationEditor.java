@@ -42,6 +42,7 @@ import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
+import org.eclipse.rmf.reqif10.pror.editor.actions.ShiftLevelCommand;
 import org.eclipse.rmf.reqif10.pror.editor.actions.SpecificationWebPrintAction;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGrid;
 import org.eclipse.rmf.reqif10.pror.editor.agilegrid.ProrAgileGridViewer;
@@ -181,9 +182,12 @@ public class SpecificationEditor extends EditorPart implements
 						Command mostRecentCommand = ((CommandStack) event
 								.getSource()).getMostRecentCommand();
 						if (mostRecentCommand != null) {
-							Collection<?> affectedObjects = mostRecentCommand
-									.getAffectedObjects();
-							setSelectionToViewer(affectedObjects);
+							if(! (mostRecentCommand instanceof ShiftLevelCommand)){
+								// We do not want to set the selection to the
+								// affected Objects after a Shifting as this
+								// might be the container of the shifted element
+								setSelectionToViewer(mostRecentCommand.getAffectedObjects());
+							}
 						}
 					}
 				});
@@ -276,7 +280,7 @@ public class SpecificationEditor extends EditorPart implements
 					for (Iterator<?> i = ((IStructuredSelection) selection)
 							.iterator(); i.hasNext();) {
 						Object item = i.next();
-						if (item instanceof SpecHierarchy) {
+						if (item instanceof SpecHierarchy) {						
 							prorAgileGridViewer.setSelection(selection);
 							((ProrAgileGrid) prorAgileGridViewer.getControl())
 									.scrollToFocus();

@@ -67,7 +67,7 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 		int indexOf = parent.getChildren().indexOf(specHierarchy);
 	
 		List<SpecHierarchy> followers = parent.getChildren().subList(indexOf+1, parent.getChildren().size());
-		CompoundCommand cmd = new CompoundCommand("Shifting Up " );
+		CompoundCommand cmd = new ShiftLevelCommand("Shifting Up " );
 		EditingDomain ed = specificationEditor.getEditingDomain();
 		
 		for(SpecHierarchy follower: followers) {

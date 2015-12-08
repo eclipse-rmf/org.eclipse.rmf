@@ -18,6 +18,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
@@ -63,22 +64,22 @@ public class ShiftLevelDownActionDelegate implements IEditorActionDelegate,
 		EObject eContainer = specHierarchy.eContainer();
 		if (eContainer instanceof SpecHierarchy) {
 			
-		SpecHierarchy parent = (SpecHierarchy) eContainer;
-		int indexOf = parent.getChildren().indexOf(specHierarchy);
-		if (indexOf < 1)
-			return;
-		SpecHierarchy previous = parent.getChildren().get(indexOf - 1);
-
-		EditingDomain ed = specificationEditor.getEditingDomain();
-
-		CompoundCommand cmd = new CompoundCommand("Shifting Down ");
-		cmd.append(AddCommand 
-				.create(ed, previous,
-						ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN,
-						specHierarchy));
-
-		
-		ed.getCommandStack().execute(cmd);
+			SpecHierarchy parent = (SpecHierarchy) eContainer;
+			int indexOf = parent.getChildren().indexOf(specHierarchy);
+			if (indexOf < 1)
+				return;
+			final SpecHierarchy previous = parent.getChildren().get(indexOf - 1);
+	
+			EditingDomain ed = specificationEditor.getEditingDomain();
+	
+			CompoundCommand cmd = new ShiftLevelCommand("Shifting Down ");
+			cmd.append(AddCommand 
+					.create(ed, previous,
+							ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN,
+							specHierarchy));
+	
+			
+			ed.getCommandStack().execute(cmd);
 		} else if (eContainer instanceof Specification) {
 			Specification parent = (Specification) eContainer;
 			int indexOf = parent.getChildren().indexOf(specHierarchy);
@@ -88,7 +89,7 @@ public class ShiftLevelDownActionDelegate implements IEditorActionDelegate,
 			System.out.println(previous);
 			EditingDomain ed = specificationEditor.getEditingDomain();
 
-			CompoundCommand cmd = new CompoundCommand("Shifting Down ");
+			CompoundCommand cmd = new ShiftLevelCommand("Shifting Down ");
 			cmd.append(AddCommand 
 					.create(ed, previous,
 							ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN,
@@ -110,6 +111,7 @@ public class ShiftLevelDownActionDelegate implements IEditorActionDelegate,
 	public void selectionChanged(IAction action, ISelection selection) {
 		if (selection instanceof IStructuredSelection) {
 			this.selection = (IStructuredSelection) selection;
+			System.out.println("new Selection " + ((StructuredSelection)selection).size() + selection);
 		}
 	}
 
@@ -141,5 +143,7 @@ public class ShiftLevelDownActionDelegate implements IEditorActionDelegate,
 	public void setActiveEditor(IAction action, IEditorPart targetEditor) {
 		this.editor = targetEditor;
 	}
-
+	
 }
+
+

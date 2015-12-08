@@ -108,6 +108,7 @@ import org.eclipse.rmf.reqif10.constraints.ui.popup.actions.ValidateReqIF;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
+import org.eclipse.rmf.reqif10.pror.editor.actions.ShiftLevelCommand;
 import org.eclipse.rmf.reqif10.pror.editor.preferences.PreferenceConstants;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertySheetPage;
@@ -758,8 +759,12 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 						Command mostRecentCommand = ((CommandStack) event
 								.getSource()).getMostRecentCommand();
 						if (mostRecentCommand != null) {
-							setSelectionToViewer(mostRecentCommand
-									.getAffectedObjects());
+							if (! (mostRecentCommand instanceof ShiftLevelCommand)){
+								// We do not want to set the selection to the
+								// affected Objects after a Shifting as this
+								// might be the container of the shifted element
+								setSelectionToViewer(mostRecentCommand.getAffectedObjects());
+							}
 						}
 					}
 				});
