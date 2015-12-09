@@ -79,7 +79,7 @@ public interface ProrToolExtension extends EObject {
 	 * @see #unsetGeneralConfiguration()
 	 * @see #setGeneralConfiguration(ProrGeneralConfiguration)
 	 * @see org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage#getProrToolExtension_GeneralConfiguration()
-	 * @model containment="true" unsettable="true" required="true"
+	 * @model containment="true" unsettable="true"
 	 *        extendedMetaData="name='generalConfiguration' kind='element' namespace='##targetNamespace'"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='generalConfiguration' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
@@ -134,7 +134,7 @@ public interface ProrToolExtension extends EObject {
 	 * @see #unsetPresentationConfigurations()
 	 * @see #setPresentationConfigurations(ProrPresentationConfigurations)
 	 * @see org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage#getProrToolExtension_PresentationConfigurations()
-	 * @model containment="true" unsettable="true" required="true"
+	 * @model containment="true" unsettable="true"
 	 *        extendedMetaData="name='presentationConfigurations' kind='element' namespace='##targetNamespace'"
 	 *        annotation="http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData wrapperName='presentationConfigurations' featureWrapperElement='true' featureElement='false' classifierWrapperElement='false' classifierElement='true'"
 	 * @generated
