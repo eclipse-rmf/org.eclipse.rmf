@@ -172,16 +172,17 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 		this.foreground = this.getDefaultForeground();
 		this.background = this.getDefaultBackground();
 
+		// initial color for current cell.
+		initialColor(row, col);
+		
 		if (agileGrid instanceof ProrAgileGrid) {
 			ProrAgileGrid grid = (ProrAgileGrid) agileGrid;
 			if (grid.dndHoverCell != null && row == grid.dndHoverCell.row
 					&& grid.dndHoverDropMode == ProrAgileGrid.DND_DROP_AS_CHILD) {
-				this.background = COLOR_BGROWSELECTION;
+				this.background = SWTResourceManager.getColor(SWT.COLOR_LIST_SELECTION);;
 			}
 		}
 
-		// initial color for current cell.
-		initialColor(row, col);
 
 		// Clear background.
 		clearCellContentRect(gc, rect);
