@@ -99,9 +99,9 @@ public class ProrDateCellEditor extends PopupCellEditor {
 		if (cal instanceof GregorianCalendar) {
 			GregorianCalendar calendar = ((GregorianCalendar) cal);
 			date.setDate(calendar.get(Calendar.YEAR),
-					calendar.get(Calendar.DAY_OF_MONTH), Calendar.DAY_OF_MONTH);
+					calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 			time.setTime(calendar.get(Calendar.HOUR),
-					calendar.get(Calendar.MINUTE), Calendar.SECOND);
+					calendar.get(Calendar.MINUTE), calendar.get(Calendar.SECOND));
 		}
 
 		return composite;
