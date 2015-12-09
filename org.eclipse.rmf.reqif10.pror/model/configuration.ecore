@@ -18,8 +18,8 @@
         <details key="classifierElement" value="true"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="generalConfiguration" lowerBound="1"
-        eType="#//ProrGeneralConfiguration" unsettable="true" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generalConfiguration" eType="#//ProrGeneralConfiguration"
+        unsettable="true" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="generalConfiguration"/>
         <details key="kind" value="element"/>
@@ -34,8 +34,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="presentationConfigurations"
-        lowerBound="1" eType="#//ProrPresentationConfigurations" unsettable="true"
-        containment="true">
+        eType="#//ProrPresentationConfigurations" unsettable="true" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="presentationConfigurations"/>
         <details key="kind" value="element"/>
