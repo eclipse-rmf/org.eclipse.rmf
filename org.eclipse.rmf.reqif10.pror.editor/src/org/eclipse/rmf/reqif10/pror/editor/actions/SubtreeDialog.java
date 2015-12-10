@@ -158,6 +158,9 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		input.eAdapters().add(enumAttributeDefinitionAdapter);
 	}
 
+	/**
+	 * Adapter to initialize the property of a newly created EnumValue
+	 */
 	private void addEnumValueListener() {
 			enumValueAdapter = new EContentAdapter() {
 				public void notifyChanged(Notification notification) {
@@ -172,13 +175,6 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 						EnumValue enumValue = (EnumValue) notification.getNewValue();
 						EmbeddedValue properties = getOrCreateProperties(enumValue);
 						initializeProperties(properties);
-						
-						if (properties.getKey() == null){
-							properties.setKey(BigInteger.ONE);
-						}
-						if (properties.getOtherContent() == null || "".equals(properties.getOtherContent())){
-							properties.setOtherContent("foo");
-						}
 					}
 				}
 
