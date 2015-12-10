@@ -54,6 +54,7 @@ import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerFilter;
+import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.EmbeddedValue;
@@ -61,6 +62,7 @@ import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
+import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.constraints.validator.Issue;
 import org.eclipse.rmf.reqif10.constraints.validator.ReqIFValidator;
@@ -115,6 +117,7 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	private final IReqifEditor reqifEditor;
 	private CommandStackListener commandStackListener;
 	private EContentAdapter enumValueAdapter;
+	private EContentAdapter enumAttributeDefinitionAdapter;
 
 	protected SubtreeDialog(IReqifEditor reqifEditor, EObject input, String title,
 			String helpContext) {
@@ -128,7 +131,31 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		setHelpAvailable(true);
 		
 		addEnumValueListener();
+		addAttributeDefinitionEnumerationListener();
 		
+	}
+
+	/**
+	 * Adapter to set the isMultiValue when an AttributeDefinition is created
+	 */
+	private void addAttributeDefinitionEnumerationListener() {
+		enumAttributeDefinitionAdapter = new EContentAdapter() {
+			public void notifyChanged(Notification notification) {
+				super.notifyChanged(notification);
+				if (! notification.isTouch() 
+						&& notification.getNotifier() instanceof SpecType
+						&& notification.getEventType() == Notification.ADD
+						&& notification.getFeatureID(DatatypeDefinitionEnumeration.class) == ReqIF10Package.SPEC_TYPE__SPEC_ATTRIBUTES
+						&& notification.getNewValue() instanceof AttributeDefinitionEnumeration
+						){
+					AttributeDefinitionEnumeration attributeDefinition = (AttributeDefinitionEnumeration) notification.getNewValue();
+					if (!attributeDefinition.isSetMultiValued()){
+						attributeDefinition.setMultiValued(false);
+					}
+				}
+			}
+		};		
+		input.eAdapters().add(enumAttributeDefinitionAdapter);
 	}
 
 	private void addEnumValueListener() {
@@ -154,6 +181,8 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 						}
 					}
 				}
+
+				
 			};
 			
 			input.eAdapters().add(enumValueAdapter);
@@ -218,6 +247,10 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		embeddedValue.setKey(max.add(BigInteger.ONE));
 		embeddedValue.setOtherContent(max.add(BigInteger.ONE).toString());
 	}
+	
+	
+	
+	
 
 	/**
 	 * We provide the default "Finish" button, instead of the default OK and
@@ -494,6 +527,7 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 		}
 		
 		input.eAdapters().remove(enumValueAdapter);
+		input.eAdapters().remove(enumAttributeDefinitionAdapter);
 		
 		return super.close();
 	}
