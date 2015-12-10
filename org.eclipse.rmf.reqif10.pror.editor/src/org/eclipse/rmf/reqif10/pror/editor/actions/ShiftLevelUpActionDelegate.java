@@ -11,8 +11,10 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.actions;
 
+import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -46,32 +48,51 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 	 * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
 	 */
 	public void run(IAction action) {
-		if (!(selection.getFirstElement() instanceof SpecHierarchy))
-			return;
-		SpecHierarchy specHierarchy = (SpecHierarchy) selection
-				.getFirstElement();
-		if (specHierarchy.getObject() == null)
-			return;
-	
 		if (!(editor instanceof ISpecificationEditor))
 			return;
 		ISpecificationEditor specificationEditor = (ISpecificationEditor) editor;
+		EditingDomain editingDomain = specificationEditor.getEditingDomain();
+		
+		for (Iterator it = selection.iterator(); it.hasNext(); ) {
+			Object next = it.next();
+			if (next instanceof SpecHierarchy) {
+				SpecHierarchy specHierarchy = (SpecHierarchy) next;
+				//if (specHierarchy.getObject() == null){
+				//	break;
+				//}
+				CompoundCommand cmd = new ShiftLevelCommand("Shifting Up " );
+				Command shiftCommand = createShiftCommand(specHierarchy, editingDomain);
+				if (shiftCommand != null){
+					cmd.append(shiftCommand);
+					editingDomain.getCommandStack().execute(cmd);
+				}
+			}
+		}
 
+	}
 	
+	
+	
+	/**
+	 * creates command to shift a single specHierarchy 
+	 * 
+	 * @param specHierarchy
+	 * @param editingDomain
+	 * @return
+	 */
+	private Command createShiftCommand(SpecHierarchy specHierarchy, EditingDomain editingDomain){
 		EObject eContainer = specHierarchy.eContainer();
 		if(!(eContainer instanceof SpecHierarchy))
-			return;
-		
+			return null;
 		SpecHierarchy parent = (SpecHierarchy) eContainer;
 	
 		int indexOf = parent.getChildren().indexOf(specHierarchy);
 	
-		List<SpecHierarchy> followers = parent.getChildren().subList(indexOf+1, parent.getChildren().size());
 		CompoundCommand cmd = new ShiftLevelCommand("Shifting Up " );
-		EditingDomain ed = specificationEditor.getEditingDomain();
 		
+		List<SpecHierarchy> followers = parent.getChildren().subList(indexOf+1, parent.getChildren().size());
 		for(SpecHierarchy follower: followers) {
-		cmd.append(AddCommand.create(ed, specHierarchy, ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN, follower));
+			cmd.append(AddCommand.create(editingDomain, specHierarchy, ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN, follower));
 		}
 		
 		EObject grandparent =  parent.eContainer();
@@ -79,22 +100,20 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 		if(grandparent instanceof SpecHierarchy) {
 			pIndexOf= ((SpecHierarchy)grandparent).getChildren().indexOf(parent);
 			cmd.append(AddCommand 
-					.create(ed, grandparent,
+					.create(editingDomain, grandparent,
 							ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN,
 							specHierarchy,pIndexOf+1));
 		}else if (grandparent instanceof Specification) {
 			pIndexOf= ((Specification)grandparent).getChildren().indexOf(parent);
 			cmd.append(AddCommand 
-					.create(ed, grandparent,
+					.create(editingDomain, grandparent,
 							ReqIF10Package.Literals.SPECIFICATION__CHILDREN,
 							specHierarchy,pIndexOf+1));
 		}
-
 		
-
-		ed.getCommandStack().execute(cmd);
-
+		return cmd;
 	}
+	
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction, org.eclipse.jface.viewers.ISelection)
