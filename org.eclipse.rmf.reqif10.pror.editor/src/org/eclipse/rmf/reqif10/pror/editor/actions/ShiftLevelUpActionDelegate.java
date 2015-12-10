@@ -53,7 +53,8 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 		ISpecificationEditor specificationEditor = (ISpecificationEditor) editor;
 		EditingDomain editingDomain = specificationEditor.getEditingDomain();
 		
-		for (Iterator it = selection.iterator(); it.hasNext(); ) {
+		for (@SuppressWarnings("rawtypes")
+		Iterator it = selection.iterator(); it.hasNext(); ) {
 			Object next = it.next();
 			if (next instanceof SpecHierarchy) {
 				SpecHierarchy specHierarchy = (SpecHierarchy) next;
