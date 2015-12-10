@@ -18,6 +18,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
@@ -100,12 +101,25 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 		int pIndexOf = 0;
 		if(grandparent instanceof SpecHierarchy) {
 			pIndexOf= ((SpecHierarchy)grandparent).getChildren().indexOf(parent);
+			
+			// we have to add an explicit remove command to make the shift undoable
+			cmd.append(RemoveCommand.create(editingDomain, parent,
+					ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN,
+					specHierarchy)
+			);
 			cmd.append(AddCommand 
 					.create(editingDomain, grandparent,
 							ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN,
 							specHierarchy,pIndexOf+1));
 		}else if (grandparent instanceof Specification) {
 			pIndexOf= ((Specification)grandparent).getChildren().indexOf(parent);
+			
+			// we have to add an explicit remove command to make the shift undoable
+			cmd.append(RemoveCommand.create(editingDomain, parent,
+					ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN,
+					specHierarchy)
+			);
+			
 			cmd.append(AddCommand 
 					.create(editingDomain, grandparent,
 							ReqIF10Package.Literals.SPECIFICATION__CHILDREN,

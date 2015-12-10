@@ -17,6 +17,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
@@ -86,7 +87,13 @@ public class ShiftLevelDownActionDelegate implements IEditorActionDelegate,
 			if (indexOf < 1)
 				return null;
 			final SpecHierarchy previous = parent.getChildren().get(indexOf - 1);
-	
+
+			// we have to add an explicit remove command to make the shift undoable
+			cmd.append(RemoveCommand.create(editingDomain, parent,
+					ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN,
+					specHierarchy)
+			);
+
 			cmd.append(AddCommand 
 					.create(editingDomain, previous,
 							ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN,
@@ -98,6 +105,12 @@ public class ShiftLevelDownActionDelegate implements IEditorActionDelegate,
 			if (indexOf < 1)
 				return null;
 			SpecHierarchy previous = parent.getChildren().get(indexOf - 1);
+			
+			// we have to add an explicit remove command to make the shift undoable
+			cmd.append(RemoveCommand.create(editingDomain, parent,
+					ReqIF10Package.Literals.SPECIFICATION__CHILDREN,
+					specHierarchy)
+			);
 			
 			cmd.append(AddCommand 
 					.create(editingDomain, previous,
