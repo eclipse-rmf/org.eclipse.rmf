@@ -11,6 +11,9 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.pror.editor.actions;
 
+import java.util.Iterator;
+
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -18,7 +21,6 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
@@ -47,59 +49,65 @@ public class ShiftLevelDownActionDelegate implements IEditorActionDelegate,
 	 * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
 	 */
 	public void run(IAction action) {
-		if (selection.size() != 1)
-			return;
-		if (!(selection.getFirstElement() instanceof SpecHierarchy))
-			return;
-		SpecHierarchy specHierarchy = (SpecHierarchy) selection
-				.getFirstElement();
-		if (specHierarchy.getObject() == null)
-			return;
 
 		if (!(editor instanceof ISpecificationEditor))
 			return;
 		ISpecificationEditor specificationEditor = (ISpecificationEditor) editor;
-
-
+		EditingDomain editingDomain = specificationEditor.getEditingDomain();
+		
+		for (Iterator it = selection.iterator(); it.hasNext(); ) {
+			Object next = it.next();
+			if (next instanceof SpecHierarchy) {
+				SpecHierarchy specHierarchy = (SpecHierarchy) next;
+				//if (specHierarchy.getObject() == null){
+				//	break;
+				//}
+				CompoundCommand cmd = new ShiftLevelCommand("Shifting Down " );
+				Command shiftCommand = createShiftCommand(specHierarchy, editingDomain);
+				if (shiftCommand != null){
+					cmd.append(shiftCommand);
+					editingDomain.getCommandStack().execute(cmd);
+				}
+			}
+		}
+		
+		
+	}
+	
+	
+	private Command createShiftCommand(SpecHierarchy specHierarchy, EditingDomain editingDomain){
+		ShiftLevelCommand cmd = new ShiftLevelCommand("Shifting Down ");
 		EObject eContainer = specHierarchy.eContainer();
 		if (eContainer instanceof SpecHierarchy) {
 			
 			SpecHierarchy parent = (SpecHierarchy) eContainer;
 			int indexOf = parent.getChildren().indexOf(specHierarchy);
 			if (indexOf < 1)
-				return;
+				return null;
 			final SpecHierarchy previous = parent.getChildren().get(indexOf - 1);
 	
-			EditingDomain ed = specificationEditor.getEditingDomain();
-	
-			CompoundCommand cmd = new ShiftLevelCommand("Shifting Down ");
 			cmd.append(AddCommand 
-					.create(ed, previous,
+					.create(editingDomain, previous,
 							ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN,
 							specHierarchy));
-	
 			
-			ed.getCommandStack().execute(cmd);
 		} else if (eContainer instanceof Specification) {
 			Specification parent = (Specification) eContainer;
 			int indexOf = parent.getChildren().indexOf(specHierarchy);
 			if (indexOf < 1)
-				return;
+				return null;
 			SpecHierarchy previous = parent.getChildren().get(indexOf - 1);
-			System.out.println(previous);
-			EditingDomain ed = specificationEditor.getEditingDomain();
-
-			CompoundCommand cmd = new ShiftLevelCommand("Shifting Down ");
+			
 			cmd.append(AddCommand 
-					.create(ed, previous,
+					.create(editingDomain, previous,
 							ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN,
 							specHierarchy));
-
 			
-			ed.getCommandStack().execute(cmd);
 		}
-
+		return cmd;
 	}
+	
+	
 
 	/*
 	 * (non-Javadoc)
@@ -111,7 +119,6 @@ public class ShiftLevelDownActionDelegate implements IEditorActionDelegate,
 	public void selectionChanged(IAction action, ISelection selection) {
 		if (selection instanceof IStructuredSelection) {
 			this.selection = (IStructuredSelection) selection;
-			System.out.println("new Selection " + ((StructuredSelection)selection).size() + selection);
 		}
 	}
 
