@@ -16,6 +16,8 @@ import java.util.EventObject;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
@@ -43,7 +45,7 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.action.ToolBarManager;
 import org.eclipse.jface.dialogs.IDialogConstants;
-import org.eclipse.jface.dialogs.TrayDialog;
+import org.eclipse.jface.dialogs.StatusDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -99,9 +101,9 @@ import org.eclipse.ui.PlatformUI;
  * the columns of a {@link Specification}).
  * 
  * @author jastram
- * 
+ * @author weigelt
  */
-public class SubtreeDialog extends TrayDialog implements IMenuListener {
+public class SubtreeDialog extends StatusDialog implements IMenuListener {
 
 	private static final int VALIDATE_ID = 99;
 	private final EObject input;
@@ -288,6 +290,8 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 			issues.addAll(validator.validate(eObject));
 		}
 		
+		updateStatus(new Status(IStatus.WARNING, "org.eclipse.rmf.reqif10.pror.editor", "message"));
+		
 		ValidationResultDialog dialog = new ValidationResultDialog(this.getParentShell());
 		dialog.setIssues(issues);
 		dialog.setTargetViewer(viewer);
@@ -307,7 +311,7 @@ public class SubtreeDialog extends TrayDialog implements IMenuListener {
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		this.getShell().setText(title);
-
+		
 		Composite composite = (Composite) super.createDialogArea(parent);
 		composite.setLayout(new FormLayout());
 
