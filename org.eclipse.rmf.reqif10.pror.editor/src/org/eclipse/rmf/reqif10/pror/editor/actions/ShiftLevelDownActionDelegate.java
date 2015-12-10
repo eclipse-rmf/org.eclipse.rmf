@@ -21,6 +21,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.Specification;
@@ -55,6 +56,8 @@ public class ShiftLevelDownActionDelegate implements IEditorActionDelegate,
 		ISpecificationEditor specificationEditor = (ISpecificationEditor) editor;
 		EditingDomain editingDomain = specificationEditor.getEditingDomain();
 		
+		IStructuredSelection originalSelection = new StructuredSelection(selection.toArray());
+		
 		for (@SuppressWarnings("rawtypes")
 		Iterator it = selection.iterator(); it.hasNext(); ) {
 			Object next = it.next();
@@ -64,7 +67,7 @@ public class ShiftLevelDownActionDelegate implements IEditorActionDelegate,
 				//	break;
 				//}
 				ShiftLevelCommand cmd = new ShiftLevelCommand("Shifting Down " );
-				cmd.setSelection(selection);
+				cmd.setSelection(originalSelection);
 				
 				Command shiftCommand = createShiftCommand(specHierarchy, editingDomain);
 				if (shiftCommand != null){
