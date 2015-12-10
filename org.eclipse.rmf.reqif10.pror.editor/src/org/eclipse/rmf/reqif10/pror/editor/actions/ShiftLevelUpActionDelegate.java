@@ -15,7 +15,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -62,7 +61,9 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 				//if (specHierarchy.getObject() == null){
 				//	break;
 				//}
-				CompoundCommand cmd = new ShiftLevelCommand("Shifting Up " );
+				ShiftLevelCommand cmd = new ShiftLevelCommand("Shifting Up " );
+				cmd.setSelection(selection);
+				
 				Command shiftCommand = createShiftCommand(specHierarchy, editingDomain);
 				if (shiftCommand != null){
 					cmd.append(shiftCommand);
@@ -90,8 +91,9 @@ public class ShiftLevelUpActionDelegate implements IEditorActionDelegate,
 	
 		int indexOf = parent.getChildren().indexOf(specHierarchy);
 	
-		CompoundCommand cmd = new ShiftLevelCommand("Shifting Up " );
-		
+		ShiftLevelCommand cmd = new ShiftLevelCommand("Shifting Up " );
+		cmd.setSelection(selection);
+
 		List<SpecHierarchy> followers = parent.getChildren().subList(indexOf+1, parent.getChildren().size());
 		for(SpecHierarchy follower: followers) {
 			cmd.append(AddCommand.create(editingDomain, specHierarchy, ReqIF10Package.Literals.SPEC_HIERARCHY__CHILDREN, follower));

@@ -759,10 +759,10 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 						Command mostRecentCommand = ((CommandStack) event
 								.getSource()).getMostRecentCommand();
 						if (mostRecentCommand != null) {
-							if (! (mostRecentCommand instanceof ShiftLevelCommand)){
-								// We do not want to set the selection to the
-								// affected Objects after a Shifting as this
-								// might be the container of the shifted element
+							if(mostRecentCommand instanceof ShiftLevelCommand){
+								setSelectionToViewer(((ShiftLevelCommand) mostRecentCommand).getSelectedObjects());
+							}
+							else{
 								setSelectionToViewer(mostRecentCommand.getAffectedObjects());
 							}
 						}

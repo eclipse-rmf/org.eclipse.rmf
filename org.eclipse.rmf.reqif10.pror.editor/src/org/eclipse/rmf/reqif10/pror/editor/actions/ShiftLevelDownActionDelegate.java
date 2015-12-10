@@ -14,7 +14,6 @@ package org.eclipse.rmf.reqif10.pror.editor.actions;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -64,7 +63,9 @@ public class ShiftLevelDownActionDelegate implements IEditorActionDelegate,
 				//if (specHierarchy.getObject() == null){
 				//	break;
 				//}
-				CompoundCommand cmd = new ShiftLevelCommand("Shifting Down " );
+				ShiftLevelCommand cmd = new ShiftLevelCommand("Shifting Down " );
+				cmd.setSelection(selection);
+				
 				Command shiftCommand = createShiftCommand(specHierarchy, editingDomain);
 				if (shiftCommand != null){
 					cmd.append(shiftCommand);

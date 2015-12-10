@@ -182,10 +182,10 @@ public class SpecificationEditor extends EditorPart implements
 						Command mostRecentCommand = ((CommandStack) event
 								.getSource()).getMostRecentCommand();
 						if (mostRecentCommand != null) {
-							if(! (mostRecentCommand instanceof ShiftLevelCommand)){
-								// We do not want to set the selection to the
-								// affected Objects after a Shifting as this
-								// might be the container of the shifted element
+							if(mostRecentCommand instanceof ShiftLevelCommand){
+								setSelectionToViewer(((ShiftLevelCommand) mostRecentCommand).getSelectedObjects());
+							}
+							else{
 								setSelectionToViewer(mostRecentCommand.getAffectedObjects());
 							}
 						}
@@ -280,10 +280,16 @@ public class SpecificationEditor extends EditorPart implements
 					for (Iterator<?> i = ((IStructuredSelection) selection)
 							.iterator(); i.hasNext();) {
 						Object item = i.next();
-						if (item instanceof SpecHierarchy) {						
+						if (item instanceof SpecHierarchy) {		
 							prorAgileGridViewer.setSelection(selection);
+							
+							
+							try{
 							((ProrAgileGrid) prorAgileGridViewer.getControl())
 									.scrollToFocus();
+							}catch(Exception e){
+								System.out.println(e);
+							}
 							return;
 						}
 					}
