@@ -94,7 +94,7 @@ import org.eclipse.ui.PlatformUI;
  */
 public class SubtreeDialog extends StatusDialog implements IMenuListener {
 
-	private static final int VALIDATE_ID = 99;
+	public static final int VALIDATE_BUTTON_ID = 99;
 	protected static final String PLUGIN_ID = "org.eclipse.rmf.reqif10.pror.editor";
 	protected final EObject input;
 	private final String title;
@@ -136,12 +136,12 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 		createButton(parent, IDialogConstants.OK_ID,
 				IDialogConstants.FINISH_LABEL, true);
 
-		createButton(parent, VALIDATE_ID, "Validate", false);
+		createButton(parent, VALIDATE_BUTTON_ID, "Validate", false);
 	}
 
 	@Override
 	protected void buttonPressed(int buttonId) {
-		if (buttonId == VALIDATE_ID) {
+		if (buttonId == VALIDATE_BUTTON_ID) {
 			validate();
 		} else {
 			super.buttonPressed(buttonId);
@@ -149,7 +149,7 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 	}
 	
 	
-	protected void validate(){
+	protected List<Issue> validate(){
 		EList<EObject> objects = new BasicEList<EObject>(); 
 		if (input instanceof ReqIFContent) {
 			ReqIFContent content = (ReqIFContent) input;
@@ -177,6 +177,8 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 		dialog.setIssues(issues);
 		dialog.setTargetViewer(viewer);
 		dialog.open();
+		
+		return issues;
 	}
 	
 	

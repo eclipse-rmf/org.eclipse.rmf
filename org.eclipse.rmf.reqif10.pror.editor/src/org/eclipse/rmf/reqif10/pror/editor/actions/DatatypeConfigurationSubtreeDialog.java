@@ -11,6 +11,7 @@
 package org.eclipse.rmf.reqif10.pror.editor.actions;
 
 import java.math.BigInteger;
+import java.util.List;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -18,6 +19,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionEnumeration;
@@ -27,8 +29,10 @@ import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecType;
+import org.eclipse.rmf.reqif10.constraints.validator.Issue;
 import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
-
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
 
 /**
  * Subclass of SubtreeDialog with extra functionality for DatatypeConfiguration
@@ -36,7 +40,12 @@ import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
  * Add a content listener that automatically:
  * <ol>
  * <li>Sets the properties of newly created EnumValues</li>
- * <li>Sets the isMultiValue attribute of newly created AttributeDefinitionEnumerations</li>
+ * <li>Sets the isMultiValue attribute of newly created
+ * AttributeDefinitionEnumerations</li>
+ * <li>The Finish button triggers a validation. Only if the current model has
+ * been validated once the Finish button closes the dialog. (As we dont have a
+ * cancel function, the Model does not have to be valid for the dialog to be
+ * closed)</li>
  * </ol>
  * 
  * @author weigelt
@@ -44,6 +53,8 @@ import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 public class DatatypeConfigurationSubtreeDialog extends SubtreeDialog {
 	
 	private EContentAdapter contentAdapter;
+	private boolean isValidated;
+	private Button validateButton;
 
 	public DatatypeConfigurationSubtreeDialog(IReqifEditor reqifEditor,
 			EObject input, String title, String helpContext) {
@@ -61,6 +72,8 @@ public class DatatypeConfigurationSubtreeDialog extends SubtreeDialog {
 					return;
 				}
 				
+				setIsValidated(false);
+				
 				/* Set is MutliValue for new AttributeDefinitionEnumeration */
 				if (notification.getNotifier() instanceof SpecType
 						&& notification.getEventType() == Notification.ADD
@@ -74,11 +87,10 @@ public class DatatypeConfigurationSubtreeDialog extends SubtreeDialog {
 						updateStatus(new Status(IStatus.INFO, PLUGIN_ID,
 								"Auto Set MultiValued attribute of new AttributeDefinition to false"));
 					}
-					return;
 				}
 
 				
-				/* init EnumValues Properties on createtion */
+				/* init EnumValues Properties on creation */
 				if (notification.getNotifier() instanceof DatatypeDefinitionEnumeration
 						&& notification.getEventType() == Notification.ADD
 						&& notification
@@ -88,9 +100,7 @@ public class DatatypeConfigurationSubtreeDialog extends SubtreeDialog {
 							.getNewValue();
 					EmbeddedValue properties = getOrCreateProperties(enumValue);
 					initializeProperties(properties);
-					return;
 				}
-
 				
 			}
 		};
@@ -122,9 +132,9 @@ public class DatatypeConfigurationSubtreeDialog extends SubtreeDialog {
 	/**
 	 * If embeddedValue does not have key and otherContent set:
 	 * 
-	 * Scan all {@link EmbeddedValue}s in the reqif document and find the highest key
+	 * Scan all {@link EmbeddedValue}s in the reqIF document and find the highest key
 	 * Set key of embeddedValue to highest key + 1
-	 * Set OtherContent of embeddedValue to the String representaion of its key 
+	 * Set OtherContent of embeddedValue to the String representation of its key 
 	 * 
 	 * @param embeddedValue 
 	 */
@@ -160,10 +170,63 @@ public class DatatypeConfigurationSubtreeDialog extends SubtreeDialog {
 		updateStatus(new Status(IStatus.INFO, PLUGIN_ID, "Auto Set Properties of EnumValue: (" + embeddedValue.getKey() + "," + embeddedValue.getOtherContent()  +")"));
 	}
 	
+	
+	protected void setIsValidated(boolean isValidated){
+		this.isValidated = isValidated;
+		updateButtons();
+	}
+	
 	@Override
 	public boolean close() {
 		input.eAdapters().remove(contentAdapter);
 		return super.close();
 	}
 	
+	
+	@Override
+	protected List<Issue> validate() {
+		setIsValidated(true);
+		List<Issue> issues = super.validate();
+		return issues;
+	}
+	
+	/**
+	 * Updates the Validate and Finish Buttons<br>
+	 * If the current state has been validated, the OK button is labeled Finish
+	 * and the validate Button is made visible (In case the user wants to see
+	 * the validation results again)<br>
+	 * If the stated has not been validated, the OK Button becomes "Validate"
+	 * and the Vallidate Button is hidden
+	 */
+	protected void updateButtons(){
+		if (isValidated){
+			getButton(IDialogConstants.OK_ID).setText(IDialogConstants.FINISH_LABEL);
+			validateButton.setVisible(true);
+		}else{
+			getButton(IDialogConstants.OK_ID).setText("Validate");
+			validateButton.setVisible(false);
+		}
+	}
+	
+	@Override
+	protected void buttonPressed(int buttonId) {
+		if (buttonId == IDialogConstants.OK_ID) {
+			if (!isValidated){
+				validate();
+			}else{
+				super.buttonPressed(buttonId);
+			}
+		} else {
+			super.buttonPressed(buttonId);
+		}
+	}
+	
+	
+	@Override
+	protected void createButtonsForButtonBar(Composite parent) {
+		createButton(parent, IDialogConstants.OK_ID,
+				"Validate" , true);
+		validateButton = createButton(parent, VALIDATE_BUTTON_ID, "Validate", false);
+		validateButton.setVisible(false);
+	}
 }
