@@ -106,6 +106,7 @@ import org.eclipse.ui.PlatformUI;
 public class SubtreeDialog extends StatusDialog implements IMenuListener {
 
 	private static final int VALIDATE_ID = 99;
+	private static final String PLUGIN_ID = "org.eclipse.rmf.reqif10.pror.editor";
 	private final EObject input;
 	private final String title;
 	private final String helpContext;
@@ -118,8 +119,7 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 	private final EditingDomain editingDomain;
 	private final IReqifEditor reqifEditor;
 	private CommandStackListener commandStackListener;
-	private EContentAdapter enumValueAdapter;
-	private EContentAdapter enumAttributeDefinitionAdapter;
+	private EContentAdapter contentAdapter;
 
 	protected SubtreeDialog(IReqifEditor reqifEditor, EObject input, String title,
 			String helpContext) {
@@ -132,61 +132,59 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 		this.helpContext = helpContext;
 		setHelpAvailable(true);
 		
-		addEnumValueListener();
-		addAttributeDefinitionEnumerationListener();
+		addContentAdapter();
 		
 	}
-
-	/**
-	 * Adapter to set the isMultiValue when an AttributeDefinition is created
-	 */
-	private void addAttributeDefinitionEnumerationListener() {
-		enumAttributeDefinitionAdapter = new EContentAdapter() {
+	
+	
+	private void addContentAdapter(){
+		contentAdapter = new EContentAdapter() {
 			public void notifyChanged(Notification notification) {
 				super.notifyChanged(notification);
-				if (! notification.isTouch() 
-						&& notification.getNotifier() instanceof SpecType
-						&& notification.getEventType() == Notification.ADD
-						&& notification.getFeatureID(DatatypeDefinitionEnumeration.class) == ReqIF10Package.SPEC_TYPE__SPEC_ATTRIBUTES
-						&& notification.getNewValue() instanceof AttributeDefinitionEnumeration
-						){
-					AttributeDefinitionEnumeration attributeDefinition = (AttributeDefinitionEnumeration) notification.getNewValue();
-					if (!attributeDefinition.isSetMultiValued()){
-						attributeDefinition.setMultiValued(false);
-					}
-				}
-			}
-		};		
-		input.eAdapters().add(enumAttributeDefinitionAdapter);
-	}
 
-	/**
-	 * Adapter to initialize the property of a newly created EnumValue
-	 */
-	private void addEnumValueListener() {
-			enumValueAdapter = new EContentAdapter() {
-				public void notifyChanged(Notification notification) {
-					super.notifyChanged(notification);
-					
-					if (! notification.isTouch() 
-							&& notification.getNotifier() instanceof DatatypeDefinitionEnumeration
-							&& notification.getEventType() == Notification.ADD
-							&& notification.getFeatureID(DatatypeDefinitionEnumeration.class) == ReqIF10Package.DATATYPE_DEFINITION_ENUMERATION__SPECIFIED_VALUES
-							&& notification.getNewValue() instanceof EnumValue
-							){
-						EnumValue enumValue = (EnumValue) notification.getNewValue();
-						EmbeddedValue properties = getOrCreateProperties(enumValue);
-						initializeProperties(properties);
-					}
+				if (notification.isTouch()) {
+					return;
 				}
 
 				
-			};
-			
-			input.eAdapters().add(enumValueAdapter);
-	}
+				/* Set is MutliValue for new AttributeDefinitionEnumeration */
+				if (notification.getNotifier() instanceof SpecType
+						&& notification.getEventType() == Notification.ADD
+						&& notification
+								.getFeatureID(DatatypeDefinitionEnumeration.class) == ReqIF10Package.SPEC_TYPE__SPEC_ATTRIBUTES
+						&& notification.getNewValue() instanceof AttributeDefinitionEnumeration) {
+					AttributeDefinitionEnumeration attributeDefinition = (AttributeDefinitionEnumeration) notification
+							.getNewValue();
+					if (!attributeDefinition.isSetMultiValued()) {
+						attributeDefinition.setMultiValued(false);
+						updateStatus(new Status(IStatus.INFO, PLUGIN_ID,
+								"Auto Set MultiValued attribute of new AttributeDefinition to false"));
+					}
+					return;
+				}
 
+				
+				/* init EnumValues Properties on createtion */
+				if (notification.getNotifier() instanceof DatatypeDefinitionEnumeration
+						&& notification.getEventType() == Notification.ADD
+						&& notification
+								.getFeatureID(DatatypeDefinitionEnumeration.class) == ReqIF10Package.DATATYPE_DEFINITION_ENUMERATION__SPECIFIED_VALUES
+						&& notification.getNewValue() instanceof EnumValue) {
+					EnumValue enumValue = (EnumValue) notification
+							.getNewValue();
+					EmbeddedValue properties = getOrCreateProperties(enumValue);
+					initializeProperties(properties);
+					return;
+				}
+
+				
+			}
+		};
+		
+		input.eAdapters().add(contentAdapter);
+	}
 	
+
 	void addFilter(ViewerFilter filter) {
 		filters.add(filter);
 	}
@@ -222,6 +220,11 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 	 * @param embeddedValue 
 	 */
 	private void initializeProperties(EmbeddedValue embeddedValue){
+		
+		if (embeddedValue.isSetKey() && embeddedValue.isSetOtherContent()){
+			return;
+		}
+		
 		BigInteger max = BigInteger.valueOf(0);
 		
 		ReqIFContent content = (ReqIFContent) input;
@@ -244,10 +247,9 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 		
 		embeddedValue.setKey(max.add(BigInteger.ONE));
 		embeddedValue.setOtherContent(max.add(BigInteger.ONE).toString());
+		
+		updateStatus(new Status(IStatus.INFO, PLUGIN_ID, "Auto Set Properties of EnumValue: (" + embeddedValue.getKey() + "," + embeddedValue.getOtherContent()  +")"));
 	}
-	
-	
-	
 	
 
 	/**
@@ -289,14 +291,20 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 		for (EObject eObject : objects) {
 			issues.addAll(validator.validate(eObject));
 		}
-		
-		updateStatus(new Status(IStatus.WARNING, "org.eclipse.rmf.reqif10.pror.editor", "message"));
+
+		if (issues.isEmpty()){
+			updateStatus(new Status(IStatus.INFO, PLUGIN_ID, "All constraints passed."));
+		}else{
+			updateStatus(new Status(IStatus.WARNING, PLUGIN_ID, "At least one error condition was found in the model."));
+		}
 		
 		ValidationResultDialog dialog = new ValidationResultDialog(this.getParentShell());
 		dialog.setIssues(issues);
 		dialog.setTargetViewer(viewer);
 		dialog.open();
 	}
+	
+	
 	
 	@Override
 	protected Point getInitialSize() {
@@ -311,6 +319,8 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		this.getShell().setText(title);
+		
+		setStatusLineAboveButtons(true);
 		
 		Composite composite = (Composite) super.createDialogArea(parent);
 		composite.setLayout(new FormLayout());
@@ -526,8 +536,7 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 			editingDomain.getCommandStack().removeCommandStackListener(commandStackListener);
 		}
 		
-		input.eAdapters().remove(enumValueAdapter);
-		input.eAdapters().remove(enumAttributeDefinitionAdapter);
+		input.eAdapters().remove(contentAdapter);
 		
 		return super.close();
 	}
