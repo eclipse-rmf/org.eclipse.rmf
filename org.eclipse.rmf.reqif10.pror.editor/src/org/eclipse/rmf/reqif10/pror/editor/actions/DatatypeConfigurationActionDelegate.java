@@ -51,7 +51,7 @@ public class DatatypeConfigurationActionDelegate implements
 		ReqIF reqif = (ReqIF) editor.getEditingDomain().getResourceSet()
 				.getResources().get(0).getContents().get(0);
 
-		SubtreeDialog dialog = new SubtreeDialog(editor, reqif.getCoreContent(),
+		SubtreeDialog dialog = new DatatypeConfigurationSubtreeDialog(editor, reqif.getCoreContent(),
 				"Datatype Configuration",
 				"org.eclipse.rmf.reqif10.pror.editor.datatypeConfiguration");
 		dialog.addFilter(new ViewerFilter() {
