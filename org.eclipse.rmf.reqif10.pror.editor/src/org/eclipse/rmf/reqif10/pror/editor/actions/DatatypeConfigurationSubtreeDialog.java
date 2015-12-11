@@ -53,7 +53,7 @@ import org.eclipse.swt.widgets.Composite;
 public class DatatypeConfigurationSubtreeDialog extends SubtreeDialog {
 	
 	private EContentAdapter contentAdapter;
-	private boolean isValidated;
+	private boolean isValidated = true;
 	private Button validateButton;
 
 	public DatatypeConfigurationSubtreeDialog(IReqifEditor reqifEditor,
@@ -225,8 +225,8 @@ public class DatatypeConfigurationSubtreeDialog extends SubtreeDialog {
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
 		createButton(parent, IDialogConstants.OK_ID,
-				"Validate" , true);
+				"Close" , true);
 		validateButton = createButton(parent, VALIDATE_BUTTON_ID, "Validate", false);
-		validateButton.setVisible(false);
+		//validateButton.setVisible(false);
 	}
 }
