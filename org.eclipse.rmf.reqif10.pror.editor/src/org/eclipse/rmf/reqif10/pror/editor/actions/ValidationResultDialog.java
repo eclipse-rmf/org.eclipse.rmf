@@ -104,7 +104,9 @@ public class ValidationResultDialog extends TitleAreaDialog {
 					Object element = selection.getFirstElement();
 					if (element instanceof Issue) {
 						Object target = ((Issue) element).getTarget();
-						targetViewer.setSelection(new StructuredSelection(target));
+						if (target != null){
+							targetViewer.setSelection(new StructuredSelection(target));
+						}
 					}
 				}
 			}
