@@ -43,6 +43,7 @@ import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecType;
@@ -234,7 +235,7 @@ public class IdConfigurationItemProvider
 	}
 
 	// Listener to be attached to the ReqIF
-	private EContentAdapter contentAdapter;
+	private IdConfigurationContentAdapter contentAdapter;
 
 	/**
 	 * We do two things:
@@ -271,32 +272,11 @@ public class IdConfigurationItemProvider
 			throw new IllegalStateException(
 					"Cannot register IDConfigAdapter without unregistering first!");
 		}
-		contentAdapter = new EContentAdapter() {
-
-			/**
-			 * Action has to be taken when the SpecType changes
-			 */
-			@Override
-			public void notifyChanged(Notification notification) {
-				super.notifyChanged(notification);
-				if (notification.getNotifier() instanceof SpecElementWithAttributes) {
-					updateSpecElementIfNecessary(config,
-							(SpecElementWithAttributes) notification
-									.getNotifier(), editingDomain);
-				}
-			}
-
-			@Override
-			public void setTarget(final Notifier target) {
-				super.setTarget(target);
-				if (target instanceof SpecElementWithAttributes) {
-					updateSpecElementIfNecessary(config,
-							(SpecElementWithAttributes) target, editingDomain);
-				}
-			}
-		};
-		ReqIF10Util.getReqIF(config).getCoreContent().eAdapters()
-				.add(contentAdapter);
+		
+		ReqIF reqIF = ReqIF10Util.getReqIF(config);
+		contentAdapter = new IdConfigurationContentAdapter(reqIF, config, editingDomain);
+		reqIF.getCoreContent().eAdapters().add(contentAdapter);
+		
 	}
 
 	protected void updateSpecElementIfNecessary(IdConfiguration config,
@@ -310,8 +290,9 @@ public class IdConfigurationItemProvider
 
 		// 1. Find out whether there is a matching AttributeDefinition
 		SpecType type = ReqIF10Util.getSpecType(specElement);
-		if (type == null)
+		if (type == null){
 			return;
+		}
 
 		AttributeDefinitionString attrDef = null;
 		for (AttributeDefinition ad : type.getSpecAttributes()) {
@@ -324,14 +305,16 @@ public class IdConfigurationItemProvider
 
 		// 2. No: Nothing to do, otherwise find Find out whether
 		// there is already a value
-		if (attrDef == null)
+		if (attrDef == null){
 			return;
+		}
 		AttributeValueString value = (AttributeValueString) ReqIF10Util
 				.getAttributeValue(specElement, attrDef);
 
 		// 3. Yes: Nothing to do, otherwise proceed
-		if (value != null)
+		if (value != null){
 			return;
+		}
 		value = (AttributeValueString) ReqIF10Util
 				.createAttributeValue(attrDef);
 		int newCount = config.getCount() + 1;
@@ -349,8 +332,7 @@ public class IdConfigurationItemProvider
 
 	private void unregisterModelListener(ProrPresentationConfiguration config) {
 		if (contentAdapter != null) {
-			ReqIF10Util.getReqIF(config).getCoreContent().eAdapters()
-					.remove(contentAdapter);
+			contentAdapter.getReqIF().getCoreContent().eAdapters().remove(contentAdapter);
 			contentAdapter = null;
 		}
 	}
@@ -401,4 +383,48 @@ public class IdConfigurationItemProvider
 		return null;
 	}
 
+	
+	private class IdConfigurationContentAdapter extends EContentAdapter{
+		
+		private ReqIF reqIF;
+		private IdConfiguration config;
+		private EditingDomain editingDomain;
+
+		public IdConfigurationContentAdapter(ReqIF reqIF,
+				IdConfiguration config, EditingDomain editingDomain) {
+					this.reqIF = reqIF;
+					this.config = config;
+					this.editingDomain = editingDomain;
+		}
+		
+
+		/**
+		 * Action has to be taken when the SpecType changes
+		 */
+		@Override
+		public void notifyChanged(Notification notification) {
+			super.notifyChanged(notification);
+			if (notification.getNotifier() instanceof SpecElementWithAttributes) {
+				updateSpecElementIfNecessary(config,
+						(SpecElementWithAttributes) notification
+								.getNotifier(), editingDomain);
+			}
+		}
+
+		@Override
+		public void setTarget(final Notifier target) {
+			super.setTarget(target);
+			if (target instanceof SpecElementWithAttributes) {
+				updateSpecElementIfNecessary(config,
+						(SpecElementWithAttributes) target, editingDomain);
+			}
+		}
+		
+		
+		public ReqIF getReqIF() {
+			return reqIF;
+		}
+		
+	}
+	
 }
