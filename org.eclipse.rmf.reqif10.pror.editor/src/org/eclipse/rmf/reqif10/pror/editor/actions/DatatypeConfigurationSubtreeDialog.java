@@ -196,7 +196,7 @@ public class DatatypeConfigurationSubtreeDialog extends SubtreeDialog {
 	 * and the validate Button is made visible (In case the user wants to see
 	 * the validation results again)<br>
 	 * If the stated has not been validated, the OK Button becomes "Validate"
-	 * and the Vallidate Button is hidden
+	 * and the Validate Button is hidden
 	 */
 	protected void updateButtons(){
 		if (isValidated){
