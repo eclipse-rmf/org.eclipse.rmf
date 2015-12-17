@@ -280,41 +280,39 @@ public class IdConfigurationItemProvider
 	}
 
 	protected void updateSpecElementIfNecessary(IdConfiguration config,
-			SpecElementWithAttributes target, EditingDomain editingDomain) {
+			SpecElementWithAttributes specElement, EditingDomain editingDomain) {
 		
+		// 1a. we can not do anything if the config does not have a datatype
 		if (config.getDatatype() == null) {
 			return;
 		}
-
-		SpecElementWithAttributes specElement = (SpecElementWithAttributes) target;
-
-		// 1. Find out whether there is a matching AttributeDefinition
+		// 1b. we can not do anything if the specElement does not have a type
 		SpecType type = ReqIF10Util.getSpecType(specElement);
-		if (type == null){
+		if (type == null) {
 			return;
 		}
 
-		AttributeDefinitionString attrDef = null;
-		for (AttributeDefinition ad : type.getSpecAttributes()) {
-			DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(ad);
-			if (config.getDatatype().equals(dd)) {
-				attrDef = (AttributeDefinitionString) ad;
-				break;
-			}
-		}
+		// 2. Find out whether there is a matching AttributeDefinition
+		AttributeDefinitionString attrDef = getAttributeDefinition(
+				config.getDatatype(), type);
 
-		// 2. No: Nothing to do, otherwise find Find out whether
-		// there is already a value
-		if (attrDef == null){
+		// No: Nothing to do
+		if (attrDef == null) {
 			return;
 		}
+		
+		// 3.Find Find out whether there is already a value
 		AttributeValueString value = (AttributeValueString) ReqIF10Util
 				.getAttributeValue(specElement, attrDef);
 
-		// 3. Yes: Nothing to do, otherwise proceed
+		// No: Nothing to do
 		if (value != null){
 			return;
 		}
+		
+		// 4. matching element was found and does not have a value yet
+		// a) create the value and update the specElement
+		// b) update count of the IdConfiguration
 		value = (AttributeValueString) ReqIF10Util
 				.createAttributeValue(attrDef);
 		int newCount = config.getCount() + 1;
@@ -329,6 +327,32 @@ public class IdConfigurationItemProvider
 				value));
 		editingDomain.getCommandStack().execute(cmd);
 	}
+
+	/**
+	 * returns types FIRST AttributeDefinition that uses the given
+	 * DatatypeDefinition
+	 * 
+	 * @param datatypeDefinition
+	 * @param type
+	 * @return
+	 */
+	protected AttributeDefinitionString getAttributeDefinition(
+			DatatypeDefinition datatypeDefinition, SpecType type) {
+		AttributeDefinitionString attrDef = null;
+		for (AttributeDefinition ad : type.getSpecAttributes()) {
+			DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(ad);
+			if (datatypeDefinition.equals(dd)) {
+				attrDef = (AttributeDefinitionString) ad;
+				break;
+			}
+		}
+		return attrDef;
+	}
+	
+	
+	
+	
+	
 
 	private void unregisterModelListener(ProrPresentationConfiguration config) {
 		if (contentAdapter != null) {
