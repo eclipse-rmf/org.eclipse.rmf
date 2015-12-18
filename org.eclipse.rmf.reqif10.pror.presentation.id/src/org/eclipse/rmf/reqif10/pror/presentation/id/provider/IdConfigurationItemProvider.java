@@ -14,7 +14,13 @@ package org.eclipse.rmf.reqif10.pror.presentation.id.provider;
 
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.agilemore.agilegrid.AgileGrid;
 import org.agilemore.agilegrid.CellEditor;
@@ -24,6 +30,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -46,7 +53,10 @@ import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
+import org.eclipse.rmf.reqif10.SpecObjectType;
+import org.eclipse.rmf.reqif10.SpecRelationType;
 import org.eclipse.rmf.reqif10.SpecType;
+import org.eclipse.rmf.reqif10.SpecificationType;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
@@ -275,8 +285,103 @@ public class IdConfigurationItemProvider
 		
 		ReqIF reqIF = ReqIF10Util.getReqIF(config);
 		contentAdapter = new IdConfigurationContentAdapter(reqIF, config, editingDomain);
+		
+		
+		// Before we attach the Adapter we verify the count
+		// We scan the whole model to check that count is still greater than any Id already assigned
+		// The configurations count is updated accordingly
+		int countValue = findCountValue(config, reqIF);
+		if (countValue > config.getCount()){
+			config.setCount(countValue);
+		}
+		
 		reqIF.getCoreContent().eAdapters().add(contentAdapter);
 		
+	}
+	
+	
+	/**
+	 * find the greatest ID inside the reqIF that would conflict with the Configuration config 
+	 */
+	protected int findCountValue(IdConfiguration config, ReqIF reqIF){
+		
+		if (config.getDatatype() == null) {
+			return 1;
+		}
+			
+		// 1. find the Attributes that use the configs DatatypeDefinition
+		Map<SpecType, AttributeDefinition> idAttributes = new HashMap<SpecType, AttributeDefinition>();
+		EList<SpecType> specTypes = reqIF.getCoreContent().getSpecTypes();
+		for (SpecType specType : specTypes) {
+			AttributeDefinitionString attributeDefinition = getAttributeDefinition(config.getDatatype(), specType);
+			if (attributeDefinition != null){
+				idAttributes.put(specType, attributeDefinition);
+			}
+
+		}
+
+		// 2. Scan all objects for usage of id
+		int max = 1;
+		for (Iterator<Entry<SpecType, AttributeDefinition>> it = idAttributes.entrySet().iterator(); it.hasNext();){
+			Entry<SpecType, AttributeDefinition> entry = it.next();
+			SpecType specType = entry.getKey();
+			AttributeDefinition attributeDefinition = entry.getValue();
+			
+			max = Math.max(max, findLargestValue(config.getPrefix(), reqIF, specType, attributeDefinition));
+		}
+		return max;
+	}
+	
+	
+	/**
+	 * Iterate through all SpecElements with type specType,
+	 * and try to find the greatest value of the attribute defined by attributeDefinition
+	 * 
+	 * For a value to be considered, the string must match ^prefix\d+$
+	 */
+	private Integer findLargestValue(String prefix, ReqIF reqIF,
+			SpecType specType, AttributeDefinition attributeDefinition) {
+		
+		EList<? extends SpecElementWithAttributes> elements = null;
+		
+		if (specType instanceof SpecObjectType){
+			elements = reqIF.getCoreContent().getSpecObjects();
+		}else if (specType instanceof SpecRelationType){
+			elements = reqIF.getCoreContent().getSpecRelations();
+		}else if (specType instanceof SpecificationType){
+			elements = reqIF.getCoreContent().getSpecifications();
+		}
+		
+		if (elements == null){
+			return null;
+		}
+
+		Pattern pattern = Pattern.compile("^\\d+$");
+		
+		Integer max = 0;
+		for (SpecElementWithAttributes specElement : elements) {
+			if (ReqIF10Util.getSpecType(specElement).equals(specType)){
+				AttributeValue attributeValue = ReqIF10Util.getAttributeValue(specElement, attributeDefinition);
+				if (attributeValue != null){
+					Object theValue = ReqIF10Util.getTheValue(attributeValue);
+					if (theValue != null){
+						if (theValue.toString().startsWith(prefix)){						
+							Matcher m = pattern.matcher(theValue.toString().replace(prefix, ""));
+							String number = null;
+							while(m.find()){
+								number = m.group();
+							}
+							if (number != null){
+								Integer integer = new Integer(number);
+								max = Math.max(max,  integer);
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		return max;
 	}
 
 	protected void updateSpecElementIfNecessary(IdConfiguration config,
@@ -408,6 +513,19 @@ public class IdConfigurationItemProvider
 	}
 
 	
+	
+	@Override
+	public Command[] getConfigurationCommands() {
+		
+		Command setCounterCommand = SetCommand.create(contentAdapter.getEditingDomain(), contentAdapter.getConfig(), IdPackage.ID_CONFIGURATION__COUNT, 1000);
+		
+		Command[] result = new Command[]{setCounterCommand};
+		
+		return result;
+	}
+	
+	
+	
 	private class IdConfigurationContentAdapter extends EContentAdapter{
 		
 		private ReqIF reqIF;
@@ -447,6 +565,15 @@ public class IdConfigurationItemProvider
 		
 		public ReqIF getReqIF() {
 			return reqIF;
+		}
+		
+		
+		public EditingDomain getEditingDomain() {
+			return editingDomain;
+		}
+		
+		public IdConfiguration getConfig() {
+			return config;
 		}
 		
 	}
