@@ -32,6 +32,8 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
@@ -290,7 +292,7 @@ public class IdConfigurationItemProvider
 		// Before we attach the Adapter we verify the count
 		// We scan the whole model to check that count is still greater than any Id already assigned
 		// The configurations count is updated accordingly
-		int countValue = findCountValue(config, reqIF);
+		int countValue = findCountValue(config.getDatatype(), config.getPrefix(), reqIF);
 		if (countValue > config.getCount()){
 			config.setCount(countValue);
 		}
@@ -299,13 +301,40 @@ public class IdConfigurationItemProvider
 		
 	}
 	
+	@Override
+	protected Command createSetCommand(EditingDomain domain, EObject owner,
+			EStructuralFeature feature, Object value) {
+		
+		Command setPrefixCommand = super.createSetCommand(domain, owner, feature, value); 
+		
+		if (owner instanceof IdConfiguration && feature == IdPackage.Literals.ID_CONFIGURATION__PREFIX && value instanceof String){
+			ReqIF reqIF = ReqIF10Util.getReqIF(owner);
+			if (reqIF != null){
+				IdConfiguration idConfiguration = (IdConfiguration) owner;
+				int c = IdConfigurationItemProvider.findCountValue(idConfiguration.getDatatype(), (String) value, reqIF);
+				if (c > ((IdConfiguration) owner).getCount()){
+					Command setCountCommand = SetCommand.create(domain, owner, IdPackage.Literals.ID_CONFIGURATION__COUNT, c);
+
+					CompoundCommand compoundCommand = new CompoundCommand();
+					compoundCommand.append(setPrefixCommand);
+					compoundCommand.append(setCountCommand);
+					
+					return compoundCommand;
+				}
+			}
+		}
+			
+		return setPrefixCommand;	
+
+	}
+	
 	
 	/**
 	 * find the greatest ID inside the reqIF that would conflict with the Configuration config 
 	 */
-	protected int findCountValue(IdConfiguration config, ReqIF reqIF){
+	public static int findCountValue(DatatypeDefinition datatype, String prefix, ReqIF reqIF){
 		
-		if (config.getDatatype() == null) {
+		if (datatype == null) {
 			return 1;
 		}
 			
@@ -313,7 +342,7 @@ public class IdConfigurationItemProvider
 		Map<SpecType, AttributeDefinition> idAttributes = new HashMap<SpecType, AttributeDefinition>();
 		EList<SpecType> specTypes = reqIF.getCoreContent().getSpecTypes();
 		for (SpecType specType : specTypes) {
-			AttributeDefinitionString attributeDefinition = getAttributeDefinition(config.getDatatype(), specType);
+			AttributeDefinitionString attributeDefinition = getAttributeDefinition(datatype, specType);
 			if (attributeDefinition != null){
 				idAttributes.put(specType, attributeDefinition);
 			}
@@ -327,7 +356,7 @@ public class IdConfigurationItemProvider
 			SpecType specType = entry.getKey();
 			AttributeDefinition attributeDefinition = entry.getValue();
 			
-			max = Math.max(max, findLargestValue(config.getPrefix(), reqIF, specType, attributeDefinition));
+			max = Math.max(max, findLargestValue(prefix, reqIF, specType, attributeDefinition));
 		}
 		return max;
 	}
@@ -339,7 +368,7 @@ public class IdConfigurationItemProvider
 	 * 
 	 * For a value to be considered, the string must match ^prefix\d+$
 	 */
-	private Integer findLargestValue(String prefix, ReqIF reqIF,
+	private static int findLargestValue(String prefix, ReqIF reqIF,
 			SpecType specType, AttributeDefinition attributeDefinition) {
 		
 		EList<? extends SpecElementWithAttributes> elements = null;
@@ -353,7 +382,7 @@ public class IdConfigurationItemProvider
 		}
 		
 		if (elements == null){
-			return null;
+			return 1;
 		}
 
 		Pattern pattern = Pattern.compile("^\\d+$");
@@ -441,7 +470,7 @@ public class IdConfigurationItemProvider
 	 * @param type
 	 * @return
 	 */
-	protected AttributeDefinitionString getAttributeDefinition(
+	static AttributeDefinitionString getAttributeDefinition(
 			DatatypeDefinition datatypeDefinition, SpecType type) {
 		AttributeDefinitionString attrDef = null;
 		for (AttributeDefinition ad : type.getSpecAttributes()) {
@@ -453,10 +482,6 @@ public class IdConfigurationItemProvider
 		}
 		return attrDef;
 	}
-	
-	
-	
-	
 	
 
 	private void unregisterModelListener(ProrPresentationConfiguration config) {
