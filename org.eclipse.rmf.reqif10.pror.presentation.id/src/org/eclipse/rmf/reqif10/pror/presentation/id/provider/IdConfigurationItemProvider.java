@@ -346,7 +346,6 @@ public class IdConfigurationItemProvider
 			if (attributeDefinition != null){
 				idAttributes.put(specType, attributeDefinition);
 			}
-
 		}
 
 		// 2. Scan all objects for usage of id
@@ -470,12 +469,12 @@ public class IdConfigurationItemProvider
 	 * @param type
 	 * @return
 	 */
-	static AttributeDefinitionString getAttributeDefinition(
+	public static AttributeDefinitionString getAttributeDefinition(
 			DatatypeDefinition datatypeDefinition, SpecType type) {
 		AttributeDefinitionString attrDef = null;
 		for (AttributeDefinition ad : type.getSpecAttributes()) {
 			DatatypeDefinition dd = ReqIF10Util.getDatatypeDefinition(ad);
-			if (datatypeDefinition.equals(dd)) {
+			if (datatypeDefinition != null && datatypeDefinition.equals(dd)) {
 				attrDef = (AttributeDefinitionString) ad;
 				break;
 			}
