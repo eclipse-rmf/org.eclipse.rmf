@@ -536,9 +536,6 @@ public class IdConfigurationItemProvider
 		return null;
 	}
 
-	
-	
-	@Override
 	public Command[] getConfigurationCommands() {
 		
 		Command setCounterCommand = SetCommand.create(contentAdapter.getEditingDomain(), contentAdapter.getConfig(), IdPackage.ID_CONFIGURATION__COUNT, 1000);
@@ -547,8 +544,6 @@ public class IdConfigurationItemProvider
 		
 		return result;
 	}
-	
-	
 	
 	private class IdConfigurationContentAdapter extends EContentAdapter{
 		
