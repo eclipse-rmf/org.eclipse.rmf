@@ -17,6 +17,7 @@ import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.core.runtime.jobs.JobChangeAdapter;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -25,6 +26,8 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.constraints.ui.Decorator;
 import org.eclipse.rmf.reqif10.constraints.validator.Issue;
@@ -52,6 +55,7 @@ public class ValidateReqIF implements IObjectActionDelegate {
 	public final static String MARKER_TYPE = "org.eclipse.rmf.reqif10.constraints.ui.reqIFValidation";
 	private ValidationResult validationResult;
 	private List<Issue> issues;
+	public final static String THE_TARGET = "THE_TARGET_IDENTIFIABLE";
 
 	/**
 	 * Constructor for Action1.
@@ -280,6 +284,15 @@ public class ValidateReqIF implements IObjectActionDelegate {
 			marker.setAttribute(IMarker.LINE_NUMBER, issue.getLine());
 
 			marker.setAttribute(IMarker.LOCATION, issue.getLocation());
+			
+			if (issue.getTarget() instanceof Identifiable){
+				marker.setAttribute(THE_TARGET, ((Identifiable) issue.getTarget()).getIdentifier());
+			}else if(issue.getTarget() instanceof AttributeValue){
+				EObject eContainer = ((AttributeValue)issue.getTarget()).eContainer();
+				if (eContainer != null && eContainer instanceof Identifiable){
+					marker.setAttribute(THE_TARGET, ((Identifiable) eContainer).getIdentifier());
+				}
+			}
 		}
 	}
 
