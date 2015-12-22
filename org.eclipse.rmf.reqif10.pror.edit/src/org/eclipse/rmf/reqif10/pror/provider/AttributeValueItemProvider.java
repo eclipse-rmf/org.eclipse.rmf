@@ -118,17 +118,19 @@ public class AttributeValueItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		
-		// Find the specElement
-		InternalEObject parent = (InternalEObject) ((EObject) notification
-				.getNotifier()).eContainer();
-		if (parent instanceof SpecElementWithAttributes) {
-			parent.eNotify(new ENotificationImpl(
-					parent, ENotificationImpl.SET,
-					ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
-					notification.getNotifier(), notification.getNotifier()));
+
+		if (notification.getEventType() != Notification.REMOVING_ADAPTER) {
+			// Find the specElement
+			InternalEObject parent = (InternalEObject) ((EObject) notification
+					.getNotifier()).eContainer();
+			if (parent instanceof SpecElementWithAttributes) {
+				parent.eNotify(new ENotificationImpl(
+						parent,
+						ENotificationImpl.SET,
+						ReqIF10Package.Literals.SPEC_ELEMENT_WITH_ATTRIBUTES__VALUES,
+						notification.getNotifier(), notification.getNotifier()));
+			}
 		}
-		
 		super.notifyChanged(notification);
 	}
 
