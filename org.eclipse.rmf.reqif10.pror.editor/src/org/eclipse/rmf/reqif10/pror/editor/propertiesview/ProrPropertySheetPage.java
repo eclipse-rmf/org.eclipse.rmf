@@ -43,7 +43,9 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
+import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.part.Page;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 
@@ -73,13 +75,13 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 	protected TabItem tabStandard;
 	protected TabItem tabAll;
 
-	public ProrPropertySheetPage(EditingDomain editingDomain,
+	public ProrPropertySheetPage(final EditingDomain editingDomain,
 			AdapterFactory adapterFactory) {
 		super();
 		this.editingDomain = editingDomain;
 		this.adapterFactory = adapterFactory;
 		registerCommandStackListener();
-
+		
 	}
 
 	/**
@@ -150,9 +152,25 @@ public class ProrPropertySheetPage extends Page implements IPropertySheetPage {
 			tabAll.setText(Reqif10EditorPlugin.getPlugin().getString(
 					"_UI_All_Properties"));
 			tabAll.setControl(allProperties);
+			
 		}
 	}
 
+	
+	@Override
+	public void setActionBars(IActionBars actionBars) {
+		actionBars.setGlobalActionHandler(
+				ActionFactory.UNDO.getId(), new Action() {
+					public void run() {
+						editingDomain.getCommandStack().undo();
+					};
+				}
+
+		);
+		super.setActionBars(actionBars);
+	}
+	
+	
 	/**
 	 * This method is called if a selection was changed in the
 	 * {@link ProrPropertySheetPage}.
