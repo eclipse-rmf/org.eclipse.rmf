@@ -354,8 +354,11 @@ public class IdConfigurationItemProvider
 			Entry<SpecType, AttributeDefinition> entry = it.next();
 			SpecType specType = entry.getKey();
 			AttributeDefinition attributeDefinition = entry.getValue();
-			
-			max = Math.max(max, findLargestValue(prefix, reqIF, specType, attributeDefinition));
+			try{
+				max = Math.max(max, findLargestValue(prefix, reqIF, specType, attributeDefinition));
+			}catch (RuntimeException e){
+				// if the reqif is incomplete, e.g values, datatypes etc are null, we might get an exception
+			}
 		}
 		return max;
 	}
@@ -388,26 +391,29 @@ public class IdConfigurationItemProvider
 		
 		Integer max = 0;
 		for (SpecElementWithAttributes specElement : elements) {
-			if (ReqIF10Util.getSpecType(specElement).equals(specType)){
-				AttributeValue attributeValue = ReqIF10Util.getAttributeValue(specElement, attributeDefinition);
-				if (attributeValue != null){
-					Object theValue = ReqIF10Util.getTheValue(attributeValue);
-					if (theValue != null){
-						if (theValue.toString().startsWith(prefix)){						
-							Matcher m = pattern.matcher(theValue.toString().replace(prefix, ""));
-							String number = null;
-							while(m.find()){
-								number = m.group();
-							}
-							if (number != null){
-								Integer integer = new Integer(number);
-								max = Math.max(max,  integer);
+			try{
+				if (ReqIF10Util.getSpecType(specElement).equals(specType)){
+					AttributeValue attributeValue = ReqIF10Util.getAttributeValue(specElement, attributeDefinition);
+					if (attributeValue != null){
+						Object theValue = ReqIF10Util.getTheValue(attributeValue);
+						if (theValue != null){
+							if (theValue.toString().startsWith(prefix)){						
+								Matcher m = pattern.matcher(theValue.toString().replace(prefix, ""));
+								String number = null;
+								while(m.find()){
+									number = m.group();
+								}
+								if (number != null){
+									Integer integer = new Integer(number);
+									max = Math.max(max,  integer);
+								}
 							}
 						}
 					}
 				}
+			}catch(NullPointerException npe){
+				
 			}
-
 		}
 		
 		return max;
