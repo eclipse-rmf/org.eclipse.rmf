@@ -108,6 +108,7 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 	private final EditingDomain editingDomain;
 	private final IReqifEditor reqifEditor;
 	private CommandStackListener commandStackListener;
+	private LinkedList<Issue> issues;
 	
 
 	protected SubtreeDialog(IReqifEditor reqifEditor, EObject input, String title,
@@ -143,13 +144,14 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 	protected void buttonPressed(int buttonId) {
 		if (buttonId == VALIDATE_BUTTON_ID) {
 			validate();
+			showValidationResults();
 		} else {
 			super.buttonPressed(buttonId);
 		}
 	}
 	
 	
-	protected List<Issue> validate(){
+	protected void validate(){
 		EList<EObject> objects = new BasicEList<EObject>(); 
 		if (input instanceof ReqIFContent) {
 			ReqIFContent content = (ReqIFContent) input;
@@ -162,7 +164,7 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 		ReqIFValidator validator = new ReqIFValidator();
 		validator.disableSchemaValidation();
 		
-		List<Issue> issues = new LinkedList<Issue>();
+		issues = new LinkedList<Issue>();
 		for (EObject eObject : objects) {
 			issues.addAll(validator.validate(eObject));
 		}
@@ -173,12 +175,14 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 			updateStatus(new Status(IStatus.WARNING, PLUGIN_ID, "At least one error condition was found in the model."));
 		}
 		
+	}
+	
+	
+	protected void showValidationResults(){
 		ValidationResultDialog dialog = new ValidationResultDialog(this.getParentShell());
 		dialog.setIssues(issues);
 		dialog.setTargetViewer(viewer);
-		dialog.open();
-		
-		return issues;
+		dialog.open();		
 	}
 	
 	
@@ -364,7 +368,7 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 		return toolbar;
 	}
 
-	private AdapterFactory getAdapterFactory() {
+	protected AdapterFactory getAdapterFactory() {
 		return adapterFactory;
 	}
 
@@ -434,4 +438,24 @@ public class SubtreeDialog extends StatusDialog implements IMenuListener {
 		this.actions = actions;
 		this.presentAsDropdown = presentAsDropdown;
 	}
+	
+	
+	protected IReqifEditor getReqifEditor() {
+		return reqifEditor;
+	}
+	
+	protected EditingDomain getEditingDomain() {
+		return editingDomain;
+	}
+
+	public LinkedList<Issue> getIssues() {
+		return issues;
+	}
+	
+	public void setIssues(LinkedList<Issue> issues) {
+		this.issues = issues;
+	}
+	
+	
+	
 }

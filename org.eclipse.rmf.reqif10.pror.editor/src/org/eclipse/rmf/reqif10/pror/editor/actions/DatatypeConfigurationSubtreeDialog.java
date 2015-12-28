@@ -11,7 +11,6 @@
 package org.eclipse.rmf.reqif10.pror.editor.actions;
 
 import java.math.BigInteger;
-import java.util.List;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -29,7 +28,6 @@ import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecType;
-import org.eclipse.rmf.reqif10.constraints.validator.Issue;
 import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
@@ -184,10 +182,9 @@ public class DatatypeConfigurationSubtreeDialog extends SubtreeDialog {
 	
 	
 	@Override
-	protected List<Issue> validate() {
+	protected void validate() {
 		setIsValidated(true);
-		List<Issue> issues = super.validate();
-		return issues;
+		super.validate();
 	}
 	
 	/**
@@ -213,6 +210,7 @@ public class DatatypeConfigurationSubtreeDialog extends SubtreeDialog {
 		if (buttonId == IDialogConstants.OK_ID) {
 			if (!isValidated){
 				validate();
+				showValidationResults();
 			}else{
 				super.buttonPressed(buttonId);
 			}
