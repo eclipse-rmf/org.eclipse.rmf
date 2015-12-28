@@ -407,6 +407,7 @@ public class IdConfigurationItemProvider
 					}
 				}
 			}
+
 		}
 		
 		return max;
@@ -414,6 +415,7 @@ public class IdConfigurationItemProvider
 
 	protected void updateSpecElementIfNecessary(IdConfiguration config,
 			SpecElementWithAttributes specElement, EditingDomain editingDomain) {
+		
 		
 		// 1a. we can not do anything if the config does not have a datatype
 		if (config.getDatatype() == null) {
