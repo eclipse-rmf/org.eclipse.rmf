@@ -15,6 +15,7 @@ import java.math.BigInteger;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.validation.IValidationContext;
+import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
@@ -31,12 +32,21 @@ public class AttributeValueStringMaxLength extends ReqIFModelConstraint {
 		if (target instanceof AttributeValueString) {
 			AttributeValueString av = (AttributeValueString) target;
 			String theValue = av.getTheValue();
+			if (theValue == null) {
+				return Status.OK_STATUS;
+			}
 
 			DatatypeDefinitionString datatypeDefinition = (DatatypeDefinitionString) ReqIF10Util.getDatatypeDefinition(av);
 			if (datatypeDefinition == null) {
 				return Status.OK_STATUS;
 			}
 			BigInteger maxLength = datatypeDefinition.getMaxLength();
+			if (maxLength == null) {
+				String constraintId = ctx.getCurrentConstraintId();
+				constraintId = constraintId.replace(constraintPrefix, "");
+				return ConstraintStatus.createStatus(ctx, null, IStatus.ERROR, Integer.MAX_VALUE, "Constraint " + constraintId
+						+ " was not evaluated: The required feature MaxLength of DatatypeDefinition is not set!");
+			}
 
 			if (BigInteger.valueOf(theValue.length()).compareTo(maxLength) > 0) {
 				return ctx.createFailureStatus();
