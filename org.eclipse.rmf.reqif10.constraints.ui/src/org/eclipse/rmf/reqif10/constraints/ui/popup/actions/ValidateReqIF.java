@@ -107,7 +107,7 @@ public class ValidateReqIF implements IObjectActionDelegate {
 					monitor.done();
 					return Status.OK_STATUS;
 
-				} catch (final CoreException e) {
+				} catch (final Exception e) {
 
 					Display.getDefault().syncExec(new Runnable() {
 						@Override
@@ -117,7 +117,7 @@ public class ValidateReqIF implements IObjectActionDelegate {
 											+ filename + ": " + e.getMessage());
 						}
 					});
-
+					monitor.done();
 					return Status.CANCEL_STATUS;
 				}
 			}
@@ -128,11 +128,14 @@ public class ValidateReqIF implements IObjectActionDelegate {
 		job.addJobChangeListener(new JobChangeAdapter() {
 
 			@Override
-			public void done(IJobChangeEvent event) {
+			public void done(final IJobChangeEvent event) {
 				Display.getDefault().syncExec(new Runnable() {
 					@Override
 					public void run() {
 //						MessageDialog.openInformation(shell, "ReqIF Validation",  filename + " has been validated. Please check the Problems View for created Error Markers.");
+						if (!event.getResult().isOK()){
+							return;
+						}
 						
 						String message;
 						if (issues.size() > 0){
@@ -228,7 +231,8 @@ public class ValidateReqIF implements IObjectActionDelegate {
 		List<String> files = new ArrayList<String>();
 		files.add(reqif.eResource().getURI().toFileString());
 
-		List<Issue> issues = reqIFValidator.validate(reqif);
+		List<Issue> issues;
+		issues = reqIFValidator.validate(reqif);
 		
 		validationResult = new ValidationResult();
 		validationResult.setFiles(files);
