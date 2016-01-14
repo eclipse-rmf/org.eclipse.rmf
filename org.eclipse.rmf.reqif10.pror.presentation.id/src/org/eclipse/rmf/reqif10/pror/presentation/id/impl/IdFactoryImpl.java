@@ -117,7 +117,7 @@ public class IdFactoryImpl extends EFactoryImpl implements IdFactory {
 	 */
 	public IdConfiguration createIdConfiguration() {
 		IdConfigurationImpl idConfiguration = new IdConfigurationImpl();
-		//idConfiguration.setPrefix(DEFAULT_PREFIX);
+		idConfiguration.setPrefix(DEFAULT_PREFIX);
 		return idConfiguration;
 	}
 
