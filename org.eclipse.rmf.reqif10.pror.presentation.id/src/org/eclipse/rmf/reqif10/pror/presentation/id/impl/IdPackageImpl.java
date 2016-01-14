@@ -228,7 +228,7 @@ public class IdPackageImpl extends EPackageImpl implements IdPackage {
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(idConfigurationEClass, IdConfiguration.class, "IdConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIdConfiguration_Prefix(), ecorePackage.getEString(), "prefix", "REQ-", 1, 1, IdConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIdConfiguration_Prefix(), ecorePackage.getEString(), "prefix", null, 1, 1, IdConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIdConfiguration_Count(), ecorePackage.getEInt(), "count", null, 1, 1, IdConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIdConfiguration_VerticalAlign(), this.getIdVerticalAlign(), "verticalAlign", "Top", 0, 1, IdConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

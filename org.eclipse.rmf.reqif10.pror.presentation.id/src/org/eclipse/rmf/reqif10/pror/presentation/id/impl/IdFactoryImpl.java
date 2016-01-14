@@ -18,7 +18,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.rmf.reqif10.pror.presentation.id.*;
+import org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration;
+import org.eclipse.rmf.reqif10.pror.presentation.id.IdFactory;
+import org.eclipse.rmf.reqif10.pror.presentation.id.IdPackage;
+import org.eclipse.rmf.reqif10.pror.presentation.id.IdVerticalAlign;
 
 
 /**
@@ -28,6 +31,12 @@ import org.eclipse.rmf.reqif10.pror.presentation.id.*;
  * @generated
  */
 public class IdFactoryImpl extends EFactoryImpl implements IdFactory {
+	
+	/**
+	 * @generated NOT
+	 */
+	private static final String DEFAULT_PREFIX = "REQ-";
+
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
@@ -104,10 +113,11 @@ public class IdFactoryImpl extends EFactoryImpl implements IdFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public IdConfiguration createIdConfiguration() {
 		IdConfigurationImpl idConfiguration = new IdConfigurationImpl();
+		//idConfiguration.setPrefix(DEFAULT_PREFIX);
 		return idConfiguration;
 	}
 

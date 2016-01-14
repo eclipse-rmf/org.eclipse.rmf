@@ -46,10 +46,10 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPrefix()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String PREFIX_EDEFAULT = "REQ-";
+	protected static final String PREFIX_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.

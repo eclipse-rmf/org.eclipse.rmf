@@ -36,7 +36,6 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 public interface IdConfiguration extends ProrPresentationConfiguration {
 	/**
 	 * Returns the value of the '<em><b>Prefix</b></em>' attribute.
-	 * The default value is <code>"REQ-"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Prefix</em>' attribute isn't clear,
@@ -48,7 +47,7 @@ public interface IdConfiguration extends ProrPresentationConfiguration {
 	 * @see #unsetPrefix()
 	 * @see #setPrefix(String)
 	 * @see org.eclipse.rmf.reqif10.pror.presentation.id.IdPackage#getIdConfiguration_Prefix()
-	 * @model default="REQ-" unsettable="true" required="true"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	String getPrefix();
