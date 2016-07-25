@@ -28,7 +28,9 @@ public final class PreferenceConstants {
 	public static final String P_STOP_IS_SIMPLIFIED_WARNING = "stop_is_simplified_warning";
 	
 	public static final String P_VALIDATE_ON_SAVE = "validate_on_save";
-	
+
+	public static final String P_NEW_ID_ON_SAVE = "new_id_on_save";
+
 	// Constants for default presentations
 	public static final String P_DEFAULT_PRESENTATION_BUILD_IN = "default_presentation_build_in";
 	public static final String P_DEFAULT_PRESENTATION_STRING = DatatypeDefinitionString.class

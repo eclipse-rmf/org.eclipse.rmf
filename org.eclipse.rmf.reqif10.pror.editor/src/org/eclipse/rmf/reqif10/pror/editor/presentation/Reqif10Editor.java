@@ -1503,9 +1503,13 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 	public void doSave(IProgressMonitor progressMonitor) {
 		ISelection currentSelection = getSite().getSelectionProvider().getSelection();
 		// Update ReqIF ID.
-		reqif.getTheHeader().setIdentifier("rmf-" + UUID.randomUUID().toString());
-		reqif.getTheHeader().setReqIFToolId(getToolID());
-		
+
+		if (Reqif10EditorPlugin.getPlugin().getPreferenceStore()
+				.getBoolean(PreferenceConstants.P_NEW_ID_ON_SAVE)) {
+			reqif.getTheHeader().setIdentifier(
+					"rmf-" + UUID.randomUUID().toString());
+			reqif.getTheHeader().setReqIFToolId(getToolID());
+		}
 		
 		// Save only resources that have actually changed.
 		//

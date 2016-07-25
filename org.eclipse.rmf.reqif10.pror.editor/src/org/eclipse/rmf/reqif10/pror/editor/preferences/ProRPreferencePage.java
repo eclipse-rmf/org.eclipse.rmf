@@ -35,11 +35,13 @@ public class ProRPreferencePage extends FieldEditorPreferencePage implements
 				PreferenceConstants.P_STOP_IS_SIMPLIFIED_WARNING,
 				"Stop warning when setting isSimplified = true for all ReqIF models.",
 				getFieldEditorParent()));
-		
+
+		addField(new BooleanFieldEditor(PreferenceConstants.P_VALIDATE_ON_SAVE,
+				"Validate ReqIF on save.", getFieldEditorParent()));
+
 		addField(new BooleanFieldEditor(
-				PreferenceConstants.P_VALIDATE_ON_SAVE,
-				"Validate ReqIF on save.",
+				PreferenceConstants.P_NEW_ID_ON_SAVE,
+				"Generate a new ReqIF ID on save. (may produce problems with versioning)",
 				getFieldEditorParent()));
 	}
-
 }
