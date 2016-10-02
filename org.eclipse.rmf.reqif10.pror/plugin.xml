@@ -74,10 +74,6 @@ Contributors:
                value="RMF ProR Standalone">
          </property>
          <property
-               name="preferenceCustomization"
-               value="plugin_customization.ini">
-         </property>
-         <property
                name="aboutText"
                value="ProR - Requirements Management Platform&#x0A;&#x0A;part of the &#x0A;&#x0A;Eclipse Requirements Management Framework (RMF)&#x0A;&#x0A;Version: (Incubation Submission)&#x0A;&#x0A;(c) Copyright Formal Mind GmbH, itemis AG and others 2011-2014.  All rights reserved.&#x0A;Visit http://eclipse.org/rmf">
          </property>
