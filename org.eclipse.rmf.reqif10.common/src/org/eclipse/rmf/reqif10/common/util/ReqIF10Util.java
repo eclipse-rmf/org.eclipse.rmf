@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Nirmal Sasidharan - initial API and implementation
  *     François Rey - better use of EMF reflective API
@@ -48,6 +48,7 @@ import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.Identifiable;
 import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
+import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecType;
 
@@ -57,7 +58,7 @@ import org.eclipse.rmf.reqif10.SpecType;
  * decided not to touch the generated code. We decided to use reflection over long if-then-else blocks to
  * <p>
  * This class is not intended to be instantiated.
- * 
+ *
  * @author jastram
  */
 public class ReqIF10Util {
@@ -72,7 +73,7 @@ public class ReqIF10Util {
 	/**
 	 * Returns the root ReqIF object for the corresponding EObject or null if none exists. This method simply traverses
 	 * the object tree to the root - there may be more efficient ways for finding the root ReqIF.
-	 * 
+	 *
 	 * @return the root {@link ReqIF} object or null if none found.
 	 */
 	public static ReqIF getReqIF(Object obj) {
@@ -101,7 +102,7 @@ public class ReqIF10Util {
 
 	/**
 	 * Reflectively sets the value.
-	 * 
+	 *
 	 * @param attributeValue
 	 */
 	@SuppressWarnings("unchecked")
@@ -185,7 +186,7 @@ public class ReqIF10Util {
 
 	/**
 	 * Returns the {@link DatatypeDefinition} for the given {@link AttributeValue}.
-	 * 
+	 *
 	 * @return the corresponding {@link DatatypeDefinition} or null if it cannot be determined.
 	 */
 	public static DatatypeDefinition getDatatypeDefinition(AttributeValue value) {
@@ -235,7 +236,7 @@ public class ReqIF10Util {
 	 * Returns the "the value" feature for the given attributeValue. For instance, for an {@link AttributeValueString}
 	 * it returns {@link Reqif10Package.Literals#ATTRIBUTE_VALUE_STRING__THE_VALUE}. The one exception is
 	 * {@link AttributeValueEnumeration}, where the feature name is "values", rather than "the value".
-	 * 
+	 *
 	 * @throws IllegalArgumentException
 	 *             for unknown {@link AttributeValue}s.
 	 */
@@ -243,7 +244,7 @@ public class ReqIF10Util {
 		// This implementation may be tedious to write but has the advantage
 		// of raising compiler errors if the model changes.
 		// The much shorter and reflective version would not:
-		//return getFeature(attributeValue, "definition"); //$NON-NLS-1$
+		// return getFeature(attributeValue, "definition"); //$NON-NLS-1$
 		if (attributeValue instanceof AttributeValueBoolean) {
 			return ReqIF10Package.Literals.ATTRIBUTE_VALUE_BOOLEAN__DEFINITION;
 		} else if (attributeValue instanceof AttributeValueDate) {
@@ -267,7 +268,7 @@ public class ReqIF10Util {
 	 * Returns the "the value" feature for the given attributeValue. For instance, for an {@link AttributeValueString}
 	 * it returns {@link Reqif10Package.Literals#ATTRIBUTE_VALUE_STRING__THE_VALUE}. The one exception is
 	 * {@link AttributeValueEnumeration}, where the feature name is "values", rather than "the value".
-	 * 
+	 *
 	 * @throws IllegalArgumentException
 	 *             for unknown {@link AttributeValue}s.
 	 */
@@ -275,7 +276,8 @@ public class ReqIF10Util {
 		// This implementation may be tedious to write but has the advantage
 		// of raising compiler errors if the model changes.
 		// The much shorter and reflective version would not:
-		//return getFeature(attributeValue, attributeValue instanceof AttributeValueEnumeration ? "values" : "theValue"); //$NON-NLS-1$
+		// return getFeature(attributeValue, attributeValue instanceof AttributeValueEnumeration ? "values" :
+		// "theValue"); //$NON-NLS-1$
 		if (attributeValue instanceof AttributeValueBoolean) {
 			return ReqIF10Package.Literals.ATTRIBUTE_VALUE_BOOLEAN__THE_VALUE;
 		} else if (attributeValue instanceof AttributeValueDate) {
@@ -299,7 +301,7 @@ public class ReqIF10Util {
 	 * Returns the "defaultValue" feature for the given attributeDefinition. For instance, for an
 	 * {@link AttributeDefinitionString} it returns
 	 * {@link Reqif10Package.Literals#ATTRIBUTE_DEFINITION_STRING__DEFAULT_VALUE}.
-	 * 
+	 *
 	 * @throws IllegalArgumentException
 	 *             for an unknown {@link AttributeDefinition}.
 	 */
@@ -307,7 +309,7 @@ public class ReqIF10Util {
 		// This implementation may be tedious to write but has the advantage
 		// of raising compiler errors if the model changes.
 		// The much shorter and reflective version would not:
-		//return getFeature(attributeDefinition, "defaultValue"); //$NON-NLS-1$
+		// return getFeature(attributeDefinition, "defaultValue"); //$NON-NLS-1$
 		if (attributeDefinition instanceof AttributeDefinitionBoolean) {
 			return ReqIF10Package.Literals.ATTRIBUTE_DEFINITION_BOOLEAN__DEFAULT_VALUE;
 		} else if (attributeDefinition instanceof AttributeDefinitionDate) {
@@ -362,7 +364,7 @@ public class ReqIF10Util {
 		// return;
 		// }
 		// if (identifiable.getIdentifier() == null || resource.getEObject(identifiable.getIdentifier()) != null) {
-		//			identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$
+		// identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$
 		// }
 		//
 		// // Also process the children
@@ -377,7 +379,7 @@ public class ReqIF10Util {
 		return collection;
 		// FIXME unfinished code
 		// if (resource == null) {
-		//			System.err.println("Cannot ensure unique IDs without resource."); //$NON-NLS-1$
+		// System.err.println("Cannot ensure unique IDs without resource."); //$NON-NLS-1$
 		// return collection;
 		// }
 		// Collection<?> newCollection = EcoreUtil.copyAll(collection);
@@ -385,7 +387,7 @@ public class ReqIF10Util {
 		// if (object instanceof Identifiable) {
 		// Identifiable identifiable = (Identifiable) object;
 		// if (identifiable.getIdentifier() == null || resource.getEObject(identifiable.getIdentifier()) != null) {
-		//					identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$
+		// identifiable.setIdentifier("rmf-" + UUID.randomUUID()); //$NON-NLS-1$
 		// }
 		// EObject eobject = (EObject) object;
 		// Collection<?> newContents = ensureIdIsUnique(resource, eobject.eContents());
@@ -399,7 +401,7 @@ public class ReqIF10Util {
 	/**
 	 * This method returns the current date as an {@link XMLGregorianCalendar} object already formatted into a
 	 * Specification conform format.
-	 * 
+	 *
 	 * @return the current date/time formatted for ReqIF
 	 */
 	public static GregorianCalendar getReqIFLastChange() {
@@ -416,6 +418,31 @@ public class ReqIF10Util {
 		GregorianCalendar cal = new GregorianCalendar();
 		cal.setTime(date);
 		return cal;
+	}
+
+	/**
+	 * Helper that finds the {@link AttributeDefinition} from its ID in the provided {@link ReqIF}.
+	 *
+	 * @return the required {@link AttributeDefinition}, or null if not found.
+	 */
+	public static AttributeDefinition getAttributeDefinition(ReqIF reqif, String attributeDefinitionId) {
+		if (reqif == null) {
+			return null;
+		}
+
+		ReqIFContent coreContent = reqif.getCoreContent();
+		if (coreContent == null) {
+			return null;
+		}
+
+		for (SpecType specType : coreContent.getSpecTypes()) {
+			for (AttributeDefinition ad : specType.getSpecAttributes()) {
+				if (attributeDefinitionId.equals(ad.getIdentifier())) {
+					return ad;
+				}
+			}
+		}
+		return null;
 	}
 
 }
