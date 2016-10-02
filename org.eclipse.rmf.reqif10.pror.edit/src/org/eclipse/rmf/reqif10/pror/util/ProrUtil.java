@@ -17,6 +17,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -25,11 +27,13 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.EMFEditPlugin;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -614,6 +618,21 @@ public final class ProrUtil {
 		ProrPresentationConfigurationItemProvider itemprovider = (ProrPresentationConfigurationItemProvider) getItemProvider(
 				adapterFactory, config);
 		return itemprovider;
+	}
+
+	/**
+	 * Takes a model element and tries to find the {@link IProject} it belongs to.
+	 * 
+	 * @return the {@link IProject}, or null if none associated.
+	 */
+	public static IProject getProjectFromModel(EObject eObject) {
+		Resource eResource = eObject.eResource();
+		URI eUri = eResource.getURI();
+		if (eUri.isPlatformResource()) {
+			String platformString = eUri.toPlatformString(true);
+			return ResourcesPlugin.getWorkspace().getRoot().findMember(platformString).getProject();
+		}
+		return null;
 	}
 
 }
