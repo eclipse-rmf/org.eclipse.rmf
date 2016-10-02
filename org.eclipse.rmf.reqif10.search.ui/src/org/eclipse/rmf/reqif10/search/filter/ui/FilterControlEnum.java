@@ -20,8 +20,8 @@ import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.EnumSelector;
 import org.eclipse.rmf.reqif10.search.filter.EnumFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -124,7 +124,7 @@ public class FilterControlEnum extends FilterControl {
 		getParent().getParent().layout();
 	}
 
-	public IFilter getFilter() {
+	public ReqIFFullFilter getFilter() {
 		return new EnumFilter(getOperator(), items,
 				(AttributeDefinitionEnumeration) attribute);
 	}

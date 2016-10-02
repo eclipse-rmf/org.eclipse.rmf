@@ -17,8 +17,8 @@ import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
 import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter;
 import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter.InternalAttribute;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.eclipse.rmf.reqif10.search.filter.StringFilter;
 import org.eclipse.rmf.reqif10.search.filter.XhtmlFilter;
 import org.eclipse.swt.SWT;
@@ -96,7 +96,7 @@ public class FilterControlString extends FilterControl {
 		}
 	}
 
-	public IFilter getFilter() {
+	public ReqIFFullFilter getFilter() {
 		String value = text == null ? null : text.getText();
 		boolean cv = caseSensitive == null ? false : caseSensitive.getSelection();
 		

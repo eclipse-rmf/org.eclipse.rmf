@@ -17,8 +17,8 @@ import java.util.List;
 import org.eclipse.rmf.reqif10.AttributeDefinitionDate;
 import org.eclipse.rmf.reqif10.search.filter.DateFilter;
 import org.eclipse.rmf.reqif10.search.filter.DateFilter.InternalAttribute;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.DateTime;
@@ -89,7 +89,7 @@ public class FilterControlDate extends FilterControl {
 	}
 
 	@Override
-	public IFilter getFilter() {
+	public ReqIFFullFilter getFilter() {
 		GregorianCalendar value1 = control[0] == null ? null
 				: new GregorianCalendar(control[0].getYear(),
 						control[0].getMonth(), control[0].getDay());

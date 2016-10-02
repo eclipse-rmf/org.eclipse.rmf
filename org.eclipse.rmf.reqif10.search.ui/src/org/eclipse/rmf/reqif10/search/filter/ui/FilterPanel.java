@@ -29,7 +29,7 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter;
 import org.eclipse.rmf.reqif10.search.filter.DateFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
 import org.eclipse.rmf.reqif10.search.filter.StringFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseAdapter;
@@ -65,9 +65,9 @@ public class FilterPanel extends Composite {
 	}
 
 	/**
-	 * This constructor uses an existing {@link IFilter} to populate the panel.
+	 * This constructor uses an existing {@link ReqIFFullFilter} to populate the panel.
 	 */
-	public FilterPanel(Composite parent, ReqIF reqif, IFilter filter) {
+	public FilterPanel(Composite parent, ReqIF reqif, ReqIFFullFilter filter) {
 		this(parent, reqif);
 		
 		// see whether the attribute of the filter still exists
@@ -197,10 +197,10 @@ public class FilterPanel extends Composite {
 	}
 
 	/**
-	 * @return the {@link IFilter} representing the state of the
+	 * @return the {@link ReqIFFullFilter} representing the state of the
 	 * {@link FilterPanel}, or null if not set or incorrectly configured.
 	 */
-	public IFilter getFilter() {
+	public ReqIFFullFilter getFilter() {
 		return getFilterControl() == null ? null : getFilterControl().getFilter();
 	}
 

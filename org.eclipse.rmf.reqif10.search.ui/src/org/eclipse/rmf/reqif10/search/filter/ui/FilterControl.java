@@ -26,9 +26,9 @@ import org.eclipse.rmf.reqif10.search.filter.BoolFilter;
 import org.eclipse.rmf.reqif10.search.filter.DateFilter;
 import org.eclipse.rmf.reqif10.search.filter.DateFilter.InternalAttribute;
 import org.eclipse.rmf.reqif10.search.filter.EnumFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
 import org.eclipse.rmf.reqif10.search.filter.NumberFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -48,7 +48,7 @@ import org.eclipse.swt.widgets.Control;
  */
 public abstract class FilterControl extends Composite {
 
-	protected IFilter templateFilter;
+	protected ReqIFFullFilter templateFilter;
 	protected Object attribute;
 
 	private Combo operatorControl;
@@ -78,9 +78,9 @@ public abstract class FilterControl extends Composite {
 	}
 
 	/**
-	 * New {@link FilterControl} for the given template {@link IFilter}.
+	 * New {@link FilterControl} for the given template {@link ReqIFFullFilter}.
 	 */
-	public FilterControl(FilterPanel parent, IFilter template) {
+	public FilterControl(FilterPanel parent, ReqIFFullFilter template) {
 		super(parent, SWT.FLAT);
 		this.templateFilter = template;
 		this.attribute = template.getAttribute();
@@ -119,9 +119,9 @@ public abstract class FilterControl extends Composite {
 	/**
 	 * Constructs a Filter object from the current configuration of the Control.
 	 * 
-	 * @return the {@link IFilter} object.
+	 * @return the {@link ReqIFFullFilter} object.
 	 */
-	abstract public IFilter getFilter();
+	abstract public ReqIFFullFilter getFilter();
 
 	private void init() {
 		if (attribute == null) throw new NullPointerException();
@@ -159,7 +159,7 @@ public abstract class FilterControl extends Composite {
 	 * This factory instantiates the correct FilterControl for a given filter.
 	 */
 	public static FilterControl createFilterControl(FilterPanel parent,
-			IFilter filter) {
+			ReqIFFullFilter filter) {
 		if (filter instanceof AbstractTextFilter)
 			return new FilterControlString(parent, (AbstractTextFilter) filter);
 		if (filter instanceof DateFilter)

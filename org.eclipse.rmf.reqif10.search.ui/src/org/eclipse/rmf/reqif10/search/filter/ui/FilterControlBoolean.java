@@ -14,8 +14,8 @@ import java.util.List;
 
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.search.filter.BoolFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Combo;
@@ -65,7 +65,7 @@ public class FilterControlBoolean extends FilterControl {
 		}
 	}
 
-	public IFilter getFilter() {
+	public ReqIFFullFilter getFilter() {
 		Boolean value = valueControl == null ? null : new Boolean(valueControl.getSelectionIndex() == 1);
 		return new BoolFilter(getOperator(), value, (AttributeDefinitionBoolean) attribute);
 	}

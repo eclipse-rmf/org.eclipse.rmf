@@ -15,8 +15,8 @@ import java.util.List;
 
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionReal;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.eclipse.rmf.reqif10.search.filter.NumberFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.VerifyEvent;
@@ -91,7 +91,7 @@ public class FilterControlNumber extends FilterControl {
 	}
 
 	@Override
-	public IFilter getFilter() {
+	public ReqIFFullFilter getFilter() {
 		Number value1 = control[0] == null ? null : control[0].getNumber();
 		Number value2 = control[1] == null ? null : control[1].getNumber();
 		return new NumberFilter(getOperator(), value1, value2, (AttributeDefinition)attribute);
