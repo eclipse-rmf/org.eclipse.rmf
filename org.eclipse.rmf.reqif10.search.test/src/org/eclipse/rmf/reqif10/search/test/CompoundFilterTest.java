@@ -11,8 +11,8 @@ import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.search.filter.BoolFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.eclipse.rmf.reqif10.search.filter.SimpleCompoundFilter;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,17 +25,17 @@ public class CompoundFilterTest extends AbstractFilterTest {
 	private BoolFilter filterTrue1;
 	private BoolFilter filterTrue2;
 	private BoolFilter filterFalse1;
-	private List<IFilter> filters;
+	private List<ReqIFFullFilter> filters;
 
 	@Before
 	public void setUp() {
 		createFixture(true);
 		
-		filterTrue1 = new BoolFilter(IFilter.Operator.IS, true, attributeDefinition1);
-		filterTrue2 = new BoolFilter(IFilter.Operator.IS, true, attributeDefinition2);
-		filterFalse1 = new BoolFilter(IFilter.Operator.IS, true, attributeDefinition3);
+		filterTrue1 = new BoolFilter(ReqIFFullFilter.Operator.IS, true, attributeDefinition1);
+		filterTrue2 = new BoolFilter(ReqIFFullFilter.Operator.IS, true, attributeDefinition2);
+		filterFalse1 = new BoolFilter(ReqIFFullFilter.Operator.IS, true, attributeDefinition3);
 		
-		filters = new ArrayList<IFilter>();
+		filters = new ArrayList<ReqIFFullFilter>();
 		filters.add(filterTrue1);
 		filters.add(filterTrue2);
 		filters.add(filterFalse1);
@@ -110,7 +110,7 @@ public class CompoundFilterTest extends AbstractFilterTest {
 	}
 
 	@Override
-	public IFilter createFilterInstance(Operator operator) {
+	public ReqIFFullFilter createFilterInstance(Operator operator) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -13,8 +13,8 @@ import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter;
 import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter.InternalAttribute;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.eclipse.rmf.reqif10.search.filter.StringFilter;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,58 +50,58 @@ public class StringFilterInternalTest extends AbstractFilterTest {
 		for (AbstractTextFilter.InternalAttribute attribute : values.keySet()) {
 			// match the value on the value
 			testData.add(new Object[] { 
-					IFilter.Operator.EQUALS, values.get(attribute), attribute, true,
+					ReqIFFullFilter.Operator.EQUALS, values.get(attribute), attribute, true,
 					true });
 			testData.add(new Object[] { 
-					IFilter.Operator.NOT_EQUALS, values.get(attribute), attribute, true,
+					ReqIFFullFilter.Operator.NOT_EQUALS, values.get(attribute), attribute, true,
 					false });
 			
 			// match the value on the value.toLowerCase and caseInSensitive
 			testData.add(new Object[] { 
-					IFilter.Operator.EQUALS, values.get(attribute).toLowerCase(), attribute, false,
+					ReqIFFullFilter.Operator.EQUALS, values.get(attribute).toLowerCase(), attribute, false,
 					true });
 			testData.add(new Object[] { 
-					IFilter.Operator.NOT_EQUALS, values.get(attribute).toLowerCase(), attribute, false,
+					ReqIFFullFilter.Operator.NOT_EQUALS, values.get(attribute).toLowerCase(), attribute, false,
 					false });
 			
 			// match the value on the value.toLowerCase and caseSensitive
 			testData.add(new Object[] { 
-					IFilter.Operator.EQUALS, values.get(attribute).toLowerCase(), attribute, true,
+					ReqIFFullFilter.Operator.EQUALS, values.get(attribute).toLowerCase(), attribute, true,
 					false });
 			testData.add(new Object[] { 
-					IFilter.Operator.NOT_EQUALS, values.get(attribute).toLowerCase(), attribute, true,
+					ReqIFFullFilter.Operator.NOT_EQUALS, values.get(attribute).toLowerCase(), attribute, true,
 					true });
 			
 			
 			testData.add(new Object[] { 
-					IFilter.Operator.CONTAINS, "THE_", attribute, true,
+					ReqIFFullFilter.Operator.CONTAINS, "THE_", attribute, true,
 					true });
 			testData.add(new Object[] { 
-					IFilter.Operator.CONTAINS, "THE_", attribute, false,
+					ReqIFFullFilter.Operator.CONTAINS, "THE_", attribute, false,
 					true });
 			testData.add(new Object[] { 
-					IFilter.Operator.CONTAINS, "the_", attribute, true,
+					ReqIFFullFilter.Operator.CONTAINS, "the_", attribute, true,
 					false });
 			
 			
 			testData.add(new Object[] { 
-					IFilter.Operator.NOT_CONTAINS, "E", attribute, true,
+					ReqIFFullFilter.Operator.NOT_CONTAINS, "E", attribute, true,
 					false });
 			testData.add(new Object[] { 
-					IFilter.Operator.NOT_CONTAINS, "e", attribute, false,
+					ReqIFFullFilter.Operator.NOT_CONTAINS, "e", attribute, false,
 					false });
 			testData.add(new Object[] { 
-					IFilter.Operator.NOT_CONTAINS, "XXX", attribute, true,
+					ReqIFFullFilter.Operator.NOT_CONTAINS, "XXX", attribute, true,
 					true });
 			
 			testData.add(new Object[] { 
-					IFilter.Operator.REGEXP, ".*E.*", attribute, true,
+					ReqIFFullFilter.Operator.REGEXP, ".*E.*", attribute, true,
 					true });
 			testData.add(new Object[] { 
-					IFilter.Operator.REGEXP, ".*e.*", attribute, false,
+					ReqIFFullFilter.Operator.REGEXP, ".*e.*", attribute, false,
 					true });
 			testData.add(new Object[] { 
-					IFilter.Operator.REGEXP, ".*e.*", attribute, true,
+					ReqIFFullFilter.Operator.REGEXP, ".*e.*", attribute, true,
 					false });
 			
 		}
@@ -178,7 +178,7 @@ public class StringFilterInternalTest extends AbstractFilterTest {
 
 
 	@Override
-	public IFilter createFilterInstance(Operator operator) {
+	public ReqIFFullFilter createFilterInstance(Operator operator) {
 		// TODO Auto-generated method stub
 		return null;
 	}

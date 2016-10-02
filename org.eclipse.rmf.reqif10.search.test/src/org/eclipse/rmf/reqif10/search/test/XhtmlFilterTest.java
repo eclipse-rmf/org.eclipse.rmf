@@ -25,8 +25,8 @@ import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.eclipse.rmf.reqif10.search.filter.StringFilter;
 import org.eclipse.rmf.reqif10.search.filter.XhtmlFilter;
 import org.eclipse.rmf.reqif10.search.testdata.TestData;
@@ -51,16 +51,16 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 	@Test
 	public void testContains() throws Exception {
 		XhtmlFilter xhtmlFilter;
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.CONTAINS, "hello",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.CONTAINS, "hello",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.CONTAINS, "HELLO",  attributeDefinition, false);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.CONTAINS, "HELLO",  attributeDefinition, false);
 		doMatch(xhtmlFilter, true);
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.CONTAINS, "HELLO",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.CONTAINS, "HELLO",  attributeDefinition, true);
 		doMatch(xhtmlFilter, false);
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.CONTAINS, "<xhtml:p",  attributeDefinition, false);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.CONTAINS, "<xhtml:p",  attributeDefinition, false);
 		doMatch(xhtmlFilter, true);
 	}
 	
@@ -69,13 +69,13 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 	public void testNotContains() throws Exception {
 		XhtmlFilter xhtmlFilter;
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.NOT_CONTAINS, "hello",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.NOT_CONTAINS, "hello",  attributeDefinition, true);
 		doMatch(xhtmlFilter, false);
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.NOT_CONTAINS, "HELLO",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.NOT_CONTAINS, "HELLO",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.NOT_CONTAINS, "NOTHING",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.NOT_CONTAINS, "NOTHING",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
 	}
 	
@@ -85,10 +85,10 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 	public void testRegExp() throws Exception {
 		XhtmlFilter xhtmlFilter;
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP, "<xhtml:p.*>hel+o",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.REGEXP, "<xhtml:p.*>hel+o",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP, "NOTHING",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.REGEXP, "NOTHING",  attributeDefinition, true);
 		doMatch(xhtmlFilter, false);
 	}
 
@@ -96,13 +96,13 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 	public void testRegExpPlain() throws Exception {
 		XhtmlFilter xhtmlFilter;
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP_PLAIN, "hello",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.REGEXP_PLAIN, "hello",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP_PLAIN, "hello\\s* world",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.REGEXP_PLAIN, "hello\\s* world",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP_PLAIN, "hello.*world",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.REGEXP_PLAIN, "hello.*world",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
 	}	
 	
@@ -110,13 +110,13 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 	public void testIsSet() throws Exception {
 		XhtmlFilter xhtmlFilter;
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.IS_SET, "hello",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.IS_SET, "hello",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
 		
 		AttributeDefinitionXHTML attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML();
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.IS_SET, "hello",  attributeDefinition2, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.IS_SET, "hello",  attributeDefinition2, true);
 		doMatch(xhtmlFilter, false);
 	}
 	
@@ -124,13 +124,13 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 	public void testIsNotSet() throws Exception {
 		XhtmlFilter xhtmlFilter;
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.IS_NOT_SET, "hello",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.IS_NOT_SET, "hello",  attributeDefinition, true);
 		doMatch(xhtmlFilter, false);
 		
 		AttributeDefinitionXHTML attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionXHTML();
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.IS_NOT_SET, "hello",  attributeDefinition2, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.IS_NOT_SET, "hello",  attributeDefinition2, true);
 		doMatch(xhtmlFilter, false);
 	}
 
@@ -138,7 +138,7 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 	@Test
 	public void testExceptionsAttributeDefinition() throws Exception {
 		thrown.expect(IllegalArgumentException.class);
-		new StringFilter(IFilter.Operator.EQUALS, "abcdef",  (AttributeDefinitionString) null, false);
+		new StringFilter(ReqIFFullFilter.Operator.EQUALS, "abcdef",  (AttributeDefinitionString) null, false);
 	}
 	
 	
@@ -149,7 +149,7 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 
 
 	@Override
-	public IFilter createFilterInstance(Operator operator) {
+	public ReqIFFullFilter createFilterInstance(Operator operator) {
 		return new XhtmlFilter(operator, "", attributeDefinition, true);
 	}
 
@@ -158,35 +158,35 @@ public class XhtmlFilterTest extends AbstractFilterTest{
 	public void doEmptyTest() throws Exception {
 		XhtmlFilter xhtmlFilter;
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.CONTAINS, "hello",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.CONTAINS, "hello",  attributeDefinition, true);
 		doMatch(xhtmlFilter, false);
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.CONTAINS, "HELLO",  attributeDefinition, false);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.CONTAINS, "HELLO",  attributeDefinition, false);
 		doMatch(xhtmlFilter, false);
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.CONTAINS, "HELLO",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.CONTAINS, "HELLO",  attributeDefinition, true);
 		doMatch(xhtmlFilter, false);
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.CONTAINS, "<xhtml:p",  attributeDefinition, false);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.CONTAINS, "<xhtml:p",  attributeDefinition, false);
 		doMatch(xhtmlFilter, false);
 		
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.NOT_CONTAINS, "hello",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.NOT_CONTAINS, "hello",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.NOT_CONTAINS, "HELLO",  attributeDefinition, false);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.NOT_CONTAINS, "HELLO",  attributeDefinition, false);
 		doMatch(xhtmlFilter, true);
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.NOT_CONTAINS, "NOTHING",  attributeDefinition, true);
-		doMatch(xhtmlFilter, true);
-		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP, "<xhtml:p.*>hel+o",  attributeDefinition, true);
-		doMatch(xhtmlFilter, false);
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP, "x*",  attributeDefinition, true);
-		doMatch(xhtmlFilter, true);
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP, "",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.NOT_CONTAINS, "NOTHING",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
 		
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP_PLAIN, "h",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.REGEXP, "<xhtml:p.*>hel+o",  attributeDefinition, true);
 		doMatch(xhtmlFilter, false);
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP_PLAIN, "x*",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.REGEXP, "x*",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
-		xhtmlFilter = new XhtmlFilter(IFilter.Operator.REGEXP_PLAIN, "",  attributeDefinition, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.REGEXP, "",  attributeDefinition, true);
+		doMatch(xhtmlFilter, true);
+		
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.REGEXP_PLAIN, "h",  attributeDefinition, true);
+		doMatch(xhtmlFilter, false);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.REGEXP_PLAIN, "x*",  attributeDefinition, true);
+		doMatch(xhtmlFilter, true);
+		xhtmlFilter = new XhtmlFilter(ReqIFFullFilter.Operator.REGEXP_PLAIN, "",  attributeDefinition, true);
 		doMatch(xhtmlFilter, true);
 	}
 

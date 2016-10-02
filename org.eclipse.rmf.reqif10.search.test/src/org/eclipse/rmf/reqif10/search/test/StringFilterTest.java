@@ -31,8 +31,8 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter;
 import org.eclipse.rmf.reqif10.search.filter.AbstractTextFilter.InternalAttribute;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.eclipse.rmf.reqif10.search.filter.StringFilter;
 import org.eclipse.rmf.reqif10.search.testdata.TestData;
 import org.junit.Before;
@@ -56,22 +56,22 @@ public class StringFilterTest extends AbstractFilterTest{
 	public void testEquals() throws Exception {
 		StringFilter filter;
 		
-		filter = new StringFilter(IFilter.Operator.EQUALS, "abcDEF",  attributeDefinition, true);
+		filter = new StringFilter(ReqIFFullFilter.Operator.EQUALS, "abcDEF",  attributeDefinition, true);
 		doMatch(filter, true);
 		
-		filter = new StringFilter(IFilter.Operator.EQUALS, "abcDEF",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.EQUALS, "abcDEF",  attributeDefinition, false);
 		doMatch(filter, true);
 		
-		filter = new StringFilter(IFilter.Operator.EQUALS, "abcdef",  attributeDefinition, true);
+		filter = new StringFilter(ReqIFFullFilter.Operator.EQUALS, "abcdef",  attributeDefinition, true);
 		doMatch(filter, false);
 		
-		filter = new StringFilter(IFilter.Operator.EQUALS, "abcdef",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.EQUALS, "abcdef",  attributeDefinition, false);
 		doMatch(filter, true);
 		
-		filter = new StringFilter(IFilter.Operator.EQUALS, "abc",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.EQUALS, "abc",  attributeDefinition, false);
 		doMatch(filter, false);
 		
-		filter = new StringFilter(IFilter.Operator.EQUALS, "abc",  attributeDefinition, true);
+		filter = new StringFilter(ReqIFFullFilter.Operator.EQUALS, "abc",  attributeDefinition, true);
 		doMatch(filter, false);
 	}
 	
@@ -80,16 +80,16 @@ public class StringFilterTest extends AbstractFilterTest{
 	public void testNotEquals() throws Exception {
 		StringFilter filter;
 		
-		filter = new StringFilter(IFilter.Operator.NOT_EQUALS, "X",  attributeDefinition, true);
+		filter = new StringFilter(ReqIFFullFilter.Operator.NOT_EQUALS, "X",  attributeDefinition, true);
 		doMatch(filter, true);
 		
-		filter = new StringFilter(IFilter.Operator.NOT_EQUALS, "abcdef",  attributeDefinition, true);
+		filter = new StringFilter(ReqIFFullFilter.Operator.NOT_EQUALS, "abcdef",  attributeDefinition, true);
 		doMatch(filter, true);
 		
-		filter = new StringFilter(IFilter.Operator.NOT_EQUALS, "abcdef",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.NOT_EQUALS, "abcdef",  attributeDefinition, false);
 		doMatch(filter, false);
 		
-		filter = new StringFilter(IFilter.Operator.NOT_EQUALS, "abcDEF",  attributeDefinition, true);
+		filter = new StringFilter(ReqIFFullFilter.Operator.NOT_EQUALS, "abcDEF",  attributeDefinition, true);
 		doMatch(filter, false);
 	}
 	
@@ -98,17 +98,17 @@ public class StringFilterTest extends AbstractFilterTest{
 	public void testContains() throws Exception {
 		StringFilter filter;
 		
-		filter = new StringFilter(IFilter.Operator.CONTAINS, "A",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.CONTAINS, "A",  attributeDefinition, false);
 		doMatch(filter, true);
-		filter = new StringFilter(IFilter.Operator.CONTAINS, "A",  attributeDefinition, true);
+		filter = new StringFilter(ReqIFFullFilter.Operator.CONTAINS, "A",  attributeDefinition, true);
 		doMatch(filter, false);
-		filter = new StringFilter(IFilter.Operator.CONTAINS, "nonexisting substring",  attributeDefinition, true);
+		filter = new StringFilter(ReqIFFullFilter.Operator.CONTAINS, "nonexisting substring",  attributeDefinition, true);
 		doMatch(filter, false);
-		filter = new StringFilter(IFilter.Operator.CONTAINS, "nonexisting substring",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.CONTAINS, "nonexisting substring",  attributeDefinition, false);
 		doMatch(filter, false);
-		filter = new StringFilter(IFilter.Operator.CONTAINS, "abcDEF",  attributeDefinition, true);
+		filter = new StringFilter(ReqIFFullFilter.Operator.CONTAINS, "abcDEF",  attributeDefinition, true);
 		doMatch(filter, true);
-		filter = new StringFilter(IFilter.Operator.CONTAINS, "abcDEF",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.CONTAINS, "abcDEF",  attributeDefinition, false);
 		doMatch(filter, true);
 	}
 	
@@ -117,17 +117,17 @@ public class StringFilterTest extends AbstractFilterTest{
 	public void testNotContains() throws Exception {
 		StringFilter filter;
 		
-		filter = new StringFilter(IFilter.Operator.NOT_CONTAINS, "A",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.NOT_CONTAINS, "A",  attributeDefinition, false);
 		doMatch(filter, false);
-		filter = new StringFilter(IFilter.Operator.NOT_CONTAINS, "A",  attributeDefinition, true);
+		filter = new StringFilter(ReqIFFullFilter.Operator.NOT_CONTAINS, "A",  attributeDefinition, true);
 		doMatch(filter, true);
-		filter = new StringFilter(IFilter.Operator.NOT_CONTAINS, "nonexisting substring",  attributeDefinition, true);
+		filter = new StringFilter(ReqIFFullFilter.Operator.NOT_CONTAINS, "nonexisting substring",  attributeDefinition, true);
 		doMatch(filter, true);
-		filter = new StringFilter(IFilter.Operator.NOT_CONTAINS, "nonexisting substring",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.NOT_CONTAINS, "nonexisting substring",  attributeDefinition, false);
 		doMatch(filter, true);
-		filter = new StringFilter(IFilter.Operator.NOT_CONTAINS, "abcDEF",  attributeDefinition, true);
+		filter = new StringFilter(ReqIFFullFilter.Operator.NOT_CONTAINS, "abcDEF",  attributeDefinition, true);
 		doMatch(filter, false);
-		filter = new StringFilter(IFilter.Operator.NOT_CONTAINS, "abcDEF",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.NOT_CONTAINS, "abcDEF",  attributeDefinition, false);
 		doMatch(filter, false);
 	}
 	
@@ -135,16 +135,16 @@ public class StringFilterTest extends AbstractFilterTest{
 	public void testRegExp() throws Exception {
 		StringFilter filter;
 		
-		filter= new StringFilter(IFilter.Operator.REGEXP, ".*b.*",  attributeDefinition, true);
+		filter= new StringFilter(ReqIFFullFilter.Operator.REGEXP, ".*b.*",  attributeDefinition, true);
 		doMatch(filter, true);
 		
-		filter= new StringFilter(IFilter.Operator.REGEXP, ".*b.*",  attributeDefinition, false);
+		filter= new StringFilter(ReqIFFullFilter.Operator.REGEXP, ".*b.*",  attributeDefinition, false);
 		doMatch(filter, true);
 		
-		filter= new StringFilter(IFilter.Operator.REGEXP, ".*ABC.*",  attributeDefinition, true);
+		filter= new StringFilter(ReqIFFullFilter.Operator.REGEXP, ".*ABC.*",  attributeDefinition, true);
 		doMatch(filter, false);
 		
-		filter= new StringFilter(IFilter.Operator.REGEXP, ".*ABC.*",  attributeDefinition, false);
+		filter= new StringFilter(ReqIFFullFilter.Operator.REGEXP, ".*ABC.*",  attributeDefinition, false);
 		doMatch(filter, true);
 		
 	}
@@ -154,33 +154,33 @@ public class StringFilterTest extends AbstractFilterTest{
 	public void doEmptyTest(){
 		StringFilter filter;
 		
-		filter = new StringFilter(IFilter.Operator.EQUALS, "abcdef",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.EQUALS, "abcdef",  attributeDefinition, false);
 		doMatch(filter, false);
 		
 		// A missing AD should always yield false for equals
-		filter = new StringFilter(IFilter.Operator.EQUALS, "",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.EQUALS, "",  attributeDefinition, false);
 		doMatch(filter, false);
 		
 		// A missing AD should always yield true for not_equals
-		filter = new StringFilter(IFilter.Operator.NOT_EQUALS, "",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.NOT_EQUALS, "",  attributeDefinition, false);
 		doMatch(filter, true);
 		
 		// A missing AD should always yield false for contains
-		filter = new StringFilter(IFilter.Operator.CONTAINS, "",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.CONTAINS, "",  attributeDefinition, false);
 		doMatch(filter, false);
 		
 		// A missing AD should always yield true for not_contains
-		filter = new StringFilter(IFilter.Operator.NOT_CONTAINS, "",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.NOT_CONTAINS, "",  attributeDefinition, false);
 		doMatch(filter, true);
 		
 		// apply Regexp to empty string
-		filter = new StringFilter(IFilter.Operator.REGEXP, "",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.REGEXP, "",  attributeDefinition, false);
 		doMatch(filter, true);
 		
-		filter = new StringFilter(IFilter.Operator.REGEXP, ".*",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.REGEXP, ".*",  attributeDefinition, false);
 		doMatch(filter, true);
 		
-		filter = new StringFilter(IFilter.Operator.REGEXP, ".+",  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.REGEXP, ".+",  attributeDefinition, false);
 		doMatch(filter, false);
 	}
 	
@@ -188,13 +188,13 @@ public class StringFilterTest extends AbstractFilterTest{
 	@Test
 	public void testExceptionsAttributeDefinition() throws Exception {
 		thrown.expect(IllegalArgumentException.class);
-		new StringFilter(IFilter.Operator.EQUALS, "abcdef",  (AttributeDefinitionString) null, false);
+		new StringFilter(ReqIFFullFilter.Operator.EQUALS, "abcdef",  (AttributeDefinitionString) null, false);
 	}
 	
 	@Test
 	public void testExceptionsInternalAttribute() throws Exception {
 		thrown.expect(IllegalArgumentException.class);
-		new StringFilter(IFilter.Operator.EQUALS, "abcdef",  (InternalAttribute) null, false);
+		new StringFilter(ReqIFFullFilter.Operator.EQUALS, "abcdef",  (InternalAttribute) null, false);
 	}
 	
 	
@@ -227,13 +227,13 @@ public class StringFilterTest extends AbstractFilterTest{
 	public void testIsSet() throws Exception {
 		StringFilter filter;
 		
-		filter = new StringFilter(IFilter.Operator.IS_SET, null,  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_SET, null,  attributeDefinition, false);
 		doMatch(filter, true);
 		
 		AttributeDefinitionString attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
-		filter = new StringFilter(IFilter.Operator.IS_SET, null,  attributeDefinition2, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_SET, null,  attributeDefinition2, false);
 		doMatch(filter, false);
 	}
 	
@@ -242,13 +242,13 @@ public class StringFilterTest extends AbstractFilterTest{
 	public void testIsNotSet() throws Exception {
 		StringFilter filter;
 		
-		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, null,  attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_NOT_SET, null,  attributeDefinition, false);
 		doMatch(filter, false);
 		
 		AttributeDefinitionString attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionString();
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
-		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, null,  attributeDefinition2, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_NOT_SET, null,  attributeDefinition2, false);
 		doMatch(filter, false);
 	}
 	
@@ -257,18 +257,18 @@ public class StringFilterTest extends AbstractFilterTest{
 	public void isSetInternal() throws Exception {
 		StringFilter filter; 
 		
-		filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
 		doMatch(filter, true);
-		filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.IDENTIFIER, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.IDENTIFIER, false);
 		doMatch(filter, true);
-		filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.LONG_NAME, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.LONG_NAME, false);
 		doMatch(filter, true);
 		
-		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
 		doMatch(filter, false);
-		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.IDENTIFIER, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.IDENTIFIER, false);
 		doMatch(filter, false);
-		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.LONG_NAME, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.LONG_NAME, false);
 		doMatch(filter, false);
 		
 		SpecElementWithAttributes specObject = getFixture();
@@ -276,18 +276,18 @@ public class StringFilterTest extends AbstractFilterTest{
 		specObject.setLongName(null);
 		specObject.setIdentifier(null);
 		
-		filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
 		doMatch(filter, false);
-		filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.IDENTIFIER, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.IDENTIFIER, false);
 		doMatch(filter, false);
-		filter = new StringFilter(IFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.LONG_NAME, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_SET, "", AbstractTextFilter.InternalAttribute.LONG_NAME, false);
 		doMatch(filter, false);
 		
-		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.DESC, false);
 		doMatch(filter, true);
-		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.IDENTIFIER, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.IDENTIFIER, false);
 		doMatch(filter, true);
-		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.LONG_NAME, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_NOT_SET, "", AbstractTextFilter.InternalAttribute.LONG_NAME, false);
 		doMatch(filter, true);
 	}
 	
@@ -299,7 +299,7 @@ public class StringFilterTest extends AbstractFilterTest{
 
 
 	@Override
-	public IFilter createFilterInstance(Operator operator) {
+	public ReqIFFullFilter createFilterInstance(Operator operator) {
 		return new StringFilter(operator, "", attributeDefinition, true);
 	}
 

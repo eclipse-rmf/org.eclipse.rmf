@@ -27,8 +27,8 @@ import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.junit.Test;
 
 public abstract class AbstractFilterTest extends AbstractItemProviderTest {
@@ -60,7 +60,7 @@ public abstract class AbstractFilterTest extends AbstractItemProviderTest {
 	 * @param filter
 	 * @param expected
 	 */
-	public void doMatch(IFilter filter, boolean expected){
+	public void doMatch(ReqIFFullFilter filter, boolean expected){
 		Integer c = operatorCounts.get(filter.getOperator());
 		c = (c == null ? 1 : ++c);
 		operatorCounts.put(filter.getOperator(), c);
@@ -95,7 +95,7 @@ public abstract class AbstractFilterTest extends AbstractItemProviderTest {
 
 	public abstract Set<Operator> getSupportedOperators();
 
-	public abstract IFilter createFilterInstance(Operator operator);
+	public abstract ReqIFFullFilter createFilterInstance(Operator operator);
 	
 		
 	@Test

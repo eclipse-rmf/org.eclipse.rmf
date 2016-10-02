@@ -18,8 +18,8 @@ import org.eclipse.rmf.reqif10.AttributeValueInteger;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionInteger;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecObject;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.eclipse.rmf.reqif10.search.filter.NumberFilter;
 import org.junit.Before;
 import org.junit.Test;
@@ -146,7 +146,7 @@ public class IntegerFilterTest extends AbstractFilterTest {
 	
 	
 	@Override
-	public IFilter createFilterInstance(Operator operator) {
+	public ReqIFFullFilter createFilterInstance(Operator operator) {
 		return new NumberFilter(operator, BigInteger.ZERO, null, attributeDefinition);
 	}
 	

@@ -19,7 +19,7 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.search.filter.BoolFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.junit.Before;
 import org.junit.Test;
 

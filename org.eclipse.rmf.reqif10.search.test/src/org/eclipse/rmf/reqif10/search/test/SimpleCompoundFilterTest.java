@@ -29,8 +29,8 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.testframework.AbstractItemProviderTest;
 import org.eclipse.rmf.reqif10.search.filter.DateFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.eclipse.rmf.reqif10.search.filter.NumberFilter;
 import org.eclipse.rmf.reqif10.search.filter.SimpleCompoundFilter;
 import org.eclipse.rmf.reqif10.search.filter.StringFilter;
@@ -66,7 +66,7 @@ public class SimpleCompoundFilterTest extends AbstractItemProviderTest {
 		}
 		
 		
-		LinkedList<IFilter> filters = new LinkedList<IFilter>();
+		LinkedList<ReqIFFullFilter> filters = new LinkedList<ReqIFFullFilter>();
 		filters.add(new DateFilter(Operator.AFTER, new GregorianCalendar(2014, 1, 1), null, adDate)); // matches
 		filters.add(new NumberFilter(Operator.GREATER, new BigInteger("100"), null, adInteger)); // does not match
 		filters.add(new StringFilter(Operator.CONTAINS, "c", adString, false)); // matches
@@ -83,7 +83,7 @@ public class SimpleCompoundFilterTest extends AbstractItemProviderTest {
 			assertFalse(andFilter.match(specObject));
 		}
 		
-		filters = new LinkedList<IFilter>();
+		filters = new LinkedList<ReqIFFullFilter>();
 		filters.add(new DateFilter(Operator.AFTER, new GregorianCalendar(2014, 1, 1), null, adDate)); // matches
 		filters.add(new StringFilter(Operator.CONTAINS, "c", adString, false)); // matches
 

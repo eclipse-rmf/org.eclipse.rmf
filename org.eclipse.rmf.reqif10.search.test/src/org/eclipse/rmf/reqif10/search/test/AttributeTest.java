@@ -9,8 +9,8 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecObjectType;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.eclipse.rmf.reqif10.search.filter.StringFilter;
 import org.junit.Test;
 
@@ -25,17 +25,17 @@ public class AttributeTest extends AbstractFilterTest{
 		
 		// The attribute is defined and a value is set
 		createFixture("test", true);
-		filter = new StringFilter(IFilter.Operator.IS_SET, "", attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_SET, "", attributeDefinition, false);
 		doMatch(filter, true);
 		
 		// The attribute is defined and the value is null
 		createFixture(null, true);
-		filter = new StringFilter(IFilter.Operator.IS_SET, "", attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_SET, "", attributeDefinition, false);
 		doMatch(filter, false);
 		
 		// The attribute is not defined
 		createFixture(null, false);
-		filter = new StringFilter(IFilter.Operator.IS_SET, "", attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_SET, "", attributeDefinition, false);
 		doMatch(filter, false);
 	}
 	
@@ -47,17 +47,17 @@ public class AttributeTest extends AbstractFilterTest{
 		
 		// The attribute is defined and a value is set
 		createFixture("test", true);
-		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_NOT_SET, "", attributeDefinition, false);
 		doMatch(filter, false);
 		
 		// The attribute is defined and the value is null
 		createFixture(null, true);
-		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_NOT_SET, "", attributeDefinition, false);
 		doMatch(filter, true);
 
 		// The attribute is not defined
 		createFixture(null, false);
-		filter = new StringFilter(IFilter.Operator.IS_NOT_SET, "", attributeDefinition, false);
+		filter = new StringFilter(ReqIFFullFilter.Operator.IS_NOT_SET, "", attributeDefinition, false);
 		doMatch(filter, false);
 		
 	}
@@ -104,7 +104,7 @@ public class AttributeTest extends AbstractFilterTest{
 	}
 
 	@Override
-	public IFilter createFilterInstance(Operator operator) {
+	public ReqIFFullFilter createFilterInstance(Operator operator) {
 		return new StringFilter(operator, "", attributeDefinition, true);
 	}
 

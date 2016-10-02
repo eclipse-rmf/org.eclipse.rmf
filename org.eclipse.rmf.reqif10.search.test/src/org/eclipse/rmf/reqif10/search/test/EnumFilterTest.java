@@ -23,8 +23,8 @@ import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.search.filter.EnumFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter;
-import org.eclipse.rmf.reqif10.search.filter.IFilter.Operator;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter;
+import org.eclipse.rmf.reqif10.search.filter.ReqIFFullFilter.Operator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -156,13 +156,13 @@ public class EnumFilterTest extends AbstractFilterTest{
 	public void testIsSet() throws Exception {
 		EnumFilter filter;
 		
-		filter = new EnumFilter(IFilter.Operator.IS_SET, specifiedValues, attributeDefinition);
+		filter = new EnumFilter(ReqIFFullFilter.Operator.IS_SET, specifiedValues, attributeDefinition);
 		doMatch(filter, true);
 		
 		AttributeDefinitionEnumeration attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionEnumeration();
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
-		filter = new EnumFilter(IFilter.Operator.IS_SET, specifiedValues, attributeDefinition2);
+		filter = new EnumFilter(ReqIFFullFilter.Operator.IS_SET, specifiedValues, attributeDefinition2);
 		doMatch(filter, false);
 	}
 	
@@ -171,13 +171,13 @@ public class EnumFilterTest extends AbstractFilterTest{
 	public void testIsNotSet() throws Exception {
 		EnumFilter filter;
 		
-		filter = new EnumFilter(IFilter.Operator.IS_NOT_SET, specifiedValues, attributeDefinition);
+		filter = new EnumFilter(ReqIFFullFilter.Operator.IS_NOT_SET, specifiedValues, attributeDefinition);
 		doMatch(filter, false);
 		
 		AttributeDefinitionEnumeration attributeDefinition2 = ReqIF10Factory.eINSTANCE.createAttributeDefinitionEnumeration();
 		attributeDefinition2.setIdentifier("AD_ID1");
 		
-		filter = new EnumFilter(IFilter.Operator.IS_NOT_SET, specifiedValues, attributeDefinition2);
+		filter = new EnumFilter(ReqIFFullFilter.Operator.IS_NOT_SET, specifiedValues, attributeDefinition2);
 		doMatch(filter, false);
 	}	
 	
@@ -216,7 +216,7 @@ public class EnumFilterTest extends AbstractFilterTest{
 	}
 
 	@Override
-	public IFilter createFilterInstance(Operator operator) {
+	public ReqIFFullFilter createFilterInstance(Operator operator) {
 		return new EnumFilter(operator, specifiedValues, attributeDefinition);
 	}
 
