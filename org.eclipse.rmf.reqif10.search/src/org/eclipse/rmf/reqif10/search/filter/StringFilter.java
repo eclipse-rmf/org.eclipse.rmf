@@ -11,6 +11,11 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValueString;
@@ -23,7 +28,9 @@ import com.google.common.collect.Sets;
 /**
  * Filter for String-based values.
  */
-public class StringFilter extends AbstractTextFilter {
+public class StringFilter extends AbstractTextFilter implements Serializable {
+
+	private static final long serialVersionUID = -6744903428716699026L;
 
 	// TODO cross-check this with supported operators.
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
@@ -113,5 +120,36 @@ public class StringFilter extends AbstractTextFilter {
 		}
 		throw new IllegalStateException("Expected an AttributeDefinitionString as attribute but found " + attributeDefinition.getClass());
 	}
+	
+	/**
+	 * Serializes this Filter
+	 */
+	private void writeObject(ObjectOutputStream s) throws IOException {
+		s.defaultWriteObject();
+		s.writeBoolean(isInternal);
 
+		if (isInternal) {
+			s.writeObject(internalAttribute);
+		} else {
+			AttributeDefinitionString ad = (AttributeDefinitionString) getAttribute();
+			s.writeUTF(ad.getIdentifier());
+		}
+		s.writeObject(operator);
+		s.writeUTF(filterValue);
+		s.writeBoolean(caseSensitive);
+	}
+
+	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+		s.defaultReadObject();
+		isInternal = s.readBoolean();
+		if (isInternal) {
+			internalAttribute = (InternalAttribute) s.readObject();
+		} else {
+			String adId = s.readUTF();
+			attributeDefinition = ReqIF10Util.getAttributeDefinition(FilterContext.REQIF, adId);
+		}
+		operator = (Operator) s.readObject();
+		filterValue = s.readUTF();
+		caseSensitive = s.readBoolean();
+	}
 }

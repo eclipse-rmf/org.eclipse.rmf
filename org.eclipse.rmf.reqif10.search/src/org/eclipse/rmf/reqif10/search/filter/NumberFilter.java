@@ -11,6 +11,9 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 
 import org.eclipse.rmf.reqif10.AttributeDefinition;
@@ -26,11 +29,13 @@ import com.google.common.collect.Sets;
 
 public class NumberFilter extends AbstractAttributeFilter {
 
+	private static final long serialVersionUID = 5393402972229495736L;
+
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
 			.immutableEnumSet(Operator.IS, Operator.IS_NOT,
 					Operator.BETWEEN, Operator.GREATER, Operator.SMALLER, Operator.IS_SET, Operator.IS_NOT_SET);
 	
-	private AttributeDefinition attributeDefinition;
+	private transient AttributeDefinition attributeDefinition;
 
 	private Operator operator;
 	private Comparable<Number> value1;
@@ -52,6 +57,7 @@ public class NumberFilter extends AbstractAttributeFilter {
 	 * TODO (mj) How about abandoning the above two constructors in favor of
 	 * this one? Maybe after adding some sanity checks.
 	 */
+	@SuppressWarnings("unchecked")
 	public NumberFilter(Operator operator, Number value1, Number value2,
 			AttributeDefinition attributeDefinition) {
 		
@@ -84,7 +90,7 @@ public class NumberFilter extends AbstractAttributeFilter {
 		}
 		
 		// ensure that value2 is not null for operations that need two parameters
-		if (operator.equals(IFilter.Operator.BETWEEN)) {
+		if (operator.equals(ReqIFFullFilter.Operator.BETWEEN)) {
 			if (null == value2) {
 				throw new IllegalArgumentException("value2 can not be null");
 			}
@@ -216,6 +222,14 @@ public class NumberFilter extends AbstractAttributeFilter {
 		return SUPPORTED_OPERATORS;
 	}
 	
-	
+	private void writeObject(ObjectOutputStream s) throws IOException {
+		s.defaultWriteObject();
+		s.writeUTF(getAttribute().getIdentifier());
+	}
 
+	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+		s.defaultReadObject();
+		String adId = s.readUTF();
+		attributeDefinition = ReqIF10Util.getAttributeDefinition(FilterContext.REQIF, adId);
+	}
 }

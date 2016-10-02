@@ -28,11 +28,11 @@ import com.google.common.collect.ImmutableSet;
  *
  */
 
-public class SimpleCompoundFilter implements IFilter {
-
+public class SimpleCompoundFilter implements ReqIFFullFilter {
 	
+	private static final long serialVersionUID = -5620986630086303913L;
 	private boolean orFilter;
-	private final List<IFilter> filters;	
+	private final LinkedList<ReqIFFullFilter> filters;	
 	
 	/**
 	 * 
@@ -46,23 +46,23 @@ public class SimpleCompoundFilter implements IFilter {
 	 *            filters return true.
 	 * 
 	 */
-	public SimpleCompoundFilter(List<IFilter> filters, boolean orFilter) {
+	public SimpleCompoundFilter(List<ReqIFFullFilter> filters, boolean orFilter) {
 		this.orFilter = orFilter ;
-		this.filters = new LinkedList<IFilter>(filters);
+		this.filters = new LinkedList<ReqIFFullFilter>(filters);
 	}
 	
 	public boolean isOrFilter() {
 		return orFilter;
 	}
 	
-	public List<IFilter> getFilters() {
+	public List<ReqIFFullFilter> getFilters() {
 		return Collections.unmodifiableList(filters);
 	}
 	
 	
 	@Override
 	public boolean match(SpecElementWithAttributes element) {
-		for (IFilter filter : filters) {
+		for (ReqIFFullFilter filter : filters) {
 			boolean match = filter.match(element);
 			if (orFilter) {
 				if (match) return true;
@@ -105,8 +105,8 @@ public class SimpleCompoundFilter implements IFilter {
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		String op = orFilter ? " OR " : " AND ";
-		for (Iterator<IFilter> iterator = filters.iterator(); iterator.hasNext();) {
-			IFilter filter = (IFilter) iterator.next();
+		for (Iterator<ReqIFFullFilter> iterator = filters.iterator(); iterator.hasNext();) {
+			ReqIFFullFilter filter = (ReqIFFullFilter) iterator.next();
 			
 			sb.append(filter.toString());
 			if (iterator.hasNext()){

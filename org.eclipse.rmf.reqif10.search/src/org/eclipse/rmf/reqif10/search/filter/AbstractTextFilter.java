@@ -27,6 +27,8 @@ import com.google.common.collect.Sets;
  */
 public abstract class AbstractTextFilter extends AbstractAttributeFilter {
 
+	private static final long serialVersionUID = 3345481013761321696L;
+
 	public enum InternalAttribute {
 		IDENTIFIER, DESC, LONG_NAME
 	}
@@ -38,7 +40,7 @@ public abstract class AbstractTextFilter extends AbstractAttributeFilter {
 
 	protected Operator operator;
 	protected String filterValue;
-	protected AttributeDefinition attributeDefinition;
+	protected transient AttributeDefinition attributeDefinition;
 	protected InternalAttribute internalAttribute;
 	protected boolean caseSensitive;
 	protected boolean isInternal;

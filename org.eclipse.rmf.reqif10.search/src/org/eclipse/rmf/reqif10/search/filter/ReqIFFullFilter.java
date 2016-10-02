@@ -12,6 +12,7 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
+import java.io.Serializable;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
@@ -20,7 +21,14 @@ import org.eclipse.rmf.reqif10.pror.filter.ReqifFilter;
 
 import com.google.common.collect.ImmutableSet;
 
-public interface IFilter extends ReqifFilter {
+/**
+ * Even though this is an interface, it must be {@link Serializable}. Otherwise,
+ * the {@link SimpleCompoundFilter} won't be able to serialize the List of
+ * Filters.
+ * 
+ * @author jastram
+ */
+public interface ReqIFFullFilter extends ReqifFilter, Serializable{
 
 	/**
 	 * Subclasses should implement a static immutable field that allows clients
@@ -70,9 +78,6 @@ public interface IFilter extends ReqifFilter {
 	
 	public boolean match(SpecElementWithAttributes element); 
 	
-	/**
-	 * Returns the Attribute for this filter.
-	 */
 	public Object getAttribute();
 	
 	public Operator getOperator();

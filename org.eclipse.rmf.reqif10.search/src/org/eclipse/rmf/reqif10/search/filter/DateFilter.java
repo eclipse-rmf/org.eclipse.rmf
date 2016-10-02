@@ -11,6 +11,9 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
@@ -28,6 +31,8 @@ import com.google.common.collect.Sets;
  */
 public class DateFilter extends AbstractAttributeFilter {
 
+	private static final long serialVersionUID = -7014005897292531973L;
+
 	public static enum InternalAttribute {
 		LAST_CHANGE
 	}
@@ -40,7 +45,7 @@ public class DateFilter extends AbstractAttributeFilter {
 	private Operator operator;
 	private GregorianCalendar filterValue1;
 	private GregorianCalendar filterValue2;
-	private AttributeDefinitionDate attributeDefinition;
+	private transient AttributeDefinitionDate attributeDefinition;
 	private InternalAttribute internalAttribute;
 	private boolean isInternal;
 
@@ -60,7 +65,6 @@ public class DateFilter extends AbstractAttributeFilter {
 		if (null == attributeDefinition){
 			throw new IllegalArgumentException("AttributeDefinition can not be null");
 		}
-		System.out.println("Instatiated new Filter: " + toString());
 	}
 
 	/**
@@ -78,7 +82,6 @@ public class DateFilter extends AbstractAttributeFilter {
 		if (null == internalFeature){
 			throw new IllegalArgumentException("AttributeDefinition can not be null");
 		}
-		System.out.println("Instatiated new Filter: " + toString());
 	}
 	
 	
@@ -294,5 +297,20 @@ public class DateFilter extends AbstractAttributeFilter {
 	    return fmt.format(getFilterValue2().getTime());
 	}
 	
+	private void writeObject(ObjectOutputStream s) throws IOException {
+		s.defaultWriteObject();
+		if (!isInternal) {
+			s.writeUTF(attributeDefinition.getIdentifier());
+		}
+	}
+
+	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+		s.defaultReadObject();
+		if (!isInternal) {
+			String adId = s.readUTF();
+			attributeDefinition = (AttributeDefinitionDate) ReqIF10Util.getAttributeDefinition(
+					FilterContext.REQIF, adId);
+		}
+	}
 
 }

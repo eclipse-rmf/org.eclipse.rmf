@@ -12,6 +12,8 @@
 package org.eclipse.rmf.reqif10.search.filter;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import org.eclipse.rmf.reqif10.AttributeDefinition;
 import org.eclipse.rmf.reqif10.AttributeDefinitionXHTML;
@@ -29,6 +31,8 @@ import com.google.common.collect.Sets;
  * Filter for String-based values.
  */
 public class XhtmlFilter extends AbstractTextFilter {
+
+	private static final long serialVersionUID = 7048676012067603581L;
 
 	// TODO cross-check this with supported operators.
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
@@ -140,6 +144,16 @@ public class XhtmlFilter extends AbstractTextFilter {
 		throw new IllegalStateException("Expected an AttributeDefinitionString as attribute but found " + attributeDefinition.getClass());
 	}
 	
-	
+	private void writeObject(ObjectOutputStream s) throws IOException {
+		s.defaultWriteObject();
+		s.writeUTF(attributeDefinition.getIdentifier());
+	}
+
+	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+		s.defaultReadObject();
+		String adId = s.readUTF();
+		attributeDefinition = ReqIF10Util.getAttributeDefinition(FilterContext.REQIF, adId);
+	}
+
 
 }

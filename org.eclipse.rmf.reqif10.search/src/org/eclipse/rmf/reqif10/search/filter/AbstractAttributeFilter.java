@@ -25,8 +25,10 @@ import com.google.common.collect.Sets;
  * 
  * @author Ingo Weigelt
  */
-public abstract class AbstractAttributeFilter implements IFilter {
+public abstract class AbstractAttributeFilter implements ReqIFFullFilter {
 	
+	private static final long serialVersionUID = -6101289046548218587L;
+
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
 			.immutableEnumSet(Operator.IS_SET, Operator.IS_NOT_SET);
 		

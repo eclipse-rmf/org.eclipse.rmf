@@ -11,10 +11,14 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.rmf.reqif10.AttributeDefinitionEnumeration;
 import org.eclipse.rmf.reqif10.AttributeValueEnumeration;
 import org.eclipse.rmf.reqif10.EnumValue;
@@ -26,18 +30,18 @@ import com.google.common.collect.Sets;
 
 public class EnumFilter extends AbstractAttributeFilter{
 
+	private static final long serialVersionUID = -1981374202532459804L;
+
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
 			.immutableEnumSet(Operator.EQUALS, Operator.NOT_EQUALS,
 					Operator.CONTAINS_ALL, Operator.CONTAINS_ANY, Operator.IS_SET, Operator.IS_NOT_SET);
 	
 	
-	private AttributeDefinitionEnumeration attributeDefinition;
+	private transient AttributeDefinitionEnumeration attributeDefinition;
 	
 	private Operator operator;
-	private HashSet<EnumValue> filterValues;
-
-
-	private HashSet<EnumValue> defaultValues;
+	private transient HashSet<EnumValue> filterValues;
+	private transient HashSet<EnumValue> defaultValues;
 	
 
 	public EnumFilter(Operator operator, Collection<EnumValue> value, AttributeDefinitionEnumeration attributeDefinition) {
@@ -57,14 +61,16 @@ public class EnumFilter extends AbstractAttributeFilter{
 		this.attributeDefinition = attributeDefinition;
 		this.operator = operator;
 		this.filterValues = value == null ? new HashSet<EnumValue>() : new HashSet<EnumValue>(value);
+		populateDefaultValue(attributeDefinition);
+	}
+
+	private void populateDefaultValue(AttributeDefinitionEnumeration attributeDefinition) {
 		if (attributeDefinition.getDefaultValue() != null){
 			this.defaultValues = new HashSet<EnumValue>(attributeDefinition.getDefaultValue().getValues());
 		}else{
 			this.defaultValues = new HashSet<EnumValue>();
 		}
 	}
-
-
 
 	@Override
 	public boolean match(SpecElementWithAttributes element) {	
@@ -163,7 +169,6 @@ public class EnumFilter extends AbstractAttributeFilter{
 		return null;
 	}
 	
-	
 	private String enumValuesAsString(Collection<EnumValue> values){
 		StringBuilder sb = new StringBuilder("[");
 		for (Iterator<EnumValue> iterator = values.iterator(); iterator
@@ -186,5 +191,36 @@ public class EnumFilter extends AbstractAttributeFilter{
 		
 		return sb.toString();
 	}
+
+	private void writeObject(ObjectOutputStream s) throws IOException {
+		s.defaultWriteObject();
+		s.writeUTF(getAttribute().getIdentifier());
+		// We write the enum values as String array
+		String[] valueIds = new String[filterValues.size()];
+		int i = 0;
+		for(EnumValue value: filterValues) {
+			valueIds[i++] = value.getIdentifier();
+		}
+		s.writeObject(valueIds);
+	}
+
+	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+		s.defaultReadObject();
+		String adId = s.readUTF();
+		attributeDefinition = (AttributeDefinitionEnumeration) ReqIF10Util.getAttributeDefinition(FilterContext.REQIF, adId);
+		String[] valueIds = (String[]) s.readObject();
+		EList<EnumValue> allValues = attributeDefinition.getType().getSpecifiedValues();
+		filterValues = new HashSet<EnumValue>();
+		for (int i = 0; i < valueIds.length; i++) {
+			for (EnumValue value : allValues) {
+				if (value.getIdentifier().equals(valueIds[i])) {
+					filterValues.add(value);
+					break;
+				}
+			}
+		}
+		populateDefaultValue(attributeDefinition);
+	}
+
 	
 }

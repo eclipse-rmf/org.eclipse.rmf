@@ -11,6 +11,10 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.filter;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 import org.eclipse.rmf.reqif10.AttributeDefinitionBoolean;
 import org.eclipse.rmf.reqif10.AttributeValueBoolean;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
@@ -24,12 +28,14 @@ import com.google.common.collect.Sets;
  */
 public class BoolFilter extends AbstractAttributeFilter {
 
+	private static final long serialVersionUID = -4600606798703416307L;
+
 	public static final ImmutableSet<Operator> SUPPORTED_OPERATORS = Sets
 			.immutableEnumSet(Operator.IS, Operator.IS_SET, Operator.IS_NOT_SET);
 
 	private Operator operator;
 	private Boolean filterValue;
-	private AttributeDefinitionBoolean attributeDefinition;
+	private transient AttributeDefinitionBoolean attributeDefinition;
 
 	public BoolFilter(Operator operator, Boolean filterValue,
 			AttributeDefinitionBoolean attributeDefinition) {
@@ -105,5 +111,23 @@ public class BoolFilter extends AbstractAttributeFilter {
 	@Override
 	public ImmutableSet<Operator> getSupportedOperators() {
 		return SUPPORTED_OPERATORS;
+	}
+	
+	/**
+	 * Serializes this Filter:
+	 * <li>operator
+	 * <li>value
+	 * <li>internalFeature
+	 */
+	private void writeObject(ObjectOutputStream s) throws IOException {
+		s.defaultWriteObject();
+		AttributeDefinitionBoolean ad = (AttributeDefinitionBoolean) getAttribute();
+		s.writeUTF(ad.getIdentifier());
+	}
+
+	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+		s.defaultReadObject();
+		String adId = s.readUTF();
+		attributeDefinition = (AttributeDefinitionBoolean) ReqIF10Util.getAttributeDefinition(FilterContext.REQIF, adId);
 	}
 }
