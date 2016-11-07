@@ -238,9 +238,9 @@ public class ConfigurationUtil {
 								continue;
 							}
 
-							// Shorten long XHTML
-							if (text.length() > 20)
-								text = text.substring(0, 17) + "...";
+							// For XHTML with multiple lines, use only the first.
+							if (text.indexOf('\n') > 0)
+								text = text.substring(0, text.indexOf('\n')) + "...";
 							return text;
 						}
 						return result.toString();
