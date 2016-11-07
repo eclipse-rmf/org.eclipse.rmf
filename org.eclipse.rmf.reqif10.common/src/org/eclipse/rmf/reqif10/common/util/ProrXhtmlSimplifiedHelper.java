@@ -71,6 +71,12 @@ public class ProrXhtmlSimplifiedHelper {
 			stringValue = stringValue.replaceAll("\\</xhtml:div\\>", newLine);
 			stringValue = stringValue.replaceAll("\\<.*?\\>", " ");
 
+			stringValue = stringValue.replaceAll("&lt;", "<");
+			stringValue = stringValue.replaceAll("&amp;", "&");
+			stringValue = stringValue.replaceAll("&gt;", ">");
+			stringValue = stringValue.replaceAll("&quot;", "\"");
+			stringValue = stringValue.replaceAll("&apos;", "'");
+
 			// Replace Hex Values
 			StringBuilder sb = new StringBuilder();
 			int pos = 0;
