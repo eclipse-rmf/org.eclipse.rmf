@@ -77,9 +77,7 @@ public class ProrXhtmlSimplifiedHelper {
 			Pattern hexPattern = Pattern.compile("&#x..;");
 			Matcher matcher = hexPattern.matcher(stringValue);
 			while (matcher.find()) {
-				System.out.println("Found: " + matcher.start());
 				sb.append(stringValue.substring(pos, matcher.start()));
-				System.out.println(stringValue.substring(matcher.start() + 3, matcher.end() - 1));
 				sb.append((char) Integer.parseInt(stringValue.substring(matcher.start() + 3, matcher.end() - 1), 16));
 				pos = matcher.end();
 			}
