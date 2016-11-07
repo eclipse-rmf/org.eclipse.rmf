@@ -33,11 +33,6 @@ import org.eclipse.rmf.reqif10.pror.presentation.id.IdVerticalAlign;
 public class IdFactoryImpl extends EFactoryImpl implements IdFactory {
 	
 	/**
-	 * @generated NOT
-	 */
-	private static final String DEFAULT_PREFIX = "REQ-";
-
-	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,7 +112,6 @@ public class IdFactoryImpl extends EFactoryImpl implements IdFactory {
 	 */
 	public IdConfiguration createIdConfiguration() {
 		IdConfigurationImpl idConfiguration = new IdConfigurationImpl();
-		idConfiguration.setPrefix(DEFAULT_PREFIX);
 		return idConfiguration;
 	}
 

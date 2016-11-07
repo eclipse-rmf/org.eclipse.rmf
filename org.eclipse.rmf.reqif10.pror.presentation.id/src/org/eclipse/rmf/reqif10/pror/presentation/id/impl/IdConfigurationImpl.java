@@ -49,7 +49,7 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String PREFIX_EDEFAULT = null;
+	protected static final String PREFIX_EDEFAULT = "REQ-";
 
 	/**
 	 * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
@@ -73,12 +73,13 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	/**
 	 * The default value of the '{@link #getCount() <em>Count</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Made public, so that other classes can find the default value.
 	 * <!-- end-user-doc -->
 	 * @see #getCount()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final int COUNT_EDEFAULT = 0;
+	public static final int COUNT_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getCount() <em>Count</em>}' attribute.
@@ -107,7 +108,7 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected static final IdVerticalAlign VERTICAL_ALIGN_EDEFAULT = IdVerticalAlign.TOP;
+	protected static final IdVerticalAlign VERTICAL_ALIGN_EDEFAULT = IdVerticalAlign.CENTER;
 
 	/**
 	 * The cached value of the '{@link #getVerticalAlign() <em>Vertical Align</em>}' attribute.
@@ -430,25 +431,5 @@ public class IdConfigurationImpl extends ProrPresentationConfigurationImpl imple
 		};
 		return adapter;
 	}
-
-	// private EContentAdapter buildAdapter(final IdConfiguration config) {
-	// config.eAdapters().add(new AdapterImpl() {
-	// @Override
-	// public void notifyChanged(Notification msg) {
-	// if
-	// (ConfigurationPackage.Literals.PROR_PRESENTATION_CONFIGURATION__DATATYPE
-	// .equals(msg.getFeature())) {
-	// EContentAdapter adapter = adapters.get(config);
-	// if (adapter != null) {
-	// ReqIF reqif = ReqIF10Util.getReqIF(config);
-	// reqif.eAdapters().remove(adapter);
-	// adapter = buildAdapter(config);
-	// reqif.eAdapters().add(adapter);
-	// adapters.put(config, adapter);
-	// }
-	// }
-	// }
-	// });
-	// }
 
 } //IdConfigurationImpl

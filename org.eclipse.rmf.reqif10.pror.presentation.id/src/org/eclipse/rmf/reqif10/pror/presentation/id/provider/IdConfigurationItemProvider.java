@@ -67,6 +67,7 @@ import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRendere
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.reqif10.pror.presentation.id.IdConfiguration;
 import org.eclipse.rmf.reqif10.pror.presentation.id.IdPackage;
+import org.eclipse.rmf.reqif10.pror.presentation.id.impl.IdConfigurationImpl;
 import org.eclipse.rmf.reqif10.pror.presentation.ui.IdLabelCellRenderer;
 
 /**
@@ -335,7 +336,7 @@ public class IdConfigurationItemProvider
 	public static int findCountValue(DatatypeDefinition datatype, String prefix, ReqIF reqIF){
 		
 		if (datatype == null) {
-			return 1;
+			return IdConfigurationImpl.COUNT_EDEFAULT;
 		}
 			
 		// 1. find the Attributes that use the configs DatatypeDefinition
@@ -349,7 +350,7 @@ public class IdConfigurationItemProvider
 		}
 
 		// 2. Scan all objects for usage of id
-		int max = 1;
+		int max = IdConfigurationImpl.COUNT_EDEFAULT;
 		for (Iterator<Entry<SpecType, AttributeDefinition>> it = idAttributes.entrySet().iterator(); it.hasNext();){
 			Entry<SpecType, AttributeDefinition> entry = it.next();
 			SpecType specType = entry.getKey();
