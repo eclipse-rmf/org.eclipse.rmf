@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Lukas Ladenberger - initial API and implementation
  ******************************************************************************/
@@ -15,6 +15,8 @@ import java.io.StringWriter;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
@@ -29,7 +31,8 @@ import org.eclipse.rmf.reqif10.xhtml.XhtmlFactory;
  */
 public class ProrXhtmlSimplifiedHelper {
 
-	private static String newLine = System.getProperty("line.separator");
+	@SuppressWarnings("nls")
+	private static final String newLine = System.getProperty("line.separator");
 
 	/**
 	 * This static method returns the XML representation as string.
@@ -37,22 +40,20 @@ public class ProrXhtmlSimplifiedHelper {
 	public static String generateXMLString(EObject eobject) throws IOException {
 		StringWriter sw = new StringWriter();
 		Map<Object, Object> options = new HashMap<Object, Object>();
-		options.put(XMLResource.OPTION_ROOT_OBJECTS,
-				Collections.singletonList(eobject));
+		options.put(XMLResource.OPTION_ROOT_OBJECTS, Collections.singletonList(eobject));
 		options.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
 		options.put(XMLResource.OPTION_DECLARE_XML, Boolean.TRUE);
 		options.put(XMLResource.OPTION_SAVE_TYPE_INFORMATION, Boolean.FALSE);
-		options.put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE,
-				Boolean.FALSE);
+		options.put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.FALSE);
 		XMLResourceImpl ri = new XMLResourceImpl();
 		ri.save(sw, options);
 		return sw.toString();
 	}
 
 	/**
-	 * This static method returns the simplified version of the
-	 * {@link XhtmlContent}.
+	 * This static method returns the simplified version of the {@link XhtmlContent}.
 	 */
+	@SuppressWarnings("nls")
 	public static String xhtmlToSimplifiedString(XhtmlContent xhtmlContent) {
 		String stringValue = "";
 		try {
@@ -60,8 +61,7 @@ public class ProrXhtmlSimplifiedHelper {
 			stringValue = stringValue.replaceAll(newLine, "");
 			stringValue = stringValue.replaceAll(" +", " ");
 			stringValue = stringValue.replaceAll("\\<xhtml:br/\\>", newLine);
-			stringValue = stringValue.replaceAll("\\</xhtml:p\\>", newLine
-					+ newLine);
+			stringValue = stringValue.replaceAll("\\</xhtml:p\\>", newLine + newLine);
 			stringValue = stringValue.replaceAll("\\<xhtml:li\\>", "- ");
 			stringValue = stringValue.replaceAll("\\<xhtml:ul\\>", newLine);
 			stringValue = stringValue.replaceAll("\\</xhtml:ul\\>", newLine);
@@ -70,38 +70,53 @@ public class ProrXhtmlSimplifiedHelper {
 			stringValue = stringValue.replaceAll("\\</xhtml:li\\>", newLine);
 			stringValue = stringValue.replaceAll("\\</xhtml:div\\>", newLine);
 			stringValue = stringValue.replaceAll("\\<.*?\\>", " ");
-			stringValue = stringValue.trim();
+
+			// Replace Hex Values
+			StringBuilder sb = new StringBuilder();
+			int pos = 0;
+			Pattern hexPattern = Pattern.compile("&#x..;");
+			Matcher matcher = hexPattern.matcher(stringValue);
+			while (matcher.find()) {
+				System.out.println("Found: " + matcher.start());
+				sb.append(stringValue.substring(pos, matcher.start()));
+				System.out.println(stringValue.substring(matcher.start() + 3, matcher.end() - 1));
+				sb.append((char) Integer.parseInt(stringValue.substring(matcher.start() + 3, matcher.end() - 1), 16));
+				pos = matcher.end();
+			}
+			sb.append(stringValue.substring(pos, stringValue.length()));
+
+			stringValue = sb.toString().trim();
 		} catch (IOException e) {
 		}
 		return stringValue;
 	}
-	
+
 	/**
-	 * This static method returns the simplified version of the
-	 * {@link XhtmlContent}.
+	 * This static method returns the simplified version of the {@link XhtmlContent}.
 	 */
+	@SuppressWarnings("nls")
 	public static XhtmlDivType stringToSimplifiedXhtml(String str) {
 		XhtmlDivType div = XhtmlFactory.eINSTANCE.createXhtmlDivType();
 		String[] split = str.split("\\r\\n|\\r|\\n");
 		for (int i = 0; i < split.length; i++) {
 			String br = split[i];
 			FeatureMapUtil.addText(div.getMixed(), br);
-			if (i < split.length - 1)
+			if (i < split.length - 1) {
 				div.getBr().add(XhtmlFactory.eINSTANCE.createXhtmlBrType());
+			}
 		}
 		return div;
 	}
 
 	/**
-	 * 
-	 * A very simplified version to check if the given {@link XhtmlContent}
-	 * object is a formatted attribute. Or in other words: This method checks if
-	 * the {@link XhtmlContent} object comes from ProR, if so return that the
-	 * object is no formatted attribute.
-	 * 
+	 * A very simplified version to check if the given {@link XhtmlContent} object is a formatted attribute. Or in other
+	 * words: This method checks if the {@link XhtmlContent} object comes from ProR, if so return that the object is no
+	 * formatted attribute.
+	 *
 	 * @param xhtmlContent
 	 * @return
 	 */
+	@SuppressWarnings("nls")
 	public static boolean isFormattedAttribute(XhtmlContent xhtmlContent) {
 
 		try {
@@ -109,18 +124,15 @@ public class ProrXhtmlSimplifiedHelper {
 
 			if (xhtmlString != null) {
 
-				String stringValue = xhtmlString.replaceAll("\\<xhtml:br/\\>",
-						"");
-				stringValue = stringValue
-						.replaceAll(
-								"\\<xhtml:div xmlns:xhtml=\"http://www.w3.org/1999/xhtml\"\\>",
-								" ");
+				String stringValue = xhtmlString.replaceAll("\\<xhtml:br/\\>", "");
+				stringValue = stringValue.replaceAll("\\<xhtml:div xmlns:xhtml=\"http://www.w3.org/1999/xhtml\"\\>", " ");
 				stringValue = stringValue.replaceAll("\\</xhtml:div\\>", "");
 				stringValue = stringValue.replaceAll(newLine, "");
 				stringValue = stringValue.replaceAll(" ", "");
 
-				if (stringValue.contains("<xhtml:"))
+				if (stringValue.contains("<xhtml:")) {
 					return true;
+				}
 
 			}
 
