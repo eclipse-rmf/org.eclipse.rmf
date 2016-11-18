@@ -23,14 +23,14 @@ import org.agilemore.agilegrid.IContentProvider;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF;
+import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.SpecElementWithAttributes;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
-import org.eclipse.rmf.reqif10.XhtmlContent;
-import org.eclipse.rmf.reqif10.common.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
@@ -257,30 +257,39 @@ public class ProrAgileGridContentProvider extends AbstractContentProvider {
 		// Handle the Unified Column
 		Column column = specViewConfig.getColumns().get(col);
 		if (column instanceof UnifiedColumn) {
-			AttributeValue av = ReqIF10Util.getAttributeValueForLabel(element,
-					"ReqIF.ChapterName");
-			if (av != null && ReqIF10Util.getTheValue(av) != null) {
-				Object value = ReqIF10Util.getTheValue(av);
-				if (value instanceof XhtmlContent) {
-					XhtmlContent xhtmlContent = (XhtmlContent) value;
-					String s = ProrXhtmlSimplifiedHelper
-							.xhtmlToSimplifiedString(xhtmlContent);
-					if (s != null && s.trim().length() > 0) {
-						return av;
-					}
-
-				} else {
-					if (value.toString().trim().length() > 0) {
-						return av;
-					}
-				}
-			}
-			return ReqIF10Util.getAttributeValueForLabel(element, "ReqIF.Text");
+			return handleUnifiedColumn(element);
 		}
 
 		String label = column.getLabel();
 
 		return ReqIF10Util.getAttributeValueForLabel(element, label);
+	}
+
+	/**
+	 * The unified column combines ReqIF.ChapterName and ReqIF.Text. It exists as a
+	 * convenience for users of classical DOORS, which shows those two attributes
+	 * in the same column.
+	 */
+	private AttributeValue handleUnifiedColumn(SpecElementWithAttributes element) {
+		AttributeValue chapterName = ReqIF10Util.getAttributeValueForLabel(element,
+				"ReqIF.ChapterName");		
+		AttributeValue text = ReqIF10Util.getAttributeValueForLabel(element, "ReqIF.Text");
+
+		// Handle just text.
+		if (chapterName == null || ReqIF10Util.getTheValue(chapterName) == null) {
+			return text;
+		}
+		if (text == null || ReqIF10Util.getTheValue(text) == null) {
+			return text;
+		}
+		
+		// combine create warning
+		AttributeValueString warning = ReqIF10Factory.eINSTANCE.createAttributeValueString();
+		warning.setTheValue("WARNING: Unified column cannot render, as both ReqIF.Text and"
+				+ " ReqIF.ChapterName are set. You can (1) delete one of those values, or"
+				+ " (2) don't use the Unified Column, but two separate columns.");
+		return warning;
+		
 	}
 
 	/**
