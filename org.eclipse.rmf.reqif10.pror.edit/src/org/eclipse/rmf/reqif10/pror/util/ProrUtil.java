@@ -259,6 +259,10 @@ public final class ProrUtil {
 	public static void collectNewChildDescriptorsForTypeCreators(
 			Collection<Object> newChildDescriptors, Object object,
 			EStructuralFeature feature, Class<?> specTypeClass) {
+		
+		// Can happen if orphan references exist. This implies sloppy
+		// Presentations, but should not crash the GUI.
+		if (object == null) return;
 
 		// Add a Descriptor for each SpecType
 		EList<SpecType> specTypes = ReqIF10Util.getReqIF(object)
