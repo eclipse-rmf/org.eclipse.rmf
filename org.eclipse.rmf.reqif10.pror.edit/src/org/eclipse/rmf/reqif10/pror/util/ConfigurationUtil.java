@@ -17,6 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.BasicEList;
@@ -24,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
@@ -449,4 +451,20 @@ public class ConfigurationUtil {
 		editingDomain.getCommandStack().execute(cmd);
 	}
 
+	/**
+	 * Creates the command that will remove the {@link ProrSpecViewConfiguration}
+	 * that controls the given {@link Specification}.
+	 */
+	public static Command getRemoveSpecViewConfigCommand(EditingDomain domain, AdapterFactory adapterFactory,
+			Specification spec) {
+		ProrToolExtension toolExtensions = getProrToolExtension(ReqIF10Util.getReqIF(spec));
+		EList<ProrSpecViewConfiguration> configs = toolExtensions.getSpecViewConfigurations();
+		for (ProrSpecViewConfiguration config : configs) {
+			if (spec == config.getSpecification()) {
+				return RemoveCommand.create(domain, toolExtensions,
+						ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS, config);
+			}
+		}
+		return null;
+	}
 }
