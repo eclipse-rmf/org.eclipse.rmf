@@ -1926,11 +1926,11 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 
 			try {
 				if (editor.getEditorInput() instanceof ReqifSpecificationEditorInput) {
-					ReqifSpecificationEditorInput i = (ReqifSpecificationEditorInput) editor
-							.getEditorInput();
+					ReqifSpecificationEditorInput i = (ReqifSpecificationEditorInput) editor.getEditorInput();
 					if (i.getReqifEditor().equals(Reqif10Editor.this)) {
-						editor.getPage().closeEditor(editor.getEditor(false),
-								false);
+						if (editor.getEditor(false) != null) {
+							editor.getPage().closeEditor(editor.getEditor(false), false);
+						}
 					}
 				}
 			} catch (PartInitException e) {
