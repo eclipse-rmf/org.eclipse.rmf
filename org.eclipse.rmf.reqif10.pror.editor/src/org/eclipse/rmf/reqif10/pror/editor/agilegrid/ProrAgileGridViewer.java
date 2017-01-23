@@ -53,6 +53,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
@@ -385,8 +386,9 @@ public class ProrAgileGridViewer extends Viewer {
 	}
 
 	private void unregisterSpecRelationListener() {
-		if (specRelationContentAdapter != null) {
-			ReqIF10Util.getReqIF(specification).getCoreContent().eAdapters()
+		ReqIF reqif = ReqIF10Util.getReqIF(specification);
+		if (specRelationContentAdapter != null && reqif != null) {
+			reqif.getCoreContent().eAdapters()
 					.remove(specRelationContentAdapter);
 		}
 	}
