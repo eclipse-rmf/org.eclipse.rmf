@@ -13,6 +13,7 @@ package org.eclipse.rmf.reqif10.pror.provider;
 import java.util.Collection;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EObject;
@@ -24,6 +25,7 @@ import org.eclipse.rmf.reqif10.ReqIFContent;
 import org.eclipse.rmf.reqif10.SpecType;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.SpecificationType;
+import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 
 /**
@@ -104,5 +106,24 @@ public class VirtualSpecificationsItemProvider extends
 		Collection<?> children = super.getChildren(object);
 		return children;
 	}
+	
+	@Override
+	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
+			Collection<?> collection) {
+		CompoundCommand compound = new CompoundCommand("Removing Spec and SpecViewConfig");
+		for (Object object : collection) {
+			if (object instanceof Specification) {
+				// A Spec may have an associated SpecViewConfig that we need to remove as well.
+				Command cmd = ConfigurationUtil.getRemoveSpecViewConfigCommand(domain, adapterFactory, (Specification)object);
+				if (cmd != null) {
+					compound.append(cmd);
+				}
+			}
+		}
 
+		// We append the original RemoveCommand
+		compound.append(super.createRemoveCommand(domain, owner, feature, collection));
+		return compound;
+	}
+	
 }
