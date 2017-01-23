@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.net.URLDecoder;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
@@ -251,6 +252,9 @@ public class HTMLPrinter {
 				Node dataNode = xhtmlNode.getAttributes().getNamedItem("data");
 				if (dataNode != null) {
 					String filename = dataNode.getTextContent();
+					System.out.println("Found: " + filename);
+					filename = URLDecoder.decode(filename, "UTF-8");
+					System.out.println("Decoded: " + filename);
 					copyEmbeddedObject(filename);
 				}
 			}
