@@ -325,13 +325,14 @@ public class ProrEditorUtil {
 		
 		URI reqifUri = reqif.eResource().getURI();
 		URI uri = reqifUri.trimFileExtension().appendFileExtension("rmf");
-		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource poResource = resourceSet.getResource(uri, true);
-		ProrToolExtension extension = 
-				(ProrToolExtension) poResource.getContents().get(0);
-		if (extension != null) {
-			reqif.getToolExtensions().clear();
-			ReqIFToolExtensionUtil.addToolExtension(reqif, extension);
+		if (uri.isPlatformResource()) {
+			ResourceSet resourceSet = new ResourceSetImpl();
+			Resource poResource = resourceSet.getResource(uri, true);
+			ProrToolExtension extension = (ProrToolExtension) poResource.getContents().get(0);
+			if (extension != null) {
+				reqif.getToolExtensions().clear();
+				ReqIFToolExtensionUtil.addToolExtension(reqif, extension);
+			}
 		}
 	}
 
