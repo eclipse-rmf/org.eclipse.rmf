@@ -31,6 +31,8 @@ public final class PreferenceConstants {
 
 	public static final String P_NEW_ID_ON_SAVE = "new_id_on_save";
 
+	public static final String P_TOOL_EXTENSIONS_IN_FILE = "tool_extensions_in_file";
+
 	// Constants for default presentations
 	public static final String P_DEFAULT_PRESENTATION_BUILD_IN = "default_presentation_build_in";
 	public static final String P_DEFAULT_PRESENTATION_STRING = DatatypeDefinitionString.class

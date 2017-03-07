@@ -21,7 +21,12 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
@@ -34,12 +39,16 @@ import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.common.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
+import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.pror.configuration.UnifiedColumn;
 import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
+import org.eclipse.rmf.reqif10.pror.editor.preferences.PreferenceConstants;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.IProrCellRenderer;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationEditorInterface;
 import org.eclipse.rmf.reqif10.pror.util.ConfigurationUtil;
@@ -270,5 +279,60 @@ public class ProrEditorUtil {
 		return null;		
 	}
 
+	/**
+	 * Checks the settings to see whether the tool extensions should be stored
+	 * in the ReqIF file or separately.
+	 */
+	public static boolean settingInFile() {
+		return Reqif10EditorPlugin.getPlugin().getPreferenceStore()
+		.getBoolean(PreferenceConstants.P_TOOL_EXTENSIONS_IN_FILE);
+	}
 	
+	/**
+	 * Writes the provided {@link ProrToolExtension}s to a file with the same name
+	 * as the containing .reqif, but changing the suffix to .rmf.
+	 */
+	public static void saveProrToolExtensions(ProrToolExtension extension) throws IOException {
+		boolean storeInReqIF = Reqif10EditorPlugin.getPlugin().getPreferenceStore()
+				.getBoolean(PreferenceConstants.P_TOOL_EXTENSIONS_IN_FILE);
+
+		if (storeInReqIF) {
+			extension.eContainmentFeature().setTransient(false);
+			return;
+		}
+		extension.eContainmentFeature().setTransient(true);
+		// Find storage location
+		URI reqifUri = extension.eResource().getURI();
+		URI uri = reqifUri.trimFileExtension().appendFileExtension("rmf");
+
+		ProrToolExtension extensionCopy = EcoreUtil.copy(extension);
+
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource poResource = resourceSet.createResource(uri);
+		poResource.getContents().add(extensionCopy);
+		poResource.save(null);
+	}
+
+	/**
+	 * Cleans out the {@link ProrToolExtension}s, if the extensions in the file should be excluded. It
+	 * substitutes the ones from the .rmf file, if present.
+	 */
+	public static void loadProrToolExtensions(ReqIF reqif) throws IOException {
+		boolean storeInReqIF = Reqif10EditorPlugin.getPlugin().getPreferenceStore()
+				.getBoolean(PreferenceConstants.P_TOOL_EXTENSIONS_IN_FILE);
+
+		if (storeInReqIF) return;
+		
+		URI reqifUri = reqif.eResource().getURI();
+		URI uri = reqifUri.trimFileExtension().appendFileExtension("rmf");
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource poResource = resourceSet.getResource(uri, true);
+		ProrToolExtension extension = 
+				(ProrToolExtension) poResource.getContents().get(0);
+		if (extension != null) {
+			reqif.getToolExtensions().clear();
+			ReqIFToolExtensionUtil.addToolExtension(reqif, extension);
+		}
+	}
+
 }

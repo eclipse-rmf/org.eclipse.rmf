@@ -105,6 +105,7 @@ import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.constraints.ui.popup.actions.ValidateReqIF;
+import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.editor.IReqifEditor;
 import org.eclipse.rmf.reqif10.pror.editor.ISpecificationEditor;
@@ -112,6 +113,7 @@ import org.eclipse.rmf.reqif10.pror.editor.actions.ShiftLevelCommand;
 import org.eclipse.rmf.reqif10.pror.editor.preferences.PreferenceConstants;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.service.PresentationServiceManager;
 import org.eclipse.rmf.reqif10.pror.editor.propertiesview.ProrPropertySheetPage;
+import org.eclipse.rmf.reqif10.pror.editor.util.ProrEditorUtil;
 import org.eclipse.rmf.reqif10.pror.provider.ReqIF10ItemProviderAdapterFactory;
 import org.eclipse.rmf.reqif10.pror.provider.VirtualDatatypeDefinitionItemProvider;
 import org.eclipse.rmf.reqif10.pror.provider.VirtualSpecTypeItemProvider;
@@ -1145,6 +1147,13 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 		}
 
 		reqif = (ReqIF) resource.getContents().get(0);
+		
+		try {
+			ProrEditorUtil.loadProrToolExtensions(reqif);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// Handle isSimplified = true values
 		boolean askedToRestore = false;
@@ -1509,6 +1518,17 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 			reqif.getTheHeader().setIdentifier(
 					"rmf-" + UUID.randomUUID().toString());
 			reqif.getTheHeader().setReqIFToolId(getToolID());
+		}
+		
+		// Handle tool extensions
+		ProrToolExtension extension = ConfigurationUtil.getProrToolExtension(reqif);
+		if (extension != null) {
+			try {
+				ProrEditorUtil.saveProrToolExtensions(extension);
+			} catch (IOException e) {
+				MessageDialog.openError(null, "Failed to save settings", e.getMessage());
+				e.printStackTrace();
+			}
 		}
 		
 		// Save only resources that have actually changed.
