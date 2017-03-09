@@ -1146,14 +1146,9 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 					"No ReqIf Content found.  Please check errors on the console.");
 		}
 
-		reqif = (ReqIF) resource.getContents().get(0);
+		reqif = (ReqIF) resource.getContents().get(0);	
 		
-		try {
-			ProrEditorUtil.loadProrToolExtensions(reqif);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ProrEditorUtil.loadProrToolExtensions(reqif);
 
 		// Handle isSimplified = true values
 		boolean askedToRestore = false;

@@ -22,6 +22,7 @@ import org.eclipse.emf.common.command.CommandWrapper;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -317,7 +318,7 @@ public class ProrEditorUtil {
 	 * Cleans out the {@link ProrToolExtension}s, if the extensions in the file should be excluded. It
 	 * substitutes the ones from the .rmf file, if present.
 	 */
-	public static void loadProrToolExtensions(ReqIF reqif) throws IOException {
+	public static void loadProrToolExtensions(ReqIF reqif) {
 		boolean storeInReqIF = Reqif10EditorPlugin.getPlugin().getPreferenceStore()
 				.getBoolean(PreferenceConstants.P_TOOL_EXTENSIONS_IN_FILE);
 
@@ -325,7 +326,7 @@ public class ProrEditorUtil {
 		
 		URI reqifUri = reqif.eResource().getURI();
 		URI uri = reqifUri.trimFileExtension().appendFileExtension("rmf");
-		if (uri.isPlatformResource()) {
+		try {
 			ResourceSet resourceSet = new ResourceSetImpl();
 			Resource poResource = resourceSet.getResource(uri, true);
 			ProrToolExtension extension = (ProrToolExtension) poResource.getContents().get(0);
@@ -333,6 +334,9 @@ public class ProrEditorUtil {
 				reqif.getToolExtensions().clear();
 				ReqIFToolExtensionUtil.addToolExtension(reqif, extension);
 			}
+		} catch (WrappedException e) {
+			System.err.println("Could not read .rmf file. Probably file opened for the first time.");
+			System.err.println(e.getMessage());
 		}
 	}
 
