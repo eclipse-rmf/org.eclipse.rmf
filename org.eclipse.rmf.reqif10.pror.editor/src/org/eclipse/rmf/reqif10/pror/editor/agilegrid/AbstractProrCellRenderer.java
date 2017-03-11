@@ -24,6 +24,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueBoolean;
+import org.eclipse.rmf.reqif10.AttributeValueReal;
 import org.eclipse.rmf.reqif10.AttributeValueXHTML;
 import org.eclipse.rmf.reqif10.EnumValue;
 import org.eclipse.rmf.reqif10.XhtmlContent;
@@ -116,6 +117,13 @@ public class AbstractProrCellRenderer extends TextCellRenderer {
 					stringValue = "";
 				} else {
 					stringValue = (Boolean) v ? "\u2612" : "\u2610";
+				}
+
+			} else if (value instanceof AttributeValueReal) {
+				if (!((AttributeValueReal) value).isSetTheValue()) {
+					stringValue = "";
+				} else {
+					stringValue = v.toString();
 				}
 
 			} else {
