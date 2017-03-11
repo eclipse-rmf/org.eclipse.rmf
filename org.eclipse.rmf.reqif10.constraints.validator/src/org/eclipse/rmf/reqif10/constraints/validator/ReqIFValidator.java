@@ -3,6 +3,7 @@ package org.eclipse.rmf.reqif10.constraints.validator;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -64,22 +65,23 @@ public class ReqIFValidator {
 		LinkedList<Issue> issues = new LinkedList<Issue>();
 		
 		// 1. run Schema Validation
-		if (!schemaValidationDisabled && null != reqif){
-			String filename = reqif.eResource().getURI().toFileString();
-			if (filename == null){
-				if (reqif.eResource().getURI().isPlatformResource()) {
-					filename = reqif.eResource().getURI().toPlatformString(false);
-					filename = ResourcesPlugin.getWorkspace().getRoot().findMember(filename).getLocation().toOSString();
-				}
-			}
-			
+		if (!schemaValidationDisabled && null != reqif) {
 			try {
+				String filename = reqif.eResource().getURI().toFileString();
+				if (filename == null) {
+					if (reqif.eResource().getURI().isPlatformResource()) {
+						filename = reqif.eResource().getURI().toPlatformString(false);
+						filename = URLDecoder.decode(filename, "UTF-8");
+						filename = ResourcesPlugin.getWorkspace().getRoot().findMember(filename).getLocation()
+								.toOSString();
+					}
+				}
+
 				validateAgainstSchema(filename, issues);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
-		
+		}		
 		
 
 		// 2. run EMF Diagnostician
