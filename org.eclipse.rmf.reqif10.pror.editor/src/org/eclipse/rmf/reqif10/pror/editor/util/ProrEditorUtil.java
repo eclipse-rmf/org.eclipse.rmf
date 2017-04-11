@@ -324,8 +324,9 @@ public class ProrEditorUtil {
 	/**
 	 * Looks for a .rmf file. If it exists, it extracts the SpecificationView-Configuration
 	 * and replaces it with the configuration in the ReqIF file.
+	 * @param domain 
 	 */
-	public static void loadProrToolExtensions(ReqIF reqif) {
+	public static void loadProrToolExtensions(ReqIF reqif, EditingDomain domain) {
 		boolean storeInReqIF = Reqif10EditorPlugin.getPlugin().getPreferenceStore()
 				.getBoolean(PreferenceConstants.P_TOOL_EXTENSIONS_IN_FILE);
 
@@ -341,6 +342,9 @@ public class ProrEditorUtil {
 				// If we get this far, then there is an .rmf file. Let's find the right toolextension
 				// to populate with the column information.
 				ProrToolExtension prorToolExtension = ConfigurationUtil.getProrToolExtension(reqif);
+				if (prorToolExtension == null) {
+					prorToolExtension = ConfigurationUtil.createProrToolExtension(reqif, domain);
+				}
 				System.err.println("Replacing Column information");
 				prorToolExtension.getSpecViewConfigurations().clear();
 				prorToolExtension.getSpecViewConfigurations().addAll(extension.getSpecViewConfigurations());
