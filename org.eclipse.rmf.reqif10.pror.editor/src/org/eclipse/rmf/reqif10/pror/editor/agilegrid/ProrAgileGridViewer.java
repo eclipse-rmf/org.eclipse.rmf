@@ -516,14 +516,15 @@ public class ProrAgileGridViewer extends Viewer {
 						ProrRow row = contentProvider.getProrRow(cell.row);
 
 						// If the item is a SpecRelation and the last column is
-						// selected, show the target instead.
+						// selected, show the source or target instead.
 						if (row instanceof ProrRowSpecRelation
 								&& cell.column == specViewConfig.getColumns()
 										.size()) {
-							SpecRelation relation = (SpecRelation) row
-									.getSpecElement();
-							if (relation.getTarget() != null) {
-								items.add(relation.getTarget());
+							ProrRowSpecRelation relationRow = (ProrRowSpecRelation) row;
+							SpecRelation relation = (SpecRelation) row.getSpecElement();
+							SpecObject element = relationRow.isSource() ? relation.getTarget() : relation.getSource();
+							if (element != null) {
+								items.add(element);
 							}
 						} else if (row instanceof ProrRowSpecRelation
 								&& cell.column < specViewConfig.getColumns()
