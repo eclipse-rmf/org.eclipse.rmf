@@ -24,6 +24,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -40,8 +41,8 @@ import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.common.util.ProrXhtmlSimplifiedHelper;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10XhtmlUtil;
-import org.eclipse.rmf.reqif10.common.util.ReqIFToolExtensionUtil;
 import org.eclipse.rmf.reqif10.pror.configuration.Column;
+import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrSpecViewConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrToolExtension;
@@ -291,17 +292,21 @@ public class ProrEditorUtil {
 	
 	/**
 	 * Writes the provided {@link ProrToolExtension}s to a file with the same name
-	 * as the containing .reqif, but changing the suffix to .rmf.
+	 * as the containing .reqif, but changing the suffix to .rmf. At the same time,
+	 * set the SpecificationView-Configuration to transient, so that it is not
+	 * written to the .reqif file.
 	 */
 	public static void saveProrToolExtensions(ProrToolExtension extension) throws IOException {
 		boolean storeInReqIF = Reqif10EditorPlugin.getPlugin().getPreferenceStore()
 				.getBoolean(PreferenceConstants.P_TOOL_EXTENSIONS_IN_FILE);
 
+		EReference specViewContainmentFeature = ConfigurationPackage.Literals.PROR_TOOL_EXTENSION__SPEC_VIEW_CONFIGURATIONS;
+		specViewContainmentFeature.setTransient(false);
+		
 		if (storeInReqIF) {
-			extension.eContainmentFeature().setTransient(false);
 			return;
 		}
-		extension.eContainmentFeature().setTransient(true);
+		
 		// Find storage location
 		URI reqifUri = extension.eResource().getURI();
 		URI uri = reqifUri.trimFileExtension().appendFileExtension("rmf");
@@ -312,11 +317,13 @@ public class ProrEditorUtil {
 		Resource poResource = resourceSet.createResource(uri);
 		poResource.getContents().add(extensionCopy);
 		poResource.save(null);
+		// Should not be saved in ReqIF document
+		specViewContainmentFeature.setTransient(true);
 	}
 
 	/**
-	 * Cleans out the {@link ProrToolExtension}s, if the extensions in the file should be excluded. It
-	 * substitutes the ones from the .rmf file, if present.
+	 * Looks for a .rmf file. If it exists, it extracts the SpecificationView-Configuration
+	 * and replaces it with the configuration in the ReqIF file.
 	 */
 	public static void loadProrToolExtensions(ReqIF reqif) {
 		boolean storeInReqIF = Reqif10EditorPlugin.getPlugin().getPreferenceStore()
@@ -331,8 +338,12 @@ public class ProrEditorUtil {
 			Resource poResource = resourceSet.getResource(uri, true);
 			ProrToolExtension extension = (ProrToolExtension) poResource.getContents().get(0);
 			if (extension != null) {
-				reqif.getToolExtensions().clear();
-				ReqIFToolExtensionUtil.addToolExtension(reqif, extension);
+				// If we get this far, then there is an .rmf file. Let's find the right toolextension
+				// to populate with the column information.
+				ProrToolExtension prorToolExtension = ConfigurationUtil.getProrToolExtension(reqif);
+				System.err.println("Replacing Column information");
+				prorToolExtension.getSpecViewConfigurations().clear();
+				prorToolExtension.getSpecViewConfigurations().addAll(extension.getSpecViewConfigurations());
 			}
 		} catch (WrappedException e) {
 			System.err.println("Could not read .rmf file. Probably file opened for the first time.");
