@@ -1148,7 +1148,7 @@ public class Reqif10Editor extends MultiPageEditorPart implements
 
 		reqif = (ReqIF) resource.getContents().get(0);	
 		
-		ProrEditorUtil.loadProrToolExtensions(reqif);
+		ProrEditorUtil.loadProrToolExtensions(reqif, editingDomain);
 
 		// Handle isSimplified = true values
 		boolean askedToRestore = false;
