@@ -22,6 +22,7 @@ import org.eclipse.rmf.reqif10.DatatypeDefinitionXHTML;
 /**
  * @author Lukas Ladenberger
  * @author Michael Jastram
+ * @author Ingo Weigelt
  */
 public final class PreferenceConstants {
 
@@ -49,4 +50,10 @@ public final class PreferenceConstants {
 			.getSimpleName();
 	public static final String P_DEFAULT_PRESENTATION_REAL = DatatypeDefinitionReal.class
 			.getSimpleName();
+
+	// Constants for SpecificationWebPrintAction
+	public static final String P_WEB_EXPORT_INLUDE_OUTGOING_SPEC_RELATIONS = "p_web_export_print_outgoing_links";
+	public static final String P_WEB_EXPORT_INLUDE_INCOMING_SPEC_RELATIONS = "p_web_export_print_incoming_inks";
+	public static final String P_WEB_EXPORT_ALWAYS_ASK_FOR_SPEC_RELATIONS = "p_web_export_always_ask_for_if_links_should_be_printed";
+
 }
