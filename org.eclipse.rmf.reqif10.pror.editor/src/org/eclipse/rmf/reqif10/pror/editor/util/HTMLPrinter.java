@@ -73,10 +73,14 @@ public class HTMLPrinter {
 	private File targetFolder;
 	private ReqIF reqif;
 	
-	private boolean exportLinkColumn = false;
-	
-	
+	private boolean exportLinkColumn = true;
+	private boolean exportIncomingSpecRelations = true;
+	private boolean exportOutgoingSpecRelations = true;
+		
 	private Map<SpecObject, List<SpecRelation>> outgoingSpecRelationsCache;
+	private Map<SpecObject, List<SpecRelation>> incomingSpecRelationsCache;
+	
+	
 
 	/**
 	 * Constructs an HTMLPriter..
@@ -104,16 +108,26 @@ public class HTMLPrinter {
 	
 	private void buildSpecRelationsCache(){
 		outgoingSpecRelationsCache = new HashMap<SpecObject, List<SpecRelation>>();
+		incomingSpecRelationsCache = new HashMap<SpecObject, List<SpecRelation>>();
 		
 		EList<SpecRelation> relations = reqif.getCoreContent().getSpecRelations();
 		for (SpecRelation sr : relations) {
 			SpecObject source = sr.getSource();
-			List<SpecRelation> list = outgoingSpecRelationsCache.get(source);
-			if (list == null){
-				list = new LinkedList<SpecRelation>();
+			List<SpecRelation> outgoingList = outgoingSpecRelationsCache.get(source);
+			if (outgoingList == null){
+				outgoingList = new LinkedList<SpecRelation>();
 			}
-			list.add(sr);
-			outgoingSpecRelationsCache.put(source, list);
+			outgoingList.add(sr);
+			outgoingSpecRelationsCache.put(source, outgoingList);
+			
+			
+			SpecObject target = sr.getTarget();
+			List<SpecRelation> incomingList = incomingSpecRelationsCache.get(target);
+			if (incomingList == null){
+				incomingList = new LinkedList<SpecRelation>();
+			}
+			incomingList.add(sr);
+			incomingSpecRelationsCache.put(target, incomingList);			
 		}
 		
 	}
@@ -242,7 +256,9 @@ public class HTMLPrinter {
 	}
 
 	
-	
+	/* 
+	 * Helper to convert an attribute to a String. Using a CellRenderer if possible
+	 */
 	private String attributeValueToString(AttributeValue av){
 		DatatypeDefinition dd = ReqIF10Util
 				.getDatatypeDefinition(av);
@@ -276,12 +292,45 @@ public class HTMLPrinter {
 	}
 	
 
-
 	private void createSpecRelationsCell(StringBuilder html, SpecObject specObject) {
-		
 		html.append("<td>");
 		
-		List<SpecRelation> relations = outgoingSpecRelationsCache.get(specObject);
+		if (exportOutgoingSpecRelations){
+			List<String> specRelationLabels = collectSpecRelationLabels(outgoingSpecRelationsCache.get(specObject));
+		
+			for (String string : specRelationLabels) {
+				html.append("&#9655;"); // outgoing link symbol
+				html.append(String.join(", ", string));
+				html.append("<br>\n");
+			}
+		}
+		
+		if (exportIncomingSpecRelations){
+			List<String> specRelationLabels = collectSpecRelationLabels(incomingSpecRelationsCache.get(specObject));
+			
+			for (String string : specRelationLabels) {
+				html.append("&#9665;"); // outgoing link symbol
+				html.append(String.join(", ", string));
+				html.append("<br>\n");
+			}	
+		}
+		
+		html.append("</td>");
+	}
+	
+
+	/**
+	 * Finds and renders a suitable label for each SpecRelation
+	 * 
+	 * The label is a concatenation of the attributeValues defined by the
+	 * ProrSpecViewConfiguration including the UnifiedColumn.
+	 * If no suitable attribute is found, the Identifier is used. 
+	 * 
+	 * @param relations
+	 * @return a List<String> of rendered labels
+	 */
+	private List<String> collectSpecRelationLabels(List<SpecRelation> relations ) {
+		List<String> specRelations = new LinkedList<String>();
 		if (relations != null){
 			for (SpecRelation specRelation : relations) {
 				List<String> labels = new ArrayList<String>(config.getColumns().size()); 
@@ -313,15 +362,11 @@ public class HTMLPrinter {
 				if (labels.isEmpty()){
 					labels.add("<i>" + specRelation.getIdentifier() + "</i>");					
 				}
-				
-				
-				html.append("&#9655;"); // outgoing link symbol
-				html.append(String.join(", ", labels));
-				html.append("<br>\n");
+				specRelations.add(String.join(", ", labels));
 			}
 		}
 		
-		html.append("</td>");
+		return specRelations;
 	}
 
 
