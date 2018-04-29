@@ -18,8 +18,11 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.window.Window;
 import org.eclipse.rmf.reqif10.Specification;
+import org.eclipse.rmf.reqif10.pror.editor.preferences.PreferenceConstants;
+import org.eclipse.rmf.reqif10.pror.editor.presentation.Reqif10EditorPlugin;
 import org.eclipse.rmf.reqif10.pror.editor.presentation.ReqifSpecificationEditorInput;
 import org.eclipse.rmf.reqif10.pror.editor.util.HTMLPrinter;
 import org.eclipse.swt.SWT;
@@ -61,16 +64,34 @@ public class SpecificationWebPrintAction extends Action {
 		
 		Specification spec = ((ReqifSpecificationEditorInput)input).getSpec();
 		
-		HTMLExportDialog dialog = new HTMLExportDialog(spec);
-		if (dialog.open() != Window.OK){
-			return;
+		
+		boolean exportOutgoingLinks;
+		boolean exportIncomingLinks;
+		
+		boolean askUser = Reqif10EditorPlugin.getPlugin().getPreferenceStore().getBoolean(PreferenceConstants.P_WEB_EXPORT_ALWAYS_ASK_FOR_SPEC_RELATIONS);
+		if (askUser){
+			HTMLExportDialog dialog = new HTMLExportDialog(spec);
+			if (dialog.open() != Window.OK){
+				return;
+			}
+			exportOutgoingLinks = dialog.isExportOutgoingSpecRelations();
+			exportIncomingLinks = dialog.isExportIncomingSpecRelations();
+		}else{
+			// we get the configuration directly from the preference store
+			exportOutgoingLinks = Reqif10EditorPlugin.getPlugin().getPreferenceStore()
+					.getBoolean(PreferenceConstants.P_WEB_EXPORT_INLUDE_OUTGOING_SPEC_RELATIONS);
+			
+			exportIncomingLinks = Reqif10EditorPlugin.getPlugin().getPreferenceStore()
+					.getBoolean(PreferenceConstants.P_WEB_EXPORT_INLUDE_INCOMING_SPEC_RELATIONS);
 		}
+		
+		
 		
 		try {
 			HTMLPrinter htmlPrinter = new HTMLPrinter(spec, editingDomain, adapterFactory);
 			
-			htmlPrinter.setExportOutgoingSpecRelations(dialog.isExportOutgoingSpecRelations());
-			htmlPrinter.setExportIncomingSpecRelations(dialog.isExportIncomingSpecRelations());
+			htmlPrinter.setExportOutgoingSpecRelations(exportOutgoingLinks);
+			htmlPrinter.setExportIncomingSpecRelations(exportIncomingLinks);
 			
 			File htmlSpec = htmlPrinter.print();
 			Program.launch(htmlSpec.getAbsolutePath());
@@ -93,10 +114,22 @@ public class SpecificationWebPrintAction extends Action {
 		
 
 		private boolean exportIncomingSpecRelations;
+		private boolean askForSpecRelations;
+		private Button rememberSettingButton;
 
+		
 		public HTMLExportDialog(Specification spec) {
 			super(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
 			this.spec = spec;
+			
+			exportOutgoingSpecRelations = Reqif10EditorPlugin.getPlugin().getPreferenceStore()
+					.getBoolean(PreferenceConstants.P_WEB_EXPORT_INLUDE_OUTGOING_SPEC_RELATIONS);
+			
+			exportIncomingSpecRelations = Reqif10EditorPlugin.getPlugin().getPreferenceStore()
+					.getBoolean(PreferenceConstants.P_WEB_EXPORT_INLUDE_INCOMING_SPEC_RELATIONS);
+			
+			askForSpecRelations = Reqif10EditorPlugin.getPlugin().getPreferenceStore()
+					.getBoolean(PreferenceConstants.P_WEB_EXPORT_ALWAYS_ASK_FOR_SPEC_RELATIONS);
 		}
 		
 		
@@ -117,15 +150,21 @@ public class SpecificationWebPrintAction extends Action {
 	        container.setLayout(layout);
 			
 	        exportOutgoingSpecRelationsButton = new Button(container, SWT.CHECK);
+	        exportOutgoingSpecRelationsButton.setSelection(exportOutgoingSpecRelations);
 	        new Label(container, SWT.NONE).setText("Print outgoing Links");        
 	        
 	        exportIncomingSpecRelationsButton = new Button(container, SWT.CHECK);
+	        exportIncomingSpecRelationsButton.setSelection(exportIncomingSpecRelations);
 	        new Label(container, SWT.NONE).setText("Print incoming Links");
 	        
 	        new Label(container, SWT.NONE).setText("");
 	        new Label(container, SWT.NONE).setText("");
 	        
-	        
+	        rememberSettingButton = new Button(container, SWT.CHECK);
+	        new Label(container, SWT.NONE).setText("Remember my descision and dont ask again.");
+	        new Label(container, SWT.NONE).setText("");
+	        new Label(container, SWT.NONE).setText("(Settings can be changed through ReqIF Settings.)");
+
 	        
 			return dialogArea;
 		}
@@ -135,6 +174,15 @@ public class SpecificationWebPrintAction extends Action {
 		protected void okPressed() {
 			this.exportOutgoingSpecRelations = exportOutgoingSpecRelationsButton.getSelection();
 			this.exportIncomingSpecRelations = exportIncomingSpecRelationsButton.getSelection();
+			
+			//update preferences:
+			if (rememberSettingButton.getSelection()){
+				IPreferenceStore store = Reqif10EditorPlugin.getPlugin().getPreferenceStore();
+				store.setValue(PreferenceConstants.P_WEB_EXPORT_ALWAYS_ASK_FOR_SPEC_RELATIONS, false);
+				store.setValue(PreferenceConstants.P_WEB_EXPORT_INLUDE_OUTGOING_SPEC_RELATIONS, exportOutgoingSpecRelations);
+				store.setValue(PreferenceConstants.P_WEB_EXPORT_INLUDE_INCOMING_SPEC_RELATIONS, exportIncomingSpecRelations);
+			}
+			
 			super.okPressed();
 		}
 		

@@ -26,21 +26,23 @@ public class ProRSpecificationWebPrintPreferencePage extends FieldEditorPreferen
 		// Set preference store
 		setPreferenceStore(Reqif10EditorPlugin.getPlugin().getPreferenceStore());
 		setDescription("ReqIF Print / Web Export Settings");
+		
+		Reqif10EditorPlugin.getPlugin().getPreferenceStore().setDefault(PreferenceConstants.P_WEB_EXPORT_ALWAYS_ASK_FOR_SPEC_RELATIONS, true);
 	}
 
 	@Override
 	protected void createFieldEditors() {
 		addField(new BooleanFieldEditor(
 				PreferenceConstants.P_WEB_EXPORT_INLUDE_OUTGOING_SPEC_RELATIONS,
-				"Print outgoing links.",
+				"Print outgoing links by default.",
 				getFieldEditorParent()));
-
+		
 		addField(new BooleanFieldEditor(PreferenceConstants.P_WEB_EXPORT_INLUDE_INCOMING_SPEC_RELATIONS,
-				"Print incoming Links.", getFieldEditorParent()));
+				"Print incoming Links ba default.", getFieldEditorParent()));
 
 		addField(new BooleanFieldEditor(
 				PreferenceConstants.P_WEB_EXPORT_ALWAYS_ASK_FOR_SPEC_RELATIONS,
-				"Always ask which if links should be printed.",
+				"Always ask if links should be printed.",
 				getFieldEditorParent()));
 	}
 	
