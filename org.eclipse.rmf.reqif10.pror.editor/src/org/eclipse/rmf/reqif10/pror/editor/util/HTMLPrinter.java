@@ -171,7 +171,7 @@ public class HTMLPrinter {
 			html.append("<td><b>" + col.getLabel() + "</b></td>");
 		}
 		if (exportLinkColumn){
-			html.append("<td>Link</td>\n");
+			html.append("<td><b>Link</b></td>\n");
 		}
 		html.append("</tr>\n");
 	}
@@ -299,7 +299,7 @@ public class HTMLPrinter {
 			List<String> specRelationLabels = collectSpecRelationLabels(outgoingSpecRelationsCache.get(specObject));
 		
 			for (String string : specRelationLabels) {
-				html.append("&#9655;"); // outgoing link symbol
+				html.append("&#9655;&nbsp;"); // outgoing link symbol
 				html.append(String.join(", ", string));
 				html.append("<br>\n");
 			}
@@ -309,7 +309,7 @@ public class HTMLPrinter {
 			List<String> specRelationLabels = collectSpecRelationLabels(incomingSpecRelationsCache.get(specObject));
 			
 			for (String string : specRelationLabels) {
-				html.append("&#9665;"); // outgoing link symbol
+				html.append("&#9665;&nbsp;"); // outgoing link symbol
 				html.append(String.join(", ", string));
 				html.append("<br>\n");
 			}	
