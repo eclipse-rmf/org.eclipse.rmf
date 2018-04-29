@@ -26,8 +26,6 @@ public class ProRSpecificationWebPrintPreferencePage extends FieldEditorPreferen
 		// Set preference store
 		setPreferenceStore(Reqif10EditorPlugin.getPlugin().getPreferenceStore());
 		setDescription("ReqIF Print / Web Export Settings");
-		
-		Reqif10EditorPlugin.getPlugin().getPreferenceStore().setDefault(PreferenceConstants.P_WEB_EXPORT_ALWAYS_ASK_FOR_SPEC_RELATIONS, true);
 	}
 
 	@Override

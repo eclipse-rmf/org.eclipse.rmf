@@ -31,6 +31,8 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		store.setDefault(PreferenceConstants.P_STOP_IS_SIMPLIFIED_WARNING, false);
 		
 		store.setDefault(PreferenceConstants.P_VALIDATE_ON_SAVE, true);
+		
+		store.setDefault(PreferenceConstants.P_WEB_EXPORT_ALWAYS_ASK_FOR_SPEC_RELATIONS, true);
 	}
 	
 }
