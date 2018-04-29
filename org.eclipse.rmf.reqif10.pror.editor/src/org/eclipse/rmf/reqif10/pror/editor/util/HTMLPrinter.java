@@ -17,20 +17,27 @@ import java.io.OutputStreamWriter;
 import java.net.URLDecoder;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.DatatypeDefinition;
 import org.eclipse.rmf.reqif10.EnumValue;
+import org.eclipse.rmf.reqif10.ReqIF;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
+import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.Specification;
 import org.eclipse.rmf.reqif10.XhtmlContent;
 import org.eclipse.rmf.reqif10.common.util.ProrXhtmlSimplifiedHelper;
@@ -55,6 +62,7 @@ import com.google.common.io.Files;
  * Specification.
  * 
  * @author jastram
+ * @author weigelt
  */
 public class HTMLPrinter {
 
@@ -63,6 +71,12 @@ public class HTMLPrinter {
 	private File sourceFolder;
 	private ProrSpecViewConfiguration config;
 	private File targetFolder;
+	private ReqIF reqif;
+	
+	private boolean exportLinkColumn = false;
+	
+	
+	private Map<SpecObject, List<SpecRelation>> outgoingSpecRelationsCache;
 
 	/**
 	 * Constructs an HTMLPriter..
@@ -76,6 +90,32 @@ public class HTMLPrinter {
 				.trimSegments(1).toFileString());
 		this.config = ConfigurationUtil.createSpecViewConfiguration(spec,
 				domain);
+		
+		
+		if (exportLinkColumn){
+			EObject eContainer = spec.eContainer().eContainer();
+			if (eContainer instanceof ReqIF) {
+				reqif = (ReqIF) eContainer;
+				buildSpecRelationsCache();
+			}
+		}
+	}
+	
+	
+	private void buildSpecRelationsCache(){
+		outgoingSpecRelationsCache = new HashMap<SpecObject, List<SpecRelation>>();
+		
+		EList<SpecRelation> relations = reqif.getCoreContent().getSpecRelations();
+		for (SpecRelation sr : relations) {
+			SpecObject source = sr.getSource();
+			List<SpecRelation> list = outgoingSpecRelationsCache.get(source);
+			if (list == null){
+				list = new LinkedList<SpecRelation>();
+			}
+			list.add(sr);
+			outgoingSpecRelationsCache.put(source, list);
+		}
+		
 	}
 
 	/**
@@ -115,6 +155,9 @@ public class HTMLPrinter {
 		EList<Column> cols = config.getColumns();
 		for (Column col : cols) {
 			html.append("<td><b>" + col.getLabel() + "</b></td>");
+		}
+		if (exportLinkColumn){
+			html.append("<td>Link</td>\n");
 		}
 		html.append("</tr>\n");
 	}
@@ -179,30 +222,9 @@ public class HTMLPrinter {
 						av = ReqIF10Util.getAttributeValueForLabel(specObject,
 								col.getLabel());
 					}
-					DatatypeDefinition dd = ReqIF10Util
-							.getDatatypeDefinition(av);
-					ProrPresentationConfiguration configuration = ConfigurationUtil
-							.getPresentationConfiguration(dd);
-
-					Object itemProvider = ProrUtil.getItemProvider(
-							adapterFactory, configuration);
-
-					if (itemProvider instanceof PresentationEditorInterface) {
-						PresentationEditorInterface presentationEditor = (PresentationEditorInterface) itemProvider;
-						IProrCellRenderer renderer = presentationEditor
-								.getCellRenderer(av);
-						if (renderer != null) {
-							String content = renderer.doDrawHtmlContent(av);
-							if (content != null) {
-								html.append(content);
-							} else {
-								html.append(getValueAsString(av));
-							}
-						}
-
-					} else {
-						html.append(getValueAsString(av));
-					}
+					
+					String cellString = attributeValueToString(av);
+					html.append(cellString);
 
 					if (first) {
 						first = false;
@@ -210,11 +232,98 @@ public class HTMLPrinter {
 					}
 					html.append("</td>");
 				}
+				if (exportLinkColumn){
+					createSpecRelationsCell(html, specObject);
+				}
 				html.append("</tr>\n");
 			}
 			printRecursive(html, indent + 1, child.getChildren());
 		}
 	}
+
+	
+	
+	private String attributeValueToString(AttributeValue av){
+		DatatypeDefinition dd = ReqIF10Util
+				.getDatatypeDefinition(av);
+		ProrPresentationConfiguration configuration = ConfigurationUtil
+				.getPresentationConfiguration(dd);
+
+		Object itemProvider = ProrUtil.getItemProvider(
+				adapterFactory, configuration);
+
+		if (itemProvider instanceof PresentationEditorInterface) {
+			PresentationEditorInterface presentationEditor = (PresentationEditorInterface) itemProvider;
+			IProrCellRenderer renderer = presentationEditor
+					.getCellRenderer(av);
+			if (renderer != null) {
+				String content = renderer.doDrawHtmlContent(av);
+				if (content != null) {
+					return content;
+				} else {
+					return getValueAsString(av);
+				}
+			}else{
+				// ????
+				return getValueAsString(av);		
+			}
+
+		} else {
+			return getValueAsString(av);
+		}
+		
+		
+	}
+	
+
+
+	private void createSpecRelationsCell(StringBuilder html, SpecObject specObject) {
+		
+		html.append("<td>");
+		
+		List<SpecRelation> relations = outgoingSpecRelationsCache.get(specObject);
+		if (relations != null){
+			for (SpecRelation specRelation : relations) {
+				List<String> labels = new ArrayList<String>(config.getColumns().size()); 
+				for (Column column : config.getColumns()) {
+					
+					//AttributeValue av = ReqIF10Util.getAttributeValueForLabel(specRelation, column.getLabel());
+					// with unified Columns:
+					AttributeValue av;
+					if (column instanceof UnifiedColumn) {
+						av = ReqIF10Util.getAttributeValueForLabel(specRelation,
+								"ReqIF.Text");
+						if (av == null || ReqIF10Util.getTheValue(av) == null) {
+							av = ReqIF10Util.getAttributeValueForLabel(
+									specRelation, "ReqIF.ChapterName");
+						}
+					} else {
+						av = ReqIF10Util.getAttributeValueForLabel(specRelation,
+								column.getLabel());
+					}
+					// END with unified Columns:
+					
+					
+					
+					String label = attributeValueToString(av);
+					if (label != null && !label.isEmpty()){
+						labels.add(label); 
+					}
+				}
+				if (labels.isEmpty()){
+					labels.add("<i>" + specRelation.getIdentifier() + "</i>");					
+				}
+				
+				
+				html.append("&#9655;"); // outgoing link symbol
+				html.append(String.join(", ", labels));
+				html.append("<br>\n");
+			}
+		}
+		
+		html.append("</td>");
+	}
+
 
 	private String getValueAsString(AttributeValue av) {
 		Object value = av == null ? null : ReqIF10Util.getTheValue(av);
