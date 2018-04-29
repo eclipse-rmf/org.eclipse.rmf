@@ -41,7 +41,7 @@ public class ProRPreferencePage extends FieldEditorPreferencePage implements
 
 		addField(new BooleanFieldEditor(
 				PreferenceConstants.P_NEW_ID_ON_SAVE,
-				"Generate a new ReqIF ID on save. (may produce problems with versioning)",
+				"Generate a new ReqIF ID on save (may produce problems with versioning).",
 				getFieldEditorParent()));
 
 		addField(new BooleanFieldEditor(PreferenceConstants.P_TOOL_EXTENSIONS_IN_FILE,
