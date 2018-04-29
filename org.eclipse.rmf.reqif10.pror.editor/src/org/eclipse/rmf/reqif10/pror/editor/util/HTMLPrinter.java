@@ -73,9 +73,8 @@ public class HTMLPrinter {
 	private File targetFolder;
 	private ReqIF reqif;
 	
-	private boolean exportLinkColumn = true;
-	private boolean exportIncomingSpecRelations = true;
-	private boolean exportOutgoingSpecRelations = true;
+	private boolean exportIncomingSpecRelations = false;
+	private boolean exportOutgoingSpecRelations = false;
 		
 	private Map<SpecObject, List<SpecRelation>> outgoingSpecRelationsCache;
 	private Map<SpecObject, List<SpecRelation>> incomingSpecRelationsCache;
@@ -94,15 +93,6 @@ public class HTMLPrinter {
 				.trimSegments(1).toFileString());
 		this.config = ConfigurationUtil.createSpecViewConfiguration(spec,
 				domain);
-		
-		
-		if (exportLinkColumn){
-			EObject eContainer = spec.eContainer().eContainer();
-			if (eContainer instanceof ReqIF) {
-				reqif = (ReqIF) eContainer;
-				buildSpecRelationsCache();
-			}
-		}
 	}
 	
 	
@@ -137,6 +127,15 @@ public class HTMLPrinter {
 	 * located in a temporary folder that also contains related images, if any.
 	 */
 	public File print() throws IOException {
+		
+		if (exportIncomingSpecRelations || exportOutgoingSpecRelations){
+			EObject eContainer = spec.eContainer().eContainer();
+			if (eContainer instanceof ReqIF) {
+				reqif = (ReqIF) eContainer;
+				buildSpecRelationsCache();
+			}
+		}
+		
 
 		targetFolder = createTempFolder();
 
@@ -170,7 +169,7 @@ public class HTMLPrinter {
 		for (Column col : cols) {
 			html.append("<td><b>" + col.getLabel() + "</b></td>");
 		}
-		if (exportLinkColumn){
+		if (exportIncomingSpecRelations || exportOutgoingSpecRelations){
 			html.append("<td><b>Link</b></td>\n");
 		}
 		html.append("</tr>\n");
@@ -246,7 +245,7 @@ public class HTMLPrinter {
 					}
 					html.append("</td>");
 				}
-				if (exportLinkColumn){
+				if (exportIncomingSpecRelations || exportOutgoingSpecRelations){
 					createSpecRelationsCell(html, specObject);
 				}
 				html.append("</tr>\n");
@@ -458,5 +457,13 @@ public class HTMLPrinter {
 		}
 		return textValue;
 	}
+
+
+	public void setExportOutgoingSpecRelations(boolean b) {
+		exportOutgoingSpecRelations = b;
+	}
 	
+	public void setExportIncomingSpecRelations(boolean b) {
+		exportIncomingSpecRelations = b;
+	}
 }
