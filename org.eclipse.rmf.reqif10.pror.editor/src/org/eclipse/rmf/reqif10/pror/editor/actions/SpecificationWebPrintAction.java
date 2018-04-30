@@ -161,7 +161,7 @@ public class SpecificationWebPrintAction extends Action {
 	        new Label(container, SWT.NONE).setText("");
 	        
 	        rememberSettingButton = new Button(container, SWT.CHECK);
-	        new Label(container, SWT.NONE).setText("Remember my descision and dont ask again.");
+	        new Label(container, SWT.NONE).setText("Don't ask me again.");
 	        new Label(container, SWT.NONE).setText("");
 	        new Label(container, SWT.NONE).setText("(Settings can be changed through ReqIF Settings.)");
 
@@ -176,12 +176,12 @@ public class SpecificationWebPrintAction extends Action {
 			this.exportIncomingSpecRelations = exportIncomingSpecRelationsButton.getSelection();
 			
 			//update preferences:
+			IPreferenceStore store = Reqif10EditorPlugin.getPlugin().getPreferenceStore();
 			if (rememberSettingButton.getSelection()){
-				IPreferenceStore store = Reqif10EditorPlugin.getPlugin().getPreferenceStore();
 				store.setValue(PreferenceConstants.P_WEB_EXPORT_ALWAYS_ASK_FOR_SPEC_RELATIONS, false);
-				store.setValue(PreferenceConstants.P_WEB_EXPORT_INLUDE_OUTGOING_SPEC_RELATIONS, exportOutgoingSpecRelations);
-				store.setValue(PreferenceConstants.P_WEB_EXPORT_INLUDE_INCOMING_SPEC_RELATIONS, exportIncomingSpecRelations);
 			}
+			store.setValue(PreferenceConstants.P_WEB_EXPORT_INLUDE_OUTGOING_SPEC_RELATIONS, exportOutgoingSpecRelations);
+			store.setValue(PreferenceConstants.P_WEB_EXPORT_INLUDE_INCOMING_SPEC_RELATIONS, exportIncomingSpecRelations);
 			
 			super.okPressed();
 		}
