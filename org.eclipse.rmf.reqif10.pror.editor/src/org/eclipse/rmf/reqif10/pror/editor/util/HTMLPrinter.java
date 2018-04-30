@@ -76,8 +76,8 @@ public class HTMLPrinter {
 	private boolean exportIncomingSpecRelations = false;
 	private boolean exportOutgoingSpecRelations = false;
 		
-	private Map<SpecObject, List<SpecRelation>> outgoingSpecRelationsCache;
-	private Map<SpecObject, List<SpecRelation>> incomingSpecRelationsCache;
+	private Map<SpecObject, List<SpecRelation>> outgoingSpecRelationsCache = new HashMap<SpecObject, List<SpecRelation>>();
+	private Map<SpecObject, List<SpecRelation>> incomingSpecRelationsCache = new HashMap<SpecObject, List<SpecRelation>>();;
 	
 	
 
@@ -97,8 +97,8 @@ public class HTMLPrinter {
 	
 	
 	private void buildSpecRelationsCache(){
-		outgoingSpecRelationsCache = new HashMap<SpecObject, List<SpecRelation>>();
-		incomingSpecRelationsCache = new HashMap<SpecObject, List<SpecRelation>>();
+		outgoingSpecRelationsCache.clear();
+		incomingSpecRelationsCache.clear();
 		
 		EList<SpecRelation> relations = reqif.getCoreContent().getSpecRelations();
 		for (SpecRelation sr : relations) {
@@ -295,23 +295,31 @@ public class HTMLPrinter {
 		html.append("<td>");
 		
 		if (exportOutgoingSpecRelations){
-			List<String> specRelationLabels = collectSpecRelationLabels(outgoingSpecRelationsCache.get(specObject));
-		
-			for (String string : specRelationLabels) {
-				html.append("&#9655;&nbsp;"); // outgoing link symbol
-				html.append(String.join(", ", string));
-				html.append("<br>\n");
+			List<SpecRelation> outSpecRelations = outgoingSpecRelationsCache.get(specObject);
+			if (outSpecRelations != null){
+				for (SpecRelation rel : outSpecRelations) {
+					html.append("&#9655;&nbsp;"); // outgoing link symbol
+					if (rel.getTarget() != null){
+						String label = ConfigurationUtil.getSpecElementLabel(rel.getTarget(), adapterFactory);
+						html.append(label);
+					}
+					html.append("<br>\n");
+				}
 			}
 		}
 		
 		if (exportIncomingSpecRelations){
-			List<String> specRelationLabels = collectSpecRelationLabels(incomingSpecRelationsCache.get(specObject));
-			
-			for (String string : specRelationLabels) {
-				html.append("&#9665;&nbsp;"); // outgoing link symbol
-				html.append(String.join(", ", string));
-				html.append("<br>\n");
-			}	
+			List<SpecRelation> inSpecRelations = incomingSpecRelationsCache.get(specObject);
+			if (inSpecRelations != null){
+				for (SpecRelation rel : inSpecRelations) {
+					html.append("&#9665;&nbsp;"); // outgoing link symbol
+					if (rel.getSource() != null){
+						String label = ConfigurationUtil.getSpecElementLabel(rel.getSource(), adapterFactory);
+						html.append(label);
+					}
+					html.append("<br>\n");
+				}
+			}
 		}
 		
 		html.append("</td>");
@@ -329,6 +337,11 @@ public class HTMLPrinter {
 	 * @return a List<String> of rendered labels
 	 */
 	private List<String> collectSpecRelationLabels(List<SpecRelation> relations ) {
+		//String label = ConfigurationUtil.getSpecElementLabel(specObject, adapterFactory);
+		
+		
+		
+		
 		List<String> specRelations = new LinkedList<String>();
 		if (relations != null){
 			for (SpecRelation specRelation : relations) {
