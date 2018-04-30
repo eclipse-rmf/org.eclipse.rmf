@@ -32,11 +32,11 @@ public class ProRSpecificationWebPrintPreferencePage extends FieldEditorPreferen
 	protected void createFieldEditors() {
 		addField(new BooleanFieldEditor(
 				PreferenceConstants.P_WEB_EXPORT_INLUDE_OUTGOING_SPEC_RELATIONS,
-				"Print outgoing links by default.",
+				"Print outgoing Links.",
 				getFieldEditorParent()));
 		
 		addField(new BooleanFieldEditor(PreferenceConstants.P_WEB_EXPORT_INLUDE_INCOMING_SPEC_RELATIONS,
-				"Print incoming Links ba default.", getFieldEditorParent()));
+				"Print incoming Links.", getFieldEditorParent()));
 
 		addField(new BooleanFieldEditor(
 				PreferenceConstants.P_WEB_EXPORT_ALWAYS_ASK_FOR_SPEC_RELATIONS,

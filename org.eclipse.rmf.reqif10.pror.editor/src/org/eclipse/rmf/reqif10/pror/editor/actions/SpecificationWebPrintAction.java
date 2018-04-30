@@ -161,7 +161,7 @@ public class SpecificationWebPrintAction extends Action {
 	        new Label(container, SWT.NONE).setText("");
 	        
 	        rememberSettingButton = new Button(container, SWT.CHECK);
-	        new Label(container, SWT.NONE).setText("Don't ask me again.");
+	        new Label(container, SWT.NONE).setText("Remember settings and don't ask me again.");
 	        new Label(container, SWT.NONE).setText("");
 	        new Label(container, SWT.NONE).setText("(Settings can be changed through ReqIF Settings.)");
 
