@@ -6,7 +6,7 @@ Bundle-Version: 0.14.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.rmf.reqif10.search.criteria,
  org.eclipse.rmf.reqif10.search.criteria.impl,
  org.eclipse.rmf.reqif10.search.criteria.util,

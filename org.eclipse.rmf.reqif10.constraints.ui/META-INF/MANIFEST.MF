@@ -11,7 +11,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.rmf.reqif10,
  org.eclipse.emf.validation,
  org.eclipse.rmf.reqif10.constraints
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.common.ui,
  org.eclipse.emf.common.ui.dialogs,

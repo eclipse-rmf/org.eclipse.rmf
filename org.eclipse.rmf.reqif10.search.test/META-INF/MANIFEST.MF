@@ -10,4 +10,4 @@ Bundle-Vendor: Formal Mind GmbH
 Require-Bundle: org.eclipse.rmf.reqif10.pror.tests,
  org.eclipse.emf.edit,
  org.junit;bundle-version="4.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
